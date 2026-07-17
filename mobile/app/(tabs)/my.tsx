@@ -1,13 +1,15 @@
 // MY tab (HANDOFF §5.6) — watchlist (the holding queue), Seen ledger,
 // edition switcher, notifications, account (in-app deletion — Apple 5.1.1(v)).
+// Skinned to design system v2 "Lava": gradient-avatar identity card, chip
+// segmented control, whitespace list rows, grouped settings on a surface card.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as AppleAuthentication from "expo-apple-authentication";
+import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Alert,
   Platform,
-  Pressable,
   RefreshControl,
   ScrollView,
   StyleSheet,
@@ -17,8 +19,18 @@ import {
   useColorScheme,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { FilmRow } from "../../src/components/FilmRow";
-import { Btn, Hairline, SectionTitle, Serif, Ui } from "../../src/components/ui";
+import {
+  AvailabilityDots,
+  Btn,
+  Chip,
+  GradientBtn,
+  Hairline,
+  PosterImg,
+  SectionTitle,
+  Tactile,
+  TSBadge,
+  Ui,
+} from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS } from "../../src/editions";
 import type { UILocale } from "../../src/editions";
@@ -28,7 +40,7 @@ import { registerPush } from "../../src/lib/push";
 import { supabase } from "../../src/lib/supabase";
 import { useFilms } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, font, fs, sp, usePalette } from "../../src/theme";
+import { brand, font, fs, gradient, radius, sp, usePalette } from "../../src/theme";
 
 type ListMode = "watchlist" | "seen";
 
@@ -49,6 +61,9 @@ const LOCALE_LABEL: Record<UILocale, string> = {
 };
 const LOCALE_CYCLE: UILocale[] = ["en", "ko", "es", "ja"];
 
+// Hairline inset for grouped settings rows: 16 padding + 32 icon disc + 12 gap.
+const ROW_INSET = 60;
+
 export default function MyScreen() {
   const pal = usePalette();
   const scheme = useColorScheme();
@@ -57,11 +72,14 @@ export default function MyScreen() {
   const prefs = usePrefs();
   const { session, ledger, reload } = useFilms();
 
+  const scrollRef = useRef<ScrollView>(null);
   const [mode, setMode] = useState<ListMode>("watchlist");
   const [meta, setMeta] = useState<Map<string, FilmMetaRow>>(new Map());
   const [tiers, setTiers] = useState<Map<string, string[]>>(new Map());
+  const [tsMap, setTsMap] = useState<Map<string, number>>(new Map());
   const [refreshing, setRefreshing] = useState(false);
   const [pushBusy, setPushBusy] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false); // signed-out auth block reveal
 
   // ---- ledger-derived slug lists ------------------------------------------
   const { watchSlugs, seenSlugs } = useMemo(() => {
@@ -119,6 +137,30 @@ export default function MyScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watchKey, prefs.country]);
 
+  // TakeScore badges on ledger rows — best-effort, fails soft (Lava list grammar).
+  useEffect(() => {
+    let alive = true;
+    if (!allSlugs.length) {
+      setTsMap(new Map());
+      return;
+    }
+    api
+      .takescores(allSlugs.slice(0, 300))
+      .then((m) => alive && setTsMap(m))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allKey]);
+
+  // Revealing the auth block scrolls it into view (after it lays out).
+  useEffect(() => {
+    if (!authOpen) return;
+    const id = setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 80);
+    return () => clearTimeout(id);
+  }, [authOpen]);
+
   const onRefresh = async () => {
     setRefreshing(true);
     await reload();
@@ -144,38 +186,98 @@ export default function MyScreen() {
   };
 
   const slugs = mode === "watchlist" ? watchSlugs : seenSlugs;
+  const email = session?.user.email ?? null;
 
   return (
     <ScrollView
+      ref={scrollRef}
       style={{ flex: 1, backgroundColor: pal.bg }}
-      contentContainerStyle={{ paddingBottom: sp.s7 }}
+      contentContainerStyle={{ paddingBottom: 120 }}
       keyboardShouldPersistTaps="handled"
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
       }
     >
-      {/* Masthead + segment chips */}
+      {/* Masthead */}
       <View style={{ paddingTop: insets.top + sp.s3, paddingHorizontal: sp.s4 }}>
-        <Serif size={fs.x3} bold>
+        <Ui size={fs.x2} weight="600">
           {t("tab.my")}
-        </Serif>
-        <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s3 }}>
-          <SegChip
-            label={t("my.watchlist")}
-            active={mode === "watchlist"}
-            onPress={() => setMode("watchlist")}
-          />
-          <SegChip label={t("my.seen")} active={mode === "seen"} onPress={() => setMode("seen")} />
+        </Ui>
+      </View>
+
+      {/* Identity card */}
+      {session ? (
+        <View
+          style={{
+            marginTop: sp.s4,
+            marginHorizontal: sp.s4,
+            backgroundColor: pal.surface,
+            borderRadius: radius.lg,
+            padding: sp.s5,
+            flexDirection: "row",
+            alignItems: "center",
+            gap: sp.s4,
+          }}
+        >
+          <LinearGradient
+            colors={gradient}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: radius.pill,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Ui size={fs.xl} weight="700" color="#FFFFFF">
+              {(email?.[0] ?? "m").toUpperCase()}
+            </Ui>
+          </LinearGradient>
+          <View style={{ flex: 1 }}>
+            {email ? (
+              <Ui size={fs.md} weight="500" numberOfLines={1}>
+                {email}
+              </Ui>
+            ) : null}
+            <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+              Metatake member
+            </Ui>
+            {/* TODO(i18n): my.memberBadge */}
+          </View>
         </View>
+      ) : (
+        <View
+          style={{
+            marginTop: sp.s4,
+            marginHorizontal: sp.s4,
+            backgroundColor: pal.surface,
+            borderRadius: radius.lg,
+            padding: sp.s5,
+            gap: sp.s4,
+          }}
+        >
+          <Ui size={fs.base} color={pal.inkSoft}>
+            {t("my.signInHint")}
+          </Ui>
+          <GradientBtn label={t("my.signIn")} onPress={() => setAuthOpen(true)} />
+        </View>
+      )}
+
+      {/* Segmented control — watchlist / seen */}
+      <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s5, paddingHorizontal: sp.s4 }}>
+        <Chip
+          label={t("my.watchlist")}
+          active={mode === "watchlist"}
+          onPress={() => setMode("watchlist")}
+        />
+        <Chip label={t("my.seen")} active={mode === "seen"} onPress={() => setMode("seen")} />
       </View>
 
       {/* Ledger list */}
       <View style={{ marginTop: sp.s3 }}>
-        {!session ? (
-          <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s4 }}>
-            {t("my.signInHint")}
-          </Ui>
-        ) : slugs.length === 0 ? (
+        {slugs.length === 0 ? (
           <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s4 }}>
             {mode === "watchlist" ? t("my.emptyWatchlist") : t("my.emptySeen")}
           </Ui>
@@ -184,13 +286,14 @@ export default function MyScreen() {
             const m = meta.get(slug);
             if (!m) return null;
             return (
-              <FilmRow
+              <LedgerRow
                 key={slug}
                 slug={slug}
                 title={m.title}
                 year={m.year}
                 director={m.director}
                 poster_path={m.poster_path}
+                ts={tsMap.get(slug) ?? null}
                 tiers={mode === "watchlist" ? (tiers.get(slug) ?? []) : undefined}
               />
             );
@@ -198,52 +301,79 @@ export default function MyScreen() {
         )}
       </View>
 
-      {/* SETTINGS */}
+      {/* SETTINGS — one grouped surface card */}
       <SectionTitle>{t("my.settings")}</SectionTitle>
-      <SettingRow
-        label={t("my.country")}
-        value={edition ? `${edition.flag} ${edition.label}` : prefs.country}
-        onPress={() => router.push({ pathname: "/onboarding", params: { step: "country" } })}
-      />
-      <SettingRow
-        label={t("my.language")}
-        value={LOCALE_LABEL[prefs.locale]}
-        onPress={cycleLocale}
-      />
-      <SettingRow
-        label={t("my.services")}
-        value={String(prefs.providerIds.length)}
-        onPress={() => router.push({ pathname: "/onboarding", params: { step: "services" } })}
-      />
       <View
         style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: sp.s3,
-          paddingHorizontal: sp.s4,
-          paddingVertical: sp.s3,
+          marginHorizontal: sp.s4,
+          backgroundColor: pal.surface,
+          borderRadius: radius.md,
+          overflow: "hidden",
         }}
       >
-        <View style={{ flex: 1 }}>
-          <Ui size={fs.sm} weight="500">
-            {t("my.notifications")}
-          </Ui>
-          <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
-            {t("my.notifyArrivals")}
-          </Ui>
-        </View>
-        <Switch
-          value={prefs.pushEnabled}
-          disabled={pushBusy}
-          onValueChange={onTogglePush}
-          trackColor={{ true: brand.accent, false: pal.hairline2 }}
+        <SettingRow
+          icon="globe-outline"
+          label={t("my.country")}
+          value={edition ? `${edition.flag} ${edition.label}` : prefs.country}
+          onPress={() => router.push({ pathname: "/onboarding", params: { step: "country" } })}
         />
+        <Hairline style={{ marginLeft: ROW_INSET }} />
+        <SettingRow
+          icon="language-outline"
+          label={t("my.language")}
+          value={LOCALE_LABEL[prefs.locale]}
+          onPress={cycleLocale}
+        />
+        <Hairline style={{ marginLeft: ROW_INSET }} />
+        <SettingRow
+          icon="tv-outline"
+          label={t("my.services")}
+          value={String(prefs.providerIds.length)}
+          onPress={() => router.push({ pathname: "/onboarding", params: { step: "services" } })}
+        />
+        <Hairline style={{ marginLeft: ROW_INSET }} />
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: sp.s3,
+            paddingHorizontal: sp.s4,
+            paddingVertical: sp.s3,
+          }}
+        >
+          <IconDisc name="notifications-outline" />
+          <View style={{ flex: 1 }}>
+            <Ui size={fs.md} weight="500">
+              {t("my.notifications")}
+            </Ui>
+            <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+              {t("my.notifyArrivals")}
+            </Ui>
+          </View>
+          <Switch
+            value={prefs.pushEnabled}
+            disabled={pushBusy}
+            onValueChange={onTogglePush}
+            trackColor={{ true: brand.accent, false: pal.hairline2 }}
+          />
+        </View>
       </View>
-      <Hairline style={{ marginLeft: sp.s4 }} />
 
       {/* ACCOUNT */}
-      <SectionTitle>{t("my.account")}</SectionTitle>
-      {session ? <SignedIn email={session.user.email ?? null} /> : <SignedOut scheme={scheme === "dark" ? "dark" : "light"} />}
+      {session ? (
+        <>
+          <SectionTitle>{t("my.account")}</SectionTitle>
+          <SignedIn />
+        </>
+      ) : authOpen ? (
+        <>
+          <SectionTitle>{t("my.account")}</SectionTitle>
+          <SignedOut
+            scheme={scheme === "dark" ? "dark" : "light"}
+            onSkip={() => setAuthOpen(false)}
+          />
+        </>
+      ) : null}
 
       {/* Attribution (invariant §13-8) */}
       <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
@@ -260,76 +390,114 @@ export default function MyScreen() {
 
 // ---------------------------------------------------------------------------
 
-function SegChip({
-  label,
-  active,
-  onPress,
+/** Ledger row — same grammar as search results: rounded poster, sans title. */
+function LedgerRow({
+  slug,
+  title,
+  year,
+  director,
+  poster_path,
+  ts,
+  tiers,
 }: {
-  label: string;
-  active: boolean;
-  onPress: () => void;
+  slug: string;
+  title: string;
+  year: number | null;
+  director: string | null;
+  poster_path: string | null;
+  ts: number | null;
+  tiers?: string[];
 }) {
   const pal = usePalette();
+  const router = useRouter();
+  const sub = [year, director].filter(Boolean).join(" · ");
   return (
-    <Pressable
-      accessibilityRole="button"
-      onPress={onPress}
-      style={({ pressed }) => ({
-        borderRadius: 999, // pill — the one sanctioned radius
-        borderWidth: StyleSheet.hairlineWidth,
-        borderColor: active ? pal.ink : pal.hairline2,
-        backgroundColor: active ? pal.ink : "transparent",
-        paddingHorizontal: sp.s4,
-        paddingVertical: 6,
-        opacity: pressed ? 0.6 : 1,
-      })}
+    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug } })}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s3,
+          paddingHorizontal: sp.s4,
+          paddingVertical: sp.s3,
+        }}
+      >
+        <PosterImg path={poster_path} width={48} height={72} size="w92" rounded={radius.sm} />
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="500" numberOfLines={1}>
+            {title}
+          </Ui>
+          {sub ? (
+            <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ marginTop: 1 }}>
+              {sub}
+            </Ui>
+          ) : null}
+        </View>
+        {tiers?.length ? <AvailabilityDots tiers={tiers} /> : null}
+        <TSBadge ts={ts} />
+      </View>
+    </Tactile>
+  );
+}
+
+/** 32px leading icon disc for grouped settings rows. */
+function IconDisc({ name }: { name: React.ComponentProps<typeof Ionicons>["name"] }) {
+  const pal = usePalette();
+  return (
+    <View
+      style={{
+        width: 32,
+        height: 32,
+        borderRadius: radius.pill,
+        backgroundColor: pal.bg,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
-      <Ui size={fs.sm} weight="600" color={active ? pal.bg : pal.ink}>
-        {label}
-      </Ui>
-    </Pressable>
+      <Ionicons name={name} size={16} color={pal.ink} />
+    </View>
   );
 }
 
 function SettingRow({
+  icon,
   label,
   value,
   onPress,
 }: {
+  icon: React.ComponentProps<typeof Ionicons>["name"];
   label: string;
   value: string;
   onPress: () => void;
 }) {
   const pal = usePalette();
   return (
-    <>
-      <Pressable
-        onPress={onPress}
-        style={({ pressed }) => ({
+    <Tactile onPress={onPress}>
+      <View
+        style={{
           flexDirection: "row",
           alignItems: "center",
           gap: sp.s3,
           paddingHorizontal: sp.s4,
           paddingVertical: sp.s3,
-          backgroundColor: pressed ? pal.surface : "transparent",
-        })}
+        }}
       >
-        <Ui size={fs.sm} weight="500" style={{ flex: 1 }}>
+        <IconDisc name={icon} />
+        <Ui size={fs.md} weight="500" style={{ flex: 1 }}>
           {label}
         </Ui>
         <Ui size={fs.sm} color={pal.muted}>
           {value}
         </Ui>
-        <Ionicons name="chevron-forward" size={14} color={pal.subtle} />
-      </Pressable>
-      <Hairline style={{ marginLeft: sp.s4 }} />
-    </>
+        <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+      </View>
+    </Tactile>
   );
 }
 
 // ---- Signed-in account block ----------------------------------------------
 
-function SignedIn({ email }: { email: string | null }) {
+function SignedIn() {
   const pal = usePalette();
   const [err, setErr] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -371,23 +539,21 @@ function SignedIn({ email }: { email: string | null }) {
 
   return (
     <View style={{ paddingHorizontal: sp.s4, gap: sp.s3 }}>
-      {email ? <Ui size={fs.sm}>{email}</Ui> : null}
       <Btn kind="ghost" label={t("my.signOut")} onPress={() => void supabase.auth.signOut()} />
-      <Pressable
+      <Tactile
         onPress={confirmDelete}
-        style={({ pressed }) => ({
-          borderWidth: StyleSheet.hairlineWidth,
-          borderColor: brand.accent,
-          paddingVertical: sp.s3,
-          paddingHorizontal: sp.s5,
-          alignItems: "center",
-          opacity: pressed || busy ? 0.6 : 1,
-        })}
+        disabled={busy}
+        style={{ alignSelf: "flex-start", paddingVertical: sp.s2 }}
       >
-        <Ui size={fs.sm} weight="600" color={brand.accent}>
+        <Ui
+          size={fs.sm}
+          weight="500"
+          color={brand.tsRisk}
+          style={{ textDecorationLine: "underline", opacity: busy ? 0.5 : 1 }}
+        >
           {t("my.deleteAccount")}
         </Ui>
-      </Pressable>
+      </Tactile>
       {err ? (
         <Ui size={fs.xs + 1} color={pal.muted}>
           {t("error.network")}
@@ -399,7 +565,13 @@ function SignedIn({ email }: { email: string | null }) {
 
 // ---- Signed-out account block: email + 6-digit code, Apple ----------------
 
-function SignedOut({ scheme }: { scheme: "light" | "dark" | null | undefined }) {
+function SignedOut({
+  scheme,
+  onSkip,
+}: {
+  scheme: "light" | "dark" | null | undefined;
+  onSkip: () => void;
+}) {
   const pal = usePalette();
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -409,12 +581,14 @@ function SignedOut({ scheme }: { scheme: "light" | "dark" | null | undefined }) 
   const [appleErr, setAppleErr] = useState(false);
 
   const inputStyle = {
+    backgroundColor: pal.card,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: pal.hairline2,
+    borderRadius: radius.sm,
     color: pal.ink,
     fontFamily: font.ui,
     fontSize: fs.base,
-    paddingHorizontal: sp.s3,
+    paddingHorizontal: sp.s4,
     paddingVertical: sp.s3,
   } as const;
 
@@ -474,7 +648,18 @@ function SignedOut({ scheme }: { scheme: "light" | "dark" | null | undefined }) 
   };
 
   return (
-    <View style={{ paddingHorizontal: sp.s4, gap: sp.s3 }}>
+    <View
+      style={{
+        marginHorizontal: sp.s4,
+        backgroundColor: pal.surface,
+        borderRadius: radius.lg,
+        padding: sp.s5,
+        gap: sp.s3,
+      }}
+    >
+      <Ui size={fs.lg} weight="600">
+        {t("auth.title")}
+      </Ui>
       <TextInput
         value={email}
         onChangeText={setEmail}
@@ -501,19 +686,25 @@ function SignedOut({ scheme }: { scheme: "light" | "dark" | null | undefined }) 
             textContentType="oneTimeCode"
             style={inputStyle}
           />
-          <Btn label={t("my.signIn")} onPress={() => void verifyCode()} />
+          <GradientBtn label={t("my.signIn")} onPress={() => void verifyCode()} />
         </>
       ) : (
-        <Btn
-          label={"Send code" /* TODO(i18n) */}
-          onPress={() => void sendCode()}
-        />
+        <GradientBtn label={t("auth.continue")} onPress={() => void sendCode()} />
       )}
       {err ? (
         <Ui size={fs.xs + 1} color={pal.muted}>
           {t("error.network")}
         </Ui>
       ) : null}
+
+      {/* or */}
+      <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginVertical: sp.s1 }}>
+        <Hairline style={{ flex: 1 }} />
+        <Ui size={fs.xs} color={pal.muted}>
+          {t("auth.or")}
+        </Ui>
+        <Hairline style={{ flex: 1 }} />
+      </View>
 
       {Platform.OS === "ios" ? (
         <>
@@ -524,8 +715,8 @@ function SignedOut({ scheme }: { scheme: "light" | "dark" | null | undefined }) 
                 ? AppleAuthentication.AppleAuthenticationButtonStyle.WHITE
                 : AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
             }
-            cornerRadius={0}
-            style={{ height: 44 }}
+            cornerRadius={radius.xs}
+            style={{ height: 48 }}
             onPress={() => void signInApple()}
           />
           {appleErr ? (
@@ -535,6 +726,15 @@ function SignedOut({ scheme }: { scheme: "light" | "dark" | null | undefined }) 
           ) : null}
         </>
       ) : null}
+      <Ui size={fs.sm} color={pal.subtle} style={{ textAlign: "center" }}>
+        {t("auth.continueGoogle")} · {t("common.soon")}
+      </Ui>
+
+      <Tactile onPress={onSkip} style={{ alignSelf: "center", paddingVertical: sp.s1 }}>
+        <Ui size={fs.sm} weight="500" color={pal.muted} style={{ textDecorationLine: "underline" }}>
+          {t("action.skip")}
+        </Ui>
+      </Tactile>
     </View>
   );
 }

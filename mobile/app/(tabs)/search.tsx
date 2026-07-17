@@ -1,24 +1,32 @@
 // Search tab — search→verdict in 10 seconds (HANDOFF §5.3).
 // Direct anon RPC search, best-effort TS/availability decoration, TMDB fallback
 // for not-in-canon queries, and an always-on "search the full site" escape hatch.
+// Skinned to design system v2 "Lava": pill search bar with a soft shadow, rounded
+// posters, whitespace-separated rows (no hairlines), ghost web-search CTA.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
-  Pressable,
   StyleSheet,
   TextInput,
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { FilmRow } from "../../src/components/FilmRow";
-import { PosterImg, Screen, Serif, Ui } from "../../src/components/ui";
+import {
+  AvailabilityDots,
+  Btn,
+  PosterImg,
+  Screen,
+  Tactile,
+  TSBadge,
+  Ui,
+} from "../../src/components/ui";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, font, fs, sp, usePalette } from "../../src/theme";
+import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme";
 import type { SearchRow, TmdbFallbackRow } from "../../src/types";
 
 const DEBOUNCE_MS = 250;
@@ -115,23 +123,28 @@ export default function SearchScreen() {
 
   return (
     <Screen style={{ paddingTop: Math.max(insets.top, sp.s6) }}>
-      {/* Title block + editorial input — fixed above the result list */}
-      <View style={{ paddingHorizontal: sp.s4 }}>
-        <Serif size={fs.x3} bold>
+      {/* Title + the pill search bar as the real input — fixed above the list */}
+      <View style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s2 }}>
+        <Ui size={fs.x2} weight="600">
           {t("tab.search")}
-        </Serif>
+        </Ui>
         <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: sp.s2,
-            marginTop: sp.s3,
-            paddingBottom: sp.s2,
-            borderBottomWidth: StyleSheet.hairlineWidth,
-            borderBottomColor: pal.hairline2,
-          }}
+          style={[
+            {
+              flexDirection: "row",
+              alignItems: "center",
+              gap: sp.s3,
+              marginTop: sp.s3,
+              borderRadius: radius.pill,
+              backgroundColor: pal.card,
+              paddingHorizontal: sp.s4,
+              borderWidth: StyleSheet.hairlineWidth,
+              borderColor: pal.hairline,
+            },
+            shadow.card,
+          ]}
         >
-          <Ionicons name="search-outline" size={18} color={pal.muted} />
+          <Ionicons name="search" size={18} color={pal.ink} />
           <TextInput
             value={q}
             onChangeText={setQ}
@@ -143,10 +156,10 @@ export default function SearchScreen() {
             selectionColor={brand.accent}
             style={{
               flex: 1,
-              fontFamily: font.ui,
+              fontFamily: font.uiMed,
               fontSize: fs.md,
               color: pal.ink,
-              paddingVertical: 4,
+              paddingVertical: 13,
             }}
           />
           {loading ? <ActivityIndicator size="small" color={brand.accent} /> : null}
@@ -158,18 +171,17 @@ export default function SearchScreen() {
         keyExtractor={(r) => `${r.kind}:${r.slug}`}
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
-        contentContainerStyle={{ paddingTop: sp.s3, paddingBottom: sp.s7 }}
+        contentContainerStyle={{ paddingTop: sp.s3, paddingBottom: 120 }}
         renderItem={({ item }) =>
           item.kind === "film" ? (
-            // year is null on purpose: search_all's `sub` is already the full
-            // subtitle ("1994 · Wong Kar-wai"), so also passing year printed it
-            // twice. The RPC's subtitle stays the single source for search rows.
-            <FilmRow
+            // sub is null-year-safe on purpose: search_all's `sub` is already the
+            // full subtitle ("1994 · Wong Kar-wai"); the RPC's subtitle stays the
+            // single source for search rows (year alone is the fallback).
+            <FilmResultRow
               slug={item.slug}
               title={item.title}
-              year={null}
-              director={item.sub || String(item.year ?? "")}
-              poster_path={item.poster}
+              sub={item.sub || String(item.year ?? "")}
+              poster={item.poster}
               ts={tsMap.get(item.slug) ?? null}
               tiers={tierMap.get(item.slug)}
             />
@@ -181,7 +193,9 @@ export default function SearchScreen() {
           showEmpty ? (
             <View>
               <View style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s3 }}>
-                <Serif size={fs.lg}>{t("search.empty")}</Serif>
+                <Ui size={fs.base} color={pal.muted}>
+                  {t("search.empty")}
+                </Ui>
               </View>
               {fallback.map((f) => (
                 <FallbackRow
@@ -195,23 +209,13 @@ export default function SearchScreen() {
         }
         ListFooterComponent={
           q.length > 0 ? (
-            <Pressable
-              onPress={() => openReader(`/omni?q=${encodeURIComponent(q)}`, q)}
-              style={({ pressed }) => ({
-                flexDirection: "row",
-                alignItems: "center",
-                gap: sp.s3,
-                paddingHorizontal: sp.s4,
-                paddingVertical: sp.s4,
-                backgroundColor: pressed ? pal.surface : "transparent",
-              })}
-            >
-              <Ionicons name="globe-outline" size={16} color={brand.accent} />
-              <Ui size={fs.sm} weight="600" color={brand.accent} style={{ flex: 1 }}>
-                {t("search.searchWeb")}
-              </Ui>
-              <Ionicons name="chevron-forward" size={14} color={pal.subtle} />
-            </Pressable>
+            <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s4 }}>
+              <Btn
+                kind="ghost"
+                label={t("search.searchWeb")}
+                onPress={() => openReader(`/omni?q=${encodeURIComponent(q)}`, q)}
+              />
+            </View>
           ) : null
         }
       />
@@ -219,49 +223,99 @@ export default function SearchScreen() {
   );
 }
 
-/** Director result — face (or person glyph) + serif name + Ui sub. */
+// ---------------------------------------------------------------------------
+
+/** Film result — rounded poster, sans title, dots + TS on the right. */
+function FilmResultRow({
+  slug,
+  title,
+  sub,
+  poster,
+  ts,
+  tiers,
+}: {
+  slug: string;
+  title: string;
+  sub: string;
+  poster: string | null;
+  ts: number | null;
+  tiers?: string[];
+}) {
+  const pal = usePalette();
+  const router = useRouter();
+  return (
+    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug } })}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s3,
+          paddingHorizontal: sp.s4,
+          paddingVertical: sp.s3,
+        }}
+      >
+        <PosterImg path={poster} width={48} height={72} size="w92" rounded={radius.sm} />
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="500" numberOfLines={1}>
+            {title}
+          </Ui>
+          {sub ? (
+            <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ marginTop: 1 }}>
+              {sub}
+            </Ui>
+          ) : null}
+        </View>
+        {tiers?.length ? <AvailabilityDots tiers={tiers} /> : null}
+        <TSBadge ts={ts} />
+      </View>
+    </Tactile>
+  );
+}
+
+/** Director result — round face (or person glyph disc) + name + chevron. */
 function DirectorRow({ row }: { row: SearchRow }) {
   const pal = usePalette();
   const router = useRouter();
   return (
-    <Pressable
-      onPress={() => router.push({ pathname: "/director/[slug]", params: { slug: row.slug } })}
-      style={({ pressed }) => ({
-        flexDirection: "row",
-        alignItems: "center",
-        gap: sp.s3,
-        paddingHorizontal: sp.s4,
-        paddingVertical: sp.s2 + 2,
-        backgroundColor: pressed ? pal.surface : "transparent",
-      })}
-    >
-      {row.poster ? (
-        <PosterImg path={row.poster} width={34} height={51} size="w92" />
-      ) : (
-        <View
-          style={{
-            width: 34,
-            height: 51,
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: pal.surface,
-          }}
-        >
-          <Ionicons name="person-circle-outline" size={24} color={pal.muted} />
-        </View>
-      )}
-      <View style={{ flex: 1 }}>
-        <Serif size={fs.base} numberOfLines={1}>
-          {row.title}
-        </Serif>
-        {row.sub ? (
-          <Ui size={fs.xs + 1} color={pal.muted} numberOfLines={1}>
-            {row.sub}
+    <Tactile onPress={() => router.push({ pathname: "/director/[slug]", params: { slug: row.slug } })}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s3,
+          paddingHorizontal: sp.s4,
+          paddingVertical: sp.s3,
+        }}
+      >
+        {row.poster ? (
+          <PosterImg path={row.poster} width={40} height={40} size="w92" rounded={radius.pill} />
+        ) : (
+          <View
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: radius.pill,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: pal.surface,
+            }}
+          >
+            <Ionicons name="person" size={18} color={pal.muted} />
+          </View>
+        )}
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="500" numberOfLines={1}>
+            {row.title}
           </Ui>
-        ) : null}
+          {row.sub ? (
+            <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ marginTop: 1 }}>
+              {row.sub}
+            </Ui>
+          ) : null}
+        </View>
+        <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
       </View>
-      <Ionicons name="chevron-forward" size={14} color={pal.subtle} />
-    </Pressable>
+    </Tactile>
   );
 }
 
@@ -269,41 +323,40 @@ function DirectorRow({ row }: { row: SearchRow }) {
 function FallbackRow({ row, onPress }: { row: TmdbFallbackRow; onPress: () => void }) {
   const pal = usePalette();
   return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => ({
-        flexDirection: "row",
-        alignItems: "center",
-        gap: sp.s3,
-        paddingHorizontal: sp.s4,
-        paddingVertical: sp.s2 + 2,
-        backgroundColor: pressed ? pal.surface : "transparent",
-      })}
-    >
-      <PosterImg path={row.poster_path} width={34} height={51} size="w92" />
-      <View style={{ flex: 1 }}>
-        <Serif size={fs.base} numberOfLines={1}>
-          {row.title}
-        </Serif>
-        {row.year != null ? (
-          <Ui size={fs.xs + 1} color={pal.muted}>
-            {row.year}
-          </Ui>
-        ) : null}
-      </View>
+    <Tactile onPress={onPress}>
       <View
         style={{
-          borderWidth: StyleSheet.hairlineWidth,
-          borderColor: pal.hairline2,
-          borderRadius: 999, // pill — the one sanctioned radius
-          paddingHorizontal: sp.s2,
-          paddingVertical: 2,
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s3,
+          paddingHorizontal: sp.s4,
+          paddingVertical: sp.s3,
         }}
       >
-        <Ui size={fs.xs} color={pal.muted}>
-          {t("search.notInCanon")}
-        </Ui>
+        <PosterImg path={row.poster_path} width={48} height={72} size="w92" rounded={radius.sm} />
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="500" numberOfLines={1}>
+            {row.title}
+          </Ui>
+          {row.year != null ? (
+            <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 1 }}>
+              {row.year}
+            </Ui>
+          ) : null}
+        </View>
+        <View
+          style={{
+            borderRadius: radius.pill,
+            backgroundColor: pal.surface,
+            paddingHorizontal: sp.s3,
+            paddingVertical: 5,
+          }}
+        >
+          <Ui size={fs.xs} weight="500" color={pal.muted}>
+            {t("search.notInCanon")}
+          </Ui>
+        </View>
       </View>
-    </Pressable>
+    </Tactile>
   );
 }

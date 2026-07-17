@@ -2,6 +2,8 @@
 // MapLibre GL Native (dev build only; Expo Go has no native module).
 // Global pins come from the open geodata API (/api/v1/locations, CC BY 4.0);
 // film focus (?film=<slug>) uses the film_geo RPC and fits the camera to it.
+// Chrome: floating title pill row, "Near me" chip, Lava cluster discs, bottom
+// card on pin tap.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import {
   Camera,
@@ -17,16 +19,19 @@ import {
 import * as Location from "expo-location";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Btn, Loading, Screen, Serif, Ui } from "../components/ui";
+import { Btn, Chip, GradientBtn, Loading, Screen, Tactile, Ui } from "../components/ui";
 import { METATAKE_BASE } from "../config";
 import { t } from "../i18n";
 import { supabase } from "../lib/supabase";
-import { brand, fs, sp, usePalette } from "../theme";
+import { brand, fs, radius, shadow, sp, usePalette } from "../theme";
 
 const MAP_STYLE = "https://demotiles.maplibre.org/style.json";
 const WORLD_VIEW: InitialViewState = { center: [10, 22] as LngLat, zoom: 0.7 };
+
+// Content floated over the map must clear the absolute blurred tab bar.
+const TAB_CLEARANCE = 104;
 
 // ---------------------------------------------------------------------------
 // Pin loading
@@ -278,56 +283,6 @@ export default function MapScreen() {
 
   return (
     <Screen>
-      {/* Compact editorial top bar — tabs render headerless (see (tabs)/_layout) */}
-      <View
-        style={{
-          paddingTop: insets.top + sp.s2,
-          paddingHorizontal: sp.s4,
-          paddingBottom: sp.s3,
-          backgroundColor: pal.bg,
-          borderBottomWidth: StyleSheet.hairlineWidth,
-          borderBottomColor: pal.hairline,
-        }}
-      >
-        <View style={{ width: 28, height: 2, backgroundColor: brand.accent, marginBottom: sp.s2 }} />
-        <View style={{ flexDirection: "row", alignItems: "baseline", gap: sp.s3 }}>
-          <Serif size={fs.x3} bold>
-            {t("map.title")}
-          </Serif>
-          {!filmSlug && pins ? (
-            <Ui size={fs.xs + 1} color={pal.muted}>
-              {t("map.pins", { n: pins.length })}
-            </Ui>
-          ) : null}
-        </View>
-        {filmSlug ? (
-          <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: sp.s1 }}>
-            <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ flexShrink: 1 }}>
-              {filmTitle}
-            </Ui>
-            <Pressable
-              onPress={() => router.setParams({ film: "" })}
-              hitSlop={8}
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 4,
-                borderWidth: StyleSheet.hairlineWidth,
-                borderColor: pal.hairline2,
-                borderRadius: 999,
-                paddingHorizontal: sp.s2,
-                paddingVertical: 2,
-              }}
-            >
-              <Ionicons name="close" size={12} color={pal.muted} />
-              <Ui size={fs.xs} color={pal.muted}>
-                {t("map.showAll")}
-              </Ui>
-            </Pressable>
-          </View>
-        ) : null}
-      </View>
-
       {err ? (
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center", gap: sp.s4 }}>
           <Ui color={pal.muted}>{t("error.network")}</Ui>
@@ -352,13 +307,13 @@ export default function MapScreen() {
               clusterRadius={40}
               onPress={onSourcePress}
             >
-              {/* Clusters — brand-red discs stepped by size */}
+              {/* Clusters — Lava discs stepped by size */}
               <Layer
                 type="circle"
                 id="pin-clusters"
                 filter={["has", "point_count"]}
                 paint={{
-                  "circle-color": brand.accent,
+                  "circle-color": brand.gradB,
                   "circle-opacity": 0.88,
                   "circle-radius": ["step", ["get", "point_count"], 14, 25, 18, 100, 24],
                 }}
@@ -375,13 +330,13 @@ export default function MapScreen() {
                 }}
                 paint={{ "text-color": "#FFFFFF" }}
               />
-              {/* Unclustered pins — small accent dot, white stroke */}
+              {/* Unclustered pins — small Lava dot, white stroke */}
               <Layer
                 type="circle"
                 id="pin-points"
                 filter={["!", ["has", "point_count"]]}
                 paint={{
-                  "circle-color": brand.accent,
+                  "circle-color": brand.gradB,
                   "circle-radius": 5,
                   "circle-stroke-width": 1.5,
                   "circle-stroke-color": "#FFFFFF",
@@ -390,45 +345,21 @@ export default function MapScreen() {
             </GeoJSONSource>
           </MapView>
 
-          {/* Near me — floating pill, disabled after a denial */}
-          <Pressable
-            onPress={nearMe}
-            disabled={locDenied}
-            style={({ pressed }) => ({
-              position: "absolute",
-              top: sp.s3,
-              right: sp.s4,
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 5,
-              backgroundColor: pal.bg,
-              borderWidth: StyleSheet.hairlineWidth,
-              borderColor: pal.hairline2,
-              borderRadius: 999,
-              paddingHorizontal: sp.s3,
-              paddingVertical: 6,
-              opacity: locDenied ? 0.4 : pressed ? 0.6 : 1,
-            })}
-          >
-            <Ionicons name="locate-outline" size={14} color={locDenied ? pal.subtle : brand.accent} />
-            <Ui size={fs.xs + 1} weight="600" color={locDenied ? pal.subtle : pal.ink}>
-              {t("map.nearMe")}
-            </Ui>
-          </Pressable>
-
           {/* Film focus with zero mapped pins */}
           {filmSlug && !pins.length ? (
             <View
-              style={{
-                position: "absolute",
-                top: sp.s3,
-                left: sp.s4,
-                backgroundColor: pal.bg,
-                borderWidth: StyleSheet.hairlineWidth,
-                borderColor: pal.hairline,
-                paddingHorizontal: sp.s3,
-                paddingVertical: 6,
-              }}
+              style={[
+                {
+                  position: "absolute",
+                  top: insets.top + 64,
+                  alignSelf: "center",
+                  backgroundColor: pal.card,
+                  borderRadius: radius.pill,
+                  paddingHorizontal: sp.s4,
+                  paddingVertical: 8,
+                },
+                shadow.card,
+              ]}
             >
               <Ui size={fs.xs + 1} color={pal.muted}>
                 {t("map.noFilmPins")}
@@ -436,36 +367,61 @@ export default function MapScreen() {
             </View>
           ) : null}
 
-          {/* Pin card — bottom sheet-lite */}
+          {/* Pin card — bottom sheet-lite, floats above the blurred tab bar */}
           {selected ? (
             <View
-              style={{
-                position: "absolute",
-                left: sp.s4,
-                right: sp.s4,
-                bottom: sp.s4,
-                backgroundColor: pal.bg,
-                borderWidth: StyleSheet.hairlineWidth,
-                borderColor: pal.hairline2,
-                padding: sp.s4,
-                gap: sp.s2,
-              }}
+              style={[
+                {
+                  position: "absolute",
+                  left: sp.s4,
+                  right: sp.s4,
+                  bottom: TAB_CLEARANCE,
+                  backgroundColor: pal.card,
+                  borderRadius: radius.lg,
+                  paddingHorizontal: sp.s5,
+                  paddingBottom: sp.s5,
+                  paddingTop: sp.s3,
+                  gap: sp.s2,
+                },
+                shadow.float,
+              ]}
             >
-              <Pressable
+              <View
+                style={{
+                  alignSelf: "center",
+                  width: 36,
+                  height: 4,
+                  borderRadius: radius.pill,
+                  backgroundColor: pal.hairline2,
+                  marginBottom: sp.s1,
+                }}
+              />
+              <Tactile
                 onPress={() => setSelected(null)}
                 hitSlop={10}
-                style={{ position: "absolute", top: sp.s2, right: sp.s2, zIndex: 1 }}
+                style={{ position: "absolute", top: sp.s3, right: sp.s3, zIndex: 1 }}
               >
-                <Ionicons name="close" size={18} color={pal.muted} />
-              </Pressable>
-              <Serif size={fs.lg} bold numberOfLines={2} style={{ paddingRight: sp.s5 }}>
+                <View
+                  style={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: radius.pill,
+                    backgroundColor: pal.surface,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Ionicons name="close" size={16} color={pal.inkSoft} />
+                </View>
+              </Tactile>
+              <Ui size={fs.md} weight="600" numberOfLines={2} style={{ paddingRight: sp.s6 }}>
                 {selected.name}
-              </Serif>
+              </Ui>
               <Ui size={fs.sm} color={pal.muted} numberOfLines={1}>
                 {[selected.country, selected.film_title ?? filmTitle].filter(Boolean).join(" · ")}
               </Ui>
               {openSlug ? (
-                <Btn
+                <GradientBtn
                   label={t("map.openFilm")}
                   onPress={() =>
                     router.push({ pathname: "/film/[slug]", params: { slug: openSlug } })
@@ -477,6 +433,62 @@ export default function MapScreen() {
           ) : null}
         </View>
       )}
+
+      {/* Floating title pill row — the map owns the whole viewport */}
+      <View
+        pointerEvents="box-none"
+        style={{
+          position: "absolute",
+          top: insets.top + sp.s2,
+          left: sp.s4,
+          right: sp.s4,
+          zIndex: 10,
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s2,
+        }}
+      >
+        <View
+          style={[
+            {
+              flexDirection: "row",
+              alignItems: "center",
+              gap: sp.s2,
+              flexShrink: 1,
+              backgroundColor: pal.chrome,
+              borderRadius: radius.pill,
+              paddingVertical: 10,
+              paddingHorizontal: 16,
+            },
+            shadow.card,
+          ]}
+        >
+          <Ui size={fs.md} weight="600">
+            {t("map.title")}
+          </Ui>
+          {filmSlug ? (
+            <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ flexShrink: 1, maxWidth: 140 }}>
+              {filmTitle}
+            </Ui>
+          ) : pins ? (
+            <Ui size={fs.xs} color={pal.muted}>
+              {t("map.pins", { n: pins.length })}
+            </Ui>
+          ) : null}
+        </View>
+        {filmSlug ? (
+          <Chip label={t("map.showAll")} icon="close" onPress={() => router.setParams({ film: "" })} />
+        ) : null}
+        <View pointerEvents="none" style={{ flex: 1 }} />
+        <View
+          style={[
+            { borderRadius: radius.pill, backgroundColor: pal.card, opacity: locDenied ? 0.4 : 1 },
+            shadow.card,
+          ]}
+        >
+          <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? undefined : nearMe} />
+        </View>
+      </View>
     </Screen>
   );
 }

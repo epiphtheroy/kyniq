@@ -1,25 +1,55 @@
-// In-app reader — the webview reading layer (HANDOFF §2). Native chrome header,
-// metatake.net prose below. Hub pages (film/director) bounce back to native
-// cards (§2-③); reading surfaces (/film/meaning/*, /film/lineage/*, /reception,
-// …) stay inside the reader. Session is carried via SSO handoff (§13-12).
+// In-app reader — the webview reading layer (HANDOFF §2). Native sheet chrome
+// (grab handle + circle-disc buttons), metatake.net prose below. Hub pages
+// (film/director) bounce back to native cards (§2-③); reading surfaces
+// (/film/meaning/*, /film/lineage/*, /reception, …) stay inside the reader.
+// Session is carried via SSO handoff (§13-12).
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { ActivityIndicator, Pressable, Share, StyleSheet, View } from "react-native";
+import { ActivityIndicator, Share, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
-import { Btn, Hairline, Screen, Ui } from "../src/components/ui";
+import { Btn, Hairline, Screen, Tactile, Ui } from "../src/components/ui";
 import { METATAKE_BASE } from "../src/config";
 import { t } from "../src/i18n";
 import { api } from "../src/lib/api";
-import { brand, fs, sp, usePalette } from "../src/theme";
+import { brand, fs, radius, sp, usePalette } from "../src/theme";
 
 /** Exact hub patterns that must open natively (webview contract §2-③). */
 const FILM_HUB_RE = /^\/film\/([^/?#]+)\/?$/;
 const DIRECTOR_HUB_RE = /^\/director\/([^/?#]+)\/?$/;
 
 const stripTrailingSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+
+/** 32px circle-disc chrome button (sheet header grammar). */
+function HeaderDisc({
+  icon,
+  onPress,
+  iconSize = 17,
+}: {
+  icon: React.ComponentProps<typeof Ionicons>["name"];
+  onPress: () => void;
+  iconSize?: number;
+}) {
+  const pal = usePalette();
+  return (
+    <Tactile onPress={onPress} hitSlop={8}>
+      <View
+        style={{
+          width: 32,
+          height: 32,
+          borderRadius: radius.pill,
+          backgroundColor: pal.surface,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Ionicons name={icon} size={iconSize} color={pal.ink} />
+      </View>
+    </Tactile>
+  );
+}
 
 export default function ReadScreen() {
   const params = useLocalSearchParams<{ path?: string; title?: string }>();
@@ -111,8 +141,18 @@ export default function ReadScreen() {
     <Screen>
       <Stack.Screen options={{ headerShown: false }} />
 
-      {/* Native chrome header */}
+      {/* Sheet chrome — grab handle + circle-disc buttons */}
       <SafeAreaView edges={["top"]} style={{ backgroundColor: pal.bg }}>
+        <View style={{ alignItems: "center", paddingTop: sp.s2 }}>
+          <View
+            style={{
+              width: 36,
+              height: 4,
+              borderRadius: radius.pill,
+              backgroundColor: pal.hairline2,
+            }}
+          />
+        </View>
         <View
           style={{
             flexDirection: "row",
@@ -122,9 +162,7 @@ export default function ReadScreen() {
           }}
         >
           <View style={{ width: 84, alignItems: "flex-start" }}>
-            <Pressable onPress={() => router.back()} hitSlop={10}>
-              <Ionicons name="close" size={24} color={pal.ink} />
-            </Pressable>
+            <HeaderDisc icon="close" iconSize={18} onPress={() => router.back()} />
           </View>
           <Ui size={fs.base} weight="600" numberOfLines={1} style={{ flex: 1, textAlign: "center" }}>
             {title}
@@ -135,15 +173,11 @@ export default function ReadScreen() {
               flexDirection: "row",
               justifyContent: "flex-end",
               alignItems: "center",
-              gap: sp.s4,
+              gap: sp.s2,
             }}
           >
-            <Pressable onPress={() => Share.share({ message: webUrl })} hitSlop={10}>
-              <Ionicons name="share-outline" size={22} color={pal.ink} />
-            </Pressable>
-            <Pressable onPress={() => WebBrowser.openBrowserAsync(webUrl)} hitSlop={10}>
-              <Ionicons name="open-outline" size={22} color={pal.ink} />
-            </Pressable>
+            <HeaderDisc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+            <HeaderDisc icon="open-outline" onPress={() => WebBrowser.openBrowserAsync(webUrl)} />
           </View>
         </View>
         <Hairline />

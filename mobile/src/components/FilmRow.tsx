@@ -1,9 +1,10 @@
-// Standard list row: poster w92 · serif title · year/director meta · TS badge · dots.
+// Standard list row — Lava grammar: rounded poster, sans title, whitespace
+// separation (no hairlines), springy press.
 import { useRouter } from "expo-router";
 import React from "react";
-import { Pressable, View } from "react-native";
-import { fs, sp, usePalette } from "../theme";
-import { AvailabilityDots, PosterImg, Serif, TSBadge, Ui } from "./ui";
+import { View } from "react-native";
+import { fs, radius, sp, usePalette } from "../theme";
+import { AvailabilityDots, PosterImg, Tactile, TSBadge, Ui } from "./ui";
 
 export function FilmRow({
   slug,
@@ -25,28 +26,27 @@ export function FilmRow({
   const pal = usePalette();
   const router = useRouter();
   return (
-    <Pressable
+    <Tactile
       onPress={() => router.push({ pathname: "/film/[slug]", params: { slug } })}
-      style={({ pressed }) => ({
+      style={{
         flexDirection: "row",
         alignItems: "center",
         gap: sp.s3,
         paddingHorizontal: sp.s4,
         paddingVertical: sp.s2 + 2,
-        backgroundColor: pressed ? pal.surface : "transparent",
-      })}
+      }}
     >
-      <PosterImg path={poster_path} width={34} height={51} size="w92" />
+      <PosterImg path={poster_path} width={48} height={72} size="w92" rounded={radius.sm} />
       <View style={{ flex: 1 }}>
-        <Serif size={fs.base} numberOfLines={1}>
+        <Ui size={fs.md} weight="500" numberOfLines={1}>
           {title}
-        </Serif>
-        <Ui size={fs.xs + 1} color={pal.muted} numberOfLines={1}>
+        </Ui>
+        <Ui size={fs.sm} color={pal.muted} numberOfLines={1}>
           {[year, director].filter(Boolean).join(" · ")}
         </Ui>
       </View>
       {tiers ? <AvailabilityDots tiers={tiers} /> : null}
       <TSBadge ts={ts} />
-    </Pressable>
+    </Tactile>
   );
 }

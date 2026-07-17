@@ -70,16 +70,28 @@ v1의 판정(§0-a 접착제 4개 = 검색·계정·Seen·푸시 필수 / §0-b 
 
 **웹뷰 계약 3조:** ① 웹뷰 상단엔 네이티브 헤더 유지(뒤로가기·공유 = 웹 URL) ② SSO 핸드오프(§7.3)로 항상 로그인 상태 진입 ③ 웹뷰 안에서 다른 film/director 링크 탭 시 네이티브 화면으로 가로채기(Universal Links 인터셉트) — 사용자가 "웹에 갇혔다"고 느끼지 않게.
 
-## §3 디자인 컨셉 — "포켓 로비카드 (Pocket Lobby Card)"
+## §3 디자인 시스템 v2 — "Lava" (2026-07-17 전면 개정, 오너 지시: 2026 최고 평가 앱 벤치마크)
 
-웹의 에디토리얼 정체성(`DESIGN-SYSTEM.md` v4)을 **그대로 이식**한다. 앱답게 다시 그리지 않는다 — 웹과 앱이 한 몸이라는 감각 자체가 브랜드다.
+**벤치마크 선정:** Airbnb 2025 "Lava" 디자인 시스템 + iOS 26 Liquid Glass 관례. (2025 Apple Design Award 수상작은 게임·틈새 도구라 영화 결정 앱의 참조축이 아니다. Airbnb는 200인 디자인팀이 2025년 전면 개편해 업계 표준으로 인용되는 사례이고, 우리와 문제가 같다 — **사진이 주인공인 카탈로그에서 사용자를 결정으로 데려가는 것**.)
 
-- **타이포그래피:** 헤드라인 PT Serif · UI 크롬 Inter. 유동 타입 램프(`--fs-*`)를 앱 토큰으로 이식.
-- **컬러:** 단일 레드 액센트 + 트로프 틸, 헤어라인 보더, **직각 모서리**(라운드 카드 금지 — 시장 전체가 라운드일 때 직각이 시그니처가 된다), 컬러 스틸.
-- **은유:** Tonight 카드 = 극장 로비카드. 포스터-포워드, 텍스트는 신문 크레딧처럼. TakeScore = 도넛 게이지 단일 컴포넌트(웹 시각 문법 동일).
-- **모션:** 절제. 카드 전환은 시스템 기본, TS 도넛 채워지는 애니메이션 1개만 허용. 라이트/다크는 시스템 추종이되 웹뷰 테마와 반드시 일치.
-- **촉각:** 찜/Seen 토글에만 햅틱. 결정의 순간에만 몸에 신호를 준다.
-- 터치 타깃 ≥ 44pt · 스페이싱 4px 스케일(`--sp-*`) 공유.
+**⚠️ v1의 "포켓 로비카드"(웹 DESIGN-SYSTEM v4 이식 = 직각·헤어라인·단일 레드 #E3120B)는 폐기됐다.** 웹은 에디토리얼 아카이브고 앱은 결정 도구다 — 같은 토큰을 강요하면 앱이 "축소된 웹"으로 보인다. 남긴 브랜드 실: **PT Serif는 영화/감독 제목과 Invitation 산문에만** 생존.
+
+| 축 | 규칙 | SSOT |
+|---|---|---|
+| 컬러 | 따뜻한 중립(#FFFFFF/#F7F7F7/#222222 · 다크 #111111/#1D1D1D) + **Lava 그라데이션 하나**(#FF385C→#E61E4D→#D70466) | `src/theme.ts` |
+| 그라데이션 용처 | **CTA와 활성 상태에만.** 그 외 전부 중립. 구 플랫 레드 사용 금지 | `GradientBtn` |
+| 라운드 | 동심 스케일 — 버튼 8 · 카드 12~14 · 시트/히어로 24 · 알약 999 | `radius` |
+| 깊이 | 헤어라인 대신 **소프트 앰비언트 섀도**(카드/플로팅), 섹션은 `pal.surface` 그룹 컨테이너 | `shadow` |
+| 크롬 | **블러 반투명 탭바**(Liquid Glass) + 히어로 위 글래스 디스크 버튼 | `(tabs)/_layout.tsx` |
+| 모션 | 전 탭 요소 스프링 프레스(scale 0.96) · 탭 아이콘 바운스 · 하트 펑 | `Tactile`·`motion` |
+| 워딩 | 문장 케이스("Where to watch"), 대문자 아이브로우·레드 킥커 룰 폐지 | `SectionTitle` |
+| 타이포 | Inter가 기본 목소리, PT Serif는 작품 제목·Invitation 전용 | `Ui`·`Serif` |
+
+**화면별 적용:** Tonight=알약 검색바+라운드 카드(플로팅 TS 배지·하트) · Film=풀블리드 히어로+**시트 오버 포토**(−24 오버랩)+스티키 그라데이션 "Watch now" 바 · Director=프로필 헤더+가로 캐러셀 · My=그라데이션 아바타 아이덴티티 카드+그룹 설정 · 온보딩/로그인=그랩핸들 시트+그라데이션 진행바.
+
+**로그인 순서(벤치마크 정확 이식, §5.7):** ① 환영 헤드라인+한 줄 설명 ② 이메일 필드(포커스 링) ③ **그라데이션 Continue** ④ `— or —` 구분선 ⑤ 아웃라인 소셜 행(**Apple 먼저**, iOS 전용 → Google) ⑥ 밑줄 스킵 링크. 코드 입력은 같은 시트에서 6자리 필드로 승계.
+
+**앱 아이콘:** TakeScore 게이지 링(78% 호) + 세리프 M을 Lava 그라데이션 판 위에 — 앱이 소유한 유일한 기호를 마크로 승격. iOS/Android 적응형(전경·배경·모노크롬)·스플래시·파비콘 전 세트 생성(`assets/images/`, 재생성 스크립트는 커밋 이력 참조).
 
 ## §4 네비게이션·동선
 
@@ -172,8 +184,20 @@ Film·Director는 탭이 아니라 어디서든 푸시되는 스택 화면. v1�
 **노출 게이팅 결정(리뷰 채택):** 앱 검색·Tonight은 **전 카탈로그**를 노출한다(가용성이 있으므로). Film 카드는 섹션별 유무 게이트 — 빈 섹션은 자리 표시 없이 접는다. Tier-2도 TS+가용성+Fantasia 리드로 카드가 성립함을 실측으로 확인했다.
 ⚠️ Fantasia 문장은 **EN 전용**(다국어 프로젝션 오너 기결정: 비-EN 로케일에서 숨김) — 비-EN 에디션에서는 폴백 ①이 비활성화되므로 ②로 직행.
 
-### 5.5 Map
-MapLibre Native + 클러스터링. "Near me"(위치 권한은 이 탭에서 처음 요청 — 온보딩에서 요구 금지). 핀 탭 → Film 카드.
+### 5.5 Map — 하나의 데이터 계약, 네 개의 렌더러
+
+`src/lib/pins.ts`가 유일한 핀 로더(시드 국가 글로벌 세트 + `film_geo` 필름 포커스 + GeoJSON/bounds). 라우트가 **실행 바이너리가 실제로 그릴 수 있는** 렌더러를 고르므로 어떤 표면도 막다른 길이 없다:
+
+| 표면 | 렌더러 | 키 |
+|---|---|---|
+| 브라우저 프리뷰 | MapLibre GL JS (`map.web.tsx`) | 불요 |
+| Expo Go · iOS | react-native-maps → Apple 지도 (`MapExpoGo.tsx`) | 불요 |
+| **Expo Go · Android** | **WebView 안의 MapLibre GL JS** (`MapWebView.tsx`) | **불요** |
+| dev/스토어 빌드 | MapLibre GL Native (`MapNative.tsx`) | 불요 |
+
+**Android가 다른 이유:** react-native-maps는 Android에서 Google 지도이고, Google Cloud API 키 없이는 아무것도 그리지 않는다(회색 사각형). WebView는 웹 프리뷰가 쓰는 그 MapLibre 페이지를 그대로 실행 — 실타일·실클러스터·키 0·오너가 들고 있을 자격증명 하나 감소. 페이지↔앱 통신은 `postMessage` 단일 채널이고 앱이 전 필드를 재검증한다(페이지 페이로드 불신). 구글 키를 나중에 도입하면 `map.tsx`의 Android 분기 한 줄 교체.
+
+공통 UX: "Near me"(위치 권한은 이 탭에서 처음 요청 — 온보딩에서 요구 금지) · 핀 탭 → 바텀 카드 → Film 카드.
 
 ### 5.6 My
 찜 목록(가용성 뱃지 갱신 표시 = 푸시의 시각적 쌍둥이)·Seen 원장·알림 설정·**에디션 스위처(국가/언어)**·계정 관리(**인앱 계정 삭제 포함 — Apple 5.1.1(v) 필수**).
@@ -228,15 +252,20 @@ export const EDITIONS = {
 - **§7.3 SSO 핸드오프 (신설 필수):** 앱 로그인 ≠ 웹뷰 로그인(쿠키 분리). 웹에 `GET /auth/handoff?token=` 라우트 1개 신설 — 앱이 세션에서 발급한 **일회용·60초 만료 토큰**을 웹이 소비해 세션을 심고 목적지로 302. 모든 웹뷰 진입은 이 경로를 통과한다. 이것이 없으면 2층 구조가 "로그아웃된 웹"으로 고장 나 보인다.
 - **지도:** MapLibre GL Native + 무료 타일(비용 0). **푸시:** Expo Push(무료) + diff 워커(§6.5). **이미지:** TMDB CDN(로고 표기).
 
-## §8 iOS 우선 — 그리고 "둘 다 기획해야 하나?"에 대한 답
+## §8 양 플랫폼 — iOS·Android 동시 완성 (2026-07-17 개정)
 
-**아니다. 기획·디자인·코드는 이 문서 하나로 양 플랫폼을 커버한다(Expo 공유율 ~95%). 출시 순서만 iOS → Android다.** 단, 나중에 고치면 비싼 3가지만 처음부터 양쪽을 반영한다:
+v2의 "iOS 우선, Android는 P5"는 **달성으로 종료**됐다. 오너 지시(2026-07-17)로 Android를 같은 커밋에서 패리티까지 올렸다 — Expo 단일 코드베이스라 화면·로직·데이터가 100% 공용이고, 플랫폼 분기는 아래 4개뿐이다.
 
-1. **인증 스펙에 Apple+Google 둘 다** — iOS는 Sign in with Apple 의무, Android 사용자는 Google 기대. 지금 둘 다 스펙에 있으므로 추가 결정 불요.
-2. **링크 파일 둘 다 선배포** — `apple-app-site-association` + `assetlinks.json`을 함께 커밋(§4.4). Android 출시일에 웹 변경이 없게.
-3. **플랫폼 전속 UI 패턴 금지** — 하단 탭·스택·시트만 사용(양 플랫폼 공용 문법). iOS HIG 전용 컴포넌트에 기대지 않는다.
+| 분기 | iOS | Android | 파일 |
+|---|---|---|---|
+| 지도(Expo Go) | react-native-maps(Apple 지도) | **WebView + MapLibre GL JS**(Google 키 불요 — §5.5) | `app/(tabs)/map.tsx` 런타임 판별 |
+| 탭바 블러 | `expo-blur` BlurView | 반투명 색상 폴백(블러 비용 회피) | `(tabs)/_layout.tsx` |
+| 로그인 | Sign in with Apple 우선 | 이메일 코드(+Google 예정) | `onboarding.tsx` |
+| 딥링크 | `associatedDomains` + AASA | `intentFilters` + assetlinks | `app.json`·`public/.well-known/` |
 
-Android 추가 시점의 잔여 작업 = Play 등록($25)·데이터 안전 폼·스토어 리스팅·실기기 QA뿐이다.
+**Android 준비물 완료:** 패키지 `net.metatake.app` · 딥링크 인텐트 필터 · **edge-to-edge**(RN 0.86 기본 자세) · `softwareKeyboardLayoutMode: "pan"`(로그인 시트 CTA가 키보드에 가리지 않게) · 적응형 아이콘 3종(전경/배경/모노크롬) · `eas.json` 양 플랫폼 프로필(dev/preview=APK, production=AAB) · **Android 번들 빌드 검증**.
+
+**빌드:** `eas build --platform all` 한 번에 양쪽. iOS는 Apple Developer($99/년), Android는 **내부 APK까지는 계정 불요**(Play 등록 $25는 스토어 공개 시점).
 
 ## §9 구축 순서 (P0 → P5) — TestFlight 게이트 포함
 
@@ -309,6 +338,7 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 - v1 (2026-07-16, `319fed7`): 최초 기획 — 6축+접착제 4개, 탭 5개, P0~P4.
 - **v2 (2026-07-16, `681fbce`): 오너 확정 반영** — 2층 구조 헌법화(§2), Lineage·The Life 네이티브 편입, 다국가 에디션 아키텍처 신설(§6), 디자인 컨셉·동선 상세화(§3~§5), iOS 우선+양플랫폼 준비 3종(§8), TestFlight KPI 게이트(§9), BFF·SSO 핸드오프(§7), 커버리지 실측표(§5.4), 불변식 8→12조.
 - **v2.1 (2026-07-16, c36c1d4): P0~P3 구현 완료 — §15 AS-BUILT 추가.**
+- **v3.0 (2026-07-17): 디자인 대상급 재설계 + Android 패리티** — §3 디자인 시스템 v2 "Lava"(Airbnb 2025 벤치마크·그라데이션 CTA·블러 크롬·스프링 모션·시트 오버 포토·벤치마크 로그인 순서·브랜드 아이콘 세트) 전 화면 적용; §8 iOS 우선 종료→**양 플랫폼 동시**(Android 지도 WebView 해법·edge-to-edge·키보드 pan·eas.json 양쪽·적응형 아이콘); §5.5 지도 4렌더러 표.
 - **v2.3 (2026-07-17): §16 데이터 연동 지도 신설** — 앱↔사이트의 모든 데이터 접점(읽기 10행·쓰기 5행·크론·레지스트리 결합)과 "같이 반영" 체크리스트(§16.5). 관련 정본 4곳(왓투와치·마이필름렌즈·The Meter·AI배포표면)에 상호 링크 블록 추가·STATE.md 배너 등재.
 - **v2.2 (2026-07-16, 70f313a): 완전 시제품** — 지도 3면 실구현(§15.5)·Tonight 카드 리드 채움(편차 #5 해소)·촬영지 핀 융합(발음부호 dedupe)·웹 리더 iframe·스토어 지도 엔진 결정 항목(§12-5). 브라우저 프리뷰가 잡은 결함 3건(§15.6)은 bf1e2b8.
 
@@ -338,6 +368,7 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 | BFF 스모크(실데이터) | ITMFL: TS 73·avail 5·lineage 10·loc 8 핀·the_life 4facts / 왕가위: films 8 전부 ts+tiers / tonight(US, Netflix): 207편 / tmdb-search: Dune Part Three 폴백 |
 | Tier-2 폴백(§5.4) | `hamsun-1996`: invitation 없음→Fantasia 문장 리드 "Hamsun won 'Guldbagge…'" ✓ |
 | 인증 가드 | handoff·account-delete·lens 비인증 401 ✓ |
+| **v3.0 재검증(2026-07-17)** | tsc 0 · **iOS·Android·웹 3번들 전부 빌드** · 브라우저 E2E(Lava 디자인 실물: 그라데이션 CTA·플로팅 배지·블러 탭바) 콘솔 에러 0 · **Android WebView 지도 실검증**(800핀 → 실타일+클러스터 398/155/45, 핀 탭 → 브리지 페이로드 `{name:"Charlotte…", film_slug:"roofman-2025"}` 수신) |
 
 ### 15.3 계약 대비 구현 편차 (전부 의도적)
 
@@ -355,8 +386,9 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 1. **Apple Developer 등록($99/년)** → ① `eas init`(푸시 projectId) ② `eas build --platform ios` ③ `public/.well-known/apple-app-site-association`의 `TEAMID` 교체(수동 커밋).
 2. **Supabase Auth 콘솔**: Apple provider 활성화(Sign in with Apple)·Google provider(선택)·이메일 OTP 템플릿에 `{{ .Token }}` 추가.
 3. (선택) Vercel env `CRON_SECRET` — 푸시 크론 엔드포인트 보호.
-4. (P5 시) Play 등록($25)·`assetlinks.json` SHA256 교체.
-5. TestFlight 4주 게이트(§9) — KPI 4개 미달 시 스토어 출시 보류.
+4. **Android 스토어**: Play 등록($25, 1회) → `eas build --profile production --platform android`(AAB) → **`public/.well-known/assetlinks.json`의 SHA256을 Play 앱서명 지문으로 교체**(수동 커밋). ⚠️내부 배포용 APK는 계정 없이 `--profile preview`로 즉시 가능.
+5. **푸시 자격증명**: iOS=APNs(EAS가 Apple 계정에서 자동 생성) · Android=FCM v1 서비스계정 키(Firebase 콘솔 → `eas credentials`로 업로드). 둘 다 `eas init` 이후.
+6. TestFlight(iOS) / Play 내부 테스트(Android) 4주 게이트(§9) — KPI 4개 미달 시 스토어 출시 보류.
 
 ### 15.5 실행 방법 — 상세는 `mobile/README.md` (정본)
 

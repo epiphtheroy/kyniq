@@ -1,26 +1,32 @@
 // Director card (HANDOFF §2.2) — the decision subset natively (where to start,
 // the selection, filmography-on-your-services, who's next, the life); deep
 // reading is delegated to the in-app reader (invariant §13-9).
+// Design system v2 "Lava": floating chrome discs over a centered identity
+// header, elevated where-to-start hero card, poster carousel for the
+// selection, grouped surface containers for the life + read more.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
-import { Pressable, ScrollView, Share, StyleSheet, View } from "react-native";
+import { FlatList, ScrollView, Share, View, useWindowDimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FilmRow } from "../../src/components/FilmRow";
 import {
   Btn,
+  Chip,
   Hairline,
   Loading,
   PosterImg,
   Screen,
   SectionTitle,
   Serif,
+  Tactile,
   Ui,
 } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, fs, sp, usePalette } from "../../src/theme";
+import { fs, radius, shadow, sp, usePalette } from "../../src/theme";
 import type { DirectorCard as DirectorCardT } from "../../src/types";
 
 type Pick = DirectorCardT["picks"][number];
@@ -31,10 +37,42 @@ function hostOf(url: string): string | null {
   return m ? m[1] : null;
 }
 
+/** Floating chrome disc — hero-page back/share affordance over content. */
+function Disc({
+  icon,
+  onPress,
+}: {
+  icon: React.ComponentProps<typeof Ionicons>["name"];
+  onPress: () => void;
+}) {
+  const pal = usePalette();
+  return (
+    <Tactile onPress={onPress} hitSlop={8}>
+      <View
+        style={[
+          {
+            width: 36,
+            height: 36,
+            borderRadius: radius.pill,
+            backgroundColor: pal.chrome,
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          shadow.card,
+        ]}
+      >
+        <Ionicons name={icon} size={20} color={pal.ink} />
+      </View>
+    </Tactile>
+  );
+}
+
 export default function DirectorScreen() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const router = useRouter();
   const pal = usePalette();
+  const insets = useSafeAreaInsets();
+  const { width: winW } = useWindowDimensions();
   const { country } = usePrefs();
 
   const [card, setCard] = useState<DirectorCardT | null>(null);
@@ -85,6 +123,8 @@ export default function DirectorScreen() {
 
   const facts = useMemo(() => [...(card?.facts ?? [])].sort((a, b) => a.n - b.n), [card]);
 
+  const nextRecs = useMemo(() => [...(card?.next ?? [])].sort((a, b) => a.pos - b.pos), [card]);
+
   const readMore = useMemo(
     () =>
       card
@@ -107,164 +147,171 @@ export default function DirectorScreen() {
 
   if (err)
     return (
-      <Screen style={{ alignItems: "center", justifyContent: "center", gap: sp.s4 }}>
-        <Ui color={pal.muted}>{t("error.network")}</Ui>
+      <Screen style={{ alignItems: "center", justifyContent: "center", gap: sp.s4, padding: sp.s5 }}>
+        <Stack.Screen options={{ headerShown: false }} />
+        <Ui size={fs.md} color={pal.muted}>
+          {t("error.network")}
+        </Ui>
         <Btn
           label={t("action.retry")}
           onPress={() =>
             router.replace({ pathname: "/director/[slug]", params: { slug: String(slug) } })
           }
+          style={{ alignSelf: "stretch" }}
         />
+        <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
+          <Disc icon="chevron-back" onPress={() => router.back()} />
+        </View>
       </Screen>
     );
-  if (!card) return <Loading />;
+  if (!card)
+    return (
+      <Screen>
+        <Stack.Screen options={{ headerShown: false }} />
+        <Loading />
+        <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
+          <Disc icon="chevron-back" onPress={() => router.back()} />
+        </View>
+      </Screen>
+    );
 
   const portraitLead = card.portrait ? (card.portrait.split(/\n{2,}/)[0]?.trim() ?? null) : null;
   const meta = [card.birthday, card.place_of_birth].filter(Boolean).join(" · ");
   const visibleFacts = showAllFacts ? facts : facts.slice(0, 8);
+  const heroW = winW - sp.s4 * 2;
+  const startFilm = startPick?.film_slug ? (filmBySlug.get(startPick.film_slug) ?? null) : null;
 
   return (
     <Screen>
-      <Stack.Screen
-        options={{
-          title: card.name,
-          headerRight: () => (
-            <Pressable onPress={() => Share.share({ message: webUrl })} hitSlop={10}>
-              <Ionicons name="share-outline" size={20} color={pal.ink} />
-            </Pressable>
-          ),
-        }}
-      />
-      <ScrollView contentContainerStyle={{ paddingBottom: sp.s7 }}>
-        {/* Portrait masthead */}
-        <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s4, flexDirection: "row", gap: sp.s4 }}>
-          <PosterImg path={card.profile_path} width={96} height={128} size="w185" />
-          <View style={{ flex: 1 }}>
-            <Serif size={fs.x2} bold>
+      <Stack.Screen options={{ headerShown: false }} />
+
+      <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
+        {/* Identity header — centered portrait, serif name, quiet meta */}
+        <View
+          style={{
+            paddingTop: insets.top + 56,
+            paddingHorizontal: sp.s4,
+            alignItems: "center",
+            gap: sp.s3,
+          }}
+        >
+          <View style={[{ borderRadius: radius.pill }, shadow.card]}>
+            <PosterImg path={card.profile_path} width={96} height={96} size="w185" rounded={radius.pill} />
+          </View>
+          <View style={{ alignItems: "center", gap: 2 }}>
+            <Serif size={fs.x2} bold style={{ textAlign: "center" }}>
               {card.name}
             </Serif>
             {meta ? (
-              <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 2 }}>
+              <Ui size={fs.sm} color={pal.muted} style={{ textAlign: "center" }}>
                 {meta}
               </Ui>
             ) : null}
           </View>
         </View>
         {portraitLead ? (
-          <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
-            <Serif size={fs.base} numberOfLines={6} style={{ lineHeight: fs.base * 1.5 }}>
+          <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s4 }}>
+            <Ui size={fs.base} color={pal.inkSoft} numberOfLines={6}>
               {portraitLead}
-            </Serif>
-            <Pressable onPress={() => openReader(`/director/${card.slug}`, card.name)} hitSlop={8}>
-              <Ui size={fs.sm} color={brand.accent} style={{ paddingVertical: 6 }}>
+            </Ui>
+            <Tactile onPress={() => openReader(`/director/${card.slug}`, card.name)} hitSlop={8}>
+              <Ui
+                size={fs.sm}
+                weight="500"
+                style={{ paddingVertical: 6, textDecorationLine: "underline" }}
+              >
                 {t("common.more")}
               </Ui>
-            </Pressable>
+            </Tactile>
           </View>
         ) : null}
 
-        {/* Where to Start — the entry film, hero-sized */}
+        {/* Where to start — ONE elevated hero card for the entry film */}
         {startPick ? (
           <>
             <SectionTitle>{t("director.whereToStart")}</SectionTitle>
-            <Pressable
+            <Tactile
               disabled={!startPick.film_slug}
               onPress={() => startPick.film_slug && goFilm(startPick.film_slug)}
-              style={({ pressed }) => ({
-                paddingHorizontal: sp.s4,
-                flexDirection: "row",
-                gap: sp.s3,
-                opacity: pressed ? 0.6 : 1,
-              })}
+              style={[
+                {
+                  marginHorizontal: sp.s4,
+                  borderRadius: radius.md,
+                  backgroundColor: pal.card,
+                },
+                shadow.card,
+              ]}
             >
-              <PosterImg
-                path={
-                  startPick.film_slug ? (filmBySlug.get(startPick.film_slug)?.poster_path ?? null) : null
-                }
-                width={60}
-                height={90}
-                size="w185"
-              />
-              <View style={{ flex: 1 }}>
-                <Serif size={fs.lg} numberOfLines={2}>
-                  {startPick.film_title ?? ""}
-                </Serif>
-                {startPick.film_year != null ? (
-                  <Ui size={fs.xs + 1} color={pal.muted} style={{ marginTop: 2 }}>
-                    {startPick.film_year}
+              <View style={{ borderRadius: radius.md, overflow: "hidden" }}>
+                <PosterImg
+                  path={startFilm?.poster_path ?? null}
+                  width={heroW}
+                  height={180}
+                  size="w780"
+                  rounded={0}
+                />
+                <View style={{ padding: sp.s4, gap: sp.s1 }}>
+                  <Ui size={fs.md} weight="600" numberOfLines={2}>
+                    {startPick.film_title ?? ""}
                   </Ui>
-                ) : null}
-                {startPick.reason ? (
-                  <Serif
-                    italic
-                    size={fs.base}
-                    numberOfLines={3}
-                    style={{ marginTop: 4, lineHeight: fs.base * 1.45 }}
-                  >
-                    {startPick.reason}
-                  </Serif>
-                ) : null}
+                  {startPick.film_year != null ? (
+                    <Ui size={fs.sm} color={pal.muted}>
+                      {startPick.film_year}
+                    </Ui>
+                  ) : null}
+                  {startPick.reason ? (
+                    <Serif italic size={fs.base} numberOfLines={3} style={{ marginTop: 2 }}>
+                      {startPick.reason}
+                    </Serif>
+                  ) : null}
+                </View>
               </View>
-            </Pressable>
+            </Tactile>
           </>
         ) : null}
 
-        {/* The Selection — the remaining ranked picks */}
+        {/* The Selection — the remaining ranked picks as a poster carousel */}
         {restPicks.length ? (
           <>
             <SectionTitle>{t("director.theSelection")}</SectionTitle>
-            <View style={{ paddingHorizontal: sp.s4 }}>
-              {restPicks.map((p) => (
-                <Pressable
-                  key={p.pos}
+            <FlatList
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              data={restPicks}
+              keyExtractor={(p) => String(p.pos)}
+              contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
+              renderItem={({ item: p }) => (
+                <Tactile
                   disabled={!p.film_slug}
                   onPress={() => p.film_slug && goFilm(p.film_slug)}
-                  style={({ pressed }) => ({
-                    paddingVertical: sp.s2,
-                    opacity: pressed ? 0.6 : 1,
-                  })}
+                  style={{ width: 132 }}
                 >
-                  <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2 }}>
-                    <Serif size={fs.base} numberOfLines={1} style={{ flexShrink: 1 }}>
-                      {p.pos}. {p.film_title ?? ""}
-                      {p.film_year != null ? ` (${p.film_year})` : ""}
-                    </Serif>
-                    {p.label ? (
-                      <View
-                        style={{
-                          borderWidth: StyleSheet.hairlineWidth,
-                          borderColor: pal.hairline2,
-                          paddingHorizontal: 5,
-                          paddingVertical: 1,
-                        }}
-                      >
-                        <Ui
-                          size={fs.xs}
-                          weight="600"
-                          color={pal.muted}
-                          style={{ letterSpacing: 0.5, textTransform: "uppercase" }}
-                        >
-                          {p.label}
-                        </Ui>
-                      </View>
-                    ) : null}
-                  </View>
-                  {p.reason ? (
-                    <Ui size={fs.xs + 1} color={pal.muted} numberOfLines={2} style={{ marginTop: 2 }}>
-                      {p.reason}
+                  <PosterImg
+                    path={p.film_slug ? (filmBySlug.get(p.film_slug)?.poster_path ?? null) : null}
+                    width={132}
+                    height={198}
+                    size="w342"
+                    rounded={radius.md}
+                  />
+                  <Ui size={fs.sm} weight="500" numberOfLines={2} style={{ marginTop: sp.s2 }}>
+                    {p.film_title ?? ""}
+                  </Ui>
+                  {p.film_year != null ? (
+                    <Ui size={fs.xs} color={pal.muted}>
+                      {p.film_year}
                     </Ui>
                   ) : null}
-                </Pressable>
-              ))}
-            </View>
+                </Tactile>
+              )}
+            />
           </>
         ) : null}
 
         {/* Filmography — THE killer surface: availability dots on every row */}
         {films.length ? (
           <>
-            <SectionTitle>
-              {t("director.filmography")} · {t("director.onYourServices")}
+            <SectionTitle sub={t("director.onYourServices")}>
+              {t("director.filmography")}
             </SectionTitle>
             <View>
               {films.map((f) => (
@@ -285,137 +332,148 @@ export default function DirectorScreen() {
           </>
         ) : null}
 
-        {/* Who's Next — the succession recs */}
-        {card.next.length ? (
+        {/* Who's next — succession recs as a circular-portrait strip */}
+        {nextRecs.length ? (
           <>
             <SectionTitle>{t("director.whosNext")}</SectionTitle>
-            <View>
-              {[...card.next]
-                .sort((a, b) => a.pos - b.pos)
-                .map((n) => (
-                  <Pressable
-                    key={n.pos}
-                    onPress={() =>
-                      n.target_slug
-                        ? router.push({ pathname: "/director/[slug]", params: { slug: n.target_slug } })
-                        : openReader(`/director/${card.slug}/next`, card.name)
-                    }
-                    style={({ pressed }) => ({
-                      flexDirection: "row",
-                      alignItems: "center",
-                      gap: sp.s3,
-                      paddingHorizontal: sp.s4,
-                      paddingVertical: sp.s2 + 2,
-                      backgroundColor: pressed ? pal.surface : "transparent",
-                    })}
+            <FlatList
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              data={nextRecs}
+              keyExtractor={(n) => String(n.pos)}
+              contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s4 }}
+              renderItem={({ item: n }) => (
+                <Tactile
+                  onPress={() =>
+                    n.target_slug
+                      ? router.push({ pathname: "/director/[slug]", params: { slug: n.target_slug } })
+                      : openReader(`/director/${card.slug}/next`, card.name)
+                  }
+                  style={{ width: 84, alignItems: "center" }}
+                >
+                  <PosterImg path={n.profile_path} width={72} height={72} size="w185" rounded={radius.pill} />
+                  <Ui
+                    size={fs.sm}
+                    weight="500"
+                    numberOfLines={2}
+                    style={{ marginTop: sp.s2, textAlign: "center" }}
                   >
-                    <PosterImg path={n.profile_path} width={40} height={40} size="w92" />
-                    <View style={{ flex: 1 }}>
-                      <Serif size={fs.base} numberOfLines={1}>
-                        {n.rec_name}
-                      </Serif>
-                      {n.reason ? (
-                        <Ui size={fs.xs + 1} color={pal.muted} numberOfLines={2}>
-                          {n.reason}
-                        </Ui>
-                      ) : null}
-                    </View>
-                    <Ionicons name="chevron-forward" size={14} color={pal.subtle} />
-                  </Pressable>
-                ))}
-            </View>
+                    {n.rec_name}
+                  </Ui>
+                </Tactile>
+              )}
+            />
           </>
         ) : null}
 
-        {/* The Life — name meaning, intro, numbered facts */}
+        {/* The Life — grouped surface: name meaning, intro, numbered facts */}
         {card.name_meaning || card.intro || facts.length ? (
           <>
             <SectionTitle>{t("director.theLife")}</SectionTitle>
-            <View style={{ paddingHorizontal: sp.s4, gap: sp.s3 }}>
+            <View
+              style={{
+                marginHorizontal: sp.s4,
+                backgroundColor: pal.surface,
+                borderRadius: radius.md,
+                padding: sp.s4,
+                gap: sp.s3,
+              }}
+            >
               {card.name_meaning ? (
                 <Serif italic size={fs.base} style={{ lineHeight: fs.base * 1.5 }}>
                   {card.name_meaning}
                 </Serif>
               ) : null}
               {card.intro ? (
-                <Serif size={fs.base} style={{ lineHeight: fs.base * 1.5 }}>
+                <Ui size={fs.base} color={pal.inkSoft}>
                   {card.intro}
-                </Serif>
+                </Ui>
               ) : null}
               {visibleFacts.map((f) => {
                 const host = f.source ? hostOf(f.source) : null;
                 return (
                   <View key={f.n} style={{ flexDirection: "row", gap: sp.s2 }}>
-                    <Ui size={fs.sm} weight="600" color={pal.muted} style={{ marginTop: 1 }}>
+                    <Ui size={fs.sm} weight="600" color={pal.muted}>
                       {f.n}.
                     </Ui>
-                    <Serif size={fs.base} style={{ flex: 1, lineHeight: fs.base * 1.45 }}>
+                    <Ui size={fs.sm} style={{ flex: 1 }}>
                       {f.text}
                       {host ? (
                         <Ui size={fs.xs} color={pal.subtle}>
                           {"  ↗ " + host}
                         </Ui>
                       ) : null}
-                    </Serif>
+                    </Ui>
                   </View>
                 );
               })}
               {facts.length > 8 ? (
-                <Pressable onPress={() => setShowAllFacts((v) => !v)} hitSlop={8}>
-                  <Ui size={fs.sm} color={brand.accent}>
+                <Tactile onPress={() => setShowAllFacts((v) => !v)} hitSlop={8}>
+                  <Ui size={fs.sm} weight="500" style={{ textDecorationLine: "underline" }}>
                     {showAllFacts ? t("common.showFewer") : t("common.showAll", { n: facts.length })}
                   </Ui>
-                </Pressable>
+                </Tactile>
               ) : null}
             </View>
           </>
         ) : null}
 
-        {/* Read more on Metatake — the webview reading layer */}
+        {/* Read more on Metatake — grouped rows into the webview reading layer */}
         <SectionTitle>{t("action.readMore")}</SectionTitle>
-        <View>
-          {readMore.map((r) => (
+        <View
+          style={{
+            marginHorizontal: sp.s4,
+            backgroundColor: pal.surface,
+            borderRadius: radius.md,
+            overflow: "hidden",
+          }}
+        >
+          {readMore.map((r, i) => (
             <View key={r.path}>
-              <Pressable
+              {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
+              <Tactile
                 onPress={() => openReader(r.path, card.name)}
-                style={({ pressed }) => ({
+                style={{
                   flexDirection: "row",
                   alignItems: "center",
                   gap: sp.s2,
                   paddingHorizontal: sp.s4,
-                  paddingVertical: sp.s3,
-                  backgroundColor: pressed ? pal.surface : "transparent",
-                })}
+                  paddingVertical: sp.s3 + 2,
+                }}
               >
-                <Ui size={fs.sm} weight="500" style={{ flex: 1 }}>
+                <Ui size={fs.md} weight="500" style={{ flex: 1 }}>
                   {r.label}
                 </Ui>
                 {r.chip != null ? (
-                  <View
-                    style={{
-                      borderWidth: StyleSheet.hairlineWidth,
-                      borderColor: pal.hairline2,
-                      paddingHorizontal: 5,
-                      paddingVertical: 1,
-                    }}
-                  >
-                    <Ui size={fs.xs} weight="600" color={pal.muted}>
-                      {r.chip}
-                    </Ui>
+                  <View pointerEvents="none">
+                    <Chip label={String(r.chip)} />
                   </View>
                 ) : null}
-                <Ionicons name="chevron-forward" size={14} color={pal.subtle} />
-              </Pressable>
-              <Hairline style={{ marginLeft: sp.s4 }} />
+                <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+              </Tactile>
             </View>
           ))}
-          <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
-            {t("attribution.tmdb")}
-          </Ui>
         </View>
-
-        <View style={{ height: sp.s6 }} />
+        <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
+          {t("attribution.tmdb")}
+        </Ui>
       </ScrollView>
+
+      {/* Floating chrome — back + share discs over the identity header */}
+      <View
+        style={{
+          position: "absolute",
+          top: insets.top + sp.s2,
+          left: sp.s4,
+          right: sp.s4,
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+        pointerEvents="box-none"
+      >
+        <Disc icon="chevron-back" onPress={() => router.back()} />
+        <Disc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+      </View>
     </Screen>
   );
 }

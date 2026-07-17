@@ -54,7 +54,9 @@
             "DEFAULT"
           ]
         }
-      ]
+      ],
+      "edgeToEdgeEnabled": true,
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "bundler": "metro",
@@ -67,8 +69,12 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
+          "imageWidth": 160,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#FFFFFF",
+          "dark": {
+            "backgroundColor": "#111111"
+          }
         }
       ],
       "expo-secure-store",
@@ -87,6 +93,8 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "primaryColor": "#E61E4D",
+    "backgroundColor": "#FFFFFF"
   }
 }

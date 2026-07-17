@@ -1,21 +1,41 @@
-// Metatake editorial identity ported from web DESIGN-SYSTEM.md v4 / globals.css :root.
-// PT Serif headlines · Inter chrome · single red accent · hairlines · square corners.
+// Design system v2 — "Lava" (2026-07-17, owner directive: benchmark the app rated
+// best-designed in 2026 and follow it closely).
+// Benchmark: Airbnb's 2025 "Lava" design system + iOS 26 Liquid Glass conventions.
+//   - warm neutrals, near-black ink, ONE saturated red→pink gradient for CTAs
+//   - concentric radii: buttons 8 / cards 14 / sheets 24 / pills 999
+//   - soft ambient shadows instead of hairline-only flatness
+//   - blurred translucent chrome (tab bar, headers)
+//   - springy, tactile motion; friendly sentence-case microcopy
+// Brand thread kept: PT Serif survives ONLY for film/director display titles
+// (the editorial nod), and the gradient stays in the Metatake red family.
 import { useColorScheme } from "react-native";
 
 export const brand = {
-  accent: "#E3120B",
-  accentHover: "#B80D05",
+  // Lava gradient — CTA buttons, active states, selection rings.
+  gradA: "#FF385C",
+  gradB: "#E61E4D",
+  gradC: "#D70466",
+  accent: "#E61E4D", // solid fallback of the gradient midpoint
+  accentHover: "#C4103E",
   accentInk: "#FFFFFF",
-  teal: "#167C6B",
-  tsGreen: "#0F6E56", // net TakeScore / Value axis
-  tsRisk: "#C8102E",
+  // TakeScore keeps its own semantic colors (web never-blend adjacency)
+  tsGreen: "#008A05",
+  tsRisk: "#C13515",
   tsCost: "#8A8F98",
-  success: "#2E7D4F",
+  teal: "#128273",
+  success: "#008A05",
 } as const;
+
+export const gradient: readonly [string, string, string] = [
+  brand.gradA,
+  brand.gradB,
+  brand.gradC,
+];
 
 export type Palette = {
   bg: string;
-  surface: string;
+  surface: string; // grouped-section background
+  card: string; // elevated card fill
   ink: string;
   inkSoft: string;
   muted: string;
@@ -23,49 +43,54 @@ export type Palette = {
   hairline: string;
   hairline2: string;
   scrim: string;
+  chrome: string; // translucent chrome tint (tab bar / headers over blur)
 };
 
 export const light: Palette = {
   bg: "#FFFFFF",
-  surface: "#F2F2F2",
-  ink: "#0D0D0D",
-  inkSoft: "#1F1F1F",
-  muted: "#6B6B6B",
-  subtle: "#8F8F8F",
-  hairline: "#D8D8D8",
-  hairline2: "#B9B9B9",
-  scrim: "rgba(0,0,0,0.42)",
+  surface: "#F7F7F7",
+  card: "#FFFFFF",
+  ink: "#222222",
+  inkSoft: "#484848",
+  muted: "#6A6A6A",
+  subtle: "#9E9E9E",
+  hairline: "#EBEBEB",
+  hairline2: "#DDDDDD",
+  scrim: "rgba(0,0,0,0.38)",
+  chrome: "rgba(255,255,255,0.72)",
 };
 
 export const dark: Palette = {
-  bg: "#0D0D0D",
-  surface: "#1F1F1F",
-  ink: "#F2F2F2",
-  inkSoft: "#E5E5E5",
-  muted: "#A9A9A9",
-  subtle: "#8F8F8F",
-  hairline: "rgba(255,255,255,0.18)",
-  hairline2: "rgba(255,255,255,0.30)",
+  bg: "#111111",
+  surface: "#1D1D1D",
+  card: "#1D1D1D",
+  ink: "#F7F7F7",
+  inkSoft: "#E3E3E3",
+  muted: "#B0B0B0",
+  subtle: "#8A8A8A",
+  hairline: "rgba(255,255,255,0.14)",
+  hairline2: "rgba(255,255,255,0.26)",
   scrim: "rgba(0,0,0,0.55)",
+  chrome: "rgba(17,17,17,0.72)",
 };
 
 export function usePalette(): Palette {
   return useColorScheme() === "dark" ? dark : light;
 }
 
-// 4px spacing scale (--sp-*)
+// 4px spacing scale
 export const sp = { s1: 4, s2: 8, s3: 12, s4: 16, s5: 24, s6: 32, s7: 48, s8: 64 } as const;
 
-// Fluid ramp minimums (phone values of --fs-*)
+// Type ramp (Airbnb Cereal analog = Inter; serif reserved for display titles)
 export const fs = {
-  xs: 10.5,
-  sm: 12.5,
+  xs: 11,
+  sm: 13,
   base: 15,
   md: 16,
-  lg: 18.5,
-  xl: 20,
-  x2: 24,
-  x3: 30,
+  lg: 18,
+  xl: 22,
+  x2: 26,
+  x3: 32,
 } as const;
 
 export const font = {
@@ -78,14 +103,38 @@ export const font = {
   uiBold: "Inter_700Bold",
 } as const;
 
-// Square corners are the signature — radius stays 0 everywhere except pills (999).
-export const radius = { none: 0, pill: 999 } as const;
+// Concentric radius scale (benchmark: buttons 8 · cards 14 · sheets/strips 24-32)
+export const radius = { xs: 8, sm: 12, md: 14, lg: 24, xl: 32, pill: 999 } as const;
 
-// Availability tier → dot color (sub = you have it, free = open, rent/buy = pay-per-view)
+// Soft ambient elevation (the benchmark's card/search-bar shadow)
+export const shadow = {
+  card: {
+    shadowColor: "#000000",
+    shadowOpacity: 0.12,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 4,
+  },
+  float: {
+    shadowColor: "#000000",
+    shadowOpacity: 0.18,
+    shadowRadius: 20,
+    shadowOffset: { width: 0, height: 10 },
+    elevation: 8,
+  },
+} as const;
+
+// Motion constants — springy, tactile (press scale, tab bounce)
+export const motion = {
+  pressScale: 0.96,
+  spring: { damping: 16, stiffness: 220, mass: 0.6 },
+} as const;
+
+// Availability tier → dot color
 export function tierColor(kind: string): string {
   if (kind === "flatrate" || kind === "library") return brand.tsGreen;
   if (kind === "free" || kind === "ads") return brand.teal;
-  return "#8F8F8F";
+  return "#9E9E9E";
 }
 export function tierGroup(kind: string): "sub" | "free" | "rent" {
   if (kind === "flatrate" || kind === "library") return "sub";

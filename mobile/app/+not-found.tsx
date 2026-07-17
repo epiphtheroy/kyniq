@@ -3,7 +3,7 @@
 // dead screen — the whole site stays reachable from the app.
 import { Redirect, Stack, usePathname, useRouter } from "expo-router";
 import React from "react";
-import { Btn, Screen, Serif, Ui } from "../src/components/ui";
+import { GradientBtn, Screen, Ui } from "../src/components/ui";
 import { t } from "../src/i18n";
 import { fs, sp, usePalette } from "../src/theme";
 
@@ -26,16 +26,16 @@ export default function NotFoundScreen() {
       }}
     >
       <Stack.Screen options={{ title: "" }} />
-      <Serif size={fs.x2} bold>
+      <Ui size={fs.x2} weight="600" style={{ textAlign: "center" }}>
         {t("notfound.title")}
-      </Serif>
+      </Ui>
       <Ui color={pal.muted} style={{ textAlign: "center" }}>
         {t("notfound.body")}
       </Ui>
-      <Btn
+      <GradientBtn
         label={t("notfound.back")}
         onPress={() => router.replace("/(tabs)")}
-        style={{ marginTop: sp.s2 }}
+        style={{ marginTop: sp.s2, alignSelf: "stretch" }}
       />
     </Screen>
   );
