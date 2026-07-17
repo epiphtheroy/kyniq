@@ -18,7 +18,11 @@ We would rather you use this work with credit than not use it at all. Two licenc
 
 **Facts and geodata are CC BY 4.0.** The filming-locations dataset — and the same data served through the [API](/methodology/api) — is free to use, share, adapt, and even build a commercial product on, on one condition: **attribute Metatake and link back.** That is the whole of it.
 
-**Our writing is CC BY-NC 4.0.** The original criticism — the readings, the essays, the scored assessments — is also free to quote and reuse **with attribution**, but **not commercially**. It is the part a named editor directs, reviews and answers for — drafted by Metatake AI, checked by a person, published under our name — so we keep it out of commercial reuse while leaving it open to readers, students and researchers.
+**Our writing is CC BY-NC 4.0.** The original criticism — the readings, the essays, the scored assessments — is free to quote and reuse **with attribution**, but **not commercially**.
+
+Be precise about what that licence rests on, because the obvious answer is the wrong one. It does not rest on a person having typed these sentences. A person did not: Metatake AI writes them, and this site says so on the page. What it rests on is the part that took the judgement and the investment — **which films get read at all, under which of fourteen frameworks, which figure a reading follows, how the readings are placed against each other, and what the record has to survive before it ships.** That selection, that arrangement, that corpus, and the corroboration behind the factual layers are the work of a named person and years of it. That is the thing we license, and the thing we ask you not to sell.
+
+So: quote a reading, with attribution, and we are glad — that is what it is for. Take the collection, or a substantial part of it, strip the source link, and present it as your own reading of cinema, and you are not taking a sentence. You are taking the part someone actually made, and you are taking from the reader too — the link is what lets them check the method behind the claim, and without it your version is exactly the unsourced verdict this whole site exists to refuse.
 
 In both cases attribution is not a formality but the point: every surface on the site, and every response the machines return, carries a source link for exactly this reason. Keep it, and you are free to go.
 
