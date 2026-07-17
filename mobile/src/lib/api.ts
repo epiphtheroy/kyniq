@@ -4,12 +4,18 @@
 //  - personalization (hide-seen) via /api/lens/* with a Bearer token
 import { METATAKE_BASE } from "../config";
 import type {
+  BlindspotRow,
+  CollectionRow,
+  CoverageRow,
   DirectorCard,
   FilmCard,
+  RateStats,
   SearchRow,
   Service,
   TmdbFallbackRow,
   TonightPayload,
+  WatchlistScoredRow,
+  WwiRow,
 } from "../types";
 import { supabase } from "./supabase";
 
@@ -45,13 +51,14 @@ export const api = {
   tonight(
     country: string,
     providers: number[],
-    opts?: { genres?: string[]; yearMin?: number; yearMax?: number; offset?: number },
+    opts?: { genres?: string[]; yearMin?: number; yearMax?: number; offset?: number; preset?: string },
   ): Promise<TonightPayload> {
     const q = new URLSearchParams({ country });
     if (providers.length) q.set("providers", providers.join(","));
     if (opts?.genres?.length) q.set("genres", opts.genres.join(","));
     if (opts?.yearMin) q.set("year_min", String(opts.yearMin));
     if (opts?.yearMax) q.set("year_max", String(opts.yearMax));
+    if (opts?.preset) q.set("preset", opts.preset);
     if (opts?.offset) q.set("offset", String(opts.offset));
     return getJSON(`/api/v1/app/tonight?${q.toString()}`);
   },
@@ -192,5 +199,101 @@ export const api = {
       },
       { onConflict: "user_id" },
     );
+  },
+};
+
+const wwiMemo = new Map<string, Promise<WwiRow[]>>();
+
+// ---------------------------------------------------------------------------
+// v4 personal reads — the `me_*` family, called directly with the user's JWT
+// (auth.uid()-scoped SECURITY DEFINER; authenticated EXECUTE verified live
+// 2026-07-17). Small per-user payloads, so no BFF hop. Ledger WRITES live in
+// src/state/films.tsx — screens must mutate through the provider, not here.
+export const me = {
+  /** Personal ranked candidates + reason chips. λ: 1.4 cautious / 1.0 balanced / 0.6 bold. */
+  async recommend(lambda: number, limit: number): Promise<WwiRow[]> {
+    const { data, error } = await supabase.rpc("me_recommend_wwi", {
+      p_lambda: lambda,
+      p_limit: limit,
+    });
+    if (error) throw error;
+    return (data ?? []) as WwiRow[];
+  },
+
+  /**
+   * Session-memoized wwi — one fetch per λ powers Tonight reason chips, the
+   * film brief's For You section, and the Bold pick source without re-querying.
+   * Resolves to [] when signed out or on error (callers render nothing — §13-17).
+   */
+  recommendCached(lambda: number, limit = 60): Promise<WwiRow[]> {
+    const key = `${lambda}:${limit}`;
+    const hit = wwiMemo.get(key);
+    if (hit) return hit;
+    const p = this.recommend(lambda, limit).catch(() => [] as WwiRow[]);
+    wwiMemo.set(key, p);
+    return p;
+  },
+
+  /** Drop wwi memos — call after judgments change what should be recommended. */
+  invalidateRecommend(): void {
+    wwiMemo.clear();
+  },
+
+  /** Shelf queue — watchlist rows with scores + availability + added_at. */
+  async watchlistScored(): Promise<WatchlistScoredRow[]> {
+    const out: WatchlistScoredRow[] = [];
+    // TABLE-returning RPC obeys the PostgREST 1000-row cap — page with .range().
+    for (let from = 0; from < 5000; from += 1000) {
+      const { data, error } = await supabase.rpc("me_watchlist_scored").range(from, from + 999);
+      if (error || !data) break;
+      out.push(...(data as WatchlistScoredRow[]));
+      if ((data as unknown[]).length < 1000) break;
+    }
+    return out;
+  },
+
+  /** Seen positions (rating + prestige → verdict recap). Pages the 1000-row cap. */
+  async collection(maxRows = 4000): Promise<CollectionRow[]> {
+    const out: CollectionRow[] = [];
+    for (let from = 0; from < maxRows; from += 1000) {
+      const { data, error } = await supabase.rpc("me_collection").range(from, from + 999);
+      if (error || !data) break;
+      out.push(...(data as CollectionRow[]));
+      if ((data as unknown[]).length < 1000) break;
+    }
+    return out;
+  },
+
+  async rateStats(): Promise<RateStats | null> {
+    const { data, error } = await supabase.rpc("me_rate_stats");
+    if (error || !data) return null;
+    const row = Array.isArray(data) ? data[0] : data;
+    return (row ?? null) as RateStats | null;
+  },
+
+  async coverage(minTotal = 5, limit = 40): Promise<CoverageRow[]> {
+    const { data, error } = await supabase.rpc("me_coverage", {
+      p_min_total: minTotal,
+      p_limit: limit,
+    });
+    if (error) return [];
+    return (data ?? []) as CoverageRow[];
+  },
+
+  async blindspots(limit = 3, minTotal = 10, minAw = 0): Promise<BlindspotRow[]> {
+    const { data, error } = await supabase.rpc("me_blindspots", {
+      p_limit: limit,
+      p_min_total: minTotal,
+      p_min_aw: minAw,
+    });
+    if (error) return [];
+    return (data ?? []) as BlindspotRow[];
+  },
+
+  /** Director oeuvre conquest — returns the /room JSON blob as-is. */
+  async auteurConquest(limit = 6): Promise<unknown> {
+    const { data, error } = await supabase.rpc("me_auteur_conquest", { p_limit: limit });
+    if (error) return null;
+    return data;
   },
 };

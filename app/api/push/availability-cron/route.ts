@@ -11,6 +11,12 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *   (user, film, provider, country), then record in push_sent.
  * Runs daily; no-op while there are no opted-in users. Send path uses Expo's
  * public push API (no SDK). Fail-open per user — one bad row never kills the run.
+ *
+ * Mondays only (UTC), a second block sends the stale-watchlist nudge
+ * (HANDOFF §16.3 / §9 P-D): one summary push per user whose watchlist has
+ * rows older than STALE_DAYS. The Monday gate on this daily cron IS the
+ * weekly cap — nudges are stateless, no push_sent rows (that ledger is keyed
+ * by per-film provider arrivals), no new tables.
  */
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -18,6 +24,7 @@ export const maxDuration = 60;
 
 const TIERS = ["flatrate", "free", "ads"];
 const USER_CAP = 500;
+const STALE_DAYS = 90;
 
 type Prefs = { user_id: string; country_code: string; provider_ids: number[] | null };
 type Fpi = { film_id: string; provider_id: number; provider_name: string; kind: string };
@@ -127,6 +134,42 @@ export async function GET(req: Request) {
     }
   }
 
+  // ── Monday stale-watchlist nudge (HANDOFF §16.3 / §9 P-D) ────────────────
+  // One summary push per opted-in user with watchlist rows added > 90 days
+  // ago. head:true count per user keeps this under the PostgREST 1000-row cap
+  // and transfers no rows. Same fail-open-per-user contract as above.
+  let nudged = 0;
+  if (new Date().getUTCDay() === 1) {
+    const cutoff = new Date(Date.now() - STALE_DAYS * 86400_000).toISOString();
+    for (const pref of prefs) {
+      try {
+        const tokens = tokensByUser.get(pref.user_id) ?? [];
+        if (!tokens.length) continue;
+
+        const { count } = await db
+          .from("user_movies")
+          .select("film_id", { count: "exact", head: true })
+          .eq("user_id", pref.user_id)
+          .eq("watchlist", true)
+          .lt("added_at", cutoff);
+        if (!count) continue;
+
+        const body =
+          count === 1
+            ? "Still planning to watch 1 film?"
+            : `Still planning to watch ${count} films?`;
+        // Deep link stays a metatake.net URL (§13-2); /room is the
+        // watchlist's web home.
+        for (const to of tokens) {
+          messages.push({ to, title: "Metatake", body, data: { url: "https://metatake.net/room" } });
+        }
+        nudged++;
+      } catch {
+        /* fail-open per user */
+      }
+    }
+  }
+
   let sent = 0;
   for (let i = 0; i < messages.length; i += 100) {
     try {
@@ -152,5 +195,5 @@ export async function GET(req: Request) {
     }
   }
 
-  return NextResponse.json({ ok: true, users: usersNotified, sent, ledgered: ledger.length });
+  return NextResponse.json({ ok: true, users: usersNotified, sent, ledgered: ledger.length, nudged });
 }

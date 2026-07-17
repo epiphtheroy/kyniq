@@ -1,31 +1,43 @@
-// Film card — the app's heart (HANDOFF §5.1). Native decision layer only;
-// deep reading is delegated to the in-app reader (invariant §13-9).
-// Skinned to design system v2 "Lava": full-bleed hero with floating glass discs,
-// sheet-over-photo content, grouped surface sections, sticky gradient CTA bar.
+// Film card — the JUDGMENT BRIEF, the app's heart (HANDOFF §5.1, §5.0).
+// Native decision layer only; deep reading is delegated to the in-app reader
+// (invariant §13-9). Design system v2 "Lava": full-bleed hero with floating
+// glass discs, sheet-over-photo content, grouped surface sections.
+// v4: VerdictStrip (rank + V/C/R + runtime + dots), For You (server-supplied
+// evidence only — §13-17), What to Expect (13-dim chips), JudgeBar pinned
+// bottom with instant undo on every transition (§13-15), Considering ring
+// buffer input (D2). My-rating stars stay visually apart from the TakeScore
+// group (never-blend, §13-18).
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ScrollView, Share, StyleSheet, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TSDonut } from "../../src/components/TSDonut";
 import {
+  AvailabilityDots,
   Btn,
-  GradientBtn,
   Hairline,
+  JudgeBar,
   Loading,
   PosterImg,
+  ReasonChip,
   Screen,
   SectionTitle,
   Serif,
+  StarRow,
   Tactile,
   Ui,
+  UndoPill,
+  VcrBars,
 } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { t } from "../../src/i18n";
-import { api } from "../../src/lib/api";
-import { useFilms } from "../../src/state/films";
+import { api, me } from "../../src/lib/api";
+import { noteJudged, noteOpened } from "../../src/lib/considering";
+import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
+import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, radius, shadow, sp, tierColor, usePalette } from "../../src/theme";
 import type { FilmCard as FilmCardT } from "../../src/types";
@@ -87,6 +99,9 @@ function Group({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Judgment toast — UndoPill when reversible, quiet notice pill otherwise. */
+type Toast = { label: string; token: JudgmentUndo | null };
+
 export default function FilmScreen() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const router = useRouter();
@@ -94,15 +109,34 @@ export default function FilmScreen() {
   const { width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const { country, locale } = usePrefs();
-  const { session, ledger, toggleSeen, toggleWatchlist } = useFilms();
+  const {
+    session,
+    ledger,
+    ready,
+    entry: entryOf,
+    setWatchlist,
+    dismiss,
+    undismiss,
+    markSeen,
+    rate,
+    undo,
+  } = useFilms();
 
   const [card, setCard] = useState<FilmCardT | null>(null);
   const [err, setErr] = useState(false);
+  const [reasons, setReasons] = useState<string[]>([]);
+  const [toast, setToast] = useState<Toast | null>(null);
+  const [showRating, setShowRating] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     let alive = true;
     setCard(null);
     setErr(false);
+    setReasons([]);
+    setToast(null);
+    setShowRating(false);
     api
       .film(String(slug), country, locale)
       .then((c) => alive && setCard(c))
@@ -111,6 +145,36 @@ export default function FilmScreen() {
       alive = false;
     };
   }, [slug, country, locale]);
+
+  // For You (a): my wwi reason chips for this film — server-supplied only (§13-17).
+  useEffect(() => {
+    let alive = true;
+    if (!session || !card) return;
+    me.recommendCached(1.0).then((rows) => {
+      if (!alive) return;
+      const r = rows.find((x) => x.slug === card.slug)?.reasons;
+      setReasons(r ? r.slice(0, 3) : []);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [session, card]);
+
+  // Considering (D2): opened the brief with no judgment on record → ring buffer.
+  useEffect(() => {
+    if (!card || !ready) return;
+    const e = entryOf(card.slug);
+    if (!e.seen && !e.watchlist && !e.dismissed) {
+      void noteOpened({ slug: card.slug, title: card.title, poster_path: card.poster_path });
+    }
+  }, [card, ready, entryOf]);
+
+  useEffect(
+    () => () => {
+      if (toastTimer.current) clearTimeout(toastTimer.current);
+    },
+    [],
+  );
 
   const entry = card ? ledger.get(card.slug) : undefined;
   const webUrl = `${METATAKE_BASE}/film/${slug}`;
@@ -133,14 +197,98 @@ export default function FilmScreen() {
     [card],
   );
 
-  const requireSession = (fn: () => void) => {
+  // For You (b): kindred films the ledger marks seen.
+  const kindredSeen = useMemo(
+    () => (card?.kindred ?? []).filter((k) => ledger.get(k.slug)?.seen),
+    [card, ledger],
+  );
+
+  const flash = useCallback((label: string, token: JudgmentUndo | null) => {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast({ label, token });
+    toastTimer.current = setTimeout(() => setToast(null), 4000);
+  }, []);
+
+  /** After any successful judgment (§5.0): settle Considering + drop wwi memos. */
+  const afterJudgment = useCallback((s: string) => {
+    void noteJudged(s);
+    me.invalidateRecommend();
+  }, []);
+
+  /** Signed-out judgment attempt → notice + onboarding (UX doctrine §4.1). */
+  const guard = useCallback((): boolean => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     if (!session) {
-      router.push({ pathname: "/onboarding", params: { step: "account" } });
+      flash(t("judge.signInToKeep"), null);
+      router.push("/onboarding");
+      return false;
+    }
+    return true;
+  }, [session, flash, router]);
+
+  const onWant = useCallback(async () => {
+    if (!card || busy || !guard()) return;
+    const on = !(entry?.watchlist ?? false);
+    setBusy(true);
+    const token = await setWatchlist(card.slug, on);
+    setBusy(false);
+    if (token) {
+      // No dedicated "removed" key — reuse judge.undo as the removal message.
+      flash(on ? t("judge.kept") : t("judge.removed"), token);
+      afterJudgment(card.slug);
+    }
+  }, [card, busy, guard, entry?.watchlist, setWatchlist, flash, afterJudgment]);
+
+  const onPass = useCallback(async () => {
+    if (!card || busy || !guard()) return;
+    const wasDismissed = entry?.dismissed ?? false;
+    setBusy(true);
+    const token = wasDismissed ? await undismiss(card.slug) : await dismiss(card.slug);
+    setBusy(false);
+    if (token) {
+      flash(wasDismissed ? t("judge.restore") : t("judge.passed"), token);
+      afterJudgment(card.slug);
+    }
+  }, [card, busy, guard, entry?.dismissed, undismiss, dismiss, flash, afterJudgment]);
+
+  const onSeen = useCallback(async () => {
+    if (!card || busy) return;
+    if (entry?.seen) {
+      // Already seen: toggle the rating row; undoing seen goes through the
+      // UndoPill token from markSeen — never a confirm dialog (§13-15).
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      setShowRating((s) => !s);
       return;
     }
-    fn();
-  };
+    if (!guard()) return;
+    setBusy(true);
+    const token = await markSeen(card.slug);
+    setBusy(false);
+    if (token) {
+      flash(t("judge.seenMarked"), token);
+      setShowRating(true);
+      afterJudgment(card.slug);
+    }
+  }, [card, busy, guard, entry?.seen, markSeen, flash, afterJudgment]);
+
+  const onRate = useCallback(
+    async (v: number) => {
+      if (!card || !guard()) return;
+      const token = await rate(card.slug, v);
+      if (token) afterJudgment(card.slug);
+    },
+    [card, guard, rate, afterJudgment],
+  );
+
+  const onUndoPress = useCallback(() => {
+    const tk = toast?.token;
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast(null);
+    if (tk) {
+      void undo(tk);
+      me.invalidateRecommend();
+    }
+  }, [toast, undo]);
 
   if (err)
     return (
@@ -165,12 +313,16 @@ export default function FilmScreen() {
 
   const heroH = Math.round(width * 0.72);
   const lead = card.invitation ?? (card.lead_fallback.length ? card.lead_fallback.join(" ") : null);
-  const firstAvail = card.availability[0] ?? null;
+  const availKinds = [...new Set(card.availability.map((a) => a.kind))];
+  const hasRank = card.rank != null && card.rank_total != null;
+  const topDims = card.dims?.length ? [...card.dims].sort((a, b) => b.val - a.val).slice(0, 3) : [];
+  const myVerdict =
+    entry?.rating != null && card.standing != null ? verdictOf(entry.rating, card.standing) : null;
 
   return (
     <Screen>
       <Stack.Screen options={{ headerShown: false }} />
-      <ScrollView contentContainerStyle={{ paddingBottom: 150 }} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 240 }} showsVerticalScrollIndicator={false}>
         {/* Hero — full-bleed image, top scrim, floating glass controls */}
         <View style={{ width, height: heroH, backgroundColor: "#000" }}>
           <PosterImg
@@ -201,7 +353,7 @@ export default function FilmScreen() {
             <IconDisc
               icon={entry?.watchlist ? "heart" : "heart-outline"}
               color={entry?.watchlist ? brand.accent : pal.ink}
-              onPress={() => requireSession(() => toggleWatchlist(card.slug, card.film_id))}
+              onPress={() => void onWant()}
             />
           </View>
         </View>
@@ -223,13 +375,7 @@ export default function FilmScreen() {
                 {card.title}
               </Serif>
               <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 4 }}>
-                {[
-                  card.year,
-                  card.runtime ? `${card.runtime} min` : null,
-                  ...(card.genres ?? []).slice(0, 2),
-                ]
-                  .filter(Boolean)
-                  .join(" · ")}
+                {[card.year, ...(card.genres ?? []).slice(0, 2)].filter(Boolean).join(" · ")}
               </Ui>
               {card.director ? (
                 <Tactile
@@ -253,6 +399,33 @@ export default function FilmScreen() {
             {card.ts != null ? <TSDonut val={card.ts} size={64} label="TakeScore" /> : null}
           </View>
 
+          {/* VerdictStrip — rank + V/C/R + runtime + availability dots (§5.1).
+              Each fragment renders only when its data exists (§13-17). */}
+          {hasRank || card.vcr || card.runtime || availKinds.length ? (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: sp.s3,
+                paddingHorizontal: sp.s4,
+                marginTop: sp.s3,
+              }}
+            >
+              {hasRank ? (
+                <Ui size={fs.xs} weight="600" color={pal.inkSoft}>
+                  {t("film.rankOf", { rank: card.rank as number, total: card.rank_total as number })}
+                </Ui>
+              ) : null}
+              {card.vcr ? <VcrBars v={card.vcr.v} c={card.vcr.c} r={card.vcr.r} width={64} /> : null}
+              {card.runtime ? (
+                <Ui size={fs.xs} color={pal.muted}>
+                  {card.runtime} min
+                </Ui>
+              ) : null}
+              {availKinds.length ? <AvailabilityDots tiers={availKinds} /> : null}
+            </View>
+          ) : null}
+
           {/* An Invitation */}
           {lead ? (
             <>
@@ -261,6 +434,86 @@ export default function FilmScreen() {
                 <Serif size={fs.md} style={{ lineHeight: fs.md * 1.6 }}>
                   {lead}
                 </Serif>
+              </View>
+            </>
+          ) : null}
+
+          {/* For You — signed-in, server-supplied evidence only; whole section
+              omitted when both sources are empty (§13-17). */}
+          {session && (reasons.length > 0 || kindredSeen.length > 0) ? (
+            <>
+              <SectionTitle>{t("film.forYou")}</SectionTitle>
+              {reasons.length ? (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    flexWrap: "wrap",
+                    gap: sp.s2,
+                    paddingHorizontal: sp.s4,
+                  }}
+                >
+                  {reasons.map((r) => (
+                    <ReasonChip key={r} label={r} />
+                  ))}
+                </View>
+              ) : null}
+              {kindredSeen.length ? (
+                <>
+                  <Ui
+                    size={fs.sm}
+                    weight="500"
+                    color={pal.inkSoft}
+                    style={{ paddingHorizontal: sp.s4, marginTop: reasons.length ? sp.s3 : 0 }}
+                  >
+                    {t("film.kindredSeen", { n: kindredSeen.length })}
+                  </Ui>
+                  <View style={{ marginTop: sp.s2 }}>
+                    <Group>
+                      {kindredSeen.map((k, i) => (
+                        <View key={k.slug}>
+                          {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
+                          <Tactile
+                            onPress={() =>
+                              router.push({ pathname: "/film/[slug]", params: { slug: k.slug } })
+                            }
+                            style={{
+                              flexDirection: "row",
+                              alignItems: "baseline",
+                              gap: sp.s2,
+                              paddingHorizontal: sp.s4,
+                              paddingVertical: 11,
+                            }}
+                          >
+                            <Ui size={fs.sm} weight="500" numberOfLines={1} style={{ flexShrink: 1 }}>
+                              {k.title}
+                            </Ui>
+                            <Ui size={fs.xs} color={pal.muted}>
+                              {k.year ?? ""}
+                            </Ui>
+                            <View style={{ flex: 1 }} />
+                            <Ui size={fs.xs} color={pal.muted}>
+                              {t("film.sharedThreads", { n: k.shared })}
+                            </Ui>
+                          </Tactile>
+                        </View>
+                      ))}
+                    </Group>
+                  </View>
+                </>
+              ) : null}
+            </>
+          ) : null}
+
+          {/* What to Expect — 13-dim fact chips, rule-based (§5.1 P-D). */}
+          {topDims.length ? (
+            <>
+              <SectionTitle>{t("film.whatToExpect")}</SectionTitle>
+              <View
+                style={{ flexDirection: "row", flexWrap: "wrap", gap: sp.s2, paddingHorizontal: sp.s4 }}
+              >
+                {topDims.map((d) => (
+                  <ReasonChip key={d.key} label={`${d.label} · ${Math.round(d.val)}`} />
+                ))}
               </View>
             </>
           ) : null}
@@ -464,65 +717,90 @@ export default function FilmScreen() {
         </View>
       </ScrollView>
 
-      {/* Sticky decision bar — the benchmark reserve-bar grammar */}
+      {/* Judgment stack — toast, rating row, and the JudgeBar pinned bottom.
+          The rating row lives here, far from the TakeScore group (§13-18). */}
       <View
+        pointerEvents="box-none"
         style={{
           position: "absolute",
           left: 0,
           right: 0,
           bottom: 0,
-          flexDirection: "row",
-          alignItems: "center",
-          gap: sp.s3,
-          borderTopWidth: StyleSheet.hairlineWidth,
-          borderTopColor: pal.hairline,
-          backgroundColor: pal.bg,
-          paddingTop: sp.s3,
           paddingHorizontal: sp.s4,
           paddingBottom: Math.max(insets.bottom, sp.s3),
+          gap: sp.s2,
         }}
       >
-        <View style={{ flex: 1 }}>
-          {firstAvail ? (
-            <>
-              <Ui size={fs.sm} weight="600" numberOfLines={1}>
-                {firstAvail.name}
-              </Ui>
-              <Ui size={fs.xs} color={pal.muted}>
-                {KIND_LABEL[firstAvail.kind]
-                  ? t(KIND_LABEL[firstAvail.kind] as Parameters<typeof t>[0])
-                  : firstAvail.kind}
-              </Ui>
-            </>
+        {toast ? (
+          toast.token ? (
+            <UndoPill label={toast.label} actionLabel={t("judge.undo")} onUndo={onUndoPress} />
           ) : (
-            <Ui size={fs.xs} color={pal.muted} numberOfLines={2}>
-              {t("film.notStreaming", { country })}
-            </Ui>
-          )}
-        </View>
-        <Tactile onPress={() => requireSession(() => toggleSeen(card.slug, card.film_id))} hitSlop={6}>
+            <View
+              style={[
+                {
+                  alignSelf: "center",
+                  borderRadius: radius.pill,
+                  paddingHorizontal: sp.s4,
+                  paddingVertical: 10,
+                  backgroundColor: pal.ink,
+                },
+                shadow.float,
+              ]}
+            >
+              <Ui size={fs.sm} color={pal.bg} numberOfLines={1} style={{ maxWidth: 260 }}>
+                {toast.label}
+              </Ui>
+            </View>
+          )
+        ) : null}
+
+        {showRating && entry?.seen ? (
           <View
-            style={{
-              width: 44,
-              height: 44,
-              borderRadius: radius.pill,
-              borderWidth: 1,
-              borderColor: entry?.seen ? brand.tsGreen : pal.hairline2,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            style={[
+              {
+                borderRadius: radius.md,
+                backgroundColor: pal.card,
+                borderWidth: StyleSheet.hairlineWidth,
+                borderColor: pal.hairline,
+                padding: sp.s4,
+                gap: sp.s3,
+              },
+              shadow.card,
+            ]}
           >
-            <Ionicons
-              name={entry?.seen ? "checkmark-circle" : "checkmark-circle-outline"}
-              size={22}
-              color={entry?.seen ? brand.tsGreen : pal.muted}
-            />
+            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+              <Ui size={fs.sm} weight="600">
+                {t("judge.yourRating")}
+              </Ui>
+              {myVerdict ? (
+                <View
+                  style={{
+                    borderRadius: radius.pill,
+                    borderWidth: 1,
+                    borderColor: verdictColor(myVerdict),
+                    paddingHorizontal: 10,
+                    paddingVertical: 3,
+                  }}
+                >
+                  <Ui size={fs.xs} weight="600" color={verdictColor(myVerdict)}>
+                    {t(verdictKey(myVerdict))}
+                  </Ui>
+                </View>
+              ) : null}
+            </View>
+            <StarRow value={entry?.rating ?? null} onChange={(v) => void onRate(v)} />
           </View>
-        </Tactile>
-        <GradientBtn
-          label={t("action.watchNow")}
-          onPress={() => openReader(`/whereto/${card.slug}`, card.title)}
-          style={{ width: "44%" }}
+        ) : null}
+
+        <JudgeBar
+          want={entry?.watchlist ?? false}
+          passed={entry?.dismissed ?? false}
+          seen={entry?.seen ?? false}
+          busy={busy}
+          onWant={() => void onWant()}
+          onPass={() => void onPass()}
+          onSeen={() => void onSeen()}
+          labels={{ want: t("judge.want"), pass: t("judge.pass"), seen: t("judge.seenIt") }}
         />
       </View>
     </Screen>

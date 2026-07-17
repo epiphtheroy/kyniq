@@ -1,14 +1,18 @@
-// MY tab (HANDOFF §5.6) — watchlist (the holding queue), Seen ledger,
-// edition switcher, notifications, account (in-app deletion — Apple 5.1.1(v)).
-// Skinned to design system v2 "Lava": gradient-avatar identity card, chip
-// segmented control, whitespace list rows, grouped settings on a surface card.
+// SHELF tab (HANDOFF v4 §5.6) — the judgment portfolio, 3 zones:
+//   ① Queue — watchlist × my-services availability (AgeBadge commitment decay)
+//   ② Deciding + Verdicts — the Considering pile (§5.0-D2) + Find/Aligned/Letdown recap
+//   ③ Journey — lineage conquest (me_coverage) + one blindspot (me_blindspots) → /room webview
+// ALL settings (edition switcher, services, notifications, account, in-app
+// deletion — Apple 5.1.1(v)) live behind the top-right gear in a full-screen
+// modal. Data path: me_* RPCs via app JWT (§7) + film_availability decoration.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as AppleAuthentication from "expo-apple-authentication";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Alert,
+  Modal,
   Platform,
   RefreshControl,
   ScrollView,
@@ -20,37 +24,44 @@ import {
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
+  AgeBadge,
   AvailabilityDots,
   Btn,
-  Chip,
   GradientBtn,
   Hairline,
   PosterImg,
   SectionTitle,
   Tactile,
-  TSBadge,
   Ui,
+  UndoPill,
 } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS } from "../../src/editions";
 import type { UILocale } from "../../src/editions";
 import { t } from "../../src/i18n";
-import { api } from "../../src/lib/api";
+import { api, me } from "../../src/lib/api";
+import * as considering from "../../src/lib/considering";
+import type { ConsideringItem } from "../../src/lib/considering";
 import { registerPush } from "../../src/lib/push";
 import { supabase } from "../../src/lib/supabase";
-import { useFilms } from "../../src/state/films";
+import {
+  type Age,
+  ageColor,
+  ageKey,
+  ageOf,
+  verdictColor,
+  verdictKey,
+  verdictOf,
+} from "../../src/lib/verdict";
+import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, font, fs, gradient, radius, sp, usePalette } from "../../src/theme";
-
-type ListMode = "watchlist" | "seen";
-
-type FilmMetaRow = {
-  slug: string;
-  title: string;
-  year: number | null;
-  poster_path: string | null;
-  director: string | null;
-};
+import type {
+  BlindspotRow,
+  CollectionRow,
+  CoverageRow,
+  WatchlistScoredRow,
+} from "../../src/types";
 
 // Locale autonyms — shown in their own language on purpose. // TODO(i18n)
 const LOCALE_LABEL: Record<UILocale, string> = {
@@ -63,96 +74,660 @@ const LOCALE_CYCLE: UILocale[] = ["en", "ko", "es", "ja"];
 
 // Hairline inset for grouped settings rows: 16 padding + 32 icon disc + 12 gap.
 const ROW_INSET = 60;
+// Hairline inset for queue rows: 16 padding + 48 poster + 12 gap.
+const QUEUE_INSET = 76;
 
-export default function MyScreen() {
+const VERDICTS = ["find", "aligned", "letdown"] as const;
+
+export default function ShelfScreen() {
+  const pal = usePalette();
+  const router = useRouter();
+  const insets = useSafeAreaInsets();
+  const prefs = usePrefs();
+  const { session, ledger, entry, dismiss, undo, reload } = useFilms();
+
+  const [showSettings, setShowSettings] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+
+  // Zone data — all me_* JWT reads, reset on sign-out.
+  const [queue, setQueue] = useState<WatchlistScoredRow[] | null>(null);
+  const [tiers, setTiers] = useState<Map<string, string[]>>(new Map());
+  const [mine, setMine] = useState<Set<string>>(new Set());
+  const [availReady, setAvailReady] = useState(false);
+  const [deciding, setDeciding] = useState<ConsideringItem[]>([]);
+  const [collection, setCollection] = useState<CollectionRow[] | null>(null);
+  const [coverage, setCoverage] = useState<CoverageRow[]>([]);
+  const [blindspot, setBlindspot] = useState<BlindspotRow | null>(null);
+
+  const [undoTok, setUndoTok] = useState<JudgmentUndo | null>(null);
+  const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const alive = useRef(true);
+  useEffect(
+    () => () => {
+      alive.current = false;
+      if (undoTimer.current) clearTimeout(undoTimer.current);
+    },
+    [],
+  );
+
+  const providersKey = prefs.providerIds.join(",");
+
+  const fetchAll = useCallback(async () => {
+    if (!session?.user) {
+      setQueue(null);
+      setTiers(new Map());
+      setMine(new Set());
+      setAvailReady(false);
+      setCollection(null);
+      setCoverage([]);
+      setBlindspot(null);
+      return;
+    }
+    const [rows, coll, cov, blind] = await Promise.all([
+      me.watchlistScored().catch(() => [] as WatchlistScoredRow[]),
+      me.collection().catch(() => [] as CollectionRow[]),
+      me.coverage(5, 40),
+      me.blindspots(1),
+    ]);
+    if (!alive.current) return;
+    setQueue(rows);
+    setCollection(coll);
+    setCoverage(cov);
+    setBlindspot(blind[0] ?? null);
+
+    // Availability decoration: dots (all providers) + my-services match set.
+    const slugs = rows.map((r) => r.slug).slice(0, 60);
+    setAvailReady(false);
+    if (!slugs.length) {
+      setTiers(new Map());
+      setMine(new Set());
+      setAvailReady(true);
+      return;
+    }
+    try {
+      const tiersMap = await api.availability(slugs, prefs.country);
+      let mineSet: Set<string>;
+      if (prefs.providerIds.length) {
+        // Same anon RPC api.availability wraps, filtered to MY provider ids.
+        const { data, error } = await supabase.rpc("film_availability", {
+          p_slugs: slugs,
+          p_countries: [prefs.country],
+          p_providers: prefs.providerIds,
+          p_include_us_library: false,
+        });
+        if (error) throw error;
+        mineSet = new Set(
+          ((data ?? []) as { slug: string; tiers: unknown[] }[])
+            .filter((r) => (r.tiers ?? []).length > 0)
+            .map((r) => r.slug),
+        );
+      } else {
+        // No declared services — degrade to "available anywhere" (Tonight's rule).
+        mineSet = new Set(
+          [...tiersMap.entries()].filter(([, v]) => v.length > 0).map(([k]) => k),
+        );
+      }
+      if (!alive.current) return;
+      setTiers(tiersMap);
+      setMine(mineSet);
+      setAvailReady(true);
+    } catch {
+      // Availability unknown → omit the headline instead of showing a fake 0 (§13-17).
+      if (!alive.current) return;
+      setTiers(new Map());
+      setMine(new Set());
+      setAvailReady(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id, prefs.country, providersKey]);
+
+  useEffect(() => {
+    void fetchAll();
+  }, [fetchAll]);
+
+  // Deciding pile — local ring buffer minus anything the ledger has settled.
+  useEffect(() => {
+    let on = true;
+    if (!session?.user) {
+      setDeciding([]);
+      return;
+    }
+    considering
+      .pile((slug) => {
+        const e = entry(slug);
+        return e.seen || e.watchlist || e.dismissed;
+      })
+      .then((items) => on && setDeciding(items));
+    return () => {
+      on = false;
+    };
+  }, [session?.user?.id, ledger, entry]);
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await Promise.all([reload(), fetchAll()]);
+    setRefreshing(false);
+  };
+
+  // ---- Zone 1 derived rows --------------------------------------------------
+  const { mainRows, staleRows, qTotal, qAvail } = useMemo(() => {
+    const rows = (queue ?? []).filter((r) => {
+      const e = ledger.get(r.slug);
+      return !e || (e.watchlist && !e.dismissed); // ledger (optimistic) wins
+    });
+    const main: WatchlistScoredRow[] = [];
+    const stale: WatchlistScoredRow[] = [];
+    for (const r of rows) (ageOf(r.added_at) === "stale" ? stale : main).push(r);
+    const at = (r: WatchlistScoredRow) => Date.parse(r.added_at ?? "") || 0;
+    main.sort((a, b) => {
+      const am = mine.has(a.slug) ? 1 : 0;
+      const bm = mine.has(b.slug) ? 1 : 0;
+      if (am !== bm) return bm - am; // available on my services first
+      return at(b) - at(a); // then newest commitment first
+    });
+    stale.sort((a, b) => at(a) - at(b)); // oldest promises first
+    return {
+      mainRows: main,
+      staleRows: stale,
+      qTotal: rows.length,
+      qAvail: rows.filter((r) => mine.has(r.slug)).length,
+    };
+  }, [queue, ledger, mine]);
+
+  // ---- Zone 2 derived (verdict recap) ---------------------------------------
+  const rated = useMemo(() => {
+    const rs = (collection ?? []).filter((r) => r.rating != null);
+    rs.sort((a, b) => (Date.parse(b.added_at ?? "") || 0) - (Date.parse(a.added_at ?? "") || 0));
+    return rs;
+  }, [collection]);
+
+  const verdictStats = useMemo(() => {
+    const counts = { find: 0, aligned: 0, letdown: 0 };
+    let findsThisMonth = 0;
+    const now = new Date();
+    for (const r of rated) {
+      const v = verdictOf(r.rating, r.prestige);
+      if (!v) continue;
+      counts[v] += 1;
+      if (v === "find" && r.added_at) {
+        const d = new Date(r.added_at);
+        if (d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()) {
+          findsThisMonth += 1;
+        }
+      }
+    }
+    return { counts, findsThisMonth };
+  }, [rated]);
+
+  // ---- Zone 3 derived --------------------------------------------------------
+  const topCoverage = useMemo(
+    () => [...coverage].sort((a, b) => (b.aw ?? 0) - (a.aw ?? 0)).slice(0, 3),
+    [coverage],
+  );
+
+  // Same idiom as the film screen's "Read more" rows — the in-app reader.
+  const openRoom = (title: string) =>
+    router.push({ pathname: "/read", params: { path: "/room/coverage", title } });
+
+  const showUndo = (tok: JudgmentUndo) => {
+    if (undoTimer.current) clearTimeout(undoTimer.current);
+    setUndoTok(tok);
+    undoTimer.current = setTimeout(() => setUndoTok(null), 6000);
+  };
+
+  const onPass = async (slug: string) => {
+    const tok = await dismiss(slug);
+    if (tok) {
+      showUndo(tok);
+      void considering.noteJudged(slug);
+      me.invalidateRecommend();
+    }
+  };
+
+  const onUndo = () => {
+    const tok = undoTok;
+    setUndoTok(null);
+    if (undoTimer.current) clearTimeout(undoTimer.current);
+    if (tok) {
+      void undo(tok);
+      me.invalidateRecommend();
+    }
+  };
+
+  const surfaceCard = {
+    marginHorizontal: sp.s4,
+    backgroundColor: pal.surface,
+    borderRadius: radius.md,
+    overflow: "hidden" as const,
+  };
+
+  return (
+    <View style={{ flex: 1, backgroundColor: pal.bg }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ paddingBottom: 120 }}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
+        }
+      >
+        {/* Masthead — title + settings gear */}
+        <View
+          style={{
+            paddingTop: insets.top + sp.s3,
+            paddingHorizontal: sp.s4,
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
+            {t("shelf.title")}
+          </Ui>
+          <Tactile onPress={() => setShowSettings(true)} hitSlop={8}>
+            <View
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: radius.pill,
+                backgroundColor: pal.surface,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Ionicons name="settings-outline" size={18} color={pal.ink} />
+            </View>
+          </Tactile>
+        </View>
+
+        {!session ? (
+          /* Signed out — the portfolio needs an account. Gear stays reachable. */
+          <View
+            style={{
+              paddingHorizontal: sp.s5,
+              paddingTop: sp.s8,
+              alignItems: "center",
+              gap: sp.s4,
+            }}
+          >
+            <Ui size={fs.base} color={pal.inkSoft} style={{ textAlign: "center" }}>
+              {t("shelf.signedOut")}
+            </Ui>
+            <Btn
+              label={t("my.signIn")}
+              onPress={() => router.push("/onboarding")}
+              style={{ alignSelf: "stretch" }}
+            />
+          </View>
+        ) : (
+          <>
+            {/* ── Zone 1 · Queue ─────────────────────────────────────────── */}
+            <SectionTitle
+              sub={
+                availReady && qTotal > 0
+                  ? t("shelf.queueLine", { avail: qAvail, total: qTotal })
+                  : undefined
+              }
+            >
+              {t("shelf.queueTitle")}
+            </SectionTitle>
+            {queue !== null && qTotal === 0 ? (
+              <Ui
+                size={fs.sm}
+                color={pal.muted}
+                style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s2 }}
+              >
+                {t("shelf.emptyQueue")}
+              </Ui>
+            ) : null}
+            {mainRows.length ? (
+              <View style={surfaceCard}>
+                {mainRows.map((r, i) => (
+                  <React.Fragment key={r.slug}>
+                    {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
+                    <QueueRow row={r} tiers={tiers.get(r.slug) ?? []} age={ageOf(r.added_at)} />
+                  </React.Fragment>
+                ))}
+              </View>
+            ) : null}
+            {staleRows.length ? (
+              <>
+                <Ui
+                  size={fs.sm}
+                  weight="500"
+                  color={pal.muted}
+                  style={{ paddingHorizontal: sp.s4, marginTop: sp.s4, marginBottom: sp.s2 }}
+                >
+                  {t("shelf.staleNudge")}
+                </Ui>
+                <View style={surfaceCard}>
+                  {staleRows.map((r, i) => (
+                    <React.Fragment key={r.slug}>
+                      {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
+                      <QueueRow
+                        row={r}
+                        tiers={tiers.get(r.slug) ?? []}
+                        age="stale"
+                        onPass={(slug) => void onPass(slug)}
+                      />
+                    </React.Fragment>
+                  ))}
+                </View>
+              </>
+            ) : null}
+
+            {/* ── Zone 2 · Deciding + Verdicts ───────────────────────────── */}
+            {deciding.length ? (
+              <>
+                <SectionTitle sub={t("shelf.decidingHint")}>{t("shelf.deciding")}</SectionTitle>
+                <ScrollView
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
+                >
+                  {deciding.map((d) => (
+                    <Tactile
+                      key={d.slug}
+                      onPress={() =>
+                        router.push({ pathname: "/film/[slug]", params: { slug: d.slug } })
+                      }
+                      style={{ width: 96 }}
+                    >
+                      <View>
+                        <PosterImg
+                          path={d.poster_path}
+                          width={96}
+                          height={144}
+                          size="w185"
+                          rounded={radius.sm}
+                        />
+                        <Ui size={fs.xs} numberOfLines={1} style={{ marginTop: 4 }}>
+                          {d.title}
+                        </Ui>
+                      </View>
+                    </Tactile>
+                  ))}
+                </ScrollView>
+              </>
+            ) : null}
+
+            {rated.length ? (
+              <>
+                <SectionTitle>{t("shelf.verdicts")}</SectionTitle>
+                <View style={[surfaceCard, { padding: sp.s4, gap: sp.s3 }]}>
+                  <View style={{ flexDirection: "row", flexWrap: "wrap", gap: sp.s4 }}>
+                    {VERDICTS.map((v) => (
+                      <View
+                        key={v}
+                        style={{ flexDirection: "row", alignItems: "center", gap: 6 }}
+                      >
+                        <View
+                          style={{
+                            width: 8,
+                            height: 8,
+                            borderRadius: radius.pill,
+                            backgroundColor: verdictColor(v),
+                          }}
+                        />
+                        <Ui size={fs.sm} weight="600">
+                          {String(verdictStats.counts[v])}
+                        </Ui>
+                        <Ui size={fs.sm} color={pal.muted}>
+                          {t(verdictKey(v))}
+                        </Ui>
+                      </View>
+                    ))}
+                  </View>
+                  <Ui size={fs.xs + 1} color={pal.muted}>
+                    {t("shelf.findsMonth", { n: verdictStats.findsThisMonth })}
+                  </Ui>
+                </View>
+                <View style={[surfaceCard, { marginTop: sp.s3 }]}>
+                  {rated.slice(0, 6).map((r, i) => {
+                    const v = verdictOf(r.rating, r.prestige);
+                    return (
+                      <React.Fragment key={r.slug}>
+                        {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
+                        <Tactile
+                          onPress={() =>
+                            router.push({ pathname: "/film/[slug]", params: { slug: r.slug } })
+                          }
+                        >
+                          <View
+                            style={{
+                              flexDirection: "row",
+                              alignItems: "center",
+                              gap: sp.s3,
+                              paddingHorizontal: sp.s4,
+                              paddingVertical: sp.s3,
+                            }}
+                          >
+                            <PosterImg
+                              path={r.poster_path}
+                              width={48}
+                              height={72}
+                              size="w92"
+                              rounded={radius.sm}
+                            />
+                            <View style={{ flex: 1 }}>
+                              <Ui size={fs.md} weight="500" numberOfLines={1}>
+                                {r.title}
+                              </Ui>
+                              {r.year != null ? (
+                                <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 1 }}>
+                                  {String(r.year)}
+                                </Ui>
+                              ) : null}
+                            </View>
+                            {v ? <AgeBadge label={t(verdictKey(v))} color={verdictColor(v)} /> : null}
+                          </View>
+                        </Tactile>
+                      </React.Fragment>
+                    );
+                  })}
+                </View>
+              </>
+            ) : null}
+
+            {/* ── Zone 3 · Journey ───────────────────────────────────────── */}
+            {topCoverage.length || blindspot ? (
+              <>
+                <SectionTitle>{t("shelf.journey")}</SectionTitle>
+                {topCoverage.length ? (
+                  <View style={surfaceCard}>
+                    {topCoverage.map((c, i) => {
+                      const pct = Math.min(
+                        100,
+                        Math.round((c.total > 0 ? c.seen / c.total : 0) * 100),
+                      );
+                      return (
+                        <React.Fragment key={c.list_id}>
+                          {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
+                          <Tactile onPress={() => openRoom(c.label)}>
+                            <View
+                              style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s3, gap: 6 }}
+                            >
+                              <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3 }}>
+                                <Ui size={fs.sm} weight="500" numberOfLines={1} style={{ flex: 1 }}>
+                                  {c.label}
+                                </Ui>
+                                <Ui size={fs.sm} color={pal.muted}>
+                                  {`${c.seen}/${c.total}`}
+                                </Ui>
+                              </View>
+                              <View
+                                style={{
+                                  height: 4,
+                                  borderRadius: radius.pill,
+                                  backgroundColor: pal.hairline,
+                                  overflow: "hidden",
+                                }}
+                              >
+                                <View
+                                  style={{
+                                    width: `${pct}%`,
+                                    height: 4,
+                                    borderRadius: radius.pill,
+                                    backgroundColor: brand.teal,
+                                  }}
+                                />
+                              </View>
+                            </View>
+                          </Tactile>
+                        </React.Fragment>
+                      );
+                    })}
+                  </View>
+                ) : null}
+                {blindspot ? (
+                  <Tactile
+                    onPress={() => openRoom(blindspot.label)}
+                    style={{ marginHorizontal: sp.s4, marginTop: sp.s3 }}
+                  >
+                    <View
+                      style={{
+                        backgroundColor: pal.surface,
+                        borderRadius: radius.md,
+                        padding: sp.s4,
+                        gap: 4,
+                      }}
+                    >
+                      <Ui size={fs.xs} weight="600" color={pal.muted}>
+                        {t("shelf.blindspot")}
+                      </Ui>
+                      <Ui size={fs.md} weight="600" numberOfLines={2}>
+                        {blindspot.label}
+                      </Ui>
+                      {blindspot.gap_reason ? (
+                        <Ui size={fs.sm} color={pal.inkSoft}>
+                          {blindspot.gap_reason}
+                        </Ui>
+                      ) : null}
+                    </View>
+                  </Tactile>
+                ) : null}
+                <Tactile
+                  onPress={() => openRoom(t("shelf.journey"))}
+                  hitSlop={6}
+                  style={{ alignSelf: "flex-start", paddingHorizontal: sp.s4, paddingVertical: sp.s3 }}
+                >
+                  <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+                    <Ui size={fs.sm} weight="500" color={brand.accent}>
+                      {t("shelf.openRoom")}
+                    </Ui>
+                    <Ionicons name="arrow-forward" size={14} color={brand.accent} />
+                  </View>
+                </Tactile>
+              </>
+            ) : null}
+          </>
+        )}
+
+        {/* Attribution (invariant §13-8 — availability data shows above) */}
+        <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
+          <Ui size={fs.xs} color={pal.subtle}>
+            {t("attribution.justwatch")}
+          </Ui>
+          <Ui size={fs.xs} color={pal.subtle}>
+            {t("attribution.tmdb")}
+          </Ui>
+        </View>
+      </ScrollView>
+
+      {/* Floating undo — every judgment is reversible (§13-15) */}
+      {undoTok ? (
+        <View
+          pointerEvents="box-none"
+          style={{ position: "absolute", left: 0, right: 0, bottom: insets.bottom + 96 }}
+        >
+          <UndoPill label={t("judge.passed")} actionLabel={t("judge.undo")} onUndo={onUndo} />
+        </View>
+      ) : null}
+
+      {/* Settings — everything the old My screen held, verbatim, behind the gear */}
+      <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
+    </View>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
+/** Queue row — poster, title/year, decay badge, availability dots, optional ✕ pass. */
+function QueueRow({
+  row,
+  tiers,
+  age,
+  onPass,
+}: {
+  row: WatchlistScoredRow;
+  tiers: string[];
+  age: Age | null;
+  onPass?: (slug: string) => void;
+}) {
+  const pal = usePalette();
+  const router = useRouter();
+  return (
+    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: row.slug } })}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s3,
+          paddingHorizontal: sp.s4,
+          paddingVertical: sp.s3,
+        }}
+      >
+        <PosterImg path={row.poster_path} width={48} height={72} size="w92" rounded={radius.sm} />
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="500" numberOfLines={1}>
+            {row.title}
+          </Ui>
+          {row.year != null ? (
+            <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 1 }}>
+              {String(row.year)}
+            </Ui>
+          ) : null}
+        </View>
+        {/* Fresh stays quiet — only decay (aging/stale) earns a badge */}
+        {age && age !== "fresh" ? <AgeBadge label={t(ageKey(age))} color={ageColor(age)} /> : null}
+        {tiers.length ? <AvailabilityDots tiers={tiers} /> : null}
+        {onPass ? (
+          <Tactile onPress={() => onPass(row.slug)} hitSlop={8}>
+            <View
+              style={{
+                width: 32,
+                height: 32,
+                borderRadius: radius.pill,
+                borderWidth: StyleSheet.hairlineWidth,
+                borderColor: pal.hairline2,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Ionicons name="close" size={16} color={pal.ink} />
+            </View>
+          </Tactile>
+        ) : null}
+      </View>
+    </Tactile>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Settings modal — the entire pre-v4 My screen settings surface, unchanged
+// behavior: edition switcher, services, notifications, account (sign in/out,
+// in-app deletion — Apple 5.1.1(v)).
+
+function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
   const pal = usePalette();
   const scheme = useColorScheme();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const prefs = usePrefs();
-  const { session, ledger, reload } = useFilms();
+  const { session } = useFilms();
 
   const scrollRef = useRef<ScrollView>(null);
-  const [mode, setMode] = useState<ListMode>("watchlist");
-  const [meta, setMeta] = useState<Map<string, FilmMetaRow>>(new Map());
-  const [tiers, setTiers] = useState<Map<string, string[]>>(new Map());
-  const [tsMap, setTsMap] = useState<Map<string, number>>(new Map());
-  const [refreshing, setRefreshing] = useState(false);
   const [pushBusy, setPushBusy] = useState(false);
   const [authOpen, setAuthOpen] = useState(false); // signed-out auth block reveal
-
-  // ---- ledger-derived slug lists ------------------------------------------
-  const { watchSlugs, seenSlugs } = useMemo(() => {
-    const w: string[] = [];
-    const s: string[] = [];
-    for (const [slug, e] of ledger) {
-      if (e.watchlist) w.push(slug);
-      if (e.seen) s.push(slug);
-    }
-    return { watchSlugs: w, seenSlugs: s };
-  }, [ledger]);
-
-  const allSlugs = useMemo(
-    () => [...new Set([...watchSlugs, ...seenSlugs])],
-    [watchSlugs, seenSlugs],
-  );
-  const allKey = allSlugs.join("|");
-  const watchKey = watchSlugs.join("|");
-
-  // Film meta for every ledger row — ONE query.
-  useEffect(() => {
-    let alive = true;
-    if (!allSlugs.length) {
-      setMeta(new Map());
-      return;
-    }
-    supabase
-      .from("films")
-      .select("slug,title,year,poster_path,director")
-      .in("slug", allSlugs.slice(0, 300))
-      .then(({ data }) => {
-        if (!alive || !data) return;
-        setMeta(new Map((data as FilmMetaRow[]).map((r) => [r.slug, r])));
-      });
-    return () => {
-      alive = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allKey]);
-
-  // Availability dots on watchlist rows — the push's visual twin.
-  useEffect(() => {
-    let alive = true;
-    if (!watchSlugs.length) {
-      setTiers(new Map());
-      return;
-    }
-    api
-      .availability(watchSlugs.slice(0, 300), prefs.country)
-      .then((m) => alive && setTiers(m))
-      .catch(() => {});
-    return () => {
-      alive = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [watchKey, prefs.country]);
-
-  // TakeScore badges on ledger rows — best-effort, fails soft (Lava list grammar).
-  useEffect(() => {
-    let alive = true;
-    if (!allSlugs.length) {
-      setTsMap(new Map());
-      return;
-    }
-    api
-      .takescores(allSlugs.slice(0, 300))
-      .then((m) => alive && setTsMap(m))
-      .catch(() => {});
-    return () => {
-      alive = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allKey]);
 
   // Revealing the auth block scrolls it into view (after it lays out).
   useEffect(() => {
@@ -160,12 +735,6 @@ export default function MyScreen() {
     const id = setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 80);
     return () => clearTimeout(id);
   }, [authOpen]);
-
-  const onRefresh = async () => {
-    setRefreshing(true);
-    await reload();
-    setRefreshing(false);
-  };
 
   const onTogglePush = async (on: boolean) => {
     if (!on) {
@@ -185,258 +754,196 @@ export default function MyScreen() {
     prefs.set({ locale: LOCALE_CYCLE[(i + 1) % LOCALE_CYCLE.length] });
   };
 
-  const slugs = mode === "watchlist" ? watchSlugs : seenSlugs;
+  // The modal floats above the navigator — close it before pushing a route.
+  const goOnboarding = (step: "country" | "services") => {
+    onClose();
+    router.push({ pathname: "/onboarding", params: { step } });
+  };
+
   const email = session?.user.email ?? null;
 
   return (
-    <ScrollView
-      ref={scrollRef}
-      style={{ flex: 1, backgroundColor: pal.bg }}
-      contentContainerStyle={{ paddingBottom: 120 }}
-      keyboardShouldPersistTaps="handled"
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
-      }
-    >
-      {/* Masthead */}
-      <View style={{ paddingTop: insets.top + sp.s3, paddingHorizontal: sp.s4 }}>
-        <Ui size={fs.x2} weight="600">
-          {t("tab.my")}
-        </Ui>
-      </View>
-
-      {/* Identity card */}
-      {session ? (
+    <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
+      <View style={{ flex: 1, backgroundColor: pal.bg }}>
+        {/* Header */}
         <View
           style={{
-            marginTop: sp.s4,
-            marginHorizontal: sp.s4,
-            backgroundColor: pal.surface,
-            borderRadius: radius.lg,
-            padding: sp.s5,
+            paddingTop: insets.top + sp.s3,
+            paddingHorizontal: sp.s4,
             flexDirection: "row",
             alignItems: "center",
-            gap: sp.s4,
           }}
         >
-          <LinearGradient
-            colors={gradient}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+          <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
+            {t("my.settings")}
+          </Ui>
+          <Tactile onPress={onClose} hitSlop={8}>
+            <View
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: radius.pill,
+                backgroundColor: pal.surface,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Ionicons name="close" size={18} color={pal.ink} />
+            </View>
+          </Tactile>
+        </View>
+
+        <ScrollView
+          ref={scrollRef}
+          contentContainerStyle={{ paddingBottom: 64 }}
+          keyboardShouldPersistTaps="handled"
+        >
+          {/* Identity card */}
+          {session ? (
+            <View
+              style={{
+                marginTop: sp.s4,
+                marginHorizontal: sp.s4,
+                backgroundColor: pal.surface,
+                borderRadius: radius.lg,
+                padding: sp.s5,
+                flexDirection: "row",
+                alignItems: "center",
+                gap: sp.s4,
+              }}
+            >
+              <LinearGradient
+                colors={gradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={{
+                  width: 56,
+                  height: 56,
+                  borderRadius: radius.pill,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Ui size={fs.xl} weight="700" color="#FFFFFF">
+                  {(email?.[0] ?? "m").toUpperCase()}
+                </Ui>
+              </LinearGradient>
+              <View style={{ flex: 1 }}>
+                {email ? (
+                  <Ui size={fs.md} weight="500" numberOfLines={1}>
+                    {email}
+                  </Ui>
+                ) : null}
+                <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+                  Metatake member
+                </Ui>
+                {/* TODO(i18n): my.memberBadge */}
+              </View>
+            </View>
+          ) : (
+            <View
+              style={{
+                marginTop: sp.s4,
+                marginHorizontal: sp.s4,
+                backgroundColor: pal.surface,
+                borderRadius: radius.lg,
+                padding: sp.s5,
+                gap: sp.s4,
+              }}
+            >
+              <Ui size={fs.base} color={pal.inkSoft}>
+                {t("my.signInHint")}
+              </Ui>
+              <GradientBtn label={t("my.signIn")} onPress={() => setAuthOpen(true)} />
+            </View>
+          )}
+
+          {/* SETTINGS — one grouped surface card */}
+          <View
             style={{
-              width: 56,
-              height: 56,
-              borderRadius: radius.pill,
-              alignItems: "center",
-              justifyContent: "center",
+              marginTop: sp.s5,
+              marginHorizontal: sp.s4,
+              backgroundColor: pal.surface,
+              borderRadius: radius.md,
+              overflow: "hidden",
             }}
           >
-            <Ui size={fs.xl} weight="700" color="#FFFFFF">
-              {(email?.[0] ?? "m").toUpperCase()}
-            </Ui>
-          </LinearGradient>
-          <View style={{ flex: 1 }}>
-            {email ? (
-              <Ui size={fs.md} weight="500" numberOfLines={1}>
-                {email}
-              </Ui>
-            ) : null}
-            <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
-              Metatake member
-            </Ui>
-            {/* TODO(i18n): my.memberBadge */}
-          </View>
-        </View>
-      ) : (
-        <View
-          style={{
-            marginTop: sp.s4,
-            marginHorizontal: sp.s4,
-            backgroundColor: pal.surface,
-            borderRadius: radius.lg,
-            padding: sp.s5,
-            gap: sp.s4,
-          }}
-        >
-          <Ui size={fs.base} color={pal.inkSoft}>
-            {t("my.signInHint")}
-          </Ui>
-          <GradientBtn label={t("my.signIn")} onPress={() => setAuthOpen(true)} />
-        </View>
-      )}
-
-      {/* Segmented control — watchlist / seen */}
-      <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s5, paddingHorizontal: sp.s4 }}>
-        <Chip
-          label={t("my.watchlist")}
-          active={mode === "watchlist"}
-          onPress={() => setMode("watchlist")}
-        />
-        <Chip label={t("my.seen")} active={mode === "seen"} onPress={() => setMode("seen")} />
-      </View>
-
-      {/* Ledger list */}
-      <View style={{ marginTop: sp.s3 }}>
-        {slugs.length === 0 ? (
-          <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s4 }}>
-            {mode === "watchlist" ? t("my.emptyWatchlist") : t("my.emptySeen")}
-          </Ui>
-        ) : (
-          slugs.map((slug) => {
-            const m = meta.get(slug);
-            if (!m) return null;
-            return (
-              <LedgerRow
-                key={slug}
-                slug={slug}
-                title={m.title}
-                year={m.year}
-                director={m.director}
-                poster_path={m.poster_path}
-                ts={tsMap.get(slug) ?? null}
-                tiers={mode === "watchlist" ? (tiers.get(slug) ?? []) : undefined}
+            <SettingRow
+              icon="globe-outline"
+              label={t("my.country")}
+              value={edition ? `${edition.flag} ${edition.label}` : prefs.country}
+              onPress={() => goOnboarding("country")}
+            />
+            <Hairline style={{ marginLeft: ROW_INSET }} />
+            <SettingRow
+              icon="language-outline"
+              label={t("my.language")}
+              value={LOCALE_LABEL[prefs.locale]}
+              onPress={cycleLocale}
+            />
+            <Hairline style={{ marginLeft: ROW_INSET }} />
+            <SettingRow
+              icon="tv-outline"
+              label={t("my.services")}
+              value={String(prefs.providerIds.length)}
+              onPress={() => goOnboarding("services")}
+            />
+            <Hairline style={{ marginLeft: ROW_INSET }} />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: sp.s3,
+                paddingHorizontal: sp.s4,
+                paddingVertical: sp.s3,
+              }}
+            >
+              <IconDisc name="notifications-outline" />
+              <View style={{ flex: 1 }}>
+                <Ui size={fs.md} weight="500">
+                  {t("my.notifications")}
+                </Ui>
+                <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+                  {t("my.notifyArrivals")}
+                </Ui>
+              </View>
+              <Switch
+                value={prefs.pushEnabled}
+                disabled={pushBusy}
+                onValueChange={onTogglePush}
+                trackColor={{ true: brand.accent, false: pal.hairline2 }}
               />
-            );
-          })
-        )}
-      </View>
+            </View>
+          </View>
 
-      {/* SETTINGS — one grouped surface card */}
-      <SectionTitle>{t("my.settings")}</SectionTitle>
-      <View
-        style={{
-          marginHorizontal: sp.s4,
-          backgroundColor: pal.surface,
-          borderRadius: radius.md,
-          overflow: "hidden",
-        }}
-      >
-        <SettingRow
-          icon="globe-outline"
-          label={t("my.country")}
-          value={edition ? `${edition.flag} ${edition.label}` : prefs.country}
-          onPress={() => router.push({ pathname: "/onboarding", params: { step: "country" } })}
-        />
-        <Hairline style={{ marginLeft: ROW_INSET }} />
-        <SettingRow
-          icon="language-outline"
-          label={t("my.language")}
-          value={LOCALE_LABEL[prefs.locale]}
-          onPress={cycleLocale}
-        />
-        <Hairline style={{ marginLeft: ROW_INSET }} />
-        <SettingRow
-          icon="tv-outline"
-          label={t("my.services")}
-          value={String(prefs.providerIds.length)}
-          onPress={() => router.push({ pathname: "/onboarding", params: { step: "services" } })}
-        />
-        <Hairline style={{ marginLeft: ROW_INSET }} />
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: sp.s3,
-            paddingHorizontal: sp.s4,
-            paddingVertical: sp.s3,
-          }}
-        >
-          <IconDisc name="notifications-outline" />
-          <View style={{ flex: 1 }}>
-            <Ui size={fs.md} weight="500">
-              {t("my.notifications")}
+          {/* ACCOUNT */}
+          {session ? (
+            <>
+              <SectionTitle>{t("my.account")}</SectionTitle>
+              <SignedIn />
+            </>
+          ) : authOpen ? (
+            <>
+              <SectionTitle>{t("my.account")}</SectionTitle>
+              <SignedOut
+                scheme={scheme === "dark" ? "dark" : "light"}
+                onSkip={() => setAuthOpen(false)}
+              />
+            </>
+          ) : null}
+
+          {/* Attribution (invariant §13-8) */}
+          <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
+            <Ui size={fs.xs} color={pal.subtle}>
+              {t("attribution.justwatch")}
             </Ui>
-            <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
-              {t("my.notifyArrivals")}
+            <Ui size={fs.xs} color={pal.subtle}>
+              {t("attribution.tmdb")}
             </Ui>
           </View>
-          <Switch
-            value={prefs.pushEnabled}
-            disabled={pushBusy}
-            onValueChange={onTogglePush}
-            trackColor={{ true: brand.accent, false: pal.hairline2 }}
-          />
-        </View>
+        </ScrollView>
       </View>
-
-      {/* ACCOUNT */}
-      {session ? (
-        <>
-          <SectionTitle>{t("my.account")}</SectionTitle>
-          <SignedIn />
-        </>
-      ) : authOpen ? (
-        <>
-          <SectionTitle>{t("my.account")}</SectionTitle>
-          <SignedOut
-            scheme={scheme === "dark" ? "dark" : "light"}
-            onSkip={() => setAuthOpen(false)}
-          />
-        </>
-      ) : null}
-
-      {/* Attribution (invariant §13-8) */}
-      <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
-        <Ui size={fs.xs} color={pal.subtle}>
-          {t("attribution.justwatch")}
-        </Ui>
-        <Ui size={fs.xs} color={pal.subtle}>
-          {t("attribution.tmdb")}
-        </Ui>
-      </View>
-    </ScrollView>
-  );
-}
-
-// ---------------------------------------------------------------------------
-
-/** Ledger row — same grammar as search results: rounded poster, sans title. */
-function LedgerRow({
-  slug,
-  title,
-  year,
-  director,
-  poster_path,
-  ts,
-  tiers,
-}: {
-  slug: string;
-  title: string;
-  year: number | null;
-  director: string | null;
-  poster_path: string | null;
-  ts: number | null;
-  tiers?: string[];
-}) {
-  const pal = usePalette();
-  const router = useRouter();
-  const sub = [year, director].filter(Boolean).join(" · ");
-  return (
-    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug } })}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: sp.s3,
-          paddingHorizontal: sp.s4,
-          paddingVertical: sp.s3,
-        }}
-      >
-        <PosterImg path={poster_path} width={48} height={72} size="w92" rounded={radius.sm} />
-        <View style={{ flex: 1 }}>
-          <Ui size={fs.md} weight="500" numberOfLines={1}>
-            {title}
-          </Ui>
-          {sub ? (
-            <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ marginTop: 1 }}>
-              {sub}
-            </Ui>
-          ) : null}
-        </View>
-        {tiers?.length ? <AvailabilityDots tiers={tiers} /> : null}
-        <TSBadge ts={ts} />
-      </View>
-    </Tactile>
+    </Modal>
   );
 }
 

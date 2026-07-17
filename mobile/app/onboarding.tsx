@@ -1,5 +1,6 @@
-// Onboarding — 3-step fullScreenModal (HANDOFF §4.2): country → services → account.
-// Also re-entered from settings/screens via ?step=country|services|account.
+// Onboarding — 3+1-step fullScreenModal (HANDOFF §4.2): country → services →
+// account → taste calibration (④ v4 — shown only when a session exists, fully
+// skippable). Also re-entered from settings/screens via ?step=country|services|account.
 // Lava restyle: the whole screen reads as a SHEET (grab handle, compact header,
 // gradient progress track); account step follows the benchmark login sheet order.
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -7,7 +8,7 @@ import * as AppleAuthentication from "expo-apple-authentication";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
-import { Platform, ScrollView, TextInput, View } from "react-native";
+import { Platform, ScrollView, TextInput, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   Btn,
@@ -15,19 +16,22 @@ import {
   GradientBtn,
   Hairline,
   Loading,
+  PosterImg,
   Screen,
   Tactile,
   Ui,
 } from "../src/components/ui";
 import { ALL_EDITIONS } from "../src/editions";
 import { t } from "../src/i18n";
-import { api } from "../src/lib/api";
+import { api, me } from "../src/lib/api";
+import { noteJudged } from "../src/lib/considering";
 import { supabase } from "../src/lib/supabase";
+import { useFilms } from "../src/state/films";
 import { usePrefs } from "../src/state/prefs";
 import { brand, font, fs, gradient, radius, sp, usePalette } from "../src/theme";
-import type { Service } from "../src/types";
+import type { Service, TonightRow } from "../src/types";
 
-const STEPS = ["country", "services", "account"] as const;
+const STEPS = ["country", "services", "account", "taste"] as const;
 type Step = (typeof STEPS)[number];
 
 function isStep(s: string | undefined): s is Step {
@@ -49,13 +53,24 @@ export default function OnboardingScreen() {
     else router.replace("/(tabs)");
   };
 
+  // Step ④ taste calibration only makes sense with a session (me_mark_seen
+  // writes). Session state may still be propagating right after verifyOtp /
+  // Apple sign-in, so ask the auth client directly rather than trusting context.
+  const accountDone = async () => {
+    const { data } = await supabase.auth.getSession();
+    if (data.session) setStep("taste");
+    else finish();
+  };
+
   const stepIndex = STEPS.indexOf(step);
   const headerTitle =
     step === "country"
       ? t("onboarding.countryTitle")
       : step === "services"
         ? t("onboarding.servicesTitle")
-        : t("auth.title");
+        : step === "taste"
+          ? t("onboarding.tasteTitle")
+          : t("auth.title");
 
   return (
     <Screen>
@@ -126,7 +141,8 @@ export default function OnboardingScreen() {
 
       {step === "country" ? <StepCountry onNext={() => setStep("services")} /> : null}
       {step === "services" ? <StepServices onNext={() => setStep("account")} /> : null}
-      {step === "account" ? <StepAccount onDone={finish} /> : null}
+      {step === "account" ? <StepAccount onDone={() => void accountDone()} /> : null}
+      {step === "taste" ? <StepTaste onDone={finish} /> : null}
     </Screen>
   );
 }
@@ -549,5 +565,134 @@ function StepAccount({ onDone }: { onDone: () => void }) {
         </Tactile>
       </View>
     </ScrollView>
+  );
+}
+
+/* -------------------------------------------- taste calibration (④, v4) */
+
+const TASTE_COLS = 3;
+const TASTE_COUNT = 24;
+
+function StepTaste({ onDone }: { onDone: () => void }) {
+  const pal = usePalette();
+  const { width } = useWindowDimensions();
+  const { country } = usePrefs();
+  const { ledger, entry, markSeen, toggleSeen } = useFilms();
+  const [rows, setRows] = useState<TonightRow[] | null>(null);
+  const [err, setErr] = useState(false);
+  const [gen, setGen] = useState(0);
+
+  // Famous-films grid: the TS-ranked canon Tonight serves with no filters.
+  useEffect(() => {
+    let alive = true;
+    setRows(null);
+    setErr(false);
+    api
+      .tonight(country, [], {})
+      .then((p) => alive && setRows(p.rows.slice(0, TASTE_COUNT)))
+      .catch(() => alive && setErr(true));
+    return () => {
+      alive = false;
+    };
+  }, [country, gen]);
+
+  const cellW = Math.floor((width - sp.s5 * 2 - sp.s2 * (TASTE_COLS - 1)) / TASTE_COLS);
+
+  const toggle = async (row: TonightRow) => {
+    const e = entry(row.slug);
+    if (!e.seen) {
+      const tok = await markSeen(row.slug);
+      if (tok) {
+        void noteJudged(row.slug);
+        me.invalidateRecommend();
+      }
+    } else {
+      await toggleSeen(row.slug, e.filmId ?? row.film_id ?? "");
+      me.invalidateRecommend();
+    }
+  };
+
+  return (
+    <View style={{ flex: 1 }}>
+      {err ? (
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center", gap: sp.s4 }}>
+          <Ui color={pal.muted}>{t("error.network")}</Ui>
+          <Btn label={t("action.retry")} onPress={() => setGen((n) => n + 1)} />
+        </View>
+      ) : !rows ? (
+        <Loading />
+      ) : (
+        <ScrollView contentContainerStyle={{ paddingBottom: 160 }}>
+          <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
+            <Ui size={fs.x2} weight="600">
+              {t("onboarding.tasteTitle")}
+            </Ui>
+            <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s2 }}>
+              {t("onboarding.tasteBody")}
+            </Ui>
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              columnGap: sp.s2,
+              rowGap: sp.s4,
+              paddingHorizontal: sp.s5,
+              paddingTop: sp.s5,
+            }}
+          >
+            {rows.map((row) => {
+              const seen = !!ledger.get(row.slug)?.seen;
+              return (
+                <Tactile key={row.slug} onPress={() => void toggle(row)} style={{ width: cellW }}>
+                  <View>
+                    <View>
+                      <PosterImg
+                        path={row.poster_path}
+                        width={cellW}
+                        height={Math.round(cellW * 1.5)}
+                        size="w185"
+                        rounded={radius.sm}
+                      />
+                      {seen ? (
+                        <View
+                          style={{
+                            position: "absolute",
+                            inset: 0,
+                            borderRadius: radius.sm,
+                            backgroundColor: pal.scrim,
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <Ionicons name="checkmark-circle" size={32} color="#FFFFFF" />
+                        </View>
+                      ) : null}
+                    </View>
+                    <Ui size={fs.xs} numberOfLines={1} style={{ marginTop: 4 }}>
+                      {row.title}
+                    </Ui>
+                  </View>
+                </Tactile>
+              );
+            })}
+          </View>
+        </ScrollView>
+      )}
+      <BottomBar>
+        <GradientBtn label={t("action.continue")} onPress={onDone} />
+        <Tactile onPress={onDone} hitSlop={6} style={{ marginTop: sp.s3 }}>
+          <Ui
+            size={fs.sm}
+            weight="500"
+            color={pal.muted}
+            style={{ textAlign: "center", textDecorationLine: "underline" }}
+          >
+            {t("action.skip")}
+          </Ui>
+        </Tactile>
+      </BottomBar>
+    </View>
   );
 }

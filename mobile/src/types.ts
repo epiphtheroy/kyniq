@@ -57,6 +57,13 @@ export type FilmCard = {
     intro: string | null;
     facts: LifeFact[];
   } | null;
+  // v4 judgment signals (PAYLOAD_V 2 — additive; an older server simply omits them)
+  rank?: number | null;
+  rank_total?: number | null;
+  vcr?: { v: number; c: number; r: number } | null;
+  standing?: number | null; // canon prestige — the verdict comparator (NOT TakeScore)
+  dims?: { key: string; label: string; val: number }[] | null; // 13-dim expectation chips
+  kindred?: { slug: string; title: string; year: number | null; shared: number }[] | null;
 };
 
 export type DirectorFilm = {
@@ -149,3 +156,115 @@ export type TmdbFallbackRow = {
   year: number | null;
   poster_path: string | null;
 };
+
+// ---------------------------------------------------------------------------
+// v4 personal RPC rows — the `me_*` family (auth.uid()-scoped SECURITY DEFINER,
+// called directly with the user's JWT; the same lineage /room uses client-side).
+// NOT the `*_mine` service-role family, which the app must never call (§13-4).
+
+/** me_recommend_wwi(p_lambda, p_limit) — personal ranked candidates + reason chips. */
+export type WwiRow = {
+  slug: string;
+  title: string;
+  year: number | null;
+  poster_path: string | null;
+  director: string | null;
+  v: number | null;
+  r: number | null;
+  ts: number | null;
+  prestige: number | null;
+  conf: number | null;
+  tier: string | null;
+  sim: number | null;
+  u_util: number | null;
+  t_taste: number | null;
+  s_standing: number | null;
+  wwi: number | null;
+  disc: number | null;
+  reasons: string[] | null; // server-supplied chips — render only these (§13-17)
+  avail: unknown;
+  delta: number | null;
+  in_watchlist: boolean | null;
+};
+
+/** me_watchlist_scored() — the Shelf queue (watchlist × scores × availability). */
+export type WatchlistScoredRow = {
+  slug: string;
+  title: string;
+  year: number | null;
+  poster_path: string | null;
+  director: string | null;
+  rating: number | null;
+  added_at: string | null; // → AgeBadge (Fresh/Aging/Stale)
+  v: number | null;
+  c: number | null;
+  r: number | null;
+  avail: unknown;
+};
+
+/** me_collection() — seen positions; rating + prestige drive the verdict recap. */
+export type CollectionRow = {
+  slug: string;
+  title: string;
+  year: number | null;
+  poster_path: string | null;
+  director: string | null;
+  rating: number | null;
+  v: number | null;
+  c: number | null;
+  r: number | null;
+  u: number | null;
+  prestige: number | null;
+  discovery: number | null;
+  conf: number | null;
+  tier: string | null;
+  imdb: number | null;
+  rt: number | null;
+  meta: number | null;
+  votes: number | null;
+  added_at: string | null;
+  facets: string[] | null;
+};
+
+/** me_coverage(p_min_total, p_limit) — lineage conquest rows. */
+export type CoverageRow = {
+  list_id: string;
+  slug: string;
+  label: string;
+  facet: string;
+  aw: number | null;
+  seen: number;
+  total: number;
+  pct: number;
+  state: string;
+};
+
+/** me_blindspots(p_limit, p_min_total, p_min_aw). */
+export type BlindspotRow = {
+  list_id: string;
+  slug: string;
+  label: string;
+  facet: string;
+  aw: number | null;
+  seen: number;
+  total: number;
+  ratio: number | null;
+  productivity: number | null;
+  opportunity: number | null;
+  gap_reason: string | null;
+};
+
+/** me_rate_stats() — one-row personal counters. */
+export type RateStats = {
+  rated: number;
+  loved: number;
+  seen: number;
+  watchlist: number;
+  session_new: number;
+  forming: boolean;
+  loved_target: number;
+};
+
+// Tonight situation preset chips (§5.2). Three reuse the screener registry
+// (lib/takescore_presets.ts: safe / gems / century); three are app-defined.
+export type PresetKey = "services" | "safe" | "gems" | "century" | "ninety" | "bold";

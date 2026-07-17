@@ -436,3 +436,273 @@ export function Screen({ children, style }: { children: React.ReactNode; style?:
   const pal = usePalette();
   return <View style={[{ flex: 1, backgroundColor: pal.bg }, style]}>{children}</View>;
 }
+
+// ---------------------------------------------------------------------------
+// v4 judgment components (§3) — all inside the Lava grammar: the gradient only
+// ever paints the affirmative CTA; pass/seen stay neutral; Stale uses the risk
+// token, never brand red; my-rating stars never sit inside the TakeScore group
+// (never-blend, §13-18).
+
+/** Half-star rating input, 0.5–5 — fires on tap; left half = .5, right half = full. */
+export function StarRow({
+  value,
+  onChange,
+  size = 30,
+}: {
+  value: number | null;
+  onChange: (v: number) => void;
+  size?: number;
+}) {
+  const pal = usePalette();
+  const v = value ?? 0;
+  return (
+    <View style={{ flexDirection: "row", gap: 4 }}>
+      {[1, 2, 3, 4, 5].map((i) => {
+        const name =
+          v >= i ? "star" : v >= i - 0.5 ? "star-half" : ("star-outline" as const);
+        return (
+          <View key={i} style={{ width: size, height: size }}>
+            <Ionicons
+              name={name}
+              size={size}
+              color={v >= i - 0.5 ? brand.accent : pal.subtle}
+            />
+            <View style={{ position: "absolute", inset: 0, flexDirection: "row" }}>
+              <Pressable style={{ flex: 1 }} hitSlop={4} onPress={() => onChange(i - 0.5)} />
+              <Pressable style={{ flex: 1 }} hitSlop={4} onPress={() => onChange(i)} />
+            </View>
+          </View>
+        );
+      })}
+    </View>
+  );
+}
+
+/** V/C/R micro-bars — TakeScore-semantic colors, grouped apart from user signals. */
+export function VcrBars({
+  v,
+  c,
+  r,
+  width = 74,
+}: {
+  v: number | null | undefined;
+  c: number | null | undefined;
+  r: number | null | undefined;
+  width?: number;
+}) {
+  const pal = usePalette();
+  const rows: { val: number; color: string }[] = [
+    { val: Math.max(0, v ?? 0), color: brand.tsGreen },
+    { val: Math.max(0, c ?? 0), color: brand.tsCost },
+    { val: Math.max(0, r ?? 0), color: brand.tsRisk },
+  ];
+  const max = Math.max(1, ...rows.map((x) => x.val));
+  if (v == null && c == null && r == null) return null;
+  return (
+    <View style={{ gap: 3, width }}>
+      {rows.map((row, i) => (
+        <View
+          key={i}
+          style={{ height: 3, borderRadius: 2, backgroundColor: pal.hairline, overflow: "hidden" }}
+        >
+          <View
+            style={{
+              width: `${Math.round((row.val / max) * 100)}%`,
+              height: 3,
+              borderRadius: 2,
+              backgroundColor: row.color,
+            }}
+          />
+        </View>
+      ))}
+    </View>
+  );
+}
+
+/** Reason chip — server-supplied evidence only (§13-17). Quiet, never gradient. */
+export function ReasonChip({ label }: { label: string }) {
+  const pal = usePalette();
+  return (
+    <View
+      style={{
+        borderRadius: radius.pill,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: pal.surface,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: pal.hairline2,
+      }}
+    >
+      <Ui size={fs.xs} weight="500" color={pal.inkSoft}>
+        {label}
+      </Ui>
+    </View>
+  );
+}
+
+/** Watchlist commitment-decay badge (Fresh/Aging/Stale). Pass label + tone in. */
+export function AgeBadge({ label, color }: { label: string; color: string }) {
+  return (
+    <View
+      style={{
+        borderRadius: radius.pill,
+        paddingHorizontal: 8,
+        paddingVertical: 3,
+        borderWidth: 1,
+        borderColor: color,
+      }}
+    >
+      <Text style={{ fontFamily: font.uiMed, fontSize: fs.xs - 1, color }}>{label}</Text>
+    </View>
+  );
+}
+
+/**
+ * The judgment bar — ♥ want / ✕ pass / ✓ seen. Fixed at the screen bottom by the
+ * parent. Gradient paints ONLY the affirmative "want" when inactive (the CTA);
+ * active states collapse to quiet ink fills so a judged film reads as settled.
+ */
+export function JudgeBar({
+  want,
+  passed,
+  seen,
+  busy,
+  onWant,
+  onPass,
+  onSeen,
+  labels,
+}: {
+  want: boolean;
+  passed: boolean;
+  seen: boolean;
+  busy?: boolean;
+  onWant: () => void;
+  onPass: () => void;
+  onSeen: () => void;
+  labels: { want: string; pass: string; seen: string };
+}) {
+  const pal = usePalette();
+
+  const Seg = ({
+    active,
+    icon,
+    label,
+    onPress,
+    activeColor,
+  }: {
+    active: boolean;
+    icon: React.ComponentProps<typeof Ionicons>["name"];
+    label: string;
+    onPress: () => void;
+    activeColor?: string;
+  }) => (
+    <Tactile onPress={onPress} disabled={busy} style={{ flex: 1 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 6,
+          borderRadius: radius.pill,
+          paddingVertical: 11,
+          backgroundColor: active ? (activeColor ?? pal.ink) : "transparent",
+        }}
+      >
+        <Ionicons name={icon} size={16} color={active ? pal.bg : pal.ink} />
+        <Ui size={fs.sm} weight="600" color={active ? pal.bg : pal.ink} numberOfLines={1}>
+          {label}
+        </Ui>
+      </View>
+    </Tactile>
+  );
+
+  return (
+    <View
+      style={[
+        {
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 4,
+          borderRadius: radius.pill,
+          padding: 4,
+          backgroundColor: pal.card,
+          borderWidth: StyleSheet.hairlineWidth,
+          borderColor: pal.hairline,
+        },
+        shadow.float,
+      ]}
+    >
+      {want ? (
+        <Seg active icon="heart" label={labels.want} onPress={onWant} activeColor={brand.accent} />
+      ) : (
+        <Tactile onPress={onWant} disabled={busy} style={{ flex: 1 }}>
+          <LinearGradient
+            colors={gradient}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 6,
+              borderRadius: radius.pill,
+              paddingVertical: 11,
+            }}
+          >
+            <Ionicons name="heart-outline" size={16} color={brand.accentInk} />
+            <Ui size={fs.sm} weight="600" color={brand.accentInk} numberOfLines={1}>
+              {labels.want}
+            </Ui>
+          </LinearGradient>
+        </Tactile>
+      )}
+      <Seg active={passed} icon={passed ? "close-circle" : "close"} label={labels.pass} onPress={onPass} />
+      <Seg
+        active={seen}
+        icon={seen ? "checkmark-circle" : "checkmark"}
+        label={labels.seen}
+        onPress={onSeen}
+        activeColor={brand.teal}
+      />
+    </View>
+  );
+}
+
+/** Floating undo pill — every judgment is reversible (§13-15). */
+export function UndoPill({
+  label,
+  actionLabel,
+  onUndo,
+}: {
+  label: string;
+  actionLabel: string;
+  onUndo: () => void;
+}) {
+  const pal = usePalette();
+  return (
+    <View
+      style={[
+        {
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s3,
+          alignSelf: "center",
+          borderRadius: radius.pill,
+          paddingHorizontal: sp.s4,
+          paddingVertical: 10,
+          backgroundColor: pal.ink,
+        },
+        shadow.float,
+      ]}
+    >
+      <Ui size={fs.sm} color={pal.bg} numberOfLines={1} style={{ maxWidth: 220 }}>
+        {label}
+      </Ui>
+      <Pressable hitSlop={8} onPress={onUndo}>
+        <Ui size={fs.sm} weight="700" color={pal.bg}>
+          {actionLabel}
+        </Ui>
+      </Pressable>
+    </View>
+  );
+}

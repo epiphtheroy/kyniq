@@ -1,6 +1,8 @@
-// Search tab — search→verdict in 10 seconds (HANDOFF §5.3).
+// Explore tab (구 Search) — search→verdict in 10 seconds + browse (HANDOFF §5.3).
 // Direct anon RPC search, best-effort TS/availability decoration, TMDB fallback
 // for not-in-canon queries, and an always-on "search the full site" escape hatch.
+// v4 adds a Browse block on the empty query: genre + decade chips feeding the
+// same tonight BFF (all providers), rendered with the existing FilmResultRow.
 // Skinned to design system v2 "Lava": pill search bar with a soft shadow, rounded
 // posters, whitespace-separated rows (no hairlines), ghost web-search CTA.
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -17,19 +19,27 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   AvailabilityDots,
   Btn,
+  Chip,
   PosterImg,
   Screen,
+  SectionTitle,
   Tactile,
   TSBadge,
   Ui,
 } from "../../src/components/ui";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme";
-import type { SearchRow, TmdbFallbackRow } from "../../src/types";
+import type { SearchRow, TmdbFallbackRow, TonightRow } from "../../src/types";
 
 const DEBOUNCE_MS = 250;
+
+// One browse selection at a time — a second tap on the active chip clears it.
+type BrowseSel =
+  | { kind: "genre"; genre: string }
+  | { kind: "decade"; label: string; yearMin: number; yearMax: number };
 
 export default function SearchScreen() {
   const router = useRouter();
@@ -45,6 +55,11 @@ export default function SearchScreen() {
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false); // a search round-trip completed
   const seq = useRef(0); // stale-response guard across debounce + awaits
+
+  // Browse (empty-query) state — §5.3.
+  const [sel, setSel] = useState<BrowseSel | null>(null);
+  const [browseRows, setBrowseRows] = useState<TonightRow[]>([]);
+  const [browseLoading, setBrowseLoading] = useState(false);
 
   const openReader = (path: string, title: string) =>
     router.push({ pathname: "/read", params: { path, title } });
@@ -119,14 +134,124 @@ export default function SearchScreen() {
     return () => clearTimeout(timer);
   }, [q, country]);
 
+  // Browse fetch — same tonight BFF, all providers (empty array). Selection
+  // survives a typed query; the block simply hides until the query clears.
+  useEffect(() => {
+    if (!sel) {
+      setBrowseRows([]);
+      setBrowseLoading(false);
+      return;
+    }
+    let alive = true;
+    setBrowseLoading(true);
+    const opts =
+      sel.kind === "genre"
+        ? { genres: [sel.genre] }
+        : { yearMin: sel.yearMin, yearMax: sel.yearMax };
+    api
+      .tonight(country, [], opts)
+      .then((p) => {
+        if (alive) setBrowseRows(p.rows);
+      })
+      .catch(() => {
+        if (alive) setBrowseRows([]);
+      })
+      .finally(() => {
+        if (alive) setBrowseLoading(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [sel, country]);
+
+  const pickGenre = (g: string) =>
+    setSel((prev) => (prev?.kind === "genre" && prev.genre === g ? null : { kind: "genre", genre: g }));
+  const pickDecade = (d: Decade) =>
+    setSel((prev) =>
+      prev?.kind === "decade" && prev.label === d.label ? null : { kind: "decade", ...d },
+    );
+
   const showEmpty = searched && !loading && rows.length === 0;
+  const showBrowse = q.trim().length === 0;
+
+  const browseHeader = showBrowse ? (
+    <View>
+      <SectionTitle>{t("explore.browse")}</SectionTitle>
+      <Ui size={fs.xs} weight="600" color={pal.muted} style={{ paddingHorizontal: sp.s4 }}>
+        {t("explore.genres")}
+      </Ui>
+      <View
+        style={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          gap: sp.s2,
+          paddingHorizontal: sp.s4,
+          paddingTop: sp.s2,
+        }}
+      >
+        {GENRES.map((g) => (
+          <Chip
+            key={g}
+            label={g}
+            active={sel?.kind === "genre" && sel.genre === g}
+            onPress={() => pickGenre(g)}
+          />
+        ))}
+      </View>
+      <Ui
+        size={fs.xs}
+        weight="600"
+        color={pal.muted}
+        style={{ paddingHorizontal: sp.s4, paddingTop: sp.s4 }}
+      >
+        {t("explore.decades")}
+      </Ui>
+      <View
+        style={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          gap: sp.s2,
+          paddingHorizontal: sp.s4,
+          paddingTop: sp.s2,
+        }}
+      >
+        {DECADES.map((d) => (
+          <Chip
+            key={d.label}
+            label={d.label}
+            active={sel?.kind === "decade" && sel.label === d.label}
+            onPress={() => pickDecade(d)}
+          />
+        ))}
+      </View>
+      {browseLoading ? (
+        <View style={{ paddingVertical: sp.s5 }}>
+          <ActivityIndicator color={brand.accent} />
+        </View>
+      ) : sel ? (
+        <View style={{ paddingTop: sp.s3 }}>
+          {browseRows.map((r) => (
+            <FilmResultRow
+              key={r.slug}
+              slug={r.slug}
+              title={r.title}
+              sub={[r.year, r.director].filter(Boolean).join(" · ")}
+              poster={r.poster_path}
+              ts={r.ts}
+              tiers={r.tiers}
+            />
+          ))}
+        </View>
+      ) : null}
+    </View>
+  ) : null;
 
   return (
     <Screen style={{ paddingTop: Math.max(insets.top, sp.s6) }}>
       {/* Title + the pill search bar as the real input — fixed above the list */}
       <View style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s2 }}>
         <Ui size={fs.x2} weight="600">
-          {t("tab.search")}
+          {t("tab.explore")}
         </Ui>
         <View
           style={[
@@ -172,6 +297,7 @@ export default function SearchScreen() {
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
         contentContainerStyle={{ paddingTop: sp.s3, paddingBottom: 120 }}
+        ListHeaderComponent={browseHeader}
         renderItem={({ item }) =>
           item.kind === "film" ? (
             // sub is null-year-safe on purpose: search_all's `sub` is already the

@@ -81,9 +81,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: t("tab.search"),
+          title: t("tab.explore"),
           tabBarIcon: ({ color, size, focused }) => (
-            <TabIcon name="search" size={size} color={color} focused={focused} />
+            <TabIcon
+              name={focused ? "compass" : "compass-outline"}
+              size={size}
+              color={color}
+              focused={focused}
+            />
           ),
         }}
       />
@@ -99,10 +104,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="my"
         options={{
-          title: t("tab.my"),
+          title: t("tab.shelf"),
           tabBarIcon: ({ color, size, focused }) => (
             <TabIcon
-              name={focused ? "bookmark" : "bookmark-outline"}
+              name={focused ? "library" : "library-outline"}
               size={size}
               color={color}
               focused={focused}

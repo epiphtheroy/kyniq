@@ -1,12 +1,15 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
+import { TAKESCORE_PRESETS } from "@/lib/takescore_presets";
 
 /**
  * Mobile BFF — Tonight feed (HANDOFF-모바일앱-프리워치.md §5.2).
  * cinecodex_ranked (Marquee v11 arg surface — new args must default to previous
  * behavior) + availability dots for the page. TakeScore comes from
  * takescore_for_slugs (the [{slug,ts}] canonical bulk contract).
+ * PAYLOAD v2: optional &preset=safe|gems|century|ninety situation chips
+ * (§5.2/§16.4) — absent or unknown preset keeps exactly the v1 behavior.
  */
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,6 +17,56 @@ export const maxDuration = 15;
 
 const CACHE = "public, s-maxage=900, stale-while-revalidate=3600";
 const PAGE = 40;
+
+/* ── Situation presets (§5.2 / §16.4) ─────────────────────────────────────
+ * safe / gems / century reuse the screener registry (lib/takescore_presets.ts
+ * is the single definition — §16.4); ninety is app-defined (§5.2 table is its
+ * canon: runtime is not a cinecodex_ranked argument, so it post-filters).
+ * The "safe" dims filter DOES have a server path (§12-9 resolved): the
+ * screener sends the same ranges as cinecodex_ranked's p_sub jsonb
+ * ({key:{min,max}} — see ScreenerExplorer.subJson + migration 0096), so the
+ * BFF reuses that arg rather than approximating with ts_min.
+ */
+const APP_PRESETS = new Set(["safe", "gems", "century", "ninety"]);
+const REGISTRY = new Map(TAKESCORE_PRESETS.map((p) => [p.key, p]));
+
+type PresetArgs = {
+  yearMin?: number;
+  tsMin?: number;
+  tsMax?: number;
+  maxVotes?: number;
+  sub?: Record<string, { min: number; max: number }>;
+  maxRuntime?: number;
+};
+
+/** "bank:0-22,coward:0-30" (registry dims syntax) → p_sub shape. */
+function dimsToSub(dims: string): Record<string, { min: number; max: number }> {
+  const sub: Record<string, { min: number; max: number }> = {};
+  for (const part of dims.split(",")) {
+    const m = part.trim().match(/^([a-z]+):(\d{1,3})-(\d{1,3})$/);
+    if (m) sub[m[1]] = { min: parseInt(m[2], 10), max: parseInt(m[3], 10) };
+  }
+  return sub;
+}
+
+function presetArgs(preset: string | null): PresetArgs {
+  if (!preset) return {};
+  if (preset === "ninety") return { tsMin: 85, tsMax: 100, maxRuntime: 95 };
+  const reg = REGISTRY.get(preset);
+  if (!reg) return {};
+  const out: PresetArgs = {};
+  if (reg.q.since) out.yearMin = parseInt(reg.q.since, 10);
+  if (reg.q.ts) {
+    const m = reg.q.ts.match(/^(\d{1,3})-(\d{1,3})$/);
+    if (m) {
+      out.tsMin = parseInt(m[1], 10);
+      out.tsMax = parseInt(m[2], 10);
+    }
+  }
+  if (reg.q.maxVotes) out.maxVotes = parseInt(reg.q.maxVotes, 10);
+  if (reg.q.dims) out.sub = dimsToSub(reg.q.dims);
+  return out;
+}
 
 /** First sentence of an invitation, capped for a lobby card. */
 function firstSentence(prose: string): string {
@@ -47,6 +100,17 @@ export async function GET(req: Request) {
   const offset = Math.max(num("offset") ?? 0, 0);
   const limit = Math.min(Math.max(num("limit") ?? PAGE, 1), PAGE);
 
+  const presetRaw = url.searchParams.get("preset");
+  const preset = presetRaw && APP_PRESETS.has(presetRaw) ? presetRaw : null;
+  const pa = presetArgs(preset);
+  // year_min: intersection when both a preset (century=2000) and an explicit
+  // filter are present — both constraints hold, so the tighter one wins.
+  const yearMinParam = num("year_min");
+  const yearMin =
+    pa.yearMin != null && yearMinParam != null
+      ? Math.max(pa.yearMin, yearMinParam)
+      : pa.yearMin ?? yearMinParam;
+
   const db = createAdminClient();
   if (await guardAndLog(db, req, "app_tonight", country)) {
     return NextResponse.json(TOO_MANY, { status: 429, headers: API_CORS });
@@ -62,8 +126,12 @@ export async function GET(req: Request) {
       p_include_us_library: false,
       p_include_rent: false,
       p_genres: genres.length ? genres : null,
-      p_year_min: num("year_min"),
+      p_year_min: yearMin,
       p_year_max: num("year_max"),
+      p_ts_min: pa.tsMin ?? null,
+      p_ts_max: pa.tsMax ?? null,
+      p_max_votes: pa.maxVotes ?? null,
+      p_sub: pa.sub ?? {},
       p_limit: limit,
       p_offset: offset,
     });
@@ -78,6 +146,31 @@ export async function GET(req: Request) {
       director_slug?: string | null;
     };
     const page = (data as { total: number; rows: Row[] } | null) ?? { total: 0, rows: [] };
+
+    // "90 in 90 min" (app-defined, HANDOFF §5.2/§12-9): runtime is not a
+    // cinecodex_ranked argument, so post-filter the returned page on
+    // films.runtime. The page may come back short of `limit` (acceptable —
+    // the client just paginates on), and `total` stays the unfiltered RPC
+    // count. Unknown runtime is excluded: the chip promises ≤95 min, and we
+    // never guess (§13-17).
+    if (pa.maxRuntime != null && page.rows.length) {
+      const { data: rtRows } = await db
+        .from("films")
+        .select("slug, runtime")
+        .in("slug", page.rows.map((r) => r.slug));
+      const rtMap = new Map(
+        ((rtRows ?? []) as { slug: string; runtime: number | null }[]).map((f) => [
+          f.slug,
+          f.runtime,
+        ]),
+      );
+      const cap = pa.maxRuntime;
+      page.rows = page.rows.filter((r) => {
+        const rt = rtMap.get(r.slug);
+        return rt != null && rt <= cap;
+      });
+    }
+
     const slugs = page.rows.map((r) => r.slug);
 
     const [tsRes, availRes] = await Promise.all([
@@ -145,8 +238,9 @@ export async function GET(req: Request) {
 
     return NextResponse.json(
       {
-        v: 1,
+        v: 2,
         country,
+        preset,
         total: page.total,
         rows: page.rows.map((r) => ({
           film_id: idMap.get(r.slug) ?? null,

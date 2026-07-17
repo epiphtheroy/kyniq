@@ -125,6 +125,66 @@ export const en = {
   // generic
   "error.network": "Couldn't reach Metatake. Check your connection.",
   "loading": "Loading…",
+  // v4 — tabs
+  "tab.explore": "Explore",
+  "tab.shelf": "Shelf",
+  // v4 — judgment bar & states
+  "judge.want": "Want to see",
+  "judge.pass": "Pass",
+  "judge.seenIt": "Seen it",
+  "judge.undo": "Undo",
+  "judge.passed": "Passed",
+  "judge.removed": "Removed from your queue",
+  "judge.kept": "Added to your queue",
+  "judge.seenMarked": "Marked as seen",
+  "judge.restore": "Restore",
+  "judge.passedSession": "Passed this session",
+  "judge.yourRating": "Your rating",
+  "judge.signInToKeep": "Sign in to keep your judgments",
+  // v4 — verdict vocabulary (/room contract: Find / Aligned / Letdown)
+  "verdict.find": "Find",
+  "verdict.aligned": "Aligned",
+  "verdict.letdown": "Letdown",
+  // v4 — film brief
+  "film.forYou": "For you",
+  "film.whatToExpect": "What to expect",
+  "film.kindredSeen": "You've seen {n} kindred films",
+  "film.sharedThreads": "{n} shared threads",
+  "film.rankOf": "#{rank} of {total}",
+  // v4 — situation preset chips
+  "preset.onMyServices": "On my services",
+  "preset.safeBet": "Safe bet",
+  "preset.hiddenGems": "Hidden gems",
+  "preset.freshCentury": "Fresh century",
+  "preset.ninety": "90 in 90 min",
+  "preset.boldPick": "Bold pick",
+  // v4 — tonight deck
+  "tonight.deckCleared": "Deck cleared — loosen a filter for more.",
+  "tonight.swipeHint": "Swipe right to keep, left to pass",
+  // v4 — shelf
+  "shelf.title": "Shelf",
+  "shelf.queueTitle": "Watchable tonight",
+  "shelf.queueLine": "{avail} of {total} watchlisted films are on your services",
+  "shelf.deciding": "Deciding",
+  "shelf.decidingHint": "Opened, not yet judged.",
+  "shelf.verdicts": "Verdicts",
+  "shelf.findsMonth": "{n} finds this month",
+  "shelf.journey": "Cinephile journey",
+  "shelf.blindspot": "Blind spot to explore",
+  "shelf.openRoom": "Open My Room",
+  "shelf.staleNudge": "Still planning to watch these?",
+  "shelf.emptyQueue": "Judge films to build your queue.",
+  "shelf.signedOut": "Sign in to build your shelf.",
+  "age.fresh": "Fresh",
+  "age.aging": "Aging",
+  "age.stale": "Stale",
+  // v4 — explore
+  "explore.browse": "Browse",
+  "explore.genres": "Genres",
+  "explore.decades": "Decades",
+  // v4 — onboarding taste calibration
+  "onboarding.tasteTitle": "Seen any of these?",
+  "onboarding.tasteBody": "Tap what you've watched — recommendations and your journey start working immediately.",
 } as const;
 
 export type DictKey = keyof typeof en;

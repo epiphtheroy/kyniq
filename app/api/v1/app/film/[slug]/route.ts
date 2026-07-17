@@ -2,11 +2,15 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { mergePins, type GeoPin } from "@/lib/locations";
+import { CODEX_DIMS } from "@/lib/cinecodex_dims";
 
 /**
  * Mobile BFF — Film card (HANDOFF-모바일앱-프리워치.md §7).
  * One aggregate payload per screen: TS + invitation (Fantasia fallback) +
  * availability (country-scoped) + lineage + locations + The Life preview.
+ * PAYLOAD v2 (v4 judgment signals, §7/§16.1): rank + vcr + standing + dims
+ * (cinecodex_card) and kindred (film_affinities.shared_meta_take_ids —
+ * service-role only, this BFF is the sole exposure path).
  * Payload contract mirrors mobile/src/types.ts (bump `v` on breaking change).
  */
 export const runtime = "nodejs";
@@ -46,7 +50,7 @@ export async function GET(req: Request, { params }: Params) {
       return NextResponse.json({ error: "not_found" }, { status: 404, headers: API_CORS });
     }
 
-    const [tsRes, figRes, availRes, linRes, geoRes] = await Promise.all([
+    const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes] = await Promise.all([
       db.rpc("takescore_for_slugs", { p_slugs: [slug] }),
       db.from("figures").select("id").eq("film_id", film.id).eq("status", "approved"),
       db.rpc("film_availability", {
@@ -57,6 +61,13 @@ export async function GET(req: Request, { params }: Params) {
       }),
       db.rpc("film_lineage_for", { p_film_id: film.id }),
       db.rpc("film_geo", { p_slug: slug }),
+      db.rpc("cinecodex_card", { p_slug: slug }),
+      db
+        .from("film_affinities")
+        .select("related_film_id, score, shared_meta_take_ids")
+        .eq("film_id", film.id)
+        .order("score", { ascending: false })
+        .limit(8),
     ]);
 
     const ts =
@@ -182,9 +193,73 @@ export async function GET(req: Request, { params }: Params) {
       }
     }
 
+    // ── v4 judgment signals (PAYLOAD v2) ─────────────────────────────────
+    // cinecodex_card returns null/empty json for unscored (Tier-2) films —
+    // mirror the /takescore/film page's validity check and emit nulls then,
+    // never fake zeros (§13-17 evidence honesty).
+    type Card = {
+      slug?: string | null;
+      v?: number | null;
+      c?: number | null;
+      r?: number | null;
+      u?: number | null;
+      rank?: number | null;
+      rank_total?: number | null;
+      subs?: Record<string, number | null> | null;
+      standing?: { prestige: number | null; labels: string[] | null } | null;
+    };
+    const cardRaw = (cardRes.data ?? null) as Card | null;
+    const card = cardRaw && cardRaw.slug && cardRaw.v != null && cardRaw.u != null ? cardRaw : null;
+    const vcr =
+      card && card.v != null && card.c != null && card.r != null
+        ? { v: Number(card.v), c: Number(card.c), r: Number(card.r) }
+        : null;
+    // 13 subs → expectation chips, in the CODEX_DIMS registry order with the
+    // registry's human labels (lib/cinecodex_dims.ts is the single vocabulary).
+    const dimRows = card?.subs
+      ? CODEX_DIMS.flatMap((d) => {
+          const val = card.subs?.[d.key];
+          return val == null ? [] : [{ key: d.key, label: d.label, val: Number(val) }];
+        })
+      : [];
+    const dims = dimRows.length ? dimRows : null;
+
+    // kindred — film_affinities is service-role only (shared_meta_take_ids
+    // never crosses an anon surface); shared = count of shared figure-type
+    // meta-takes. Two-step join, same idiom as /movies-like.
+    type AffRow = { related_film_id: string; score: number; shared_meta_take_ids: string[] | null };
+    const aff = (affRes.data ?? []) as AffRow[];
+    let kindred: { slug: string; title: string; year: number | null; shared: number }[] | null =
+      null;
+    if (aff.length) {
+      const { data: rel } = await db
+        .from("films")
+        .select("id, slug, title, year")
+        .in("id", aff.map((a) => a.related_film_id));
+      const relMap = new Map(
+        ((rel ?? []) as { id: string; slug: string; title: string; year: number | null }[]).map(
+          (f) => [f.id, f],
+        ),
+      );
+      const rows = aff.flatMap((a) => {
+        const f = relMap.get(a.related_film_id);
+        return f
+          ? [
+              {
+                slug: f.slug,
+                title: f.title,
+                year: f.year ?? null,
+                shared: a.shared_meta_take_ids?.length ?? 0,
+              },
+            ]
+          : [];
+      });
+      kindred = rows.length ? rows : null;
+    }
+
     return NextResponse.json(
       {
-        v: 1,
+        v: 2,
         film_id: film.id,
         slug: film.slug,
         title: film.title,
@@ -204,6 +279,12 @@ export async function GET(req: Request, { params }: Params) {
         lineage,
         locations,
         the_life: theLife,
+        rank: card?.rank ?? null,
+        rank_total: card?.rank_total ?? null,
+        vcr,
+        standing: card?.standing?.prestige ?? null,
+        dims,
+        kindred,
       },
       { headers: { ...API_CORS, "cache-control": CACHE } },
     );
