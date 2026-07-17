@@ -12,8 +12,9 @@ import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ScrollView, Share, StyleSheet, View, useWindowDimensions } from "react-native";
+import { Image, ScrollView, Share, StyleSheet, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import FilmMiniMap from "../../src/components/FilmMiniMap";
 import { TSDonut } from "../../src/components/TSDonut";
 import {
   AvailabilityDots,
@@ -32,7 +33,7 @@ import {
   UndoPill,
   VcrBars,
 } from "../../src/components/ui";
-import { METATAKE_BASE } from "../../src/config";
+import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
@@ -323,15 +324,30 @@ export default function FilmScreen() {
     <Screen>
       <Stack.Screen options={{ headerShown: false }} />
       <ScrollView contentContainerStyle={{ paddingBottom: 240 }} showsVerticalScrollIndicator={false}>
-        {/* Hero — full-bleed image, top scrim, floating glass controls */}
-        <View style={{ width, height: heroH, backgroundColor: "#000" }}>
-          <PosterImg
-            path={card.backdrop_path ?? card.poster_path}
-            width={width}
-            height={heroH}
-            size="w780"
-            rounded={0}
-          />
+        {/* Hero — full-bleed image, top scrim, floating glass controls.
+            Backdrops are landscape by nature; when a film only has a PORTRAIT
+            poster, never crop it into the landscape frame — show it contained
+            over a blurred self-fill instead (owner directive 2026-07-18). */}
+        <View style={{ width, height: heroH, backgroundColor: "#000", overflow: "hidden" }}>
+          {card.backdrop_path ? (
+            <PosterImg path={card.backdrop_path} width={width} height={heroH} size="w780" rounded={0} />
+          ) : card.poster_path ? (
+            <>
+              <Image
+                source={{ uri: `${TMDB_IMG}/w342${card.poster_path}` }}
+                blurRadius={26}
+                resizeMode="cover"
+                style={{ position: "absolute", width, height: heroH, opacity: 0.55 }}
+              />
+              <Image
+                source={{ uri: `${TMDB_IMG}/w500${card.poster_path}` }}
+                resizeMode="contain"
+                style={{ width, height: heroH }}
+              />
+            </>
+          ) : (
+            <PosterImg path={null} width={width} height={heroH} rounded={0} />
+          )}
           <LinearGradient
             colors={["rgba(0,0,0,0.35)", "rgba(0,0,0,0)"]}
             style={{ position: "absolute", top: 0, left: 0, right: 0, height: 110 }}
@@ -616,10 +632,20 @@ export default function FilmScreen() {
             </>
           ) : null}
 
-          {/* Locations */}
+          {/* Locations — embedded map with ONLY this film's pins (owner directive
+              2026-07-18), then the named rows; both open the Map tab film-focused. */}
           {card.locations.count > 0 ? (
             <>
               <SectionTitle sub={`${card.locations.count}`}>{t("film.locations")}</SectionTitle>
+              {card.locations.pins.length ? (
+                <View style={{ marginHorizontal: sp.s4, marginBottom: sp.s3 }}>
+                  <FilmMiniMap
+                    pins={card.locations.pins}
+                    height={Math.round((width - sp.s4 * 2) * 0.56)}
+                    onPress={() => router.push({ pathname: "/(tabs)/map", params: { film: card.slug } })}
+                  />
+                </View>
+              ) : null}
               <Group>
                 {card.locations.pins.slice(0, 3).map((p, i) => (
                   <View key={String(p.id)}>

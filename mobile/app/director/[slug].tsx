@@ -7,7 +7,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
-import { FlatList, ScrollView, Share, View, useWindowDimensions } from "react-native";
+import { FlatList, Image, ScrollView, Share, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FilmRow } from "../../src/components/FilmRow";
 import {
@@ -22,7 +22,7 @@ import {
   Tactile,
   Ui,
 } from "../../src/components/ui";
-import { METATAKE_BASE } from "../../src/config";
+import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { usePrefs } from "../../src/state/prefs";
@@ -243,13 +243,25 @@ export default function DirectorScreen() {
               ]}
             >
               <View style={{ borderRadius: radius.md, overflow: "hidden" }}>
-                <PosterImg
-                  path={startFilm?.poster_path ?? null}
-                  width={heroW}
-                  height={180}
-                  size="w780"
-                  rounded={0}
-                />
+                {/* Portrait poster in a landscape banner: blurred self-fill +
+                    contained art — never a hard crop (owner directive 2026-07-18). */}
+                {startFilm?.poster_path ? (
+                  <View style={{ width: heroW, height: 180, backgroundColor: "#000" }}>
+                    <Image
+                      source={{ uri: `${TMDB_IMG}/w342${startFilm.poster_path}` }}
+                      blurRadius={24}
+                      resizeMode="cover"
+                      style={{ position: "absolute", width: heroW, height: 180, opacity: 0.5 }}
+                    />
+                    <Image
+                      source={{ uri: `${TMDB_IMG}/w342${startFilm.poster_path}` }}
+                      resizeMode="contain"
+                      style={{ width: heroW, height: 180 }}
+                    />
+                  </View>
+                ) : (
+                  <PosterImg path={null} width={heroW} height={180} rounded={0} />
+                )}
                 <View style={{ padding: sp.s4, gap: sp.s1 }}>
                   <Ui size={fs.md} weight="600" numberOfLines={2}>
                     {startPick.film_title ?? ""}

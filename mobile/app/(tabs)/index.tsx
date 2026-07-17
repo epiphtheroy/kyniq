@@ -625,7 +625,9 @@ function LobbyCard({
   const router = useRouter();
   const { session, ledger } = useFilms();
   const cardW = screenW - sp.s4 * 2;
-  const imgH = Math.round(cardW * 0.62);
+  // Posters are portrait (2:3) — the card frame follows the image, never the
+  // reverse (owner directive 2026-07-18: no landscape-crop of portrait art).
+  const imgH = Math.round(cardW * 1.5);
   const entry = ledger.get(row.slug);
   const inWatchlist = !!entry?.watchlist;
   const seen = !!entry?.seen;
