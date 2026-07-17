@@ -448,6 +448,12 @@ export const KO: Record<string, string> = {
   "Why {title} is in the index": "{title}이(가) 인덱스에 오른 이유",
   "Read the full letter on the appraisal page →": "감정 페이지에서 편지 전문 읽기 →",
   "Recommended into the Metatake index · {date}": "Metatake 인덱스에 추천 등재 · {date}",
+  // to.W sign row, second line. The sender line above it ("from. Metatake AI
+  // Editorial") is brand vocabulary and stays English by design (§0 hard rule).
+  // "감독" alone would collide with this site's own nav vocabulary — Directors:
+  // "감독" — and read as "W. Yoon directed a film". The object disambiguates it:
+  // he directs the METHOD, which is exactly what D2 credits him for.
+  "directed by W. Yoon": "방법론 감독 W. Yoon",
   "Wonwoo Yoon — Metatake editor": "Wonwoo Yoon — Metatake 편집자",
   "Wonwoo Yoon, Metatake editor — view profile": "Wonwoo Yoon, Metatake 편집자 — 프로필 보기",
   "A curator's note on {title}'s place in the Metatake index — drawn from the catalog's curation records, and kept separate from the TakeScore appraisal above.": "Metatake 인덱스에서 {title}의 위치에 관한 큐레이터의 노트 — 카탈로그의 큐레이션 기록에서 뽑았으며, 위의 TakeScore 감정과는 별개다.",
@@ -619,7 +625,7 @@ export const KO: Record<string, string> = {
   "How {title} scores on the thirteen dimensions": "{title}의 13개 차원별 점수",
   "What do these mean? →": "각 차원의 의미는? →",
   "Shown alongside — not part of the TakeScore:": "참고용 표시 — TakeScore의 일부 아님:",
-  "AI-estimated (TakeScore rubric). A rubric-anchored judgment, not an objective fact; popularity metrics above are for comparison only.": "AI 추정 (TakeScore 루브릭). 객관적 사실이 아니라 루브릭 기반 판단; 위 인기 지표는 비교용일 뿐.",
+  "AI-estimated (TakeScore rubric), designed and calibrated by Wonwoo Yoon. A rubric-anchored judgment, not an objective fact; popularity metrics above are for comparison only.": "AI 추정 (TakeScore 루브릭) · 설계·보정 Wonwoo Yoon. 객관적 사실이 아니라 루브릭 기반 판단; 위 인기 지표는 비교용일 뿐.",
   "Confidence": "신뢰도",
   "A measured reliability, not a claim of certainty.": "확실성의 주장이 아니라 측정된 신뢰도.",
   "View the full appraisal →": "전체 평가 보기 →",

@@ -10,6 +10,7 @@
     "indexnow": "node scripts/indexnow-ping.mjs"
   },
   "dependencies": {
+    "@sentry/nextjs": "10.66.0",
     "@supabase/ssr": "^0.10.3",
     "@supabase/supabase-js": "^2.106.2",
     "@types/papaparse": "^5.5.2",

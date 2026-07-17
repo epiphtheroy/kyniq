@@ -15,8 +15,9 @@
 
 **본문:**
 ```
-I run Metatake (https://metatake.net), an independent film-criticism site — original,
-human-curated readings of ~6,900 films plus a 13-dimension critical index we call
+I run Metatake (https://metatake.net), an independent film-criticism site — original
+readings of ~6,900 films, written by our own AI to a method we publish in full, with
+my name on the method and on what it produces. Plus a 13-dimension critical index we call
 TakeScore (Value / Cost / Risk, kept deliberately separate from audience ratings).
 
 I wanted the criticism to be *usable by machines that cite back*, not just scraped
@@ -51,26 +52,26 @@ attribution-vs-scraping problem. What would you want an API like this to expose?
 
 **본문:**
 ```
-Built this for my own site (Metatake, film criticism) but it's all open now and
-this crowd seemed like the right place.
+  Built this for my own site (Metatake, film criticism) but it's all open now and
+  this crowd seemed like the right place.
 
-- MCP server: https://metatake.net/api/mcp — 4 tools (search_films,
-  get_film_criticism, get_takescore, find_connected_films). Stateless streamable
-  HTTP, no auth. On the official registry as net.metatake/mcp.
-  Add in Claude Code: `claude mcp add --transport http metatake https://metatake.net/api/mcp`
-- Plain REST if you're not on MCP: https://metatake.net/api
-- Open dataset: 17k geocoded filming locations (shot-vs-set), 1.9k films — the
-  bit I think is genuinely novel.
+  - MCP server: https://metatake.net/api/mcp — 4 tools (search_films,
+    get_film_criticism, get_takescore, find_connected_films). Stateless streamable
+    HTTP, no auth. On the official registry as net.metatake/mcp.
+    Add in Claude Code: `claude mcp add --transport http metatake https://metatake.net/api/mcp`
+  - Plain REST if you're not on MCP: https://metatake.net/api
+  - Open dataset: 17k geocoded filming locations (shot-vs-set), 1.9k films — the
+    bit I think is genuinely novel.
 
-What's inside per film: multi-framework critical "readings" (interpretive
-positions, not summaries), a 13-dimension TakeScore (Value/Cost/Risk), kindred
-films, locations. LLM cost to serve it is zero — it's all precomputed and the
-tools just wrap the renderer.
+  What's inside per film: multi-framework critical "readings" (interpretive
+  positions, not summaries), a 13-dimension TakeScore (Value/Cost/Risk), kindred
+  films, locations. LLM cost to serve it is zero — it's all precomputed and the
+  tools just wrap the renderer.
 
-Design goal was "usable by answer-time retrieval, not just training scrapers":
-every tool result carries a cite-with-link instruction. Curious whether people
-here would use something like this in RAG / agent setups, and what other axes
-you'd want exposed.
+  Design goal was "usable by answer-time retrieval, not just training scrapers":
+  every tool result carries a cite-with-link instruction. Curious whether people
+  here would use something like this in RAG / agent setups, and what other axes
+  you'd want exposed.
 ```
 *팁: r/LocalLLaMA는 MCP·무료·오픈데이터 좋아함. 셀프프로모 규칙 확인, 답글에 성실히.*
 

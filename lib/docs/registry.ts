@@ -11,7 +11,13 @@
  * #corrections that 40+ pages depend on) and its href is "/methodology", NOT
  * "/methodology/overview". Every other doc is a /methodology/[slug] page.
  *
+ * ⚠️ `desc` is not just a standfirst: /llms.txt renders every DOCS row verbatim
+ * (app/llms.txt/route.ts), so a desc that overstates a layer's provenance ships
+ * as a machine-readable false claim. Keep each desc true to the layer's credit
+ * label (A/B/C) as mapped in lib/docs/content/ai-disclosure.ts.
+ *
  * Canonical plan: HANDOFF-방법론-독스.md (root). Disclosure tiers: §8 there.
+ * Credit scheme: HANDOFF-AI집필크레딧-표기개편.md (root).
  */
 
 export type DocCategory = {
@@ -45,12 +51,12 @@ export const DOCS: DocMeta[] = [
   // Start here
   { slug: "overview", category: "start-here", nav: "Overview", title: "Methodology", desc: "How a reading on Metatake actually gets made — the pipeline, what the AI does and doesn't do, and how to flag it when we get something wrong." },
   { slug: "how-a-page-is-made", category: "start-here", nav: "How a page is made", title: "How a page is made", desc: "The six stages every reading passes through — from breakdown to a human editor's sign-off — and the checks that kill a draft that fails." },
-  { slug: "what-ai-does", category: "start-here", nav: "What AI does", title: "What AI does, and doesn't do", desc: "AI drafts and connects; a human judges and answers for it. Where the line sits, and why." },
+  { slug: "what-ai-does", category: "start-here", nav: "What AI does", title: "What AI does, and doesn't do", desc: "AI drafts and computes; a named editor directs the method and answers for the page. Where the line sits, and the credit every page carries because of it." },
 
   // The Films
   { slug: "film-selection", category: "films", nav: "How films are chosen", title: "How films are chosen", desc: "Not fame but three tests — reach, critical density, and how a film connects to the rest — decide what enters the corpus." },
   { slug: "tiers", category: "films", nav: "Close readings & catalog", title: "Close readings and catalog records", desc: "Why some films get a full close reading and others a catalog record, and how a film moves from one to the other on its own." },
-  { slug: "why-a-film-is-in-the-index", category: "films", nav: "Why a film is indexed", title: "Why a film is in the index", desc: "Every film carries a short letter saying plainly why it earned its place — assembled from a handful of plain filings, not written by an AI." },
+  { slug: "why-a-film-is-in-the-index", category: "films", nav: "Why a film is indexed", title: "Why a film is in the index", desc: "Every film carries a short letter saying plainly why it earned its place — its verdict computed from TakeScore, its sentences assembled from plain filings by fixed rule, with no language model." },
   { slug: "corpus-growth", category: "films", nav: "How the corpus grows", title: "How the corpus grows", desc: "Complete enumeration of the record, new films from title to live pages, and the monthly additions — how the catalog expands without rewriting itself." },
 
   // The Readings
@@ -77,14 +83,14 @@ export const DOCS: DocMeta[] = [
   { slug: "rankings", category: "connections", nav: "The numbers on ranked lists", title: "The numbers on ranked lists", desc: "Every percentage and ranked position on the site, computed the same way from embeddings and never typed in by hand." },
   { slug: "network-graph", category: "connections", nav: "The Network graph", title: "Reading the Network graph", desc: "How to read the connection graph — its four views, what the edges mean, and how the galaxy is laid out." },
   { slug: "search", category: "connections", nav: "How search works", title: "How search works", desc: "One engine fuses text and meaning across twelve kinds of thing — and finds English readings from a Korean query." },
-  { slug: "sentences", category: "connections", nav: "The sentence layer", title: "The sentence layer", desc: "Hundreds of thousands of factual sentences, assembled entirely by rule from real data — no language model, no randomness." },
+  { slug: "sentences", category: "connections", nav: "The sentence layer", title: "The sentence layer", desc: "Hundreds of thousands of factual sentences, composed by the Metatake method from real data — no language model, no randomness." },
 
   // The Record
   { slug: "locations", category: "record", nav: "Locations", title: "Locations: setting and filmed", desc: "Where a film was shot and where its story is set, kept apart — compiled, geolocated and labelled by precision, never scraped." },
   { slug: "reception", category: "record", nav: "Reception", title: "Reception and the afterlife", desc: "How a film's reputation was made and remade — built only from what publishers themselves make public, one citation per outlet." },
   { slug: "credits", category: "record", nav: "Credits", title: "Credits and collaborations", desc: "How the credit record is built and ranked — by a weighted rating that resists popularity, and verbalized by rule." },
   { slug: "where-to-watch", category: "record", nav: "Where to watch", title: "Where to watch: sources and freshness", desc: "How the availability matrix is built from TMDB and JustWatch, checked against free and physical sources, and dated." },
-  { slug: "where-to-start", category: "record", nav: "Where to start", title: "Where to start, who's next", desc: "The director entry points and next-director picks are curated, not algorithmic — every pick carries the exact reason, not a score." },
+  { slug: "where-to-start", category: "record", nav: "Where to start", title: "Where to start, who's next", desc: "The director entry points and next-director picks are drafted by Metatake AI from the director's own filmography — every pick carries the exact reason it was chosen, not a score." },
   { slug: "sources-and-identity", category: "record", nav: "Sources & identity", title: "Sources and identity", desc: "TMDb identity is the spine that holds every layer to the same film — and the line between what's ours and what's borrowed." },
   { slug: "sources-we-monitor", category: "record", nav: "Sources we monitor", title: "The sources we monitor", desc: "The award bodies, canons, national lists, critics' outlets, watch-data sources and directors we actually track — named, with links." },
 
@@ -95,15 +101,15 @@ export const DOCS: DocMeta[] = [
   { slug: "save-and-share", category: "your-cinema", nav: "Save & share", title: "Saving and sharing", desc: "How saving to your shelf and sharing a page work — and why an account earns its keep before you rate a single film." },
 
   // The Live Desk
-  { slug: "now-playing", category: "live", nav: "The live desk", title: "The live desk", desc: "When a film spikes in the world's attention, a signed editor's letter within the hour — anchored to the corpus, retrieved not remembered." },
+  { slug: "now-playing", category: "live", nav: "The live desk", title: "The live desk", desc: "When a film spikes in the world's attention, a letter written by Metatake AI within the hour and published unattended after a machine gate — anchored to the corpus, retrieved not remembered, reviewed by the editor after the fact." },
   { slug: "the-daily", category: "live", nav: "The Daily", title: "The Daily — Between Film and the World", desc: "Most mornings, five things that happened in the world and the films that already knew them — each reduced to a figure, anchored to a film, verified live before it ships." },
   { slug: "metatake-tv", category: "live", nav: "Metatake TV", title: "Metatake TV", desc: "A continuous, rule-made video channel you can steer or simply leave on — an ambient, screensaver way to keep cinema in the room." },
 
   // Trust
-  { slug: "editorial-responsibility", category: "trust", nav: "Editorial responsibility", title: "Editorial responsibility", desc: "Who reads every draft, signs it off, and answers for the page — and how that responsibility is recorded." },
+  { slug: "editorial-responsibility", category: "trust", nav: "Editorial responsibility", title: "Editorial responsibility", desc: "Who reads the drafts, signs them off, and answers for the page — and how that responsibility is recorded in the credit each page carries." },
   { slug: "corrections", category: "trust", nav: "Corrections", title: "Corrections", desc: "Facts get corrected; readings stay open. How to flag an error, and what we will and won't change." },
   { slug: "independence", category: "trust", nav: "Independence", title: "Independence", desc: "No reading is sponsored, and no one can pay to place, remove or change one. What that means in practice." },
-  { slug: "ai-disclosure", category: "trust", nav: "AI disclosure", title: "AI disclosure", desc: "A layer-by-layer map of what's AI-drafted, what's assembled by rule, and what's curated by a human hand." },
+  { slug: "ai-disclosure", category: "trust", nav: "AI disclosure", title: "AI disclosure", desc: "A layer-by-layer map of what Metatake AI drafts, what it computes, and what fixed rules assemble with no language model — and the credit each layer carries." },
   { slug: "collaborate", category: "trust", nav: "Working with us", title: "Working with Metatake", desc: "Who we would like to work with, what we are actually asking, and why it might be worth your while — an open door, not a pitch." },
   { slug: "bots-and-crawlers", category: "trust", nav: "Bots & crawlers", title: "Bots and crawlers", desc: "How our one identified crawler behaves, and how we treat the crawlers that visit us — citation welcome, wholesale scraping declined." },
 

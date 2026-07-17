@@ -23,9 +23,10 @@ export default function EmbedPage() {
 
         <p>
           Writing about a film? Drop in its <strong>TakeScore</strong> — Metatake&rsquo;s 13-dimension
-          critical assessment — as a small badge that updates itself and links readers to the full
-          criticism. One line of HTML, no account, free. Attribution is built in: the badge always
-          credits Metatake and links back.
+          critical assessment, computed by Metatake AI against a version-locked rubric that{" "}
+          <Link href="/editor">Wonwoo Yoon</Link> designed and calibrated — as a small badge that updates
+          itself and links readers to the full criticism. One line of HTML, no account, free. Attribution
+          is built in: the badge always credits Metatake and links back.
         </p>
 
         <EmbedBuilder />

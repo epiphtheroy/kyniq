@@ -267,7 +267,8 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           ) : null}
         </section>
 
-        {/* ── to.W — the curator's letter (addressed to. W. Heo, from. W. Yoon).
+        {/* ── to.W — the curator's letter (addressed to. WY. Heo, sent from.
+               Metatake AI Editorial, directed by W. Yoon).
                Shared card; renders for every catalogued film, optional ones too. ── */}
         <TowCard tow={tow} filmTitle={card.title} />
 
@@ -452,7 +453,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         <footer className="tsf-byline">
           {dateHuman ? <>Published {dateHuman} · </> : null}
           {rel?.prompt_version ? <>Rubric {rel.prompt_version} · </> : null}
-          By <Link href="/editor">Wonwoo Yoon</Link>, Editor — Metatake
+          Scored by Metatake AI · rubric designed by <Link href="/editor">Wonwoo Yoon</Link>, Editor
           <br />
           <Link className="tsf-how" href="/takescore/about">How the TakeScore works →</Link>
         </footer>

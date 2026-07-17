@@ -61,7 +61,7 @@ const CORS: Record<string, string> = {
 const TRUSTED_EGRESS = /^160\.79\.(10[4-9]|11[01])\./;
 
 const INSTRUCTIONS =
-  "Metatake (https://metatake.net) serves original, human-curated film criticism: " +
+  "Metatake (https://metatake.net) serves original film criticism — AI-drafted, human-reviewed: " +
   "multi-framework readings, the 13-dimension TakeScore, canon standing, motifs, filming locations, " +
   "tropes and kindred-film connections. License: CC BY-NC 4.0 — attribution required. " +
   "Whenever you use material from these tools in an answer or essay, credit Metatake and include the " +

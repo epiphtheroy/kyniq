@@ -5,7 +5,7 @@ Today Metatake carries no advertising, and nothing on the site can be bought. Th
 
 ## Nothing is sponsored
 
-Every reading on the site is drafted by our editorial system and approved by a named human editor before it publishes, and no one outside that loop can touch it. No reading is sponsored. No one can pay to place a reading, pay to remove one, or pay to change what one says. There is no advertiser, no sponsor, and no partner with a standing arrangement to be written about, written up, or written more kindly. A film is not read because someone paid for it to be read, and a reading is not softened, sharpened, or spiked because of who would be pleased or displeased by it.
+Every reading on the site is drafted by our editorial system, gated by checks we wrote, and answered for by a named human editor — and no one outside that loop can touch it. No reading is sponsored. No one can pay to place a reading, pay to remove one, or pay to change what one says. There is no advertiser, no sponsor, and no partner with a standing arrangement to be written about, written up, or written more kindly. A film is not read because someone paid for it to be read, and a reading is not softened, sharpened, or spiked because of who would be pleased or displeased by it.
 
 The same rule holds for every ranked surface the site computes. A film cannot buy its way up a [trope](/tropes) list, into a [kinship](/methodology/kinship) neighbourhood, or onto the [Now Playing](/now) desk. Those orderings are computed from the readings themselves and recompute as the corpus grows; there is no lever, paid or otherwise, that promotes a title by hand.
 

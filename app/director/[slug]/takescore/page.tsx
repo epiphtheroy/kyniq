@@ -291,8 +291,8 @@ export default async function DirectorTakescorePage({ params }: Props) {
               {director} has {films.length} film{films.length === 1 ? "" : "s"} on Metatake; {n === films.length ? (n === 1 ? "it carries" : "all of them carry") : `${n} of them carr${n === 1 ? "ies" : "y"}`} a{" "}
               <Link href="/takescore/about">TakeScore</Link> — Value minus Risk, each scored 0–100 against the fixed
               TakeScore rubric, with entry cost kept apart as a price, never a merit. This page is the whole scored
-              filmography in one ranking, best first. Assembled by Metatake Editorial, edited by{" "}
-              <Link href="/editor">Wonwoo Yoon</Link>.
+              filmography in one ranking, best first. Composed by rule from scores computed by Metatake AI, designed
+              &amp; supervised by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
 
             <div className="lin-stats">

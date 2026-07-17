@@ -4,10 +4,17 @@ import { unstable_cache } from "next/cache";
 import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 import "./tow-card.css";
 
-// to.W — the curator's letter, addressed "to. W. Heo" and signed "from. W. Yoon".
-// A single-film note on where a film stands in the Metatake index, assembled
-// (LLM-0) from curation.v_film_comment via the tow_comment RPC. Shared across
-// the TakeScore film page and the film page's TakeScore section.
+// to.W — the curator's letter, addressed "to. WY. Heo" and sent "from. Metatake
+// AI Editorial", directed by W. Yoon. A single-film note on where a film stands
+// in the Metatake index, assembled (LLM-0) from curation.v_film_comment via the
+// tow_comment RPC. Shared across the TakeScore film page and the film page's
+// TakeScore section.
+//
+// Why the desk signs it and not a person (D2, 2026-07-17): the verdict data is
+// TakeScore, computed by Metatake AI against a version-locked rubric; the prose
+// around it is a fixed template. Nobody sat down and wrote it, so no human name
+// goes on it — W. Yoon is credited for directing the method, and the mark links
+// to the editor. Full restatement: /methodology/why-a-film-is-in-the-index.
 
 export type TowComment = {
   verdict: string;
@@ -83,7 +90,10 @@ export default function TowCard({
         <p className="towc-recd">{t(locale, "Recommended into the Metatake index · {date}", { date: tow.rec_date })}</p>
       ) : null}
       <div className="towc-signrow">
-        <span className="towc-sign">from. W. Yoon</span>
+        <div>
+          <div className="towc-sign">from. Metatake AI Editorial</div>
+          <div className="towc-recd">{t(locale, "directed by W. Yoon")}</div>
+        </div>
         <Link href="/editor" className="towc-ava" title={t(locale, "Wonwoo Yoon — Metatake editor")} aria-label={t(locale, "Wonwoo Yoon, Metatake editor — view profile")}>w</Link>
       </div>
       {!isShort ? (

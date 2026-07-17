@@ -1,0 +1,35 @@
+name: CI
+
+# P0 pipeline (2026-07-17): runs on every staging push and every PR into main.
+# Vercel's own build of the same commit is the second, independent gate.
+on:
+  push:
+    branches: [staging]
+  pull_request:
+    branches: [main]
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Ratchet, not a hard zero-gate: the codebase carries pre-existing tsc
+      # errors (next.config ignoreBuildErrors). CI fails only when the count
+      # EXCEEDS the committed baseline, so new type errors are caught while the
+      # backlog is paid down separately. Lower ci/tsc-baseline.txt as errors
+      # get fixed — never raise it.
+      - name: Typecheck ratchet
+        run: |
+          BASELINE=$(cat ci/tsc-baseline.txt)
+          COUNT=$(npx tsc --noEmit 2>&1 | grep -c 'error TS' || true)
+          echo "tsc errors: $COUNT (baseline: $BASELINE)"
+          if [ "$COUNT" -gt "$BASELINE" ]; then
+            echo "New TypeScript errors introduced:"
+            npx tsc --noEmit 2>&1 | grep 'error TS' | head -50
+            exit 1
+          fi

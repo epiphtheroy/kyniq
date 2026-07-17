@@ -38,7 +38,9 @@ The [kinship](/methodology/kinship) theme is the same fused signal documented in
 
 ## The brand contract
 
-The module is signed. It is credited as **a data fantasia by Wonwoo Yoon**, and it carries a disclaimer that its sentences are **not AI-written and are independent of the filmmakers' intent**. We never remove either line. They are part of the contract of the layer: the credit says who designed the rules, and the disclaimer is a promise about what the sentences are and are not. They are computed statements of record and connection, not interpretations we attribute to the people who made the films.
+The module is signed, and the signature is a contract of two lines. The first is a **credit** — currently *Composed by the Metatake method · designed by Wonwoo Yoon* — which says who designed the rules that write the sentences. The second is a **disclaimer**: the sentences are **not AI-written and are independent of the filmmakers' intent**. The wording of the credit will change as our credit conventions do; the two lines themselves never go away. That permanence is the contract, not any particular phrasing of it.
+
+The disclaimer is narrow on purpose. It is a claim about the **assembly**: no language model composes these sentences — a template does, from rows. It is not a claim that no model ever touched a value inside those rows, because that would not be true; some inputs are extracted by a model upstream, and what gates them before they are stored is corroboration — an independent-source rule, not a person reading each one. What we promise is the smaller, checkable thing: the sentence you are reading was written by a rule rather than improvised by a model, and it is a computed statement of record and connection — not an interpretation we attribute to the people who made the film.
 
 ## What we decided, and why
 

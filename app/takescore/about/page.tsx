@@ -113,10 +113,11 @@ export default function TakeScoreAbout() {
 
         <h2 className="ab-h2">Why you can trust it</h2>
         <p className="ab-p">
-          Scores are produced by a fixed, version-locked rubric anchored to a calibrated reference set, each film judged
-          independently, aggregated across samples, and checked for drift over time. Popularity metrics (IMDb, Rotten
-          Tomatoes, Metascore) are shown <em>alongside</em> for comparison but are <strong>never</strong> inputs to the
-          score — this avoids simply re-packaging the crowd.
+          Every score is computed by Metatake AI against a version-locked rubric designed and calibrated by{" "}
+          <Link href="/editor">Wonwoo Yoon</Link>, founder &amp; editor of Metatake. The rubric is fixed and anchored to
+          a calibrated reference set: each film is judged independently, aggregated across samples, and checked for
+          drift over time. Popularity metrics (IMDb, Rotten Tomatoes, Metascore) are shown <em>alongside</em> for
+          comparison but are <strong>never</strong> inputs to the score — this avoids simply re-packaging the crowd.
         </p>
         <p className="ab-note">
           Honest limit: this is a rubric-anchored <em>AI estimate</em>, not a human-consensus verdict. We publish the

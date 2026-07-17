@@ -23,7 +23,7 @@ export function GET() {
     {
       name: "Metatake Film Criticism API",
       description:
-        "Read-only, no-key access to Metatake — original, human-curated film criticism for 6,700+ films: " +
+        "Read-only, no-key access to Metatake — original film criticism, AI-drafted and human-reviewed, for 6,700+ films: " +
         "multi-framework readings, the 13-dimension TakeScore, canon lineage, filming locations, tropes and kindred films.",
       version: "1.0.0",
       documentation: `${SITE}/api`,

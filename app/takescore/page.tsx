@@ -149,6 +149,9 @@ export default async function TakeScorePage() {
 
         <p className="df-sub" style={{ marginTop: 24, fontSize: 12, opacity: 0.7 }}>
           Streaming availability via TMDB (data licensed through JustWatch). External ratings via IMDb, Rotten Tomatoes and Metacritic.
+          <br />
+          TakeScores are computed by Metatake AI against a frozen rubric designed and calibrated by{" "}
+          <Link href="/editor">Wonwoo Yoon</Link>.
         </p>
       </div>
     </div>

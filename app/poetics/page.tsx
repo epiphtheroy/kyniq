@@ -32,16 +32,17 @@ export default function PoeticsHub() {
       <h1 className="poe-h1">Poetics</h1>
       <p className="poe-standfirst">Open questions from building a critical map of cinema.</p>
       <p className="poe-byline">
-        By <Link href="/editor">Wonwoo Yoon</Link>, editor
+        One editor&apos;s desk — drafted by Metatake AI from the editor&apos;s own viewing log, directed &amp; signed
+        off by <Link href="/editor">Wonwoo Yoon</Link>
       </p>
 
       <p className="body reading" style={{ fontSize: 18, margin: "20px 0 0", maxWidth: "64ch" }}>
         Building this site meant answering questions I had no right to consider settled — what makes a film a
         masterpiece, which films are worth an evening, why a small object is a better unit of reading than a plot.
         These are essays about those questions, and about the specific, arguable choices I made when a real page
-        needed a real answer. The rest of the site speaks as an editorial desk; these notes are one editor&apos;s,
-        signed, and they mostly end in a question rather than a claim. Where the site already documents <em>how</em> a
-        thing is built, I link to it and try not to repeat myself — the{" "}
+        needed a real answer. The rest of the site speaks as an editorial desk; these notes are drafted by Metatake AI
+        from my own viewing log, and I sign off on each one — they mostly end in a question rather than a claim. Where
+        the site already documents <em>how</em> a thing is built, I link to it and try not to repeat myself — the{" "}
         <Link href="/methodology" className="accent" style={{ textDecoration: "none" }}>methodology</Link> pages are the
         reference; this is the argument.
       </p>

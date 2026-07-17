@@ -766,9 +766,10 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
           <a className="dr-stat dr-teal" href="#dr-tropes"><div className="dr-n">{tropeCount}</div><div className="dr-k">{t(locale, "Tropes")}</div></a>
         </div>
 
-        {/* to.W — the curator on this director's standing in the index.
+        {/* to.W — the desk on this director's standing in the index.
             Deterministic prose from curation.film_comment; hidden when the
-            director holds no non-optional films. */}
+            director holds no non-optional films. Sent from the desk, not a
+            person, for the reason set out in components/read/TowCard.tsx (D2). */}
         {standing && curation ? (
           <section className="dr-tow" aria-labelledby="dr-tow-h">
             <div className="dr-tow-head">
@@ -788,8 +789,11 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
               <p className="dr-tow-recd">In the Metatake index since {curation.rec_since}</p>
             ) : null}
             <div className="dr-tow-signrow">
-              <span className="dr-tow-sign">from. W. Yoon</span>
-              <Link href="/editor" className="dr-tow-ava" title="Wonwoo Yoon — Metatake editor" aria-label="Wonwoo Yoon, Metatake editor — view profile">w</Link>
+              <div>
+                <div className="dr-tow-sign">from. Metatake AI Editorial</div>
+                <div className="dr-tow-recd">{t(locale, "directed by W. Yoon")}</div>
+              </div>
+              <Link href="/editor" className="dr-tow-ava" title={t(locale, "Wonwoo Yoon — Metatake editor")} aria-label={t(locale, "Wonwoo Yoon, Metatake editor — view profile")}>w</Link>
             </div>
             <div className="dr-tow-tags">
               {curation.n_essential > 0 ? <span className="dr-tow-tag dr-tow-tag--essential">{curation.n_essential} essential</span> : null}

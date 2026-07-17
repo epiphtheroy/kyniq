@@ -20,10 +20,10 @@ export async function GET() {
   }).join("\n\n");
 
   const content = `# Metatake — a critical map of cinema
-> An AI-drafted, human-edited film-interpretation site. Films are broken into figures; each figure gets close readings under named interpretive frameworks; readings are embedded so films connect by meaning, not by tag. Every reading is reviewed and signed off by a human editor before it publishes.
+> An AI-written film-interpretation site with a named human editor who answers for it. Films are broken into figures; each figure gets close readings under named interpretive frameworks; readings are embedded so films connect by meaning, not by tag. Readings are written by Metatake AI and publish as written: no person reads one first, and no checker gates the prose. The factual layers around them are gated — locations need independent sources to agree, desk essays pass a fact-and-attribution check, reception is assembled from dated sources with no model writing a line.
 
 ## About
-Metatake reads films closely and maps how they connect. The interpretive work is drafted by an AI system (Metatake Editorial) and reviewed by a named human editor, Wonwoo Yoon, who checks every reading's facts and takes responsibility for the page. Alongside the readings sit structured layers: a computed value score (TakeScore), a public record of awards and canons (lineage), filming and setting locations, reception history, and an hourly news desk.
+Metatake reads films closely and maps how they connect. The interpretive work is written by an AI system (Metatake AI) and publishes as written: no human reads a reading before it goes live, and this site does not claim one does. What is gated is the factual layer, and each gate is specific — a filming-location pin publishes only if independent sources agree, and a single-source claim is quarantined; a desk essay clears a fact-and-attribution check before it stands; reception is assembled from four dated sources with no model writing a line; lineage is enumerated whole. Wonwoo Yoon designed the method, the frameworks, and those gates, directs what gets written, and answers for what publishes — corrections land on his desk, he can retire any reading, and nobody can pay to place, change or remove one. Every page carries an explicit provenance credit: what wrote it, when, and who designed and directed the method it was written to. Alongside the readings sit structured layers: a computed value score (TakeScore), a public record of awards and canons (lineage), filming and setting locations, reception history, and an hourly news desk.
 
 ## Core model
 - film → figure → take: a film is decomposed into figures (the objects, gestures, colours, silences it returns to); each figure carries close readings ("strong misreadings") drafted under one of fourteen frameworks.
@@ -35,8 +35,8 @@ The full method is published, document by document, under ${SITE}/methodology. W
 
 ${methodology}
 
-## Poetics — signed critical essays
-Open questions on film criticism and theory by editor Wonwoo Yoon, under ${SITE}/poetics.
+## Poetics — critical essays from the editor's desk
+Open questions on film criticism and theory, drafted by Metatake AI from the editor's own viewing log, directed and signed off by Wonwoo Yoon, under ${SITE}/poetics.
 ${POE_ESSAYS.filter((e) => POE_BODIES[e.slug]).map((e) => `- ${SITE}${poeHref(e.slug)} — ${e.title}: ${e.desc}`).join("\n")}
 
 ## For machines — API, MCP & datasets

@@ -281,7 +281,7 @@ export default function ScreenerExplorer({
             <Link href="/takescore/about" className="scr-hero-brand">TakeScore<sup>™</sup></Link>
             <span className="scr-hero-sub-title">The Screener</span>
           </h1>
-          <p className="scr-hero-sub">Every film scored on durable value, not popularity. Search one, compare many, screen the whole catalog by your own rules.</p>
+          <p className="scr-hero-sub">Every film scored on durable value, not popularity. Search one, compare many, screen the whole catalog by your own rules. An AI-computed metric for cinephiles, designed by <Link href="/editor" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 2 }}>Wonwoo Yoon</Link>.</p>
           <HeroSearch onPin={pin} />
           <div className="scr-presets">
             {TAKESCORE_PRESETS.map((p) => (

@@ -18,10 +18,13 @@ import "@/app/film/[slug]/read.css";
 /**
  * /director/[slug]/start — "Where to Start with {Director}" as its own
  * indexable article (2026-07-09): the director hub's dr-start section promoted
- * to a standalone SEO page. LLM-0: every sentence is assembled from DB fields —
- * the curated `reason` prose per pick is stored data, the rest is counts,
- * titles, years and labels. The hub keeps its compact picks list; this page is
- * the full route, read in order.
+ * to a standalone SEO page. Render is LLM-0 — every sentence here is assembled
+ * from DB fields — but that is a claim about render time only: the picks and
+ * their `reason` prose were drafted offline by Metatake AI (worker/director-picks-gen.py,
+ * Opus batch) and are stored data by the time this page reads them. Credit is
+ * label A accordingly (2026-07-17, HANDOFF-AI집필크레딧-표기개편.md D7). The rest
+ * is counts, titles, years and labels. The hub keeps its compact picks list;
+ * this page is the full route, read in order.
  */
 export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
@@ -264,9 +267,9 @@ export default async function DirectorStartPage({ params }: Props) {
             <p>
               {director} has {films.length} film{films.length === 1 ? "" : "s"} read closely on Metatake{span}, carrying{" "}
               {totalReadings} published reading{totalReadings === 1 ? "" : "s"}. This is a route through that work —{" "}
-              {picks.length} stop{picks.length === 1 ? "" : "s"} in a deliberate order, curated for where each film takes
-              you next rather than ranked by box office. Assembled by Metatake Editorial, edited by{" "}
-              <Link href="/editor">Wonwoo Yoon</Link>.
+              {picks.length} stop{picks.length === 1 ? "" : "s"} in a deliberate order, chosen for where each film takes
+              you next rather than ranked by box office. The route and its reasons are written by Metatake AI, to a brief
+              designed by <Link href="/editor">Wonwoo Yoon</Link>, who answers for it.
             </p>
 
             {picks.map((p, i) => {

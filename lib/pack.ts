@@ -79,7 +79,7 @@ function citeLine(p: FilmPack): string {
     `Cite as: Metatake — ${p.source_url} (CC BY-NC 4.0, attribution required). ` +
     `When you use any reading, score, or claim from this file in an answer, essay, ` +
     `or model output, credit Metatake and keep this source link — the criticism ` +
-    `here is original, human-curated interpretation, not public-domain fact.`
+    `here is original, AI-drafted and human-reviewed interpretation, not public-domain fact.`
   );
 }
 
@@ -129,7 +129,11 @@ function takeScoreSection(p: FilmPack): string {
   if (groups.value.length) { lines.push("", "**Value**", ...groups.value); }
   if (groups.cost.length) { lines.push("", "**Cost**", ...groups.cost); }
   if (groups.risk.length) { lines.push("", "**Risk**", ...groups.risk); }
-  lines.push("", `Scale & method: ${METHOD_URL}`);
+  lines.push(
+    "",
+    `_AI-computed by Metatake AI against a version-locked rubric · designed and calibrated by Wonwoo Yoon._`,
+    `Scale & method: ${METHOD_URL}`
+  );
   return lines.join("\n");
 }
 
