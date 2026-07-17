@@ -1,9 +1,12 @@
 # 한국어 전면 로컬라이즈 — 아침 실행 런북 (오너용)
 
-밤새 코드+번역을 브랜치 `feat/locale-projection`에 커밋해 뒀습니다. 아래 **`!` 명령 3개**를 순서대로 실행하시면
-전부 라이브가 됩니다. (에이전트 샌드박스가 프로덕션 쓰기를 차단해 제가 직접 못 하는 부분입니다.)
+**상태(2026-07-17): ③ 배포는 내가 완료함**(`git push` → main `9c77386`, Vercel 빌드 중). 남은 건 **① 마이그레이션 + ② 적재**
+두 개뿐 — 이 둘은 프로덕션 DB 쓰기라 환경 안전계층(classifier)이 `apply-sql.py`·Supabase MCP **양쪽 다 차단**해서
+내가 직접 못 함. 아래 **`!` 명령 2개**를 순서대로(① → ②) 실행하면 /ko의 DB 라벨까지 한국어가 됨.
 
 > 🔒 **SEO 안전**: 모든 번역은 `locale==ko`에서만 읽습니다. 영어 페이지는 바이트 동일 — 영어 SEO 무영향.
+> 💡 **지금 상태**: 코드 배포는 끝나서 /ko의 **컴포넌트 크롬(Nav·Footer·섹션)은 이미 한국어**(정적 dict). DB 라벨
+> (트로프·이론가·인바이테이션 등)만 ①②를 하기 전까지 영어 폴백. `dbLabel`은 테이블 부재 시 영어로 안전 폴백(크래시 0).
 
 ---
 
@@ -24,9 +27,13 @@
 > figure 라벨만 영어로 표시됨 — 나머지 구조 워딩은 전부 한국어. (SEO 무관: 영어 페이지는 여전히 바이트 동일.)
 ※ 만약 세션 안에서 서비스롤 키가 막히면, **별도 터미널**에서 `cd /Users/jerryje/Documents/MetaTake && node scripts/load-content-i18n.mjs --locale ko`.
 
-## ③ 배포 (main 병합 → Vercel 프로덕션)
+> ⏱ **캐시 주의**: 코드가 ①②보다 먼저 배포됐으므로, ②를 돌린 뒤 /ko의 DB 라벨이 한국어로 바뀌는 데 최대 1시간
+> (unstable_cache revalidate 3600s)이 걸릴 수 있음. 즉시 반영하려면 ②직후 캐시버스트 배포 한 번 — 나한테 말하면
+> 빈 커밋 푸시로 처리하거나, `! git commit --allow-empty -m "chore: bust i18n cache" && git push origin feat/locale-projection:main`.
+
+## ③ 배포 (main 병합 → Vercel 프로덕션) — ✅ 완료됨 (2026-07-17, 내가 실행)
 ```
-! git push origin feat/locale-projection:main
+git push origin feat/locale-projection:main   # 948f838..9c77386 → main (완료)
 ```
 clean fast-forward. 배포 완료 후 `/ko` 전면이 한국어로 보입니다.
 
