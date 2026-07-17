@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { t, intlTag, locPath, LOCALES, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 import { genreName } from "@/lib/i18n/genres";
+import { loadFilmTitles, filmTitle } from "@/lib/i18n/filmTitles";
 import EnglishOriginalLabel from "@/components/i18n/EnglishOriginalLabel";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
@@ -563,6 +564,13 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
     notFound();
   }
   const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, geoTopPins = [], geoCountries = [], hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
+  // Localized titles for every film referenced on this page (filmography, picks,
+  // hero cards) — all are this director's own films, so one batch over films +
+  // hiddenFilms covers them all. Empty map on the source locale (SEO safe).
+  const drFilmTitles = await loadFilmTitles(locale, [
+    ...(films as { slug: string }[]).map((f) => f.slug),
+    ...(hiddenFilms as { slug: string }[]).map((f) => f.slug),
+  ].filter(Boolean));
   const native = await directorNative(director);
   // to.W — the curation standing across the index (fail-soft: an RPC hiccup
   // just hides the card; null is the honest "no non-optional films" state).
@@ -794,7 +802,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
                 {curation.exemplars.map((e, i) => (
                   <span key={e.slug}>
                     {i > 0 ? " · " : ""}
-                    <Link href={`/film/${e.slug}`}>{e.title}</Link>
+                    <Link href={`/film/${e.slug}`}>{filmTitle(drFilmTitles, locale, e.slug, e.title)}</Link>
                   </span>
                 ))}
               </p>
@@ -839,7 +847,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
                   <div className="dr-pa-wide">
                     {wideArt.map((f) => (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img key={f.slug} className="dr-pa-w" src={`${IMG}/w300${f.backdrop_path}`} alt="" loading="lazy" title={`${f.title}${f.year ? ` (${f.year})` : ""}`} />
+                      <img key={f.slug} className="dr-pa-w" src={`${IMG}/w300${f.backdrop_path}`} alt="" loading="lazy" title={`${filmTitle(drFilmTitles, locale, f.slug, f.title) ?? f.title}${f.year ? ` (${f.year})` : ""}`} />
                     ))}
                   </div>
                 )}
@@ -847,7 +855,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
                   <div className="dr-pa-tall">
                     {tallArt.map((f) => (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img key={f.slug} className="dr-pa-t" src={`${IMG}/w185${f.poster_path}`} alt="" loading="lazy" title={`${f.title}${f.year ? ` (${f.year})` : ""}`} />
+                      <img key={f.slug} className="dr-pa-t" src={`${IMG}/w185${f.poster_path}`} alt="" loading="lazy" title={`${filmTitle(drFilmTitles, locale, f.slug, f.title) ?? f.title}${f.year ? ` (${f.year})` : ""}`} />
                     ))}
                   </div>
                 )}
@@ -901,10 +909,10 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
                     <span className="dr-flm__yr">{f.year ?? "—"}</span>
                     {f.poster_path ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img className="dr-flm__po" src={`${IMG}/w92${f.poster_path}`} alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`} width={34} height={51} loading="lazy" />
+                      <img className="dr-flm__po" src={`${IMG}/w92${f.poster_path}`} alt={`${filmTitle(drFilmTitles, locale, f.slug, f.title) ?? f.title}${f.year ? ` (${f.year})` : ""} poster`} width={34} height={51} loading="lazy" />
                     ) : <span className="dr-flm__po dr-flm__po--e" aria-hidden="true" />}
                     <span className="dr-flm__mid">
-                      <span className="dr-flm__ti">{f.title}</span>
+                      <span className="dr-flm__ti">{filmTitle(drFilmTitles, locale, f.slug, f.title)}</span>
                       <span className="dr-flm__sub">{f.readings > 0 ? (locale === DEFAULT_LOCALE ? `${f.readings} Strong Misreading${f.readings === 1 ? "" : "s"}` : t(locale, "Strong Misreadings {n}", { n: f.readings })) : t(locale, "In the catalog")}</span>
                     </span>
                     {f.score ? (
@@ -1219,12 +1227,12 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
                   <div className="dr-bdwrap">
                     {art ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
-                      <img className="dr-bd" src={art} alt={`${film.title} backdrop`} loading="lazy" />
+                      <img className="dr-bd" src={art} alt={`${filmTitle(drFilmTitles, locale, film.slug, film.title) ?? film.title} backdrop`} loading="lazy" />
                     ) : (<div className="dr-bd dr-bd--empty" aria-hidden="true" />)}
                     <PosterActions filmId={f.id as string} />
                   </div>
                   <div className="dr-cap">
-                    <div className="dr-ti">{film.title}{" "}{film.year ? <span className="dr-yr">({film.year})</span> : null}</div>
+                    <div className="dr-ti">{filmTitle(drFilmTitles, locale, film.slug, film.title)}{" "}{film.year ? <span className="dr-yr">({film.year})</span> : null}</div>
                     <div className="dr-fmt"><b>{count}</b> reading{count === 1 ? "" : "s"}</div>
                   </div>
                 </Link>
