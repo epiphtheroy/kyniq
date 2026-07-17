@@ -39,10 +39,11 @@ export default function Byline({
       className="ui muted"
       style={{ fontSize: 12.5, margin: "6px 0 0", letterSpacing: 0.1 }}
     >
-      {t(locale, "Drafted by")} Metatake Editorial · {t(locale, "reviewed & edited by")}{" "}
+      {t(locale, "Drafted by")} Metatake Editorial · {t(locale, "directed by")}{" "}
       <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>
         Wonwoo Yoon
       </Link>
+      {t(locale, ", who answers for it")}
       {u ? <> · {t(locale, "updated")} {u}</> : null}
       {" · "}
       <Link href={methodologyHref} className="accent" style={{ textDecoration: "none" }}>

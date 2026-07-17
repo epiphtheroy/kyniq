@@ -10,6 +10,7 @@ import BroadcastCard from "@/components/BroadcastCard";
 import { playlistExists } from "@/lib/tvExists";
 import FilmTabBar from "@/components/FilmTabBar";
 import ShareDock from "@/components/ShareDock";
+import ConceptualUseNote from "@/components/ConceptualUseNote";
 import EntityNetwork from "@/components/EntityNetwork";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink } from "@/components/DeskExplorer";
@@ -452,6 +453,7 @@ export default async function ConceptPage({ params }: Props) {
                 )}
                 {canonReadings.length > 0 || desks.length > 0 ? <>{" "}Every entry below is a close reading of a scene, not a definition.</> : null}
               </p>
+              {canonReadings.length > 0 || desks.length > 0 ? <ConceptualUseNote name={theorists.length === 1 ? theorists[0]?.name : null} /> : null}
               <div className="rd-share" style={{ marginTop: 14 }}>
                 <ShareDock variant="bar" path={`/concept/${slug}`} title={tCap}
                   hook={`${tCap} — ${tName} read across film on Metatake, scene by scene`}

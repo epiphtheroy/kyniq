@@ -7,6 +7,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import HubExplore from "@/components/HubExplore";
 import EntityTVHero from "@/components/EntityTVHero";
 import ShareDock from "@/components/ShareDock";
+import ConceptualUseNote from "@/components/ConceptualUseNote";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 
 /**
@@ -148,6 +149,7 @@ export default async function TraditionPage({ params }: Props) {
           {rows.length} concept{rows.length !== 1 ? "s" : ""} carry the <em>{name}</em> tradition
           {films > 0 ? <> — {films} film reading{films !== 1 ? "s" : ""} across Metatake lean on them.</> : "."}
         </p>
+        <ConceptualUseNote />
         <QuickAnswers items={quickAnswerItems(rows, films)} />
         <div className="th-share" style={{ marginTop: 14 }}>
           <ShareDock variant="bar" path={`/tradition/${slug}`} title={`${name} — a theory tradition`}

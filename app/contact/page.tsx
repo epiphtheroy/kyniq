@@ -34,6 +34,22 @@ export default function ContactPage() {
 
       <hr className="rule" />
 
+      <div className="seclbl">If you are named on a page</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Are you a director, critic or scholar named here? If a fact about you is wrong, a concept is
+        attributed to you that you did not hold, or you believe a page defames you or infringes your rights,
+        write to{" "}
+        <a href="mailto:wonwoo@metatake.net?subject=Named%20on%20a%20page" className="accent" style={{ textDecoration: "none" }}>
+          wonwoo@metatake.net
+        </a>{" "}
+        with the URL and the exact sentence. We act promptly — correct it, remove the claim, take the page down
+        while we review, or publish a reply from you — and tell you what we did. The full policy is under{" "}
+        <Link href="/methodology#corrections" className="accent" style={{ textDecoration: "none" }}>Corrections</Link>.
+      </p>
+
+      <hr className="rule" />
+
       <div className="seclbl">Press &amp; partnerships</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>

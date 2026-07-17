@@ -415,6 +415,27 @@ export default async function MethodologyPage() {
         interpretation because you disagree with it — facts get corrected, readings stay open. A film sustains more
         than one strong reading, and logged-in readers can add their own beneath any figure.
       </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        Two cases get their own door.{" "}
+        <strong>If you are named on a page</strong> — a director, a critic, a scholar whose ideas a reading works
+        with — and something about you is stated wrongly, or a concept is put in your mouth that you did not hold,
+        write to{" "}
+        <a href="mailto:wonwoo@metatake.net?subject=Named%20on%20a%20page" className="accent" style={{ textDecoration: "none" }}>
+          wonwoo@metatake.net
+        </a>{" "}
+        and say so. Metatake reads films <em>through</em> a thinker&apos;s concepts; it does not report anyone&apos;s
+        opinions or claim they wrote about a given film, and where that line has been crossed we correct it. You are
+        also welcome to send a reply we will publish alongside the page.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        <strong>If you believe a page defames you or infringes your rights</strong>, email{" "}
+        <a href="mailto:wonwoo@metatake.net?subject=Removal%20request" className="accent" style={{ textDecoration: "none" }}>
+          wonwoo@metatake.net
+        </a>{" "}
+        with the URL and what is wrong. We act on these promptly: a page can be corrected, a specific claim removed,
+        or the page taken down while we review, and we tell you what we did. Naming the exact sentence and why it is
+        false is what lets us move fastest.
+      </p>
 
       <hr className="rule" />
 
