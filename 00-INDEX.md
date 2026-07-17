@@ -15,6 +15,7 @@
 ## Reference — current & accurate
 | Doc | Purpose |
 |---|---|
+| `HANDOFF-DB성능-인시던트.md` | **DB 성능 인시던트 정본 (2026-07-17 종결·후속 잔존)** — 소형 컴퓨트 포화 인시던트(백필 churn+배포 9회+/ko 크롤 중첩)의 원인·완료조치(VACUUM·마이그 0108 taxonomy HNSW **적용됨, 재적용 금지**·컴퓨트 Small 업그레이드)·⚠️미커밋 워킹트리 3파일·백필 재개 런북·백로그 P1~P5·재발방지 규칙 6조·진단 순서. **인프라/DB성능/검색성능 작업은 여기서 시작.** |
 | `docs/HANDOFF-SEO-마스터.md` | **SEO 운영 정본 (2026-07-04, 갱신 07-07)** — sitemap **20분할**·코호트·IndexNow·slug_aliases/라우트 이전·Tier-2·CineCodex·**figure 질문 title 레이어**(§1 표·§3b-9)의 전 시스템 파일 위치 + 상황별 런북(새 영화/캡 증량/표면 개방/개명·이전) + 층별 정본 색인(§3b) + GSC 판독 로그. SEO 관련 변경 전 필독. |
 | `HANDOFF-다국어프로젝션.md` | **다국어 프로젝션 정본 · 웨이브1(한국어) ✅ SHIPPED 라이브 2026-07-17 (커밋 `7e64d7f`)** — 영어 단일 정본 + `/{locale}` 얇은 셸 투영 체계(ko·ja·fr·es). 라이브: `lib/i18n/*` 코어·필름메인 `/ko/film/[slug]`·감독·촬영지·공유컴포넌트·마이그0105·TMDB ko백필·films-ko.xml·hreflang·네비 스위처·배너. **일본어·스페인어는 §-2 "새 언어 추가 7단계"로 착수**(구조변경 0). ⚠️지명/제목=번역 아니라 데이터(TMDB 백필+도시명)·감독/촬영지 noindex(혼합언어 §6.5)·`live:false→true`가 마지막·오너게이트=코어어휘 승인·마이그/백필/배포는 오너가 `!`로 실행. 롱폼 본문은 `HANDOFF-한국어화-i18n-마스터.md`(content_i18n). AS-BUILT: `Outputs/locale-projection-as-built.md`. **국제화·언어 사이트 작업은 여기서 시작.** |
 | `OUTREACH-2주-실행플랜.md` + `OUTREACH-실행현황-2026-07-04.md` | **백링크 아웃리치 정본(플랜)과 실행 원장(현황)** — 복붙 초안(HN/Reddit/Substack/이메일)·타깃 리스트·금지사항 / Gmail 초안 18건·LibGuides 22곳 검증·매체 티어·휴면 타깃 기록. 발송 전 중복 확인은 현황 문서+Gmail 보낸함. 연락처 DB: `data/sources/magazine-contacts.csv`. |
