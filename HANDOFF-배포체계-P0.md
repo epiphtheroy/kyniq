@@ -32,7 +32,11 @@
 
 ## §3 개발(스테이징) URL
 
-Vercel Git 연동이 staging 브랜치 푸시마다 자동 빌드. **브랜치 고정 URL**은 `<프로젝트>-git-staging-<계정>.vercel.app` 형식(첫 푸시 후 Vercel 대시보드 → Deployments에서 확인, 본 문서에 기록해 둘 것). Preview 배포는 Vercel 로그인(오너)만 접근 가능한 보호가 기본이며 색인되지 않음. 예쁜 주소를 원하면 Vercel → Settings → Domains에서 `staging.metatake.net`을 staging 브랜치에 연결(오너, 2분).
+Vercel Git 연동이 staging 브랜치 푸시마다 자동 빌드. **개발 URL(고정)**:
+
+> **https://kyniq-5eox-git-staging-jerryjes-projects-502052b0.vercel.app**
+
+접근 보호 실측(2026-07-17): 302 → Vercel SSO 로그인(오너 계정) + `x-robots-tag: noindex` — 남이 못 보고 색인 안 됨. 예쁜 주소를 원하면 Vercel → Settings → Domains에서 `staging.metatake.net`을 staging 브랜치에 연결(오너, 2분).
 
 ⚠️ **DB는 프로덕션 공유**: 개발 URL = 새 코드 + 운영 DB. 마이그레이션·대량 적재는 여전히 운영 직행이므로 기존 규칙(심야·오너 게이트) 유지. 완전 분리는 미결 ②(제2 Supabase 프로젝트).
 
@@ -45,4 +49,8 @@ Vercel Git 연동이 staging 브랜치 푸시마다 자동 빌드. **브랜치 �
 
 ## §5 구축 검증 기록 (2026-07-17)
 
-staging 브랜치 = origin/main + Sentry 커밋 + P0 커밋으로 생성·푸시. CI 첫 실행·Vercel staging 빌드 결과는 §3에 URL과 함께 추기.
+- staging 브랜치 생성·푸시: origin/main + `d56026d`(Sentry 원자 커밋) + `4a81695`(P0 파이프라인). **main 무접촉.**
+- CI 첫 실행: **success** (typecheck 래칫, github.com/epiphtheroy/kyniq/actions).
+- Vercel staging 빌드: **READY** (turbopack·hnd1), 고정 alias 부여 확인.
+- 개발 URL 보호: 302 SSO + noindex 실측.
+- ⚠️ 리포지토리는 **public** — Actions 로그도 공개임을 유의(시크릿은 미사용).
