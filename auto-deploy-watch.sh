@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Metatake auto-deploy watcher.
+# Metatake auto-STAGE watcher (P0 pipeline, 2026-07-17).
 # Watches app/ components/ lib/ for changes; once edits go quiet for DEBOUNCE seconds,
-# stages just those paths, commits, and pushes to main (Vercel auto-builds).
+# stages just those paths, commits, and pushes to the STAGING branch — never main.
+# Vercel builds staging into the preview site; production only moves when the
+# owner runs release.command (staging → main). Hotfix path: manual push to main.
 # Pause anytime by creating a file named ".autodeploy-off" in the project root.
 REPO="/Users/jerryje/Documents/MetaTake"
 LOG="$REPO/.autodeploy.log"
@@ -20,13 +22,21 @@ while true; do
     if [ "$cur" != "$prev" ]; then quiet=0; else quiet=$((quiet + INTERVAL)); fi
     if [ "$quiet" -ge "$DEBOUNCE" ]; then
       ts="$(date '+%F %T')"
-      [ -f "$REPO/.git/index.lock" ] && rm -f "$REPO/.git/index.lock"
-      git add -- app components lib >> "$LOG" 2>&1
-      if git commit -m "auto-deploy $ts" >> "$LOG" 2>&1; then
-        if git push origin main >> "$LOG" 2>&1; then
-          echo "[$ts] pushed OK" >> "$LOG"
+      if [ -f "$REPO/.git/index.lock" ]; then
+        # Only clear a lock that's clearly stale — a fresh one belongs to a
+        # live git process (another agent/session) and deleting it corrupts it.
+        if [ -n "$(find "$REPO/.git/index.lock" -mmin +2 2>/dev/null)" ]; then
+          rm -f "$REPO/.git/index.lock"
         else
-          echo "[$ts] PUSH FAILED" >> "$LOG"
+          sleep "$INTERVAL"; continue
+        fi
+      fi
+      git add -- app components lib >> "$LOG" 2>&1
+      if git commit -m "auto-stage $ts" >> "$LOG" 2>&1; then
+        if git push origin +HEAD:staging >> "$LOG" 2>&1; then
+          echo "[$ts] pushed to staging OK" >> "$LOG"
+        else
+          echo "[$ts] STAGING PUSH FAILED" >> "$LOG"
         fi
       else
         echo "[$ts] nothing to commit" >> "$LOG"
