@@ -71,7 +71,7 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 
 ### D. URL을 바꾸거나 병합할 때
 - **개별 slug 개명·병합**: `insert into slug_aliases(old_path,new_path,reason) values(...)` — 이것만 하면 옛 링크 영구 308. sitemap에 old_path 절대 금지. 라우트가 신설 라우트면 miss 경로에 resolveAlias 배선 확인(`lib/aliases.ts` 패턴, take/trope/whereto/film 참조). 대량 사례: 2026-07-06 stub 274편 일괄 개명(aliases 548건, SQL은 `docs/PLAN-tier2-almanac.md` §7).
-- **라우트 패턴 전체 이전**(사례 2건, 2026-07-06: /film/x/locations→/film/atlas/x, /film/x/honors→/film/lineage/x): 구 라우트의 page.tsx를 `permanentRedirect()` 한 줄 컴포넌트로 교체 — slug_aliases 불요. 체크리스트: 새 페이지 canonical/breadcrumb/JSON-LD url 갱신 → 내부 링크 전수 grep(`/구경로\``) → sitemap entries 함수 URL 갱신 → 배포 후 구 308/신 200 확인 → IndexNow에 새 URL 전량 재제출. GSC 자식 사이트맵 파일 주소는 불변이라 재제출 불요.
+- **라우트 패턴 전체 이전**(사례 2건, 2026-07-06: /film/x/locations→/film/atlas/x, /film/x/honors→/film/lineage/x): 구 라우트의 page.tsx를 `permanentRedirect()` 한 줄 컴포넌트로 교체 — slug_aliases 불요. ⚠️**모바일 앱도 이 경로를 하드코딩한다**(웹뷰 리더 목록·딥링크 인터셉트). 리다이렉트가 있어 즉시 깨지진 않지만 앱은 308을 한 번 더 타고, 허브 패턴이면 네이티브 가로채기가 어긋난다 — `mobile/app/film/[slug].tsx`(readMore)·`mobile/app/director/[slug].tsx`(readMore)·`mobile/app/read.tsx`(허브 정규식) **3파일 동기**. 근거·목록: `HANDOFF-모바일앱-프리워치.md` §16.5. 체크리스트: 새 페이지 canonical/breadcrumb/JSON-LD url 갱신 → 내부 링크 전수 grep(`/구경로\``) → **앱 3파일 grep** → sitemap entries 함수 URL 갱신 → 배포 후 구 308/신 200 확인 → IndexNow에 새 URL 전량 재제출. GSC 자식 사이트맵 파일 주소는 불변이라 재제출 불요.
 
 ### E. 제목 규칙 (반복 실수 — 하루에 7건 발견)
 페이지 title에 **"· Metatake"나 "| Metatake"를 절대 하드코딩하지 말 것.** 루트 레이아웃 템플릿이 붙인다. 위반 시 "… · Metatake · Metatake" 중복.

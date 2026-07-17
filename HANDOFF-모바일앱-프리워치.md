@@ -1,4 +1,4 @@
-# HANDOFF — Metatake 모바일 앱 ("Pre-Watch Companion") · 기획 정본 **v2** (2026-07-16, 구축 대기)
+# HANDOFF — Metatake 모바일 앱 ("Pre-Watch Companion") · 기획·AS-BUILT 정본 **v3.1** (2026-07-17, iOS+Android 코드 완성 · 스토어 제출만 오너 TODO)
 
 > **한 문장 정의:** 시네필이 **영화를 보기 직전에 여는** 앱 — "볼까 말까(TakeScore·Invitation) → 뭘 볼까(Tonight) → 어디서 볼까(Where to watch) → 나중에 볼까(찜)"의 프리워치 의사결정 루프를, **선택한 국가의 앱**으로 변신하는 단일 클라이언트에 담는다.
 > 관련 정본: `HANDOFF-왓투와치-스트리밍결정.md`(Marquee 엔진) · `HANDOFF-테이크스코어-스크리너.md`(랭킹) · `HANDOFF-마이필름-렌즈.md`(개인화 불변식) · `HANDOFF-AI배포표면.md`(`/api/v1`) · **`HANDOFF-KO프로젝션-한국어사이트.md`(다국어 프로젝션 — §6이 이 문서에 의존)** · `HANDOFF-계보-SEO-읽는층.md`(Lineage) · `docs/STATE.md`.
@@ -13,7 +13,7 @@
 | 1 | **2층 구조 채택** — 네이티브 결정층 + 인앱 웹뷰 읽기층. 정적 읽기 표면의 네이티브 재구현 금지 | §2 |
 | 2 | **네이티브 편입 2건 추가** — Film 화면에 **Lineage**, 감독층에서 **The Life** (Film 화면에 프리뷰 + Director 카드에 전문) | §2·§5 |
 | 3 | **다국가 에디션 아키텍처** — 미국 타깃으로 출시하되, 설정에서 **국가만 선택하면 그 국가의 앱**이 되도록 처음부터 설계. 한국·스페인·일본 확장 예정 | §6 |
-| 4 | **iOS 우선 출시** — 기획·코드는 양 플랫폼 공용(Expo), 출시만 iOS 먼저. Android는 P5 | §8 |
+| 4 | ~~**iOS 우선 출시** · Android는 P5~~ → **2026-07-17 종료: 양 플랫폼 동시 완성**(Expo 공용 코드 + 분기 4개) | §8 |
 | 5 | 리뷰 채택 6건 — Tier-2 게이팅/폴백, 인앱 계정 삭제, JustWatch 표기, 검색 무결과 폴백, KPI+판정일, TestFlight 게이트 | §5·§9·§10·§13 |
 
 v1의 판정(§0-a 접착제 4개 = 검색·계정·Seen·푸시 필수 / §0-b SEO 무해 / §0-c 비용)은 전부 유지된다. v1 전문은 git 이력(`319fed7`) 참조.
@@ -166,7 +166,7 @@ Film·Director는 탭이 아니라 어디서든 푸시되는 스택 화면. v1�
 ```
 
 ### 5.2 Tonight
-로비카드 세로 피드. 카드 = 스틸 + TS + 한 줄 인바이트 + 가용성 점. 필터: 장르·연대·"안 본 것만"(로그인 시). 엔진 = `cinecodex_ranked` v11 + `wtw_services`, 국가 파라미터는 에디션에서.
+세로 카드 피드(§3 Lava: 라운드 카드·이미지 위 플로팅 TS 배지·하트). 카드 = 스틸 + TS + 한 줄 인바이트 + 가용성 점. 필터: 장르·연대·"안 본 것만"(로그인 시). 엔진 = `cinecodex_ranked` v11 + `wtw_services`, 국가 파라미터는 에디션에서.
 
 ### 5.3 Search
 무결과 시 데드엔드 금지: ① TMDB 검색 폴백으로 제목·연도·포스터만 표시 + "Not in the Metatake canon yet" ② 그 행 탭 = 웹 `/omni` 검색 웹뷰. 카탈로그 6,978편 vs JustWatch 9만+ — 기대치 관리가 첫 세션 생존을 좌우한다.
@@ -250,7 +250,7 @@ export const EDITIONS = {
 - **개인화:** `*_mine` RPC 8종은 service_role 전용(0042) — 앱 직호출 금지, 기존 `/api/lens/*`에 Supabase JWT. 찜/Seen 쓰기는 `user_movies` own-row RLS 직접 upsert.
 - **인증:** Supabase Auth — Sign in with Apple(iOS 의무) + Google + 이메일 매직링크. **인앱 계정 삭제 필수(§5.6).**
 - **§7.3 SSO 핸드오프 (신설 필수):** 앱 로그인 ≠ 웹뷰 로그인(쿠키 분리). 웹에 `GET /auth/handoff?token=` 라우트 1개 신설 — 앱이 세션에서 발급한 **일회용·60초 만료 토큰**을 웹이 소비해 세션을 심고 목적지로 302. 모든 웹뷰 진입은 이 경로를 통과한다. 이것이 없으면 2층 구조가 "로그아웃된 웹"으로 고장 나 보인다.
-- **지도:** MapLibre GL Native + 무료 타일(비용 0). **푸시:** Expo Push(무료) + diff 워커(§6.5). **이미지:** TMDB CDN(로고 표기).
+- **지도:** 단일 데이터 계약(`src/lib/pins.ts`) 위에 표면별 렌더러 4개(§5.5) — 전부 키 0·무료 타일(비용 0). **푸시:** Expo Push(무료) + diff 워커(§6.5). **이미지:** TMDB CDN(로고 표기).
 
 ## §8 양 플랫폼 — iOS·Android 동시 완성 (2026-07-17 개정)
 
@@ -269,19 +269,23 @@ v2의 "iOS 우선, Android는 P5"는 **달성으로 종료**됐다. 오너 지�
 
 ## §9 구축 순서 (P0 → P5) — TestFlight 게이트 포함
 
+> **상태(2026-07-17): P0~P3 + Android 전부 코드 완성·검증(§15). 남은 것은 게이트와 스토어 제출(오너).**
+
 | 단계 | 내용 | 산출물 |
 |---|---|---|
-| **P0** | Expo 스캐폴드 + 디자인 토큰 이식 + **i18n 키 체계·에디션 레지스트리(§6)** + Search(+TMDB 폴백) + Film 카드(BFF `app/film`) | 검색→판정 동선(§4.3-2) 동작 |
-| **P1** | Tonight(온보딩 ①②) + Where to watch + Lineage·Locations·The Life 프리뷰 섹션 | 프리워치 루프 완성(비로그인) |
-| **P2** | Auth(+**계정 삭제**) + 찜/Seen + My 탭 + `/api/lens/*` + **SSO 핸드오프(§7.3)** + 웹뷰 리더 | 웹과 단일 원장 동기화 |
-| **P3** | Map 탭 + Director 카드(가용성 필모그래피) + 푸시(user_prefs·diff 워커) + Universal Links | 리텐션 엔진 가동 |
+| ✅ **P0** | Expo 스캐폴드 + 디자인 토큰 이식 + **i18n 키 체계·에디션 레지스트리(§6)** + Search(+TMDB 폴백) + Film 카드(BFF `app/film`) | 검색→판정 동선(§4.3-2) 동작 |
+| ✅ **P1** | Tonight(온보딩 ①②) + Where to watch + Lineage·Locations·The Life 프리뷰 섹션 | 프리워치 루프 완성(비로그인) |
+| ✅ **P2** | Auth(+**계정 삭제**) + 찜/Seen + My 탭 + `/api/lens/*` + **SSO 핸드오프(§7.3)** + 웹뷰 리더 | 웹과 단일 원장 동기화 |
+| ✅ **P3** | Map 탭 + Director 카드(가용성 필모그래피) + 푸시(user_prefs·diff 워커) + Universal Links | 리텐션 엔진 가동 |
 | **🚧 게이트** | **TestFlight 4주 (외부 테스터 ≥30명)** — KPI 4개: ① D30 리텐션 ≥20% ② 푸시 옵트인 ≥40% ③ 세션당 결정율(Watch 탭아웃∪찜) ≥25% ④ 주간 찜 추가 ≥3/활성유저. **판정일 = TestFlight 개시 +35일. 미달 시 스토어 출시 보류, 오너 재검토** | Go/No-Go |
 | **P4** | App Store 제출(스크린샷·개인정보 라벨·심사 대응) + 웹 스마트 배너(비침투) | iOS 출시 |
 | ~~**P5**~~ | ~~Android: Play 등록·리스팅·QA → 출시~~ → **P0~P3와 함께 완료**(2026-07-17, §8): 코드·디자인·지도 전부 패리티. Play 등록/리스팅만 오너 몫(§15.4-4). 에디션 개방(웹 /ko live → KR)은 별건으로 잔존 | 확장 |
 
-## §10 선행 준비물 (앱 코드 밖에서 먼저 필요한 것)
+## §10 선행 준비물 — ✅ **전 항목 완료 (2026-07-16~17). 실제 구현은 §15.1, 스펙 대비 편차는 §15.3.**
 
-### 10.1 마이그 1개 (스펙만 — 구현 대기)
+> 아래는 착수 당시의 스펙 원문이다(설계 의도의 기록). **현재 상태를 알고 싶으면 §15를 볼 것** — 이 절을 할 일 목록으로 읽지 말 것.
+
+### 10.1 마이그 1개 — ✅ 0106 프로덕션 적용 완료 (편차: `push_tokens.user_id` NOT NULL — §15.3-3)
 
 ```sql
 -- push_tokens: 기기 원장 (Expo push)
@@ -298,8 +302,8 @@ create table user_prefs (
 -- 둘 다 own-row RLS. 익명 기기는 push_tokens.user_id null 허용(찜 푸시는 로그인 필요하므로 발송 대상 아님).
 ```
 
-### 10.2 웹 리포 작업 4건
-① `/auth/handoff` 라우트(§7.3) ② BFF 3라우트(§7 — guardAndLog 포함) ③ `public/.well-known/` 링크 파일 2개(수동 커밋) ④ Where-to-watch 표시부에 JustWatch 표기 문안(웹·앱 공통 — TMDB watch-providers 약관).
+### 10.2 웹 리포 작업 4건 — ✅ 완료
+① SSO: **전용 `/auth/handoff` 라우트는 만들지 않았다** — 민트 `POST /api/v1/app/handoff` + 기존 `/auth/confirm` 소비(§15.3-2) ② BFF **7라우트**(§15.1 — guardAndLog 포함) ③ `public/.well-known/` 링크 파일 2개(수동 커밋) ④ Where-to-watch 표시부에 JustWatch 표기 문안(웹·앱 공통 — TMDB watch-providers 약관).
 
 ### 10.3 오너 몫
 Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권고: **"Metatake"** 단독).
@@ -316,7 +320,7 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 2. **Apple 4.2(minimal functionality):** 웹뷰 비중이 높아진 만큼, 심사 빌드에서 네이티브 가치(찜·푸시·지도·가용성 필모그래피)가 첫인상이 되도록 스크린샷·리뷰 노트 구성. 웹뷰는 "Read more" 보조층으로 서술.
 3. **KR 에디션 개방 시점** — 웹 /ko 프로젝션 live(PR #9)와 동기. 오너 결정.
 4. **수익화** — v1 무료 전제 유지. 트래픽 확인 후 별도 기획.
-5. **스토어 빌드의 지도 엔진(오너 요청 2026-07-16 "모바일에 맞는 다른 툴 검토")** — 현재 3면 스택은 그대로 두고, 스토어 제출 시점에 택일: **(a) Apple 지도(react-native-maps)로 단일화** — 플랫폼 네이티브 감각·유지비 0·이미 Expo Go용으로 구현돼 있어 코드 삭제만으로 전환, 단 Android는 Google SDK 키 필요·커스텀 스타일 불가. **(b) MapLibre GL Native 유지** — 에디토리얼 커스텀 스타일(직각·단일 레드 클러스터)·iOS/Android 렌더 동일, 단 타일 소스 운영(demotiles는 데모용 — 프로덕션은 Protomaps/OpenFreeMap 등 무료 타일로 교체 필요). 어느 쪽이든 `src/lib/pins.ts` 데이터 계약은 불변.
+5. **스토어 빌드의 지도 엔진** (오너 요청 2026-07-16 "모바일에 맞는 다른 툴 검토" — 2026-07-17 4렌더러 체제 반영해 재작성) — **이 결정이 건드리는 슬롯은 `MapNative.tsx`(dev·스토어 빌드) 하나뿐이다.** Expo Go의 두 렌더러(iOS=Apple 지도·Android=WebView MapLibre)와 웹은 이 선택과 무관하게 그대로 동작한다. 택일: **(a) react-native-maps로 단일화** — 플랫폼 네이티브 감각·유지비 0·이미 구현돼 있어 전환은 코드 삭제, 단 **Android는 Google Cloud 키가 필수가 된다**(지금 회피 중인 바로 그 비용·자격증명이 되살아남) · 커스텀 스타일 불가. **(b) MapLibre GL Native 유지(현행)** — 키 0 유지·iOS/Android 렌더 동일·Lava 클러스터 스타일 유지, 단 **프로덕션 타일 소스를 정해야 한다**(`demotiles`는 데모용 — Protomaps/OpenFreeMap 등 무료 타일로 교체 필요, 코드 1줄). ⚠️ v2.2 문서의 "(b)의 장점=직각·단일 레드"는 폐기된 v1 디자인 어휘였다(§3). 어느 쪽이든 `src/lib/pins.ts` 데이터 계약은 불변.
 
 ## §13 불변식 (구축 시 위반 금지 — v1 8조 + v2 4조)
 
@@ -341,10 +345,10 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 - v1 (2026-07-16, `319fed7`): 최초 기획 — 6축+접착제 4개, 탭 5개, P0~P4.
 - **v2 (2026-07-16, `681fbce`): 오너 확정 반영** — 2층 구조 헌법화(§2), Lineage·The Life 네이티브 편입, 다국가 에디션 아키텍처 신설(§6), 디자인 컨셉·동선 상세화(§3~§5), iOS 우선+양플랫폼 준비 3종(§8), TestFlight KPI 게이트(§9), BFF·SSO 핸드오프(§7), 커버리지 실측표(§5.4), 불변식 8→12조.
 - **v2.1 (2026-07-16, c36c1d4): P0~P3 구현 완료 — §15 AS-BUILT 추가.**
-- **v3.1 (2026-07-17): SDK 54 정렬 + 폰 실행 자동화** — Expo Go 상한 실측(양 스토어 SDK 54)에 맞춰 프로젝트 57→**54** 다운그레이드(§15.2b)·`metro.config.js` 웹 리졸버 스텁(react-native-maps 1.20은 웹 미지원)·`start-local.sh`+`scripts/qr.mjs`(IP 자동 감지·QR 렌더, §15.5)·불변식 §13-13/14 신설.
-- **v3.0 (2026-07-17): 디자인 대상급 재설계 + Android 패리티** — §3 디자인 시스템 v2 "Lava"(Airbnb 2025 벤치마크·그라데이션 CTA·블러 크롬·스프링 모션·시트 오버 포토·벤치마크 로그인 순서·브랜드 아이콘 세트) 전 화면 적용; §8 iOS 우선 종료→**양 플랫폼 동시**(Android 지도 WebView 해법·edge-to-edge·키보드 pan·eas.json 양쪽·적응형 아이콘); §5.5 지도 4렌더러 표.
-- **v2.3 (2026-07-17): §16 데이터 연동 지도 신설** — 앱↔사이트의 모든 데이터 접점(읽기 10행·쓰기 5행·크론·레지스트리 결합)과 "같이 반영" 체크리스트(§16.5). 관련 정본 4곳(왓투와치·마이필름렌즈·The Meter·AI배포표면)에 상호 링크 블록 추가·STATE.md 배너 등재.
 - **v2.2 (2026-07-16, 70f313a): 완전 시제품** — 지도 3면 실구현(§15.5)·Tonight 카드 리드 채움(편차 #5 해소)·촬영지 핀 융합(발음부호 dedupe)·웹 리더 iframe·스토어 지도 엔진 결정 항목(§12-5). 브라우저 프리뷰가 잡은 결함 3건(§15.6)은 bf1e2b8.
+- **v2.3 (2026-07-17): §16 데이터 연동 지도 신설** — 앱↔사이트의 모든 데이터 접점(읽기 10행·쓰기 5행·크론·레지스트리 결합)과 "같이 반영" 체크리스트(§16.5). 관련 정본 4곳(왓투와치·마이필름렌즈·The Meter·AI배포표면)에 상호 링크 블록 추가·STATE.md 배너 등재.
+- **v3.0 (2026-07-17): 디자인 대상급 재설계 + Android 패리티** — §3 디자인 시스템 v2 "Lava"(Airbnb 2025 벤치마크·그라데이션 CTA·블러 크롬·스프링 모션·시트 오버 포토·벤치마크 로그인 순서·브랜드 아이콘 세트) 전 화면 적용; §8 iOS 우선 종료→**양 플랫폼 동시**(Android 지도 WebView 해법·edge-to-edge·키보드 pan·eas.json 양쪽·적응형 아이콘); §5.5 지도 4렌더러 표.
+- **v3.1 (2026-07-17): SDK 54 정렬 + 폰 실행 자동화** — Expo Go 상한 실측(양 스토어 SDK 54)에 맞춰 프로젝트 57→**54** 다운그레이드(§15.2b)·`metro.config.js` 웹 리졸버 스텁(react-native-maps 1.20은 웹 미지원)·`start-local.sh`+`scripts/qr.mjs`(IP 자동 감지·QR 렌더, §15.5)·불변식 §13-13/14 신설.
 
 ---
 
@@ -352,9 +356,9 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 
 ### 15.1 무엇이 만들어졌나
 
-**모바일 앱 `mobile/`** — Expo SDK 57(RN 0.86)·expo-router v6·TypeScript strict·typedRoutes.
+**모바일 앱 `mobile/`** — **Expo SDK 54**(RN 0.81.5·React 19.1)·expo-router v6·TypeScript strict·typedRoutes. **54인 이유=Expo Go 상한, 올리기 전 §15.2b·불변식 §13-13 필독.**
 - 화면 9개: `(tabs)/` Tonight·Search·Map·My + `film/[slug]`(§5.1 그대로: 히어로→TS도넛→Invitation→Where to watch→Lineage→Locations→The Life 프리뷰→Read more→액션바)·`director/[slug]`(§2.2: 가용성 점 필모그래피 포함)·`read`(SSO 웹뷰 리더+링크 인터셉트)·`onboarding`(국가→서비스→계정 3스텝)·`+not-found`(미매치 딥링크→리더).
-- 파운데이션: `src/theme.ts`(DESIGN-SYSTEM v4 토큰 이식)·`src/editions.ts`(§6.2 레지스트리)·`src/i18n/`(en·ko·es·ja 4사전, 전 화면 t() 강제 — TODO(i18n) 0)·`src/lib/{api,supabase,push}.ts`·`src/state/{prefs,films}.tsx`(user_movies 단일 원장, 옵티미스틱+롤백)·`src/components/{ui,TSDonut,FilmRow}.tsx`.
+- 파운데이션: `src/theme.ts`(**디자인 시스템 v2 "Lava" SSOT** — §3, 웹 v4와 분리·불변식 §13-14)·`src/editions.ts`(§6.2 레지스트리)·`src/i18n/`(en·ko·es·ja 4사전, 전 화면 t() 강제 — TODO(i18n) 0)·`src/lib/{api,supabase,push}.ts`·`src/state/{prefs,films}.tsx`(user_movies 단일 원장, 옵티미스틱+롤백)·`src/components/{ui,TSDonut,FilmRow}.tsx`.
 - app.json: `net.metatake.app`·scheme `metatake`·associatedDomains·Android intentFilters·Sign in with Apple·플러그인(maplibre/notifications/location/apple-auth).
 
 **웹(BFF·인프라)** — `app/api/v1/app/` 7라우트: `film/[slug]`·`director/[slug]`·`tonight`·`services`·`handoff`(POST)·`account-delete`(POST)·`tmdb-search`. 전부 guardAndLog(The Meter 원장에 `app_*` 엔드포인트로 계측)+API_CORS+s-maxage 캐시. `app/api/lens/marquee`에 Bearer 폴백(가산적·쿠키 경로 불변). `app/api/push/availability-cron`(§6.5 diff 워커)+vercel.json 크론(매일 09:00 UTC). `public/.well-known/` AASA+assetlinks(플레이스홀더). next.config에 AASA content-type 헤더. tsconfig exclude+.gitignore에 mobile.
@@ -427,8 +431,6 @@ cd mobile && ./start-local.sh     # 데이터 서버 + Metro + QR 페이지(자�
 
 **⚠️ QR이 안 보이는 이유:** Metro는 QR을 자기 터미널에 그리는데, 에이전트 세션이나 `start-local.sh`는 Metro를 백그라운드로 돌린다 → 그 터미널은 아무의 화면도 아니다. 그래서 `scripts/qr.mjs`가 QR을 HTML 페이지로 렌더해 브라우저로 띄운다.
 
-**지도 3면 구현(2026-07-16, 70f313a → 4면으로 확장 2026-07-17):** §5.5 표 참조.
-
 ### 15.6 브라우저 프리뷰가 잡아낸 실제 결함 3건 (2026-07-16, 커밋 bf1e2b8)
 
 데스크톱 프리뷰는 편의 기능이 아니라 **검토 표면**임이 증명됐다 — 네이티브만 돌렸으면 못 봤을 것들:
@@ -488,5 +490,5 @@ cd mobile && ./start-local.sh     # 데이터 서버 + Metro + QR 페이지(자�
 | RPC 반환/페이로드 형태 변경 | BFF가 흡수(서버 배포로 끝). 앱 계약(`mobile/src/types.ts`)까지 바뀌면 **PAYLOAD_V 범프** + 페이로드 `v` 필드로 구클라이언트 판정 |
 | 콘텐츠 갱신(리드·계보·가용성·좌표) | **없음** — BFF 캐시 만료로 자동 |
 | **읽기 표면 라우트 개명**(예: misreadings→meaning) | ⚠️**유일한 수동 결합점**: 앱 웹뷰 경로 목록 수정 — `mobile/app/film/[slug].tsx` readMore·`mobile/app/director/[slug].tsx` readMore·`mobile/app/read.tsx` 허브 인터셉트 정규식. 개명 작업 정본(`docs/RENAME-*.md`)에 이 3파일을 체크리스트로 추가할 것 |
-| 사이트 디자인 토큰 변경 | `mobile/src/theme.ts`가 DESIGN-SYSTEM v4 이식본 — 큰 개정 시 동기 |
+| 사이트 디자인 토큰 변경 | **없음 — 동기하지 말 것.** 앱은 2026-07-17부터 디자인 시스템 v2 "Lava"(§3)로 웹 v4와 의도적으로 분리(불변식 §13-14). 공유하는 것은 PT Serif 실 하나(작품·감독 제목·Invitation) |
 | user_movies 스키마 변경 | 렌즈 정본과 앱 `src/state/films.tsx` 동시 검토 (원장 공유자 2곳) |
