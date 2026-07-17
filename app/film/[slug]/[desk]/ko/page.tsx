@@ -61,9 +61,9 @@ async function loadUncached(slug: string, deskKey: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, visible, backdrop_path, poster_path, tmdb_id")
+    .select("id, title, title_ko, slug, year, visible, backdrop_path, poster_path, tmdb_id")
     .eq("slug", slug)
-    .maybeSingle<{ id: string; title: string; slug: string; year: number | null; visible: boolean; backdrop_path: string | null; poster_path: string | null; tmdb_id: number | null }>();
+    .maybeSingle<{ id: string; title: string; title_ko: string | null; slug: string; year: number | null; visible: boolean; backdrop_path: string | null; poster_path: string | null; tmdb_id: number | null }>();
   if (!film || !film.visible) return null;
 
   const { data: essay } = await supabase
@@ -115,7 +115,9 @@ async function loadUncached(slug: string, deskKey: string) {
     .map((v) => ({ id: v.external_id as string, title: v.title ?? "" }));
 
   return {
-    film: { title: film.title, slug: film.slug, year: film.year, backdrop_path: film.backdrop_path, poster_path: film.poster_path, tmdb_id: film.tmdb_id },
+    // /ko essay page — show the Korean film title everywhere it renders (header,
+    // "other desks", metadata). Falls back to English when title_ko is absent.
+    film: { title: film.title_ko ?? film.title, slug: film.slug, year: film.year, backdrop_path: film.backdrop_path, poster_path: film.poster_path, tmdb_id: film.tmdb_id },
     videos,
     essay: {
       title: mdToPlain(essay.title),
