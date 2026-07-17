@@ -40,30 +40,35 @@ export async function loadFilmTitles(locale: Locale, slugs: string[]): Promise<T
   const keys = [...new Set(slugs)].filter(Boolean);
   if (!keys.length) return new Map();
   const col = `title_${locale}`; // locale is a fixed enum (ko/ja/fr/es) — never user input
-  return unstable_cache(
-    async () => {
+  // ⚠️ unstable_cache serializes its result — a Map does NOT survive (comes back a
+  // plain {} with no .get on a cache HIT → "x.get is not a function"). Cache a
+  // plain [slug, title] array and build the Map OUTSIDE the cache boundary.
+  const entries = await unstable_cache(
+    async (): Promise<[string, string][]> => {
       try {
         const { data, error } = await anon()
           .from("films")
           .select(`slug, ${col}`)
           .in("slug", keys)
           .not(col, "is", null);
-        if (error) return new Map<string, string>();
-        const m: TitleMap = new Map();
+        if (error) return [];
+        const out: [string, string][] = [];
         // Dynamic column select confuses PostgREST's type parser; cast via unknown.
         for (const r of (data ?? []) as unknown as Record<string, string | null>[]) {
           const v = r[col];
-          if (typeof r.slug === "string" && v) m.set(r.slug, v);
+          if (typeof r.slug === "string" && v) out.push([r.slug, v]);
         }
-        return m;
+        return out;
       } catch {
-        return new Map<string, string>();
+        return [];
       }
     },
     // Precise key: the sorted slug set (labels change rarely; 1h revalidate).
-    [`film-titles-1`, locale, [...keys].sort().join(",")],
+    // v2: key bump abandons v1 entries poisoned by the Map-serialization bug.
+    [`film-titles-2`, locale, [...keys].sort().join(",")],
     { revalidate: 3600 },
   )();
+  return new Map(Array.isArray(entries) ? entries : []);
 }
 
 /** filmTitle — the localized title for one slug, else `english`.

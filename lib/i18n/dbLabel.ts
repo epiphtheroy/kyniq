@@ -43,8 +43,11 @@ export async function loadLabels(
   if (locale === DEFAULT_LOCALE || entityKeys.length === 0) return new Map();
   const keys = [...new Set(entityKeys)].filter(Boolean);
   if (!keys.length) return new Map();
-  return unstable_cache(
-    async () => {
+  // ⚠️ unstable_cache serializes its result — a Map does NOT survive (comes back a
+  // plain {} with no .get on a cache HIT → "x.get is not a function"). Cache a
+  // plain [key, text] array and build the Map OUTSIDE the cache boundary.
+  const entries = await unstable_cache(
+    async (): Promise<[string, string][]> => {
       try {
         const { data, error } = await anon()
           .from("content_i18n")
@@ -52,22 +55,24 @@ export async function loadLabels(
           .eq("entity_type", entityType)
           .eq("lang", locale)
           .in("entity_key", keys);
-        if (error) return new Map<string, string>();
-        const m: LabelMap = new Map();
+        if (error) return [];
+        const out: [string, string][] = [];
         for (const r of (data ?? []) as { entity_key: string; field: string; text: string }[]) {
-          m.set(keyOf(entityType, r.entity_key, r.field), r.text);
+          out.push([keyOf(entityType, r.entity_key, r.field), r.text]);
         }
-        return m;
+        return out;
       } catch {
-        return new Map<string, string>();
+        return [];
       }
     },
     // Cache key includes the locale, entityType and a stable hash of the key set
     // (labels change rarely; 1h revalidate). Never cache under the same key for a
     // different key set.
-    [`content-i18n-1`, locale, entityType, String(keys.length), keys.slice(0, 3).join(",")],
+    // v2: key bump abandons v1 entries poisoned by the Map-serialization bug.
+    [`content-i18n-2`, locale, entityType, String(keys.length), keys.slice(0, 3).join(",")],
     { revalidate: 3600 },
   )();
+  return new Map(Array.isArray(entries) ? entries : []);
 }
 
 /** dbLabel — the translation for one (entityType, key, field), else `english`.
