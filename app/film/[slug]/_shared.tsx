@@ -4,6 +4,7 @@ import { locVal, hasLocVal } from "@/lib/i18n/values";
 import { genreName } from "@/lib/i18n/genres";
 import { localeAlternates, indexableLocales, type LocaleCols } from "@/lib/i18n/seo";
 import { loadLabels, dbLabel } from "@/lib/i18n/dbLabel";
+import { loadFilmTitles, filmTitle } from "@/lib/i18n/filmTitles";
 import EnglishOriginalLabel from "@/components/i18n/EnglishOriginalLabel";
 import type { CSSProperties } from "react";
 import { unstable_cache } from "next/cache";
@@ -815,6 +816,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
       lineageListSlugs: lineage.filter((l) => l.facet !== "auteur").map((l) => l.list_slug),
     });
     const dirSlug = f.director_slug ?? directorHubSlug;
+    // Referenced films (Recommended-by) — localized titles overlaid via filmTitle.
+    const ctFilmTitles = await loadFilmTitles(locale, recommendedBy.map((r) => r.source_slug).filter((s): s is string => !!s));
     // Native-script title, mirroring how director/credits pages show native names.
     const nativeTitle = f.original_title && f.original_title !== f.title ? f.original_title : null;
     const mRuntime = f.runtime ? `${f.runtime} min` : null;
@@ -1096,7 +1099,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   {recSources.map((r, i) => (
                     <span key={`${r.source_slug}-${i}`}>
                       {i > 0 ? (i === recSources.length - 1 ? " and " : ", ") : ""}
-                      <Link href={`/film/${r.source_slug}`}>{r.source_title}</Link>
+                      <Link href={`/film/${r.source_slug}`}>{filmTitle(ctFilmTitles, locale, r.source_slug, r.source_title)}</Link>
                       {r.source_year ? ` (${r.source_year})` : ""}
                     </span>
                   ))}
@@ -1132,7 +1135,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           <CinecodexPanel locale={locale} data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
           <TowCard locale={locale} tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
           <FilmLineageSection locale={locale} lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} recordUpdated={recordUpdated} />
-          <FilmRecommendedBy locale={locale} rows={recommendedBy} title={f.title} />
+          <FilmRecommendedBy locale={locale} rows={recommendedBy} title={f.title} titles={ctFilmTitles} />
 
           {/* SCHOLARSHIP (C3) — this cohort's reception is 100% academic; the shared
               component self-gates to null when reviews+papers are both empty, and
@@ -1247,11 +1250,21 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
   // type, projected at render via dbLabel. Empty (English fallback) until the
   // owner loads content_i18n; on the source locale never even queried (SEO safe).
   const archSlugs = (archetypes as ArchRow[]).map((a) => a.slug).filter((s): s is string => !!s);
-  const [figLabels, tropeLabels, archLabels, invLabels] = await Promise.all([
+  // Referenced OTHER films across this page's surfaces — their titles come from
+  // RPCs as English `title`; batch-load the localized title once and overlay via
+  // filmTitle at each render point. Empty map on the source locale (SEO safe).
+  const refFilmSlugs = [
+    ...recs.map((r) => r.slug),
+    ...watchNext.map((w) => w.target_slug),
+    ...counterpoints.map((c) => c.film.slug),
+    ...recommendedBy.map((r) => r.source_slug),
+  ].filter((s): s is string => !!s);
+  const [figLabels, tropeLabels, archLabels, invLabels, filmTitles] = await Promise.all([
     loadLabels(locale, "figure", figures.map((f) => f.slug).filter((s): s is string => !!s)),
     loadLabels(locale, "trope", tropes.map((tr) => tr.slug)),
     loadLabels(locale, "taxonomy", archSlugs),
     loadLabels(locale, "invitation", [film.slug]),
+    loadFilmTitles(locale, refFilmSlugs),
   ]);
   const invitationKo = invitation ? dbLabel(invLabels, locale, "invitation", film.slug, "rationale", invitation) : null;
   const reviews = reception.filter((r) => r.kind === "criticism");
@@ -1621,7 +1634,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "standing", label: "Standing & honors" }]} variant="section" /> : null} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
-        <FilmRecommendedBy locale={locale} rows={recommendedBy} title={film.title} />
+        <FilmRecommendedBy locale={locale} rows={recommendedBy} title={film.title} titles={filmTitles} />
 
         {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
         {misreadings.length > 0 ? (
@@ -1862,7 +1875,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               {watchNext.map((w, i) => {
                 const href = w.target_slug ? `/film/${w.target_slug}` : null;
                 const poster = w.target_poster ?? w.poster_path;
-                const title = w.target_title ?? w.rec_title;
+                const title = filmTitle(filmTitles, locale, w.target_slug, w.target_title ?? w.rec_title);
                 const year = w.target_year ?? w.rec_year;
                 return (
                   <div key={i} className="wn-card">
@@ -1899,13 +1912,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                 <div key={r.slug} className="df-crow" style={{ display: "flex", gap: 12, alignItems: "center", padding: "7px 0" }}>
                   <span style={{ flex: "0 0 26px", textAlign: "right", fontWeight: 800, fontSize: 15, opacity: i === 0 ? .95 : .45, fontVariantNumeric: "tabular-nums" }}><span style={{ fontSize: "0.65em", opacity: .7 }}>#</span>{i + 1}</span>
                   {r.poster_path ? (
-                    <Link href={`/film/${r.slug}`} aria-label={r.title} style={{ flex: "0 0 40px" }}>
+                    <Link href={`/film/${r.slug}`} aria-label={filmTitle(filmTitles, locale, r.slug, r.title) ?? undefined} style={{ flex: "0 0 40px" }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={`${IMG}/w92${r.poster_path}`} alt="" width={40} height={60} loading="lazy" style={{ width: 40, height: 60, objectFit: "cover", borderRadius: 5, display: "block" }} />
                     </Link>
                   ) : <span style={{ flex: "0 0 40px", height: 60, borderRadius: 5, background: "rgba(0,0,0,.06)" }} aria-hidden="true" />}
                   <span style={{ minWidth: 0 }}>
-                    <Link className="df-ti" href={`/film/${r.slug}`}>{r.title}</Link>{" "}
+                    <Link className="df-ti" href={`/film/${r.slug}`}>{filmTitle(filmTitles, locale, r.slug, r.title)}</Link>{" "}
                     <span className="df-cyr">({r.year ?? "?"})</span>
                     <span style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 4 }}>
                       {r.cos != null ? (
@@ -1949,7 +1962,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                       <span className="df-cpposter" style={film.poster_path ? { backgroundImage: `url(${IMG}/w185${film.poster_path})` } : undefined} title={film.title} />
                       <i className="df-cpx">{t(locale, "vs")}</i>
                       <Link className="df-cpposter" href={`/film/${c.film.slug}`}
-                        style={otherPoster ? { backgroundImage: `url(${IMG}/w185${otherPoster})` } : undefined} title={c.film.title} />
+                        style={otherPoster ? { backgroundImage: `url(${IMG}/w185${otherPoster})` } : undefined} title={filmTitle(filmTitles, locale, c.film.slug, c.film.title) ?? undefined} />
                     </div>
                     <div className="df-cpbody">
                       <p className="df-cpkick">
@@ -1966,7 +1979,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                           : <>{t(locale, "stages it straight")}</>}
                       </p>
                       <p className="df-cpline">
-                        <b><Link href={`/film/${c.film.slug}`}>{c.film.title}</Link></b>
+                        <b><Link href={`/film/${c.film.slug}`}>{filmTitle(filmTitles, locale, c.film.slug, c.film.title)}</Link></b>
                         <span className="df-cpmeta"> ({c.film.year ?? "?"}{c.film.director ? `, ${c.film.director}` : ""})</span> —{" "}
                         {c.there?.take
                           ? (c.there.figure
