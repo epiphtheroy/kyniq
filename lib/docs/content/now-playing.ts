@@ -1,7 +1,7 @@
 const body = `
 # The live desk
 
-Now Playing is Metatake's live desk. When a film or film-maker spikes in the world's attention, it publishes a signed editor's letter within the hour, anchored to one film already in our corpus. This page explains what has to be true before a letter goes live, and what we deliberately refuse to let it do.
+Now Playing is Metatake's live desk. When a film or film-maker spikes in the world's attention, it publishes a letter within the hour — written by Metatake AI, cleared by a machine gate, and published unattended — anchored to one film already in our corpus. The editor reads the stream after the fact, twice a day, and pulls what does not hold. This page explains what has to be true before a letter goes live, what only gets checked afterwards, and what we deliberately refuse to let it do.
 
 The point of the desk is to have the reflexes of a news operation and write the opposite of news: not what happened, but why it matters and where it sits in film history — argued, dated, and checkable.
 
@@ -19,7 +19,9 @@ Once a film is anchored, the letter is allowed to cite it — but only from what
 
 ## Two gates before it is public
 
-Every letter clears two gates. First a **machine gate**: it checks that the piece rests on at least two independent sources, that the internal links it carries actually resolve, and that the shape of the letter is what a letter should be. A piece that fails is held, not smoothed over. Then a **human review**: a person on the editorial desk reads it for factual accuracy and signs off — or sends it back — before it publishes. The machine cannot approve itself onto the site.
+Every letter clears one gate before it publishes, and it is a **machine gate**: it checks that the piece rests on at least two independent sources, that the internal links it carries actually resolve, and that the shape of the letter is what a letter should be. A piece that fails is held, not smoothed over.
+
+Then it publishes — unattended, within the hour. Be clear about what that means, because it is the weakest guarantee on the site and the one most worth stating plainly: no person reads a letter before you can. The gate checks structure and sourcing, never judgement, and it deliberately does not touch the prose — a letter reaches the page in the voice the model wrote it in. Human review here is **after** publication: the editor sweeps the stream morning and evening, and pulls what does not hold, with the reason logged. A standing hold file stops the whole desk when it needs stopping. That is a real check and a real accountability, but it runs behind the reader rather than in front of them, and it is the reason this desk is held to a narrower promise than the readings: anchored to the corpus, sourced twice, never inventing a film — rather than reviewed before you see it.
 
 ## What we decided, and why
 

@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Methodology",
   description:
-    "How a Metatake reading is made: an AI system drafts, a human editor reviews and approves every one before it publishes, and pages stay open to correction.",
+    "How a Metatake reading is made: an AI system writes it and it publishes as written, a named human editor designed the method and answers for it, the factual layers around it are corroborated before they ship, and pages stay open to correction.",
   alternates: { canonical: "/methodology" },
   robots: pageRobots(true),
 };
@@ -30,7 +30,7 @@ export default async function MethodologyPage() {
   const tiles: [number, string, string][] = s ? [
     [s.films, "films read closely", "every one broken into figures and readings — no stub pages"],
     [s.figures, "figures", "the objects, gestures and devices we read — the unit of analysis"],
-    [s.readings, "close readings", "each drafted under a named framework, human-reviewed before publishing"],
+    [s.readings, "close readings", "each written under a named framework, and cleared by the machine gate before publishing"],
     [s.tropes, "cross-film tropes", "recurring patterns that connect figures across films"],
     [s.theorists, "theorists cited", "the scholarship our anchored readings point back to"],
     [s.concepts, "canonical concepts", `${nf(s.concept_links)} phrasing variants resolved onto them`],
@@ -53,11 +53,13 @@ export default async function MethodologyPage() {
       </p>
 
       <p className="ui muted" style={{ fontSize: 12.5, margin: "12px 0 0" }}>
-        By the{" "}
+        Written by Metatake AI · designed &amp; directed by{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>{" "}
+        ·{" "}
         <Link href="/methodology/editorial-responsibility" className="accent" style={{ textDecoration: "none" }}>
-          Metatake editorial desk
+          who answers for this page
         </Link>{" "}
-        · Reviewed July 2026
+        · Reviewed 17 July 2026
       </p>
 
       <p className="body reading" style={{ fontSize: 18, margin: "18px 0 0", maxWidth: "62ch" }}>
@@ -126,15 +128,20 @@ export default async function MethodologyPage() {
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         Every reading passes through six stages before and after it goes live. <strong>1. Film breakdown</strong> —
         we decompose a film into its <em>figures</em>, the objects, gestures, colors, and recurring devices worth
-        reading closely. <strong>2. Drafting, by framework</strong> — Metatake Editorial, our AI system, drafts a
+        reading closely. <strong>2. Writing, by framework</strong> — Metatake AI writes a
         reading of each figure under one of fourteen interpretive frameworks. <strong>3. Scholarly anchoring, where
         it applies</strong> — some readings are anchored to a specific piece of published film scholarship; most
-        are original interpretations in their own right. <strong>4. Human editorial review</strong> — every reading,
-        no exceptions, is checked for accuracy and edited or cut by{" "}
-        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>, Metatake&apos;s
-        human editor, before it goes live. <strong>5. Publication</strong> — only reviewed readings publish, under
-        his sign-off. <strong>6. Audit and correction</strong> — publication isn&apos;t the end; we and our readers
-        keep checking pages against the facts, and this loop runs continuously.
+        are original interpretations in their own right. <strong>4. Publication</strong> — the draft publishes as
+        written. No person reads it first; at this scale nobody reads every reading, and we won&apos;t imply
+        otherwise. The gates on this site sit on the facts, not on the prose: a location pin needs independent
+        sources to agree before it ships, a desk essay clears a fact-and-attribution check, reception is assembled
+        from dated sources. An interpretation has no equivalent test — that is what makes it an interpretation.
+        <strong> 5. Standing</strong> — what publishes stands until it is corrected or retired. <strong>6. Audit and
+        correction</strong> — publication isn&apos;t the end, and this is where the human judgement lands: the
+        editorial desk{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link> leads
+        designed every check above, answers for what clears them, and retires what doesn&apos;t hold — and our
+        readers keep us honest. That loop runs continuously.
       </p>
 
       <hr className="rule" />
@@ -142,11 +149,17 @@ export default async function MethodologyPage() {
       <div className="seclbl">What AI does and doesn&apos;t do</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        AI drafts and connects; a human judges and answers for it. Metatake Editorial writes the first version of a
-        reading and, separately, the embeddings that place it in relation to every other reading on the site. What it
-        doesn&apos;t do is decide what stands on the site. That&apos;s Wonwoo&apos;s job, and his alone — he reads every
-        draft, checks its factual claims, and either signs off on it or sends it back. If a reading is live, a human
-        has looked at it and taken responsibility for that specific page. The AI proposes; the editor disposes.
+        AI writes and connects; a machine gate judges; a named person designed the gate and answers for what gets
+        through it. Metatake AI writes the reading and, separately, the embeddings that place it in relation to every
+        other reading on the site. A reading publishes as written: there are tens of thousands of them, nobody reads
+        every one before you do, and this page will not pretend otherwise. The facts around a reading are gated —
+        a location pin needs independent sources to agree, a desk essay clears a fact-and-attribution check — but the
+        reading itself is offered as an interpretation and stands or falls in public. What is human is the part that
+        survives contact with that scale: the editorial desk{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link> leads designed
+        the frameworks, wrote the rubric the checker holds a draft to, and answers for every page that clears it — he
+        can retire any reading, corrections land on his desk, and nobody can pay to place, change or remove one. The
+        AI proposes; the gate disposes; a named person is accountable for both, and for fixing what they miss.
       </p>
 
       <hr className="rule" />
@@ -230,10 +243,14 @@ export default async function MethodologyPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         The <Link href="/locations" className="accent" style={{ textDecoration: "none" }}>Locations</Link> — the map layer
-        behind &ldquo;where was this filmed?&rdquo; pages — is compiled, not scraped. Metatake Editorial researches
-        each film&apos;s shooting places from public sources and production records, geolocates them, and files every
-        pin with the scene it carries, a precision label (exact spot, venue, area, or city level), its source, and a
-        confidence score. Filmed places and the places a story merely <em>claims</em> to be set in are kept apart —
+        behind &ldquo;where was this filmed?&rdquo; pages — is a compiled record, not a reading: no model decides what
+        belongs on it, and nothing about a pin is generated when you load the page. Each film&apos;s shooting places
+        are researched from public sources and production records — a model extracts the scene a pin holds from
+        those records, and the desk answers for the result — then geolocated and filed by rule, every pin
+        carrying the scene it holds, a precision label (exact spot, venue,
+        area, or city level), its source, and a confidence score — under a schema designed and supervised by{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>. Filmed places
+        and the places a story merely <em>claims</em> to be set in are kept apart —
         the map tells you which is which. Locations are collected through two independent passes and fused before
         display; where the record is thin, the pin says city level rather than pretending to an address. Location
         facts sit under the same correction loop as everything else on this page — if we&apos;ve put a pin in the
@@ -348,15 +365,18 @@ export default async function MethodologyPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         <Link href="/now" className="accent" style={{ textDecoration: "none" }}>Now Playing</Link> is Metatake&apos;s
-        live desk. When a film or filmmaker spikes in the world&apos;s search traffic, it publishes a short
-        editor&apos;s letter within the hour, anchored to one film already in the corpus. It is deliberately the
-        opposite of a generated news blurb: each letter carries{" "}
-        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon&apos;s</Link> byline,
-        is timestamped to the minute for both when it was <em>written</em> and when it was <em>published</em>, and
-        argues a case the wire doesn&apos;t — not what happened, but why it matters and where it sits in film history.
+        live desk. When a film or filmmaker spikes in the world&apos;s search traffic, it publishes a short letter
+        from the desk within the hour, anchored to one film already in the corpus. Each letter is written by
+        Metatake AI and published unattended once a machine gate clears it;{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link> reads the stream
+        afterwards and pulls what does not hold. It is timestamped to the minute for both when it was <em>written</em> and when it was{" "}
+        <em>published</em>, and it argues a case the wire doesn&apos;t — not what happened, but why it matters and
+        where it sits in film history.
       </p>
       <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        What keeps it from being &ldquo;AI writing about the news&rdquo; is the data underneath. A candidate story is
+        It <em>is</em> AI writing about the news, published before a person has read it — this desk is the one place
+        on Metatake where that is true, and it is the trade the hourly clock demands. What it is not is AI writing
+        from memory: the letter is anchored to live data at every point. A candidate story is
         matched to the corpus through the same <strong>embeddings</strong> that power the rest of the site — the spike
         has to resolve to a film we actually hold before a letter is even attempted. Every figure a letter cites is
         then <strong>retrieved, not remembered</strong>: the film&apos;s{" "}
@@ -372,8 +392,7 @@ export default async function MethodologyPage() {
         the number can&apos;t settle; a rank is named only when a film stands inside the top thousand. And the letter
         is written to <strong>wound no one</strong>: it takes positions on works, ideas and institutions, never on a
         person&apos;s character, and it reports praise and criticism alike from a neutral distance, never as an attack
-        on the people who made or appear in the film. Every letter still passes the editor&apos;s factual review before
-        it goes live, and sits under the same{" "}
+        on the people who made or appear in the film. Every letter sits under the same{" "}
         <a href="#corrections" className="accent" style={{ textDecoration: "none" }}>corrections</a> loop as the rest
         of the site.
       </p>

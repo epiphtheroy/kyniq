@@ -91,7 +91,7 @@ export default function PartnersPage() {
         <h2 className="mt-h2">What we license</h2>
         <ul>
           <li><strong>Close readings</strong> — 70,000+ framework-driven interpretations, each pushing one critical framework (psychoanalytic, signifier→signified, ethico-political, …) as far as a film allows.</li>
-          <li><strong>TakeScore</strong> — a computed 13-dimension value assessment per film (net value, plus the Value / Cost / Risk breakdown). <Link href="/methodology">Method is public</Link>.</li>
+          <li><strong>TakeScore</strong> — a 13-dimension value assessment per film (net value, plus the Value / Cost / Risk breakdown), computed by Metatake AI against a version-locked rubric designed and calibrated by Wonwoo Yoon. <Link href="/methodology">Method is public</Link>.</li>
           <li><strong>Filming locations</strong> — ~17,341 geolocated places across 130 countries, each labelled <em>filmed</em> vs <em>set</em>, with the scene it hosts.</li>
           <li><strong>Lineage</strong> — a sourced record of awards and canons, with Wikidata cross-links.</li>
           <li><strong>Connections</strong> — a kindred-film graph computed from meaning (shared readings), not viewing behaviour.</li>
@@ -122,8 +122,9 @@ export default function PartnersPage() {
         <h2 className="mt-h2">Contact</h2>
         <p>
           Business partnerships and data licensing:{" "}
-          <a href="mailto:wonwoo@metatake.net">wonwoo@metatake.net</a>. Editor and lead author,
-          Wonwoo Yoon — <Link href="/about">about Metatake</Link>.
+          <a href="mailto:wonwoo@metatake.net">wonwoo@metatake.net</a>. Editor and method designer,
+          Wonwoo Yoon — he directs the method and answers for what publishes.{" "}
+          <Link href="/about">About Metatake</Link>.
         </p>
       </div>
     </div>

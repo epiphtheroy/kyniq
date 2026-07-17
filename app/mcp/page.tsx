@@ -76,7 +76,7 @@ export default function McpPage() {
 
         <h2 className="mt-h2">License &amp; fair use</h2>
         <p>
-          Everything the tools return is Metatake&rsquo;s original, human-curated criticism, licensed{" "}
+          Everything the tools return is Metatake&rsquo;s original criticism — AI-drafted, human-reviewed — licensed{" "}
           <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener noreferrer" target="_blank">
             CC BY-NC 4.0
           </a>

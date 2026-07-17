@@ -6,7 +6,7 @@ import { pageRobots, WONWOO_ORCID } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Wonwoo Yoon — Founder & Editor",
   description:
-    "Wonwoo Yoon (pen name of Wonwoo Je, 제원우) is the founder and editor of Metatake. Ph.D. in business administration (Kyung Hee University); lead author of the six-volume series The Doctors Peter Drucker Saved. Every reading on Metatake publishes under the review of the editorial desk he leads.",
+    "Wonwoo Yoon (pen name of Wonwoo Je, 제원우) is the founder and editor of Metatake. Ph.D. in business administration (Kyung Hee University); lead author of the six-volume series The Doctors Peter Drucker Saved. Every reading on Metatake is written by Metatake AI to a method he designed and directs, and he answers for what publishes.",
   alternates: { canonical: "/editor" },
   robots: pageRobots(true),
 };
@@ -17,7 +17,7 @@ const RISS_THESIS_URL =
   "https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=a449fa46c284353fffe0bdc3ef48d419";
 
 const BIO =
-  "Wonwoo Yoon is the pen name under which Wonwoo Je (제원우) writes on film. He is the founder and editor of Metatake, an independent platform for critical thinking through film, based in Seoul, and works with a small editorial desk that reviews everything the site publishes. A management scholar with a Ph.D. in business administration from Kyung Hee University, he is the lead author of the six-volume hospital-management series The Doctors Peter Drucker Saved. Before any of that, though, he is a devotee of cinema — and especially of the Korean director Hong Sang-soo, on whom he has written a complete cycle of essays, one on each of Hong's thirty-four films, a manuscript now in submission and due to appear here on Metatake before long.";
+  "Wonwoo Yoon is the pen name under which Wonwoo Je (제원우) writes on film. He is the founder and editor of Metatake, an independent platform for critical thinking through film, based in Seoul, and the editor of record for everything it publishes. A management scholar with a Ph.D. in business administration from Kyung Hee University, he is the lead author of the six-volume hospital-management series The Doctors Peter Drucker Saved. Before any of that, though, he is a devotee of cinema — and especially of the Korean director Hong Sang-soo, on whom he has written a complete cycle of essays, one on each of Hong's thirty-four films, a manuscript now in submission and due to appear here on Metatake before long.";
 
 export default function EditorPage() {
   // ProfilePage + Person is Google's documented markup for author/profile
@@ -72,15 +72,27 @@ export default function EditorPage() {
 
         <h2 className="mt-h2">Editorial responsibility</h2>
         <p>
-          Metatake&rsquo;s readings are drafted by Metatake Editorial, an AI system built for close film
-          analysis, and every one of them passes through the editorial desk&rsquo;s review — led by Wonwoo —
-          before it publishes. In practice a human reads each draft, checks its factual claims — dates,
-          credits, plot details, scholarly attributions — and either edits it, cuts it, or signs off on it.
-          That final read sits on top of automated checks that surface the risky drafts first, so attention
-          lands where it is most needed rather than being spread thin across everything at once. Nothing goes
-          live without that pass, and if a reading is on the site, the desk answers for it. There are no
-          individual per-page bylines; instead every page states how it was generated and when, and points
-          here — to the people accountable for the method and the standard each reading is held to.
+          Metatake&rsquo;s readings are written by Metatake AI (formerly styled Metatake Editorial), a system
+          built for close film analysis, and they publish as written. Nobody reads a reading before you do.
+          There are tens of thousands of them, and we would rather say that plainly than imply a pair of eyes
+          that isn&rsquo;t there.
+        </p>
+        <p>
+          The facts around a reading are held to a stricter standard than the reading itself, because they can
+          be checked and an interpretation cannot. A filming-location pin publishes only when independent
+          sources agree; a single-source claim is quarantined rather than printed. A desk essay clears a
+          fact-and-attribution check before it stands. Reception is assembled from dated sources with no model
+          writing a line, and lineage is enumerated whole rather than sampled. Where a claim can be corroborated,
+          it is; where it is an interpretation, it is offered as one.
+        </p>
+        <p>
+          What Wonwoo does sits either side of that gate. He designed the method, the frameworks the readings
+          are written under, and the rubric the checker holds a draft to; he directs what gets written; and he
+          answers for what publishes — he can retire any reading at any time, and nobody can pay to place,
+          change, or remove one. That split is credited on the page rather than left to be inferred: a reading
+          names Metatake AI as its writer and Wonwoo Yoon as the person who designed and directed the method
+          it is held to, and who answers for it; pages composed by rule rather than written are credited to
+          the method itself. An AI draft is never dressed up as a human essay.
         </p>
         <p>
           Corrections land on his desk directly: if a page states a fact wrongly, email{" "}

@@ -39,7 +39,7 @@ A few calls here were deliberate.
 
 **We keep the two templates visibly distinct.** A catalogue record does not borrow the close-reading layout. It leads with the editor's digest, marks itself as a record, and demotes the raw synopsis to the bottom. The point is that a reader — and a crawler — can tell at a glance which kind of page they are on.
 
-**Catalogue records still carry real editorial signal.** Even unread, a film sits inside curated [lineage](/lineage) lists, gets recommended by films we *have* read, and may carry our own filming-location data. The digest draws only on those held facts, is bylined, and is stamped with the date its underlying data last changed — never back-dated, never invented.
+**Catalogue records still carry real editorial signal.** Even unread, a film sits inside curated [lineage](/lineage) lists, gets recommended by films we *have* read, and may carry our own filming-location data. The digest draws only on those held facts. It carries the credit that fits what it is — composed by the Metatake method, designed and supervised by a named editor — and it is stamped with the date its underlying data last changed: never back-dated, never invented. A record does not get a writer's byline here, because the sentences around it were assembled rather than written. One thing inside it *was* written, and it is marked as a quotation: where a film we have read recommends this one, the digest quotes that recommendation's reason in full, and that line is model-drafted prose like any other reading on the site.
 
 **Promotion is a data fact, not a marketing decision.** The bar is the reading work itself, expressed as approved figures. Nothing about traffic, ratings, or fame moves a film across the line.
 

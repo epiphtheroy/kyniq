@@ -168,7 +168,7 @@ function RagInner() {
             The upgraded grounded-RAG pipeline — query understanding, reranking, and a separate scholarly rail.
             Every answer is still drawn <em>only</em> from Metatake&apos;s close readings, and every claim links back to its source.
           </p>
-          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, not generated · multilingual</p>
+          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, then composed — every claim linked to its source · multilingual</p>
 
           <form className="ak-bar" onSubmit={(e) => { e.preventDefault(); run(); }}>
             <input

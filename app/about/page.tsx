@@ -8,7 +8,7 @@ import SiteNav from "@/components/home2/SiteNav";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "An independent film-interpretation project: close readings connected in one map of meaning — machine-drafted, answered for by a named editor in Seoul.",
+    "A systematic guide for viewers who choose films with AI: fourteen frameworks, a version-locked rubric, and close readings machine-drafted and answered for by a named editor in Seoul.",
   alternates: { canonical: "/about" },
   robots: { index: true, follow: true },
 };
@@ -46,8 +46,22 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }} />
       <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>About Metatake</h1>
       <p className="standfirst" style={{ margin: "14px 0 0", maxWidth: "62ch" }}>
-        Metatake reads films closely and connects what it finds. Every page is drafted by a machine and
-        answered for by a person.
+        Metatake reads films closely and connects what it finds. Every reading is drafted by a machine;
+        every page is answered for by a person.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">Why now</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        We want you to watch more films — and better ones. You already have an AI that will name ten titles
+        in a second. What it doesn&apos;t have is a method you can inspect.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        Metatake is that method, made public: fourteen frameworks, a rubric locked to a version, and a
+        reading for every claim. Our AI drafts them; a named editor directs the method and answers for what
+        publishes. Bring your own AI&apos;s answer here and see what holds.
       </p>
 
       <hr className="rule" />
@@ -104,10 +118,13 @@ export default function AboutPage() {
         The unit of attention is the <em>figure</em>: an object, a gesture, a color, a kind of silence a
         film keeps returning to. A reading follows one figure through one of fourteen frameworks; when the
         same reading recurs across films, it becomes a <em>trope</em>. Every reading is placed in a single
-        embedding space, where distance means kinship of meaning. Every page is drafted by Metatake
-        Editorial, a purpose-built system, and publishes only after the desk&apos;s pass, where a
-        misattributed theorist is a hard fail, not a style note. The pipeline, stage by stage, is in{" "}
-        <A href="/methodology">Methodology</A>.
+        embedding space, where distance means kinship of meaning. Every reading is drafted by Metatake AI,
+        a purpose-built system, and publishes only after the desk&apos;s pass, where a misattributed
+        theorist is a hard fail, not a style note. The record around a reading — credits, availability,
+        reception, filming locations — is held to a different standard than the reading itself: it is
+        composed by rule, and a fact earns its place by corroboration, not by sounding right. A location
+        pin needs independent sources agreeing before it ships; one source leaves it quarantined. The
+        pipeline, stage by stage, is in <A href="/methodology">Methodology</A>.
       </p>
 
       <hr className="rule" />
@@ -126,11 +143,13 @@ export default function AboutPage() {
       <div className="seclbl">Who answers</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Metatake is edited by <A href="/editor">Wonwoo Yoon</A> in Seoul, with a small editorial desk. He
+        Metatake is edited by <A href="/editor">Wonwoo Yoon</A> in Seoul, the editor of record for everything it
+        publishes. He
         trained as a management scholar — Ph.D. in business administration, lead author of a six-volume
         series on Peter Drucker — and has written one essay on each of Hong Sang-soo&apos;s thirty-four
-        films. Both fields taught the same lesson: value lives in relations. His signed essays run in{" "}
-        <A href="/poetics">Poetics</A>; he can be wrong in public.
+        films. Both fields taught the same lesson: value lives in relations. <A href="/poetics">Poetics</A>{" "}
+        is his desk: drafted by Metatake AI from his own viewing log, directed and signed off by him. He can
+        be wrong in public.
       </p>
 
       <hr className="rule" />

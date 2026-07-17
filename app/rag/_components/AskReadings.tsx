@@ -81,7 +81,9 @@ function snippet(text: string, max = 220): string {
 
 /**
  * Readings view — the retrieved close-readings as first-class, browsable cards.
- * Reinforces "retrieved, not generated": every card is a real reading you can open.
+ * Backs the stamp "retrieved, then composed — every claim linked to its source":
+ * the answer prose is LLM-synthesised, so the receipt is these cards — every one
+ * a real reading you can open (2026-07-17, HANDOFF-AI집필크레딧-표기개편.md §5-7).
  */
 export default function AskReadings({ citations }: { citations: Cite[] }) {
   if (!citations.length) return null;

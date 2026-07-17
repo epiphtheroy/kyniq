@@ -52,8 +52,11 @@ export default function TermsPage() {
       <div className="seclbl">Moderation</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
-        Content may be reviewed, edited, merged, or hidden by editors and administrators. AI-generated
-        content is clearly labeled and attributed to the Metatake Editorial team.
+        Content may be reviewed, edited, merged, or hidden by editors and administrators. Content written
+        by our AI system is labeled as such on the page and attributed to Metatake AI, and is screened
+        before publication by automated checks rather than by human reading. The method it follows is
+        designed and directed by a named human editor, who is accountable for what publishes and who
+        corrects or removes it on request.
       </p>
 
       <hr className="rule" />
@@ -74,7 +77,7 @@ export default function TermsPage() {
       </p>
 
       <hr className="rule" />
-      <p className="ui muted" style={{ fontSize: 12 }}>Last updated: June 2026</p>
+      <p className="ui muted" style={{ fontSize: 12 }}>Last updated: July 2026</p>
     </main>
   );
 }

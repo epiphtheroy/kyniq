@@ -411,7 +411,7 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
       ) : null}
 
       <div className="df-src">
-        {t(locale, "AI-estimated (TakeScore rubric). A rubric-anchored judgment, not an objective fact; popularity metrics above are for comparison only.")}
+        {t(locale, "AI-estimated (TakeScore rubric), designed and calibrated by Wonwoo Yoon. A rubric-anchored judgment, not an objective fact; popularity metrics above are for comparison only.")}
         {conf != null ? (
           <> {t(locale, "Confidence")} {tier ? `${tier} ` : ""}({conf}/100) — {evidence}. {t(locale, "A measured reliability, not a claim of certainty.")}</>
         ) : null}

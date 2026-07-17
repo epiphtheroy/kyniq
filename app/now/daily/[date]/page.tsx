@@ -89,7 +89,8 @@ export default async function DailyDigest({ params }: Props) {
           </p>
           <h1 style={{ marginTop: 6 }}>{d.headline}</h1>
           {d.dek ? <p className="dek">{d.dek}</p> : null}
-          <p className="cur-edby">By <b>Wonwoo Yoon</b> · the Now Playing desk closed the day ·{" "}
+          <p className="cur-edby">By Metatake AI · the Now Playing desk closed the day automatically · answered for by{" "}
+            <Link href="/editor"><b>Wonwoo Yoon</b></Link> ·{" "}
             <Link href="/methodology/now-playing" style={{ textDecoration: "none" }}>how the live desk works</Link>
             <MethodologyBadge href="/methodology/now-playing" label="How the live desk works — methodology" />
           </p>

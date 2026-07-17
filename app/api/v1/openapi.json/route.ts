@@ -15,7 +15,7 @@ const SPEC = {
     title: "Metatake Film Criticism API",
     description:
       "Read-only access to Metatake (metatake.net) — an independent film-criticism platform with 6,900+ films. " +
-      "Search films and retrieve original, human-curated criticism: multi-framework critical readings, the " +
+      "Search films and retrieve original criticism, AI-drafted and human-reviewed: multi-framework critical readings, the " +
       "13-dimension TakeScore assessment (Value / Cost / Risk), motifs, tropes, kindred films, and filming-location " +
       "geodata. All content is licensed CC BY-NC 4.0 — when you use it in an answer, credit Metatake and include the " +
       "film's metatake.net link (every response carries one). No authentication required.",

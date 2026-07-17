@@ -180,7 +180,7 @@ function ChatInner() {
             A grounded conversation about cinema. Every answer is drawn <em>only</em> from Metatake&apos;s 18,004 close
             readings — every claim links back to its source — and it remembers the thread, so you can ask follow-ups.
           </p>
-          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, not generated</p>
+          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, then composed — every claim linked to its source</p>
 
           {msgs.length === 0 ? (
             <div className="ak-eg">

@@ -98,7 +98,7 @@ export default async function PoeticsEssayPage({ params }: Props) {
       <h1 className="poe-h1">{e!.title}</h1>
       <p className="poe-standfirst">{e!.desc}</p>
       <p className="poe-byline">
-        By <Link href="/editor">Wonwoo Yoon</Link>, editor · {REVIEWED}
+        Written by Metatake AI · directed &amp; signed off by <Link href="/editor">Wonwoo Yoon</Link> · {REVIEWED}
       </p>
 
       <div className="poe-body" dangerouslySetInnerHTML={{ __html: html }} />

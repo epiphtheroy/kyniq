@@ -18,7 +18,7 @@ We would rather you use this work with credit than not use it at all. Two licenc
 
 **Facts and geodata are CC BY 4.0.** The filming-locations dataset — and the same data served through the [API](/methodology/api) — is free to use, share, adapt, and even build a commercial product on, on one condition: **attribute Metatake and link back.** That is the whole of it.
 
-**Our writing is CC BY-NC 4.0.** The original criticism — the readings, the essays, the scored assessments — is also free to quote and reuse **with attribution**, but **not commercially**. It is the part a person actually wrote or a human editor signed off, so we keep it out of commercial reuse while leaving it open to readers, students and researchers.
+**Our writing is CC BY-NC 4.0.** The original criticism — the readings, the essays, the scored assessments — is also free to quote and reuse **with attribution**, but **not commercially**. It is the part a named editor directs, reviews and answers for — drafted by Metatake AI, checked by a person, published under our name — so we keep it out of commercial reuse while leaving it open to readers, students and researchers.
 
 In both cases attribution is not a formality but the point: every surface on the site, and every response the machines return, carries a source link for exactly this reason. Keep it, and you are free to go.
 

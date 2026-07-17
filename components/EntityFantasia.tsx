@@ -100,7 +100,7 @@ export default function EntityFantasia({ title, rows, sectionId = "fantasia", se
 
   return (
     <section className={sectionClass} id={sectionId}>
-      <div className="dfk-kicker">Embedding Fantasia <span className="dfk-by">· a data fantasia by Wonwoo Yoon</span></div>
+      <div className="dfk-kicker">Embedding Fantasia <span className="dfk-by">· Composed by the Metatake method · designed by Wonwoo Yoon</span></div>
       <h2 className="df-h2">{title} — Embedding Fantasia</h2>
       <p className="df-sub dfk-disclaimer">
         SQL-assembled from the Metatake database — not AI-written. <a href="/methodology">What is this?</a>

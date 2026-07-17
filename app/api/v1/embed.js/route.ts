@@ -41,7 +41,7 @@ const JS = `(function(){
     if(!a.getAttribute("href")) a.setAttribute("href", BASE+"/film/"+slug);
     a.setAttribute("rel","noopener"); a.setAttribute("target","_blank");
     a.className=(a.className?a.className+" ":"")+"mtk-badge";
-    a.title="TakeScore on Metatake — human-curated film criticism";
+    a.title="TakeScore on Metatake — AI-computed, human-directed film criticism";
     fetch(BASE+"/api/v1/takescore/"+encodeURIComponent(slug)).then(function(r){return r.ok?r.json():null;}).then(function(d){
       var n=(d&&typeof d.score==="number")?Math.max(0,Math.round(d.score)):null;
       a.innerHTML='<span class="mtk-badge__n">'+(n!=null?n:"–")+'</span>'

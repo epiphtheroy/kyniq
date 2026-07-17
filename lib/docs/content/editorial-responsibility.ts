@@ -1,21 +1,25 @@
 const body = `
 # Editorial responsibility
 
-Every reading on Metatake is drafted by an AI system built for close film analysis. None of it goes live on its own. Before a reading publishes, it passes through the hands of the Metatake editorial team — led by our editor, Wonwoo Yoon — who read it, check it, and take responsibility for the page. This document explains who stands behind the work, what the review actually involves, and how a small team can answer for a large and growing body of writing without pretending to have hand-copyedited every line.
+Every reading on Metatake is written by Metatake AI, a system built for close film analysis, and it publishes as written. No person reads it first. What stands behind it is not a signature but a method — designed by the editor of record, Wonwoo Yoon, who answers for what it produces. This document explains what that responsibility actually consists of, since it is not the thing a masthead usually implies.
 
-## The review, in practice
+## What is gated, and what is not
 
-Nothing publishes on its own authority. Each draft reaches the editorial desk before it goes live, and the desk does one of three things with it: it edits it, it cuts it, or it signs off on it. In that pass a human reads the reading and checks its factual claims — dates, credits, plot details, scholarly attributions. The consequence is worth stating plainly: **if a reading is on the site, a person has looked at it and stands behind it.** Interpretation is left open — a film sustains many readings — but the facts under a reading are the desk's responsibility, and so is the standard it is held to.
+Be precise about this, because the distinction is the whole architecture: **the facts are gated; the interpretation is not.**
 
-## How review scales
+A filming-location pin publishes only if independent sources agree — two different domains corroborating it, or it does not ship, and a single-source claim is quarantined rather than printed. A desk essay clears a fact-and-attribution check before it stands. Reception is assembled from dated sources with no model writing a line. Lineage is enumerated whole rather than sampled. Where a claim can be checked against the world, it is checked, and what fails is held back.
 
-A fair question follows from that promise: how can a team read tens of thousands of drafts? The honest answer is that final human review is the *last* gate, not the only one — it sits on top of a pipeline built to concentrate a human's attention where it matters. The full route a reading travels before it reaches the desk is described in [how a page is made](/methodology/how-a-page-is-made).
+A reading has no equivalent test, and that is not an oversight — it is what a reading is. There is no gate that can tell you whether *the staircase in this film is about inheritance* is correct, because correctness is not the category. So the reading is drafted under a named framework and goes live, and it is offered to you as an argument you are free to reject. We could bolt a sign-off ritual onto the front of that and few readers could check the claim. It would be false, and a site that argues for reading closely should not need to be read carelessly to be believed.
 
-Before a draft ever reaches the desk, it is put through machine review: an independent checker reads it against the record and flags misattributed concepts, invented terms, on-screen errors, and claims the database cannot support; structure and links are validated; a draft that fails is sent back to be rewritten, and one that keeps failing is killed rather than published. What survives that is what a human then reads and signs off. So the desk is not one person squinting at a spreadsheet of 27,000 readings — it is a team working a pipeline that surfaces the risky pages and clears the routine ones, so that human judgement lands where a machine cannot be trusted. We would rather say that plainly than imply a lone editor personally rewrote the whole corpus. What we do claim is narrower and true: nothing publishes that has not passed both the automated checks and a human's sign-off, and a named team answers for the result.
+## How one editor answers for tens of thousands of pages
+
+A fair question follows: how can one editor of record answer for tens of thousands of readings he did not read before they went live? Not by claiming he did. The frameworks a reading is written under, what counts as a figure worth reading, what the site is for and what it refuses to do — those were set before any draft existed, and they are his. A standard applied to every draft is the form judgement takes at this scale.
+
+The rest of the answer is what happens after a page is live. He can retire any reading at any moment, and does. Corrections land on his desk, and the fix is public. A fact stated wrongly gets fixed; an interpretation you disagree with stays up, because disagreement is not an error. That is a narrower claim than a masthead implies, and it has the advantage of being true: one named person — not a masthead — designed the method and answers for what it produces. The full route a reading travels is described in [how a page is made](/methodology/how-a-page-is-made).
 
 ## Who answers for the pages
 
-The desk is led by **Wonwoo Yoon** (the pen name under which Wonwoo Je writes on film). He holds a Ph.D. in business administration from Kyung Hee University and is the lead author of a six-volume series on hospital management through Peter Drucker's thought.
+The editor of record is **Wonwoo Yoon** (the pen name under which Wonwoo Je writes on film). He holds a Ph.D. in business administration from Kyung Hee University and is the lead author of a six-volume series on hospital management through Peter Drucker's thought.
 
 Before any of that, though, he is someone who simply loves films — and loves arguing with them. He is a particular devotee of the Korean director **Hong Sang-soo**, on whom he has written a complete cycle of essays: one on every one of Hong's thirty-four films, a manuscript now submitted for publication and due to appear here on Metatake before long. The instinct behind this whole project — reading a body of films as one connected map of relations rather than a shelf of separate verdicts — comes out of both of those lives at once: the study of how value lives in relations, and the plain habit of watching a director's films until they start talking to each other.
 
@@ -27,13 +31,13 @@ Accountability is not only a claim in prose; it is written into the machine-read
 
 Two calls here were not obvious, so here is how we settled them.
 
-We chose **review over bylines**. A per-reading byline would suggest each page was written from scratch by a named person, which is not how these readings are made. A single, visible line of accountability — the AI drafted this, the desk reviewed it, and here is who leads that desk — is the more honest description of the actual process.
+We chose **a credit that describes the process** over a byline that flatters it. A per-reading byline would suggest each page was written from scratch by a named person, which is not how these readings are made. A single, visible line of accountability — Metatake AI wrote this, it passed the published checks, and here is who designed them and answers for the page — is the more honest description of the actual process, and now that line runs on the readings themselves. For a while we printed it only in documents like this one, and left the reading unmarked. The gate was real either way; but a reader had to come looking for it, and a credit belongs where the reading is.
 
-We chose to **keep interpretations open even after review**. Signing off on a reading is not a claim that it is the only true reading of a film. A film sustains many readings, and the desk's pass is about factual soundness and standard, not about closing the question. Logged-in readers can add their own readings beneath any figure, and we do not remove one simply because someone disagrees with it.
+We chose to **keep interpretations open even after a reading passes**. Clearing the gate is not a claim that a reading is the only true reading of a film. A film sustains many readings, and the checks are about factual soundness and standard, not about closing the question. Logged-in readers can add their own readings beneath any figure, and we do not remove one simply because someone disagrees with it.
 
 ## Limits
 
-Review is a human process, and human processes miss things. Checking every date, credit and attribution across a large and growing corpus means some errors reach the page before they are caught. We treat that as the reason for a standing corrections loop, not as a claim of perfection. Review also cannot make an interpretation *correct* — it can only make it factually sound and hold it to a standard. Whether a reading is a good one stays with you.
+The gate is a machine process, and machine processes miss things — different things than a person would. A checker catches what it was built to catch: a bad attribution, an invented term, a claim the record cannot support. It is poor at noticing what is merely off — a reading accurate line by line and wrong taken whole, an emphasis a reader would find strange. Some errors reach the page. We treat that as the reason for a standing corrections loop, not as a claim of perfection. The gate also cannot make an interpretation *correct* — it can only hold it to the record and to a standard. Whether a reading is a good one stays with you.
 
 ---
 

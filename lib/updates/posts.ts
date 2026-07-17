@@ -36,6 +36,13 @@ export type UpdatePost = {
 
 export const UPDATES: UpdatePost[] = [
   {
+    id: "2026-07-17-ai-credits",
+    date: "2026-07-17",
+    cat: "policy",
+    title: "Every page now credits how it was written",
+    body: "Pages now carry an explicit credit for how they were made. Readings say they are written by Metatake AI, to a method designed and directed by editor Wonwoo Yoon, who answers for what publishes. Pages assembled by rule rather than by a language model say that instead, because stamping them as AI-written would be its own inaccuracy — the layer-by-layer map is at [How we use AI](/methodology/ai-disclosure). Correcting the record on four things we had described wrongly, the first of them serious. Several pages said a human editor read and signed off on every reading before it published. That was not true and it is now gone from the site: a reading is written by Metatake AI and publishes as written. What is true, and what those pages should have said, is that the gates on this site sit on the facts rather than on the prose — a filming-location pin ships only when independent sources agree, a desk essay clears a fact-and-attribution check, reception is assembled from dated sources with no model writing a line — while an interpretation is offered as an argument you can reject, with corrections public and any reading retractable at any time. Also corrected: [Poetics](/poetics) essays are drafted by Metatake AI from the editor's own viewing log and signed off by him, not written by hand; the director [where-to-start and who-is-next](/methodology/where-to-start) reasons are drafted by a model, not curated by hand as that page claimed; and our API and MCP listings described the criticism as human-curated, which it is not.",
+  },
+  {
     id: "2026-07-15-updates-launch",
     date: "2026-07-15",
     cat: "milestone",

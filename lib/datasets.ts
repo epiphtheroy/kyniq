@@ -72,7 +72,8 @@ export function filmCriticismDataset(opts: CorpusOpts = {}) {
     description:
       `Structured film-criticism data for ${films.toLocaleString()}+ films: multi-framework close ` +
       `readings (${readings.toLocaleString()}+), the 13-dimension TakeScore, canon standing, motifs and ` +
-      `figures, tropes, and a meaning-based kindred-film graph. Original interpretive work by Metatake Editorial.`,
+      `figures, tropes, and a meaning-based kindred-film graph. Original interpretive work — written and ` +
+      `computed by Metatake AI, to a method designed and directed by Wonwoo Yoon, who answers for it.`,
     creator: orgRef,
     publisher: orgRef,
     license: CC_BY_NC,

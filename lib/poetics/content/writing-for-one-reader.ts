@@ -1,7 +1,7 @@
 const body = `
 # Writing for one reader
 
-Pull one note from our catalogue at random and it looks like this: a name at the top, *To W. Heo*; a paragraph or two about a film; a signature, mine. Heo is a real person, a younger friend whose taste I respect and argue with, and the [list that carries his name](/lineage/for-w-heo) now runs to about 1,229 films. Visitors sometimes ask why a public site would dress its recommendations as private mail. For years my answer was about discipline: you cannot bluff a reader who knows you. I still believe that. But the better answer turns on two films and the number fifty-nine.
+Pull one note from our catalogue at random and it looks like this: a name at the top, *to. WY. Heo*; a paragraph or two about a film; a sign-off from the desk. Heo is a real person, a younger friend whose taste I respect and argue with, and the [list that carries his name](/lineage/for-w-heo) now runs to about 1,229 films. Visitors sometimes ask why a public site would dress its recommendations as private mail. For years my answer was about discipline: you cannot bluff a reader who knows you. I still believe that — enough to have applied it to the notes themselves, which is why the sign-off names the desk rather than me. I did not type them. But the better answer turns on two films and the number fifty-nine.
 
 ## Two films at fifty-nine
 
@@ -19,7 +19,7 @@ What waits there cannot be rescued by rule, because any exception clause hardens
 
 ## The residue
 
-So the name at the top of the note is load-bearing. The rules cover the middle of the distribution well, and fame handles the famous without any help from us. The letter exists for the residue: the five-star films the net let through by a single point. When I write *To W. Heo* above a fifty-nine, I am lending the film something the instrument correctly refuses to lend, my own credit, staked in front of a named witness. Most notes never draw on the loan. Two of them do, and those two are the reason the whole envelope exists.
+So the name at the top of the note is load-bearing — and it is the part I actually wrote. The rules cover the middle of the distribution well, and fame handles the famous without any help from us. The letter exists for the residue: the five-star films the net let through by a single point. The prose under the name is a template; the desk assembles it from the same filings every time, and says so. What I staked is the envelope. Putting a real addressee on it lends the film something the instrument correctly refuses to lend — my own credit, in front of a named witness who will tell me plainly when the trust was misplaced. A signature I did not write would have lent nothing; the choice of who receives the letter is the whole loan. Most notes never draw on it. Two of them do, and those two are the reason the envelope exists.
 
 I could pretend the arrangement scales, that every visitor becomes an honorary Heo. It doesn't, and they don't; a borrowed addressee is still an audience. What I can offer instead is the sight of the letter working once. Comrades ends in New York, 1995: a shop window stacked with televisions, every screen announcing Teresa Teng's death, and two people who lost each other years ago standing on the same stretch of sidewalk in front of the glass, one beat before they turn.
 `;

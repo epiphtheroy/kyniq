@@ -42,7 +42,7 @@ border:1px solid rgba(0,0,0,.14);border-radius:999px;padding:.45em .72em;box-sha
 .n{font-weight:800;font-size:15px;color:#0f766e}.l{color:#3a3f4a}.x{color:#8a8f99;font-size:11px}.w{color:#b91c1c;font-weight:800}
 @media (prefers-color-scheme:dark){.b{color:#e8eaed;background:#16181d;border-color:rgba(255,255,255,.16)}.l{color:#c4c8d0}.n{color:#2dd4bf}}</style></head>
 <body><a class="b" href="https://metatake.net/film/${encodeURIComponent(safeSlug)}" target="_top" rel="noopener"
-title="TakeScore${title ? " for " + esc(title) : ""} on Metatake — human-curated film criticism">
+title="TakeScore${title ? " for " + esc(title) : ""} on Metatake — AI-computed, human-directed film criticism">
 <span class="n">${score != null ? score : "&ndash;"}</span><span class="l">TakeScore</span><span class="x">on</span><span class="w">Metatake</span>
 </a></body></html>`;
 

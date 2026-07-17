@@ -114,7 +114,7 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
       <section className="hm-basis">
         <div className="hm-basis__row">
           <span className="glyph">▦</span>
-          <p className="hm-basis__t"><b>Built on AI embeddings — not AI-generated content.</b> The model does not write opinions or invent films. It turns every <i>real</i> film, figure and reading into a point in meaning-space, then measures which works secretly rhyme — connections no human index would catch. <span className="hm-em">The readings are criticism; the AI is the instrument that finds them.</span></p>
+          <p className="hm-basis__t"><b>Built on AI embeddings. The readings are AI-drafted criticism — reviewed, and answered for, by a named editor.</b> Metatake AI writes them under a published method, against <i>real</i> films it does not invent. The embeddings are the instrument: every film, figure and reading becomes a point in meaning-space, and measuring that space surfaces which works secretly rhyme — connections no human index would catch. <span className="hm-em">The AI drafts the criticism and finds the lines; a named editor directs the method and answers for what publishes.</span></p>
         </div>
       </section>
 

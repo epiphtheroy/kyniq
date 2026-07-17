@@ -116,7 +116,8 @@ export default async function NowPiece({ params }: Props) {
           {p.dek ? <p className="dek">{p.dek}</p> : null}
           {p.summary ? <p className="now-summary">{p.summary}</p> : null}
           <div className="cur-edby now-byline">
-            <Link href="/editor" className="now-author" aria-label="Wonwoo Yoon, founder and editor">
+            <span className="now-byline-rest">Written by Metatake AI · published on a machine gate, reviewed after the fact by{" "}</span>
+            <Link href="/editor" className="now-author" aria-label="Wonwoo Yoon — view editor profile">
               <span className="now-avatar" aria-hidden="true">W</span>
               <span className="now-author-name">Wonwoo Yoon</span>
             </Link>

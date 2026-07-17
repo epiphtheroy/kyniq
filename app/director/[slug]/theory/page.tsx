@@ -366,8 +366,9 @@ export default async function DirectorTheoryPage({ params }: Props) {
               {films.length} film{films.length === 1 ? "" : "s"}, {n} published reading{n === 1 ? "" : "s"} carr{n === 1 ? "ies" : "y"} such
               a filing — {F.withTheorist} of them name a theorist outright, and {F.withConcept} name a concept.
               Readings are reported here as they were filed — &ldquo;was read as&rdquo;, not &ldquo;is&rdquo; —
-              arguments the films can survive, not verdicts about intent. Assembled by Metatake Editorial,
-              edited by <Link href="/editor">Wonwoo Yoon</Link>.
+              arguments the films can survive, not verdicts about intent. Readings written by Metatake AI, assembled
+              here by the Metatake method, designed &amp; directed by <Link href="/editor">Wonwoo Yoon</Link>, who
+              answers for it.
             </p>
 
             {/* 1 — the counts, as chips */}

@@ -18,8 +18,12 @@ import "@/app/film/[slug]/read.css";
 /**
  * /director/[slug]/next — "Who's Next after X" as its own indexable article
  * (2026-07-09). The hub's dr-next section promoted to a standalone page for
- * the "directors like X" query class. LLM-free: every recommendation is a
- * curated `reason` written into director_next; this page only assembles.
+ * the "directors like X" query class. Render is LLM-free — this page only
+ * assembles stored fields — but the recommendations themselves are not: each
+ * kinship and its `reason` was drafted offline by Metatake AI
+ * (worker/director-profile-gen.py, Opus batch) into director_next. Do not
+ * restate "LLM-free" as a claim about the recommendations; it is true of render
+ * only (2026-07-17, HANDOFF-AI집필크레딧-표기개편.md D7).
  */
 export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
@@ -118,7 +122,7 @@ function buildDescription(name: string, next: Next[]): string {
   const b = next[1]?.rec_name;
   const lead = a && b ? `After ${name}, watch ${a} and ${b}` : a ? `After ${name}, watch ${a}` : `Who to watch after ${name}`;
   const rest = n > 2 ? ` — plus ${n - 2} more` : "";
-  let out = `${lead}${rest}. ${n} curated director recommendation${n === 1 ? "" : "s"}, each with the exact reason, not a similarity score.`;
+  let out = `${lead}${rest}. ${n} director recommendation${n === 1 ? "" : "s"}, each with the exact reason written out, not a similarity score.`;
   if (out.length > 158) out = out.slice(0, 155).replace(/\s+\S*$/, "") + "…";
   return out;
 }
@@ -222,7 +226,7 @@ export default async function DirectorNextPage({ params }: Props) {
             </div>
             <div className="rd-chiprow">
               <span className="rd-chip">Who&apos;s next</span>
-              <span className="rd-meta">{n} directors · curated, not algorithmic{recBy.length ? ` · pointed to from ${recBy.length}` : ""}</span>
+              <span className="rd-meta">{n} directors · a written reason, not a similarity score{recBy.length ? ` · pointed to from ${recBy.length}` : ""}</span>
             </div>
             <h1 className="rd-h1">
               {n} Directors to Watch After {name}
@@ -325,7 +329,8 @@ export default async function DirectorNextPage({ params }: Props) {
 
             <hr />
             <p>
-              Every list like this is curated by hand, one kinship at a time — browse{" "}
+              Every list like this is drafted by Metatake AI, one kinship at a time, to a brief set by the desk, which
+              answers for it; the page then assembles it with no language model. Browse{" "}
               <Link href="/director">all directors on Metatake</Link>, or go back to{" "}
               <Link href={`/director/${slug}`}>everything on {name}</Link>: the filmography, the readings, the tropes.
             </p>
