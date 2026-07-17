@@ -114,7 +114,7 @@ const loadPlates = (slug: string) =>
         cachedLineageEligibility(),
         supabase.from("film_wd_honors").select("id", { count: "exact", head: true }).eq("film_id", film.id),
         supabase.from("film_reception").select("id", { count: "exact", head: true }).eq("film_id", film.id),
-        supabase.from("film_affinities").select("id", { count: "exact", head: true }).eq("film_id", film.id),
+        supabase.from("film_affinities").select("film_id", { count: "exact", head: true }).eq("film_id", film.id),
         supabase.from("tv_programs").select("slug", { count: "exact", head: true }).eq("slug", slug).eq("status", "published"),
       ]);
 

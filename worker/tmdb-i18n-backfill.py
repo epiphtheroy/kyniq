@@ -99,7 +99,7 @@ def fetch_all(path):
     return rows
 
 def cohort():
-    sel=f"id,tmdb_id,slug,title,{T_COL},{O_COL}"
+    sel=f"id,tmdb_id,slug,title,{T_COL},{O_COL},{F_COL}"
     q=f"films?select={sel}&tmdb_id=not.is.null"
     if FILMS:
         q+="&slug=in.("+",".join(urllib.parse.quote(s) for s in FILMS)+")"
@@ -117,7 +117,7 @@ def main():
     films=cohort()
     print(f"[i18n:{LOC}] {len(films)} films (lang={LANG}){'' if PERSIST else '  [DRY — fetch+print, no DB writes]'}")
     if not films: print("  nothing to do"); return
-    n=t_hit=o_hit=t_same=miss=0
+    n=t_hit=o_hit=t_same=miss=skipped=0
     for f in films:
         # append_to_response=translations → one call carries both the primary
         # localized fields AND the full translations list (no extra request).
@@ -148,18 +148,27 @@ def main():
         if not title and (d.get("original_language") or "")==LOC:
             cand=(d.get("original_title") or "").strip()
             if cand and cand!=en: title=cand; src="orig"
-        upd={T_COL:title, O_COL:overview, F_COL:"now()"}
+        # Partial update: only write fields we actually found. Writing NULLs
+        # back would erase values stored by an earlier run, and PATCHing rows
+        # where nothing was found churns the hot films table for no gain
+        # (2026-07-17 incident: thousands of no-op PATCHes during peak).
+        upd={F_COL:"now()"}
+        if title: upd[T_COL]=title
+        if overview: upd[O_COL]=overview
         if title: t_hit+=1
         elif loc_title: t_same+=1
         if overview: o_hit+=1
         print(f"  · {f['slug']}: title={title or '-'}{f' [{src}]' if src else ''} overview={'Y' if overview else '-'}")
         if PERSIST:
-            st,tx=sb("PATCH",f"films?id=eq.{f['id']}",upd,prefer="return=minimal")
-            if st>=300: print(f"    ! write {st} {tx[:120]}")
-            else: n+=1
+            if len(upd)==1 and f.get(F_COL):
+                skipped+=1   # nothing new + already marked fetched → no write
+            else:
+                st,tx=sb("PATCH",f"films?id=eq.{f['id']}",upd,prefer="return=minimal")
+                if st>=300: print(f"    ! write {st} {tx[:120]}")
+                else: n+=1
         time.sleep(THROTTLE)
     print(f"[i18n:{LOC}] {len(films)} seen · localized title {t_hit} · title==EN (stored NULL) {t_same} · "
           f"overview {o_hit} · TMDB miss {miss}")
-    print(f"[i18n:{LOC}] {'PERSIST done: '+str(n)+' rows written.' if PERSIST else 'DRY done — re-run with --persist to write.'}")
+    print(f"[i18n:{LOC}] {'PERSIST done: '+str(n)+' rows written, '+str(skipped)+' no-op skips.' if PERSIST else 'DRY done — re-run with --persist to write.'}")
 
 if __name__=="__main__": main()
