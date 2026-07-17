@@ -42,23 +42,33 @@ const URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!URL || !KEY) { console.error("Missing SUPABASE url / service role key"); process.exit(1); }
 
-// Gather rows from every JSON batch in DIR.
-const rows = [];
-for (const f of readdirSync(DIR).filter((f) => f.endsWith(".json"))) {
+// Gather rows from every JSON batch in DIR, keyed by PK. Overlapping slug
+// assignments across batch files mean the same PK can appear twice; Postgres
+// rejects a whole upsert if one command carries duplicate constrained values
+// (SQLSTATE 21000), so collapse to one row per PK here. Last file wins, which
+// is what chunked merge-duplicates upserts already do across chunk boundaries.
+const byPk = new Map();
+let seen = 0;
+for (const f of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
   const arr = JSON.parse(readFileSync(join(DIR, f), "utf8"));
   for (const r of arr) {
     if (!r.entity_type || !r.entity_key || !r.field || !r.text) continue;
-    rows.push({
+    seen++;
+    const row = {
       entity_type: r.entity_type,
       entity_key: String(r.entity_key),
       field: r.field,
       lang: r.lang || LOCALE,
       text: r.text,
       model: r.model || "claude-fable-5",
-    });
+    };
+    byPk.set([row.entity_type, row.entity_key, row.field, row.lang].join("\u0000"), row);
   }
 }
+const rows = [...byPk.values()];
+const collapsed = seen - rows.length;
 console.log(`[content_i18n:${LOCALE}] ${rows.length} rows from ${DIR}${DRY ? "  [DRY]" : ""}`);
+if (collapsed) console.log(`  · collapsed ${collapsed} duplicate-key row(s) of ${seen} parsed (last file wins)`);
 if (DRY || !rows.length) {
   const byType = {};
   for (const r of rows) byType[r.entity_type] = (byType[r.entity_type] || 0) + 1;
