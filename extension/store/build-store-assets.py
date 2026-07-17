@@ -45,7 +45,7 @@ hero = page(1280,800,64,14, f"""
   <div class="wm"><img src="{LOGO}"><b style="font-size:26px">Metatake</b></div>
   <div style="margin:auto 0;max-width:820px">
     <h1 style="font-family:Georgia,serif;font-size:60px;line-height:1.08;font-weight:700;letter-spacing:-.5px">The critical read<br>on every film.</h1>
-    <p class="muted" style="font-size:23px;margin-top:22px;line-height:1.5;max-width:680px">Metatake&rsquo;s TakeScore and human-curated criticism, right on the film pages you already browse.</p>
+    <p class="muted" style="font-size:23px;margin-top:22px;line-height:1.5;max-width:680px">Metatake&rsquo;s TakeScore and AI-written criticism, right on the film pages you already browse.</p>
     <div style="margin-top:40px;transform-origin:left">{badge(1.5,52)}</div>
   </div>
   <div class="muted" style="font-size:16px;letter-spacing:.3px">Works on&nbsp;&nbsp;Letterboxd&nbsp;&middot;&nbsp;IMDb&nbsp;&middot;&nbsp;TMDB&nbsp;&middot;&nbsp;Rotten Tomatoes&nbsp;&middot;&nbsp;Wikipedia</div>
@@ -85,7 +85,7 @@ marquee = page(1400,560,80,18, f"""
   <div style="max-width:720px">
     <div class="wm" style="margin-bottom:34px"><img src="{LOGO}"><b style="font-size:30px">Metatake</b></div>
     <h1 style="font-family:Georgia,serif;font-size:62px;line-height:1.06;font-weight:700;letter-spacing:-.5px">The critical read<br>on every film.</h1>
-    <p class="muted" style="font-size:22px;margin-top:22px;line-height:1.5">TakeScore &amp; human-curated criticism, right where you browse.</p>
+    <p class="muted" style="font-size:22px;margin-top:22px;line-height:1.5">TakeScore &amp; AI-written criticism, right where you browse.</p>
   </div>
   <div style="transform:scale(1.7);transform-origin:center right;flex:0 0 auto">{badge(1,52)}</div>
 </div>""")

@@ -43,8 +43,8 @@ user where they already are."
 **Summary (132 max):** See Metatake's TakeScore and critical take on any film — right on Letterboxd, IMDb, TMDB, Wikipedia and Rotten Tomatoes.
 **Description:**
 > Metatake reads films closely. This extension puts its TakeScore — a 13-dimension
-> critical assessment (Value / Cost / Risk) — and a link to the full human-curated
-> criticism on the film pages you already browse: Letterboxd, IMDb, TMDB, Rotten
+> critical assessment (Value / Cost / Risk) — and a link to the full criticism, AI-written
+> to a published method, on the film pages you already browse: Letterboxd, IMDb, TMDB, Rotten
 > Tomatoes, Wikipedia. No account, no key, no tracking. One click takes you to the
 > readings, kindred films, and filming locations on metatake.net. Free, CC BY-NC 4.0.
 **Category:** Fun / News (choose "Entertainment")

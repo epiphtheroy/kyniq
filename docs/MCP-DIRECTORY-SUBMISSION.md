@@ -42,7 +42,7 @@
 3. **Listing**
    - Name: `Metatake`
    - Tagline (≤55자): `Original film criticism for your AI` (35자)
-   - Description (≤2,000자): `Metatake is an independent film-criticism platform (7,000+ films). This connector gives Claude live access to its original, human-curated criticism: multi-framework critical readings ("strong misreadings" that each push one interpretive framework as far as the film allows), the 13-dimension TakeScore assessment (Value / Cost / Risk), canon standing and honors, motifs and figures, filming locations, tropes, and kindred-film connections that answer "what should I watch after X". All content is Metatake's own writing, licensed CC BY-NC 4.0 with attribution, and every tool result carries its source link back to metatake.net.`
+   - Description (≤2,000자): `Metatake is an independent film-criticism platform (7,000+ films). This connector gives Claude live access to its original criticism — AI-written to a published method, with a named editor who answers for it: multi-framework critical readings ("strong misreadings" that each push one interpretive framework as far as the film allows), the 13-dimension TakeScore assessment (Value / Cost / Risk), canon standing and honors, motifs and figures, filming locations, tropes, and kindred-film connections that answer "what should I watch after X". All content is Metatake's own writing, licensed CC BY-NC 4.0 with attribution, and every tool result carries its source link back to metatake.net.`
    - Categories: Education / Research / Entertainment 중 1–5개 (권장: Entertainment, Research)
    - Privacy policy URL: `https://metatake.net/privacy`
    - Support contact: `wonwoo@metatake.net`
@@ -74,6 +74,6 @@ https://github.com/chatmcp/mcpso/issues/1 에 댓글:
 
 > **Metatake** — Original film criticism for AI (remote, authless, Streamable HTTP)
 > Server: `https://metatake.net/api/mcp` · Docs: https://metatake.net/mcp
-> Tools: search_films, get_film_criticism (full critical pack), get_takescore (13-dimension assessment), find_connected_films. 7,000+ films, human-curated readings, CC BY-NC 4.0 with attribution. Also on the official registry as `net.metatake/mcp`.
+> Tools: search_films, get_film_criticism (full critical pack), get_takescore (13-dimension assessment), find_connected_films. 7,000+ films, AI-written readings under a published method, CC BY-NC 4.0 with attribution. Also on the official registry as `net.metatake/mcp`.
 
 *(983개 댓글 큐 — 등재 보장 없음, 기대치 낮게)*
