@@ -51,7 +51,10 @@ function dimsToSub(dims: string): Record<string, { min: number; max: number }> {
 
 function presetArgs(preset: string | null): PresetArgs {
   if (!preset) return {};
-  if (preset === "ninety") return { tsMin: 85, tsMax: 100, maxRuntime: 95 };
+  // ts floor 75, not the planning doc's 85: the live TS ceiling is ~86, so
+  // ts>=85 ∩ runtime<=95 is empty in practice (smoke-tested 0 rows). 75 keeps
+  // the chip honest ("a great film that fits the evening") and non-empty.
+  if (preset === "ninety") return { tsMin: 75, maxRuntime: 95 };
   const reg = REGISTRY.get(preset);
   if (!reg) return {};
   const out: PresetArgs = {};
