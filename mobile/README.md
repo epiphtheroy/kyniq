@@ -1,5 +1,12 @@
 # Metatake — Pre-Watch Companion (mobile)
 
+> **SDK 54, on purpose.** Expo Go (the only way to run this on a phone without an
+> Apple/Play developer account) supports exactly one SDK at a time, and the
+> stores currently ship an **SDK 54** client — iOS 54.0.2, Android 54.0.8. A
+> newer project SDK makes Expo Go refuse to open it. Before bumping the SDK,
+> check what Expo Go actually supports:
+> `curl -s "https://itunes.apple.com/lookup?id=982107779" | grep -o '"version":"[^"]*"'`
+
 Expo (React Native) client for the pre-watch decision loop. Plan of record:
 `../HANDOFF-모바일앱-프리워치.md` (§15 AS-BUILT lists what is built and what is
 still owner-side). Read that before changing anything — the two-layer rule
@@ -20,6 +27,21 @@ The app is a client; every screen reads the existing production backend.
 ```
 EXPO_PUBLIC_METATAKE_BASE=http://localhost:3000
 ```
+
+## 0. One command (phone or browser)
+
+```bash
+cd mobile && ./start-local.sh
+```
+
+Detects the Mac's current LAN IP and pins the three things that must agree — Metro's
+advertised bundle URL, the app's `EXPO_PUBLIC_METATAKE_BASE`, and the QR — then starts
+the data server, starts Metro, and opens a QR page. Scan it and the app runs on your
+phone. **Use this instead of starting things by hand:** when the IP drifts (DHCP renewal)
+and those three disagree, Expo Go connects and then fails to fetch the bundle, with an
+error that does not name the cause.
+
+The sections below are what that script does, if you need the pieces separately.
 
 ## 1. Browser preview (Mac, no Xcode, no Apple account)
 
@@ -105,6 +127,11 @@ app/                 routes (expo-router, typedRoutes on)
   director/[slug].tsx  Director card (availability-dot filmography)
   read.tsx           in-app reader (SSO handoff + link interception)
   onboarding.tsx     country → services → account
+metro.config.js      web-only stub for react-native-maps (see its header — expo-router's
+                     require.context drags every route into every platform bundle)
+start-local.sh       the one command above
+scripts/qr.mjs       renders the Expo Go QR to a page (Metro's own QR goes to a terminal
+                     nobody is watching when it runs detached)
 src/
   editions.ts        the ONLY country list (HANDOFF §6.2)
   i18n/              UI strings, en/ko/es/ja — no hardcoded strings in screens

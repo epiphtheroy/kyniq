@@ -277,7 +277,7 @@ v2의 "iOS 우선, Android는 P5"는 **달성으로 종료**됐다. 오너 지�
 | **P3** | Map 탭 + Director 카드(가용성 필모그래피) + 푸시(user_prefs·diff 워커) + Universal Links | 리텐션 엔진 가동 |
 | **🚧 게이트** | **TestFlight 4주 (외부 테스터 ≥30명)** — KPI 4개: ① D30 리텐션 ≥20% ② 푸시 옵트인 ≥40% ③ 세션당 결정율(Watch 탭아웃∪찜) ≥25% ④ 주간 찜 추가 ≥3/활성유저. **판정일 = TestFlight 개시 +35일. 미달 시 스토어 출시 보류, 오너 재검토** | Go/No-Go |
 | **P4** | App Store 제출(스크린샷·개인정보 라벨·심사 대응) + 웹 스마트 배너(비침투) | iOS 출시 |
-| **P5** | Android: Play 등록·리스팅·QA → 출시. 이후 에디션 개방(웹 /ko live → KR 에디션 등) | 확장 |
+| ~~**P5**~~ | ~~Android: Play 등록·리스팅·QA → 출시~~ → **P0~P3와 함께 완료**(2026-07-17, §8): 코드·디자인·지도 전부 패리티. Play 등록/리스팅만 오너 몫(§15.4-4). 에디션 개방(웹 /ko live → KR)은 별건으로 잔존 | 확장 |
 
 ## §10 선행 준비물 (앱 코드 밖에서 먼저 필요한 것)
 
@@ -332,12 +332,16 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 10. **국가와 언어 축 결합 금지** — 가용성은 country, 콘텐츠는 locale, 조합은 자유(§6.2-③).
 11. **하드코딩 UI 문자열 금지** — P0부터 i18n 키(§6.3).
 12. **웹뷰 진입은 항상 SSO 핸드오프 경유**(§7.3) — 로그아웃 웹뷰 노출 금지.
+13. **프로젝트 SDK ≤ Expo Go의 SDK** (2026-07-17 신설, §15.2b) — Expo Go는 한 번에 한 SDK만 지원한다. 프로젝트가 앞서면 **폰 검토 경로 전체가 죽는다**(dev 빌드 필수 = Apple 계정 필수). SDK를 올리기 전에 반드시 확인:
+    `curl -s "https://itunes.apple.com/lookup?id=982107779" | grep -o '"version":"[^"]*"'` (Android: Play 페이지). 올릴 때는 Expo Go도 같이 올라간 뒤에.
+14. **앱 디자인 토큰은 `mobile/src/theme.ts`가 SSOT** — 웹 `DESIGN-SYSTEM.md`를 앱에 이식하지 말 것(§3: 웹=에디토리얼 아카이브, 앱=결정 도구. 2026-07-17 오너 결정으로 분리). 역방향도 금지 — Lava 그라데이션을 웹에 옮기지 말 것. 공유하는 것은 **브랜드 실 하나**(PT Serif = 작품 제목·Invitation)뿐이다.
 
 ## §14 개정 이력
 
 - v1 (2026-07-16, `319fed7`): 최초 기획 — 6축+접착제 4개, 탭 5개, P0~P4.
 - **v2 (2026-07-16, `681fbce`): 오너 확정 반영** — 2층 구조 헌법화(§2), Lineage·The Life 네이티브 편입, 다국가 에디션 아키텍처 신설(§6), 디자인 컨셉·동선 상세화(§3~§5), iOS 우선+양플랫폼 준비 3종(§8), TestFlight KPI 게이트(§9), BFF·SSO 핸드오프(§7), 커버리지 실측표(§5.4), 불변식 8→12조.
 - **v2.1 (2026-07-16, c36c1d4): P0~P3 구현 완료 — §15 AS-BUILT 추가.**
+- **v3.1 (2026-07-17): SDK 54 정렬 + 폰 실행 자동화** — Expo Go 상한 실측(양 스토어 SDK 54)에 맞춰 프로젝트 57→**54** 다운그레이드(§15.2b)·`metro.config.js` 웹 리졸버 스텁(react-native-maps 1.20은 웹 미지원)·`start-local.sh`+`scripts/qr.mjs`(IP 자동 감지·QR 렌더, §15.5)·불변식 §13-13/14 신설.
 - **v3.0 (2026-07-17): 디자인 대상급 재설계 + Android 패리티** — §3 디자인 시스템 v2 "Lava"(Airbnb 2025 벤치마크·그라데이션 CTA·블러 크롬·스프링 모션·시트 오버 포토·벤치마크 로그인 순서·브랜드 아이콘 세트) 전 화면 적용; §8 iOS 우선 종료→**양 플랫폼 동시**(Android 지도 WebView 해법·edge-to-edge·키보드 pan·eas.json 양쪽·적응형 아이콘); §5.5 지도 4렌더러 표.
 - **v2.3 (2026-07-17): §16 데이터 연동 지도 신설** — 앱↔사이트의 모든 데이터 접점(읽기 10행·쓰기 5행·크론·레지스트리 결합)과 "같이 반영" 체크리스트(§16.5). 관련 정본 4곳(왓투와치·마이필름렌즈·The Meter·AI배포표면)에 상호 링크 블록 추가·STATE.md 배너 등재.
 - **v2.2 (2026-07-16, 70f313a): 완전 시제품** — 지도 3면 실구현(§15.5)·Tonight 카드 리드 채움(편차 #5 해소)·촬영지 핀 융합(발음부호 dedupe)·웹 리더 iframe·스토어 지도 엔진 결정 항목(§12-5). 브라우저 프리뷰가 잡은 결함 3건(§15.6)은 bf1e2b8.
@@ -368,7 +372,16 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 | BFF 스모크(실데이터) | ITMFL: TS 73·avail 5·lineage 10·loc 8 핀·the_life 4facts / 왕가위: films 8 전부 ts+tiers / tonight(US, Netflix): 207편 / tmdb-search: Dune Part Three 폴백 |
 | Tier-2 폴백(§5.4) | `hamsun-1996`: invitation 없음→Fantasia 문장 리드 "Hamsun won 'Guldbagge…'" ✓ |
 | 인증 가드 | handoff·account-delete·lens 비인증 401 ✓ |
-| **v3.0 재검증(2026-07-17)** | tsc 0 · **iOS·Android·웹 3번들 전부 빌드** · 브라우저 E2E(Lava 디자인 실물: 그라데이션 CTA·플로팅 배지·블러 탭바) 콘솔 에러 0 · **Android WebView 지도 실검증**(800핀 → 실타일+클러스터 398/155/45, 핀 탭 → 브리지 페이로드 `{name:"Charlotte…", film_slug:"roofman-2025"}` 수신) |
+| **v3.1 재검증(2026-07-17, SDK 54)** | expo-doctor 18/18 · tsc 0 · **iOS·Android·웹 3번들 전부 빌드** · 브라우저 E2E(Lava 디자인 실물: 그라데이션 CTA·플로팅 배지·블러 탭바) 콘솔 에러 0 · **Android WebView 지도 실검증**(800핀 → 실타일+클러스터 398/155/45, 핀 탭 → 브리지 페이로드 `{name:"Charlotte…", film_slug:"roofman-2025"}` 수신) |
+
+### 15.2b ⚠️ SDK는 57이 아니라 **54** — Expo Go가 정하는 상한 (2026-07-17 실측)
+
+스캐폴드(`create-expo-app@latest`)가 SDK 57을 잡았지만 **App Store/Play의 Expo Go는 SDK 54 클라이언트**다(실측: iOS US·JP·GB 전부 `54.0.2`, Android `54.0.8`). Expo Go는 한 번에 **한 SDK만** 지원하므로 SDK 57 프로젝트는 "버전이 안 맞는다"며 실행을 거부한다 — 오너의 Expo Go가 구버전이어서가 아니라, **최신 Expo Go가 곧 SDK 54**이기 때문이다.
+
+**결정: 프로젝트를 SDK 54로 내렸다**(expo ~54 · RN 0.81.5 · React 19.1 · expo-router 6 · reanimated 4.1). 근거 — 폰 실기 검토(오너의 실제 요구)를 여는 유일한 무비용 경로이고, SDK 54는 정식 안정 릴리스이며, 나중에 Apple 계정으로 dev client를 빌드하는 시점에 `npx expo install --fix`로 올리는 것은 정형 작업이다. 대안(Apple $99 + dev 빌드)은 계정 없이는 불가.
+
+- 다운그레이드 부작용 2건만 있었고 둘 다 처리: ① `expo-router`가 SDK 54에선 테마를 재export하지 않음 → `@react-navigation/native`에서 직접 import(`app/_layout.tsx`) ② `android.edgeToEdgeEnabled`는 SDK 57 스키마에선 오류였으나 **SDK 54에선 유효** → expo-doctor 18/18 통과.
+- ⚠️ **SDK를 올릴 때는 Expo Go 지원 SDK를 먼저 확인**할 것: `curl -s https://itunes.apple.com/lookup?id=982107779 | grep version`. 프로젝트 SDK > Expo Go SDK가 되는 순간 폰 검토 경로가 죽는다(dev 빌드 필수가 됨).
 
 ### 15.3 계약 대비 구현 편차 (전부 의도적)
 
@@ -390,19 +403,31 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 5. **푸시 자격증명**: iOS=APNs(EAS가 Apple 계정에서 자동 생성) · Android=FCM v1 서비스계정 키(Firebase 콘솔 → `eas credentials`로 업로드). 둘 다 `eas init` 이후.
 6. TestFlight(iOS) / Play 내부 테스트(Android) 4주 게이트(§9) — KPI 4개 미달 시 스토어 출시 보류.
 
+**⚠️ dev 빌드를 만든 뒤에야 SDK를 올릴 수 있다:** 지금 SDK 54에 묶인 이유는 Expo Go뿐이다(§13-13). `eas build`로 dev client를 굽는 순간 그 제약이 사라지므로, 그때 `npx expo install --fix`로 최신 SDK로 올리면 된다 — 단 **Expo Go 검토 경로는 그 시점에 끝난다**(오너·테스터 전원이 dev 빌드를 깔아야 함). 순서를 뒤집지 말 것.
+
 ### 15.5 실행 방법 — 상세는 `mobile/README.md` (정본)
 
-세 가지 경로가 있고, **애플 계정 없이도 앞의 두 개는 지금 된다.**
+**폰으로 보기 = 명령 하나.** IP·Metro·앱 API·QR을 한 번에 맞춘다:
+
+```bash
+cd mobile && ./start-local.sh     # 데이터 서버 + Metro + QR 페이지(자동으로 열림)
+```
+
+세 가지 경로가 있고, **애플/구글 계정 없이도 앞의 두 개는 지금 된다.**
 
 | 경로 | 필요한 것 | 볼 수 있는 것 |
 |---|---|---|
 | **① 맥 브라우저** `npm run dev` + `cd mobile && npx expo start --web` | 없음 | **전부** — 지도 포함(maplibre-gl JS)·리더는 iframe. 계정삭제만 사이트 위임 |
-| **② 아이폰 Expo Go** (App Store 무료 앱 → QR 스캔) | 같은 Wi-Fi + `EXPO_PUBLIC_METATAKE_BASE=http://<맥 LAN IP>:3000` | **전부** — 지도는 Apple 지도(react-native-maps, Expo Go 내장). 푸시·Apple 로그인만 네이티브 빌드 필요 |
-| **③ 네이티브 빌드** `eas build` 또는 `expo run:ios` | Apple Developer($99) 또는 Xcode | 전체 — 지도는 MapLibre GL Native·푸시·Apple 로그인 |
+| **② 폰 Expo Go**(iOS·Android 공통) — `./start-local.sh` 후 QR 스캔 | 같은 Wi-Fi | **전부** — iOS 지도=Apple 지도, Android 지도=WebView MapLibre. 푸시·Apple 로그인만 네이티브 빌드 필요 |
+| **③ 네이티브 빌드** `eas build --platform all` | Apple $99(iOS) / Play $25는 공개 시에만 | 전체 — MapLibre 네이티브·푸시·Apple 로그인 |
 
-**데이터 출처:** PR #7 머지 전에는 BFF가 프로덕션에 없으므로 로컬 `npm run dev`(:3000)를 켜고 `mobile/.env.local`로 가리켜야 한다. **머지 후에는 기본값(`https://metatake.net`)으로 앱만 켜면 된다.**
+**데이터 출처:** PR #7 머지 전에는 BFF가 프로덕션에 없으므로 로컬 `npm run dev`(:3000)가 필요하다(`start-local.sh`가 자동으로 띄운다). **머지 후에는 기본값(`https://metatake.net`)으로 앱만 켜면 된다.**
 
-**지도 3면 구현(2026-07-16, 70f313a):** 단일 데이터 계약 `src/lib/pins.ts`(시드 국가 글로벌 세트 + `film_geo` 필름 포커스) 위에 표면별 렌더러 — 웹 `map.web.tsx`(maplibre-gl JS·클러스터·Near me), Expo Go `MapExpoGo.tsx`(Apple 지도·마커 캡 500), dev/스토어 `MapNative.tsx`(MapLibre GL Native). `map.tsx`가 런타임 판별·지연 require(부재 모듈이 탭을 죽일 수 없음).
+**⚠️ IP 드리프트 함정 (실제로 겪음):** 맥의 LAN IP가 DHCP로 바뀌면 **세 곳이 어긋난다** — Metro가 광고하는 번들 URL · 앱의 `EXPO_PUBLIC_METATAKE_BASE` · QR. 어긋나면 Expo Go가 붙은 뒤 번들 다운로드에서 실패한다(원인이 안 보이는 에러). `start-local.sh`가 매 실행마다 현재 IP를 감지해 셋을 고정하고 Metro 광고 주소까지 검증한다 — **QR/서버를 손으로 띄우지 말 것.**
+
+**⚠️ QR이 안 보이는 이유:** Metro는 QR을 자기 터미널에 그리는데, 에이전트 세션이나 `start-local.sh`는 Metro를 백그라운드로 돌린다 → 그 터미널은 아무의 화면도 아니다. 그래서 `scripts/qr.mjs`가 QR을 HTML 페이지로 렌더해 브라우저로 띄운다.
+
+**지도 3면 구현(2026-07-16, 70f313a → 4면으로 확장 2026-07-17):** §5.5 표 참조.
 
 ### 15.6 브라우저 프리뷰가 잡아낸 실제 결함 3건 (2026-07-16, 커밋 bf1e2b8)
 

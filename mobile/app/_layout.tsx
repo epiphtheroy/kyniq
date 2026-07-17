@@ -10,7 +10,10 @@ import {
   PTSerif_700Bold,
 } from "@expo-google-fonts/pt-serif";
 import { useFonts } from "expo-font";
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
+// Navigation themes come from @react-navigation/native — expo-router only
+// re-exports them on some majors, and the direct import is stable either way.
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
