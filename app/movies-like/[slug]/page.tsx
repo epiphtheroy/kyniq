@@ -210,7 +210,7 @@ export default async function MoviesLikePage({ params }: Props) {
               <Link href={`/film/${film.slug}#df-counterpoints`}>Counterpoints</Link>.
             </p>
             <p style={{ fontSize: 12.5, opacity: .72, margin: "10px 0 0" }}>
-              By Metatake Editorial · Edited by <Link href="/editor">Wonwoo Yoon</Link>
+              Computed by Metatake AI · method designed by <Link href="/editor">Wonwoo Yoon</Link>
               {updated ? <> · Updated {updated}</> : null} · <Link href="/methodology#connections">How it&apos;s computed →</Link>
             </p>
             <div className="ml-share" style={{ marginTop: 12 }}>

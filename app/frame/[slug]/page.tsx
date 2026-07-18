@@ -237,7 +237,7 @@ export default async function FramePage({ params }: Props) {
             <div className="article-metarow">
               <span>{instances.length} films carry this question</span>
               <span>·</span>
-              <span>ranked by Metatake Editorial</span>
+              <span>ranked by Metatake AI</span>
             </div>
             <QuickAnswers items={frameQA.slice(0, 5)} />
           </header>

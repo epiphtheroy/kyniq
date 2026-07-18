@@ -86,7 +86,7 @@ export default function TowCard({
           <Link href={`/takescore/film/${slug}#towc-h`}>{t(locale, "Read the full letter on the appraisal page →")}</Link>
         </p>
       ) : null}
-      {!isShort && tow.rec_date ? (
+      {tow.rec_date ? (
         <p className="towc-recd">{t(locale, "Recommended into the Metatake index · {date}", { date: tow.rec_date })}</p>
       ) : null}
       <div className="towc-signrow">

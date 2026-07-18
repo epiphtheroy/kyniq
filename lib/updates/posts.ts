@@ -36,6 +36,13 @@ export type UpdatePost = {
 
 export const UPDATES: UpdatePost[] = [
   {
+    id: "2026-07-18-credit-intent",
+    date: "2026-07-18",
+    cat: "policy",
+    title: "Written by AI, to a framework a person answers for",
+    body: "We have now carried one idea through every credit line on Metatake: the criticism here is written by Metatake AI, working to a framework — the rubric, the reading lenses, the reliability rules — that editor [Wonwoo Yoon](/editor) designed, directs, and answers for. Rather than hide that, each surface names what actually made it — an AI-drafted reading says so, a page a rule assembled with no language model says that instead, and a filming-location record says it was researched and checked against independent sources before it shipped. The whole layer-by-layer map is at [How we use AI](/methodology/ai-disclosure); it is meant as a credit roll, not a disclaimer, so you can see how the model answered inside a method a named person built, and judge the answer for yourself.",
+  },
+  {
     id: "2026-07-17-ai-credits",
     date: "2026-07-17",
     cat: "policy",

@@ -685,7 +685,7 @@ export default async function CrewPersonPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · filmography data from{" "}
+          Composed by the Metatake method · no language model · designed by <Link href="/editor">Wonwoo Yoon</Link> · filmography data from{" "}
           <a href={`https://www.themoviedb.org/person/${id}`} target="_blank" rel="noopener">TMDB ↗</a>
           {p.external_ids?.imdb_id ? <> · <a href={`https://www.imdb.com/name/${p.external_ids.imdb_id}/`} target="_blank" rel="noopener">IMDb ↗</a></> : null}
           {" "}· Updated {updated}

@@ -18,7 +18,7 @@ import "@/app/film/[slug]/read.css";
 /**
  * The interpretive read-layer for one film, read as a single article.
  * (Moved 2026-07-16 from /film/[slug]/misreadings; the old route 308-redirects.)
- * LLM-free: every sentence already exists in the corpus (take_title + rationale
+ * No render-time LLM: every sentence already exists in the corpus (take_title + rationale
  * + leap per reading, plus the spoiler-free invitation as the lede). Answers
  * "{film} meaning / interpretation / analysis" queries. The cards on
  * /film/[slug]#df-readings stay untouched (full data on the film page, a focused
@@ -27,7 +27,8 @@ import "@/app/film/[slug]/read.css";
  * De-templated (2026-07-16): the opener strings that used to be identical across
  * every film — title, dek, the definitional intro paragraph, the closing — are
  * now assembled from THIS film's own strongest reading (take_title), its figures
- * and its framework mix, so no two films share a sentence. Still zero LLM.
+ * and its framework mix, so no two films share a sentence. Still no render-time
+ * LLM call (the corpus sentences it assembles are Metatake AI's own drafts).
  */
 export const revalidate = 3600;
 export async function generateStaticParams() {
@@ -275,7 +276,7 @@ export default async function FilmMeaningPage({ params }: Props) {
               {" "}{groups.length === 1
                 ? <>They sit within {firstFam}.</>
                 : <>They run from {firstFam} to {lastFam}, across {groups.length} framework families.</>}
-              {" "}Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>.
+              {" "}Written by Metatake AI, to a framework directed by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
 
             <p style={{ fontSize: "0.92em" }}>

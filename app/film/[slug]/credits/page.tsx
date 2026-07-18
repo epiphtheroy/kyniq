@@ -295,7 +295,7 @@ export default async function FilmCreditsPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 22 }}>
-          Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · credits &amp; company data from{" "}
+          Composed by the Metatake method · no language model · designed by <Link href="/editor">Wonwoo Yoon</Link> · credits &amp; company data from{" "}
           <a href={`https://www.themoviedb.org/movie/${film.tmdb_id}`} target="_blank" rel="noopener">TMDB ↗</a> · Updated {updated}
         </p>
         <Provenance created={updated} />

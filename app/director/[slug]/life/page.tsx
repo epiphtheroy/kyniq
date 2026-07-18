@@ -339,7 +339,7 @@ export default async function DirectorLifePage({ params }: Props) {
           </p>
 
           <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-            Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we work →</Link>
+            Researched by Metatake AI, each fact sourced · designed by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we work →</Link>
           </p>
         </article>
       </div>

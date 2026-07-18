@@ -1013,7 +1013,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
         {facts && Array.isArray(facts.facts) && facts.facts.length > 0 && (
           <section className="dr-sec" id="dr-life">
             <h2 className="dr-h2">The Life of {director}</h2>
-            <p className="dr-gloss">The person behind the films — {facts.facts.length} researched moments, compiled by Metatake Editorial and edited by <Link href="/editor">Wonwoo Yoon</Link>.</p>
+            <p className="dr-gloss">The person behind the films — {facts.facts.length} researched moments, each fact sourced; researched by Metatake AI, designed by <Link href="/editor">Wonwoo Yoon</Link>.</p>
             {facts.name_meaning ? (
               <div className="dr-namemean"><span className="dr-nm-k">{t(locale, "The name")}</span><p>{facts.name_meaning}</p></div>
             ) : null}
@@ -1050,7 +1050,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
         {next.length > 0 && (
           <section className="dr-sec" id="dr-next">
             <h2 className="dr-h2">{t(locale, "Who's Next")}</h2>
-            <p className="dr-gloss">Five directors to explore after {director} — each chosen for a specific kinship. Curated, not algorithmic.</p>
+            <p className="dr-gloss">Five directors to explore after {director} — each chosen for a specific kinship. Argued by Metatake AI — a reason for each pick, not a distance score.</p>
             <div className="dr-next-grid">
               {next.map((n) => (
                 <div className="dr-next-card" key={n.pos}>

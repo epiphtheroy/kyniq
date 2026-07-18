@@ -500,7 +500,7 @@ export default async function TheoristPage({ params }: Props) {
         ) : null}
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link>
+          Written by Metatake AI · reference facts from Wikidata · directed by <Link href="/editor">Wonwoo Yoon</Link>
           {qid ? <> · person data from <a href={`https://www.wikidata.org/wiki/${qid}`} target="_blank" rel="noopener">Wikidata ↗</a></> : null}
           {" "}· <Link href="/methodology">How we read films →</Link>
         </p>

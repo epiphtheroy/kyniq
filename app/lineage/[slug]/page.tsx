@@ -388,7 +388,7 @@ export default async function LineagePage({ params }: Props) {
         )}
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Lineage data compiled from public records — source above · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
+          Compiled from public records — no language model · source above · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
         <HubExplore kind="lineage" slug={slug} />
       </div>

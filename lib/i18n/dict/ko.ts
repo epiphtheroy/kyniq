@@ -189,8 +189,8 @@ export const KO: Record<string, string> = {
     "뉴스가 {title}와 운을 맞춘 날 — 이 영화를 그날의 사건과 나란히 놓은 Metatake의 일간지 Between Film and the World의 판본들.",
 
   // Watch next
-  "Where to go after {title} — nine films that continue its conversation, each chosen for a specific bridge. Curated, not algorithmic.":
-    "{title} 다음에 갈 곳 — 그 대화를 이어가는 영화 아홉 편. 각각 뚜렷한 다리 하나를 보고 골랐다. 알고리즘이 아니라 큐레이션.",
+  "Where to go after {title} — nine films that continue its conversation, each chosen for a specific bridge. Argued by Metatake AI — a reason for each pick, not a distance score.":
+    "{title} 다음에 갈 곳 — 그 대화를 이어가는 영화 아홉 편. 각각 뚜렷한 다리 하나를 보고 골랐다. Metatake AI가 픽마다 이유를 논증한다 — 거리 점수가 아니다.",
   "not yet on Metatake · TMDB ↗": "아직 Metatake에 없음 · TMDB ↗",
 
   // Connected / counterpoints
@@ -229,36 +229,37 @@ export const KO: Record<string, string> = {
     "{title}의 배경이거나, 촬영지이거나, 극 중 언급되는 실제 장소들 — Metatake 촬영지 지도에 좌표로 표시했다.",
 
   // Tier-1 render body — why-watch, misreadings, tropes, curious, connected, counterpoints
-  "A spoiler-free brief on what {title} offers — the director's vision, its craft and ideas, its space and its place in film history. Written for this film by Metatake Editorial (edited by":
-    "{title}가 무엇을 주는지 스포일러 없이 정리한 브리핑 — 감독의 비전, 그 기법과 관념, 공간, 그리고 영화사에서의 자리. 리뷰를 모은 것이 아니라 이 영화를 위해 Metatake Editorial이 직접 썼다 (편집:",
-  ", not aggregated from reviews.": ".",
+  "A spoiler-free brief on what {title} offers — the director's vision, its craft and ideas, its space and its place in film history. Written by Metatake AI, to a framework directed by":
+    "{title}가 무엇을 주는지 스포일러 없이 정리한 브리핑 — 감독의 비전, 그 기법과 관념, 공간, 그리고 영화사에서의 자리. Metatake AI가 집필했다 — 프레임워크 감독:",
+  " — not aggregated from reviews.": " · 리뷰를 모은 것이 아니다.",
+  "Written by Metatake AI · directed by": "집필 Metatake AI · 감독",
   "{n} original critical readings of {title}, filed across 14":
     "{title}에 대한 독창적 비평 리딩 {n}편, 14개 프레임워크에 걸쳐",
   frameworks: "프레임워크",
-  "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by":
-    "— 각각 논지를 가진 하나의 주장이며, 요약이 아니라 의도된 과잉 독해다. Metatake Editorial 작성, 편집:",
+  "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Written by Metatake AI, to a framework directed by":
+    "— 각각 논지를 가진 하나의 주장이며, 요약이 아니라 의도된 과잉 독해다. Metatake AI 집필 — 프레임워크 감독:",
   "Also readable as one piece:": "한 편으로도 읽을 수 있다:",
   "the full misreadings article →": "전체 오독 기사 →",
   are: "인가",
   "— their catalog classification, each linking into the": "— 그 카탈로그 분류이며, 각각",
   "catalog.": "원형 카탈로그로 이어진다.",
   "🎬 Movies like {title} →": "🎬 {title}와 비슷한 영화 →",
-  "Computed by Metatake's connection engine · Edited by":
-    "Metatake 연결 엔진이 계산 · 편집:",
+  "Computed by Metatake AI's connection engine · method designed by":
+    "Metatake AI 연결 엔진이 계산 · 방법 설계:",
   "Updated {date}": "갱신 {date}",
   "{n} shared tropes": "공유 트로프 {n}개",
   "taste neighbour": "취향 이웃",
   "not yet on Metatake ·": "아직 Metatake에 없음 ·",
   "Counterpoints — same shape, opposite meaning": "반론 — 같은 형태, 반대의 의미",
   "Films that stage one of": "다음의 트로프를 무대에 올리되 결을 거슬러 읽는 영화들:",
-  "'s own tropes but read it against the grain. Kinship maps can find lookalikes; only a reading-level graph can find arguments.":
-    ". 유사성 지도는 닮은꼴을 찾지만, 리딩 수준의 그래프만이 논증을 찾아낸다.",
+  "'s own tropes but read it against the grain. Kinship maps can find lookalikes; only a reading-level graph can find arguments. Found by Metatake AI in the readings it wrote — same trope, opposite argument.":
+    ". 유사성 지도는 닮은꼴을 찾지만, 리딩 수준의 그래프만이 논증을 찾아낸다. Metatake AI가 자신이 쓴 리딩들 속에서 찾아낸다 — 같은 트로프, 반대의 논지.",
   vs: "vs",
   "readings diverge {n}%": "리딩 격차 {n}%",
   "stages it straight": "곧이곧대로 무대에 올린다",
   "reads it against the grain": "결을 거슬러 읽는다",
-  "readings diverge N% = distance between the two films' reading vectors on the shared trope (100% = opposite readings). Computed by Metatake's connection engine · Edited by":
-    "리딩 격차 N% = 공유 트로프에서 두 영화의 리딩 벡터 사이 거리 (100% = 정반대 리딩). Metatake 연결 엔진이 계산 · 편집:",
+  "readings diverge N% = distance between the two films' reading vectors on the shared trope (100% = opposite readings). Computed by Metatake AI's connection engine · method designed by":
+    "리딩 격차 N% = 공유 트로프에서 두 영화의 리딩 벡터 사이 거리 (100% = 정반대 리딩). Metatake AI 연결 엔진이 계산 · 방법 설계:",
   "How it works →": "작동 방식 →",
 
   // Locale suggest banner (§7)
