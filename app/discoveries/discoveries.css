@@ -1,0 +1,164 @@
+/* Discoveries (/discoveries) — newborn-film-site radar.
+   Masthead classes mirror Updates so the two pages read as siblings; the
+   disc-* classes are specific to the featured cards + observation log. */
+
+.upd-masthead { margin: 26px 0 0; }
+.upd-h1 { font-size: 34px; margin: 8px 0 0; letter-spacing: -0.02em; }
+.upd-standfirst { margin: 12px 0 0; max-width: 62ch; }
+.upd-metrics {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 16px 0 0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.upd-metrics .upd-tick {
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+  display: inline-block;
+}
+.upd-metrics .upd-dot { color: var(--hairline-2); }
+.upd-metrics .upd-rss { text-decoration: none; letter-spacing: 0.06em; }
+
+/* --- thread --- */
+.disc-thread { margin-top: 30px; }
+
+.disc-digest { margin: 0 0 40px; scroll-margin-top: 80px; }
+
+.disc-dhead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hairline);
+}
+.disc-anchor {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg, inherit);
+  text-decoration: none;
+}
+.disc-anchor:hover { color: var(--accent); }
+.disc-scanned {
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.disc-intro {
+  margin: 16px 0 0;
+  max-width: 68ch;
+  line-height: 1.66;
+}
+
+/* --- featured cards (dofollow) --- */
+.disc-featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  margin: 22px 0 0;
+}
+.disc-card {
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: var(--card, transparent);
+}
+.disc-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.disc-card-name {
+  font-weight: 650;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--fg, inherit);
+}
+.disc-card-name:hover { color: var(--accent); }
+.disc-tag {
+  flex: none;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.disc-card-note { margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; }
+.disc-card-url {
+  display: inline-block;
+  margin: 10px 0 0;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+/* --- observation log (nofollow toggle) --- */
+.disc-log { margin: 22px 0 0; }
+.disc-summary {
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 0;
+  user-select: none;
+}
+.disc-summary:hover { color: var(--accent); }
+.disc-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2px 22px;
+}
+.disc-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.disc-row-domain {
+  font-size: 14.5px;
+  text-decoration: none;
+  color: var(--fg, inherit);
+  word-break: break-all;
+}
+.disc-row-domain:hover { color: var(--accent); }
+.disc-row-meta {
+  flex: none;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.disc-foot { font-size: 13px; line-height: 1.68; max-width: 70ch; }
+
+@media (max-width: 640px) {
+  .upd-h1 { font-size: 28px; }
+  .disc-list { grid-template-columns: 1fr; }
+}

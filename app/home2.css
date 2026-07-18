@@ -556,6 +556,8 @@
 .mthome .ng .drop a{display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:16px;color:#EFEADD;padding:8px 11px;border-radius:7px}
 .mthome .ng .drop a:hover{background:rgba(255,255,255,.07);color:var(--red-soft)}
 .mthome .ng .drop a .ar{font-family:var(--ui);font-size:12px;color:#8c8474;white-space:nowrap}
+.mthome .ng .drop .ng-desc{font-family:var(--serif);font-size:12.5px;font-style:italic;color:#8c8474;line-height:1.5;margin:4px 9px 8px;padding-bottom:9px;border-bottom:1px solid var(--dline)}
+.mthome .mcol .ng-desc{font-family:var(--serif);font-size:13px;font-style:italic;color:#8c8474;line-height:1.5;margin:-4px 0 13px;max-width:250px}
 @media(min-width:1060px){
   .mthome .navrow .menubtn{display:none}
   .mthome .navgroups{display:flex}

@@ -1,0 +1,35 @@
+{
+  "core_keywords": ["film", "cinema", "movie", "kino", "cinephile"],
+  "cine_prefix_regex": "(^|[-_])cine",
+  "brand_blocklist": [
+    "lordfilm", "filmyzilla", "moviesflix", "movieflix", "flixer",
+    "fmovies", "hdmovie", "movieshd", "filmyhit", "filmywap",
+    "moviesda", "movierulz", "dvdplay", "khatrimaza", "tamilmv"
+  ],
+  "exclude_substrings": ["fulfilment"],
+  "junk_tokens": [
+    "hd", "watch", "stream", "streaming", "download", "online",
+    "free", "iptv", "apk", "torrent", "123", "gratis"
+  ],
+  "brand_watch": ["metatake", "meta-take", "metattake", "filmcurio"],
+  "fetch": {
+    "timeout_sec": 3,
+    "max_workers": 12,
+    "max_bytes": 200000,
+    "user_agent": "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
+  },
+  "llm": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_workers": 8,
+    "max_tokens": 300
+  },
+  "legit_categories": [
+    "criticism", "journal", "news", "festival", "venue",
+    "archive", "podcast", "education", "database", "curation"
+  ],
+  "queue": {
+    "min_score": 55,
+    "cap_per_day": 10,
+    "watchlist_min_score": 45
+  }
+}

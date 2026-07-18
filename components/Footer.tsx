@@ -52,6 +52,7 @@ export default function Footer() {
             <div className="footer-head">Metatake</div>
             <Link href="/about" className="footer-link">{t(locale, "About")}</Link>
             <Link href="/updates" className="footer-link">{t(locale, "Updates")}</Link>
+            <Link href="/discoveries" className="footer-link">Discoveries</Link>
             <Link href="/blog" className="footer-link">{t(locale, "The Daily")}</Link>
             <Link href="/curious" className="footer-link">Curious</Link>
             <Link href="/contact" className="footer-link">{t(locale, "Contact")}</Link>

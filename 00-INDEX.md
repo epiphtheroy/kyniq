@@ -15,6 +15,7 @@
 ## Reference — current & accurate
 | Doc | Purpose |
 |---|---|
+| `HANDOFF-발견피드.md` | **발견 피드 "Discoveries" 정본·지침서 (2026-07-18 ✅P0+P1 구축·라이브검증·커밋 88e5201 브랜치 feat/discovery-feed·백그라운드 후순위)** — 신생 영화 사이트 자동 스캐너(WhoisDS 일배치+교정 사전 v2+Haiku 게이트, 월 ~$2.7 실측)→`/discoveries` 부정기 다이제스트. 첫 편=7일 백필 실측(49만 도메인→legit 23곳). 링크 2티어(Featured=dofollow·관측 로그=nofollow 자동)·§13 AS-BUILT·비활성 출하(크론 미설치·오너 개시 3단계)·§2 재논쟁 금지·dev 미리보기 `--webpack` 필수. 발견 피드 작업은 여기서 시작. |
 | `HANDOFF-AI집필크레딧-표기개편.md` | **AI 집필 크레딧 표기 개편 정본·실행지침서 (2026-07-17 · ✅P1·P2 커밋 fff238b·P3 관찰창 대기)** — 🚨§10-bis: 사이트 중심 약속("발행 전 인간 검토")이 거짓으로 판명·라벨A에서 reviewed 삭제. — 전 표면 저작 표기를 "집필 Metatake AI · 설계·감독·감수 윤원우" 체계로 전환(749c35a 의도적 번복). 라벨 사전 4종(A/B/C/H)·오너 결정 D1~D8·methodology 선행 개정·표면별 파일:라인 작업표·to.W from-line·TakeScore 부제·외부배포 "human-curated" 7곳 수정·이름 전수(DB는 클린 확정)·롤아웃 P0~P5+GSC 가드. **크레딧·바이라인·AI 공개 표기 작업은 여기서 시작.** |
 | `HANDOFF-배포체계-P0.md` | **배포체계 P0 정본 (2026-07-17 구축·라이브)** — "저장=즉시 프로덕션" 종료. 워처→staging 푸시·Vercel 개발 URL(프리뷰 보호)·CI 타입래칫(기준선 20, 올리기 금지)·**릴리즈=오너가 매일 22:00 `release.command` 더블클릭**(staging→main no-ff 병합). ⚠️main 직푸시 금지(핫픽스 예외)·DB는 프로덕션 공유(분리=미결②)·워처 staging 푸시는 force. 배포·릴리즈·CI 작업은 여기서 시작. |
 | `HANDOFF-관측성-Sentry.md` | **Sentry 에러추적 정본 (2026-07-17 코드 완료·비활성 대기)** — errors-only 통합(@sentry/nextjs 10.66.0·파일 7개), env `NEXT_PUBLIC_SENTRY_DSN` 하나로 게이트(미설정=공식 no-op이라 배포 안전). 활성화=오너 3단계(§4: sentry.io 프로젝트→Vercel env→재배포). ⚠️Turbopack 함정: `sentry.client.config.ts` 금지(조용히 무시됨)·errors-only는 옵션 생략이지 0 설정 아님·withSentryConfig 없음=의도(소스맵은 §5 후속). 에러추적·관측성 작업은 여기서 시작. |
