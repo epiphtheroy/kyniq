@@ -27,12 +27,16 @@ function csvSource(headers: string[]): ImportSource {
 /* ---------- Netflix viewing-history CSV (HANDOFF-커넥트-기록이관.md §1/§3) ---------- */
 
 // Episode rows carry colon-separated season/episode segments; films are bare titles.
+// NOTE: a bare ": Chapter N" / ": Episode N" is NOT episode-proof — many FILMS use
+// it (John Wick: Chapter 2, Kill Bill, etc.). Only the season pattern (a number
+// after Season/Part/Series) or ≥3 colon-segments with an episode-ish middle are
+// treated as episodes; standalone "Show: Episode 5" is kept (it surfaces as an
+// honest unmatched row, never a silent drop — §6-5).
 const NFX_SEASON_RE = /:\s*(Season|Part|Series|시즌|파트)\s*\d+/i;
-const NFX_CHAPTER_RE = /:\s*(Chapter|Episode|에피소드)/i;
 const NFX_SEASONISH_RE = /\b(Season|Part|Series|Volume|Chapter|Episode)\b|시즌|파트|에피소드/i;
 
 function isNetflixEpisode(title: string): boolean {
-  if (NFX_SEASON_RE.test(title) || NFX_CHAPTER_RE.test(title)) return true;
+  if (NFX_SEASON_RE.test(title)) return true;
   // ≥2 ": " segments with a Season-like middle (e.g. "Show: Limited Series: Pilot").
   // Conservative: when unsure keep the row — unmatched titles surface honestly downstream.
   const segs = title.split(": ");

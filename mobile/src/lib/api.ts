@@ -371,18 +371,29 @@ export const importApi = {
     });
   },
 
-  /** TMDB matching — imdb_id (tt…) rows resolve exactly; batches server-side. */
-  async match(rows: ImportRow[]): Promise<ImportMatch[]> {
+  /** TMDB matching — imdb_id (tt…) rows resolve exactly. The server route CAPS
+   * each request at 25 rows (it does not paginate), so chunk client-side and
+   * concatenate — otherwise a >25-film history silently loses everything past
+   * the 25th. onChunk drives the "matching…" progress. */
+  async match(rows: ImportRow[], onChunk?: (done: number, total: number) => void): Promise<ImportMatch[]> {
     const auth = await bearerHeaders();
-    const out = await getJSON<{ results?: ImportMatch[] } | ImportMatch[]>(`/api/import/match`, {
-      method: "POST",
-      headers: { ...auth, "content-type": "application/json" },
-      body: JSON.stringify({ rows }),
-    });
-    return Array.isArray(out) ? out : (out.results ?? []);
+    const out: ImportMatch[] = [];
+    for (let from = 0; from < rows.length; from += 25) {
+      const chunk = rows.slice(from, from + 25);
+      const res = await getJSON<{ results?: ImportMatch[] } | ImportMatch[]>(`/api/import/match`, {
+        method: "POST",
+        headers: { ...auth, "content-type": "application/json" },
+        body: JSON.stringify({ rows: chunk }),
+      });
+      out.push(...(Array.isArray(res) ? res : (res.results ?? [])));
+      onChunk?.(Math.min(from + 25, rows.length), rows.length);
+    }
+    return out;
   },
 
-  /** Commit in ≤50-row chunks (server contract); returns totals + job id. */
+  /** Commit in ≤50-row chunks (server contract); returns totals + job id.
+   * `committed` is the truthful net write count (added+updated), never the raw
+   * chunk length — re-importing an all-duplicate history must not report writes. */
   async commit(
     rows: ImportRow[],
     source: string,
@@ -394,13 +405,13 @@ export const importApi = {
     let committed = 0;
     for (let from = 0; from < rows.length; from += 50) {
       const chunk = rows.slice(from, from + 50);
-      const res: { job_id?: string; committed?: number } = await getJSON(`/api/import/commit`, {
+      const res: { job_id?: string; added?: number; updated?: number } = await getJSON(`/api/import/commit`, {
         method: "POST",
         headers: { ...auth, "content-type": "application/json" },
         body: JSON.stringify({ job_id: jobId, source, filename, rows: chunk }),
       });
       jobId = res.job_id ?? jobId;
-      committed += res.committed ?? chunk.length;
+      committed += (res.added ?? 0) + (res.updated ?? 0);
       onChunk?.(committed, rows.length);
     }
     return { jobId, committed };

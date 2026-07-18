@@ -31,17 +31,30 @@ async function save(items: ConsideringItem[]): Promise<void> {
   }
 }
 
+// Serialize mutations: read-modify-write on the shared module cache would drop
+// updates when two judgments fire in the same tick (each reads the same base,
+// the second save clobbers the first). Chain every mutation behind the last.
+let queue: Promise<void> = Promise.resolve();
+function enqueue(mutate: () => Promise<void>): Promise<void> {
+  queue = queue.then(mutate, mutate);
+  return queue;
+}
+
 /** Record "opened the brief" — newest first, deduped, capped. */
-export async function noteOpened(item: Omit<ConsideringItem, "at">): Promise<void> {
-  const items = await load();
-  const rest = items.filter((x) => x.slug !== item.slug);
-  await save([{ ...item, at: Date.now() }, ...rest].slice(0, CAP));
+export function noteOpened(item: Omit<ConsideringItem, "at">): Promise<void> {
+  return enqueue(async () => {
+    const items = await load();
+    const rest = items.filter((x) => x.slug !== item.slug);
+    await save([{ ...item, at: Date.now() }, ...rest].slice(0, CAP));
+  });
 }
 
 /** A judgment settles the film — drop it from the pile. */
-export async function noteJudged(slug: string): Promise<void> {
-  const items = await load();
-  if (items.some((x) => x.slug === slug)) await save(items.filter((x) => x.slug !== slug));
+export function noteJudged(slug: string): Promise<void> {
+  return enqueue(async () => {
+    const items = await load();
+    if (items.some((x) => x.slug === slug)) await save(items.filter((x) => x.slug !== slug));
+  });
 }
 
 /** The pile, newest first, minus anything the ledger has since settled. */

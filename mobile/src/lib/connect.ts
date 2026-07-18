@@ -193,11 +193,19 @@ export function onConnectChange(fn: () => void): () => void {
   return () => listeners.delete(fn);
 }
 
+// The return banner should nudge for a while, not forever: an abandoned export
+// (user opened the page, never downloaded) would otherwise re-fire on every app
+// foreground indefinitely. Surface an awaiting connector only within this window.
+const AWAITING_TTL = 60 * 60 * 1000; // 1h
+
 /** Connectors currently waiting for a file — drives the foreground return banner. */
 export async function awaitingConnectors(): Promise<Connector[]> {
   const map = await load();
+  const now = Date.now();
   return CONNECTORS.filter((c) => {
-    const s = map[c.id]?.status;
-    return s === "awaiting_file" || s === "awaiting_collect";
+    const st = map[c.id];
+    if (!st) return false;
+    if (st.status !== "awaiting_file" && st.status !== "awaiting_collect") return false;
+    return !st.at || now - st.at < AWAITING_TTL;
   });
 }

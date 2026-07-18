@@ -64,7 +64,7 @@
 ## 5. (선택) 커넥트 자동연동 켜기 이후
 
 - [ ] 위 프로바이더 env가 다 들어가면, 앱 커넥트 허브의 Trakt/TMDB/Simkl 타일이 "Coming soon" → "Connect"로 바뀜. **첫 실기 연결에서 확인할 것**: OAuth 왕복(pending blob)·Trakt refresh(redirect_uri를 scope 컬럼 JSON에 저장하는 방식)·Simkl 증분(activities+date_from).
-- [ ] (선택) Vercel env `CRON_SECRET` — 커넥트 sync-cron·푸시 크론 공유 보호.
+- [ ] **`CRON_SECRET` 등록 (커넥트 일1회 자동동기화에 필수)** — `openssl rand -hex 24`. sync-cron은 **fail-closed**라 이 값이 없으면 매일 동기화가 401로 안 돎(수동 "Sync now"는 정상). Vercel이 스케줄 호출에 자동 주입. 푸시 크론과 공유.
 
 ---
 

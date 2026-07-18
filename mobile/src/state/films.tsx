@@ -232,12 +232,23 @@ export function FilmsProvider({ children }: { children: React.ReactNode }) {
         if (prev.dismissed && !cur.dismissed) await supabase.rpc("me_dismiss", { p_slug: slug });
         const needsRow =
           (cur.seen && !prev.seen) || cur.rating !== prev.rating;
-        if (needsRow && cur.filmId) {
-          await supabase
-            .from("user_movies")
-            .update({ seen: prev.seen, rating: prev.rating })
-            .eq("user_id", uid)
-            .eq("film_id", cur.filmId);
+        if (needsRow) {
+          // seen/rating have no reversing RPC, so update the own row directly.
+          // The film_id may not have been learned yet (the mark-seen RPC created
+          // the row and the async id-learn hasn't landed) — resolve it by slug
+          // first so undo of a freshly-seen film can't silently no-op.
+          let fid = cur.filmId;
+          if (!fid) {
+            const { data } = await supabase.from("films").select("id").eq("slug", slug).single();
+            fid = data?.id ?? null;
+          }
+          if (fid) {
+            await supabase
+              .from("user_movies")
+              .update({ seen: prev.seen, rating: prev.rating })
+              .eq("user_id", uid)
+              .eq("film_id", fid);
+          }
         }
       } catch {
         // Server state is authoritative — refetch rather than guess.

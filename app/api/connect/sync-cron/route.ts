@@ -29,7 +29,6 @@ export const maxDuration = 60;
 
 const POOL = 4;
 const PAGE = 1000;
-const SITE = (process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net").replace(/\/$/, "");
 
 type ConnRow = {
   user_id: string;
@@ -44,13 +43,17 @@ type ConnRow = {
 };
 
 export async function GET(req: Request) {
-  const secret = process.env.CRON_SECRET;
-  if (secret && req.headers.get("authorization") !== `Bearer ${secret}`) {
-    return NextResponse.json({ error: "auth" }, { status: 401 });
-  }
-
+  // Fail CLOSED: this route sweeps every connected user and hits external
+  // provider APIs, so an unauthenticated trigger is abuse. Require CRON_SECRET
+  // to be set AND matched — never run when it is absent (Vercel injects it on
+  // scheduled invocations once the env var exists). Env-gate check comes first
+  // so an unconfigured deployment leaks nothing about the secret.
   if (!connectConfigured()) {
     return NextResponse.json({ skipped: "not_configured" });
+  }
+  const secret = process.env.CRON_SECRET;
+  if (!secret || req.headers.get("authorization") !== `Bearer ${secret}`) {
+    return NextResponse.json({ error: "auth" }, { status: 401 });
   }
 
   const admin = createAdminClient();
@@ -86,12 +89,30 @@ export async function GET(req: Request) {
       const accessToken = decryptToken(row.access_token);
       if (!accessToken) throw new Error("token decrypt failed");
 
+      // scope column carries {s:scope, r:redirect_uri} JSON (see /callback).
+      // Trakt's refresh grant validates redirect_uri against the one used at
+      // authorization — the app's deep link, NOT a synthesized site callback —
+      // so read it back here exactly like the manual /sync path does.
+      let scopeStr: string | null = row.scope;
+      let redirectUri = "";
+      if (row.scope) {
+        try {
+          const j = JSON.parse(row.scope) as { s?: string | null; r?: string | null };
+          if (j && (j.s !== undefined || j.r !== undefined)) {
+            scopeStr = j.s ?? null;
+            redirectUri = j.r ?? "";
+          }
+        } catch {
+          /* legacy plain scope string */
+        }
+      }
+
       let tokens: ProviderTokens = {
         accessToken,
         refreshToken: decryptToken(row.refresh_token),
         expiresAt: row.token_expires_at,
         accountRef: row.account_ref,
-        scope: row.scope,
+        scope: scopeStr,
       };
 
       // Refresh when the access token is at/near expiry (Trakt ~24h). TMDB/Simkl
@@ -99,7 +120,6 @@ export async function GET(req: Request) {
       const nearExpiry =
         !!tokens.expiresAt && new Date(tokens.expiresAt).getTime() <= Date.now() + 5 * 60_000;
       if (nearExpiry) {
-        const redirectUri = `${SITE}/api/connect/${row.provider}/callback`;
         const fresh = await provider.refresh(tokens, redirectUri);
         if (fresh) {
           tokens = { ...tokens, ...fresh };

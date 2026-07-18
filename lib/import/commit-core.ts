@@ -56,13 +56,28 @@ export async function commitNormalizedRows(
   stats.failed = failed.length;
   const ok = clean.filter((r) => films.has(r.tmdb_id));
 
-  // 1) lossless log — skip exact duplicates from previous imports/syncs
-  const { data: dupes } = await admin
-    .from("user_watch_log")
-    .select("tmdb_id, watched_at, source")
-    .eq("user_id", userId)
-    .in("tmdb_id", ok.map((r) => r.tmdb_id));
-  const dupeKeys = new Set((dupes ?? []).map((d) => `${d.tmdb_id}|${d.watched_at ?? ""}|${d.source}`));
+  // 1) lossless log — skip exact duplicates from previous imports/syncs.
+  // Scope the dedup read to THIS source, and page past the PostgREST 1000-row
+  // cap: a full re-sync of a large library would otherwise read only the first
+  // 1000 existing keys and re-insert everything beyond them as duplicates every
+  // day. Query in ≤200-id chunks (URL length) with a .range() page inside each.
+  const okIds = [...new Set(ok.map((r) => r.tmdb_id))];
+  const dupeKeys = new Set<string>();
+  for (let i = 0; i < okIds.length; i += 200) {
+    const idChunk = okIds.slice(i, i + 200);
+    for (let from = 0; from < 100000; from += 1000) {
+      const { data, error } = await admin
+        .from("user_watch_log")
+        .select("tmdb_id, watched_at, source")
+        .eq("user_id", userId)
+        .eq("source", source)
+        .in("tmdb_id", idChunk)
+        .range(from, from + 999);
+      if (error || !data) break;
+      for (const d of data) dupeKeys.add(`${d.tmdb_id}|${d.watched_at ?? ""}|${d.source}`);
+      if (data.length < 1000) break;
+    }
+  }
   const logRows = ok
     .filter((r) => !dupeKeys.has(`${r.tmdb_id}|${r.watched_at ?? ""}|${source}`))
     .map((r) => ({

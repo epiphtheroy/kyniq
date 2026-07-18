@@ -67,6 +67,14 @@ export async function POST(
   if (!redirectUri) {
     return NextResponse.json({ error: "redirect_uri_required" }, { status: 400, headers: CONNECT_CORS });
   }
+  // Allowlist the redirect target — only the app's own deep-link scheme
+  // (metatake://…) or an Expo dev URL (exp://…/--/connect-callback). Prevents a
+  // caller from starting an OAuth flow that redirects the approved token to an
+  // attacker-controlled URL.
+  const REDIRECT_OK = /^metatake:\/\//i.test(redirectUri) || /^exp:\/\/.*connect-callback/i.test(redirectUri);
+  if (!REDIRECT_OK) {
+    return NextResponse.json({ error: "redirect_uri_not_allowed" }, { status: 400, headers: CONNECT_CORS });
+  }
 
   const state = randomUUID();
   try {

@@ -298,6 +298,15 @@ export default function TonightScreen() {
   /** Restore from the session pass strip — undismiss WITHOUT re-adding to the queue. */
   const restore = useCallback(
     async (p: PassedItem) => {
+      // If the live undo pill points at this same pass, retire it — otherwise
+      // both the pill and the strip can act on one film and double-fire.
+      setUndoItem((u) => {
+        if (u?.row.slug === p.row.slug) {
+          if (undoTimer.current) clearTimeout(undoTimer.current);
+          return null;
+        }
+        return u;
+      });
       setPassed((prev) => prev.filter((x) => x.row.slug !== p.row.slug));
       await undismiss(p.row.slug);
       setRows((prev) =>

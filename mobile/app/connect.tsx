@@ -498,9 +498,18 @@ export default function ConnectScreen() {
         const posters: string[] = [];
         for (const r of rows) {
           const m = byI.get(r.i);
-          if (m?.status === "matched" && m.match) {
-            matchedRows.push({ ...r, tmdb_id: m.match.tmdb_id });
-            if (m.match.poster_path && posters.length < 12) posters.push(m.match.poster_path);
+          // Accept an exact match; for an ambiguous hit, accept the top candidate
+          // when its year is within ±1 of ours (same tolerance the server's exact
+          // filter uses) — a common-title film shouldn't silently fail to import.
+          let pick = m?.status === "matched" ? m.match : undefined;
+          if (!pick && m?.status === "ambiguous" && m.candidates?.length) {
+            const c0 = m.candidates[0];
+            const cy = parseInt(c0.year ?? "", 10);
+            if (!r.year || !Number.isFinite(cy) || Math.abs(cy - r.year) <= 1) pick = c0;
+          }
+          if (pick) {
+            matchedRows.push({ ...r, tmdb_id: pick.tmdb_id });
+            if (pick.poster_path && posters.length < 12) posters.push(pick.poster_path);
           } else {
             unmatched.push({ title: r.title, year: r.year });
           }
