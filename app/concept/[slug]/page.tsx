@@ -38,7 +38,7 @@ function Provenance({ updated }: { updated: string | null }) {
   const date = fmtDate(updated);
   return (
     <p style={{ margin: "10px 0 0", fontSize: 12.5, opacity: 0.62, display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-      <span>By the Metatake concept desk</span>
+      <span>Written by Metatake AI · directed by Wonwoo Yoon</span>
       {date ? <><span aria-hidden>·</span><span>Revised {date}</span></> : null}
       <span aria-hidden>·</span>
       <Link href="/methodology" style={{ textDecoration: "underline" }}>How we read films →</Link>
@@ -500,7 +500,7 @@ export default async function ConceptPage({ params }: Props) {
             <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>
               <b style={{ fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", opacity: .55 }}>The idea in brief</b>{" "}
               — {tc.one_liner}{" "}
-              <span style={{ fontSize: 12, opacity: 0.55, whiteSpace: "nowrap" }}>© Metatake Editorial</span>
+              <span style={{ fontSize: 12, opacity: 0.55, whiteSpace: "nowrap" }}>© Metatake</span>
             </p>
           )}
 
@@ -601,7 +601,7 @@ export default async function ConceptPage({ params }: Props) {
           ) : null}
 
           <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-            Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
+            Written by Metatake AI · related films computed · directed by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
           </p>
           <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
         </div>
@@ -926,7 +926,7 @@ export default async function ConceptPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
+          Written by Metatake AI · related films computed · directed by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
         </p>
         <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
       </div>

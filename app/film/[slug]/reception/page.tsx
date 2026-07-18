@@ -511,7 +511,7 @@ export default async function FilmReceptionPage({ params }: Props) {
               release dates via <a href="https://www.themoviedb.org" target="_blank" rel="noopener nofollow">TMDB</a>;
               award statements via <a href="https://www.wikidata.org" target="_blank" rel="noopener nofollow">Wikidata</a>;
               canon and festival record from Metatake&apos;s <Link href="/lineage">lineage archive</Link>.
-              Assembled and edited by <Link href="/editor">Wonwoo Yoon</Link> — <Link href="/methodology">how we work →</Link>
+              Compiled from cited sources · no language model · designed by <Link href="/editor">Wonwoo Yoon</Link> — <Link href="/methodology">how we work →</Link>
             </p>
           </div>
 

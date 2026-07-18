@@ -394,7 +394,7 @@ export default async function FilmHonorsPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Lineage record compiled from public sources — cited per entry · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
+          Compiled from public sources — no language model, cited per entry · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
       <ReadPlates slug={film.slug} exclude="lineage" />

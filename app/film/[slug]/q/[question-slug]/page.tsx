@@ -347,7 +347,7 @@ export default async function QuestionPage({ params }: Props) {
               <div className="article-credit">
                 Last updated by{" "}
                 <span style={{ color: "var(--ink)" }}>
-                  {updater?.username || (isAI ? "Metatake Editorial" : "community")}
+                  {updater?.username || (isAI ? "Metatake AI" : "community")}
                 </span>{" "}
                 · {dateFmt(canonical.updated_at)}
                 {isAI && (

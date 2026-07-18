@@ -428,7 +428,7 @@ export default async function DirectorReceptionPage({ params }: Props) {
           </div>
 
           <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-            Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
+            Compiled from cited sources · no language model · designed by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
             <Link href="/methodology">How we work →</Link>
           </p>
           <p style={{ marginTop: 18 }}>

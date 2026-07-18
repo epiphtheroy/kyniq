@@ -214,8 +214,7 @@ export default async function DirectorMisreadingsPage({ params }: Props) {
               lets you say through one of its figures — the characters, objects, places and forms Metatake singles out.
               Below are all {n} readings of {director}&apos;s {filmN} film{filmN === 1 ? "" : "s"} in the live corpus,
               filed across {groups.length === 1 ? "one framework family" : `${groups.length} framework families`}
-              {topFamily ? <>, from {topFamily.fam.label.toLowerCase()} down</> : null}. Drafted by Metatake Editorial,
-              edited by <Link href="/editor">Wonwoo Yoon</Link>.
+              {topFamily ? <>, from {topFamily.fam.label.toLowerCase()} down</> : null}. Written by Metatake AI, to a framework directed by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
 
             <div className="lin-stats">
@@ -292,7 +291,7 @@ export default async function DirectorMisreadingsPage({ params }: Props) {
           </div>
 
           <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-            Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
+            Written by Metatake AI · directed by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
             <Link href="/methodology">How we work →</Link>
           </p>
           <p style={{ marginTop: 18 }}>

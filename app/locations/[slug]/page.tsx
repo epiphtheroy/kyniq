@@ -319,7 +319,7 @@ export default async function LocationsCountryPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Location data researched, compiled and geolocated by Metatake · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
+          Researched by Metatake AI — each location corroborated by independent sources and cited, single-source claims held back · geolocated by Metatake · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
     </div>

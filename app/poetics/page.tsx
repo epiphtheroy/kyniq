@@ -10,7 +10,7 @@ const SITE = "https://metatake.net";
 export const metadata: Metadata = {
   title: "Poetics — open questions from building a critical map of cinema",
   description:
-    "Signed essays by Wonwoo Yoon on the questions I could not avoid while building Metatake: what a masterpiece is, what to watch, why the figure is the unit of reading, how to file a century of theory, and where cinema actually lives.",
+    "Essays from one editor's desk — drafted by Metatake AI from Wonwoo Yoon's own viewing log and signed off by him — on the questions he could not avoid while building Metatake: what a masterpiece is, what to watch, why the figure is the unit of reading, how to file a century of theory, and where cinema actually lives.",
   alternates: { canonical: "/poetics" },
   robots: pageRobots(true),
 };

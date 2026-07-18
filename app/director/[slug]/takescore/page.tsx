@@ -141,7 +141,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    authors: [{ name: "Metatake Editorial", url: `${SITE}/about` }],
+    authors: [{ name: "Metatake AI", url: `${SITE}/about` }],
     alternates: { canonical: `/director/${slug}/takescore` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
@@ -397,7 +397,7 @@ export default async function DirectorTakescorePage({ params }: Props) {
           </div>
 
           <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-            Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
+            Computed by Metatake AI · rubric designed and calibrated by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
             <Link href="/methodology">How we work →</Link> ·{" "}
             <Link href="/takescore/about">How the TakeScore works →</Link>
           </p>

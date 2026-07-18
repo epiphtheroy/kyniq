@@ -262,8 +262,8 @@ export default async function DirectorNextPage({ params }: Props) {
               {name}&apos;s films end and the question is always the same: who&apos;s next? Below are {n} director
               {n === 1 ? "" : "s"} to explore after <Link href={`/director/${slug}`}>{name}</Link>
               {matched ? <> — {matched} of them already read closely on Metatake</> : null}. Each is here for one
-              specific kinship with the work, written out in full — a curated recommendation, not a similarity
-              score. Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>.
+              specific kinship with the work, written out in full — an argued recommendation, not a similarity
+              score. Written by Metatake AI, to a framework directed by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
 
             {next.map((r, i) => {
@@ -363,7 +363,7 @@ export default async function DirectorNextPage({ params }: Props) {
           )}
 
           <p style={{ fontSize: 12.5, opacity: 0.78, marginTop: 22 }}>
-            Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
+            Written by Metatake AI · directed by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
             <Link href="/methodology">How we work →</Link>
           </p>
 
