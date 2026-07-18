@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { createClient as createServerClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { resolveFilms } from "@/lib/filmResolver";
 
 export const runtime = "nodejs";
@@ -34,7 +35,17 @@ type Body = {
 export async function POST(req: NextRequest) {
   const ssr = await createServerClient();
   const { data: auth } = await ssr.auth.getUser();
-  const user = auth?.user;
+  let user = auth?.user ?? null;
+  // Mobile app fallback (HANDOFF-커넥트-기록이관.md): the app has no cookie
+  // session — accept a Bearer access token, validated against Supabase Auth.
+  // Additive only; the cookie path above is untouched.
+  if (!user) {
+    const bearer = (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+    if (bearer) {
+      const { data: tok } = await createAdminClient().auth.getUser(bearer);
+      user = tok?.user ?? null;
+    }
+  }
   if (!user) return NextResponse.json({ error: "auth" }, { status: 401 });
 
   const body = await req.json().catch(() => null) as Body | null;

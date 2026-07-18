@@ -7,7 +7,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import * as AppleAuthentication from "expo-apple-authentication";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Linking from "expo-linking";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { type Href, useLocalSearchParams, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useMemo, useState } from "react";
 import { Platform, ScrollView, TextInput, View, useWindowDimensions } from "react-native";
@@ -33,6 +33,11 @@ import { useFilms } from "../src/state/films";
 import { usePrefs } from "../src/state/prefs";
 import { brand, font, fs, gradient, radius, sp, usePalette } from "../src/theme";
 import type { Service, TonightRow } from "../src/types";
+
+// Connect hub route (HANDOFF-커넥트 §2.1). Cast: the /connect screen lands in
+// this same wave from another lane, and the generated typed-routes file only
+// refreshes on the next `expo start` — the cast keeps tsc green until then.
+const CONNECT_HREF = "/connect" as Href;
 
 const STEPS = ["welcome", "country", "services", "account", "taste"] as const;
 type Step = (typeof STEPS)[number];
@@ -684,6 +689,7 @@ const TASTE_COUNT = 24;
 
 function StepTaste({ onDone }: { onDone: () => void }) {
   const pal = usePalette();
+  const router = useRouter();
   const { width } = useWindowDimensions();
   const { country } = usePrefs();
   const { ledger, entry, markSeen, toggleSeen } = useFilms();
@@ -740,6 +746,31 @@ function StepTaste({ onDone }: { onDone: () => void }) {
               {t("onboarding.tasteBody")}
             </Ui>
           </View>
+
+          {/* Connect shortcut (HANDOFF-커넥트 §2.1) — importing beats tapping 24
+              posters. Pushed on top of this modal, so the step resumes on return;
+              the manual grid below stays the fallback. */}
+          <Tactile
+            onPress={() => router.push(CONNECT_HREF)}
+            style={{ marginHorizontal: sp.s5, marginTop: sp.s5 }}
+          >
+            <View
+              style={{
+                backgroundColor: pal.surface,
+                borderRadius: radius.md,
+                paddingHorizontal: sp.s4,
+                paddingVertical: sp.s3,
+                flexDirection: "row",
+                alignItems: "center",
+                gap: sp.s3,
+              }}
+            >
+              <Ui size={fs.sm} weight="500" style={{ flex: 1 }}>
+                {t("connect.entry.onboarding")}
+              </Ui>
+              <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+            </View>
+          </Tactile>
 
           <View
             style={{

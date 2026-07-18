@@ -307,3 +307,102 @@ export const me = {
     return data;
   },
 };
+
+// ---------------------------------------------------------------------------
+// Connect I1 — the existing /me/import pipeline (parse → match → commit),
+// called with the app session's Bearer token (the routes gained an additive
+// Bearer fallback; cookie path on the web is untouched).
+
+async function bearerHeaders(): Promise<Record<string, string>> {
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  if (!token) throw new Error("auth");
+  return { authorization: `Bearer ${token}` };
+}
+
+export type ImportRow = {
+  i: number;
+  title: string;
+  year?: number;
+  rating?: number;
+  watched_at?: string;
+  note?: string;
+  rewatch?: boolean;
+  tmdb_id?: number;
+  imdb_id?: string;
+  to_watchlist?: boolean;
+  raw?: Record<string, unknown>;
+};
+export type ImportParseResult = { source: string; rows: ImportRow[]; warnings: string[] };
+export type ImportMatch = {
+  i: number;
+  status: "matched" | "ambiguous" | "none";
+  match?: { tmdb_id: number; title: string; year: string; poster_path: string | null };
+  candidates?: { tmdb_id: number; title: string; year: string; poster_path: string | null }[];
+};
+
+export const importApi = {
+  /** Parse a picked file (ZIP/CSV/XLSX). RN FormData file part: {uri, name, type}. */
+  async parseFile(file: { uri: string; name: string; mimeType?: string }): Promise<ImportParseResult> {
+    const auth = await bearerHeaders();
+    const form = new FormData();
+    // React Native's FormData file part — not a web File object.
+    form.append("file", {
+      uri: file.uri,
+      name: file.name,
+      type: file.mimeType ?? "application/octet-stream",
+    } as unknown as Blob);
+    const res = await fetch(`${METATAKE_BASE}/api/import/parse`, {
+      method: "POST",
+      headers: { ...auth, accept: "application/json" }, // content-type set by FormData
+      body: form,
+    });
+    if (!res.ok) throw new Error(`parse ${res.status}`);
+    return (await res.json()) as ImportParseResult;
+  },
+
+  /** Parse pasted text (Watcha clipboard flow — server has an LLM fallback). */
+  async parseText(text: string): Promise<ImportParseResult> {
+    const auth = await bearerHeaders();
+    return getJSON(`/api/import/parse`, {
+      method: "POST",
+      headers: { ...auth, "content-type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+  },
+
+  /** TMDB matching — imdb_id (tt…) rows resolve exactly; batches server-side. */
+  async match(rows: ImportRow[]): Promise<ImportMatch[]> {
+    const auth = await bearerHeaders();
+    const out = await getJSON<{ results?: ImportMatch[] } | ImportMatch[]>(`/api/import/match`, {
+      method: "POST",
+      headers: { ...auth, "content-type": "application/json" },
+      body: JSON.stringify({ rows }),
+    });
+    return Array.isArray(out) ? out : (out.results ?? []);
+  },
+
+  /** Commit in ≤50-row chunks (server contract); returns totals + job id. */
+  async commit(
+    rows: ImportRow[],
+    source: string,
+    filename: string | null,
+    onChunk?: (committed: number, total: number) => void,
+  ): Promise<{ jobId: string | null; committed: number }> {
+    const auth = await bearerHeaders();
+    let jobId: string | null = null;
+    let committed = 0;
+    for (let from = 0; from < rows.length; from += 50) {
+      const chunk = rows.slice(from, from + 50);
+      const res: { job_id?: string; committed?: number } = await getJSON(`/api/import/commit`, {
+        method: "POST",
+        headers: { ...auth, "content-type": "application/json" },
+        body: JSON.stringify({ job_id: jobId, source, filename, rows: chunk }),
+      });
+      jobId = res.job_id ?? jobId;
+      committed += res.committed ?? chunk.length;
+      onChunk?.(committed, rows.length);
+    }
+    return { jobId, committed };
+  },
+};

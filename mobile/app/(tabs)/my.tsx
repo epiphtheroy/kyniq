@@ -8,7 +8,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as AppleAuthentication from "expo-apple-authentication";
 import { LinearGradient } from "expo-linear-gradient";
-import { useRouter } from "expo-router";
+import { type Href, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Alert,
@@ -71,6 +71,11 @@ const LOCALE_LABEL: Record<UILocale, string> = {
   ja: "日本語",
 };
 const LOCALE_CYCLE: UILocale[] = ["en", "ko", "es", "ja"];
+
+// Connect hub route (HANDOFF-커넥트 §2.1). Cast: the /connect screen lands in
+// this same wave from another lane, and the generated typed-routes file only
+// refreshes on the next `expo start` — the cast keeps tsc green until then.
+const CONNECT_HREF = "/connect" as Href;
 
 // Hairline inset for grouped settings rows: 16 padding + 32 icon disc + 12 gap.
 const ROW_INSET = 60;
@@ -357,9 +362,24 @@ export default function ShelfScreen() {
               onPress={() => router.push("/onboarding")}
               style={{ alignSelf: "stretch" }}
             />
+            {/* Quiet secondary path — imports need auth anyway; the hub explains */}
+            <Tactile onPress={() => router.push(CONNECT_HREF)} hitSlop={6}>
+              <Ui
+                size={fs.sm}
+                weight="500"
+                color={pal.muted}
+                style={{ textAlign: "center", textDecorationLine: "underline" }}
+              >
+                {t("connect.entry.title")}
+              </Ui>
+            </Tactile>
           </View>
         ) : (
           <>
+            {/* Connect entry — the empty shelf is the primary discovery moment
+                (HANDOFF-커넥트 §2.1: Shelf body card, not the gear sheet) */}
+            {queue !== null && qTotal === 0 ? <ConnectEntryCard /> : null}
+
             {/* ── Zone 1 · Queue ─────────────────────────────────────────── */}
             <SectionTitle
               sub={
@@ -619,6 +639,9 @@ export default function ShelfScreen() {
                 </Tactile>
               </>
             ) : null}
+
+            {/* Connect entry, compact — discovery stays reachable on a full shelf */}
+            {qTotal > 0 ? <ConnectEntryCard compact /> : null}
           </>
         )}
 
@@ -650,6 +673,46 @@ export default function ShelfScreen() {
 }
 
 // ---------------------------------------------------------------------------
+
+/** "Bring your film life" — Shelf entry to the Connect hub (HANDOFF-커넥트 §2.1).
+    Prominent card on an empty shelf; compact row under Journey otherwise. */
+function ConnectEntryCard({ compact }: { compact?: boolean }) {
+  const pal = usePalette();
+  const router = useRouter();
+  return (
+    <Tactile
+      onPress={() => router.push(CONNECT_HREF)}
+      style={{ marginHorizontal: sp.s4, marginTop: compact ? sp.s5 : sp.s4 }}
+    >
+      <View
+        style={{
+          backgroundColor: pal.surface,
+          borderRadius: radius.md,
+          paddingHorizontal: sp.s4,
+          paddingVertical: compact ? sp.s3 : sp.s4,
+          flexDirection: "row",
+          alignItems: "center",
+          gap: sp.s3,
+        }}
+      >
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="600" numberOfLines={1}>
+            {t("connect.entry.title")}
+          </Ui>
+          <Ui
+            size={compact ? fs.xs + 1 : fs.sm}
+            color={pal.muted}
+            numberOfLines={compact ? 1 : 2}
+            style={{ marginTop: 2 }}
+          >
+            {t("connect.entry.sub")}
+          </Ui>
+        </View>
+        <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+      </View>
+    </Tactile>
+  );
+}
 
 /** Queue row — poster, title/year, decay badge, availability dots, optional ✕ pass. */
 function QueueRow({

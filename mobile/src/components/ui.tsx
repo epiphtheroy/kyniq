@@ -295,7 +295,7 @@ export function GradientBtn({
         end={{ x: 1, y: 1 }}
         style={{
           borderRadius: radius.xs,
-          paddingVertical: 14,
+          paddingVertical: 15, // ≥52pt total — comfortable thumb target for the primary CTA
           alignItems: "center",
           opacity: disabled ? 0.5 : 1,
         }}
