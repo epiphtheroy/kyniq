@@ -23,6 +23,10 @@
     "max_workers": 8,
     "max_tokens": 300
   },
+  "legit_categories": [
+    "criticism", "journal", "news", "festival", "venue",
+    "archive", "podcast", "education", "database", "curation"
+  ],
   "queue": {
     "min_score": 55,
     "cap_per_day": 10,

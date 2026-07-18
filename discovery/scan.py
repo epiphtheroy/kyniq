@@ -47,25 +47,60 @@ PARKED_MARKERS = [
     "afternic", "domain parking", "hugedomains",
 ]
 
+# Piracy players masquerading as "members-only cinemas" (plazmakino.ru class).
+# A film-culture site links OUT to where films play; a piracy site embeds the
+# player and offers quality toggles + a full watch-now catalog.
+PIRACY_MARKERS = [
+    "смотреть онлайн", "бесплатно в хорошем", "в hd качестве", "плеер",
+    "watch online free", "full movie", "1080p", "720p", "4k hd", "webrip",
+    "hdrip", "camrip", "player", "vidsrc", "streamtape", "doodstream",
+    "putlocker", "reserv", "резерв", "плазма",
+]
+# Injected/interceptor scripts + reverse-proxy phishing tells (odeonkino.pro
+# class): scripts that hook payment/booking, or a canonical/og host that does
+# not match the domain being scanned (a clone points home at the real site).
+SUSPICIOUS_SCRIPT_RE = re.compile(
+    r'/inject/|payment[-_]?(widget|interceptor|hook)|admin[-_]?toolbar|'
+    r'skimmer|cardhook', re.I)
+CANONICAL_RE = re.compile(
+    r'<(?:link[^>]+rel=["\']canonical["\'][^>]+href|meta[^>]+property='
+    r'["\']og:url["\'][^>]+content)=["\']https?://([^/"\']+)', re.I)
+
 CATEGORIES = (
     "criticism|journal|news|festival|venue|archive|podcast|education|"
-    "database|prod-co|filmmaker|promo|business|piracy|parked|other"
+    "database|prod-co|filmmaker|promo|business|piracy|phishing|content-farm|"
+    "parked|broken|adult|unrelated|other"
 )
 
 SYSTEM_PROMPT = (
-    "You classify newly registered domains for a film-criticism site's discovery "
-    "feed, which surfaces promising NEW film-culture websites (criticism, journals, "
-    "festivals, cinemas/venues, archives, podcasts, film education, databases).\n"
-    "Score 0-100 = how likely this is a genuine film-CULTURE site worth a human "
-    "editor's glance. Guide: reading/curation surfaces (criticism, journal, festival, "
-    "venue, archive, podcast, education, database) score by evidence quality; "
-    "production-company or filmmaker portfolio cap at 55; single-film promo cap at 50; "
-    "piracy/streaming/IPTV = 0; unrelated business = 0; empty/parked with a promising "
-    "film name <= 40 and name_only=true.\n"
-    "Non-English sites are equally valid; note the language.\n"
+    "You are a SKEPTICAL verifier deciding whether a newly registered domain is a "
+    "genuine, safe, worth-linking NEW film-culture website (criticism, journal, "
+    "festival, cinema/venue, archive, podcast, film education, database). This link "
+    "may be published under a respected film-criticism brand, so a single scam, "
+    "piracy, or fake site slipping through is a serious failure. Assume nothing from "
+    "the name; judge only the evidence in the payload, and when unsure, distrust.\n\n"
+    "DANGEROUS classes to catch (set would_embarrass=true and the matching category):\n"
+    "- phishing / lookalike clone: a canonical/og host different from the domain, or "
+    "an injected payment/booking-interceptor script, means it impersonates a real "
+    "venue to harvest data. category=phishing.\n"
+    "- piracy: embedded video players, quality toggles (HD/4K/1080p), 'watch online "
+    "free', a members-only 'private cinema' with a full watch-now catalog. category=piracy.\n"
+    "- content-farm / fake-news: TMDB-wrapped databases with AI 'community' reviews and "
+    "no editorial identity; 'news' about films that do not exist; brand name that does "
+    "not match the domain. category=content-farm.\n"
+    "- adult / thirst-clickbait: glamour/'slaying in black'/thirst galleries. category=adult.\n"
+    "- broken shell: nav exists but the article/content feed fails to load or all "
+    "counters are 0. category=broken.\n\n"
+    "QUALITY (of real, safe film sites only): strong = substantial dated editorial or a "
+    "real programmed festival/venue with lineup; decent = clearly real with some "
+    "substance; thin = real but sparse; empty = loads but almost no content; bad = any "
+    "dangerous class above.\n"
+    "Score 0-100 = worth a human editor's glance. prod-co/filmmaker cap 55; single-film "
+    "promo cap 50; every dangerous class = 0. Non-English sites are equally valid.\n\n"
     'Reply with ONLY a JSON object: {"score": <int>, "category": "<one of: '
     + CATEGORIES
-    + '>", "lang": "<iso2 or ?>", "reason": "<max 15 words>", "name_only": <bool>}'
+    + '>", "quality": "<strong|decent|thin|empty|bad>", "would_embarrass": <bool>, '
+    '"lang": "<iso2 or ?>", "reason": "<max 15 words>", "name_only": <bool>}'
 )
 
 
@@ -198,10 +233,16 @@ LANG_RE = re.compile(r"<html[^>]+lang=[\"']([a-zA-Z-]{2,8})[\"']", re.I)
 TAG_RE = re.compile(r"<script.*?</script>|<style.*?</style>|<[^>]+>", re.S)
 
 
+def _registrable(host):
+    """Crude registrable-domain compare key (last two labels)."""
+    parts = host.lower().lstrip("www.").split(".")
+    return ".".join(parts[-2:]) if len(parts) >= 2 else host.lower()
+
+
 def fetch_home(item):
     domain, kw = item
     rec = {"domain": domain, "kw": kw, "status": "error:unknown",
-           "title": "", "desc": "", "lang": "", "snippet": ""}
+           "title": "", "desc": "", "lang": "", "snippet": "", "flags": []}
     try:
         if robots_blocks_all(domain, FC["timeout_sec"]):
             rec["status"] = "robots_blocked"
@@ -228,7 +269,24 @@ def fetch_home(item):
     rec["lang"] = m.group(1).lower() if m else ""
     text = re.sub(r"\s+", " ", TAG_RE.sub(" ", body)).strip()
     rec["snippet"] = html.unescape(text)[:400]
-    if any(p in low for p in PARKED_MARKERS):
+
+    # --- red flags: cheap safety heuristics (never let these auto-publish) ---
+    flags = []
+    if SUSPICIOUS_SCRIPT_RE.search(body):
+        flags.append("injected-script")  # payment interceptor / admin toolbar
+    cm = CANONICAL_RE.search(body)
+    if cm and _registrable(cm.group(1)) != _registrable(domain):
+        flags.append(f"canonical-mismatch:{_registrable(cm.group(1))}")  # clone tell
+    piracy_hits = sum(1 for p in PIRACY_MARKERS if p in low)
+    if piracy_hits >= 2:
+        flags.append("piracy-player")
+    rec["flags"] = flags
+
+    if flags and ("injected-script" in flags or "canonical-mismatch" in " ".join(flags)):
+        rec["status"] = "suspect:lookalike"   # odeonkino.pro class — hard exclude
+    elif "piracy-player" in flags:
+        rec["status"] = "suspect:piracy"       # plazmakino.ru class — hard exclude
+    elif any(p in low for p in PARKED_MARKERS):
         rec["status"] = "parked"
     elif not rec["title"] and len(text) < 200:
         rec["status"] = "empty"
@@ -249,6 +307,7 @@ def classify(rec, api_key):
             "fetch_status": rec["status"], "title": rec["title"],
             "meta_description": rec["desc"], "html_lang": rec["lang"],
             "text_snippet": rec["snippet"],
+            "scanner_red_flags": rec.get("flags", []),
         }, ensure_ascii=False)}],
     }
     req = urllib.request.Request(
@@ -270,6 +329,8 @@ def classify(rec, api_key):
                                     "out": usage.get("output_tokens")}) + "\n")
             return {"score": int(out.get("score", 0)),
                     "category": str(out.get("category", "other"))[:20],
+                    "quality": str(out.get("quality", "thin"))[:8],
+                    "would_embarrass": bool(out.get("would_embarrass", False)),
                     "lang": str(out.get("lang", rec["lang"] or "?"))[:8],
                     "reason": str(out.get("reason", ""))[:120],
                     "name_only": bool(out.get("name_only", False))}
@@ -277,13 +338,15 @@ def classify(rec, api_key):
             if e.code in (429, 500, 502, 503, 529) and attempt < 2:
                 time.sleep(3 * (attempt + 1))
                 continue
-            return {"score": -1, "category": "llm-error", "lang": "?",
+            return {"score": -1, "category": "llm-error", "quality": "bad",
+                    "would_embarrass": True, "lang": "?",
                     "reason": f"http {e.code}", "name_only": False}
         except Exception as e:
             if attempt < 2:
                 time.sleep(2)
                 continue
-            return {"score": -1, "category": "llm-error", "lang": "?",
+            return {"score": -1, "category": "llm-error", "quality": "bad",
+                    "would_embarrass": True, "lang": "?",
                     "reason": type(e).__name__, "name_only": False}
 
 
@@ -348,7 +411,8 @@ def run_day(day, seen, api_key, args):
         with cf.ThreadPoolExecutor(max_workers=CONFIG["llm"]["max_workers"]) as ex:
             results = list(ex.map(lambda r: classify(r, api_key), fetched))
     else:
-        results = [{"score": 0, "category": "unclassified", "lang": rec["lang"] or "?",
+        results = [{"score": 0, "category": "unclassified", "quality": "thin",
+                    "would_embarrass": False, "lang": rec["lang"] or "?",
                     "reason": "", "name_only": False} for rec in fetched]
     out = []
     with open(STATE / "candidates.jsonl", "a") as f:
@@ -400,11 +464,29 @@ def main():
         save_seen(seen)
 
     q = CONFIG["queue"]
+    legit = set(CONFIG.get("legit_categories", []))
     classified = [r for r in all_rows if r["score"] >= 0]
+    # Queue gate: only real, safe, substantive film sites reach the human.
+    # would_embarrass / suspect status / non-legit category are hard-rejected;
+    # the human still confirms before anything publishes (HANDOFF §14).
     queue_rows = [r for r in classified
-                  if r["score"] >= q["min_score"] and not r["name_only"]
-                  and r["status"] == "ok"]
+                  if r["score"] >= q["min_score"]
+                  and not r["name_only"]
+                  and r["status"] == "ok"
+                  and not r.get("would_embarrass")
+                  and r.get("quality") in ("strong", "decent")
+                  and (not legit or r["category"] in legit)]
     queue_rows = queue_rows[: q["cap_per_day"] * len(days)]
+    # Anything the scanner flagged as dangerous goes to a separate log so the
+    # owner can see WHAT the gate is catching (and tune it), never the queue.
+    rejected = [r for r in classified
+                if r.get("would_embarrass") or str(r["status"]).startswith("suspect")]
+    if rejected:
+        with open(STATE / "rejected.log", "a") as f:
+            for r in rejected:
+                f.write(f"{r['first_seen']} {r['domain']} [{r['category']}/"
+                        f"{r.get('quality')}] {r['status']} flags={r.get('flags')} "
+                        f"{r['reason']}\n")
     watch = [r for r in classified
              if r["name_only"] and r["score"] >= q["watchlist_min_score"]]
     day_range = days[0] if len(days) == 1 else f"{min(days)} ~ {max(days)}"
@@ -415,9 +497,10 @@ def main():
     with open(STATE / "run.log", "a") as f:
         f.write(f"{datetime.now().isoformat(timespec='seconds')} {day_range} "
                 f"in={total_in} filtered={total_filtered} queued={len(queue_rows)} "
-                f"watch={len(watch)} llm_err={errs}\n")
+                f"watch={len(watch)} rejected={len(rejected)} llm_err={errs}\n")
     log(f"done: queued {len(queue_rows)}, watchlist {len(watch)}, "
-        f"llm errors {errs} → state/review-queue.md")
+        f"rejected {len(rejected)}, llm errors {errs} → state/review-queue.md")
+    log("⚠️  queue is a TRIAGE list — OPEN each site before publishing (HANDOFF §14).")
     return 0
 
 

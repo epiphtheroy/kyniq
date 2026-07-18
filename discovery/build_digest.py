@@ -20,17 +20,21 @@ STATE = HERE / "state"
 
 LEGIT = {"criticism", "journal", "news", "festival", "venue",
          "archive", "podcast", "education", "database", "curation"}
-GATE_MIN = 45
+GATE_MIN = 55  # decent bar; thin/empty do not debut a curator brand
 
 
 def gate(rows):
+    """Candidates that MAY be published — after a human opens each one.
+    Never auto-trust: would_embarrass / suspect status / non-decent are out."""
     seen, out = set(), []
     for r in sorted(rows, key=lambda x: -x["score"]):
         d = r["domain"]
         if d in seen:
             continue
         if (r["category"] in LEGIT and r["score"] >= GATE_MIN
-                and r["status"] == "ok" and not r.get("name_only")):
+                and r["status"] == "ok" and not r.get("name_only")
+                and not r.get("would_embarrass")
+                and r.get("quality") in ("strong", "decent")):
             seen.add(d)
             out.append(r)
     return out
@@ -74,8 +78,11 @@ def main():
 {observed}
     ],
   }},'''
-    print(f"// {len(picked)} sites passed the auto-toggle gate "
-          f"(legit category, score>={GATE_MIN}, ok, not name-only)\n")
+    print(f"// {len(picked)} candidates cleared the triage gate "
+          f"(legit category, score>={GATE_MIN}, decent+, not flagged).\n"
+          f"// ⚠️ NOT publish-ready. OPEN each one before it goes in observed[] —\n"
+          f"//    the classifier cannot see a phishing clone or a piracy player that\n"
+          f"//    dresses as a cinema (HANDOFF §14). Delete any that fail on sight.\n")
     print(block)
 
 

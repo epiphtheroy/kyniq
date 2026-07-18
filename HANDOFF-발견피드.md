@@ -230,3 +230,29 @@ WhoisDS 전일 리스트 다운로드 (~70k)
 **비활성 출하:** 크론 미설치·발행 수동·브랜치 미머지. **오너 개시 3단계:** ① 크론 설치(`discovery/README.md`) ② 주간 `state/review-queue.md` 검수+Featured 승격 ③ `feat/discovery-feed` 머지→배포 시 `/discoveries` 라이브.
 
 **필터 v2 실전 교정 이력:** 스모크에서 `efulfilmentservice.com`(fulfilment→film) 오탐 발견 → `config.json` `exclude_substrings`에 `fulfilment` 추가로 차단. 향후 유사 오탐은 같은 자리에 추가.
+
+---
+
+## 14. 🚨 안전성 검증 (2026-07-18, Opus 23사이트 실방문) — "자동 발행은 안전하지 않다"
+
+**무슨 일이 있었나:** 첫 편 23곳을 실제로 열어 검증(Opus 에이전트 23개 병렬 방문)한 결과, **Haiku 게이트가 통과시킨 8곳이 발행하면 안 되는 것**이었다. 내가 앞서 "오탐 유출 0"이라 한 판단은 **거짓이었다** — 도메인명+홈 HTML만으로는 극장으로 위장한 사이트를 못 가른다.
+
+| 도메인 | Haiku 판정 | 실제 | 위험도 |
+|---|---|---|---|
+| `odeonkino.pro` | venue 75 | **피싱** — 노르웨이 ODEON(.no) 리버스프록시 클론, `/inject/payment-widget.js`가 결제 버튼 훅킹 | 치명(브랜드 사망) |
+| `plazmakino.ru` | venue 65 | **해적판** — "회원제 사설극장"으로 위장, 임베드 플레이어(HD/4K/Резерв) | 치명 |
+| `usafilmnews.com` | news 72 | 존재하지 않는 영화 기사 AI 팜(브랜드≠도메인) | 심각 |
+| `cineavis.fr` | database 72 | TMDB 래핑+AI 가짜 리뷰 콘텐츠팜 | 심각 |
+| `thatfilmydude.net` | criticism | 여배우 글래머/thirst 클릭베이트 | 창피 |
+| `cinemaidirector.com` | education 62 | R$47 AI프롬프트 판매 퍼널 | 창피 |
+| `moviepress.kr` | news 72 | 기사 로드 실패·카운터 0 깨진 껍데기 | 창피 |
+| `nettetalerkinoopenair.com` | venue 62 | TLS 만료·시 공기업으로 리다이렉트 | 창피 |
+
+**적중률 실측: 23곳 중 진짜 양질 8 (35%)·thin이지만 clean 6·empty 1·발행불가 8 (35%).** 8 양질(kurdiskfilmfestival.dk·juedischefilmtage.hamburg·cinematepito.com·docafilmfestival.com·newfilmmakersny.com·gujaratifilmreview.in·themoviemen.nl·infernomovies.blog)만 digests.ts 첫 편으로 발행.
+
+**교훈 (설계 번복):**
+1. **"Haiku 출력=자동 토글 발행"은 안전하지 않다.** nofollow는 SEO만 안 줄 뿐 사용자는 여전히 피싱/해적판 페이지에 도착한다. **발행 전 사람(또는 Opus 심층검증)이 각 사이트를 실제로 열어보는 단계는 필수·생략 불가.** "제로 노동" 마케팅 금지. 원안 v1의 "인간 큐레이션=스팸/큐레이션 분기점" 주장이 옳았다.
+2. **스캐너 하드닝 반영(커밋에 포함):** 피싱(canonical/og 호스트 불일치·`/inject/`·payment 훅) → `suspect:lookalike` 하드제외·해적판(임베드 플레이어+화질토글 2개↑) → `suspect:piracy` 하드제외·분류 프롬프트를 회의적 검증자로 전면 교체(quality+would_embarrass 출력)·게이트를 **품질 decent↑ & would_embarrass=false & legit 카테고리**로. 위험 후보는 `state/rejected.log`로 분리.
+3. **여전히 못 잡는 것:** 잘 만든 피싱 클론·"존재하지 않는 영화" 팜은 싸구려 분류기의 한계 밖. 그래서 1번(사람 눈)이 진짜 방어선. 주간 큐는 **트리아지**일 뿐 발행 승인이 아니다.
+
+**성공 판정(전략):** 8곳은 쿠르드·유대 영화제, 멕시코시티 바리오 시네마, 구자라트 장문 비평 등 **진짜로 신뢰할 만한 글로벌 다양성** — 컨셉은 검증됨. 단 가치가 비대칭·취약(피싱 링크 1건 유출=큐레이터 신뢰 사망). **결론: ship-with-tweaks** — 하드닝 + 사람 눈 필수 + 품질 하한(decent↑)을 지키면 월 $2.7·1~2년 포지셔닝 플레이로 유효. 트래픽 레버는 여전히 아님.
