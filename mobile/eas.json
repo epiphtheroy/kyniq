@@ -23,7 +23,10 @@
   },
   "submit": {
     "production": {
-      "ios": {},
+      "ios": {
+        "appleTeamId": "AYDX65J9H4",
+        "//": "appleId + ascAppId filled after the App Store Connect app record exists"
+      },
       "android": { "track": "internal" }
     }
   }

@@ -22,10 +22,12 @@
 
 ## 1. Apple Developer 등록 직후 (iOS 경로 개시)
 
-- [ ] **Apple Developer Program 등록** — $99/년. 이 하나로 **미국+한국 포함 전 세계 스토어프론트** 커버(국가별 추가비 없음). 👉 **그대로 따라 하는 상세 가이드: `APPLE-DEVELOPER-등록가이드.md`** (개인 등록 권장·아이폰 앱 경로·입력값 프리필). 승인 후 **Team ID 10자리**만 에이전트에게 주면 AASA 교체·앱 생성 이어짐.
-- [ ] **`eas init`** (mobile/ 디렉터리에서) — 푸시 projectId 발급. (Expo 계정 필요, 무료)
-- [ ] **App Store Connect에서 앱 레코드 생성** — 이름 **"Metatake"** 가용성 확인(선점 시 `mobile/store/listing-en.md`의 대안명 사용). 이 시점에 이름이 예약됨.
-- [ ] **`public/.well-known/apple-app-site-association`의 `TEAMID` 교체** — Apple Developer 팀 ID로. **수동 커밋**(public/은 워처 비대상).
+> ✅ **Apple Developer Program 승인 완료 2026-07-19. Team ID = `AYDX65J9H4`.** AASA·eas.json 반영 완료(에이전트, 커밋 아래). 상세 등록 절차는 `APPLE-DEVELOPER-등록가이드.md`.
+
+- [x] **Apple Developer Program 등록** — $99/년. Team ID `AYDX65J9H4`.
+- [x] **`public/.well-known/apple-app-site-association`의 `TEAMID` 교체** → `AYDX65J9H4.net.metatake.app` (webcredentials 포함). ⚠️딥링크가 실제로 작동하려면 이 파일이 **`https://metatake.net/.well-known/apple-app-site-association`로 라이브 배포**돼야 함 — PR #7 머지·prod 배포 시점에 반영(오너).
+- [ ] **`eas init`** (mobile/ 디렉터리에서) — 푸시 projectId 발급. (Expo 계정 로그인 필요·무료 — 에이전트가 대신 못 함)
+- [ ] **App Store Connect에서 앱 레코드 생성** — §5 프리필값(이름 Metatake·번들 net.metatake.app·SKU metatake-app·English US). 생성 후 그 **ascAppId**를 `eas.json` submit.production.ios에 추가하면 제출 자동화(현재 appleTeamId는 이미 채움).
 - [ ] **`eas build --platform ios`** — dev client 빌드. ⚠️이 빌드가 구워지는 순간 SDK 54 제약(Expo Go 상한)이 풀리므로, 원하면 `npx expo install --fix`로 최신 SDK 승격 가능. 단 **그 시점부터 Expo Go 검토 경로는 끝남**(테스터 전원이 dev/TestFlight 빌드 필요) — 순서를 뒤집지 말 것(정본 §13-13, §15.4).
 - [ ] **APNs 자격증명** — EAS가 Apple 계정에서 자동 생성(`eas credentials`).
 

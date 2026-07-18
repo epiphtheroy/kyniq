@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appIDs": ["TEAMID.net.metatake.app"],
+        "appIDs": ["AYDX65J9H4.net.metatake.app"],
         "components": [
           { "/": "/film/*" },
           { "/": "/director/*" },
@@ -14,6 +14,6 @@
     ]
   },
   "webcredentials": {
-    "apps": ["TEAMID.net.metatake.app"]
+    "apps": ["AYDX65J9H4.net.metatake.app"]
   }
 }
