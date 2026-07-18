@@ -228,4 +228,14 @@ export const es: Record<keyof typeof en, string> = {
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · Watcha — tu historial, importado en minutos.",
   "connect.entry.onboarding": "¿Ya usas Letterboxd o Watcha? Importa todo en su lugar.",
   "connect.empty.signedOut": "Inicia sesión primero — lo importado va a tu propio registro.",
+  // OAuth connectors (Trakt / TMDB / Simkl)
+  "connect.oauth.pitch": "Inicia sesión una vez — traemos tus puntuaciones y películas vistas automáticamente.",
+  "connect.oauth.connect": "Conectar {service}",
+  "connect.oauth.syncing": "Sincronizando…",
+  "connect.oauth.syncNow": "Sincronizar ahora",
+  "connect.oauth.disconnect": "Desconectar",
+  "connect.oauth.comingSoon": "Próximamente — el acceso con {service} se está preparando",
+  "connect.oauth.lastSynced": "Sincronizado {date}",
+  "connect.stage.connecting": "Conectando…",
+  "connect.stage.syncing": "Sincronizando tu biblioteca…",
 };

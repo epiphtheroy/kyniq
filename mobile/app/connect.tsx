@@ -14,6 +14,8 @@ import * as Clipboard from "expo-clipboard";
 import * as DocumentPicker from "expo-document-picker";
 import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
+import * as ExpoLinking from "expo-linking"; // createURL — RN's Linking has no createURL
+import * as WebBrowser from "expo-web-browser"; // OAuth via the system browser (§6-2)
 import { Stack, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -37,10 +39,19 @@ import Animated, {
 } from "react-native-reanimated";
 import { Btn, GradientBtn, PosterImg, Screen, Serif, Tactile, Ui } from "../src/components/ui";
 import { getLocale, t, type DictKey } from "../src/i18n";
-import { importApi, me, type ImportRow } from "../src/lib/api";
+import {
+  connectApi,
+  importApi,
+  me,
+  NOT_CONFIGURED,
+  type ConnectionRow,
+  type ConnectProvider,
+  type ImportRow,
+} from "../src/lib/api";
 import {
   CONNECTORS,
   awaitingConnectors,
+  clearConnectState,
   connector,
   connectStates,
   onConnectChange,
@@ -61,28 +72,38 @@ const NAMES: Record<ConnectorId, string> = {
   imdb: "IMDb",
   netflix: "Netflix",
   watcha: "Watcha",
+  trakt: "Trakt",
+  tmdb: "TMDB",
+  simkl: "Simkl",
 };
 
-type RunStage = "reading" | "matching" | "writing";
+// File stages (reading→matching→writing) run in the app; oauth stages
+// (connecting→syncing→writing) narrate a server-side pull — writing is the
+// count-up reveal in both.
+type RunStage = "reading" | "matching" | "writing" | "connecting" | "syncing";
 
 const STAGE_KEY: Record<RunStage, DictKey> = {
   reading: "connect.stage.reading",
   matching: "connect.stage.matching",
   writing: "connect.stage.writing",
+  connecting: "connect.stage.connecting",
+  syncing: "connect.stage.syncing",
 };
 
 const STATUS_KEY: Record<Exclude<ConnectorStatus, "done">, DictKey> = {
   idle: "connect.status.idle",
   awaiting_file: "connect.status.awaitingFile",
   awaiting_collect: "connect.status.awaitingCollect",
+  authorizing: "connect.stage.connecting",
   importing: "connect.status.importing",
+  syncing: "connect.stage.syncing",
   error: "connect.status.error",
 };
 
 type RunState = {
   id: ConnectorId;
   stage: RunStage;
-  total: number; // parsed rows
+  total: number; // parsed rows (file) / synced films (oauth)
   matched: number; // real matched count (cascade target)
   matchedShown: number; // animated tick-up
   posters: string[]; // up to 12 matched poster paths
@@ -90,6 +111,7 @@ type RunState = {
   committed: number; // real committed rows (onChunk)
   writeTotal: number;
   slow: boolean; // ~6s reassurance line
+  oauth?: boolean; // server-side sync — no poster cascade / row denominator
 };
 
 type ResultState = {
@@ -115,7 +137,13 @@ function statusLine(s: ConnectorState | undefined): string {
 
 function statusColor(status: ConnectorStatus, muted: string): string {
   if (status === "error") return brand.tsRisk;
-  if (status === "awaiting_file" || status === "awaiting_collect" || status === "importing")
+  if (
+    status === "awaiting_file" ||
+    status === "awaiting_collect" ||
+    status === "authorizing" ||
+    status === "importing" ||
+    status === "syncing"
+  )
     return brand.accent;
   if (status === "done") return brand.tsGreen;
   return muted;
@@ -335,6 +363,10 @@ export default function ConnectScreen() {
   const [result, setResult] = useState<ResultState | null>(null);
   const [banner, setBanner] = useState<ConnectorId | null>(null);
   const [pasteEmpty, setPasteEmpty] = useState(false);
+  // OAuth connection state (§4): server-of-truth rows from me_connections(),
+  // plus a client memo of providers the owner hasn't configured yet (503).
+  const [conn, setConn] = useState<Partial<Record<ConnectorId, ConnectionRow>>>({});
+  const [notConfigured, setNotConfigured] = useState<Partial<Record<ConnectorId, boolean>>>({});
 
   const runRef = useRef<ConnectorId | null>(null);
   const cascadeTimer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -355,13 +387,33 @@ export default function ConnectScreen() {
     };
   }, []);
 
-  // Recovery: an "importing" breadcrumb can't survive an app restart — no run
-  // is alive at mount, so surface it as a retryable error instead of a lie.
+  // Merge me_connections() (server truth) into the oauth tiles. Refetch when the
+  // session appears so a fresh sign-in reflects existing connections.
+  useEffect(() => {
+    let live = true;
+    void connectApi.states().then((rows) => {
+      if (!live) return;
+      const m: Partial<Record<ConnectorId, ConnectionRow>> = {};
+      for (const r of rows) m[r.provider] = r;
+      setConn(m);
+    });
+    return () => {
+      live = false;
+    };
+  }, [session]);
+
+  // Recovery: a mid-flow breadcrumb can't survive an app restart — no run is
+  // alive at mount. "importing"/"syncing" wrote (or may have written) to the
+  // ledger → surface as retryable error; "authorizing" never wrote → clear it.
   useEffect(() => {
     void connectStates().then((m) => {
       for (const c of CONNECTORS) {
-        if (m[c.id]?.status === "importing" && runRef.current == null) {
+        if (runRef.current != null) continue;
+        const st = m[c.id]?.status;
+        if (st === "importing" || st === "syncing") {
           void setConnectState(c.id, { status: "error" });
+        } else if (st === "authorizing") {
+          void clearConnectState(c.id);
         }
       }
     });
@@ -515,13 +567,203 @@ export default function ConnectScreen() {
     [reload, startCascade],
   );
 
+  // ----------------------------------------------------------- oauth runner
+
+  const beginRun = useCallback((c: Connector, stage: RunStage) => {
+    runRef.current = c.id;
+    setSheet(null);
+    setBanner(null);
+    setResult(null);
+    setRun({
+      id: c.id,
+      stage,
+      oauth: true,
+      total: 0,
+      matched: 0,
+      matchedShown: 0,
+      posters: [],
+      postersShown: 0,
+      committed: 0,
+      writeTotal: 0,
+      slow: false,
+    });
+  }, []);
+
+  const failSync = useCallback(
+    async (c: Connector, provider: ConnectProvider, reason: string) => {
+      if (cascadeTimer.current) {
+        clearInterval(cascadeTimer.current);
+        cascadeTimer.current = null;
+      }
+      runRef.current = null;
+      setRun(null);
+      await setConnectState(c.id, { status: "error" });
+      setConn((p) => ({
+        ...p,
+        [c.id]: {
+          provider,
+          status: "error",
+          last_sync_at: p[c.id]?.last_sync_at ?? null,
+          synced_films: p[c.id]?.synced_films ?? null,
+          error: reason,
+          created_at: p[c.id]?.created_at ?? new Date().toISOString(),
+        },
+      }));
+      setSheet(c.id); // reopen with a retry
+    },
+    [],
+  );
+
+  // Server-side sync → the writing count-up reveal → completion. Shared by the
+  // first connect and later "Sync now". Assumes a run is already on screen for c.
+  const finishSync = useCallback(
+    async (c: Connector, provider: ConnectProvider) => {
+      try {
+        setRun((s) => (s && s.id === c.id ? { ...s, stage: "syncing" } : s));
+        const out = await connectApi.sync(provider);
+        const films = out.films ?? 0;
+
+        // No per-row progress from a server pull — writeTotal 0 fills the bar,
+        // the big number counts up to the synced film count, posters skipped.
+        setRun((s) =>
+          s && s.id === c.id
+            ? { ...s, stage: "writing", total: films, matched: films, writeTotal: 0 }
+            : s,
+        );
+        startCascade(c.id, films, 0);
+
+        const now = new Date().toISOString();
+        setConn((p) => ({
+          ...p,
+          [c.id]: {
+            provider,
+            status: "connected",
+            last_sync_at: now,
+            synced_films: films,
+            error: null,
+            created_at: p[c.id]?.created_at ?? now,
+          },
+        }));
+        await setConnectState(c.id, { status: "done", films });
+
+        // Retro-verdict reward + rating tally over the whole shelf (a server sync
+        // returns no per-import breakdown; both are true statements about it).
+        let finds = 0;
+        let ratings = 0;
+        try {
+          const coll = await me.collection();
+          for (const row of coll) {
+            if (row.rating != null) ratings += 1;
+            if (verdictOf(row.rating, row.prestige) === "find") finds += 1;
+          }
+        } catch {
+          finds = 0;
+          ratings = 0;
+        }
+        void reload();
+        me.invalidateRecommend();
+
+        await new Promise((r) => setTimeout(r, 900)); // let the count-up read
+        if (cascadeTimer.current) {
+          clearInterval(cascadeTimer.current);
+          cascadeTimer.current = null;
+        }
+        runRef.current = null;
+        setRun(null);
+        setResult({ id: c.id, films, ratings, unmatched: [], finds });
+        void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      } catch {
+        await failSync(c, provider, "sync");
+      }
+    },
+    [failSync, reload, startCascade],
+  );
+
+  // One-tap sign-in: start → system browser → parse code/request_token → callback
+  // → sync theater. Cancel is silent (§13-17 spirit); 503 → friendly "coming soon".
+  const runOAuth = useCallback(
+    async (c: Connector) => {
+      if (runRef.current) return;
+      const provider = c.id as ConnectProvider;
+      const redirectUri = ExpoLinking.createURL("connect-callback");
+
+      let started: { url: string; pending: string | null };
+      try {
+        started = await connectApi.start(provider, redirectUri);
+      } catch (e) {
+        if (e instanceof Error && e.message === NOT_CONFIGURED) {
+          setNotConfigured((p) => ({ ...p, [c.id]: true })); // sheet → coming soon
+          return;
+        }
+        await setConnectState(c.id, { status: "error" });
+        return;
+      }
+
+      void setConnectState(c.id, { status: "authorizing" });
+      let back: URL | null = null;
+      try {
+        const res = await WebBrowser.openAuthSessionAsync(started.url, redirectUri);
+        if (res.type !== "success" || !res.url) {
+          await clearConnectState(c.id); // cancel / dismiss → quiet, no state change
+          return;
+        }
+        back = new URL(res.url);
+      } catch {
+        await clearConnectState(c.id);
+        return;
+      }
+      if (!back) return;
+
+      const code = back.searchParams.get("code") ?? undefined;
+      const request_token = back.searchParams.get("request_token") ?? undefined;
+
+      beginRun(c, "connecting");
+      void setConnectState(c.id, { status: "syncing" });
+      try {
+        await connectApi.callback(provider, { code, request_token, pending: started.pending });
+      } catch {
+        await failSync(c, provider, "auth");
+        return;
+      }
+      await finishSync(c, provider);
+    },
+    [beginRun, failSync, finishSync],
+  );
+
+  // "Sync now" on a connected tile — skips auth, goes straight to the pull.
+  const syncOAuth = useCallback(
+    async (c: Connector) => {
+      if (runRef.current) return;
+      beginRun(c, "syncing");
+      void setConnectState(c.id, { status: "syncing" });
+      await finishSync(c, c.id as ConnectProvider);
+    },
+    [beginRun, finishSync],
+  );
+
+  const disconnectOAuth = useCallback(async (c: Connector) => {
+    setSheet(null);
+    try {
+      await connectApi.disconnect(c.id as ConnectProvider);
+    } catch {
+      // best-effort; the stored row may already be gone
+    }
+    setConn((p) => {
+      const next = { ...p };
+      delete next[c.id];
+      return next;
+    });
+    await clearConnectState(c.id);
+  }, []);
+
   // -------------------------------------------------------------- gestures
 
   const pickFile = useCallback(
     async (c: Connector) => {
       try {
+        const types = c.fileTypes ?? [];
         const res = await DocumentPicker.getDocumentAsync({
-          type: c.fileTypes.length ? c.fileTypes : undefined,
+          type: types.length ? types : undefined,
           copyToCacheDirectory: true,
           multiple: false,
         });
@@ -536,6 +778,7 @@ export default function ConnectScreen() {
   );
 
   const openExport = useCallback((c: Connector) => {
+    if (!c.exportUrl) return;
     Linking.openURL(c.exportUrl).catch(() => undefined);
     if (c.kind === "file") {
       void setConnectState(c.id, {
@@ -589,10 +832,21 @@ export default function ConnectScreen() {
       prog.value = 0;
       return;
     }
-    let p = 0.08;
-    if (run.stage === "matching") p = 0.3;
+    let p = 0.08; // reading
+    if (run.stage === "connecting") p = 0.12;
+    else if (run.stage === "matching") p = 0.3;
+    else if (run.stage === "syncing") p = 0.5;
     else if (run.stage === "writing")
-      p = 0.45 + 0.55 * (run.writeTotal > 0 ? run.committed / run.writeTotal : 1);
+      p =
+        0.45 +
+        0.55 *
+          (run.oauth
+            ? run.matched > 0
+              ? run.matchedShown / run.matched
+              : 1
+            : run.writeTotal > 0
+              ? run.committed / run.writeTotal
+              : 1);
     prog.value = withSpring(Math.min(1, p), { damping: 18, stiffness: 120 });
   }, [run, prog]);
   const progStyle = useAnimatedStyle(() => ({
@@ -692,7 +946,7 @@ export default function ConnectScreen() {
               >
                 {run.stage === "matching" ? run.total : run.matchedShown}
               </Text>
-              {run.stage === "writing" ? (
+              {run.stage === "writing" && !run.oauth ? (
                 <Text
                   style={{
                     fontFamily: font.uiMed,
@@ -706,7 +960,7 @@ export default function ConnectScreen() {
               ) : null}
             </View>
           ) : null}
-          {run.stage === "writing" && run.writeTotal > 0 ? (
+          {run.stage === "writing" && run.writeTotal > 0 && !run.oauth ? (
             <Text
               style={{
                 fontFamily: font.uiMed,
@@ -767,6 +1021,31 @@ export default function ConnectScreen() {
   const sheetState = sheet ? states[sheet] : undefined;
   const sheetStatus: ConnectorStatus = sheetState?.status ?? "idle";
 
+  // Tile subtitle for an oauth connector: in-flight local state wins, then the
+  // "coming soon" memo, then the server connection row, then idle.
+  const oauthSub = (c: Connector): { line: string; color: string } => {
+    const local = states[c.id]?.status;
+    if (local === "authorizing")
+      return { line: t("connect.stage.connecting"), color: brand.accent };
+    if (local === "syncing" || local === "importing")
+      return { line: t("connect.stage.syncing"), color: brand.accent };
+    if (notConfigured[c.id])
+      return { line: t("connect.oauth.comingSoon", { service: NAMES[c.id] }), color: pal.muted };
+    const srv = conn[c.id];
+    if (srv?.status === "connected") {
+      const when = srv.last_sync_at ?? srv.created_at;
+      return {
+        line: t("connect.oauth.lastSynced", {
+          date: new Date(when).toLocaleDateString(getLocale()),
+        }),
+        color: brand.tsGreen,
+      };
+    }
+    if (srv?.status === "error" || local === "error")
+      return { line: t("connect.status.error"), color: brand.tsRisk };
+    return { line: t("connect.status.idle"), color: pal.muted };
+  };
+
   return (
     <Screen>
       <Stack.Screen options={{ headerShown: false }} />
@@ -791,6 +1070,10 @@ export default function ConnectScreen() {
           {CONNECTORS.map((c) => {
             const s = states[c.id];
             const st = s?.status ?? "idle";
+            const sub =
+              c.kind === "oauth"
+                ? oauthSub(c)
+                : { line: statusLine(s), color: statusColor(st, pal.muted) };
             return (
               <Tactile
                 key={c.id}
@@ -821,11 +1104,11 @@ export default function ConnectScreen() {
                     <Ui
                       size={fs.xs}
                       weight="500"
-                      color={statusColor(st, pal.muted)}
+                      color={sub.color}
                       style={{ marginTop: 2 }}
                       numberOfLines={2}
                     >
-                      {statusLine(s)}
+                      {sub.line}
                     </Ui>
                   </View>
                 </View>
@@ -874,16 +1157,32 @@ export default function ConnectScreen() {
                   marginBottom: sp.s4,
                 }}
               />
-              <GuideSheet
-                c={sheetConnector}
-                status={sheetStatus}
-                state={sheetState}
-                pasteEmpty={pasteEmpty}
-                onOpenExport={() => openExport(sheetConnector)}
-                onOpenCollect={() => openCollect(sheetConnector)}
-                onPickFile={() => void pickFile(sheetConnector)}
-                onPaste={() => void pasteWatcha(sheetConnector)}
-              />
+              {sheetConnector.kind === "oauth" ? (
+                <OAuthSheet
+                  c={sheetConnector}
+                  connected={conn[sheetConnector.id]?.status === "connected"}
+                  lastSyncedAt={
+                    conn[sheetConnector.id]?.last_sync_at ??
+                    conn[sheetConnector.id]?.created_at ??
+                    null
+                  }
+                  comingSoon={!!notConfigured[sheetConnector.id]}
+                  onConnect={() => void runOAuth(sheetConnector)}
+                  onSync={() => void syncOAuth(sheetConnector)}
+                  onDisconnect={() => void disconnectOAuth(sheetConnector)}
+                />
+              ) : (
+                <GuideSheet
+                  c={sheetConnector}
+                  status={sheetStatus}
+                  state={sheetState}
+                  pasteEmpty={pasteEmpty}
+                  onOpenExport={() => openExport(sheetConnector)}
+                  onOpenCollect={() => openCollect(sheetConnector)}
+                  onPickFile={() => void pickFile(sheetConnector)}
+                  onPaste={() => void pasteWatcha(sheetConnector)}
+                />
+              )}
             </View>
           ) : null}
         </View>
@@ -978,7 +1277,7 @@ function GuideSheet({
 
       {/* The 3 real steps — numbered, with the service's actual button labels */}
       <View style={{ gap: sp.s3, marginTop: sp.s4 }}>
-        {c.stepKeys.map((k, i) => (
+        {(c.stepKeys ?? []).map((k, i) => (
           <View key={k} style={{ flexDirection: "row", gap: sp.s3, alignItems: "flex-start" }}>
             <View
               style={{
@@ -1058,6 +1357,107 @@ function GuideSheet({
           </Ui>
         </Tactile>
       ) : null}
+    </View>
+  );
+}
+
+// ---------------------------------------------------------- oauth guide sheet
+// One-line pitch + privacy line + one full-width CTA. Three states: coming soon
+// (owner hasn't set credentials — muted, no button), connected (Sync now + quiet
+// Disconnect), or fresh (Connect {service}).
+
+function OAuthSheet({
+  c,
+  connected,
+  lastSyncedAt,
+  comingSoon,
+  onConnect,
+  onSync,
+  onDisconnect,
+}: {
+  c: Connector;
+  connected: boolean;
+  lastSyncedAt: string | null;
+  comingSoon: boolean;
+  onConnect: () => void;
+  onSync: () => void;
+  onDisconnect: () => void;
+}) {
+  const pal = usePalette();
+  const synced =
+    connected && lastSyncedAt
+      ? t("connect.oauth.lastSynced", {
+          date: new Date(lastSyncedAt).toLocaleDateString(getLocale()),
+        })
+      : null;
+
+  return (
+    <View>
+      <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3 }}>
+        <Monogram c={c} size={40} />
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.lg} weight="600">
+            {NAMES[c.id]}
+          </Ui>
+          {comingSoon ? (
+            <Ui size={fs.xs} weight="500" color={pal.muted}>
+              {t("connect.oauth.comingSoon", { service: NAMES[c.id] })}
+            </Ui>
+          ) : synced ? (
+            <Ui size={fs.xs} weight="500" color={brand.tsGreen}>
+              {synced}
+            </Ui>
+          ) : null}
+        </View>
+      </View>
+
+      {/* One-line pitch — the reassurance before a one-tap sign-in */}
+      <Ui size={fs.sm} color={pal.inkSoft} style={{ marginTop: sp.s4 }}>
+        {t("connect.oauth.pitch")}
+      </Ui>
+
+      {/* Privacy line stays in view — the user leaves calm */}
+      <Ui size={fs.xs} color={pal.subtle} style={{ marginTop: sp.s3 }}>
+        {t("connect.subtitle")}
+      </Ui>
+
+      {comingSoon ? (
+        <View
+          style={{
+            flexDirection: "row",
+            gap: sp.s2,
+            alignItems: "flex-start",
+            marginTop: sp.s4,
+            padding: sp.s3,
+            borderRadius: radius.md,
+            backgroundColor: pal.surface,
+          }}
+        >
+          <Ionicons name="time-outline" size={16} color={pal.muted} style={{ marginTop: 2 }} />
+          <Ui size={fs.sm} color={pal.inkSoft} style={{ flex: 1 }}>
+            {t("connect.oauth.comingSoon", { service: NAMES[c.id] })}
+          </Ui>
+        </View>
+      ) : connected ? (
+        <>
+          <GradientBtn
+            label={t("connect.oauth.syncNow")}
+            onPress={onSync}
+            style={{ marginTop: sp.s4 }}
+          />
+          <Tactile onPress={onDisconnect} style={{ alignSelf: "center", marginTop: sp.s3 }}>
+            <Ui size={fs.sm} weight="600" color={pal.muted} style={{ padding: sp.s2 }}>
+              {t("connect.oauth.disconnect")}
+            </Ui>
+          </Tactile>
+        </>
+      ) : (
+        <GradientBtn
+          label={t("connect.oauth.connect", { service: NAMES[c.id] })}
+          onPress={onConnect}
+          style={{ marginTop: sp.s4 }}
+        />
+      )}
     </View>
   );
 }

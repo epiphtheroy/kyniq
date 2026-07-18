@@ -406,3 +406,95 @@ export const importApi = {
     return { jobId, committed };
   },
 };
+
+// ---------------------------------------------------------------------------
+// Connect I2 — OAuth connectors (Trakt / TMDB / Simkl). The app never touches
+// provider tokens (§6-3): it opens the system browser, hands the returned
+// code/request_token to the server, and the server holds the tokens + runs the
+// sync (parse → match → commit into the same ledger, §6-4). Every route is
+// env-gated server-side — a provider with no credentials answers 503, which we
+// surface as a friendly "coming soon" rather than an error.
+
+export type ConnectProvider = "trakt" | "tmdb" | "simkl";
+
+/** Token-free connection row from the me_connections() RPC (§4). */
+export type ConnectionRow = {
+  provider: ConnectProvider;
+  status: "connected" | "error" | "revoked";
+  last_sync_at: string | null;
+  synced_films: number | null;
+  error: string | null;
+  created_at: string;
+};
+
+/** Raised when the owner hasn't configured a provider's credentials yet (503). */
+export const NOT_CONFIGURED = "not_configured";
+
+export const connectApi = {
+  /**
+   * Begin the OAuth dance. Returns the provider's authorize URL and a `pending`
+   * carry (TMDB's request_token; null for the code-flow providers) that must be
+   * echoed back to callback(). Throws NOT_CONFIGURED on a 503 (unset env).
+   */
+  async start(
+    provider: ConnectProvider,
+    redirectUri: string,
+  ): Promise<{ url: string; pending: string | null }> {
+    const auth = await bearerHeaders();
+    const res = await fetch(`${METATAKE_BASE}/api/connect/${provider}/start`, {
+      method: "POST",
+      headers: { ...auth, "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({ redirect_uri: redirectUri }),
+    });
+    if (res.status === 503) throw new Error(NOT_CONFIGURED);
+    if (!res.ok) throw new Error(`connect start ${res.status}`);
+    const out = (await res.json()) as { url: string; pending?: string | null };
+    return { url: out.url, pending: out.pending ?? null };
+  },
+
+  /** Exchange the browser result (code / request_token) + carry for stored tokens. */
+  async callback(
+    provider: ConnectProvider,
+    args: { code?: string; request_token?: string; pending: string | null },
+  ): Promise<{ ok: boolean }> {
+    const auth = await bearerHeaders();
+    return getJSON(`/api/connect/${provider}/callback`, {
+      method: "POST",
+      headers: { ...auth, "content-type": "application/json" },
+      body: JSON.stringify({
+        code: args.code ?? null,
+        request_token: args.request_token ?? null,
+        pending: args.pending,
+      }),
+    });
+  },
+
+  /** Server-side pull of the member's library into the shared ledger. */
+  async sync(
+    provider: ConnectProvider,
+  ): Promise<{ ok: boolean; added: number; updated: number; films: number }> {
+    const auth = await bearerHeaders();
+    return getJSON(`/api/connect/${provider}/sync`, {
+      method: "POST",
+      headers: { ...auth, "content-type": "application/json" },
+      body: JSON.stringify({}),
+    });
+  },
+
+  /** Revoke + delete the stored tokens (§6-3). Imported ledger rows remain. */
+  async disconnect(provider: ConnectProvider): Promise<void> {
+    const auth = await bearerHeaders();
+    await getJSON(`/api/connect/${provider}/disconnect`, {
+      method: "POST",
+      headers: { ...auth, "content-type": "application/json" },
+      body: JSON.stringify({}),
+    });
+  },
+
+  /** Token-free connection states for the signed-in user (own-row via RPC). */
+  async states(): Promise<ConnectionRow[]> {
+    const { data, error } = await supabase.rpc("me_connections");
+    if (error) return [];
+    return (data ?? []) as ConnectionRow[];
+  },
+};

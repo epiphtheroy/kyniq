@@ -229,4 +229,14 @@ export const ko: Record<keyof typeof en, string> = {
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · 왓챠 — 몇 분이면 기록이 통째로 옮겨져요.",
   "connect.entry.onboarding": "이미 Letterboxd나 왓챠를 쓰세요? 통째로 가져오는 게 빨라요.",
   "connect.empty.signedOut": "먼저 로그인하세요 — 가져온 기록은 내 원장에 쌓입니다.",
+  // OAuth connectors (Trakt / TMDB / Simkl)
+  "connect.oauth.pitch": "한 번만 로그인하면 평점과 본 영화를 자동으로 가져옵니다.",
+  "connect.oauth.connect": "{service} 연결하기",
+  "connect.oauth.syncing": "동기화 중…",
+  "connect.oauth.syncNow": "지금 동기화",
+  "connect.oauth.disconnect": "연결 해제",
+  "connect.oauth.comingSoon": "곧 지원돼요 — {service} 로그인을 준비하고 있어요",
+  "connect.oauth.lastSynced": "{date} 동기화됨",
+  "connect.stage.connecting": "연결하는 중…",
+  "connect.stage.syncing": "보관함 동기화 중…",
 };

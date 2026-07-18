@@ -13,6 +13,10 @@
       "schedule": "0 * * * *"
     },
     {
+      "path": "/api/connect/sync-cron",
+      "schedule": "0 8 * * *"
+    },
+    {
       "path": "/api/push/availability-cron",
       "schedule": "0 9 * * *"
     }

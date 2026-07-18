@@ -228,4 +228,14 @@ export const ja: Record<keyof typeof en, string> = {
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · Watcha — 数分で履歴まるごと。",
   "connect.entry.onboarding": "LetterboxdやWatchaをお使いですか？まるごと取り込む方が早いです。",
   "connect.empty.signedOut": "まずログインを — 取り込んだ記録はあなた自身の台帳に入ります。",
+  // OAuth connectors (Trakt / TMDB / Simkl)
+  "connect.oauth.pitch": "一度ログインするだけ — 評価と鑑賞済みの映画を自動で取り込みます。",
+  "connect.oauth.connect": "{service}を連携",
+  "connect.oauth.syncing": "同期中…",
+  "connect.oauth.syncNow": "今すぐ同期",
+  "connect.oauth.disconnect": "連携を解除",
+  "connect.oauth.comingSoon": "近日対応 — {service}ログインを準備中です",
+  "connect.oauth.lastSynced": "{date}に同期",
+  "connect.stage.connecting": "接続中…",
+  "connect.stage.syncing": "ライブラリを同期中…",
 };

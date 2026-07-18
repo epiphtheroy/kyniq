@@ -12,14 +12,25 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import type { DictKey } from "../i18n";
 
-export type ConnectorId = "letterboxd" | "imdb" | "netflix" | "watcha";
-export type ConnectorKind = "file" | "clipboard";
+export type ConnectorId =
+  | "letterboxd"
+  | "imdb"
+  | "netflix"
+  | "watcha"
+  | "trakt"
+  | "tmdb"
+  | "simkl";
+// file/clipboard = the I1 export→pick flow; oauth = the I2 one-tap sign-in flow
+// (system browser → server holds the tokens → server-side sync). §4.
+export type ConnectorKind = "file" | "clipboard" | "oauth";
 
 export type ConnectorStatus =
   | "idle"
   | "awaiting_file" // opened the export page; waiting for the user to pick the file
   | "awaiting_collect" // IMDb only: export queued at the service, waiting to collect
+  | "authorizing" // oauth: system-browser sign-in sheet is open
   | "importing"
+  | "syncing" // oauth: server is pulling the library
   | "done"
   | "error";
 
@@ -38,16 +49,20 @@ export type Connector = {
   /** typographic tile — we ship no third-party logo art */
   monogram: string;
   tint: string; // tile accent (neutralized brand hue, never the Lava gradient)
-  exportUrl: string;
+  /** file/clipboard only — the export page opened in real Safari */
+  exportUrl?: string;
   /** IMDb's two-stage queue: where the finished export is collected */
   collectUrl?: string;
-  stepKeys: [DictKey, DictKey, DictKey];
+  /** file/clipboard only — the 3 real-button guide steps */
+  stepKeys?: [DictKey, DictKey, DictKey];
   /** extra expectation copy (IMDb wait / Netflix no-ratings / Watcha revert) */
   noteKey?: DictKey;
-  /** document-picker MIME hints */
-  fileTypes: string[];
+  /** file only — document-picker MIME hints */
+  fileTypes?: string[];
   /** parse hint forwarded to the server (letterboxd zip vs csv is auto-detected) */
   sourceLabel: string;
+  /** oauth only — the one-line sign-in pitch shown instead of the 3-step guide */
+  pitchKey?: DictKey;
 };
 
 export const CONNECTORS: Connector[] = [
@@ -94,6 +109,32 @@ export const CONNECTORS: Connector[] = [
     noteKey: "connect.watcha.revert",
     fileTypes: [],
     sourceLabel: "watcha",
+  },
+  // OAuth connectors (I2, §1 A-grade) — one-tap sign-in, tokens live server-side,
+  // sync is a server pull. tmdb ids come back directly so matching is exact.
+  {
+    id: "trakt",
+    kind: "oauth",
+    monogram: "TK",
+    tint: "#C0392B", // Trakt red (#ED1C24), neutralized
+    pitchKey: "connect.oauth.pitch",
+    sourceLabel: "trakt",
+  },
+  {
+    id: "tmdb",
+    kind: "oauth",
+    monogram: "TM",
+    tint: "#2A9FC4", // TMDB cyan (#01B4E4), neutralized
+    pitchKey: "connect.oauth.pitch",
+    sourceLabel: "tmdb",
+  },
+  {
+    id: "simkl",
+    kind: "oauth",
+    monogram: "SK",
+    tint: "#2AA46B", // Simkl green (#2ECC71) on ink (#0B0F14), neutralized
+    pitchKey: "connect.oauth.pitch",
+    sourceLabel: "simkl",
   },
 ];
 

@@ -243,6 +243,16 @@ export const en = {
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · Watcha — your history, imported in minutes.",
   "connect.entry.onboarding": "Already on Letterboxd or Watcha? Import everything instead.",
   "connect.empty.signedOut": "Sign in first — imports write to your own ledger.",
+  // OAuth connectors (Trakt / TMDB / Simkl)
+  "connect.oauth.pitch": "Sign in once — we pull your ratings and watched films automatically.",
+  "connect.oauth.connect": "Connect {service}",
+  "connect.oauth.syncing": "Syncing…",
+  "connect.oauth.syncNow": "Sync now",
+  "connect.oauth.disconnect": "Disconnect",
+  "connect.oauth.comingSoon": "Coming soon — {service} sign-in is being set up",
+  "connect.oauth.lastSynced": "Synced {date}",
+  "connect.stage.connecting": "Connecting…",
+  "connect.stage.syncing": "Syncing your library…",
 } as const;
 
 export type DictKey = keyof typeof en;
