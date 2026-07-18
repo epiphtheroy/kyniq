@@ -99,7 +99,7 @@ Netflix      ███░░░░░░░  에피소드 거르는 중…
 | 단계 | 내용 | 전제 |
 |---|---|---|
 | **I1 파일형 완성** ✅**구현 완료 2026-07-18(389698d)** | 허브(`app/connect.tsx`)+상태기계(`src/lib/connect.ts`)+2왕복 동선(실Safari→복귀 배너→문서 피커)+왓챠 클립보드+Netflix 파서(`netflix_csv`)+IMDb 2단 큐 안내+임포트 극장(단계 라벨·진행바·포스터 캐스케이드·발굴 소급). 웹 3라우트 Bearer 폴백(쿠키 무변경). 검증: mobile tsc 0·web tsc 0신규·iOS+web 번들·parse 401 가드·/connect 200. **Expo Go에서 전부 동작** | 마이그 0 |
-| **I2 OAuth 3종** | Trakt → TMDB → Simkl(같은 틀 복제)+user_connections 마이그+일1회 크론 | 마이그 1·개발자 등록 3건(전부 무료·즉시) |
+| **I2 OAuth 3종** ✅**구현 완료 2026-07-18(265b6e8)** | Trakt·TMDB·Simkl 원탭 OAuth(시스템 브라우저)+`user_connections` 마이그 0109(프로덕션 적용·토큰 암호화·deny-all RLS·`me_connections()` RPC)+`lib/connect/{crypto,providers}`+`lib/import/commit-core`(공유 원장)+라우트 4종(`/api/connect/[provider]/{start,callback,sync,disconnect}`)+일1회 크론(`sync-cron`, 08:00 UTC)+앱 OAuth 타일(동기화 극장 재사용). 검증: mobile tsc 0·web tsc 0신규·iOS 번들·503 게이트·크론 skip. **env 미설정 시 "Coming soon"** | 마이그 1(완료)·**오너 env·프로바이더 등록 필요(§7.2)** |
 | **I3 dev 빌드 승격** | 공유시트 수신·Files "Metatake로 열기"·IMDb 로컬알림 리마인드 | eas 빌드(§15.4 이후) |
 | **I4 확장** | Letterboxd API 승인 시 B→A 승격(ZIP은 영구 폴백). 신청 자체는 단계와 무관하게 **지금**(§7-D4) | 오너 발신 |
 
@@ -165,7 +165,20 @@ Netflix      ███░░░░░░░  에피소드 거르는 중…
 >
 > Wonwoo Yoon — Metatake · https://metatake.net · [발신 이메일]
 
+### 7.2 오너 콘솔 — I2 활성화 (코드는 배선 완료, env만 채우면 켜짐)
+
+전부 옵션 — 미설정 프로바이더는 타일이 "Coming soon"으로 표시(에러 아님). 하나라도 켜려면:
+
+1. **`CONNECT_TOKEN_KEY`** (필수·전 커넥터 게이트) — 32바이트 키(hex 64자 또는 base64). 토큰 암호화 키. 생성: `openssl rand -hex 32`. Vercel 환경변수에 등록.
+2. **Trakt**: trakt.tv/oauth/applications에서 앱 생성(무료·즉시) → `TRAKT_CLIENT_ID`·`TRAKT_CLIENT_SECRET`. Redirect URI에 **`metatake://connect-callback`** + 개발용 **`exp://<맥 LAN IP>:8081/--/connect-callback`** 등록.
+3. **TMDB**: `TMDB_READ_TOKEN` 이미 설정됨(매칭에 사용 중). v4 앱 설정에서 위 두 redirect URI 허용 확인.
+4. **Simkl**: simkl.com/settings/developer에서 앱 생성 → `SIMKL_CLIENT_ID`·`SIMKL_CLIENT_SECRET` + 같은 redirect URI 등록.
+5. (선택) `CRON_SECRET` — sync-cron 보호(availability-cron과 공유).
+
+⚠️ 프로바이더 콘솔에 redirect URI를 등록하지 않으면 beginAuth/completeAuth가 provider 측에서 거부된다. ⚠️ 첫 실기 연결에서 pending-blob 왕복과 Trakt refresh(redirect_uri를 scope 컬럼 JSON에 저장하는 방식)를 실검증할 것.
+
 ## §8 개정 이력
+- **v1.3 (2026-07-18)**: I2 OAuth 자동 동기화 구현 완료(265b6e8) — 마이그 0109 프로덕션 적용·프로바이더 코어·라우트 4종·크론·앱 OAuth UI. §7.2 오너 콘솔 env 체크리스트 추가.
 - **v1.2 (2026-07-18)**: §7.1 최종판 — 거절 리스크 진단표(추천 조항=최대 리스크·AI 표기=선제 분리·Pro=독립 데이터 방어)·신청 절차(이메일 창구·발신 주소·제목 규칙)·강화된 최종 문안(서면 약속 4항+투명성 문단). **✅발송 완료 2026-07-18, 발신 wonwoo@metatake.net → api@letterboxd.com.** 후속 규칙: 회신 오면 client id/secret 수령→I2에서 B→A 승격 / **2026-09-01까지 무응답 시** TestFlight 빌드 링크를 첨부해 동일 문안으로 1회 재신청.
 - **v1.1 (2026-07-18)**: 오너 결정 반영 — D1 왓챠 3단 안내 확정 · D3 KinoLights 포기 · D4 "출시 전 신청 OK, 지금 권장" 방침 + 신청 이메일 초안(§7.1).
 - **v1.0 (2026-07-18)**: 최초 기획 확정 — 서비스 인터페이스 실사(웹 리서치 3레인: Letterboxd/IMDb·Netflix/왓챠/KinoLights·Trakt/TMDB/Simkl, 신뢰도 태그 포함), 원칙 3조, 커넥터 등급제(A자동/B파일/보류), 2왕복 iOS 동선·복귀 배너·클립보드 감지·IMDb 2단 큐, 병렬 임포트 극장+회고 소급, 상태 기계, 매칭·정규화 규칙, user_connections 아키텍처, I1~I4. 기존 /me/import 파이프라인(파서 4종·무손실 원장) 위의 증분임을 명시.
