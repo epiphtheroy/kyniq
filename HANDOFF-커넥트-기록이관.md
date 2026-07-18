@@ -23,7 +23,7 @@
 | **IMDb** | **B 파일(2단)** | Your ratings → **⋮ → Export** → **비동기 큐** → `imdb.com/exports`(모바일 `m.imdb.com/exports`)서 다운로드 | ratings CSV: **Const(tt id!)**·Your Rating(1–10)·Title Type·Year | **tt id → TMDB /find 변환** = 정확 매칭 | **2단계 큐가 최대 UX 함정**(누르고 아무 일도 안 생김) → 전용 상태·수거 버튼·리마인드 필요. 인코딩 cp1252 이력. Title Type로 영화만 필터 |
 | **Netflix** | **B 파일(프로필별)** | `netflix.com/settings/viewing-history` → 맨 아래 **"Download all"**(한국 UI **"전체 다운로드"**) → 즉시 CSV. 앱엔 이 화면 없음(사파리로) | Title·Date 2열, 최신순 | 제목+연도 없음! → 콜론 패턴으로 에피소드 걸러낸 뒤 제목 매칭 | **평점 자체가 없음**(넷플릭스는 평점 미반출) · 프로필마다 반복 · 재관람=중복행 |
 | **왓챠피디아** | **B 클립보드** | 공식 내보내기 **없음**. 프로필 공개(전체 공개) 시 `pedia.watcha.com/users/{code}/…/ratings`가 로그인 없이 열림 → **끝까지 스크롤→전체 선택·복사** → 앱에 붙여넣기(기존 `watcha_text` 파서가 이 포맷 전용) | 제목+★0.5–5 | 제목+연도 | 무한스크롤이라 ~200편까지 현실적, 그 이상은 데스크톱 권장(정직하게 안내). 영화/TV 페이지 분리. 시청일 없음 |
-| KinoLights | 보류 | 앱 내 '데이터 내보내기' 존재(2023~)하나 **메뉴 경로·포맷 미검증**(SPA라 웹조사 불가) | 미확인 | — | 수동 실사 후 편입(§7-D3). 신호등 3색 평가라 스케일 매핑 별도 |
+| ~~KinoLights~~ | **제외** | 오너 결정(2026-07-18)으로 포기 — 앱 전용 SPA라 실사 비용 대비 효용 낮음 | — | — | 재검토 시 실기기 실사부터 |
 
 ## §2 UX 설계 — 편의성의 핵심 장치들
 
@@ -101,7 +101,7 @@ Netflix      ███░░░░░░░  에피소드 거르는 중…
 | **I1 파일형 완성** | 허브+상태기계+2왕복 동선+복귀 배너+왓챠 클립보드+Netflix 파서+IMDb 2단 큐 안내. **Expo Go에서 전부 동작** | 마이그 0 |
 | **I2 OAuth 3종** | Trakt → TMDB → Simkl(같은 틀 복제)+user_connections 마이그+일1회 크론 | 마이그 1·개발자 등록 3건(전부 무료·즉시) |
 | **I3 dev 빌드 승격** | 공유시트 수신·Files "Metatake로 열기"·IMDb 로컬알림 리마인드 | eas 빌드(§15.4 이후) |
-| **I4 확장** | KinoLights 수동 실사 후 편입 · Letterboxd API 오너 명의 신청(승인 시 B→A 승격, ZIP은 영구 폴백) | 오너 실사·신청 |
+| **I4 확장** | Letterboxd API 승인 시 B→A 승격(ZIP은 영구 폴백). 신청 자체는 단계와 무관하게 **지금**(§7-D4) | 오너 발신 |
 
 ## §6 불변식 (v1 — 위반 금지)
 
@@ -113,12 +113,31 @@ Netflix      ███░░░░░░░  에피소드 거르는 중…
 6. Simkl 증분 규약(activities 선확인+date_from) 준수 — 위반=client 정지.
 7. 안내 카드의 버튼 라벨은 실제 서비스 문구를 그대로 인용하고, 서비스 개편 시 이 문서 §1 표를 갱신한 뒤 카드 문구를 고친다(문구의 SSOT는 이 표).
 
-## §7 오너 결정 포인트
+## §7 오너 결정 포인트 (2026-07-18 확정 반영)
 
-- **D1** 왓챠 커넥터의 "프로필 전체 공개 전환 안내"를 포함할지(공개 전환은 사용자 프라이버시 선택 — 안내는 하되 기본 권장하지 않는 문구로, 가져온 뒤 다시 비공개로 되돌리는 안내까지 세트로) — 권고: 포함(왕복 안내에 되돌리기까지).
-- **D2** IMDb 리마인드 로컬 알림(옵트인) — 권고: I3에서.
-- **D3** KinoLights 실사(오너 폰에서 메뉴 경로·샘플 파일 확보) 시점.
-- **D4** Letterboxd API 신청 — 오너 명의(가공 페르소나 금지), 프레임은 "사용자 본인 데이터 이관·동반 앱"(추천 프로젝트 프레임 회피). 문안 초안은 요청 시 즉시.
+- **D1 ✅확정** 왓챠 공개 전환 안내 **포함** — 안내 카드에 ①공개 전환 경로 ②가져오기 ③**다시 비공개로 되돌리는 경로**까지 3단 세트로. 기본 문구는 권유가 아닌 선택 안내 톤.
+- **D2** IMDb 리마인드 로컬 알림(옵트인) — 권고: I3에서. (미결)
+- **D3 ✅확정** KinoLights **포기** — §1 표에서 제외.
+- **D4 ✅방침 확정** Letterboxd API — **앱 출시 전 신청 가능·지금 신청 권장.** 근거: ①신청에 라이브 앱 요건 없음(용도 설명 기반 심사) ②신뢰 앵커는 이미 라이브인 metatake.net(콘텐츠 실체가 있는 제품이라 "개인 프로젝트 불허" 조항에 안 걸림) ③응답이 느리거나 없을 수 있어 리드타임을 지금 확보하는 게 이득 ④승인 여부와 무관하게 ZIP 폴백이 있어 실패 비용 0. 프레임 주의: 우리 앱에 추천 기능이 있으므로 신청서엔 **"사용자 본인 데이터의 본인 계정 이관(마이그레이션·동반 앱)"**으로 한정 서술 — Letterboxd 데이터를 추천·분석·LLM에 쓰지 않는다는 사실을 명시(실제로도 안 씀: 가져온 기록은 사용자 원장 user_movies로만 감). 발신=오너 명의(가공 페르소나 금지). 문안 초안 §7.1.
+
+### 7.1 Letterboxd API 신청 이메일 초안 (오너 검토·발신용, To: api@letterboxd.com)
+
+> **Subject:** API access request — Metatake (film-judgment companion app)
+>
+> Hello,
+>
+> I'm Wonwoo Yoon, the founder of Metatake (https://metatake.net) — a film-criticism site with original critical writing and appraisals across ~7,000 films. We're launching a companion iOS/Android app whose sole job is helping people decide what to watch; it complements diary services rather than replacing them.
+>
+> **What we're requesting access for — one narrow use case:** letting a Letterboxd member sign in via OAuth (Authorization Code flow) and import *their own* watched films and ratings into their own Metatake account, so they don't have to re-log their film history by hand. Today we support this via your official export ZIP; API access would simply make the same user-initiated migration seamless on mobile.
+>
+> **What we will not do:** no data analysis or visualization products built on Letterboxd data, no recommendation features powered by it (imported entries go only into the member's private ledger), no LLM/AI training or processing of Letterboxd content, no recreation of Pro features, no access to anyone's data but the authenticated member's own.
+>
+> The website is live today; the app enters TestFlight shortly (US and Korean storefronts). I'm happy to provide a build, screenshots, or any further detail.
+>
+> Thank you for considering this.
+>
+> Wonwoo Yoon — Metatake · https://metatake.net · [연락 이메일]
 
 ## §8 개정 이력
+- **v1.1 (2026-07-18)**: 오너 결정 반영 — D1 왓챠 3단 안내 확정 · D3 KinoLights 포기 · D4 "출시 전 신청 OK, 지금 권장" 방침 + 신청 이메일 초안(§7.1).
 - **v1.0 (2026-07-18)**: 최초 기획 확정 — 서비스 인터페이스 실사(웹 리서치 3레인: Letterboxd/IMDb·Netflix/왓챠/KinoLights·Trakt/TMDB/Simkl, 신뢰도 태그 포함), 원칙 3조, 커넥터 등급제(A자동/B파일/보류), 2왕복 iOS 동선·복귀 배너·클립보드 감지·IMDb 2단 큐, 병렬 임포트 극장+회고 소급, 상태 기계, 매칭·정규화 규칙, user_connections 아키텍처, I1~I4. 기존 /me/import 파이프라인(파서 4종·무손실 원장) 위의 증분임을 명시.
