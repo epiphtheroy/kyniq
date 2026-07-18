@@ -16,7 +16,7 @@ export type NavCounts = {
 };
 
 type Item = { t: string; h: string; c?: number };
-type Group = { id: string; label: string; items: Item[]; href?: string; desc?: string };
+type Group = { id: string; label: string; items: Item[]; href?: string };
 
 function sb() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -31,13 +31,13 @@ type Acct =
 
 function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
-    { id: "watch", label: "Watch", desc: "Every film and director, re-seen through the framework.", items: [
+    { id: "watch", label: "Watch", items: [
       { t: "Films", h: "/film", c: c.films },
       { t: "Directors", h: "/director", c: c.directors },
       { t: "Latest", h: "/latest" },
       { t: "Trending", h: "/trending" },
     ] },
-    { id: "wander", label: "Wander", desc: "How the latest AI scores, maps, and connects cinema.", items: [
+    { id: "wander", label: "Wander", items: [
       { t: "Metatake TV", h: "/tv" },
       { t: "TakeScore", h: "/takescore" },
       { t: "What to Watch", h: "/what-to-watch" },
@@ -48,25 +48,25 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
       { t: "Where to watch", h: "/where-to-watch" },
       { t: "Credits", h: "/credits" },
     ] },
-    { id: "read", label: "Read", desc: "What the AI is writing now — arguments you can argue with.", items: [
+    { id: "read", label: "Read", items: [
       { t: "Now Playing", h: "/now" },
       { t: "The Daily", h: "/blog" },
       { t: "Updates", h: "/updates" },
       { t: "Curious", h: "/curious" },
       { t: "Newsletter", h: "/blog/subscribe" },
     ] },
-    { id: "ideas", label: "Theory", desc: "The ideas and thinkers films are read through — and why.", items: [
+    { id: "ideas", label: "Theory", items: [
       { t: "Concepts", h: "/concept", c: c.concepts },
       { t: "Theorists", h: "/theorist", c: c.theorists },
       { t: "Traditions", h: "/tradition", c: c.traditions },
       { t: "Strong Misreadings", h: "/strong-misreadings", c: c.readings },
       { t: "Methodology", h: "/methodology" },
     ] },
-    { id: "lenses", label: "Patterns", desc: "What recurs across cinema, classified with its reasons.", items: [
+    { id: "lenses", label: "Patterns", items: [
       { t: "Tropes", h: "/tropes", c: c.tropes },
       { t: "Archetypes", h: "/catalog" },
     ] },
-    { id: "you", label: "You", desc: "Your shelf, your taste, your saved readings.", items: [
+    { id: "you", label: "You", items: [
       { t: "My Room", h: "/room" },
       { t: "Import your films", h: "/me/import" },
       ...(acct.state === "in"
@@ -189,7 +189,6 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
                 </button>
               )}
               <div className={`drop${grp === g.id ? " open" : ""}`}>
-                {g.desc ? <p className="ng-desc">{tr(locale, g.desc)}</p> : null}
                 {g.items.map((it) => (
                   <Link key={it.t + it.h} href={it.h}>
                     <span className="nl">{navLabel(it.t, locale)}</span>
@@ -369,7 +368,6 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
           {groups.map((g) => (
             <div className="mcol" key={g.id}>
               <h4>{tr(locale, g.label)}</h4>
-              {g.desc ? <p className="ng-desc mcol-desc">{tr(locale, g.desc)}</p> : null}
               {g.items.map((it) => (
                 <Link key={it.t + it.h} href={it.h}>
                   <span className="nl">{navLabel(it.t, locale)}</span>
