@@ -22,7 +22,7 @@
 
 ## 1. Apple Developer 등록 직후 (iOS 경로 개시)
 
-- [ ] **Apple Developer Program 등록** — $99/년. 이 하나로 **미국+한국 포함 전 세계 스토어프론트** 커버(국가별 추가비 없음).
+- [ ] **Apple Developer Program 등록** — $99/년. 이 하나로 **미국+한국 포함 전 세계 스토어프론트** 커버(국가별 추가비 없음). 👉 **그대로 따라 하는 상세 가이드: `APPLE-DEVELOPER-등록가이드.md`** (개인 등록 권장·아이폰 앱 경로·입력값 프리필). 승인 후 **Team ID 10자리**만 에이전트에게 주면 AASA 교체·앱 생성 이어짐.
 - [ ] **`eas init`** (mobile/ 디렉터리에서) — 푸시 projectId 발급. (Expo 계정 필요, 무료)
 - [ ] **App Store Connect에서 앱 레코드 생성** — 이름 **"Metatake"** 가용성 확인(선점 시 `mobile/store/listing-en.md`의 대안명 사용). 이 시점에 이름이 예약됨.
 - [ ] **`public/.well-known/apple-app-site-association`의 `TEAMID` 교체** — Apple Developer 팀 ID로. **수동 커밋**(public/은 워처 비대상).
