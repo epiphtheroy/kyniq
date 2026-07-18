@@ -36,6 +36,7 @@ import {
   TSBadge,
   Ui,
   UndoPill,
+  Wordmark,
 } from "../../src/components/ui";
 import { DEFAULT_EDITION, EDITIONS } from "../../src/editions";
 import { t } from "../../src/i18n";
@@ -341,6 +342,9 @@ export default function TonightScreen() {
         backgroundColor: pal.bg,
       }}
     >
+      <View style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s3 }}>
+        <Wordmark />
+      </View>
       <View style={{ paddingHorizontal: sp.s4 }}>
         <SearchPill
           placeholder={t("search.placeholder")}

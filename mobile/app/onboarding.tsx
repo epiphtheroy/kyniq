@@ -6,7 +6,9 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as AppleAuthentication from "expo-apple-authentication";
 import { LinearGradient } from "expo-linear-gradient";
+import * as Linking from "expo-linking";
 import { useLocalSearchParams, useRouter } from "expo-router";
+import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useMemo, useState } from "react";
 import { Platform, ScrollView, TextInput, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -20,6 +22,7 @@ import {
   Screen,
   Tactile,
   Ui,
+  Wordmark,
 } from "../src/components/ui";
 import { ALL_EDITIONS } from "../src/editions";
 import { t } from "../src/i18n";
@@ -31,7 +34,7 @@ import { usePrefs } from "../src/state/prefs";
 import { brand, font, fs, gradient, radius, sp, usePalette } from "../src/theme";
 import type { Service, TonightRow } from "../src/types";
 
-const STEPS = ["country", "services", "account", "taste"] as const;
+const STEPS = ["welcome", "country", "services", "account", "taste"] as const;
 type Step = (typeof STEPS)[number];
 
 function isStep(s: string | undefined): s is Step {
@@ -45,7 +48,10 @@ export default function OnboardingScreen() {
   const params = useLocalSearchParams<{ step?: string }>();
   const { onboarded, set } = usePrefs();
 
-  const [step, setStep] = useState<Step>(() => (isStep(params.step) ? params.step : "country"));
+  // First launch opens on the value pitch; deep links and re-entry skip it.
+  const [step, setStep] = useState<Step>(() =>
+    isStep(params.step) ? params.step : onboarded ? "country" : "welcome",
+  );
 
   const finish = () => {
     set({ onboarded: true });
@@ -64,13 +70,15 @@ export default function OnboardingScreen() {
 
   const stepIndex = STEPS.indexOf(step);
   const headerTitle =
-    step === "country"
-      ? t("onboarding.countryTitle")
-      : step === "services"
-        ? t("onboarding.servicesTitle")
-        : step === "taste"
-          ? t("onboarding.tasteTitle")
-          : t("auth.title");
+    step === "welcome"
+      ? t("welcome.title")
+      : step === "country"
+        ? t("onboarding.countryTitle")
+        : step === "services"
+          ? t("onboarding.servicesTitle")
+          : step === "taste"
+            ? t("onboarding.tasteTitle")
+            : t("auth.title");
 
   return (
     <Screen>
@@ -139,6 +147,7 @@ export default function OnboardingScreen() {
         </View>
       </View>
 
+      {step === "welcome" ? <StepWelcome onNext={() => setStep("country")} /> : null}
       {step === "country" ? <StepCountry onNext={() => setStep("services")} /> : null}
       {step === "services" ? <StepServices onNext={() => setStep("account")} /> : null}
       {step === "account" ? <StepAccount onDone={() => void accountDone()} /> : null}
@@ -165,6 +174,66 @@ function BottomBar({ children }: { children: React.ReactNode }) {
         {children}
       </View>
     </View>
+  );
+}
+
+/* ---------------------------------------------------------------- welcome */
+
+/** First-launch value pitch (owner directive 2026-07-18): what the app IS,
+    in three lines, before any choice is asked. Value first, account last. */
+function StepWelcome({ onNext }: { onNext: () => void }) {
+  const pal = usePalette();
+
+  const Row = ({
+    icon,
+    title,
+    body,
+  }: {
+    icon: React.ComponentProps<typeof Ionicons>["name"];
+    title: string;
+    body: string;
+  }) => (
+    <View style={{ flexDirection: "row", gap: sp.s4, alignItems: "flex-start" }}>
+      <View
+        style={{
+          width: 44,
+          height: 44,
+          borderRadius: radius.sm,
+          backgroundColor: pal.surface,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Ionicons name={icon} size={22} color={brand.accent} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Ui size={fs.md} weight="600">
+          {title}
+        </Ui>
+        <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 2 }}>
+          {body}
+        </Ui>
+      </View>
+    </View>
+  );
+
+  return (
+    <>
+      <ScrollView contentContainerStyle={{ paddingHorizontal: sp.s5, paddingTop: sp.s6 }}>
+        <Wordmark size={fs.x3} />
+        <Ui size={fs.lg} color={pal.inkSoft} style={{ marginTop: sp.s3 }}>
+          {t("welcome.tagline")}
+        </Ui>
+        <View style={{ marginTop: sp.s6, gap: sp.s5 }}>
+          <Row icon="checkmark-done-outline" title={t("welcome.p1t")} body={t("welcome.p1b")} />
+          <Row icon="albums-outline" title={t("welcome.p2t")} body={t("welcome.p2b")} />
+          <Row icon="map-outline" title={t("welcome.p3t")} body={t("welcome.p3b")} />
+        </View>
+      </ScrollView>
+      <BottomBar>
+        <GradientBtn label={t("welcome.start")} onPress={onNext} />
+      </BottomBar>
+    </>
   );
 }
 
@@ -384,6 +453,7 @@ function StepAccount({ onDone }: { onDone: () => void }) {
   const [emailFocus, setEmailFocus] = useState(false);
   const [codeFocus, setCodeFocus] = useState(false);
   const [appleErr, setAppleErr] = useState(false);
+  const [googleErr, setGoogleErr] = useState(false);
 
   const fieldStyle = (focused: boolean) =>
     ({
@@ -424,6 +494,42 @@ function StepAccount({ onDone }: { onDone: () => void }) {
     setBusy(false);
     if (e) setError(t("auth.codeError"));
     else onDone();
+  };
+
+  // Google — OAuth through the system browser (expo-web-browser), tokens
+  // handed back on the deep link. In Expo Go the redirect is exp://<lan-ip>,
+  // in dev/store builds metatake://auth-callback — BOTH must be whitelisted in
+  // the Supabase Auth console (owner TODO, with the Google provider itself).
+  // Cancel stays silent; real failures surface the friendly notice (§13-17
+  // spirit: never pretend it worked).
+  const signInGoogle = async () => {
+    try {
+      const redirectTo = Linking.createURL("auth-callback");
+      const { data, error: e } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo, skipBrowserRedirect: true },
+      });
+      if (e || !data?.url) throw e ?? new Error("no oauth url");
+      const res = await WebBrowser.openAuthSessionAsync(data.url, redirectTo);
+      if (res.type !== "success" || !res.url) return; // user closed the sheet
+      const back = new URL(res.url);
+      const authCode = back.searchParams.get("code");
+      if (authCode) {
+        const { error: ex } = await supabase.auth.exchangeCodeForSession(authCode);
+        if (ex) throw ex;
+      } else {
+        // implicit flow — tokens ride the URL fragment
+        const frag = new URLSearchParams((back.hash || "").replace(/^#/, ""));
+        const access_token = frag.get("access_token");
+        const refresh_token = frag.get("refresh_token");
+        if (!access_token || !refresh_token) throw new Error("no tokens in callback");
+        const { error: es } = await supabase.auth.setSession({ access_token, refresh_token });
+        if (es) throw es;
+      }
+      onDone();
+    } catch {
+      setGoogleErr(true);
+    }
   };
 
   // Same Apple intent as the signed-out block in (tabs)/my.tsx.
@@ -508,10 +614,13 @@ function StepAccount({ onDone }: { onDone: () => void }) {
             <SocialRow
               icon="logo-google"
               label={t("auth.continueGoogle")}
-              onPress={() => {
-                /* TODO(owner): wire Google OAuth (provider not configured yet) */
-              }}
+              onPress={() => void signInGoogle()}
             />
+            {googleErr ? (
+              <Ui size={fs.xs + 1} color={pal.muted}>
+                {t("auth.googleError")}
+              </Ui>
+            ) : null}
           </>
         ) : (
           <>

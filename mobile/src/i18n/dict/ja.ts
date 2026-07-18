@@ -174,4 +174,15 @@ export const ja: Record<keyof typeof en, string> = {
   // v4 — 好みのキャリブレーション
   "onboarding.tasteTitle": "観たことのある作品は？",
   "onboarding.tasteBody": "観た作品をタップしてください — おすすめと旅が最初の画面から動き出します。",
+  // v4 — ウェルカム（初回起動）
+  "welcome.title": "ようこそ",
+  "welcome.tagline": "観る前に、判断を。",
+  "welcome.p1t": "観るか見送るか、決着",
+  "welcome.p1b": "TakeScoreとネタバレなしの批評リード、そして一つのバー — 観たい・パス・観た。",
+  "welcome.p2t": "生きているキュー",
+  "welcome.p2b": "保存した作品があなたの配信サービスと出会い、決めるまで正直に熟成します。",
+  "welcome.p3t": "映画の中を歩く",
+  "welcome.p3b": "17,000件のロケ地を地図で — あなたの近くも。",
+  "welcome.start": "はじめる",
+  "auth.googleError": "Googleログインはまだ利用できません — メールでお試しください。",
 };

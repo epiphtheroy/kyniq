@@ -668,6 +668,25 @@ export function JudgeBar({
   );
 }
 
+/** Brand wordmark — the serif M lineage in text form, with the Lava tick.
+    The ONE place the editorial serif carries chrome (brand thread, §3). */
+export function Wordmark({ size = fs.xl }: { size?: number }) {
+  const pal = usePalette();
+  return (
+    <View style={{ flexDirection: "row", alignItems: "baseline", gap: 3 }}>
+      <Text style={{ fontFamily: font.serifBold, fontSize: size, color: pal.ink }}>Metatake</Text>
+      <View
+        style={{
+          width: Math.max(5, Math.round(size * 0.24)),
+          height: Math.max(5, Math.round(size * 0.24)),
+          borderRadius: 999,
+          backgroundColor: brand.accent,
+        }}
+      />
+    </View>
+  );
+}
+
 /** Floating undo pill — every judgment is reversible (§13-15). */
 export function UndoPill({
   label,

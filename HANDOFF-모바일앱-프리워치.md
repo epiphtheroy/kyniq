@@ -449,8 +449,10 @@ v3.1의 마이그 0106(`push_tokens`·`user_prefs`·`push_sent`)·웹 4건·오�
 
 ### 15.4 오너 TODO (앱이 스토어에 가기 위한 계정·콘솔 작업)
 
+> **제출 자료는 준비 완료(2026-07-18)**: 리스팅 킷 = `mobile/store/`(listing-en + listing-ko·REVIEW-NOTES·PRIVACY-LABELS·ASSETS·feature-graphic.html — **등록 스토어프론트 = 미국 + 한국**(오너 결정 2026-07-18): 기본 리스팅 EN, 한국 스토어프론트 현지화 = listing-ko) · 웹 = `/app`(랜딩)·`/privacy`(정책 — **제출 전 오너 법적 검토 필수**) · 인앱 = 웰컴 스텝·워드마크·Google OAuth 코드. 아래는 오너만 할 수 있는 계정·콘솔 작업.
+
 1. **Apple Developer 등록($99/년)** → ① `eas init`(푸시 projectId) ② `eas build --platform ios` ③ `public/.well-known/apple-app-site-association`의 `TEAMID` 교체(수동 커밋).
-2. **Supabase Auth 콘솔**: Apple provider 활성화·Google provider(선택)·이메일 OTP 템플릿에 `{{ .Token }}` 추가.
+2. **Supabase Auth 콘솔**: Apple provider 활성화·**Google provider 활성화(코드는 배선 완료 — Google Cloud OAuth 클라이언트 생성 후 client id/secret 입력, Redirect URL 화이트리스트에 `metatake://auth-callback` + 개발용 `exp://<맥 LAN IP>:8081/--/auth-callback` 추가)**·이메일 OTP 템플릿에 `{{ .Token }}` 추가.
 3. (선택) Vercel env `CRON_SECRET` — 푸시 크론 보호.
 4. **Android 스토어**: Play 등록($25) → `eas build --profile production --platform android`(AAB) → `assetlinks.json` SHA256 교체(수동 커밋). 내부 APK는 계정 없이 `--profile preview` 가능.
 5. **푸시 자격증명**: iOS=APNs(EAS 자동) · Android=FCM v1 서비스계정 키. 둘 다 `eas init` 이후.

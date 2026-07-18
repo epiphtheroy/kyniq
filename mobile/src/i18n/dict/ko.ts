@@ -175,4 +175,15 @@ export const ko: Record<keyof typeof en, string> = {
   // v4 — 온보딩 취향 캘리브레이션
   "onboarding.tasteTitle": "본 영화가 있나요?",
   "onboarding.tasteBody": "본 작품을 탭하세요 — 추천과 여정이 첫 화면부터 살아납니다.",
+  // v4 — 웰컴(첫 실행)
+  "welcome.title": "환영합니다",
+  "welcome.tagline": "보기 전에, 판단.",
+  "welcome.p1t": "볼까 말까를 끝내드립니다",
+  "welcome.p1b": "TakeScore와 스포일러 없는 크리티컬 리드, 그리고 판단 바 하나 — 볼래·패스·봤어.",
+  "welcome.p2t": "살아 있는 큐",
+  "welcome.p2b": "담아둔 영화가 내 스트리밍 서비스와 만나고, 결정할 때까지 정직하게 시효가 흐릅니다.",
+  "welcome.p3t": "영화 속으로 걸어가기",
+  "welcome.p3b": "17,000곳의 촬영지를 지도에서 — 내 주변까지.",
+  "welcome.start": "시작하기",
+  "auth.googleError": "Google 로그인이 아직 준비되지 않았어요 — 이메일로 시도해 주세요.",
 };

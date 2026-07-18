@@ -174,4 +174,15 @@ export const es: Record<keyof typeof en, string> = {
   // v4 — calibración de gusto
   "onboarding.tasteTitle": "¿Has visto alguna de estas?",
   "onboarding.tasteBody": "Toca las que hayas visto — las recomendaciones y tu camino arrancan al instante.",
+  // v4 — bienvenida (primer arranque)
+  "welcome.title": "Bienvenido",
+  "welcome.tagline": "Juzga las películas antes de verlas.",
+  "welcome.p1t": "Verla o pasar, decidido",
+  "welcome.p1b": "TakeScore, una lectura crítica sin spoilers y una barra: la quiero, paso, ya la vi.",
+  "welcome.p2t": "Una cola que sigue viva",
+  "welcome.p2b": "Lo que guardas se cruza con tus servicios de streaming — y envejece con honestidad hasta que decidas.",
+  "welcome.p3t": "Camina dentro del cine",
+  "welcome.p3b": "17.000 localizaciones de rodaje en un mapa, incluidas las cercanas.",
+  "welcome.start": "Empezar",
+  "auth.googleError": "El acceso con Google aún no está disponible — prueba con el correo.",
 };

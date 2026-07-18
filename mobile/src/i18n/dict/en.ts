@@ -189,6 +189,17 @@ export const en = {
   // v4 — onboarding taste calibration
   "onboarding.tasteTitle": "Seen any of these?",
   "onboarding.tasteBody": "Tap what you've watched — recommendations and your journey start working immediately.",
+  // v4 — welcome (first launch)
+  "welcome.title": "Welcome",
+  "welcome.tagline": "Judge films before you watch.",
+  "welcome.p1t": "Watch or pass, settled",
+  "welcome.p1b": "TakeScore, a spoiler-free critical lead, and one bar: want it, pass it, seen it.",
+  "welcome.p2t": "A queue that stays alive",
+  "welcome.p2b": "What you keep meets your streaming services — and ages honestly until you decide.",
+  "welcome.p3t": "Walk into the films",
+  "welcome.p3b": "17,000 filming locations on a map, including the ones near you.",
+  "welcome.start": "Get started",
+  "auth.googleError": "Google sign-in isn't available yet — try email instead.",
 } as const;
 
 export type DictKey = keyof typeof en;
