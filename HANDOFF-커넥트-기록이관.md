@@ -120,24 +120,52 @@ Netflix      ███░░░░░░░  에피소드 거르는 중…
 - **D3 ✅확정** KinoLights **포기** — §1 표에서 제외.
 - **D4 ✅방침 확정** Letterboxd API — **앱 출시 전 신청 가능·지금 신청 권장.** 근거: ①신청에 라이브 앱 요건 없음(용도 설명 기반 심사) ②신뢰 앵커는 이미 라이브인 metatake.net(콘텐츠 실체가 있는 제품이라 "개인 프로젝트 불허" 조항에 안 걸림) ③응답이 느리거나 없을 수 있어 리드타임을 지금 확보하는 게 이득 ④승인 여부와 무관하게 ZIP 폴백이 있어 실패 비용 0. 프레임 주의: 우리 앱에 추천 기능이 있으므로 신청서엔 **"사용자 본인 데이터의 본인 계정 이관(마이그레이션·동반 앱)"**으로 한정 서술 — Letterboxd 데이터를 추천·분석·LLM에 쓰지 않는다는 사실을 명시(실제로도 안 씀: 가져온 기록은 사용자 원장 user_movies로만 감). 발신=오너 명의(가공 페르소나 금지). 문안 초안 §7.1.
 
-### 7.1 Letterboxd API 신청 이메일 초안 (오너 검토·발신용, To: api@letterboxd.com)
+### 7.1 Letterboxd API 신청 — 최종판 (리스크 진단 · 방지 설계 · 절차 · 문안) — v1.2 확정
 
-> **Subject:** API access request — Metatake (film-judgment companion app)
+#### (a) 심사자가 metatake.net을 봤을 때의 거절 리스크 진단
+
+| # | 불허 조항 | 심사자 눈에 보이는 것 | 방지 설계 |
+|---|---|---|---|
+| 1 | 추천 프로젝트 | TakeScore 랭킹·What to Watch·kindred — "추천 제품"으로 분류될 소지 **(최대 리스크)** | 신청 용도를 **이관(migration) 하나로 한정** + "레터박스 데이터는 추천에 불사용" 서면 약속. 실제로도 참: 가져온 기록은 user_movies(비공개 원장)로만 감 |
+| 2 | LLM/GPT 관련 사용 | 사이트가 AI 집필을 투명 표기(크레딧 개편) → "AI 프로젝트"로 뭉뚱그려질 소지 | **숨기지 않고 선제 분리**: "편집 콘텐츠는 자체 AI-assisted 시스템 산출이며 사이트에 투명 표기; 회원 데이터는 그 파이프라인에 절대 불입" 한 줄. 은폐 시도는 사이트 방문 즉시 들통나므로 역효과 |
+| 3 | Pro 기능 재현 | Pro 핵심 = 왓치리스트×가용성인데 우리 앱에도 가용성 화면 존재 | "가용성은 자체 라이선스 데이터(JustWatch/TMDB)로 구동, 레터박스 데이터 불사용" 명시 |
+| 4 | 개인·사적 프로젝트 | — | 라이브 제품(7천 편 규모)·양대 스토어 출시 일정 제시로 해소 |
+| 5 | (조항 아님) 무응답 | 개별 회신 없음 공지 | 실패 비용 0(ZIP 폴백 영구) · 4~6주 무응답 시 TestFlight 빌드 링크 첨부 재신청 |
+
+#### (b) 신청 절차 — 어디서, 어떻게
+
+1. **신청 창구는 웹 폼이 아니라 이메일입니다**: `api@letterboxd.com` (공식 안내 페이지 https://letterboxd.com/api-beta/ 참조 — 여기에 신청 방법·불허 용도가 명시돼 있으니 발송 전 한 번 훑어볼 것).
+2. **발신 주소**: 오너가 실제 통제하는 주소. 가능하면 도메인 주소(예: wonwoo@metatake.net — **실존·수신 가능 여부 먼저 확인**), 없으면 channel.wonwoo@gmail.com. 도메인 주소가 신뢰도에 유리.
+3. **제목에 앱/프로젝트명 필수**(그들의 명시 요구): 아래 문안의 Subject 그대로.
+4. 본문 = (c) 문안. 첨부 불요(링크로 충분).
+5. **기대 관리**: "모든 신청을 읽지만 개별 회신·승인 보장은 없다"가 공식 입장. 회신 오면 client id/secret 수령 → Connect I2에서 OAuth 연동(B→A 승격). 무응답이어도 ZIP 커넥터는 그대로.
+6. 발송 후 이 문서에 발송일 기록(§8).
+
+#### (c) 최종 이메일 문안 (발신=오너 명의)
+
+> **Subject:** API access request — Metatake (member-initiated import of their own data)
 >
 > Hello,
 >
-> I'm Wonwoo Yoon, the founder of Metatake (https://metatake.net) — a film-criticism site with original critical writing and appraisals across ~7,000 films. We're launching a companion iOS/Android app whose sole job is helping people decide what to watch; it complements diary services rather than replacing them.
+> I'm Wonwoo Yoon, founder of Metatake (https://metatake.net), a film criticism and appraisal site covering ~7,000 films, now launching a companion iOS/Android app that helps people decide what to watch.
 >
-> **What we're requesting access for — one narrow use case:** letting a Letterboxd member sign in via OAuth (Authorization Code flow) and import *their own* watched films and ratings into their own Metatake account, so they don't have to re-log their film history by hand. Today we support this via your official export ZIP; API access would simply make the same user-initiated migration seamless on mobile.
+> We're requesting API access for exactly one use case: a Letterboxd member signs in through the Authorization Code flow and imports *their own* watched films and ratings into their own private Metatake ledger, so they don't have to rebuild their film history by hand. We already support this migration through your official export ZIP; API access would only make the same member-initiated import smoother on mobile.
 >
-> **What we will not do:** no data analysis or visualization products built on Letterboxd data, no recommendation features powered by it (imported entries go only into the member's private ledger), no LLM/AI training or processing of Letterboxd content, no recreation of Pro features, no access to anyone's data but the authenticated member's own.
+> Our commitments, in writing:
+> - Letterboxd data is never displayed publicly, aggregated, analyzed, or visualized.
+> - It never feeds our recommendation features, editorial systems, or any AI/LLM processing. Imported entries exist solely in the member's own private account and are deleted on disconnect or account deletion.
+> - We do not recreate Pro features: streaming-availability features in our product run entirely on our own independently licensed data (JustWatch/TMDB).
+> - Scope-minimal, read-only access to the authenticated member's own data — nothing else.
 >
-> The website is live today; the app enters TestFlight shortly (US and Korean storefronts). I'm happy to provide a build, screenshots, or any further detail.
+> For transparency: Metatake's editorial content is produced by our in-house AI-assisted editorial system and is credited as such on-site. Member data — from Letterboxd or anywhere else — plays no part in that pipeline.
+>
+> The website is live today; the app enters TestFlight shortly (US and Korean storefronts). I'm happy to provide a build or any further detail.
 >
 > Thank you for considering this.
 >
-> Wonwoo Yoon — Metatake · https://metatake.net · [연락 이메일]
+> Wonwoo Yoon — Metatake · https://metatake.net · [발신 이메일]
 
 ## §8 개정 이력
+- **v1.2 (2026-07-18)**: §7.1 최종판 — 거절 리스크 진단표(추천 조항=최대 리스크·AI 표기=선제 분리·Pro=독립 데이터 방어)·신청 절차(이메일 창구·발신 주소·제목 규칙)·강화된 최종 문안(서면 약속 4항+투명성 문단). 발송일 기록 예정: ____
 - **v1.1 (2026-07-18)**: 오너 결정 반영 — D1 왓챠 3단 안내 확정 · D3 KinoLights 포기 · D4 "출시 전 신청 OK, 지금 권장" 방침 + 신청 이메일 초안(§7.1).
 - **v1.0 (2026-07-18)**: 최초 기획 확정 — 서비스 인터페이스 실사(웹 리서치 3레인: Letterboxd/IMDb·Netflix/왓챠/KinoLights·Trakt/TMDB/Simkl, 신뢰도 태그 포함), 원칙 3조, 커넥터 등급제(A자동/B파일/보류), 2왕복 iOS 동선·복귀 배너·클립보드 감지·IMDb 2단 큐, 병렬 임포트 극장+회고 소급, 상태 기계, 매칭·정규화 규칙, user_connections 아키텍처, I1~I4. 기존 /me/import 파이프라인(파서 4종·무손실 원장) 위의 증분임을 명시.
