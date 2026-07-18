@@ -98,7 +98,7 @@ Netflix      ███░░░░░░░  에피소드 거르는 중…
 
 | 단계 | 내용 | 전제 |
 |---|---|---|
-| **I1 파일형 완성** | 허브+상태기계+2왕복 동선+복귀 배너+왓챠 클립보드+Netflix 파서+IMDb 2단 큐 안내. **Expo Go에서 전부 동작** | 마이그 0 |
+| **I1 파일형 완성** ✅**구현 완료 2026-07-18(389698d)** | 허브(`app/connect.tsx`)+상태기계(`src/lib/connect.ts`)+2왕복 동선(실Safari→복귀 배너→문서 피커)+왓챠 클립보드+Netflix 파서(`netflix_csv`)+IMDb 2단 큐 안내+임포트 극장(단계 라벨·진행바·포스터 캐스케이드·발굴 소급). 웹 3라우트 Bearer 폴백(쿠키 무변경). 검증: mobile tsc 0·web tsc 0신규·iOS+web 번들·parse 401 가드·/connect 200. **Expo Go에서 전부 동작** | 마이그 0 |
 | **I2 OAuth 3종** | Trakt → TMDB → Simkl(같은 틀 복제)+user_connections 마이그+일1회 크론 | 마이그 1·개발자 등록 3건(전부 무료·즉시) |
 | **I3 dev 빌드 승격** | 공유시트 수신·Files "Metatake로 열기"·IMDb 로컬알림 리마인드 | eas 빌드(§15.4 이후) |
 | **I4 확장** | Letterboxd API 승인 시 B→A 승격(ZIP은 영구 폴백). 신청 자체는 단계와 무관하게 **지금**(§7-D4) | 오너 발신 |
