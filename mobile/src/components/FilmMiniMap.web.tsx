@@ -46,21 +46,28 @@ export default function FilmMiniMap({
   useEffect(() => {
     if (!divRef.current || !pins.length) return;
     injectCss();
-    const map = new maplibregl.Map({
-      container: divRef.current,
-      style: MAP_STYLE,
-      interactive: false,
-      attributionControl: { compact: true },
-    });
-    mapRef.current = map;
-    for (const p of pins) {
-      new maplibregl.Marker({ color: brand.accent, scale: 0.72 })
-        .setLngLat([p.lng, p.lat])
-        .addTo(map);
+    // maplibre THROWS on browsers without WebGL — without this guard the error
+    // boundary swallows the whole film screen, not just the mini map.
+    let map: maplibregl.Map;
+    try {
+      map = new maplibregl.Map({
+        container: divRef.current,
+        style: MAP_STYLE,
+        interactive: false,
+        attributionControl: { compact: true },
+      });
+      mapRef.current = map;
+      for (const p of pins) {
+        new maplibregl.Marker({ color: brand.accent, scale: 0.72 })
+          .setLngLat([p.lng, p.lat])
+          .addTo(map);
+      }
+      const b = new maplibregl.LngLatBounds();
+      for (const p of pins) b.extend([p.lng, p.lat]);
+      map.fitBounds(b, { padding: 36, maxZoom: 9, duration: 0 });
+    } catch {
+      return; // quiet box — the pin-name rows below still work
     }
-    const b = new maplibregl.LngLatBounds();
-    for (const p of pins) b.extend([p.lng, p.lat]);
-    map.fitBounds(b, { padding: 36, maxZoom: 9, duration: 0 });
     return () => {
       mapRef.current = null;
       map.remove();
