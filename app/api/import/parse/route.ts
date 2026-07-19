@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient as createServerClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { parseFile, parseText } from "@/lib/import/parsers";
 import { parseWithLlm } from "@/lib/import/llm";
 import type { ParseResult } from "@/lib/import/types";
@@ -15,7 +16,18 @@ const MAX_FILE = 8 * 1024 * 1024; // 8MB
 export async function POST(req: NextRequest) {
   const ssr = await createServerClient();
   const { data: auth } = await ssr.auth.getUser();
-  if (!auth?.user) return NextResponse.json({ error: "auth" }, { status: 401 });
+  let user = auth?.user ?? null;
+  // Mobile app fallback (HANDOFF-커넥트-기록이관.md): the app has no cookie
+  // session — accept a Bearer access token, validated against Supabase Auth.
+  // Additive only; the cookie path above is untouched.
+  if (!user) {
+    const bearer = (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+    if (bearer) {
+      const { data: tok } = await createAdminClient().auth.getUser(bearer);
+      user = tok?.user ?? null;
+    }
+  }
+  if (!user) return NextResponse.json({ error: "auth" }, { status: 401 });
 
   try {
     let result: ParseResult;

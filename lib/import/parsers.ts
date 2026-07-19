@@ -19,7 +19,63 @@ function csvSource(headers: string[]): ImportSource {
   const h = headers.map((x) => x.toLowerCase().trim());
   if (h.includes("const") && h.some((x) => x === "your rating")) return "imdb_csv";
   if (h.includes("letterboxd uri")) return "letterboxd_csv";
+  // Netflix viewing-history: exactly the two columns Title,Date
+  if (h.length === 2 && h.includes("title") && h.includes("date")) return "netflix_csv";
   return "sheet";
+}
+
+/* ---------- Netflix viewing-history CSV (HANDOFF-커넥트-기록이관.md §1/§3) ---------- */
+
+// Episode rows carry colon-separated season/episode segments; films are bare titles.
+// NOTE: a bare ": Chapter N" / ": Episode N" is NOT episode-proof — many FILMS use
+// it (John Wick: Chapter 2, Kill Bill, etc.). Only the season pattern (a number
+// after Season/Part/Series) or ≥3 colon-segments with an episode-ish middle are
+// treated as episodes; standalone "Show: Episode 5" is kept (it surfaces as an
+// honest unmatched row, never a silent drop — §6-5).
+const NFX_SEASON_RE = /:\s*(Season|Part|Series|시즌|파트)\s*\d+/i;
+const NFX_SEASONISH_RE = /\b(Season|Part|Series|Volume|Chapter|Episode)\b|시즌|파트|에피소드/i;
+
+function isNetflixEpisode(title: string): boolean {
+  if (NFX_SEASON_RE.test(title)) return true;
+  // ≥2 ": " segments with a Season-like middle (e.g. "Show: Limited Series: Pilot").
+  // Conservative: when unsure keep the row — unmatched titles surface honestly downstream.
+  const segs = title.split(": ");
+  return segs.length >= 3 && segs.slice(1, -1).some((s) => NFX_SEASONISH_RE.test(s));
+}
+
+function parseNetflixCsv(records: Record<string, unknown>[]): ParseResult {
+  const keys = Object.keys(records[0] ?? {});
+  const titleKey = keys.find((k) => k.trim().toLowerCase() === "title") ?? "Title";
+  const dateKey = keys.find((k) => k.trim().toLowerCase() === "date") ?? "Date";
+
+  // M/D/YY vs D/M/YY is a per-FILE property: any first component >12 ⇒ D/M/YY.
+  const DATE_RE = /^(\d{1,2})[/.\-](\d{1,2})[/.\-](\d{4}|\d{2})$/;
+  let dayFirst = false;
+  for (const r of records) {
+    const m = String(r[dateKey] ?? "").trim().match(DATE_RE);
+    if (m && Number(m[1]) > 12) { dayFirst = true; break; }
+  }
+  const toIso = (v: unknown): string | undefined => {
+    const m = String(v ?? "").trim().match(DATE_RE);
+    if (!m) return parseDate(v); // odd shapes (e.g. YYYY-MM-DD) — best effort
+    const [month, day] = dayFirst ? [Number(m[2]), Number(m[1])] : [Number(m[1]), Number(m[2])];
+    const year = m[3].length === 2 ? 2000 + Number(m[3]) : Number(m[3]); // two-digit years → 20xx
+    if (month < 1 || month > 12 || day < 1 || day > 31) return undefined;
+    return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  };
+
+  let skippedEpisodes = 0;
+  const rows: NormalizedRow[] = [];
+  for (const r of records) {
+    const title = String(r[titleKey] ?? "").trim();
+    if (!title) continue;
+    if (isNetflixEpisode(title)) { skippedEpisodes++; continue; }
+    // No year, no rating (Netflix exports neither); raw keeps the original line's fields.
+    rows.push({ i: rows.length, title, watched_at: toIso(r[dateKey]), raw: { ...r } });
+  }
+  const warnings: string[] = [];
+  if (skippedEpisodes) warnings.push(`${skippedEpisodes} series episodes skipped`);
+  return { source: "netflix_csv", rows, warnings };
 }
 
 /* ---------- Letterboxd export ZIP ---------- */
@@ -150,19 +206,29 @@ export async function parseFile(filename: string, buf: Buffer): Promise<ParseRes
   }
 
   // CSV / TSV / plain text files
-  const text = buf.toString("utf-8");
+  let text = buf.toString("utf-8");
+  // IMDb exports have shipped as windows-1252: when utf-8 decoding mangles
+  // high bytes (U+FFFD) on an IMDb-shaped header, re-decode as latin1.
+  if (text.includes("\uFFFD")) {
+    const latin = buf.toString("latin1");
+    const header = (latin.split(/\r?\n/, 1)[0] ?? "").toLowerCase();
+    if (header.includes("const") && header.includes("your rating")) text = latin;
+  }
   return parseText(text, lower.endsWith(".csv") || lower.endsWith(".tsv"));
 }
 
 /** Pasted text or CSV body. Returns rows; caller decides on LLM fallback. */
 export async function parseText(text: string, preferCsv = false): Promise<ParseResult> {
   const firstLine = text.replace(/^﻿/, "").split(/\r?\n/, 1)[0] ?? "";
-  const looksCsv = preferCsv || (firstLine.split(",").length >= 3 && !STAR_RE.test(firstLine));
+  const looksCsv = preferCsv
+    || (firstLine.split(",").length >= 3 && !STAR_RE.test(firstLine))
+    || /^"?title"?\s*,\s*"?date"?\s*$/i.test(firstLine.trim()); // pasted Netflix history
   if (looksCsv) {
     const records = parseCsv(text);
     if (records.length) {
       const headers = Object.keys(records[0]);
       const source = csvSource(headers);
+      if (source === "netflix_csv") return parseNetflixCsv(records);
       const { rows, warnings, matchedFields } = mapSheetRows(records, source === "imdb_csv" ? { forceScale: 10 } : undefined);
       // header mapping worked → it's a real table
       if (rows.length && matchedFields.includes("title")) return { source, rows, warnings };

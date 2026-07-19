@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["AYDX65J9H4.net.metatake.app"],
+        "components": [
+          { "/": "/film/*" },
+          { "/": "/director/*" },
+          { "/": "/what-to-watch" },
+          { "/": "/whereto/*" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["AYDX65J9H4.net.metatake.app"]
+  }
+}

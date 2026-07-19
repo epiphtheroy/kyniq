@@ -252,3 +252,10 @@
 
 ## 11. 구축 AI가 먼저 읽을 파일
 `HANDOFF-테이크스코어-스크리너.md`(부모·엔진) · `app/takescore/page.tsx` · `components/CodexExplorer.tsx` · `components/screener/*` · `components/ProviderPicker`(있다면) · `app/api/lens/takescore/route.ts` · `components/WatchProviders.tsx`·`AccessSummary.tsx` · `app/where-to-watch/page.tsx`·`app/whereto/[slug]/page.tsx`(자매 표면·문구) · `components/home2/Nav.tsx`(나브 등록) · `lib/access_enrichment.json` · `supabase/migrations/0070_*`(Screener RPC 정본) · `app/film/[slug]/read.css`(rd-hero) · 이 문서.
+
+
+## 12. 신규 소비자 — 모바일 앱 BFF (2026-07-17)
+
+모바일 앱(`HANDOFF-모바일앱-프리워치.md`)의 Tonight 피드가 이 문서의 엔진을 그대로 소비한다:
+`app/api/v1/app/tonight/route.ts` → `cinecodex_ranked`(**Marquee v11 인자면** 그대로: p_watch_country/p_watch_countries/p_providers/p_include_us_library/p_include_rent/p_genres) + `film_availability` + `wtw_services`(온보딩 서비스 그리드).
+**§9의 "신규 인자 default=이전 동일" 불변식이 이제 웹 Marquee뿐 아니라 앱 BFF도 보호한다** — 인자면을 바꿀 때 이 라우트를 소비자 목록에 포함할 것. 상세 접점: 모바일 정본 §16.1.

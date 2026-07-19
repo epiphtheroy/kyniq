@@ -5,6 +5,8 @@ your memory still says "Atlas" (for the geographic map) or "the Map" / `/map`
 (for the connection graph), this is the mapping. Shipped & live-verified on
 metatake.net (commit `c4e23be`).
 
+> ⚠️ **다음 개명 때 추가로 볼 곳 (2026-07-17 신설):** 이 개명(07-12) 당시엔 모바일 앱이 없었다. 지금은 앱이 읽기 표면 경로를 하드코딩한다 — `mobile/app/film/[slug].tsx`·`mobile/app/director/[slug].tsx`(각 readMore 목록)·`mobile/app/read.tsx`(허브 딥링크 정규식). 웹 라우트를 옮기면 이 3파일도 함께 고칠 것. 정본: `HANDOFF-모바일앱-프리워치.md` §16.5(유일한 수동 결합점).
+
 ## Why
 Two words each meant something other than they said, and collided in the UI:
 - **"Atlas"** = the geographic filming map. Confusable with "map".
