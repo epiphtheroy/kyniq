@@ -221,7 +221,8 @@ export default function FilmScreen() {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     if (!session) {
       flash(t("judge.signInToKeep"), null);
-      router.push("/onboarding");
+      // Straight to the sign-in form, not the top of onboarding.
+      router.push({ pathname: "/onboarding", params: { step: "account" } });
       return false;
     }
     return true;

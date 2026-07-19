@@ -45,6 +45,7 @@ export const en = {
   // search
   "search.placeholder": "Search films, directors…",
   "search.empty": "No results in the Metatake canon.",
+  "browse.empty": "No films match these filters.",
   "search.notInCanon": "Not in the Metatake canon yet",
   "search.searchWeb": "Search the full site",
   // tonight
@@ -99,6 +100,7 @@ export const en = {
   "auth.codePlaceholder": "6-digit code",
   "auth.verify": "Verify",
   "auth.resend": "Resend code",
+  "auth.changeEmail": "Use a different email",
   "auth.codeError": "That code didn't work — check it and try again.",
   // tonight/map/director extras
   "tonight.emptyFiltered": "Nothing left to show tonight.",

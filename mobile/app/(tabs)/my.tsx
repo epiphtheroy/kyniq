@@ -359,7 +359,7 @@ export default function ShelfScreen() {
             </Ui>
             <Btn
               label={t("my.signIn")}
-              onPress={() => router.push("/onboarding")}
+              onPress={() => router.push({ pathname: "/onboarding", params: { step: "account" } })}
               style={{ alignSelf: "stretch" }}
             />
             {/* Quiet secondary path — imports need auth anyway; the hub explains */}

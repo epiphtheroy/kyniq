@@ -11,7 +11,7 @@
 import * as Location from "expo-location";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { View } from "react-native";
+import { Linking, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { WebView, type WebViewMessageEvent } from "react-native-webview";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -195,7 +195,7 @@ export default function MapWebViewScreen() {
         `window.__flyTo && window.__flyTo(${pos.coords.longitude}, ${pos.coords.latitude}, 8.5); true;`,
       );
     } catch {
-      setLocDenied(true);
+      // Transient GPS failure — keep the control usable for a retry.
     }
   }, []);
 
@@ -259,7 +259,7 @@ export default function MapWebViewScreen() {
         </View>
         {filmSlug ? <Chip label={t("map.showAll")} onPress={() => router.setParams({ film: "" })} /> : null}
         <View style={{ flex: 1 }} />
-        {locDenied ? null : <Chip label={t("map.nearMe")} icon="locate" onPress={nearMe} />}
+        <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? () => void Linking.openSettings() : nearMe} />
       </View>
 
       {filmSlug && pins.length === 0 ? (
