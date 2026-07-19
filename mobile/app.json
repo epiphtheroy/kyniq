@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Metatake",
-    "slug": "metatake",
+    "slug": "wonwoometatake",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -106,6 +106,7 @@
     },
     "runtimeVersion": {
       "policy": "appVersion"
-    }
+    },
+    "owner": "wonwoo_metatake"
   }
 }
