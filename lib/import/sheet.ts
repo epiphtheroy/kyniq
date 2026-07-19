@@ -19,7 +19,7 @@ const SYNONYMS: Record<Field, string[]> = {
   logged: ["date", "date rated", "날짜"],
   note: ["review", "note", "notes", "comment", "memo", "리뷰", "메모", "코멘트", "감상", "한줄평", "코멘트 내용"],
   director: ["director", "directors", "감독"],
-  imdb: ["const", "imdbid", "imdb id", "imdb"],
+  imdb: ["const", "tconst", "imdbid", "imdb id", "imdb"],
   tmdb: ["tmdbid", "tmdb id", "tmdb"],
   tags: ["tags", "태그"],
   rewatch: ["rewatch", "재관람"],

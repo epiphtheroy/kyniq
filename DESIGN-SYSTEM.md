@@ -3,6 +3,12 @@
 Status: in progress (2026-06). Goal: one responsive codebase, editorial identity **kept**,
 modernized foundation. No separate mobile site.
 
+> **범위: 웹 전용.** 여기서 "mobile-first"는 폰 폭 CSS를 뜻하고, "No separate mobile site"는 별도 m. 도메인을 만들지 않는다는 뜻이다 —
+> **네이티브 앱과는 무관하다.** 모바일 앱(Expo)은 2026-07-17부터 **디자인 시스템 v2 "Lava"**(`mobile/src/theme.ts`)를 쓰며,
+> 이 문서의 v4 토큰(직각 모서리·헤어라인·플랫 레드 #E3120B)은 **앱에서 의도적으로 폐기**됐다. 웹=에디토리얼 아카이브 / 앱=결정 도구.
+> 두 시스템이 공유하는 것은 브랜드 실 하나(PT Serif = 작품·감독 제목)뿐이다. **양방향 이식 금지** —
+> 근거·규칙: `HANDOFF-모바일앱-프리워치.md` §3 및 불변식 §13-14.
+
 ## Why this exists (audit findings)
 
 The codebase carries **two conflicting responsive paradigms**:

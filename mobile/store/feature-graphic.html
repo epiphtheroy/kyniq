@@ -1,0 +1,158 @@
+<!doctype html>
+<!--
+  Google Play feature graphic — 1024×500.
+  Self-contained: inline CSS only, system fonts only (serif stack for the
+  wordmark, per the app's one surviving brand thread; Lava gradient accents).
+
+  HOW TO EXPORT
+  1. Open this file in Chrome at 100% zoom.
+  2. DevTools → ⌘⇧P → "Capture node screenshot" with the #stage element
+     selected (or crop a full screenshot to the dashed guide).
+  3. Verify the PNG is exactly 1024×500, then upload to Play Console →
+     Store listing → Feature graphic.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Metatake — Play feature graphic 1024×500</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #E9E4DE; }
+  body { display: grid; place-items: start center; padding: 40px 0; }
+
+  #stage {
+    position: relative;
+    width: 1024px;
+    height: 500px;
+    overflow: hidden;
+    background:
+      radial-gradient(720px 420px at 82% 40%, #FFF3F0 0%, rgba(255,243,240,0) 62%),
+      linear-gradient(180deg, #FBF8F5 0%, #F6F1EC 100%);
+    outline: 1px dashed #b9b0a6; /* crop guide — outside the 1024×500 box */
+    font-family: "Helvetica Neue", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #222222;
+  }
+
+  /* ---- left: the words ---- */
+  .words {
+    position: absolute;
+    left: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 560px;
+  }
+  .kicker {
+    width: 56px;
+    height: 5px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #FF385C 0%, #E61E4D 55%, #D70466 100%);
+    margin-bottom: 26px;
+  }
+  .wordmark {
+    font-family: Charter, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    color: #1c1b1a;
+    margin: 0 0 20px;
+  }
+  .tagline {
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 0.002em;
+    color: #4b4642;
+    margin: 0 0 34px;
+  }
+  .pillars {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6d6660;
+    white-space: nowrap;
+  }
+  .pillars .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #FF385C 0%, #D70466 100%);
+    flex: none;
+  }
+
+  /* ---- right: the gauge-ring mark (the app icon's symbol) ---- */
+  .mark {
+    position: absolute;
+    right: 78px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+  }
+  .ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    /* 78% arc, Lava gradient; the rest a faint track */
+    background: conic-gradient(from 220deg,
+      #FF385C 0deg, #E61E4D 155deg, #D70466 281deg,
+      rgba(34,34,34,0.10) 281deg 360deg);
+    -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 30px), #000 calc(100% - 29px));
+            mask: radial-gradient(closest-side, transparent calc(100% - 30px), #000 calc(100% - 29px));
+  }
+  .ring-cap { /* soft glow behind the ring so it sits on the page, not in it */
+    position: absolute;
+    inset: -24px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(215,4,102,0.10), rgba(215,4,102,0) 70%);
+  }
+  .mark .m {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: Charter, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 148px;
+    line-height: 1;
+    color: #1c1b1a;
+    padding-bottom: 8px;
+  }
+
+  .note {
+    width: 1024px;
+    margin: 14px auto 0;
+    font: 13px/1.5 -apple-system, "Segoe UI", sans-serif;
+    color: #857c73;
+  }
+</style>
+</head>
+<body>
+<div>
+  <div id="stage">
+    <div class="words">
+      <div class="kicker"></div>
+      <h1 class="wordmark">Metatake</h1>
+      <p class="tagline">Judge films before you watch.</p>
+      <div class="pillars">
+        <span>TakeScore</span>
+        <span class="dot"></span>
+        <span>A living queue</span>
+        <span class="dot"></span>
+        <span>17,000 locations</span>
+      </div>
+    </div>
+    <div class="mark" aria-hidden="true">
+      <div class="ring-cap"></div>
+      <div class="ring"></div>
+      <div class="m">M</div>
+    </div>
+  </div>
+  <p class="note">Capture the framed area only (1024×500). The dashed line is an
+  export guide and sits outside the box — a node screenshot of <code>#stage</code>
+  excludes it.</p>
+</div>
+</body>
+</html>

@@ -4,6 +4,7 @@ export type ImportSource =
   | "letterboxd_zip"
   | "letterboxd_csv"
   | "imdb_csv"
+  | "netflix_csv"    // Netflix viewing-history (Title,Date — no year/rating)
   | "sheet"          // generic CSV/XLSX (incl. Watcha backups)
   | "watcha_text"    // rule-parsed pasted text
   | "freeform_llm";  // LLM-structured pasted text
