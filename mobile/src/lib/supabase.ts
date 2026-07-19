@@ -11,5 +11,11 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: false,
+    // PKCE is the reliable OAuth flow on native: the provider redirects back
+    // with `?code=` (a query param survives the custom-scheme deep link, unlike
+    // an implicit `#access_token` fragment which iOS can drop), and the stored
+    // verifier lets exchangeCodeForSession() complete the sign-in. Required for
+    // the Google flow in app/onboarding.tsx to work in the store build.
+    flowType: "pkce",
   },
 });

@@ -113,57 +113,50 @@ map.fitBounds(b,{padding:34,maxZoom:9,duration:0});
   );
 }
 
-/** MapLibre GL Native mini (dev/store builds — the canon renderer). */
+/** MapLibre GL Native mini (dev/store builds — the canon renderer).
+ * v11 API (@maplibre/maplibre-react-native ≥10): `Map` + `Camera` +
+ * `GeoJSONSource`/`Layer` — matches MapNative. The old v9 names (`MapView`,
+ * `PointAnnotation`) no longer exist and would render `undefined` → red-screen. */
 function NativeMini({ pins, height, onPress }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const ML = require("@maplibre/maplibre-react-native") as {
-    MapView: React.ComponentType<Record<string, unknown>>;
+    Map: React.ComponentType<Record<string, unknown>>;
     Camera: React.ComponentType<Record<string, unknown>>;
-    PointAnnotation: React.ComponentType<Record<string, unknown>>;
+    GeoJSONSource: React.ComponentType<Record<string, unknown>>;
+    Layer: React.ComponentType<Record<string, unknown>>;
   };
+  const { Map: MLMap, Camera, GeoJSONSource, Layer } = ML;
   const b = bounds(pins);
+  const single = pins.length === 1 || (b.minLat === b.maxLat && b.minLng === b.maxLng);
+  const initialViewState = single
+    ? { center: [(b.minLng + b.maxLng) / 2, (b.minLat + b.maxLat) / 2], zoom: 8 }
+    : { bounds: [b.minLng, b.minLat, b.maxLng, b.maxLat], padding: { top: 34, bottom: 34, left: 34, right: 34 } };
+  const collection = {
+    type: "FeatureCollection" as const,
+    features: pins.slice(0, 120).map((p, i) => ({
+      type: "Feature" as const,
+      id: i,
+      geometry: { type: "Point" as const, coordinates: [p.lng, p.lat] },
+      properties: {},
+    })),
+  };
   return (
     <View style={{ height, borderRadius: radius.md, overflow: "hidden" }}>
-      <ML.MapView
-        style={{ flex: 1 }}
-        mapStyle={MAP_STYLE}
-        scrollEnabled={false}
-        zoomEnabled={false}
-        rotateEnabled={false}
-        pitchEnabled={false}
-        attributionEnabled
-        logoEnabled={false}
-      >
-        <ML.Camera
-          bounds={{
-            ne: [b.maxLng, b.maxLat],
-            sw: [b.minLng, b.minLat],
-            paddingTop: 34,
-            paddingBottom: 34,
-            paddingLeft: 34,
-            paddingRight: 34,
-          }}
-          animationDuration={0}
-        />
-        {pins.slice(0, 120).map((p) => (
-          <ML.PointAnnotation
-            key={String(p.id)}
-            id={`fmm-${p.id}`}
-            coordinate={[p.lng, p.lat]}
-          >
-            <View
-              style={{
-                width: 14,
-                height: 14,
-                borderRadius: 7,
-                backgroundColor: brand.accent,
-                borderWidth: 2,
-                borderColor: "#FFFFFF",
-              }}
-            />
-          </ML.PointAnnotation>
-        ))}
-      </ML.MapView>
+      <MLMap style={{ flex: 1 }} mapStyle={MAP_STYLE} logo={false}>
+        <Camera initialViewState={initialViewState} />
+        <GeoJSONSource id="fmm-src" data={collection}>
+          <Layer
+            type="circle"
+            id="fmm-pts"
+            paint={{
+              "circle-color": brand.accent,
+              "circle-radius": 6,
+              "circle-stroke-width": 2,
+              "circle-stroke-color": "#FFFFFF",
+            }}
+          />
+        </GeoJSONSource>
+      </MLMap>
       <Pressable
         onPress={onPress}
         style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
