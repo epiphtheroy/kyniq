@@ -172,26 +172,18 @@ export default function FilmMiniMap(props: Props) {
   // render, so a try around `return <Child/>` would never catch its require).
   let Impl: React.ComponentType<Props> | null = null;
   try {
-    if (IN_EXPO_GO) {
-      if (Platform.OS === "android") {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("react-native-webview");
-        Impl = WebViewMini;
-      } else {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("react-native-maps");
-        Impl = AppleMini;
-      }
+    if (IN_EXPO_GO && Platform.OS === "ios") {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require("react-native-maps");
+      Impl = AppleMini;
     } else {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("@maplibre/maplibre-react-native");
-        Impl = NativeMini;
-      } catch {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("react-native-webview");
-        Impl = WebViewMini;
-      }
+      // Store builds AND Expo Go Android: MapLibre GL JS in a WebView.
+      // NativeMini (MapLibre GL Native) hard-crashes the iOS store build on
+      // device (confirmed TestFlight build 8, 2026-07-20) — benched until the
+      // upstream v11/new-arch crash is resolved.
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require("react-native-webview");
+      Impl = WebViewMini;
     }
   } catch {
     Impl = null; // no renderer in this binary — the pin-name rows still stand
