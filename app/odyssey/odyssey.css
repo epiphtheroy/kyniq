@@ -34,6 +34,10 @@
 .odg-hint { position: absolute; left: 12px; bottom: 10px; font-size: 11.5px; color: #7a746a;
   background: rgba(250,249,246,.72); border-radius: 999px; padding: 4px 11px; pointer-events: none;
   backdrop-filter: blur(2px); max-width: calc(100% - 24px); }
+.odg-axis { position: absolute; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  color: #a9a094; pointer-events: none; text-transform: none; }
+.odg-axis-x { right: 14px; bottom: 34px; }
+.odg-axis-y { left: 12px; top: 10px; writing-mode: vertical-rl; }
 .odg-tip { position: absolute; background: rgba(255,255,255,.97); border: 1px solid #e2ded5;
   border-radius: 8px; padding: 6px 9px; max-width: 200px; pointer-events: none; z-index: 5;
   box-shadow: 0 4px 16px rgba(20,15,5,.12); font-size: 12.5px; }

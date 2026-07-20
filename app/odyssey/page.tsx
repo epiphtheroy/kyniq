@@ -44,11 +44,12 @@ export default function OdysseyPage() {
           <div className="seclbl">The map</div>
           <h1 className="disp">Odyssey</h1>
           <p className="standfirst">
-            Cinephile cinema as a similarity galaxy: {map.stations.length.toLocaleString()} films
-            drift into constellations by taste, the terrain rises where canon peaks cluster, and{" "}
-            {lines.length} movements and genres thread across it as lines you can follow. Zoom in
-            and the stars become posters; hover a line to trace its road; let a destination mode
-            propose your next ride — the point is to travel far without a failed night.
+            A map of cinephile cinema laid out by generation and sensibility:{" "}
+            {map.stations.length.toLocaleString()} films run left to right through the decades and
+            stack top to bottom by taste, so kindred films sit together. {lines.length} movements
+            and genres thread across it as lines you can follow — click a film to light up its line,
+            tilt the plane (⌘/Ctrl-drag) to trace the roads, and let a destination mode propose your
+            next ride. The point is to travel far without a failed night.
           </p>
         </header>
 

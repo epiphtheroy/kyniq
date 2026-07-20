@@ -1,18 +1,20 @@
 "use client";
 
 /**
- * OdysseyGalaxy — the cinephile film map as a similarity galaxy.
+ * OdysseyGalaxy — the cinephile film map as a flat time × tendency plane.
  *
- * Films are placed by t-SNE over their taste vectors (film_map_xy), drawn as
- * upright poster tiles once you zoom in. A soft hill-shaded terrain underneath
- * gives the field elevation — peaks rise where films cluster densely and where
- * canon standing + altitude run high, so the "canon summits" read as literal
- * mountains. Movement/genre LINES thread across the terrain as coloured paths —
- * the thing a pure t-SNE map lacks: roads you can follow. Zoom glides with
- * inertia toward a target. Personalization (seen films, streaming) is a
- * client-side overlay; the map artifact is identical for everyone.
+ * Layout: x = generation (release year, left→right), y = taste tendency (the
+ * t-SNE axis over film_taste_vector), so films of a kindred sensibility stack
+ * vertically while cinema flows through the decades horizontally. Films are
+ * upright poster tiles once you zoom in. Movement/genre LINES thread across the
+ * plane as coloured roads — and because each movement sits in a narrow band of
+ * years, its road reads as a legible vertical streak rather than a scribble.
  *
- * Canvas throughout (≈1.9k poster tiles + terrain). Forked from GalaxyView.
+ * The plane is flat, but the CAMERA can tilt (⌘/Ctrl-drag): the view pitches so
+ * you look across the plane, which spreads the roads out and makes them easier
+ * to trace. Personalization (seen films, streaming) is a client-side overlay.
+ *
+ * Canvas throughout (≈1.9k poster tiles). Forked from GalaxyView.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useUserFilms } from "@/components/UserFilmsProvider";
@@ -23,14 +25,14 @@ const EMPTY_SET: ReadonlySet<string> = new Set();
 const IMG = "https://image.tmdb.org/t/p";
 const THUMB_MIN = 15; // node px height at which dots become posters
 const LABEL_CAP = 200;
-const WMIN = -112, WMAX = 112, WSPAN = WMAX - WMIN; // world bounds for terrain
-const TN = 300; // terrain grid resolution
 const EASE = 0.22; // camera inertia toward target
+const XPER = 3.4; // world x-units per year (time axis)
+const YSCALE = 1.15; // world y stretch of the tendency axis
 
 type View = { cx: number; cy: number; scale: number; pitch: number };
 type Pt = OdyStation & { tx: number; ty: number };
 
-export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
+export default function OdysseyGalaxy() {
   const uf = useUserFilms();
   const seenSet = uf?.seenSlugs ?? EMPTY_SET;
 
@@ -40,7 +42,6 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
   const [country, setCountry] = useState<"KR" | "US">("US");
   const [showSeen, setShowSeen] = useState(true);
   const [showAvail, setShowAvail] = useState(false);
-  const [showTerrain, setShowTerrain] = useState(true);
   const [hoverLine, setHoverLine] = useState<string | null>(null);
   const [solo, setSolo] = useState<string | null>(null);
   const [sel, setSel] = useState<OdyStation | null>(null);
@@ -51,13 +52,11 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
-  const view = useRef<View>({ cx: 4, cy: -3, scale: 0, pitch: 0 });
-  const target = useRef<View>({ cx: 4, cy: -3, scale: 0, pitch: 0 });
+  const view = useRef<View>({ cx: 0, cy: 0, scale: 0, pitch: 0 });
+  const target = useRef<View>({ cx: 0, cy: 0, scale: 0, pitch: 0 });
   const drag = useRef<{ x: number; y: number; moved: boolean; tilt: boolean } | null>(null);
   const imgCache = useRef<Map<string, HTMLImageElement | "err">>(new Map());
   const labelCache = useRef<{ key: string; slugs: Set<string> }>({ key: "", slugs: new Set() });
-  const terrainRef = useRef<HTMLCanvasElement | null>(null);
-  const heightRef = useRef<Float32Array | null>(null); // normalized elevation, for tilt lift
   const drawRef = useRef<() => void>(() => {});
   const rafOn = useRef(false);
   const routeRef = useRef<{ from?: string; to: string } | null>(null);
@@ -106,95 +105,42 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     } catch {}
   }, [showAvail, country, ensureAvail]);
 
-  // stations that carry a t-SNE position (the galaxy layout)
   const pts = useMemo(
     () => (data?.stations ?? []).filter((s): s is Pt => s.tx != null && s.ty != null),
     [data],
   );
   const byId = useMemo(() => new Map(pts.map((s) => [s.s, s])), [pts]);
   const availCC = useMemo(() => (avail ? avail[country] ?? {} : null), [avail, country]);
+  const lineById = useMemo(() => new Map((data?.lines ?? []).map((l) => [l.id, l])), [data]);
 
-  // ---------------------------------------------------------------- terrain
-  // A hill-shaded height field: each film splats a gaussian weighted by
-  // 1 + prestige + altitude, so dense + prestigious + demanding regions rise.
-  useEffect(() => {
-    if (!pts.length) return;
-    const H = new Float32Array(TN * TN);
-    const cell = WSPAN / TN;
-    const sigma = 3.4 / cell; // world units → cells
-    const rad = Math.ceil(sigma * 2.5);
-    const g: number[] = [];
-    for (let d = -rad; d <= rad; d++) g[d + rad] = Math.exp(-(d * d) / (2 * sigma * sigma));
+  // ---- layout: x = year (generation), y = taste tendency (t-SNE y) -----------
+  const midYear = useMemo(() => {
+    let lo = 1e9, hi = -1e9;
     for (const s of pts) {
-      const w = 0.5 + Math.min(1.4, (s.pr ?? 0) / 60) + ((s.c ?? 3) - 1) / 4 * 0.7;
-      const gx = Math.round((s.tx! - WMIN) / cell);
-      const gy = Math.round((s.ty! - WMIN) / cell);
-      for (let dy = -rad; dy <= rad; dy++) {
-        const yy = gy + dy;
-        if (yy < 0 || yy >= TN) continue;
-        const wy = g[dy + rad];
-        for (let dx = -rad; dx <= rad; dx++) {
-          const xx = gx + dx;
-          if (xx < 0 || xx >= TN) continue;
-          H[yy * TN + xx] += w * wy * g[dx + rad];
-        }
-      }
+      const yr = s.y ?? 0;
+      if (yr) { if (yr < lo) lo = yr; if (yr > hi) hi = yr; }
     }
-    let hmax = 0;
-    for (let i = 0; i < H.length; i++) if (H[i] > hmax) hmax = H[i];
-    const inv = hmax > 0 ? 1 / hmax : 1;
-    for (let i = 0; i < H.length; i++) H[i] *= inv; // normalize in place → 0..1
-    heightRef.current = H;
-
-    const tc = document.createElement("canvas");
-    tc.width = TN;
-    tc.height = TN;
-    const tctx = tc.getContext("2d")!;
-    const img = tctx.createImageData(TN, TN);
-    // hillshade: light from upper-left; contour banding every ~0.11
-    const lx = -0.5, ly = -0.7, lz = 0.5;
-    for (let y = 0; y < TN; y++) {
-      for (let x = 0; x < TN; x++) {
-        const i = y * TN + x;
-        const h = H[i];
-        const hl = H[y * TN + Math.max(0, x - 1)];
-        const hr = H[y * TN + Math.min(TN - 1, x + 1)];
-        const hu = H[Math.max(0, y - 1) * TN + x];
-        const hd = H[Math.min(TN - 1, y + 1) * TN + x];
-        const nx = (hl - hr) * 11, ny = (hu - hd) * 11, nz = 1;
-        const nl = Math.hypot(nx, ny, nz) || 1;
-        let shade = (nx * lx + ny * ly + nz * lz) / nl; // -1..1
-        shade = 0.5 + shade * 0.5;
-        // elevation ramp: cool slate valley → warm paper plain → warm ridge summit
-        const e = Math.pow(h, 0.7);
-        let r = 224 - (1 - e) * 42 + (e > 0.5 ? (e - 0.5) * 64 : 0);
-        let gg = 222 - (1 - e) * 32 + (e > 0.5 ? (e - 0.5) * 30 : 0);
-        let b = 214 + (1 - e) * 10 - (e > 0.5 ? (e - 0.5) * 84 : 0);
-        const s2 = 0.42 + shade * 0.82;
-        r *= s2; gg *= s2; b *= s2;
-        // contour banding
-        const band = (h * 8) % 1;
-        if (h > 0.06 && band < 0.1) { r *= 0.85; gg *= 0.85; b *= 0.85; }
-        const o = i * 4;
-        img.data[o] = Math.max(0, Math.min(255, r));
-        img.data[o + 1] = Math.max(0, Math.min(255, gg));
-        img.data[o + 2] = Math.max(0, Math.min(255, b));
-        img.data[o + 3] = h > 0.015 ? 255 : Math.round(h / 0.015 * 255);
-      }
-    }
-    tctx.putImageData(img, 0, 0);
-    terrainRef.current = tc;
-    drawRef.current();
+    return lo > hi ? 1970 : (lo + hi) / 2;
   }, [pts]);
+  const wx = useCallback((s: OdyStation) => ((s.y ?? midYear) - midYear) * XPER, [midYear]);
+  const wy = useCallback((s: Pt) => s.ty * YSCALE, []);
+  const decades = useMemo(() => {
+    const out: number[] = [];
+    for (let d = 1900; d <= 2030; d += 10) out.push(d);
+    return out;
+  }, []);
 
-  // initial camera fit
+  // initial camera fit: frame the whole time span
   useEffect(() => {
     if (!pts.length || !canvasRef.current) return;
     const cv = canvasRef.current;
-    const s = Math.min(cv.clientWidth, cv.clientHeight) / 210;
-    view.current = { cx: 4, cy: -3, scale: s, pitch: 0 };
-    target.current = { cx: 4, cy: -3, scale: s, pitch: 0 };
-  }, [pts]);
+    let x0 = 1e9, x1 = -1e9;
+    for (const s of pts) { const x = wx(s); if (x < x0) x0 = x; if (x > x1) x1 = x; }
+    const span = Math.max(200, x1 - x0);
+    const s = (cv.clientWidth * 0.92) / span;
+    view.current = { cx: 0, cy: 0, scale: s, pitch: 0 };
+    target.current = { cx: 0, cy: 0, scale: s, pitch: 0 };
+  }, [pts, wx]);
 
   const ensureImg = useCallback((s: OdyStation) => {
     if (!s.p) return null;
@@ -210,95 +156,69 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     return null;
   }, []);
 
-  const lineById = useMemo(() => new Map((data?.lines ?? []).map((l) => [l.id, l])), [data]);
-
   // ---------------------------------------------------------------- draw
   const draw = useCallback(() => {
     const cv = canvasRef.current;
     if (!cv || !data) return;
     const w = cv.clientWidth, h = cv.clientHeight;
     const dpr = window.devicePixelRatio || 1;
-    if (cv.width !== w * dpr || cv.height !== h * dpr) {
-      cv.width = w * dpr;
-      cv.height = h * dpr;
-    }
+    if (cv.width !== w * dpr || cv.height !== h * dpr) { cv.width = w * dpr; cv.height = h * dpr; }
     const ctx = cv.getContext("2d");
     if (!ctx) return;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
     if (!view.current.scale) return;
     const { cx, cy, scale, pitch } = view.current;
-    const SX = (wx: number) => (wx - cx) * scale + w / 2;
-    const SY = (wy: number) => (wy - cy) * scale + h / 2;
-
-    // 3D tilt: cmd-drag pitches the camera toward the horizon. The terrain
-    // becomes a real ridgeline landscape (mountains you look across), and each
-    // film lifts onto its ridge by elevation — canon summits rise toward you.
     const tilted = pitch > 0.06;
-    const cpi = Math.cos(pitch), spi = Math.sin(pitch);
-    const horizon = h * 0.42;
-    const cellW = WSPAN / TN;
-    const LIFT = 300 * spi; // screen px a full-elevation (1.0) point rises under tilt
-    const H = heightRef.current;
-    const elevAt = (wx: number, wy: number) => {
-      if (!H) return 0;
-      const gx = Math.round((wx - WMIN) / cellW), gy = Math.round((wy - WMIN) / cellW);
-      if (gx < 0 || gx >= TN || gy < 0 || gy >= TN) return 0;
-      return H[gy * TN + gx];
+    const cpi = Math.cos(pitch), horizon = h * 0.4;
+    // world → screen; a vertical tilt pitches the flat plane toward a horizon.
+    const PX = (x: number) => (x - cx) * scale + w / 2;
+    const PY = (y: number) => {
+      const by = (y - cy) * scale + h / 2;
+      return tilted ? horizon + (by - horizon) * cpi : by;
     };
-    // world → screen. Under tilt, y compresses toward the horizon and the point
-    // rises by its elevation; base y (undistorted) drives depth sorting.
-    const PROJ = (wx: number, wy: number, e?: number) => {
-      const bx = (wx - cx) * scale + w / 2;
-      const by = (wy - cy) * scale + h / 2;
-      if (!tilted) return { x: bx, y: by, by };
-      const ev = e ?? elevAt(wx, wy);
-      return { x: bx, y: horizon + (by - horizon) * cpi - ev * LIFT, by };
-    };
-
-    // terrain
-    if (showTerrain && terrainRef.current && !tilted) {
-      // top-down: the hill-shaded image
-      ctx.imageSmoothingEnabled = true;
-      ctx.globalAlpha = 0.92;
-      ctx.drawImage(terrainRef.current, 0, 0, TN, TN, SX(WMIN), SY(WMIN), WSPAN * scale, WSPAN * scale);
-      ctx.globalAlpha = 1;
-    } else if (showTerrain && terrainRef.current && tilted) {
-      // tilted: the hill-shaded ground compressed toward the horizon, so you
-      // look across it. Films then lift off it by elevation (see PROJ) — the
-      // canon summits rise toward you as a 3-D point cloud over the terrain.
-      ctx.imageSmoothingEnabled = true;
-      ctx.globalAlpha = 0.85;
-      const left = SX(WMIN), fullTop = SY(WMIN), size = WSPAN * scale;
-      const top = horizon + (fullTop - horizon) * cpi;
-      ctx.drawImage(terrainRef.current, 0, 0, TN, TN, left, top, size, size * cpi);
-      ctx.globalAlpha = 1;
-    }
 
     const active = solo ?? hoverLine;
     const thumbH = Math.min(58, scale * 2.1);
     const useThumbs = thumbH >= THUMB_MIN;
 
-    // lines (roads) — under the posters, projected through tilt.
+    // decade gridlines + labels (the time axis)
+    ctx.save();
+    ctx.strokeStyle = "rgba(120,110,95,0.14)";
+    ctx.fillStyle = "rgba(120,110,95,0.6)";
+    ctx.lineWidth = 1;
+    ctx.font = "600 11px var(--font-display, ui-sans-serif, sans-serif)";
+    ctx.textAlign = "center";
+    for (const d of decades) {
+      const x = PX((d - midYear) * XPER);
+      if (x < -20 || x > w + 20) continue;
+      ctx.beginPath();
+      ctx.moveTo(x, PY(-130));
+      ctx.lineTo(x, PY(130));
+      ctx.stroke();
+      ctx.fillText(String(d), x, tilted ? PY(130) + 14 : h - 8);
+    }
+    ctx.restore();
+
+    // lines (roads) — under the posters, projected through the tilt.
     for (const l of data.lines) {
       const pp = l.stations.map((sl) => byId.get(sl)).filter((s): s is Pt => !!s);
       if (pp.length < 2) continue;
-      // Faint by default so 35 lines don't smother the galaxy — the roads are
-      // there as a wash you can sense, and a hovered/soloed line lights up.
-      const dim = active ? (active === l.id ? 1 : 0.04) : (l.cls === "express" ? 0.05 : 0.1);
+      const dim = active ? (active === l.id ? 1 : 0.05) : (l.cls === "express" ? 0.06 : 0.13);
       ctx.globalAlpha = dim;
       ctx.strokeStyle = l.color;
-      ctx.lineWidth = active === l.id ? 3.6 : 1.2;
+      ctx.lineWidth = active === l.id ? 3.4 : 1.3;
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
       ctx.beginPath();
       let prev = { x: 0, y: 0 };
       for (let i = 0; i < pp.length; i++) {
-        const q = PROJ(pp[i]!.tx, pp[i]!.ty);
-        if (i === 0) { ctx.moveTo(q.x, q.y); prev = q; continue; }
-        const mx = (prev.x + q.x) / 2, my = (prev.y + q.y) / 2;
-        ctx.quadraticCurveTo(mx, my, q.x, q.y);
-        prev = q;
+        const p = pp[i]!;
+        const x = PX(wx(p)), y = PY(wy(p));
+        if (i === 0) { ctx.moveTo(x, y); prev = { x, y }; continue; }
+        const mx = (prev.x + x) / 2, my = (prev.y + y) / 2;
+        ctx.quadraticCurveTo(mx, my, x, y);
+        prev = { x, y };
       }
       ctx.stroke();
     }
@@ -310,35 +230,34 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
       const a = rt.from ? byId.get(rt.from) : null;
       const b = byId.get(rt.to);
       if (a && b) {
-        const qa = PROJ(a.tx!, a.ty!), qb = PROJ(b.tx!, b.ty!);
         ctx.strokeStyle = "#E3120B";
         ctx.lineWidth = 2.6;
         ctx.setLineDash([2, 7]);
         ctx.beginPath();
-        ctx.moveTo(qa.x, qa.y);
-        ctx.lineTo(qb.x, qb.y);
+        ctx.moveTo(PX(wx(a)), PY(wy(a)));
+        ctx.lineTo(PX(wx(b)), PY(wy(b)));
         ctx.stroke();
         ctx.setLineDash([]);
       }
     }
 
-    // on-screen nodes, back-to-front (by base y) so lifted summits overlap correctly
-    const onScreen: { s: OdyStation; sx: number; sy: number; by: number }[] = [];
+    // on-screen nodes, back-to-front so nearer posters overlap correctly
+    const onScreen: { s: Pt; sx: number; sy: number; by: number }[] = [];
     for (const s of pts) {
-      const q = PROJ(s.tx!, s.ty!);
-      if (q.x < -50 || q.y < -60 || q.x > w + 50 || q.y > h + 50) continue;
-      onScreen.push({ s, sx: q.x, sy: q.y, by: q.by });
+      const sx = PX(wx(s));
+      const byRaw = (wy(s) - cy) * scale + h / 2;
+      const sy = PY(wy(s));
+      if (sx < -50 || sy < -60 || sx > w + 50 || sy > h + 60) continue;
+      onScreen.push({ s, sx, sy, by: byRaw });
     }
-    if (pitch > 0.01) onScreen.sort((a, b) => a.by - b.by);
+    if (tilted) onScreen.sort((a, b) => a.by - b.by);
 
-    const onLine = active
-      ? new Set(lineById.get(active)?.stations ?? [])
-      : null;
+    const onLine = active ? new Set(lineById.get(active)?.stations ?? []) : null;
 
     for (const o of onScreen) {
       const { s, sx, sy } = o;
       const faded = onLine && !onLine.has(s.s);
-      ctx.globalAlpha = faded ? 0.25 : 1;
+      ctx.globalAlpha = faded ? 0.22 : 1;
       const seen = showSeen && seenSet.has(s.s);
       const onSvc = showAvail && availCC && (availCC[s.s]?.length ?? 0) > 0;
       const im = useThumbs ? ensureImg(s) : null;
@@ -356,7 +275,7 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
         ctx.drawImage(im, sx0, sy0, scw, sch, sx - tw / 2, sy - th / 2, tw, th);
         ctx.restore();
         ctx.lineWidth = seen ? 2.4 : 1;
-        ctx.strokeStyle = seen ? "#E3120B" : "rgba(20,15,10,.55)";
+        ctx.strokeStyle = seen ? "#E3120B" : "rgba(20,15,10,.5)";
         ctx.strokeRect(sx - tw / 2, sy - th / 2, tw, th);
         if (onSvc) {
           ctx.lineWidth = 2;
@@ -382,8 +301,8 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     }
     ctx.globalAlpha = 1;
 
-    // decluttered labels (importance = canon peak, then poster, then prestige)
-    const viewKey = `${Math.round(cx * 8)}:${Math.round(cy * 8)}:${Math.round(scale * 8)}:${active ?? ""}`;
+    // decluttered labels
+    const viewKey = `${Math.round(cx * 8)}:${Math.round(cy * 8)}:${Math.round(scale * 8)}:${Math.round(pitch * 40)}:${active ?? ""}`;
     if (labelCache.current.key !== viewKey) {
       const taken = new Set<string>();
       const slugs = new Set<string>();
@@ -420,32 +339,32 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     }
 
     // selection / hover / proposal pulse
-    const ring = (s: OdyStation, color: string, extra = 0) => {
-      const q = PROJ(s.tx!, s.ty!);
+    const ring = (s: Pt, color: string, extra = 0) => {
+      const x = PX(wx(s)), y = PY(wy(s));
       ctx.lineWidth = 2.4;
       ctx.strokeStyle = color;
       if (useThumbs) {
-        const th = thumbH + extra, tw = (thumbH) * (2 / 3) + extra;
-        ctx.strokeRect(q.x - tw / 2 - 2, q.y - th / 2 - 2, tw + 4, th + 4);
+        const th = thumbH + extra, tw = thumbH * (2 / 3) + extra;
+        ctx.strokeRect(x - tw / 2 - 2, y - th / 2 - 2, tw + 4, th + 4);
       } else {
         ctx.beginPath();
-        ctx.arc(q.x, q.y, 6 + extra, 0, Math.PI * 2);
+        ctx.arc(x, y, 6 + extra, 0, Math.PI * 2);
         ctx.stroke();
       }
     };
     if (prop?.slug && byId.get(prop.slug)) {
       const s = byId.get(prop.slug)!;
-      const q = PROJ(s.tx!, s.ty!);
+      const x = PX(wx(s)), y = PY(wy(s));
       const pulse = 8 + (Math.sin(performance.now() * 0.005) + 1) * 7;
       ctx.strokeStyle = "rgba(227,18,11,.7)";
       ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.arc(q.x, q.y, pulse + thumbH / 2, 0, Math.PI * 2);
+      ctx.arc(x, y, pulse + thumbH / 2, 0, Math.PI * 2);
       ctx.stroke();
     }
-    if (sel) ring(sel, "#E3120B");
-    if (hover && hover.st.s !== sel?.s) ring(hover.st, "#17140f");
-  }, [data, pts, byId, lineById, solo, hoverLine, sel, hover, prop, showSeen, showAvail, showTerrain, availCC, seenSet, ensureImg]);
+    if (sel && byId.get(sel.s)) ring(byId.get(sel.s)!, "#E3120B");
+    if (hover && hover.st.s !== sel?.s && byId.get(hover.st.s)) ring(byId.get(hover.st.s)!, "#17140f");
+  }, [data, pts, byId, lineById, solo, hoverLine, sel, hover, prop, showSeen, showAvail, availCC, seenSet, ensureImg, wx, wy, midYear, decades]);
 
   useEffect(() => { drawRef.current = draw; }, [draw]);
 
@@ -458,15 +377,8 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
       const v = view.current, t = target.current;
       const dz = t.scale - v.scale, dx = t.cx - v.cx, dy = t.cy - v.cy;
       const moving = Math.abs(dz) > 1e-3 || Math.abs(dx) > 1e-3 || Math.abs(dy) > 1e-3;
-      if (moving) {
-        v.scale += dz * EASE;
-        v.cx += dx * EASE;
-        v.cy += dy * EASE;
-      }
-      const pulsing = !!prop?.slug;
-      if (moving || pulsing || document.visibilityState === "visible") {
-        if (moving || pulsing) drawRef.current();
-      }
+      if (moving) { v.scale += dz * EASE; v.cx += dx * EASE; v.cy += dy * EASE; }
+      if (moving || prop?.slug) drawRef.current();
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
@@ -476,32 +388,24 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
   useEffect(() => { draw(); }, [draw, stageH, narrow]);
 
   // ---------------------------------------------------------------- interaction
-  const pick = useCallback((mx: number, my: number): OdyStation | null => {
+  const pick = useCallback((mx: number, my: number): Pt | null => {
     const cv = canvasRef.current;
     if (!cv) return null;
     const w = cv.clientWidth, h = cv.clientHeight;
     const { cx, cy, scale, pitch } = view.current;
     const tilted = pitch > 0.06;
-    const cpi = Math.cos(pitch), spi = Math.sin(pitch), horizon = h * 0.42, cellW = WSPAN / TN;
-    const LIFT = 300 * spi;
-    const Hf = heightRef.current;
-    const ev = (wx: number, wy: number) => {
-      if (!Hf) return 0;
-      const gx = Math.round((wx - WMIN) / cellW), gy = Math.round((wy - WMIN) / cellW);
-      if (gx < 0 || gx >= TN || gy < 0 || gy >= TN) return 0;
-      return Hf[gy * TN + gx];
-    };
+    const cpi = Math.cos(pitch), horizon = h * 0.4;
     const tol = Math.max(9, Math.min(30, scale * 1.1));
-    let best: OdyStation | null = null, bd = 9e9;
+    let best: Pt | null = null, bd = 9e9;
     for (const s of pts) {
-      const bx = (s.tx! - cx) * scale + w / 2;
-      const by = (s.ty! - cy) * scale + h / 2;
-      const py = !tilted ? by : horizon + (by - horizon) * cpi - ev(s.tx!, s.ty!) * LIFT;
-      const d = (bx - mx) ** 2 + (py - my) ** 2;
+      const sx = (wx(s) - cx) * scale + w / 2;
+      const by = (wy(s) - cy) * scale + h / 2;
+      const sy = tilted ? horizon + (by - horizon) * cpi : by;
+      const d = (sx - mx) ** 2 + (sy - my) ** 2;
       if (d < bd) { bd = d; best = s; }
     }
     return bd <= tol * tol ? best : null;
-  }, [pts]);
+  }, [pts, wx, wy]);
 
   const onWheel = useCallback((e: React.WheelEvent) => {
     e.preventDefault();
@@ -511,17 +415,15 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     const mx = e.clientX - rect.left, my = e.clientY - rect.top;
     const t = target.current;
     const factor = Math.exp(-e.deltaY * 0.0014);
-    const ns = Math.max(0.7, Math.min(90, t.scale * factor));
-    // anchor the world point under the cursor (uses target, so gestures compose)
-    const wx = (mx - cv.clientWidth / 2) / t.scale + t.cx;
-    const wy = (my - cv.clientHeight / 2) / t.scale + t.cy;
-    t.cx = wx - (mx - cv.clientWidth / 2) / ns;
-    t.cy = wy - (my - cv.clientHeight / 2) / ns;
+    const ns = Math.max(0.5, Math.min(90, t.scale * factor));
+    const wxp = (mx - cv.clientWidth / 2) / t.scale + t.cx;
+    const wyp = (my - cv.clientHeight / 2) / t.scale + t.cy;
+    t.cx = wxp - (mx - cv.clientWidth / 2) / ns;
+    t.cy = wyp - (my - cv.clientHeight / 2) / ns;
     t.scale = ns;
   }, []);
 
   const onDown = useCallback((e: React.MouseEvent) => {
-    // cmd/ctrl-drag tilts the camera (look across the terrain); plain drag pans
     drag.current = { x: e.clientX, y: e.clientY, moved: false, tilt: e.metaKey || e.ctrlKey };
   }, []);
   const onMove = useCallback((e: React.MouseEvent) => {
@@ -535,7 +437,7 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
         drag.current.tilt = true;
         view.current.pitch = Math.max(0, Math.min(0.95, view.current.pitch - dy * 0.006));
         target.current.pitch = view.current.pitch;
-        labelCache.current.key = ""; // relayout labels under new tilt
+        labelCache.current.key = "";
       } else {
         const sc = view.current.scale;
         view.current.cx -= dx / sc;
@@ -563,15 +465,13 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     if (!p) { setSel(null); setSolo(null); routeRef.current = null; return; }
     if (narrow) { window.location.assign(`/film/${p.s}`); return; }
     setSel(p);
-    // clicking a film lights up the line running through it, so its whole
-    // constellation of stops stands out (the owner's request)
-    if (p.ln?.length) setSolo(p.ln[0]);
-    else setSolo(null);
+    // clicking a film lights up the line running through it
+    if (p.ln?.length) setSolo(p.ln[0]); else setSolo(null);
   }, [pick, narrow]);
 
-  const flyTo = useCallback((s: OdyStation, minScale = 26) => {
-    target.current = { cx: s.tx!, cy: s.ty!, scale: Math.max(target.current.scale, minScale), pitch: view.current.pitch };
-  }, []);
+  const flyTo = useCallback((s: Pt, minScale = 24) => {
+    target.current = { cx: wx(s), cy: wy(s), scale: Math.max(target.current.scale, minScale), pitch: view.current.pitch };
+  }, [wx, wy]);
 
   const focusLine = useCallback((id: string | null) => {
     setSolo(id);
@@ -580,12 +480,12 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     if (!l) return;
     const pp = l.stations.map((sl) => byId.get(sl)).filter((s): s is Pt => !!s);
     if (!pp.length) return;
-    const x1 = Math.min(...pp.map((p) => p.tx)), x2 = Math.max(...pp.map((p) => p.tx));
-    const y1 = Math.min(...pp.map((p) => p.ty)), y2 = Math.max(...pp.map((p) => p.ty));
+    const xs = pp.map(wx), ys = pp.map(wy);
+    const x1 = Math.min(...xs), x2 = Math.max(...xs), y1 = Math.min(...ys), y2 = Math.max(...ys);
     const cv = canvasRef.current;
-    const sc = Math.min(70, Math.max(3, Math.min(cv.clientWidth / (x2 - x1 + 30), cv.clientHeight / (y2 - y1 + 30))));
+    const sc = Math.min(60, Math.max(2, Math.min(cv.clientWidth / (x2 - x1 + 40), cv.clientHeight / (y2 - y1 + 40))));
     target.current = { cx: (x1 + x2) / 2, cy: (y1 + y2) / 2, scale: sc, pitch: view.current.pitch };
-  }, [lineById, byId]);
+  }, [lineById, byId, wx, wy]);
 
   const runMode = useCallback(async (mode: ModeKey) => {
     if (!data) return;
@@ -604,10 +504,9 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
     routeRef.current = { from: p.from, to: p.slug };
     if (p.line) setSolo(p.line); else setSolo(null);
     const st = byId.get(p.slug);
-    if (st) { setSel(st); flyTo(st, 24); }
+    if (st) { setSel(st); flyTo(st, 22); }
   }, [data, availCC, ensureAvail, country, seenSet, byId, flyTo]);
 
-  // deep link ?line=
   useEffect(() => {
     if (!data) return;
     try {
@@ -628,9 +527,7 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
       </div>
     );
   }
-  if (!data) return <div className="ody-loading">Charting the galaxy…</div>;
-
-  const active = solo ?? hoverLine;
+  if (!data) return <div className="ody-loading">Charting the map…</div>;
 
   return (
     <div className="odg-root">
@@ -656,7 +553,6 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
         <div className="ody-controls">
           <label className="ody-tog"><input type="checkbox" checked={showSeen} onChange={(e) => setShowSeen(e.target.checked)} /> My films</label>
           <label className="ody-tog"><input type="checkbox" checked={showAvail} onChange={(e) => setShowAvail(e.target.checked)} /> On my services</label>
-          <label className="ody-tog"><input type="checkbox" checked={showTerrain} onChange={(e) => { setShowTerrain(e.target.checked); requestAnimationFrame(() => drawRef.current()); }} /> Terrain</label>
           <select className="ody-cc" value={country} onChange={(e) => setCountry(e.target.value === "KR" ? "KR" : "US")} aria-label="Streaming country">
             <option value="US">US</option>
             <option value="KR">KR</option>
@@ -676,7 +572,9 @@ export default function OdysseyGalaxy({ height = 640 }: { height?: number }) {
           onMouseLeave={() => { drag.current = null; setHover(null); }}
         />
 
-        <div className="odg-hint">스크롤 확대 · 드래그 이동 · ⌘/Ctrl+드래그로 지형을 기울여 보기 · 영화를 누르면 그 노선이 켜집니다</div>
+        <div className="odg-axis odg-axis-x">← 과거 · 세대(시대) · 현재 →</div>
+        <div className="odg-axis odg-axis-y">취향·성향</div>
+        <div className="odg-hint">가로=시대 · 세로=취향 · 스크롤 확대 · ⌘/Ctrl+드래그로 기울여 길 보기 · 영화를 누르면 그 노선이 켜집니다</div>
 
         {hover && hover.st.s !== sel?.s ? (
           <div className="odg-tip" style={{
