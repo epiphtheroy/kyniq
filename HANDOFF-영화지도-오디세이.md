@@ -11,6 +11,15 @@
 - 기타: fly()가 pointerdown/휠/핀치에 취소(지터 제거)·runMode가 stale solo 정리·ascent/continue 근거·순서 교정·build 방어(빈 노선 max·codex 행 형태·country_override 우선)·/odyssey+35노선 코어 사이트맵 등재.
 - **오탐**: next-seo "untracked map.v1.json import"는 오탐(커밋됨·Vercel 빌드 성공). JSON-LD 이스케이프 minor는 리포 전반 관례라 보류.
 
+## §-6 The Board — 시네필 영화 전체 조감 바둑판 `/board` (2026-07-20, 오너 지시)
+
+오너: 가치점수 상위 ~2000편을 바둑판 썸네일로 한눈에 조감. → 별도 페이지 `/board`.
+- **선정**: TakeScore 상위는 대중 카탈로그 혼입(844/2000만 t-SNE)로 시네필 조감 부적합 → **Tier-1 분석 코퍼스 1,958편 = "메타테이크가 다루는 시네필 영화 전체"**를 사용(모두 포스터·연도·성향·장르·가치). 아티팩트에 `v`(TakeScore value)·`u`·`gi`(장르)·`genres` 신설.
+- **배치**: `lib/odyssey/board.ts packBoard` — 40열(연도 등량 버킷) × ~50행(열 내 t-SNE 성향), 충돌은 최근접 빈 행. "연도순이지만 밀릴수" 반영.
+- **컴포넌트**: `components/odyssey/BoardGrid.tsx`(DOM 그리드, 이벤트 위임 hover/click)+`app/board/board.css`. 색으로 보기 토글 **본 영화/볼 영화/내 서비스(+국가)** — 켜면 매칭 영화 링(빨강/금/청록)+나머지 dim(anyHl&&!lit). 거르기 **연도범위·장르** → dim(off)+카운트. hover 말풍선(제목·감독·가치·고도·seen). **자세히 보기 = 우측 드로어**(포스터·점수 3종·장르·노선·스트리밍·봤어요/볼래요/별점·전체페이지 링크, ESC/scrim 닫기, 페이지 이동 없음). 실측: Rocky 클릭→드로어 정상.
+- **커버리지(그 아래)**: `components/odyssey/BoardCoverage.tsx`(서버, force-dynamic, auth) — **마이룸 me_coverage(정전 facet)·me_auteur_conquest** 가져와 정전 커버리지 바+감독 정복률 링. 미로그인=로그인 유도. room 프로바이더 없이 데이터만 재사용(경량).
+- 사이트맵 등재. ⚠️보드 매우 높음(2:3×50행)·dim .16(강함)·이미지 1958장 lazy.
+
 ## §-5 The Metatake Deck — 여정 제안(진짜 내비게이션) (2026-07-20, 오너 지시)
 
 오너 핵심 재정의: **지도≠GPS 내비. 목표는 지도 제시가 아니라 시네필이 되도록 돕는 실질적 여정 제안.** → "메타테이크" 버튼을 누르면 **세 축 × 3편 = 9장의 카드가 게임처럼 화려하게 뒤집힘**.

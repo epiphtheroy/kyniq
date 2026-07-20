@@ -133,6 +133,7 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/partners` }, // machine-readable B2B proposal (§2.1)
     { url: `${siteUrl}/odyssey` }, // the cinephile film map
     { url: `${siteUrl}/journey` }, // the Metatake journey proposal
+    { url: `${siteUrl}/board` }, // the cinephile survey board
   ];
   // Odyssey — one SSR page per line (static map artifact, prerendered).
   for (const l of (odysseyMap as { lines: { id: string }[] }).lines) {

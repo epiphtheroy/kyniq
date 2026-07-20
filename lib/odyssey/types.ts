@@ -39,6 +39,8 @@ export type OdyStation = {
   ty?: number; // t-SNE y
   cl?: number; // taste cluster id
   gi?: number[]; // genre indices into OdyMap.genres
+  v?: number; // TakeScore value axis
+  u?: number; // TakeScore U (value − risk)
 };
 
 export type OdyMap = {

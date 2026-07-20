@@ -321,6 +321,11 @@ for f in sorted(films, key=lambda f: f["slug"]):
         st["tx"], st["ty"] = tx, ty
         if cl is not None:
             st["cl"] = cl
+    cd = codex_by.get(s)
+    if cd and cd.get("v_value") is not None:
+        st["v"] = round(float(cd["v_value"]), 1)  # TakeScore value axis
+        if cd.get("r_risk") is not None:
+            st["u"] = round(float(cd["v_value"]) - float(cd["r_risk"]), 1)  # TakeScore U
     stations.append(st)
 
 line_arr = []
