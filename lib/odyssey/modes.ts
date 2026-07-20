@@ -76,11 +76,14 @@ export function propose(mode: ModeKey, ctx: Ctx): Proposal | null {
         .filter((r) => r.seenN > 0 && r.seenN < r.line.stations.length)
         .sort((a, b) => b.seenN - a.seenN);
       for (const r of cands) {
-        const lastSeenYear = Math.max(
-          ...r.line.stations.filter((s) => seen.has(s)).map((s) => idx.get(s)?.y ?? 0),
-        );
+        // advance by position along the (chronologically ordered) line, so a
+        // same-year unseen stop never lands "behind" the last one you rode
+        let lastSeenIdx = -1;
+        r.line.stations.forEach((s, i) => {
+          if (seen.has(s)) lastSeenIdx = i;
+        });
         const next =
-          r.line.stations.find((s) => !seen.has(s) && (idx.get(s)?.y ?? 0) >= lastSeenYear) ??
+          r.line.stations.slice(lastSeenIdx + 1).find((s) => !seen.has(s)) ??
           r.line.stations.find((s) => !seen.has(s));
         if (next) {
           const from = r.line.stations.filter((s) => seen.has(s)).pop();
@@ -141,15 +144,15 @@ export function propose(mode: ModeKey, ctx: Ctx): Proposal | null {
     case "ascent": {
       const target = Math.min(5, alt + 1);
       const cands = map.stations.filter((s) => unseen(s) && s.c === target).sort(byPrestige);
-      const pick =
-        cands.find((s) => s.ln?.some((lid) => ridden.find((r) => r.line.id === lid && r.seenN > 0))) ??
-        cands[0];
+      const onKnownLine = (s: OdyStation) =>
+        !!s.ln?.some((lid) => ridden.find((r) => r.line.id === lid && r.seenN > 0));
+      const pick = cands.find(onKnownLine) ?? cands[0];
       if (!pick) return null;
       return {
         slug: pick.s,
         line: pick.ln?.[0],
         reason: `Your record altitude is ${alt}. This is a band-${target} climb${
-          pick.ln?.length ? ` on a line you already know` : ""
+          onKnownLine(pick) ? ` on a line you already know` : ""
         } — one step up, not a leap.`,
       };
     }

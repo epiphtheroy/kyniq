@@ -29,6 +29,7 @@ export default function OdysseyMap() {
   const seenSet = uf?.seenSlugs ?? EMPTY_SET;
 
   const [data, setData] = useState<OdyMap | null>(null);
+  const [loadError, setLoadError] = useState(false);
   const [avail, setAvail] = useState<OdyAvail | null>(null);
   const [country, setCountry] = useState<"KR" | "US">("US");
   const [showSeen, setShowSeen] = useState(true);
@@ -50,9 +51,12 @@ export default function OdysseyMap() {
 
   useEffect(() => {
     fetch("/odyssey/map.v1.json")
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then(setData)
-      .catch(() => {});
+      .catch(() => setLoadError(true));
     try {
       if ((navigator.language || "").toLowerCase().startsWith("ko")) setCountry("KR");
       const cc = localStorage.getItem("ody.cc");
@@ -61,14 +65,15 @@ export default function OdysseyMap() {
     } catch {}
   }, []);
 
-  const ensureAvail = useCallback(() => {
+  const ensureAvail = useCallback((): Promise<OdyAvail | null> => {
     if (avail) return Promise.resolve(avail);
     return fetch("/odyssey/avail.v1.json")
-      .then((r) => r.json())
-      .then((a: OdyAvail) => {
-        setAvail(a);
+      .then((r) => (r.ok ? r.json() : null))
+      .then((a: OdyAvail | null) => {
+        if (a) setAvail(a);
         return a;
-      });
+      })
+      .catch(() => null);
   }, [avail]);
 
   useEffect(() => {
@@ -112,6 +117,7 @@ export default function OdysseyMap() {
 
   const zoomAt = useCallback(
     (cx: number, cy: number, factor: number) => {
+      cancelAnimationFrame(flyRaf.current); // wheel/pinch cancels an in-flight fly
       const v = view.current;
       const k2 = Math.min(3.2, Math.max(0.22, v.k * factor));
       v.tx = cx - ((cx - v.tx) / v.k) * k2;
@@ -173,6 +179,7 @@ export default function OdysseyMap() {
 
   // ---------------------------------------------------------------- pointers
   const onPointerDown = (e: React.PointerEvent) => {
+    cancelAnimationFrame(flyRaf.current); // a touch/click interrupts any in-flight camera fly
     (e.target as Element).setPointerCapture?.(e.pointerId);
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     moved.current = 0;
@@ -221,7 +228,7 @@ export default function OdysseyMap() {
       let a = availCC;
       if (mode === "tonight" && !a) {
         const full = await ensureAvail();
-        a = full[country] ?? {};
+        a = full ? full[country] ?? {} : null;
       }
       const p = propose(mode, { map: data, seen: seenSet, avail: a });
       if (!p) {
@@ -230,7 +237,7 @@ export default function OdysseyMap() {
       }
       setProp({ ...p, mode });
       setSel(p.slug);
-      if (p.line) setSolo(p.line);
+      setSolo(p.line ?? null); // clear a stale solo so the destination is not left ghosted
       const st = S.get(p.slug);
       if (st) fly(st.x, st.yy, Math.max(1.3, view.current.k));
     },
@@ -321,6 +328,29 @@ export default function OdysseyMap() {
     });
   }, [data, seenSet, showAvail, availCC, sel, selectStation]);
 
+  if (loadError) {
+    return (
+      <div className="ody-loading">
+        The map could not load.{" "}
+        <button
+          type="button"
+          className="ody-retry"
+          onClick={() => {
+            setLoadError(false);
+            fetch("/odyssey/map.v1.json")
+              .then((r) => {
+                if (!r.ok) throw new Error(String(r.status));
+                return r.json();
+              })
+              .then(setData)
+              .catch(() => setLoadError(true));
+          }}
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
   if (!data) {
     return <div className="ody-loading">Unfolding the map…</div>;
   }
@@ -448,6 +478,7 @@ export default function OdysseyMap() {
                   onMouseEnter: () => setHoverLine(l.id),
                   onMouseLeave: () => setHoverLine(null),
                   onClick: (e: React.MouseEvent) => {
+                    if (moved.current > 6) return; // a pan that began on this line must not solo it
                     e.stopPropagation();
                     focusLine(l.id);
                   },
