@@ -17,7 +17,7 @@
 - **세 축**: `lib/odyssey/deal.ts` — 안정(취향 한복판·실패없음)·모험(한 걸음 밖)·전혀새로운(완전히 다른 세계). 씬≥3편이면 **취향중심(seen tx/ty centroid) 거리밴드**(0-18%/40-62%/85-100%), 미만이면 **고도(C밴드) 입문코스 폴백**. 밴드 내 prestige 우선+시드 셔플(다시 펼치기 변주). **안 본 영화만**.
 - **필터(누르기 전)**: 내 서비스만(avail·country)·연도범위·장르(아티팩트 `genres`+`gi` 신설, 빌드에 추가). 
 - **컴포넌트**: `components/odyssey/MetatakeDeck.tsx`+`app/odyssey/deck.css`. 큰 METATAKE 버튼(글로우·sheen)=코너 제목. **왼쪽에 본 영화 썸네일 작게 뭉침(deck-pile)**. 카드=3D flip(rotateY, `--i` 스태거)·backface·다크 게임테이블(단일테마 의도). 카드별 seen✓·watchlist＋·★5 별점(uf 직접).
-- **배치**: `/odyssey` 최상단(hero=여정), 그 아래 아틀라스(지도). 실측: 미로그인=입문코스(American Beauty▲→Parasite▲▲▲→Tree of Life/Persona/Mirror▲▲▲▲▲) 고도 진행 정확·다시펼치기 변주 확인.
+- **배치**: **별도 페이지 `/journey`**(오너 지시: 지도 유지·덱은 추가 페이지). `/odyssey`는 지도 전용 복귀+`/journey` 링크. `app/journey/page.tsx`(SSR 셸+deck.css). 사이트맵 coreEntries 등재. 실측: 미로그인=입문코스(American Beauty▲→Parasite▲▲▲→Tree of Life/Persona/Mirror▲▲▲▲▲) 고도 진행 정확·다시펼치기 변주 확인.
 - ⚠️ 미로그인 hydration 경고는 브라우저 확장(data-sharkid) 소행·우리 버그 아님. 후속: 카드별 "왜 이 축" 근거·모바일 링크·seen 실적 반영 실시간.
 
 ## §-4 평면 시대×성향 전환 (2026-07-20, 오너 지시)
