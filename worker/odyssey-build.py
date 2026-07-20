@@ -30,6 +30,7 @@ film_hub = load("film_hub.json")
 codex = load("codex.json")
 prestige_rows = load("prestige.json")
 avail_rows = load("avail.json")
+mapxy_rows = load("mapxy.json") if os.path.exists(os.path.join(DATA, "mapxy.json")) else []
 ov = json.load(open(OVERRIDES)) if os.path.exists(OVERRIDES) else {}
 
 by_tmdb = {f["tmdb_id"]: f for f in films}
@@ -89,6 +90,13 @@ for r in prestige_rows:
     f = by_id.get(r["film_id"])
     if f and r.get("prestige_score") is not None:
         prestige[f["slug"]] = max(prestige.get(f["slug"], -1e9), float(r["prestige_score"]))
+
+# t-SNE embedding coordinates by slug (the similarity-galaxy layout)
+tsne = {}
+for r in mapxy_rows:
+    f = by_id.get(r["film_id"])
+    if f and r.get("x") is not None and r.get("y") is not None:
+        tsne[f["slug"]] = (round(float(r["x"]), 3), round(float(r["y"]), 3), r.get("cluster"))
 
 costs = sorted(c["c_cost"] for c in codex_by.values() if c.get("c_cost") is not None)
 def cost_band(slug):
@@ -308,6 +316,11 @@ for f in sorted(films, key=lambda f: f["slug"]):
         st["pr"] = round(pr, 1)
     if s in canon[:100]:
         st["pk"] = 1
+    if s in tsne:
+        tx, ty, cl = tsne[s]
+        st["tx"], st["ty"] = tx, ty
+        if cl is not None:
+            st["cl"] = cl
     stations.append(st)
 
 line_arr = []

@@ -35,6 +35,9 @@ export type OdyStation = {
   pk?: 1; // canon peak (prestige top 100)
   ln?: string[]; // line memberships
   tf?: 1; // transfer station (2+ lines)
+  tx?: number; // t-SNE x (similarity-galaxy layout)
+  ty?: number; // t-SNE y
+  cl?: number; // taste cluster id
 };
 
 export type OdyMap = {

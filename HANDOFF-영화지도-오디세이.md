@@ -11,6 +11,19 @@
 - 기타: fly()가 pointerdown/휠/핀치에 취소(지터 제거)·runMode가 stale solo 정리·ascent/continue 근거·순서 교정·build 방어(빈 노선 max·codex 행 형태·country_override 우선)·/odyssey+35노선 코어 사이트맵 등재.
 - **오탐**: next-seo "untracked map.v1.json import"는 오탐(커밋됨·Vercel 빌드 성공). JSON-LD 이스케이프 minor는 리포 전반 관례라 보류.
 
+## §-2 갤럭시 전환 (2026-07-20, 오너 지시)
+
+오너가 Google Arts&Culture t-SNE Map을 참조로 지도 재편 지시: "각 영화=세로 포스터, 유사도 배치(구글과 같이), **단 길(노선)이 있는 것**, 부드러운 줌아웃, 높낮이(지형)". → 시간×전통 SVG 노선도를 **t-SNE 유사도 갤럭시**로 전환.
+
+- **좌표계 = t-SNE**(`film_map_xy`, film_taste_vector 임베딩, 1,935/1,959편). 시간축 폐기. 유사 영화가 성운으로 뭉침(호러·서크풍 멜로드라마 등 실측 확인).
+- **렌더 = 캔버스**(`components/odyssey/OdysseyGalaxy.tsx`, GalaxyView 포크). 줌인 시 세로 포스터 타일(w92, LOD), 라벨 그리드 충돌 회피.
+- **지형(높낮이)** = hillshade 높이 필드. 각 영화가 `1+prestige+altitude` 가중 가우시안 splat → 밀집+정전+고도 지역이 봉우리(밝은 능선), 나머지 계곡(청회색). "정전 봉우리" 기획이 시각화됨. Terrain 토글.
+- **노선(길)** = 역들의 t-SNE 좌표를 연대순 곡선으로. **기본 매우 은은(스파게티 방지), hover/solo 시 그 노선만 빨간 길로 강조**. 이게 구글에 없는 차별점.
+- **부드러운 관성 줌** = view→target lerp(EASE 0.22). 목적지 모드가 target 설정으로 fly.
+- 목적지 8모드·본 영화/구독 오버레이·역 카드 유지(SVG판에서 이식). SSR 노선 페이지 35개도 유지(map.v1.json 재사용).
+- ⚠️구 `OdysseyMap.tsx`(SVG 시간축)는 미사용 보존(오너가 timeline 뷰 재요청 대비). page는 Galaxy import.
+- 데이터: `map.v1.json` station에 tx/ty/cl 추가(422KB). 재빌드는 extract(mapxy.json)+build.
+
 ## §0 한 장 요약
 
 기존 피처들(Next Movie·Canon·Connections·TakeScore·What to Watch)은 내비게이션의 부품(나침반·계기판·도로·교통정보)이었고, 본체 세 가지 — **지도 원판 · 현위치 · 목적지→경로** — 가 없었다. Odyssey가 그 본체다.
