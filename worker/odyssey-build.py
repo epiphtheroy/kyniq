@@ -50,7 +50,7 @@ for r in film_hub:
     elif t == "movement":
         movement_members[r["hub_slug"].split("-", 1)[1]].append(f["slug"])
 for slug, code in (ov.get("country_overrides") or {}).items():
-    country_of.setdefault(slug, code)
+    country_of[slug] = code  # editorial override wins over the hub-derived country
 
 BANDS = [
     {"id": "anglo", "label": "할리우드 · 영어권", "label_en": "Hollywood & Anglophone",
@@ -78,7 +78,12 @@ def band_of(slug):
     return 1  # unmapped -> Europe (art-film festival default); overrides catch the rest
 
 # ---------------------------------------------------------------- scores
-codex_by = {c["slug"]: c for c in codex if c["slug"] in by_slug}
+# codex rows are keyed by slug (extract does the film_id→slug distinct-on join);
+# tolerate a stray film_id-only row rather than KeyError the whole build.
+codex_by = {c["slug"]: c for c in codex if c.get("slug") in by_slug}
+n_missing_codex = len(by_slug) - len(codex_by)
+if n_missing_codex:
+    print(f"WARNING: {n_missing_codex} visible films have no codex row → altitude 3 default")
 prestige = {}
 for r in prestige_rows:
     f = by_id.get(r["film_id"])
@@ -200,6 +205,9 @@ for lid in ORDERED_LINE_IDS:
     for s in lines[lid]:
         counts[band_of(s)] += 1
     total = len(lines[lid])
+    if not total:
+        line_band[lid] = -1
+        continue
     best, n = max(counts.items(), key=lambda kv: kv[1])
     line_band[lid] = best if n / total >= 0.7 and LINE_META[lid][2] != "express" else -1
 

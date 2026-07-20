@@ -78,8 +78,19 @@ save("hubs.json", fetch_all("hub", {
 save("film_hub.json", fetch_all("film_hub", {
     "select": "tmdb_id,hub_slug,rank", "order": "tmdb_id.asc"}, profile="curation"))
 
-save("codex.json", fetch_all("scores", {
-    "select": "film_id,v_value,c_cost,r_risk,itx,fr,etx,ctx,dur",
-    "order": "film_id.asc"}, profile="cinecodex"))
+# cinecodex.scores has multiple rows per film (prompt_version × panel), so the
+# build needs one row per film keyed by slug. curation/cinecodex are not exposed
+# over REST, so create a temp view that does the distinct-on join, extract it
+# WITH an explicit order (unordered Range pagination silently drops rows), then
+# drop it. Requires the SQL below to have been applied out-of-band:
+#   create or replace view public.tmp_ody_codex2 as
+#     select distinct on (f.id) f.slug, s.v_value, s.c_cost, s.r_risk, s.itx, s.fr
+#     from cinecodex.scores s join public.films f on f.id = s.film_id
+#     where f.visible order by f.id, s.scored_at desc nulls last;
+codex = fetch_all("tmp_ody_codex2", {"select": "*", "order": "slug.asc"})
+if codex is not None:
+    save("codex.json", codex)
+else:
+    print("codex.json: FALLBACK — apply the tmp_ody_codex2 view (see header) then rerun")
 
 print("done")
