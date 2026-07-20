@@ -66,6 +66,11 @@ save("films.json", fetch_all("films", {
 save("prestige.json", fetch_all("film_scores", {
     "select": "film_id,prestige_score,discovery_score", "order": "film_id.asc"}))
 
+# t-SNE embedding coordinates (worker/galaxy-build.py over film_taste_vector).
+# This is what makes the map a similarity galaxy rather than a time grid.
+save("mapxy.json", fetch_all("film_map_xy", {
+    "select": "film_id,x,y,cluster", "order": "film_id.asc"}))
+
 save("avail.json", fetch_all("film_provider_index", {
     "select": "film_id,country_code,provider_id,provider_name,kind",
     "country_code": "in.(KR,US)", "kind": "in.(flatrate,free,ads)",

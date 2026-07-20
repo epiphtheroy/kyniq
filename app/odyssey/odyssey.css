@@ -25,7 +25,27 @@
 .ody-tog input { accent-color: #E3120B; }
 .ody-cc { font-size: 12.5px; border: 1px solid #e2ded5; border-radius: 6px; padding: 3px 6px; background: #fff; }
 
-/* stage */
+/* galaxy stage */
+.odg-root { max-width: 1480px; margin: 0 auto; }
+.odg-stage { position: relative; border: 1px solid #e2ded5; border-radius: 12px;
+  background: radial-gradient(120% 120% at 50% 40%, #f6f4ee 0%, #efece4 60%, #e7e3d8 100%);
+  overflow: hidden; }
+.odg-canvas { width: 100%; height: 100%; display: block; touch-action: none; user-select: none; }
+.odg-hint { position: absolute; left: 12px; bottom: 10px; font-size: 11.5px; color: #7a746a;
+  background: rgba(250,249,246,.72); border-radius: 999px; padding: 4px 11px; pointer-events: none;
+  backdrop-filter: blur(2px); max-width: calc(100% - 24px); }
+.odg-axis { position: absolute; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  color: #a9a094; pointer-events: none; text-transform: none; }
+.odg-axis-x { right: 14px; bottom: 34px; }
+.odg-axis-y { left: 12px; top: 10px; writing-mode: vertical-rl; }
+.odg-tip { position: absolute; background: rgba(255,255,255,.97); border: 1px solid #e2ded5;
+  border-radius: 8px; padding: 6px 9px; max-width: 200px; pointer-events: none; z-index: 5;
+  box-shadow: 0 4px 16px rgba(20,15,5,.12); font-size: 12.5px; }
+.odg-tip b { font-weight: 700; } .odg-tip span { opacity: .6; }
+.odg-tip .ln { font-size: 11px; color: #6f6a63; margin-top: 2px; }
+.odg-card { top: 12px; right: 12px; }
+
+/* timeline stage (legacy SVG map, kept for reference) */
 .ody-stage { position: relative; border: 1px solid #e2ded5; border-radius: 12px; background: #fdfcf9;
   height: min(74vh, 780px); overflow: hidden; }
 .ody-svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; user-select: none; }

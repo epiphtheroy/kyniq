@@ -30,6 +30,7 @@ film_hub = load("film_hub.json")
 codex = load("codex.json")
 prestige_rows = load("prestige.json")
 avail_rows = load("avail.json")
+mapxy_rows = load("mapxy.json") if os.path.exists(os.path.join(DATA, "mapxy.json")) else []
 ov = json.load(open(OVERRIDES)) if os.path.exists(OVERRIDES) else {}
 
 by_tmdb = {f["tmdb_id"]: f for f in films}
@@ -89,6 +90,13 @@ for r in prestige_rows:
     f = by_id.get(r["film_id"])
     if f and r.get("prestige_score") is not None:
         prestige[f["slug"]] = max(prestige.get(f["slug"], -1e9), float(r["prestige_score"]))
+
+# t-SNE embedding coordinates by slug (the similarity-galaxy layout)
+tsne = {}
+for r in mapxy_rows:
+    f = by_id.get(r["film_id"])
+    if f and r.get("x") is not None and r.get("y") is not None:
+        tsne[f["slug"]] = (round(float(r["x"]), 3), round(float(r["y"]), 3), r.get("cluster"))
 
 costs = sorted(c["c_cost"] for c in codex_by.values() if c.get("c_cost") is not None)
 def cost_band(slug):
@@ -308,6 +316,16 @@ for f in sorted(films, key=lambda f: f["slug"]):
         st["pr"] = round(pr, 1)
     if s in canon[:100]:
         st["pk"] = 1
+    if s in tsne:
+        tx, ty, cl = tsne[s]
+        st["tx"], st["ty"] = tx, ty
+        if cl is not None:
+            st["cl"] = cl
+    cd = codex_by.get(s)
+    if cd and cd.get("v_value") is not None:
+        st["v"] = round(float(cd["v_value"]), 1)  # TakeScore value axis
+        if cd.get("r_risk") is not None:
+            st["u"] = round(float(cd["v_value"]) - float(cd["r_risk"]), 1)  # TakeScore U
     stations.append(st)
 
 line_arr = []
@@ -321,10 +339,19 @@ for lid in ORDERED_LINE_IDS:
         "stations": lines[lid],
     })
 
+# genre vocabulary + per-station indices (compact; powers the deck's genre filter)
+genre_list = sorted({g for f in films for g in (f.get("genres") or [])})
+genre_idx = {g: i for i, g in enumerate(genre_list)}
+for st in stations:
+    f = by_slug.get(st["s"])
+    gs = [genre_idx[g] for g in (f.get("genres") or []) if g in genre_idx] if f else []
+    if gs:
+        st["gi"] = gs
+
 decades = [{"y": y, "x": round(year_x[y], 1)} for y in range(1900, 2030, 10) if y in year_x]
 os.makedirs(OUT, exist_ok=True)
 map_obj = {"v": 1, "w": W, "h": H, "bands": band_geo, "decades": decades,
-           "lines": line_arr, "stations": stations}
+           "genres": genre_list, "lines": line_arr, "stations": stations}
 with open(os.path.join(OUT, "map.v1.json"), "w") as fp:
     json.dump(map_obj, fp, ensure_ascii=False, separators=(",", ":"))
 

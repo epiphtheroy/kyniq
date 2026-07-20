@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import OdysseyMap from "@/components/odyssey/OdysseyMap";
+import OdysseyGalaxy from "@/components/odyssey/OdysseyGalaxy";
 import mapData from "@/public/odyssey/map.v1.json";
 import type { OdyMap } from "@/lib/odyssey/types";
 import "./odyssey.css";
@@ -44,14 +44,19 @@ export default function OdysseyPage() {
           <div className="seclbl">The map</div>
           <h1 className="disp">Odyssey</h1>
           <p className="standfirst">
-            Cinephile cinema as a transit network: {map.stations.length.toLocaleString()} films are
-            stations, {lines.length} movements and genres are lines, and the decades run left to
-            right. Hover a line to trace it, click a station to size it up, or let a destination
-            mode propose your next ride — the point is to travel far without a failed night.
+            A map of cinephile cinema laid out by generation and sensibility:{" "}
+            {map.stations.length.toLocaleString()} films run left to right through the decades and
+            stack top to bottom by taste, so kindred films sit together. {lines.length} movements
+            and genres thread across it as lines you can follow — click a film to light up its line,
+            tilt the plane (⌘/Ctrl-drag) to trace the roads, and let a destination mode propose your
+            next ride. The point is to travel far without a failed night.{" "}
+            <Link href="/journey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>
+              Or let Metatake deal you a journey →
+            </Link>
           </p>
         </header>
 
-        <OdysseyMap />
+        <OdysseyGalaxy />
 
         <section className="ody-index" aria-label="All lines">
           <h2>Every line on the network</h2>

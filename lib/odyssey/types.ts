@@ -35,6 +35,12 @@ export type OdyStation = {
   pk?: 1; // canon peak (prestige top 100)
   ln?: string[]; // line memberships
   tf?: 1; // transfer station (2+ lines)
+  tx?: number; // t-SNE x (similarity-galaxy layout)
+  ty?: number; // t-SNE y
+  cl?: number; // taste cluster id
+  gi?: number[]; // genre indices into OdyMap.genres
+  v?: number; // TakeScore value axis
+  u?: number; // TakeScore U (value − risk)
 };
 
 export type OdyMap = {
@@ -43,6 +49,7 @@ export type OdyMap = {
   h: number;
   bands: OdyBand[];
   decades: { y: number; x: number }[];
+  genres?: string[];
   lines: OdyLine[];
   stations: OdyStation[];
 };
