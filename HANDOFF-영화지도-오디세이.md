@@ -18,7 +18,8 @@
 - **배치**: `lib/odyssey/board.ts packBoard` — 40열(연도 등량 버킷) × ~50행(열 내 t-SNE 성향), 충돌은 최근접 빈 행. "연도순이지만 밀릴수" 반영.
 - **컴포넌트**: `components/odyssey/BoardGrid.tsx`(DOM 그리드, 이벤트 위임 hover/click)+`app/board/board.css`. 색으로 보기 토글 **본 영화/볼 영화/내 서비스(+국가)** — 켜면 매칭 영화 링(빨강/금/청록)+나머지 dim(anyHl&&!lit). 거르기 **연도범위·장르** → dim(off)+카운트. hover 말풍선(제목·감독·가치·고도·seen). **자세히 보기 = 우측 드로어**(포스터·점수 3종·장르·노선·스트리밍·봤어요/볼래요/별점·전체페이지 링크, ESC/scrim 닫기, 페이지 이동 없음). 실측: Rocky 클릭→드로어 정상.
 - **커버리지(그 아래)**: `components/odyssey/BoardCoverage.tsx`(서버, force-dynamic, auth) — **마이룸 me_coverage(정전 facet)·me_auteur_conquest** 가져와 정전 커버리지 바+감독 정복률 링. 미로그인=로그인 유도. room 프로바이더 없이 데이터만 재사용(경량).
-- 사이트맵 등재. ⚠️보드 매우 높음(2:3×50행)·dim .16(강함)·이미지 1958장 lazy.
+- 사이트맵 등재. ⚠️보드 매우 높음(2:3×행)·dim .16(강함)·이미지 1958장 lazy.
+- **v2(오너 지시): 30열 + 「본 영화 중심」 방사 배치**. 정렬 토글 [바둑판][본 영화 중심]. taste모드=`lib/odyssey/board.ts tasteLayout` — 본 영화 centroid로부터 취향거리 정렬→피보나치 나선(seen이 중앙 뭉침·유사 가까이·멀수록 jitter↑ 흐트러짐)·seen 코어에 빨간 점선 **구획선**(내가 본 영화). **「내 서비스 가까이」**=서비스 영화 거리*0.5로 안쪽 당김. 셀 절대위치+transform transition으로 격자↔나선 **모핑**. spacing은 폭에 맞게 clamp(한눈에). dim은 hasLit일 때만(무매칭 토글=빈판 방지). 실측: 나선 클러스터·모핑 정상(미로그인은 seen코어/구획선 없음).
 
 ## §-5 The Metatake Deck — 여정 제안(진짜 내비게이션) (2026-07-20, 오너 지시)
 

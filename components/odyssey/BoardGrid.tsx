@@ -1,21 +1,27 @@
 "use client";
 
 /**
- * BoardGrid — a goban of the whole cinephile corpus. ~1,959 films tiled 40
- * columns (year) × up to 50 rows (taste classification), each a poster
- * thumbnail. Toggle 본 영화 / 볼 영화 / 내 서비스 and the matching films light
- * up; narrow the year range or a genre and the board thins to the survivors.
- * Hover a film for a quick bubble; open a side drawer for the full brief
- * without leaving the page.
+ * BoardGrid — a survey of the cinephile corpus with two arrangements.
+ *
+ *  · 바둑판 (grid): ~1,958 films tiled 30 columns of year × rows of taste.
+ *  · 본 영화 중심 (taste): films re-sort around your seen-film centroid — your
+ *    seen films pack the middle inside a boundary ring, kindred films cluster
+ *    close, and the further out a film is the looser it scatters. Turn on
+ *    "내 서비스 가까이" and films on your services are pulled inward.
+ *
+ * Cells are absolutely positioned by transform, so switching arrangements
+ * morphs smoothly. Toggle 본/볼/서비스 to colour matching films; filter by year
+ * or genre to thin the board. Hover for a bubble, click for a side drawer.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useUserFilms } from "@/components/UserFilmsProvider";
 import type { OdyAvail, OdyMap, OdyStation } from "@/lib/odyssey/types";
-import { packBoard } from "@/lib/odyssey/board";
+import { packBoard, tasteLayout } from "@/lib/odyssey/board";
 
 const IMG = "https://image.tmdb.org/t/p";
 const NOW = 2025;
 const EMPTY: ReadonlySet<string> = new Set();
+const COLS = 30;
 
 export default function BoardGrid() {
   const uf = useUserFilms();
@@ -30,10 +36,13 @@ export default function BoardGrid() {
   const [yearMin, setYearMin] = useState(1900);
   const [yearMax, setYearMax] = useState(NOW);
   const [genre, setGenre] = useState<number | null>(null);
+  const [mode, setMode] = useState<"grid" | "taste">("grid");
+  const [servicesCloser, setServicesCloser] = useState(false);
   const [hover, setHover] = useState<{ s: OdyStation; x: number; y: number } | null>(null);
   const [open, setOpen] = useState<OdyStation | null>(null);
+  const [boardW, setBoardW] = useState(1200);
 
-  const gridRef = useRef<HTMLDivElement | null>(null);
+  const wrapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     fetch("/odyssey/map.v1.json").then((r) => r.json()).then(setMap).catch(() => {});
@@ -44,18 +53,45 @@ export default function BoardGrid() {
     } catch {}
   }, []);
 
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setBoardW(el.clientWidth));
+    ro.observe(el);
+    setBoardW(el.clientWidth);
+    return () => ro.disconnect();
+  }, [map]);
+
   const ensureAvail = useCallback((): Promise<OdyAvail | null> => {
     if (avail) return Promise.resolve(avail);
     return fetch("/odyssey/avail.v1.json").then((r) => (r.ok ? r.json() : null))
       .then((a: OdyAvail | null) => { if (a) setAvail(a); return a; }).catch(() => null);
   }, [avail]);
 
-  useEffect(() => { if (hlAvail) void ensureAvail(); }, [hlAvail, ensureAvail]);
+  useEffect(() => { if (hlAvail || servicesCloser) void ensureAvail(); }, [hlAvail, servicesCloser, ensureAvail]);
   useEffect(() => { try { localStorage.setItem("ody.cc", country); } catch {} }, [country]);
 
-  const board = useMemo(() => (map ? packBoard(map.stations) : null), [map]);
+  const board = useMemo(() => (map ? packBoard(map.stations, COLS) : null), [map]);
   const byId = useMemo(() => new Map((map?.stations ?? []).map((s) => [s.s, s])), [map]);
   const availCC = useMemo(() => (avail ? avail[country] ?? {} : null), [avail, country]);
+
+  // cell geometry
+  const pw = Math.max(16, Math.min(34, Math.floor(boardW / COLS) - 2));
+  const cellW = pw + 2;
+  const rowH = pw * 1.5 + 2;
+
+  // positions for the active arrangement
+  const layout = useMemo(() => {
+    if (!board || !map) return null;
+    const pos = new Map<string, { x: number; y: number; seen: boolean; core: boolean }>();
+    if (mode === "grid") {
+      for (const c of board.cells) pos.set(c.s.s, { x: c.col * cellW + 1, y: c.row * rowH + 1, seen: false, core: false });
+      return { pos, height: board.rows * rowH, boundary: null as null | { cx: number; cy: number; r: number } };
+    }
+    const t = tasteLayout(map.stations, seenSet, availCC, servicesCloser, boardW, cellW);
+    for (const [slug, p] of t.pos) pos.set(slug, { x: p.x - pw / 2, y: p.y - pw * 1.5 / 2, seen: p.seen, core: p.r <= t.boundaryR });
+    return { pos, height: t.height, boundary: { cx: t.cx, cy: t.cy, r: t.boundaryR } };
+  }, [board, map, mode, cellW, rowH, pw, seenSet, availCC, servicesCloser, boardW]);
 
   const visible = useCallback((s: OdyStation) => {
     const y = s.y ?? 0;
@@ -69,14 +105,13 @@ export default function BoardGrid() {
     [board, visible],
   );
 
-  // hover / click via delegation on the grid
   const onGridMove = useCallback((e: React.MouseEvent) => {
     const el = (e.target as HTMLElement).closest("[data-slug]") as HTMLElement | null;
     const slug = el?.dataset.slug;
     if (!slug) { setHover(null); return; }
     const s = byId.get(slug);
     if (!s) { setHover(null); return; }
-    const wrap = gridRef.current?.getBoundingClientRect();
+    const wrap = wrapRef.current?.getBoundingClientRect();
     setHover({ s, x: e.clientX - (wrap?.left ?? 0), y: e.clientY - (wrap?.top ?? 0) });
   }, [byId]);
   const onGridClick = useCallback((e: React.MouseEvent) => {
@@ -86,15 +121,30 @@ export default function BoardGrid() {
   }, [byId]);
 
   const anyHl = hlSeen || hlWatch || hlAvail;
-  const containerCls = ["board-grid", anyHl ? "has-hl" : ""].filter(Boolean).join(" ");
+  // only recede the rest when a highlight actually matches something
+  const hasLit = useMemo(() => {
+    if (!anyHl || !board) return false;
+    return board.cells.some((c) => {
+      const sl = c.s.s;
+      return (hlSeen && seenSet.has(sl)) || (hlWatch && (uf?.get({ slug: sl }).watchlist ?? false))
+        || (hlAvail && availCC && (availCC[sl]?.length ?? 0) > 0);
+    });
+  }, [anyHl, board, hlSeen, hlWatch, hlAvail, seenSet, uf, availCC]);
 
-  if (!map || !board) return <div className="board-loading">Charting {` `}the board…</div>;
-
+  if (!map || !board) return <div className="board-loading">Charting the board…</div>;
   const genres = map.genres ?? [];
 
   return (
     <div className="board-root">
       <div className="board-controls">
+        <div className="board-hl">
+          <span className="board-label">정렬</span>
+          <button className={`board-mode${mode === "grid" ? " on" : ""}`} onClick={() => setMode("grid")}>바둑판</button>
+          <button className={`board-mode${mode === "taste" ? " on" : ""}`} onClick={() => setMode("taste")}>본 영화 중심</button>
+          {mode === "taste" ? (
+            <button className={`board-tog avail${servicesCloser ? " on" : ""}`} onClick={() => setServicesCloser((v) => !v)}>내 서비스 가까이</button>
+          ) : null}
+        </div>
         <div className="board-hl">
           <span className="board-label">색으로 보기</span>
           <button className={`board-tog seen${hlSeen ? " on" : ""}`} onClick={() => setHlSeen((v) => !v)}>본 영화</button>
@@ -124,28 +174,37 @@ export default function BoardGrid() {
 
       <div className="board-scroll">
         <div
-          className={containerCls}
-          ref={gridRef}
-          style={{ gridTemplateColumns: `repeat(${board.cols}, 1fr)` }}
+          className={`board-stage${anyHl ? " has-hl" : ""}${mode === "taste" ? " is-taste" : ""}`}
+          ref={wrapRef}
+          style={{ height: layout ? layout.height : 400 }}
           onMouseMove={onGridMove}
           onMouseLeave={() => setHover(null)}
           onClick={onGridClick}
         >
+          {mode === "taste" && layout?.boundary ? (
+            <div className="board-boundary" style={{
+              left: layout.boundary.cx - layout.boundary.r,
+              top: layout.boundary.cy - layout.boundary.r,
+              width: layout.boundary.r * 2,
+              height: layout.boundary.r * 2,
+            }}>
+              <span className="board-boundary-tag">내가 본 영화</span>
+            </div>
+          ) : null}
+
           {board.cells.map((c) => {
             const s = c.s;
+            const p = layout?.pos.get(s.s);
+            if (!p) return null;
             const seen = seenSet.has(s.s);
             const watch = uf?.get({ slug: s.s }).watchlist ?? false;
             const availOn = availCC ? (availCC[s.s]?.length ?? 0) > 0 : false;
             const lit = (hlSeen && seen) || (hlWatch && watch) || (hlAvail && availOn);
             const ring = hlSeen && seen ? "r-seen" : hlWatch && watch ? "r-watch" : hlAvail && availOn ? "r-avail" : "";
-            const cls = [
-              "bcell",
-              !visible(s) ? "off" : "",
-              anyHl && !lit ? "dim" : "",
-              ring,
-            ].filter(Boolean).join(" ");
+            const cls = ["bcell", !visible(s) ? "off" : "", hasLit && !lit ? "dim" : "", ring].filter(Boolean).join(" ");
             return (
-              <div key={s.s} className={cls} data-slug={s.s} style={{ gridColumn: c.col + 1, gridRow: c.row + 1 }}>
+              <div key={s.s} className={cls} data-slug={s.s}
+                style={{ width: pw, height: pw * 1.5, transform: `translate(${p.x}px, ${p.y}px)` }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`${IMG}/w92${s.p}`} alt="" loading="lazy" draggable={false} />
               </div>
@@ -154,7 +213,7 @@ export default function BoardGrid() {
         </div>
 
         {hover ? (
-          <div className="board-tip" style={{ left: Math.min(hover.x + 12, (gridRef.current?.clientWidth ?? 800) - 220), top: hover.y + 12 }}>
+          <div className="board-tip" style={{ left: Math.min(hover.x + 12, (wrapRef.current?.clientWidth ?? 800) - 220), top: hover.y + 12 }}>
             <b>{hover.s.t}</b> <span>{hover.s.y ?? ""}</span>
             {hover.s.d ? <div className="d">{hover.s.d}</div> : null}
             <div className="m">
@@ -171,12 +230,14 @@ export default function BoardGrid() {
         <span className="lg seen">본 영화</span>
         <span className="lg watch">볼 영화</span>
         <span className="lg avail">내 서비스({country})</span>
-        <span className="lg-note">토글을 끄고 켜 조감하고, 거르기로 좁혀 보세요.</span>
+        <span className="lg-note">
+          {mode === "taste"
+            ? "가운데가 당신이 본 영화 · 가까울수록 취향이 닮은 영화 · 멀수록 낯선 영화입니다."
+            : "정렬을 「본 영화 중심」으로 바꾸면 취향을 중심으로 다시 모입니다."}
+        </span>
       </div>
 
-      {open ? (
-        <Drawer s={open} map={map} availCC={availCC} country={country} onClose={() => setOpen(null)} />
-      ) : null}
+      {open ? <Drawer s={open} map={map} availCC={availCC} country={country} onClose={() => setOpen(null)} /> : null}
     </div>
   );
 }
