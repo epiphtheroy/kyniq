@@ -11,11 +11,12 @@
 2. **`/journey` = 여정 제안(The Metatake Deck)** — "지도≠GPS 내비"라는 오너 통찰. 큰 **METATAKE 버튼**을 누르면 **안정·모험·전혀 새로운 세 축 × 3편 = 9카드**가 게임처럼 뒤집혀 안 본 영화를 제안. 왼쪽에 본 영화 썸네일 뭉치. 필터(서비스·연도·장르). 카드별 seen/watchlist/별점.
 3. **`/board` = 전체 조감 바둑판** — Tier-1 1,958편(=우리가 다루는 "시네필 영화 전체")을 **30열 바둑판**으로. 색 토글(본 영화/볼 영화/내 서비스)로 색이 들어오고 필터로 좁힘. **정렬 토글 「바둑판/본 영화 중심」**(취향 나선 배치·구획선·「내 서비스 가까이」). hover 말풍선 + 우측 상세 드로어. 아래에 마이룸 정전·감독 커버리지.
 
-### A1. ⚠️⚠️ 배포 진실 — 중복/누락 방지 최우선으로 반드시 확인
-- **production `main`(현재 tip `889c828`, release 14:45) = 구 SVG 노선도 v1**(시간축 격자 metro map, `OdysseyMap.tsx`). **오늘의 갤럭시·평면지도·저니·보드는 production에 없다.**
-- 오늘 작업 **7커밋 전부 `staging`(tip `a33b481`)에만 있고 오너 릴리즈 대기**:
-  `7ebed04`(갤럭시 t-SNE 포스터/지형/노선) → `12110cd`(3D 틸트·클릭노선·확대) → `854be38`(평면 시대×성향) → `69f68d9`(Metatake Deck, /odyssey에 임베드) → `8353486`(덱을 `/journey`로 분리·/odyssey 지도전용 복귀) → `6cef688`(`/board` 바둑판+커버리지) → `a33b481`(보드 30열+본영화중심 취향배치).
-- **릴리즈는 오너만**(매일 22시 `release.command` = staging→main). **에이전트는 main 직푸시·release 금지.** staging 커밋은 자유(§배포체계 P0, `HANDOFF-배포체계-P0.md`).
+### A1. ⚠️⚠️ 배포 상태 — 중복/누락 방지 최우선으로 반드시 확인
+- **릴리즈 진행(2026-07-20 저녁): 오너가 staging(`00c4a5e`)을 `release.command`로 프로덕션 반영.** 반영 후 세 표면(`/odyssey`·`/journey`·`/board`)이 metatake.net 라이브.
+  - **릴리즈 완료 확인법**: `git log origin/main`에 오늘 오디세이 커밋(또는 `release: staging → main 2026-07-20 (저녁)`)이 있으면 반영됨 / metatake.net/board 접속. **아직 안 보이면 오너 release 대기 중** — 이 줄을 "라이브"로 갱신할 것.
+  - 릴리즈 안전성 사전검증 완료: **staging 전 커밋 Vercel 빌드 READY**(프로덕션 빌드 성공)·**CI 타입체크 통과**·staging↔main 병합 깨끗(마지막 릴리즈 889c828 이후 staging엔 아래 오디세이 8커밋만·타인 작업 없음).
+- 오늘 작업 커밋 체인(staging): `7ebed04`(갤럭시 t-SNE 포스터/지형/노선) → `12110cd`(3D 틸트·클릭노선·확대) → `854be38`(평면 시대×성향) → `69f68d9`(Metatake Deck, /odyssey 임베드) → `8353486`(덱을 `/journey`로 분리·/odyssey 지도전용 복귀) → `6cef688`(`/board` 바둑판+커버리지) → `a33b481`(보드 30열+본영화중심 취향배치) → `00c4a5e`(이 §A 문서).
+- **릴리즈 반영 전 production `main`(889c828) = 구 SVG 노선도 v1**(`OdysseyMap.tsx`). **에이전트는 main 직푸시·release 금지**(오너만, `HANDOFF-배포체계-P0.md`). staging 커밋은 자유.
 - **구 `components/odyssey/OdysseyMap.tsx`(SVG 시간축 노선도)는 미사용 보존**(오너가 timeline 뷰 재요청 대비). `app/odyssey/page.tsx`는 `OdysseyGalaxy` import. **SVG 재구축·삭제 금지.**
 
 ### A2. 파일 맵 (표면별)
