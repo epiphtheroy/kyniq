@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Metatake",
-    "slug": "metatake",
+    "slug": "wonwoometatake",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -95,6 +95,18 @@
       "typedRoutes": true
     },
     "primaryColor": "#E61E4D",
-    "backgroundColor": "#FFFFFF"
+    "backgroundColor": "#FFFFFF",
+    "extra": {
+      "eas": {
+        "projectId": "5f5d3978-00e0-4e1b-8111-6618fac80f12"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/5f5d3978-00e0-4e1b-8111-6618fac80f12"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "owner": "wonwoometatakes-team"
   }
 }

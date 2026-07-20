@@ -17,7 +17,7 @@ export type Edition = {
 
 export const EDITIONS: Record<string, Edition> = {
   US: { code: "US", country: "US", locale: "en", live: true, flag: "🇺🇸", label: "United States" },
-  KR: { code: "KR", country: "KR", locale: "ko", live: false, flag: "🇰🇷", label: "한국" },
+  KR: { code: "KR", country: "KR", locale: "ko", live: true, flag: "🇰🇷", label: "한국" },
   ES: { code: "ES", country: "ES", locale: "es", live: false, flag: "🇪🇸", label: "España" },
   JP: { code: "JP", country: "JP", locale: "ja", live: false, flag: "🇯🇵", label: "日本" },
 };

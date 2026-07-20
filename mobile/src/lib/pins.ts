@@ -18,6 +18,10 @@ export type Pin = {
   layer: string | null;
   filmSlug: string | null;
   filmTitle: string | null;
+  /** TMDB poster path of the pin's film — drives the poster-thumbnail markers. */
+  posterPath: string | null;
+  /** TakeScore of the pin's film — shown in the map callout bubble. */
+  ts: number | null;
 };
 
 type ApiLocRow = {
@@ -57,6 +61,8 @@ function toPin(row: ApiLocRow, id: number): Pin | null {
     layer: row.layer ?? null,
     filmSlug: row.film_slug ?? null,
     filmTitle: row.film_title ?? null,
+    posterPath: null,
+    ts: null,
   };
 }
 
@@ -68,6 +74,40 @@ async function fetchCountryPins(country: string): Promise<ApiLocRow[]> {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const json = (await res.json()) as { locations?: ApiLocRow[] };
   return json.locations ?? [];
+}
+
+/**
+ * Fill posterPath for every pin via one bulk anon lookup (films is public
+ * content; RLS-safe select). Fail-soft: no posters just means dot markers.
+ */
+async function attachPosters(pins: Pin[]): Promise<void> {
+  const slugs = [...new Set(pins.map((p) => p.filmSlug).filter(Boolean))] as string[];
+  if (!slugs.length) return;
+  const posterBySlug = new Map<string, string>();
+  const tsBySlug = new Map<string, number>();
+  for (let i = 0; i < slugs.length; i += 150) {
+    const chunk = slugs.slice(i, i + 150);
+    try {
+      const [posters, scores] = await Promise.all([
+        supabase.from("films").select("slug,poster_path").in("slug", chunk),
+        supabase.rpc("takescore_for_slugs", { p_slugs: chunk }),
+      ]);
+      for (const r of (posters.data ?? []) as { slug: string; poster_path: string | null }[]) {
+        if (r.poster_path) posterBySlug.set(r.slug, r.poster_path);
+      }
+      for (const r of (scores.data ?? []) as { slug: string; ts: number }[]) {
+        tsBySlug.set(r.slug, r.ts);
+      }
+    } catch {
+      /* fail-soft */
+    }
+  }
+  for (const p of pins) {
+    if (p.filmSlug) {
+      p.posterPath = posterBySlug.get(p.filmSlug) ?? null;
+      p.ts = tsBySlug.get(p.filmSlug) ?? null;
+    }
+  }
 }
 
 /** World view: biggest countries, batched small — the API carries a harvest guard. */
@@ -89,6 +129,7 @@ export async function loadGlobalPins(): Promise<Pin[]> {
     const p = toPin(row, pins.length);
     if (p) pins.push(p);
   }
+  await attachPosters(pins);
   return pins;
 }
 
@@ -101,13 +142,23 @@ export async function loadFilmPins(slug: string): Promise<Pin[]> {
     const p = toPin(row, pins.length);
     if (p) pins.push(p);
   }
+  await attachPosters(pins);
   return pins;
 }
 
 /** GeoJSON view of the pins — what both MapLibre implementations consume. */
 export function toFeatureCollection(pins: Pin[]): GeoJSON.FeatureCollection<
   GeoJSON.Point,
-  { name: string; country: string | null; layer: string | null; film_slug: string | null; film_title: string | null }
+  {
+    pid: string;
+    name: string;
+    country: string | null;
+    layer: string | null;
+    film_slug: string | null;
+    film_title: string | null;
+    poster: string | null;
+    ts: number | null;
+  }
 > {
   return {
     type: "FeatureCollection",
@@ -116,11 +167,15 @@ export function toFeatureCollection(pins: Pin[]): GeoJSON.FeatureCollection<
       id: p.id,
       geometry: { type: "Point" as const, coordinates: [p.lng, p.lat] },
       properties: {
+        pid: p.id,
         name: p.name,
         country: p.country,
         layer: p.layer,
         film_slug: p.filmSlug,
         film_title: p.filmTitle,
+        // Full URL baked here so the WebView page needs zero TMDB knowledge.
+        poster: p.posterPath ? `https://image.tmdb.org/t/p/w154${p.posterPath}` : null,
+        ts: p.ts,
       },
     })),
   };

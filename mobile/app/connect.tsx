@@ -895,7 +895,7 @@ export default function ConnectScreen() {
           <Btn
             label={t("my.signIn")}
             style={{ alignSelf: "stretch" }}
-            onPress={() => router.push("/onboarding")}
+            onPress={() => router.push({ pathname: "/onboarding", params: { step: "account" } })}
           />
         </View>
       </Screen>
@@ -1018,7 +1018,9 @@ export default function ConnectScreen() {
         result={result}
         onShelf={() => router.push("/my")}
         onDone={() => setResult(null)}
-        onUnmatchedTap={() => router.push("/search")}
+        onUnmatchedTap={(u) =>
+          router.push({ pathname: "/search", params: { q: u.title } })
+        }
       />
     );
   }
@@ -1482,7 +1484,7 @@ function CompletionView({
   result: ResultState;
   onShelf: () => void;
   onDone: () => void;
-  onUnmatchedTap: () => void;
+  onUnmatchedTap: (u: { title: string; year?: number }) => void;
 }) {
   const pal = usePalette();
   const insets = useSafeAreaInsets();
@@ -1568,7 +1570,7 @@ function CompletionView({
               }}
             >
               {result.unmatched.slice(0, 40).map((u, i) => (
-                <Tactile key={`${u.title}-${i}`} onPress={onUnmatchedTap}>
+                <Tactile key={`${u.title}-${i}`} onPress={() => onUnmatchedTap(u)}>
                   <View
                     style={{
                       flexDirection: "row",

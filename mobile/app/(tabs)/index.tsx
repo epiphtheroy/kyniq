@@ -254,7 +254,9 @@ export default function TonightScreen() {
     async (row: DeckRow, kind: JudgeKind) => {
       if (!session) {
         showNotice(t("judge.signInToKeep"));
-        router.push("/onboarding");
+        // Straight to the sign-in form — the notice promises sign-in, so never
+        // land the user on the country/services steps (they'd bounce).
+        router.push({ pathname: "/onboarding", params: { step: "account" } });
         return;
       }
       const at = rowsRef.current.findIndex((r) => r.slug === row.slug);

@@ -3,6 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { mergePins, type GeoPin } from "@/lib/locations";
 import { CODEX_DIMS } from "@/lib/cinecodex_dims";
+import { filmBackdropPaths } from "@/lib/read-media";
 
 /**
  * Mobile BFF — Film card (HANDOFF-모바일앱-프리워치.md §7).
@@ -41,7 +42,7 @@ export async function GET(req: Request, { params }: Params) {
     const { data: film, error: filmErr } = await db
       .from("films")
       .select(
-        "id, slug, title, original_title, year, director, director_slug, poster_path, backdrop_path, runtime, genres, is_analyzed",
+        "id, slug, title, original_title, year, director, director_slug, poster_path, backdrop_path, runtime, genres, is_analyzed, tmdb_id",
       )
       .eq("slug", slug)
       .maybeSingle();
@@ -49,6 +50,12 @@ export async function GET(req: Request, { params }: Params) {
     if (!film) {
       return NextResponse.json({ error: "not_found" }, { status: 404, headers: API_CORS });
     }
+    // Hero pager + mid-page figures (owner directive 2026-07-20): a handful of
+    // TMDB backdrops, kicked off early and awaited at payload time. Fail-soft.
+    const imagesP: Promise<string[]> = filmBackdropPaths(
+      (film as { tmdb_id?: number | null }).tmdb_id ?? null,
+      8,
+    ).catch(() => [] as string[]);
 
     const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes] = await Promise.all([
       db.rpc("takescore_for_slugs", { p_slugs: [slug] }),
@@ -285,6 +292,9 @@ export async function GET(req: Request, { params }: Params) {
         standing: card?.standing?.prestige ?? null,
         dims,
         kindred,
+        // Additive (PAYLOAD v2-compatible): clients that don't know `images`
+        // ignore it; the app renders the hero pager + figures only when present.
+        images: await imagesP.then((a) => (a.length ? a : null)),
       },
       { headers: { ...API_CORS, "cache-control": CACHE } },
     );

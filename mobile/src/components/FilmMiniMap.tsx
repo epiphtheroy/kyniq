@@ -84,11 +84,20 @@ function WebViewMini({ pins, height, onPress }: Props) {
   const html = `<!doctype html><html><head>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <link href="${MAPLIBRE_CSS}" rel="stylesheet"><script src="${MAPLIBRE_JS}"></script>
-<style>html,body,#m{margin:0;padding:0;height:100%;width:100%;background:#e9f2fb}
+<style>html,body,#m{margin:0;padding:0;height:100%;width:100%;background:#0b1020}
 .maplibregl-ctrl-attrib{font:9px/1.5 -apple-system,system-ui,sans-serif}</style>
 </head><body><div id="m"></div><script>
 var pts=[${feats}];
-var map=new maplibregl.Map({container:"m",style:"${MAP_STYLE}",interactive:false,attributionControl:{compact:true}});
+var map=new maplibregl.Map({container:"m",interactive:false,attributionControl:{compact:true},style:{
+  version:8,
+  sources:{
+    sat:{type:"raster",tileSize:256,maxzoom:19,attribution:"Esri · Maxar · Earthstar Geographics",
+         tiles:["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"]},
+    ref:{type:"raster",tileSize:256,maxzoom:19,
+         tiles:["https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"]}
+  },
+  layers:[{id:"sat",type:"raster",source:"sat"},{id:"ref",type:"raster",source:"ref",paint:{"raster-opacity":0.9}}]
+}});
 pts.forEach(function(c){new maplibregl.Marker({color:"${brand.accent}",scale:0.7}).setLngLat(c).addTo(map);});
 var b=new maplibregl.LngLatBounds();pts.forEach(function(c){b.extend(c);});
 map.fitBounds(b,{padding:34,maxZoom:9,duration:0});
@@ -113,57 +122,50 @@ map.fitBounds(b,{padding:34,maxZoom:9,duration:0});
   );
 }
 
-/** MapLibre GL Native mini (dev/store builds — the canon renderer). */
+/** MapLibre GL Native mini (dev/store builds — the canon renderer).
+ * v11 API (@maplibre/maplibre-react-native ≥10): `Map` + `Camera` +
+ * `GeoJSONSource`/`Layer` — matches MapNative. The old v9 names (`MapView`,
+ * `PointAnnotation`) no longer exist and would render `undefined` → red-screen. */
 function NativeMini({ pins, height, onPress }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const ML = require("@maplibre/maplibre-react-native") as {
-    MapView: React.ComponentType<Record<string, unknown>>;
+    Map: React.ComponentType<Record<string, unknown>>;
     Camera: React.ComponentType<Record<string, unknown>>;
-    PointAnnotation: React.ComponentType<Record<string, unknown>>;
+    GeoJSONSource: React.ComponentType<Record<string, unknown>>;
+    Layer: React.ComponentType<Record<string, unknown>>;
   };
+  const { Map: MLMap, Camera, GeoJSONSource, Layer } = ML;
   const b = bounds(pins);
+  const single = pins.length === 1 || (b.minLat === b.maxLat && b.minLng === b.maxLng);
+  const initialViewState = single
+    ? { center: [(b.minLng + b.maxLng) / 2, (b.minLat + b.maxLat) / 2], zoom: 8 }
+    : { bounds: [b.minLng, b.minLat, b.maxLng, b.maxLat], padding: { top: 34, bottom: 34, left: 34, right: 34 } };
+  const collection = {
+    type: "FeatureCollection" as const,
+    features: pins.slice(0, 120).map((p, i) => ({
+      type: "Feature" as const,
+      id: i,
+      geometry: { type: "Point" as const, coordinates: [p.lng, p.lat] },
+      properties: {},
+    })),
+  };
   return (
     <View style={{ height, borderRadius: radius.md, overflow: "hidden" }}>
-      <ML.MapView
-        style={{ flex: 1 }}
-        mapStyle={MAP_STYLE}
-        scrollEnabled={false}
-        zoomEnabled={false}
-        rotateEnabled={false}
-        pitchEnabled={false}
-        attributionEnabled
-        logoEnabled={false}
-      >
-        <ML.Camera
-          bounds={{
-            ne: [b.maxLng, b.maxLat],
-            sw: [b.minLng, b.minLat],
-            paddingTop: 34,
-            paddingBottom: 34,
-            paddingLeft: 34,
-            paddingRight: 34,
-          }}
-          animationDuration={0}
-        />
-        {pins.slice(0, 120).map((p) => (
-          <ML.PointAnnotation
-            key={String(p.id)}
-            id={`fmm-${p.id}`}
-            coordinate={[p.lng, p.lat]}
-          >
-            <View
-              style={{
-                width: 14,
-                height: 14,
-                borderRadius: 7,
-                backgroundColor: brand.accent,
-                borderWidth: 2,
-                borderColor: "#FFFFFF",
-              }}
-            />
-          </ML.PointAnnotation>
-        ))}
-      </ML.MapView>
+      <MLMap style={{ flex: 1 }} mapStyle={MAP_STYLE} logo={false}>
+        <Camera initialViewState={initialViewState} />
+        <GeoJSONSource id="fmm-src" data={collection}>
+          <Layer
+            type="circle"
+            id="fmm-pts"
+            paint={{
+              "circle-color": brand.accent,
+              "circle-radius": 6,
+              "circle-stroke-width": 2,
+              "circle-stroke-color": "#FFFFFF",
+            }}
+          />
+        </GeoJSONSource>
+      </MLMap>
       <Pressable
         onPress={onPress}
         style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
@@ -179,26 +181,18 @@ export default function FilmMiniMap(props: Props) {
   // render, so a try around `return <Child/>` would never catch its require).
   let Impl: React.ComponentType<Props> | null = null;
   try {
-    if (IN_EXPO_GO) {
-      if (Platform.OS === "android") {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("react-native-webview");
-        Impl = WebViewMini;
-      } else {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("react-native-maps");
-        Impl = AppleMini;
-      }
+    if (IN_EXPO_GO && Platform.OS === "ios") {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require("react-native-maps");
+      Impl = AppleMini;
     } else {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("@maplibre/maplibre-react-native");
-        Impl = NativeMini;
-      } catch {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("react-native-webview");
-        Impl = WebViewMini;
-      }
+      // Store builds AND Expo Go Android: MapLibre GL JS in a WebView.
+      // NativeMini (MapLibre GL Native) hard-crashes the iOS store build on
+      // device (confirmed TestFlight build 8, 2026-07-20) — benched until the
+      // upstream v11/new-arch crash is resolved.
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require("react-native-webview");
+      Impl = WebViewMini;
     }
   } catch {
     Impl = null; // no renderer in this binary — the pin-name rows still stand

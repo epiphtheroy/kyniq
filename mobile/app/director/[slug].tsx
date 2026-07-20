@@ -160,7 +160,7 @@ export default function DirectorScreen() {
           style={{ alignSelf: "stretch" }}
         />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => router.back()} />
+          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
         </View>
       </Screen>
     );
@@ -170,7 +170,7 @@ export default function DirectorScreen() {
         <Stack.Screen options={{ headerShown: false }} />
         <Loading />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => router.back()} />
+          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
         </View>
       </Screen>
     );
@@ -359,7 +359,9 @@ export default function DirectorScreen() {
                   onPress={() =>
                     n.target_slug
                       ? router.push({ pathname: "/director/[slug]", params: { slug: n.target_slug } })
-                      : openReader(`/director/${card.slug}/next`, card.name)
+                      : // No card for this person yet — search their name, never
+                        // the CURRENT director's /next page (reads as a misfire).
+                        router.push({ pathname: "/search", params: { q: n.rec_name } })
                   }
                   style={{ width: 84, alignItems: "center" }}
                 >
@@ -483,7 +485,7 @@ export default function DirectorScreen() {
         }}
         pointerEvents="box-none"
       >
-        <Disc icon="chevron-back" onPress={() => router.back()} />
+        <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
         <Disc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
       </View>
     </Screen>
