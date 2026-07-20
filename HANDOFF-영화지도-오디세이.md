@@ -11,6 +11,13 @@
 - 기타: fly()가 pointerdown/휠/핀치에 취소(지터 제거)·runMode가 stale solo 정리·ascent/continue 근거·순서 교정·build 방어(빈 노선 max·codex 행 형태·country_override 우선)·/odyssey+35노선 코어 사이트맵 등재.
 - **오탐**: next-seo "untracked map.v1.json import"는 오탐(커밋됨·Vercel 빌드 성공). JSON-LD 이스케이프 minor는 리포 전반 관례라 보류.
 
+## §-3 갤럭시 v2 — 틸트·클릭노선·확대 (2026-07-20, 오너 지시)
+
+- **⌘/Ctrl+드래그 3D 틸트**: pitch 도입. 지형이 수평선으로 원근 압축되고 각 영화가 고도(높이필드)만큼 화면상 위로 떠올라 "갤럭시를 비스듬히 내려다보는" 뷰. `LIFT=300·sin(pitch)` px, `PROJ()` 헬퍼가 노드·노선·라벨·pick 전부에 적용. Terrain은 압축 hillshade 이미지(고정 이미지라 2D캔버스로 진짜 3D 산맥은 미구현 — 능선렌더 시도했으나 muddy→압축 이미지+포스터 lift로 절충). ⚠️완전 3D 릴리프는 후속(WebGL 급).
+- **영화 클릭 → 노선 활성화**: onUp이 `setSolo(p.ln[0])` — 클릭한 영화의 노선이 빨갛게 켜지고 그 노선 영화들이 도드라짐. 다노선 영화는 카드에서 전환. 실측: Psycho 클릭→고전할리우드+호러선 점등.
+- **확대**: odg-root max-width 1280→1480, stageH=`min(vh-168, 1040)` 반응형(전엔 640 고정).
+- ⚠️pick도 PROJ 투영 적용(틸트 시 클릭 정확). 커밋 후속(7ebed04 위).
+
 ## §-2 갤럭시 전환 (2026-07-20, 오너 지시)
 
 오너가 Google Arts&Culture t-SNE Map을 참조로 지도 재편 지시: "각 영화=세로 포스터, 유사도 배치(구글과 같이), **단 길(노선)이 있는 것**, 부드러운 줌아웃, 높낮이(지형)". → 시간×전통 SVG 노선도를 **t-SNE 유사도 갤럭시**로 전환.
