@@ -6,7 +6,7 @@
 // Skinned to design system v2 "Lava": pill search bar with a soft shadow, rounded
 // posters, whitespace-separated rows (no hairlines), ghost web-search CTA.
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -52,6 +52,11 @@ export default function SearchScreen() {
   const { country } = usePrefs();
 
   const [q, setQ] = useState("");
+  // ?q= seeds the query (connect's unmatched rows, director successor lookups).
+  const { q: seedQ } = useLocalSearchParams<{ q?: string }>();
+  useEffect(() => {
+    if (typeof seedQ === "string" && seedQ.length) setQ(seedQ);
+  }, [seedQ]);
   const [rows, setRows] = useState<SearchRow[]>([]);
   const [tsMap, setTsMap] = useState<Map<string, number>>(new Map());
   const [tierMap, setTierMap] = useState<Map<string, string[]>>(new Map());
@@ -64,6 +69,7 @@ export default function SearchScreen() {
   const [sel, setSel] = useState<BrowseSel>({ genres: new Set(), decades: new Set() });
   const [browseSort, setBrowseSort] = useState<SortKey>("ts");
   const [browseRows, setBrowseRows] = useState<TonightRow[]>([]);
+  const [minTs, setMinTs] = useState<number | null>(null); // score floor — compound criteria
   const [browseLoading, setBrowseLoading] = useState(false);
   const selActive = sel.genres.size > 0 || sel.decades.size > 0;
 
@@ -157,6 +163,7 @@ export default function SearchScreen() {
       genres?: string[];
       yearMin?: number;
       yearMax?: number;
+      tsMin?: number;
       sort?: string;
       dir?: "asc" | "desc";
     } = {};
@@ -168,6 +175,7 @@ export default function SearchScreen() {
     // v11 tokens bake direction into "newest"/"oldest" — never send sort=year.
     if (browseSort === "new") opts.sort = "newest";
     else if (browseSort === "old") opts.sort = "oldest";
+    if (minTs != null) opts.tsMin = minTs;
     api
       .tonight(country, [], opts)
       .then((p) => {
@@ -182,7 +190,7 @@ export default function SearchScreen() {
     return () => {
       alive = false;
     };
-  }, [selActive, genresKey, decadesKey, browseSort, country]);
+  }, [selActive, genresKey, decadesKey, browseSort, minTs, country]);
 
   const pickGenre = (g: string) =>
     setSel((prev) => {
@@ -261,6 +269,16 @@ export default function SearchScreen() {
           <Chip label={t("sort.takescore")} active={browseSort === "ts"} onPress={() => setBrowseSort("ts")} />
           <Chip label={t("sort.newest")} active={browseSort === "new"} onPress={() => setBrowseSort("new")} />
           <Chip label={t("sort.oldest")} active={browseSort === "old"} onPress={() => setBrowseSort("old")} />
+          {/* Score floor — composes with genre/decade/sort (owner 2026-07-20:
+              "TS ≥ n among the newest", "post-2000 by score"). Single-select. */}
+          {[60, 70, 80].map((n) => (
+            <Chip
+              key={n}
+              label={`TS ${n}+`}
+              active={minTs === n}
+              onPress={() => setMinTs(minTs === n ? null : n)}
+            />
+          ))}
         </View>
       ) : null}
       {browseLoading ? (
@@ -268,19 +286,29 @@ export default function SearchScreen() {
           <ActivityIndicator color={brand.accent} />
         </View>
       ) : selActive ? (
-        <View style={{ paddingTop: sp.s3 }}>
-          {browseRows.map((r) => (
-            <FilmResultRow
-              key={r.slug}
-              slug={r.slug}
-              title={r.title}
-              sub={[r.year, r.director].filter(Boolean).join(" · ")}
-              poster={r.poster_path}
-              ts={r.ts}
-              tiers={r.tiers}
-            />
-          ))}
-        </View>
+        browseRows.length ? (
+          <View style={{ paddingTop: sp.s3 }}>
+            {browseRows.map((r) => (
+              <FilmResultRow
+                key={r.slug}
+                slug={r.slug}
+                title={r.title}
+                sub={[r.year, r.director].filter(Boolean).join(" · ")}
+                poster={r.poster_path}
+                ts={r.ts}
+                tiers={r.tiers}
+              />
+            ))}
+          </View>
+        ) : (
+          // Empty (or failed) filter result must say so — a silent blank reads
+          // as a dead screen.
+          <View style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s5 }}>
+            <Ui size={fs.base} color={pal.muted}>
+              {t("browse.empty")}
+            </Ui>
+          </View>
+        )
       ) : null}
     </View>
   ) : null;

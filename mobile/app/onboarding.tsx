@@ -12,7 +12,7 @@ import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useMemo, useState } from "react";
 import { Platform, ScrollView, TextInput, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import {
+import { Serif,
   Btn,
   Chip,
   GradientBtn,
@@ -54,9 +54,15 @@ export default function OnboardingScreen() {
   const { onboarded, set } = usePrefs();
 
   // First launch opens on the value pitch; deep links and re-entry skip it.
+  // An already-onboarded re-entry with no explicit step is almost always a
+  // sign-in intent (every "Sign in" button routes here) — land on the form.
   const [step, setStep] = useState<Step>(() =>
-    isStep(params.step) ? params.step : onboarded ? "country" : "welcome",
+    isStep(params.step) ? params.step : onboarded ? "account" : "welcome",
   );
+
+  // Entered from settings to edit ONE step (country/services): Continue
+  // returns to the caller instead of walking the rest of the funnel.
+  const editOne = isStep(params.step) && params.step !== "account";
 
   const finish = () => {
     set({ onboarded: true });
@@ -108,7 +114,10 @@ export default function OnboardingScreen() {
           }}
         >
           <View style={{ width: 44 }}>
-            {onboarded ? (
+            {/* Deep-linked re-entry (?step=) must always be dismissible — a
+                signed-out first-timer who tapped "Sign in" is otherwise
+                trapped with no back/close until the account step's Skip. */}
+            {onboarded || isStep(params.step) ? (
               <Tactile onPress={finish} hitSlop={10}>
                 <Ionicons name="close" size={22} color={pal.ink} />
               </Tactile>
@@ -153,8 +162,12 @@ export default function OnboardingScreen() {
       </View>
 
       {step === "welcome" ? <StepWelcome onNext={() => setStep("country")} /> : null}
-      {step === "country" ? <StepCountry onNext={() => setStep("services")} /> : null}
-      {step === "services" ? <StepServices onNext={() => setStep("account")} /> : null}
+      {step === "country" ? (
+        <StepCountry onNext={() => (editOne ? finish() : setStep("services"))} />
+      ) : null}
+      {step === "services" ? (
+        <StepServices onNext={() => (editOne ? finish() : setStep("account"))} />
+      ) : null}
       {step === "account" ? <StepAccount onDone={() => void accountDone()} /> : null}
       {step === "taste" ? <StepTaste onDone={finish} /> : null}
     </Screen>
@@ -234,6 +247,10 @@ function StepWelcome({ onNext }: { onNext: () => void }) {
           <Row icon="albums-outline" title={t("welcome.p2t")} body={t("welcome.p2b")} />
           <Row icon="map-outline" title={t("welcome.p3t")} body={t("welcome.p3b")} />
         </View>
+        {/* Dedication (owner directive 2026-07-20) */}
+        <Serif size={fs.sm} italic color={pal.subtle} style={{ marginTop: sp.s6 }}>
+          to. W.H. Heo
+        </Serif>
       </ScrollView>
       <BottomBar>
         <GradientBtn label={t("welcome.start")} onPress={onNext} />
@@ -656,6 +673,24 @@ function StepAccount({ onDone }: { onDone: () => void }) {
                 style={{ textAlign: "center", textDecorationLine: "underline" }}
               >
                 {t("auth.resend")}
+              </Ui>
+            </Tactile>
+            {/* Mistyped address escape — without this a typo dead-ends the
+                whole OTP flow (Resend only re-sends to the same address). */}
+            <Tactile
+              onPress={() => {
+                setSent(false);
+                setCode("");
+                setError(null);
+              }}
+              hitSlop={6}
+            >
+              <Ui
+                size={fs.sm}
+                color={pal.muted}
+                style={{ textAlign: "center", textDecorationLine: "underline" }}
+              >
+                {t("auth.changeEmail")}
               </Ui>
             </Tactile>
           </>

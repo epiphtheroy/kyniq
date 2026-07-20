@@ -9,7 +9,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import * as Location from "expo-location";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { View } from "react-native";
+import { Linking, View } from "react-native";
 import MapView, { Marker, type MarkerPressEvent, type Region } from "react-native-maps";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Btn, Chip, GradientBtn, Loading, Screen, Tactile, Ui } from "../components/ui";
@@ -296,7 +296,7 @@ export default function MapExpoGoScreen() {
             shadow.card,
           ]}
         >
-          <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? undefined : nearMe} />
+          <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? () => void Linking.openSettings() : nearMe} />
         </View>
       </View>
     </Screen>

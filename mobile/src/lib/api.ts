@@ -55,6 +55,7 @@ export const api = {
       genres?: string[];
       yearMin?: number;
       yearMax?: number;
+      tsMin?: number; // score floor — compound criteria (server ts_min)
       offset?: number;
       preset?: string; // comma-list — chips compose (multi-select)
       sort?: string; // u | year | title (cinecodex_ranked v11 axes)
@@ -66,6 +67,7 @@ export const api = {
     if (opts?.genres?.length) q.set("genres", opts.genres.join(","));
     if (opts?.yearMin) q.set("year_min", String(opts.yearMin));
     if (opts?.yearMax) q.set("year_max", String(opts.yearMax));
+    if (opts?.tsMin) q.set("ts_min", String(opts.tsMin));
     if (opts?.preset) q.set("preset", opts.preset);
     if (opts?.sort) q.set("sort", opts.sort);
     if (opts?.dir) q.set("dir", opts.dir);

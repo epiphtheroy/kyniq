@@ -21,19 +21,19 @@ const IN_EXPO_GO = Constants.executionEnvironment === "storeClient";
 export default function MapRoute() {
   let Impl: React.ComponentType | null = null;
   try {
-    if (IN_EXPO_GO) {
-      Impl =
-        Platform.OS === "android"
-          ? // eslint-disable-next-line @typescript-eslint/no-require-imports
-            (require("../../src/screens/MapWebView").default as React.ComponentType)
-          : // eslint-disable-next-line @typescript-eslint/no-require-imports
-            (require("../../src/screens/MapExpoGo").default as React.ComponentType);
-    } else {
+    if (IN_EXPO_GO && Platform.OS === "ios") {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
-      Impl = require("../../src/screens/MapNative").default as React.ComponentType;
+      Impl = require("../../src/screens/MapExpoGo").default as React.ComponentType;
+    } else {
+      // Store builds AND Expo Go Android: MapLibre GL JS in a WebView.
+      // MapLibre GL *Native* (MapNative) hard-crashes the iOS store build on
+      // device (v11 + RN 0.81 new-arch, confirmed on TestFlight build 8,
+      // 2026-07-20) — keep the native renderer benched until fixed upstream.
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      Impl = require("../../src/screens/MapWebView").default as React.ComponentType;
     }
   } catch {
-    Impl = null; // native module missing from this binary — fall through to stub
+    Impl = null; // renderer missing from this binary — fall through to stub
   }
   if (!Impl) return <MapUnavailable reason="map.expoGoUnavailable" />;
   return <Impl />;

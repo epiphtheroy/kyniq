@@ -19,7 +19,7 @@ import {
 import * as Location from "expo-location";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { View } from "react-native";
+import { Linking, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Btn, Chip, GradientBtn, Loading, Screen, Tactile, Ui } from "../components/ui";
 import { METATAKE_BASE } from "../config";
@@ -480,14 +480,23 @@ export default function MapScreen() {
           <Chip label={t("map.showAll")} icon="close" onPress={() => router.setParams({ film: "" })} />
         ) : null}
         <View pointerEvents="none" style={{ flex: 1 }} />
-        <View
-          style={[
-            { borderRadius: radius.pill, backgroundColor: pal.card, opacity: locDenied ? 0.4 : 1 },
-            shadow.card,
-          ]}
-        >
-          <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? undefined : nearMe} />
-        </View>
+        {/* Hidden while the map isn't mounted (error/loading) — a tap would
+            prompt for permission then do nothing. Denied ≠ dead: reopen
+            Settings so the user can grant and come back. */}
+        {!err && pins ? (
+          <View
+            style={[
+              { borderRadius: radius.pill, backgroundColor: pal.card, opacity: locDenied ? 0.4 : 1 },
+              shadow.card,
+            ]}
+          >
+            <Chip
+              label={t("map.nearMe")}
+              icon="locate"
+              onPress={locDenied ? () => void Linking.openSettings() : nearMe}
+            />
+          </View>
+        ) : null}
       </View>
     </Screen>
   );
