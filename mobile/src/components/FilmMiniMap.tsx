@@ -84,11 +84,20 @@ function WebViewMini({ pins, height, onPress }: Props) {
   const html = `<!doctype html><html><head>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <link href="${MAPLIBRE_CSS}" rel="stylesheet"><script src="${MAPLIBRE_JS}"></script>
-<style>html,body,#m{margin:0;padding:0;height:100%;width:100%;background:#e9f2fb}
+<style>html,body,#m{margin:0;padding:0;height:100%;width:100%;background:#0b1020}
 .maplibregl-ctrl-attrib{font:9px/1.5 -apple-system,system-ui,sans-serif}</style>
 </head><body><div id="m"></div><script>
 var pts=[${feats}];
-var map=new maplibregl.Map({container:"m",style:"${MAP_STYLE}",interactive:false,attributionControl:{compact:true}});
+var map=new maplibregl.Map({container:"m",interactive:false,attributionControl:{compact:true},style:{
+  version:8,
+  sources:{
+    sat:{type:"raster",tileSize:256,maxzoom:19,attribution:"Esri · Maxar · Earthstar Geographics",
+         tiles:["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"]},
+    ref:{type:"raster",tileSize:256,maxzoom:19,
+         tiles:["https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"]}
+  },
+  layers:[{id:"sat",type:"raster",source:"sat"},{id:"ref",type:"raster",source:"ref",paint:{"raster-opacity":0.9}}]
+}});
 pts.forEach(function(c){new maplibregl.Marker({color:"${brand.accent}",scale:0.7}).setLngLat(c).addTo(map);});
 var b=new maplibregl.LngLatBounds();pts.forEach(function(c){b.extend(c);});
 map.fitBounds(b,{padding:34,maxZoom:9,duration:0});

@@ -11,7 +11,7 @@
 import * as Location from "expo-location";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Linking, View } from "react-native";
+import { Image, Linking, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { WebView, type WebViewMessageEvent } from "react-native-webview";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -20,14 +20,19 @@ import { t } from "../i18n";
 import { boundsOf, loadFilmPins, loadGlobalPins, toFeatureCollection, type Pin } from "../lib/pins";
 import { brand, fs, radius, shadow, sp, usePalette } from "../theme";
 
-const MAP_STYLE = "https://demotiles.maplibre.org/style.json";
 const MAPLIBRE_JS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js";
 const MAPLIBRE_CSS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css";
 const TAB_CLEARANCE = 104;
 
 let globalPinCache: Pin[] | null = null;
 
-type Selected = { name: string; country: string | null; film_slug: string | null; film_title: string | null };
+type Selected = {
+  name: string;
+  country: string | null;
+  film_slug: string | null;
+  film_title: string | null;
+  poster: string | null;
+};
 
 /**
  * The page that runs inside the WebView. Pins and bounds are baked into the HTML
@@ -46,8 +51,13 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
 <link href="${MAPLIBRE_CSS}" rel="stylesheet" />
 <script src="${MAPLIBRE_JS}"></script>
 <style>
-  html,body,#map{margin:0;padding:0;height:100%;width:100%;background:#e9f2fb}
+  html,body,#map{margin:0;padding:0;height:100%;width:100%;background:#0b1020}
   .maplibregl-ctrl-attrib{font:10px/1.5 -apple-system,system-ui,sans-serif}
+  /* Poster-thumbnail marker (owner directive 2026-07-20: pins ARE the films) */
+  .pp{width:40px;height:58px;border-radius:7px;border:2px solid #fff;
+      background-size:cover;background-position:center;background-color:#26314e;
+      box-shadow:0 3px 10px rgba(0,0,0,.45);cursor:pointer}
+  .pp.dot{width:15px;height:15px;border-radius:50%;background-color:${accent}}
 </style>
 </head>
 <body>
@@ -58,33 +68,83 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
   var post = function (msg) {
     if (window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(msg));
   };
+  // Satellite basemap (owner directive 2026-07-20) — Esri World Imagery raster
+  // + place-label reference overlay; both key-free with attribution. Glyphs
+  // endpoint is required for the cluster-count text layer.
   var map = new maplibregl.Map({
     container: "map",
-    style: "${MAP_STYLE}",
+    style: {
+      version: 8,
+      glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+      sources: {
+        sat: { type: "raster", tileSize: 256, maxzoom: 19,
+               attribution: "Esri · Maxar · Earthstar Geographics",
+               tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"] },
+        ref: { type: "raster", tileSize: 256, maxzoom: 19,
+               tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"] }
+      },
+      layers: [
+        { id: "sat", type: "raster", source: "sat" },
+        { id: "ref", type: "raster", source: "ref", paint: { "raster-opacity": 0.92 } }
+      ]
+    },
     center: [-30, 34],
-    zoom: 0.6,
+    zoom: 0.8,
     attributionControl: { compact: true },
   });
+  // Poster-thumbnail markers for unclustered pins, synced with clustering:
+  // clusters render as Lava discs; each pin that leaves a cluster becomes a
+  // DOM marker with its film's poster (dot fallback when no poster).
+  var markers = {};
+  var onScreen = {};
+  function makeEl(props) {
+    var el = document.createElement("div");
+    if (props.poster) { el.className = "pp"; el.style.backgroundImage = "url(" + props.poster + ")"; }
+    else { el.className = "pp dot"; }
+    el.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      post({ type: "pin", props: props });
+    });
+    return el;
+  }
+  function updateMarkers() {
+    var next = {};
+    var feats = map.querySourceFeatures("pins");
+    for (var i = 0; i < feats.length; i++) {
+      var f = feats[i];
+      if (f.properties.cluster) continue;
+      var id = f.properties.pid;
+      if (next[id]) continue;
+      var m = markers[id];
+      if (!m) {
+        m = markers[id] = new maplibregl.Marker({ element: makeEl(f.properties) })
+          .setLngLat(f.geometry.coordinates);
+      }
+      next[id] = m;
+      if (!onScreen[id]) m.addTo(map);
+    }
+    for (var id2 in onScreen) { if (!next[id2]) onScreen[id2].remove(); }
+    onScreen = next;
+  }
   map.on("load", function () {
-    map.addSource("pins", { type: "geojson", data: PINS, cluster: true, clusterRadius: 42 });
+    map.addSource("pins", { type: "geojson", data: PINS, cluster: true, clusterRadius: 46 });
     map.addLayer({
       id: "clusters", type: "circle", source: "pins", filter: ["has", "point_count"],
-      paint: { "circle-color": "${accent}", "circle-opacity": 0.9,
+      paint: { "circle-color": "${accent}", "circle-opacity": 0.92,
+               "circle-stroke-width": 2, "circle-stroke-color": "#FFFFFF",
                "circle-radius": ["step", ["get", "point_count"], 16, 10, 20, 50, 26] },
     });
     map.addLayer({
       id: "cluster-count", type: "symbol", source: "pins", filter: ["has", "point_count"],
-      layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 12, "text-allow-overlap": true },
+      layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 12,
+                "text-font": ["Noto Sans Regular"], "text-allow-overlap": true },
       paint: { "text-color": "#FFFFFF" },
     });
-    map.addLayer({
-      id: "points", type: "circle", source: "pins", filter: ["!", ["has", "point_count"]],
-      paint: { "circle-color": "${accent}", "circle-radius": 6,
-               "circle-stroke-width": 1.5, "circle-stroke-color": "#FFFFFF" },
-    });
+    map.on("render", updateMarkers);
+    map.on("sourcedata", function (e) { if (e.sourceId === "pins" && e.isSourceLoaded) updateMarkers(); });
     if (BOUNDS) {
       map.fitBounds([[BOUNDS.minLng, BOUNDS.minLat], [BOUNDS.maxLng, BOUNDS.maxLat]],
-                    { padding: 48, maxZoom: 10, duration: 0 });
+                    { padding: 56, maxZoom: 11, duration: 0 });
     }
     map.on("click", "clusters", function (e) {
       var f = e.features && e.features[0];
@@ -93,13 +153,8 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
         map.easeTo({ center: f.geometry.coordinates, zoom: z + 0.4 });
       });
     });
-    map.on("click", "points", function (e) {
-      var f = e.features && e.features[0];
-      if (!f) return;
-      post({ type: "pin", props: f.properties });
-    });
     map.on("click", function (e) {
-      var hits = map.queryRenderedFeatures(e.point, { layers: ["points", "clusters"] });
+      var hits = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
       if (!hits.length) post({ type: "clear" });
     });
     post({ type: "ready" });
@@ -176,6 +231,10 @@ export default function MapWebViewScreen() {
           country: typeof p.country === "string" ? p.country : null,
           film_slug: typeof p.film_slug === "string" ? p.film_slug : null,
           film_title: typeof p.film_title === "string" ? p.film_title : null,
+          poster:
+            typeof p.poster === "string" && p.poster.startsWith("https://image.tmdb.org/")
+              ? p.poster
+              : null,
         });
       }
     } catch {
@@ -314,12 +373,35 @@ export default function MapWebViewScreen() {
               <Ionicons name="close" size={15} color={pal.ink} />
             </View>
           </Tactile>
-          <Ui size={fs.md} weight="600" numberOfLines={2}>
-            {selected.name}
-          </Ui>
-          <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 2 }} numberOfLines={1}>
-            {[selected.country, selected.film_title].filter(Boolean).join(" · ")}
-          </Ui>
+          <View style={{ flexDirection: "row", gap: sp.s3, paddingRight: sp.s6 }}>
+            {selected.poster ? (
+              <Image
+                source={{ uri: selected.poster }}
+                style={{ width: 52, height: 76, borderRadius: 8, backgroundColor: pal.surface }}
+              />
+            ) : null}
+            <View style={{ flex: 1 }}>
+              {selected.film_title ? (
+                <Ui size={fs.md} weight="600" numberOfLines={1}>
+                  {selected.film_title}
+                </Ui>
+              ) : null}
+              <Ui
+                size={selected.film_title ? fs.sm : fs.md}
+                weight={selected.film_title ? "400" : "600"}
+                color={selected.film_title ? pal.inkSoft : pal.ink}
+                numberOfLines={2}
+                style={selected.film_title ? { marginTop: 2 } : undefined}
+              >
+                {selected.name}
+              </Ui>
+              {selected.country ? (
+                <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 2 }} numberOfLines={1}>
+                  {selected.country}
+                </Ui>
+              ) : null}
+            </View>
+          </View>
           {selected.film_slug ? (
             <GradientBtn
               label={t("map.openFilm")}
