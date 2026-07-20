@@ -1,4 +1,6 @@
-# Metatake 앱 — 오너 착수 런북 (2026-07-18)
+# Metatake 앱 — 오너 착수 런북 (2026-07-18 · **상태 갱신 2026-07-20**)
+
+> **✅ 2026-07-20 현재: iOS TestFlight 라이브(빌드 9) — 내부(오너)+외부(Friends·베타심사 대기) 테스트 중. OTA 파이프라인 개통.** 전체 경위·경로·함정은 정본 `HANDOFF-모바일앱-프리워치.md` **§−1 출시 실록**. 안드로이드는 **`HANDOFF-안드로이드-출시.md`**(AI 위임 가능한 작업지시서).
 
 > 코드·기획·자산·리스팅·스토어 킷은 **전부 완성**돼 있습니다(정본: 루트 `HANDOFF-모바일앱-프리워치.md` v4.0 + `HANDOFF-커넥트-기록이관.md`). 이 문서는 **오직 오너만 할 수 있는 계정·콘솔 작업**을, Apple 계정을 만든 순간부터 **순서대로** 모은 단일 체크리스트입니다. 각 항목의 상세 근거는 괄호의 정본 절 참조.
 
@@ -7,10 +9,10 @@
 ## 0. 지금 당장(계정 없이도 가능) — 완료해두면 좋은 것
 
 - [ ] **`CONNECT_TOKEN_KEY` 생성·등록** — 커넥트 OAuth 토큰 암호화 키. 터미널: `openssl rand -hex 32` → 나온 64자를 Vercel 프로젝트 환경변수에 `CONNECT_TOKEN_KEY`로 등록. (이거 없으면 커넥트 자동연동 타일이 전부 "Coming soon"으로 표시 — 앱은 정상 동작)
-- [ ] **Supabase Auth 콘솔** (계정 불요):
-  - Apple provider 활성화(Sign in with Apple) — Apple 계정 생기면 완성
-  - **Google provider 활성화** — Google Cloud OAuth 클라이언트 생성 후 client id/secret 입력. Redirect URL 화이트리스트에 `metatake://auth-callback` + 개발용 `exp://<맥 LAN IP>:8081/--/auth-callback`
-  - 이메일 OTP 템플릿에 `{{ .Token }}` 추가 (앱 로그인·심사 데모가 이것에 의존)
+- [ ] **Supabase Auth 콘솔**:
+  - [ ] Apple provider 활성화(Sign in with Apple) + authorized client `net.metatake.app` — **공개심사 전 유일한 잔여 항목** (TestFlight엔 불필요)
+  - [x] **Google provider** ✅ 작동 (redirect `metatake://**` 허용 2026-07-20, 앱 PKCE 배선 빌드7)
+  - [x] 이메일 OTP 템플릿 `{{ .Token }}` ✅ 2026-07-20 교체(가입확인+매직링크 둘 다, Management API — UA 헤더 필수)
 - [ ] **커넥트 프로바이더 등록** (전부 무료·즉시, 정본 커넥트 §7.2):
   - Trakt: trakt.tv/oauth/applications → `TRAKT_CLIENT_ID`·`TRAKT_CLIENT_SECRET`를 Vercel env로. Redirect URI에 `metatake://connect-callback` + `exp://<맥 LAN IP>:8081/--/connect-callback`
   - Simkl: simkl.com/settings/developer → `SIMKL_CLIENT_ID`·`SIMKL_CLIENT_SECRET` + 같은 redirect
@@ -26,16 +28,17 @@
 
 - [x] **Apple Developer Program 등록** — $99/년. Team ID `AYDX65J9H4`.
 - [x] **`public/.well-known/apple-app-site-association`의 `TEAMID` 교체** → `AYDX65J9H4.net.metatake.app` (webcredentials 포함). ⚠️딥링크가 실제로 작동하려면 이 파일이 **`https://metatake.net/.well-known/apple-app-site-association`로 라이브 배포**돼야 함 — PR #7 머지·prod 배포 시점에 반영(오너).
-- [ ] **`eas init`** (mobile/ 디렉터리에서) — 푸시 projectId 발급. (Expo 계정 로그인 필요·무료 — 에이전트가 대신 못 함)
-- [ ] **App Store Connect에서 앱 레코드 생성** — §5 프리필값(이름 Metatake·번들 net.metatake.app·SKU metatake-app·English US). 생성 후 그 **ascAppId**를 `eas.json` submit.production.ios에 추가하면 제출 자동화(현재 appleTeamId는 이미 채움).
-- [ ] **`eas build --platform ios`** — dev client 빌드. ⚠️이 빌드가 구워지는 순간 SDK 54 제약(Expo Go 상한)이 풀리므로, 원하면 `npx expo install --fix`로 최신 SDK 승격 가능. 단 **그 시점부터 Expo Go 검토 경로는 끝남**(테스터 전원이 dev/TestFlight 빌드 필요) — 순서를 뒤집지 말 것(정본 §13-13, §15.4).
-- [ ] **APNs 자격증명** — EAS가 Apple 계정에서 자동 생성(`eas credentials`).
+- [x] **`eas init`** ✅ 2026-07-19 — projectId `5f5d3978-00e0-4e1b-8111-6618fac80f12`.
+- [x] **App Store Connect 앱 레코드** ✅ 2026-07-19 (ascAppId `6792487455`, eas.json 반영).
+- [x] **iOS 빌드·TestFlight** ✅ 빌드 6~9. ⚠️실전 경로는 기존 안내와 다름: ASC API 키는 생성계열 403 → **웹 콘솔 수동(번들ID·인증서·프로파일) + EAS 로컬 서명**. 상세=프리워치 §−1.
+- [ ] **APNs 자격증명** — 푸시 켤 때 `eas credentials -p ios`(오너 `!`, 대화형). 미설정이어도 앱 정상(푸시 등록만 무시).
 
 ---
 
 ## 2. TestFlight 게이트 (정본 §9 — D1: 판단 기능 포함된 상태로 개시)
 
-- [ ] **TestFlight 빌드 업로드 + 외부 테스터 ≥30명 모집** (4주). TestFlight/조기접근 문의는 wonwoo@metatake.net으로 옴 — 그 발신자들을 테스터 목록에 추가.
+- [x] TestFlight 업로드 ✅(빌드 9) · 외부그룹 Friends 개설·wonjah@gmail.com 초대(베타심사 `WAITING_FOR_REVIEW`).
+- [ ] **외부 테스터 ≥30명 모집** (4주). TestFlight/조기접근 문의는 wonwoo@metatake.net으로 옴 — 그 발신자들을 테스터 목록에 추가.
 - [ ] **판정일 = 개시 +35일.** KPI 4개: ① D30 리텐션 ≥20% ② 푸시 옵트인 ≥40% ③ 세션당 결정율 ≥25%(판단=볼래∪패스∪봤어∪Watch탭아웃) ④ 주간 찜 추가 ≥3/활성. 보조지표: 판단 처리량·찜→Seen 전환율·Stale 비율·회고 Find 비율.
 - [ ] 미달 시 스토어 출시 보류·재검토. Go면 §3.
 
@@ -55,11 +58,7 @@
 
 ## 4. Android (Play, iOS와 독립 — 언제든)
 
-- [ ] **Google Play 등록** — $25 **1회**(연회비 없음, 전 세계 커버).
-- [ ] **`eas build --profile production --platform android`** (AAB). 내부 테스트 APK는 `--profile preview`로 계정 전에도 가능.
-- [ ] **`public/.well-known/assetlinks.json`의 SHA256**을 Play 앱서명 지문으로 교체(수동 커밋).
-- [ ] **FCM v1 서비스계정 키** — Firebase 콘솔 → `eas credentials` 업로드.
-- [ ] 리스팅: `listing-ko.md`/`listing-en.md` + Play 피처 그래픽 `mobile/store/shots/play-feature-graphic.png`(1024×500) + 아이콘 `play-icon-512.png`.
+> **정본 이관: 루트 `HANDOFF-안드로이드-출시.md`** — 순서·오너/AI 역할 분담·함정 체크리스트·인수 기준까지 다른 AI에게 그대로 위임 가능한 작업지시서. (여기 있던 5줄 체크리스트는 그 문서 §0~§9로 흡수·확장됨 — 중복 관리 금지)
 
 ---
 
@@ -73,3 +72,5 @@
 ## 검증 상태 (2026-07-18, 코드 쪽은 전부 그린)
 
 mobile tsc 0 · web tsc 0 신규(베이스라인 20 불변) · **expo-doctor 18/18** · iOS+웹 번들 · **런타임 콘솔 스모크 5라우트 에러 0** · 커넥트 라우트 503 게이트 정상. 마이그 0106(푸시)·0109(커넥트) 프로덕션 적용 완료.
+
+**2026-07-20 추가:** 실기기 QA 2라운드(45 에이전트) 수정 전부 반영 — 크래시 0(네이티브 맵 벤치·WebView 렌더러), 버튼 기대동작 14건, 맵 v2(위성+포스터 핀), 서버 `images[]`+`ts_min` 라이브 검증, 이메일 코드 로그인·Google 로그인 실작동. OTA(`eas update`)로 JS 수정은 재빌드 없이 배포.

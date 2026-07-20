@@ -1,8 +1,35 @@
-# HANDOFF — Metatake 모바일 앱 ("시네필 판단 내비게이터") · 기획·AS-BUILT 정본 **v4.0** (2026-07-17, v3.1 코드 완성 위 판단 내비게이터 개정 — 오너 D1~D5 확정 · **P-A~P-D 구현 대기** · 스토어 제출 전 P-A/P-B 선행)
+# HANDOFF — Metatake 모바일 앱 ("시네필 판단 내비게이터") · 기획·AS-BUILT 정본 **v4.0** (2026-07-17, v3.1 코드 완성 위 판단 내비게이터 개정 — 오너 D1~D5 확정 · **P-A~P-D 구현 완료 · TestFlight 빌드 9 라이브 2026-07-20** — 출시 실록은 §−1)
 
 > **한 문장 정의(v4):** 시네필의 **영화 판단 내비게이터** — 카탈로그의 모든 영화에 나의 판단 상태(볼래·패스·봤어→회고)가 있고, 앱의 일은 **탐색(뭘 볼까) → 판단(볼까 말까) → 계획(언제 어디서 볼까) → 시청 → 회고(잘 골랐나)** 루프에서 그 상태를 전진시키는 것이다. "선택한 국가의 앱으로 변신하는 단일 클라이언트"(§6)와 2층 구조(§2)는 v2 그대로다.
 > 관련 정본: `HANDOFF-마이룸-v3-redesign.md`(**v4의 최중요 인접 문서** — 판단 어휘·시효·계기·`me_*` RPC의 원천) · `HANDOFF-왓투와치-스트리밍결정.md`(Marquee 엔진) · `HANDOFF-테이크스코어-스크리너.md`(랭킹·프리셋 칩 선례) · `HANDOFF-마이필름-렌즈.md`(개인화 불변식) · `HANDOFF-AI배포표면.md`(`/api/v1`) · `HANDOFF-KO프로젝션-한국어사이트.md`(다국어 프로젝션 — §6이 의존) · `HANDOFF-계보-SEO-읽는층.md`(Lineage) · `docs/STATE.md`.
 > **원칙(불변): 앱은 새 서비스가 아니라 기존 프로덕션 자산의 모바일 표면이다. 콘텐츠·데이터·랭킹의 정본은 전부 웹/DB에 남고, 앱은 읽기+개인화 클라이언트다.**
+
+---
+
+## §−1 출시 실록 (2026-07-19 ~ 07-20) — AS-BUILT · **이 섹션이 최신 상태의 정본**
+
+> 아래 §0~ 이하 기획 본문은 구현 전 기획서 원문이다. 실제 배포 상태·경로·함정은 이 실록이 우선한다. 안드로이드는 별도 정본 **`HANDOFF-안드로이드-출시.md`**.
+
+**타임라인:**
+
+| 시점 | 사건 |
+|---|---|
+| 07-19 낮 | Apple Developer 승인(Team `AYDX65J9H4`) · A1 웹 배포(앱 BFF+AASA 라이브, main 1e6d1c4) · EAS 프로젝트 연결(5f5d3978) |
+| 07-19 저녁 | ASC API 키의 **생성계열 영구 403** 판명(계정은 웹 쓰기 가능 — 10시간 오진). 우회 확립: **웹 콘솔에서 번들ID·인증서(CSR 업로드)·프로파일 수동 생성 → EAS 로컬 서명**(`mobile/credentials/` + `credentials.json`, gitignore) |
+| 07-19 밤 | 빌드6 TestFlight ✅(제출은 eas.json에 `ascApiKey*` 명시 필수) → 오너 실기기: 상세 전멸·구글로그인·맵 불능 신고 |
+| 07-19~20 | **QA 라운드1**(16 에이전트): FilmMiniMap이 MapLibre v9 API 사용→v11 재작성, PKCE 누락 수정 → 빌드7. **QA 라운드2**(29 에이전트, 버튼 기대동작 전수): 14건 수정(핵심: Sign in 4곳이 온보딩 맨앞으로 감→`step=account` 직행) → 빌드8 |
+| 07-20 새벽 | **WAF 자폭 인시던트**: QA 폭주가 홈 IP /24를 30일 차단(사이트 전면 403, 오너 폰 포함). `bot_blocks` id23 비활성화로 해제. 교훈=프로덕션 API 스로틀 |
+| 07-20 아침 | **네이티브 맵이 스토어 빌드 즉사 원인**으로 확정(맵탭+상세 미니맵) → **전 표면 WebView 렌더러로 벤치** + 맵 v2(위성 Esri·포스터 썸네일 핀·말풍선 콜아웃) → 빌드9 ✅ + **OTA 파이프라인 개통**(`eas update --channel production`, 빌드6~9 공통 적용) |
+| 07-20 오전 | 오너 배치 8종: 🇰🇷 KR 에디션 · 히어로 스와이프 페이저(스틸4+포스터) · 본문 이미지 2장 · invitation 축소 · **to. W.H. Heo 헌정**(웰컴+설정) · TS 하한 칩(복수 기준 필터) · 맵 말풍선 TS배지+영화열기 · Honors 404 게이트. 서버: film BFF `images[]`(TMDB 백드롭 8) + tonight `ts_min/ts_max` — 릴리즈 검증 완료 |
+| 07-20 오전 | **외부 테스터 개통**: API 403 → 오너 로그인 브라우저로 Friends 외부그룹+빌드9+테스트정보+wonjah@gmail.com 초대. 빌드9 `WAITING_FOR_REVIEW` |
+| 07-20 오전 | **이메일 로그인 완성**: Supabase 템플릿(가입확인+매직링크)을 `{{ .Token }}` 6자리 코드로 교체(Management API — ⚠️UA 없으면 Cloudflare 1010 403) |
+
+**핵심 자산/경로:**
+- 서명: `~/Downloads/AuthKey_65Y5238S83.p8`(ASC API 키, Issuer `c8e610f8-b12a-47e9-ade5-b193a2e84d01`) · `~/Downloads/distribution.cer` · 프로파일은 `mobile/credentials/`(git 제외). ascAppId `6792487455`.
+- eas.json: `build.production.ios.credentialsSource="local"`(**ios 블록에만** — 전역이면 안드로이드 빌드 파괴), submit에 ascApiKey 3필드 명시.
+- 루틴: 코드 수정 → `npx tsc --noEmit` → JS만이면 `eas update --channel production`(재실행 2회 적용) / 네이티브·설정이면 `eas build -p ios --non-interactive --no-wait` → poller가 `eas submit --id <빌드> --non-interactive`.
+
+**남은 것:** ① Apple 로그인 = Supabase Apple provider 활성 + authorized client `net.metatake.app`(공개심사 4.8 요건, TestFlight엔 불필요) ② Connect OAuth 3종 서버 env(`connect-env-template.txt`) ③ /privacy 법무 검토 후 App Store 공개 제출(§15 그대로) ④ 밸류(V)점수 정렬 축 — 랭킹 RPC 마이그레이션 1개 필요(기획만 됨) ⑤ 안드로이드 → `HANDOFF-안드로이드-출시.md`.
 
 ---
 
