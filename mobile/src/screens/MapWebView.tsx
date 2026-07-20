@@ -53,11 +53,22 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
 <style>
   html,body,#map{margin:0;padding:0;height:100%;width:100%;background:#0b1020}
   .maplibregl-ctrl-attrib{font:10px/1.5 -apple-system,system-ui,sans-serif}
-  /* Poster-thumbnail marker (owner directive 2026-07-20: pins ARE the films) */
+  /* Poster-thumbnail marker (owner directive 2026-07-20: pins ARE the films).
+     MapLibre positions the marker element itself via transform, so scale the
+     INNER node (.pp) and keep the wrapper (.pw) untouched. */
+  .pw{cursor:pointer}
+  .pw.sel{z-index:40}
   .pp{width:40px;height:58px;border-radius:7px;border:2px solid #fff;
       background-size:cover;background-position:center;background-color:#26314e;
-      box-shadow:0 3px 10px rgba(0,0,0,.45);cursor:pointer}
+      box-shadow:0 3px 10px rgba(0,0,0,.45);transition:transform .16s ease}
+  .pw.sel .pp{transform:scale(1.45);border-color:${accent}}
   .pp.dot{width:15px;height:15px;border-radius:50%;background-color:${accent}}
+  /* Speech-bubble callout (owner directive 2026-07-20) */
+  .maplibregl-popup-content{border-radius:12px;padding:10px 30px 10px 12px;
+      font-family:-apple-system,system-ui,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.4);}
+  .maplibregl-popup-close-button{font-size:19px;width:28px;height:28px;color:#777;right:1px;top:1px}
+  .mtp-t{font-weight:700;font-size:13px;margin:0 0 2px;color:#111}
+  .mtp-n{font-size:11.5px;color:#555;line-height:1.35;margin:0}
 </style>
 </head>
 <body>
@@ -97,15 +108,41 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
   // DOM marker with its film's poster (dot fallback when no poster).
   var markers = {};
   var onScreen = {};
-  function makeEl(props) {
+  var selWrap = null;
+  var popup = new maplibregl.Popup({ offset: 36, closeButton: true, closeOnClick: false, maxWidth: "240px" });
+  popup.on("close", function () {
+    if (selWrap) { selWrap.classList.remove("sel"); selWrap = null; }
+    post({ type: "clear" });
+  });
+  function esc(v) {
+    return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  // Tap → enlarge the thumbnail + speech-bubble callout with the key text
+  // (film title · place), dismissable via its ✕ (owner directive 2026-07-20).
+  function select(wrap, props, lnglat) {
+    if (selWrap) selWrap.classList.remove("sel");
+    selWrap = wrap;
+    if (wrap) wrap.classList.add("sel");
+    var html = (props.film_title ? '<div class="mtp-t">' + esc(props.film_title) + "</div>" : "")
+      + '<div class="mtp-n">' + esc(props.name) + (props.country ? " · " + esc(props.country) : "") + "</div>";
+    popup.setLngLat(lnglat).setHTML(html).addTo(map);
+    post({ type: "pin", props: props });
+  }
+  window.__clearSel = function () { popup.remove(); };
+  function makeEl(props, lnglat) {
+    var wrap = document.createElement("div");
+    wrap.className = "pw";
     var el = document.createElement("div");
     if (props.poster) { el.className = "pp"; el.style.backgroundImage = "url(" + props.poster + ")"; }
     else { el.className = "pp dot"; }
-    el.addEventListener("click", function (ev) {
+    wrap.appendChild(el);
+    wrap.addEventListener("click", function (ev) {
       ev.stopPropagation();
-      post({ type: "pin", props: props });
+      select(wrap, props, lnglat);
     });
-    return el;
+    return wrap;
   }
   function updateMarkers() {
     var next = {};
@@ -117,7 +154,7 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
       if (next[id]) continue;
       var m = markers[id];
       if (!m) {
-        m = markers[id] = new maplibregl.Marker({ element: makeEl(f.properties) })
+        m = markers[id] = new maplibregl.Marker({ element: makeEl(f.properties, f.geometry.coordinates) })
           .setLngLat(f.geometry.coordinates);
       }
       next[id] = m;
@@ -149,13 +186,14 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
     map.on("click", "clusters", function (e) {
       var f = e.features && e.features[0];
       if (!f) return;
+      popup.remove();
       map.getSource("pins").getClusterExpansionZoom(f.properties.cluster_id).then(function (z) {
         map.easeTo({ center: f.geometry.coordinates, zoom: z + 0.4 });
       });
     });
     map.on("click", function (e) {
       var hits = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
-      if (!hits.length) post({ type: "clear" });
+      if (!hits.length) { popup.remove(); post({ type: "clear" }); }
     });
     post({ type: "ready" });
   });
@@ -316,7 +354,23 @@ export default function MapWebViewScreen() {
             {filmSlug ? (pins[0]?.filmTitle ?? "") : t("map.pins", { n: pins.length })}
           </Ui>
         </View>
-        {filmSlug ? <Chip label={t("map.showAll")} onPress={() => router.setParams({ film: "" })} /> : null}
+        {filmSlug ? (
+          <>
+            {/* Back to the film brief that opened this focused map (owner
+                report 2026-07-20: no way back). Tab push keeps the film in
+                the stack, so back() lands there; fall back to a fresh push. */}
+            <Chip
+              label={t("map.backToFilm")}
+              icon="arrow-back"
+              onPress={() =>
+                router.canGoBack()
+                  ? router.back()
+                  : router.push({ pathname: "/film/[slug]", params: { slug: filmSlug } })
+              }
+            />
+            <Chip label={t("map.showAll")} onPress={() => router.setParams({ film: "" })} />
+          </>
+        ) : null}
         <View style={{ flex: 1 }} />
         <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? () => void Linking.openSettings() : nearMe} />
       </View>
@@ -356,7 +410,10 @@ export default function MapWebViewScreen() {
             <View style={{ width: 36, height: 4, borderRadius: radius.pill, backgroundColor: pal.hairline2 }} />
           </View>
           <Tactile
-            onPress={() => setSelected(null)}
+            onPress={() => {
+              setSelected(null);
+              webRef.current?.injectJavaScript("window.__clearSel && window.__clearSel(); true;");
+            }}
             hitSlop={8}
             style={{ position: "absolute", top: sp.s3, right: sp.s3 }}
           >

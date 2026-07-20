@@ -93,6 +93,7 @@ export const es: Record<keyof typeof en, string> = {
   "tonight.emptyFiltered": "No queda nada que mostrar esta noche.",
   "map.pins": "{n} lugares",
   "map.showAll": "Ver todo",
+  "map.backToFilm": "Volver a la película",
   "map.noFilmPins": "Esta película aún no tiene localizaciones en el mapa.",
   "map.openFilm": "Abrir película",
   "map.webUnavailable": "El mapa de localizaciones funciona en la app de iOS — esta vista de navegador no puede mostrarlo.",

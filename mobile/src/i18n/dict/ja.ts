@@ -93,6 +93,7 @@ export const ja: Record<keyof typeof en, string> = {
   "tonight.emptyFiltered": "今夜表示できる作品はこれ以上ありません。",
   "map.pins": "ピン{n}件",
   "map.showAll": "すべて表示",
+  "map.backToFilm": "映画に戻る",
   "map.noFilmPins": "この映画のロケ地はまだ地図にありません。",
   "map.openFilm": "映画を開く",
   "map.webUnavailable": "ロケ地マップはiOSアプリで動作します — このブラウザプレビューでは表示できません。",

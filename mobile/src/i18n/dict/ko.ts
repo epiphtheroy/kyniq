@@ -94,6 +94,7 @@ export const ko: Record<keyof typeof en, string> = {
   "tonight.emptyFiltered": "오늘 밤 더 보여드릴 작품이 없습니다.",
   "map.pins": "핀 {n}개",
   "map.showAll": "전체 보기",
+  "map.backToFilm": "영화로 돌아가기",
   "map.noFilmPins": "이 영화의 촬영지는 아직 지도에 없습니다.",
   "map.openFilm": "영화 보기",
   "map.webUnavailable": "촬영지 지도는 iOS 앱에서 동작합니다 — 브라우저 프리뷰에서는 표시되지 않습니다.",

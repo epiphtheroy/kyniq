@@ -189,7 +189,9 @@ export default function FilmScreen() {
         ? [
             { label: "Why watch — the full page", path: `/film/${card.slug}` },
             { label: "Reception — the afterlife", path: `/film/${card.slug}/reception` },
-            { label: "Honors", path: `/film/lineage/${card.slug}` },
+            // /film/lineage/<slug> only exists for films WITH lineage rows —
+            // linking it unconditionally 404s (verified live 2026-07-20).
+            ...(card.lineage.length ? [{ label: "Honors", path: `/film/lineage/${card.slug}` }] : []),
             { label: "Credits", path: `/film/${card.slug}/credits` },
             { label: "Gallery", path: `/film/${card.slug}/gallery` },
             { label: "Meaning — strong misreadings", path: `/film/meaning/${card.slug}` },

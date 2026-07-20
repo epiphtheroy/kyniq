@@ -106,6 +106,7 @@ export const en = {
   "tonight.emptyFiltered": "Nothing left to show tonight.",
   "map.pins": "{n} pins",
   "map.showAll": "Show all",
+  "map.backToFilm": "Back to film",
   "map.noFilmPins": "No mapped locations for this film yet.",
   "map.openFilm": "Open film",
   "map.webUnavailable": "The filming-locations map runs in the iOS app — this browser preview can't render it.",
