@@ -23,7 +23,7 @@ import {
   useColorScheme,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import {
+import { Serif,
   AgeBadge,
   AvailabilityDots,
   Btn,
@@ -1129,6 +1129,15 @@ function SignedIn() {
           {t("error.network")}
         </Ui>
       ) : null}
+      {/* Dedication (owner directive 2026-07-20) */}
+      <Serif
+        size={fs.sm}
+        italic
+        color={pal.subtle}
+        style={{ textAlign: "center", marginTop: sp.s4 }}
+      >
+        to. W.H. Heo
+      </Serif>
     </View>
   );
 }

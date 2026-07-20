@@ -125,6 +125,7 @@ export default function FilmScreen() {
 
   const [card, setCard] = useState<FilmCardT | null>(null);
   const [err, setErr] = useState(false);
+  const [heroIdx, setHeroIdx] = useState(0);
   const [reasons, setReasons] = useState<string[]>([]);
   const [toast, setToast] = useState<Toast | null>(null);
   const [showRating, setShowRating] = useState(false);
@@ -135,6 +136,7 @@ export default function FilmScreen() {
     let alive = true;
     setCard(null);
     setErr(false);
+    setHeroIdx(0);
     setReasons([]);
     setToast(null);
     setShowRating(false);
@@ -182,6 +184,22 @@ export default function FilmScreen() {
 
   const openReader = (path: string, title: string) =>
     router.push({ pathname: "/read", params: { path, title } });
+
+  // Hero pager pages: server backdrops (images[0..3]) + the poster as the
+  // final page (owner directive 2026-07-20). Falls back to the single
+  // backdrop_path until the server ships `images`.
+  const heroPages = useMemo(() => {
+    if (!card) return [] as { kind: "backdrop" | "poster"; path: string }[];
+    const pages: { kind: "backdrop" | "poster"; path: string }[] = [];
+    const backs = card.images?.length
+      ? card.images.slice(0, 4)
+      : card.backdrop_path
+        ? [card.backdrop_path]
+        : [];
+    for (const b of backs) pages.push({ kind: "backdrop", path: b });
+    if (card.poster_path) pages.push({ kind: "poster", path: card.poster_path });
+    return pages;
+  }, [card]);
 
   const readMore = useMemo(
     () =>
@@ -332,7 +350,39 @@ export default function FilmScreen() {
             poster, never crop it into the landscape frame — show it contained
             over a blurred self-fill instead (owner directive 2026-07-18). */}
         <View style={{ width, height: heroH, backgroundColor: "#000", overflow: "hidden" }}>
-          {card.backdrop_path ? (
+          {heroPages.length > 1 ? (
+            <ScrollView
+              key={card.slug}
+              horizontal
+              pagingEnabled
+              showsHorizontalScrollIndicator={false}
+              onMomentumScrollEnd={(e) =>
+                setHeroIdx(Math.round(e.nativeEvent.contentOffset.x / Math.max(width, 1)))
+              }
+            >
+              {heroPages.map((pg, i) => (
+                <View key={`${pg.kind}-${i}`} style={{ width, height: heroH }}>
+                  {pg.kind === "poster" ? (
+                    <>
+                      <Image
+                        source={{ uri: `${TMDB_IMG}/w342${pg.path}` }}
+                        blurRadius={26}
+                        resizeMode="cover"
+                        style={{ position: "absolute", width, height: heroH, opacity: 0.55 }}
+                      />
+                      <Image
+                        source={{ uri: `${TMDB_IMG}/w500${pg.path}` }}
+                        resizeMode="contain"
+                        style={{ width, height: heroH }}
+                      />
+                    </>
+                  ) : (
+                    <PosterImg path={pg.path} width={width} height={heroH} size="w780" rounded={0} />
+                  )}
+                </View>
+              ))}
+            </ScrollView>
+          ) : card.backdrop_path ? (
             <PosterImg path={card.backdrop_path} width={width} height={heroH} size="w780" rounded={0} />
           ) : card.poster_path ? (
             <>
@@ -352,9 +402,36 @@ export default function FilmScreen() {
             <PosterImg path={null} width={width} height={heroH} rounded={0} />
           )}
           <LinearGradient
+            pointerEvents="none"
             colors={["rgba(0,0,0,0.35)", "rgba(0,0,0,0)"]}
             style={{ position: "absolute", top: 0, left: 0, right: 0, height: 110 }}
           />
+          {heroPages.length > 1 ? (
+            <View
+              pointerEvents="none"
+              style={{
+                position: "absolute",
+                bottom: 34,
+                left: 0,
+                right: 0,
+                flexDirection: "row",
+                justifyContent: "center",
+                gap: 6,
+              }}
+            >
+              {heroPages.map((_, i) => (
+                <View
+                  key={i}
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: 3,
+                    backgroundColor: i === heroIdx ? "#FFFFFF" : "rgba(255,255,255,0.45)",
+                  }}
+                />
+              ))}
+            </View>
+          ) : null}
         </View>
         <View
           style={{
@@ -450,7 +527,7 @@ export default function FilmScreen() {
             <>
               <SectionTitle>{t("film.invitation")}</SectionTitle>
               <View style={{ paddingHorizontal: sp.s4 }}>
-                <Serif size={fs.md} style={{ lineHeight: fs.md * 1.6 }}>
+                <Serif size={fs.base} style={{ lineHeight: fs.base * 1.6 }}>
                   {lead}
                 </Serif>
               </View>
@@ -535,6 +612,21 @@ export default function FilmScreen() {
                 ))}
               </View>
             </>
+          ) : null}
+
+          {/* Mid-page figure A (owner directive 2026-07-20) — a breather still
+              between the fact chips and availability; only when the server
+              shipped enough backdrops. */}
+          {card.images?.[4] ? (
+            <View style={{ marginHorizontal: sp.s4, marginTop: sp.s5 }}>
+              <PosterImg
+                path={card.images[4]}
+                width={width - sp.s4 * 2}
+                height={Math.round((width - sp.s4 * 2) * 0.56)}
+                size="w780"
+                rounded={radius.md}
+              />
+            </View>
           ) : null}
 
           {/* Where to watch — grouped rows */}
@@ -633,6 +725,19 @@ export default function FilmScreen() {
                 ) : null}
               </Group>
             </>
+          ) : null}
+
+          {/* Mid-page figure B */}
+          {card.images?.[5] ? (
+            <View style={{ marginHorizontal: sp.s4, marginTop: sp.s5 }}>
+              <PosterImg
+                path={card.images[5]}
+                width={width - sp.s4 * 2}
+                height={Math.round((width - sp.s4 * 2) * 0.56)}
+                size="w780"
+                rounded={radius.md}
+              />
+            </View>
           ) : null}
 
           {/* Locations — embedded map with ONLY this film's pins (owner directive

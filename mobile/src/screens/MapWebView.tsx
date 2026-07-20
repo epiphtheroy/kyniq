@@ -69,6 +69,9 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
   .maplibregl-popup-close-button{font-size:19px;width:28px;height:28px;color:#777;right:1px;top:1px}
   .mtp-t{font-weight:700;font-size:13px;margin:0 0 2px;color:#111}
   .mtp-n{font-size:11.5px;color:#555;line-height:1.35;margin:0}
+  .mtp-s{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:8px;
+      background:${accent};color:#fff;font-weight:700;font-size:10.5px;vertical-align:1px}
+  .mtp-go{display:inline-block;margin-top:5px;font-size:11.5px;font-weight:600;color:${accent}}
 </style>
 </head>
 <body>
@@ -121,12 +124,18 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
   }
   // Tap → enlarge the thumbnail + speech-bubble callout with the key text
   // (film title · place), dismissable via its ✕ (owner directive 2026-07-20).
+  window.__openFilm = function (slug) { post({ type: "open", slug: slug }); };
   function select(wrap, props, lnglat) {
     if (selWrap) selWrap.classList.remove("sel");
     selWrap = wrap;
     if (wrap) wrap.classList.add("sel");
-    var html = (props.film_title ? '<div class="mtp-t">' + esc(props.film_title) + "</div>" : "")
-      + '<div class="mtp-n">' + esc(props.name) + (props.country ? " · " + esc(props.country) : "") + "</div>";
+    var tsBadge = props.ts != null ? '<span class="mtp-s">TS ' + Math.round(props.ts) + "</span>" : "";
+    var openLink = props.film_slug
+      ? '<div class="mtp-go" onclick="window.__openFilm(\'' + esc(props.film_slug) + '\')">🎬 ' + esc(props.film_title || props.film_slug) + " ›</div>"
+      : "";
+    var html = (props.film_title ? '<div class="mtp-t">' + esc(props.film_title) + tsBadge + "</div>" : "")
+      + '<div class="mtp-n">' + esc(props.name) + (props.country ? " · " + esc(props.country) : "") + "</div>"
+      + openLink;
     popup.setLngLat(lnglat).setHTML(html).addTo(map);
     post({ type: "pin", props: props });
   }
@@ -260,7 +269,14 @@ export default function MapWebViewScreen() {
       const msg = JSON.parse(e.nativeEvent.data) as
         | { type: "pin"; props: Record<string, unknown> }
         | { type: "clear" }
+        | { type: "open"; slug?: unknown }
         | { type: "ready" };
+      if (msg.type === "open") {
+        // Bubble "open film" tap — slug re-validated before navigating.
+        const slug = typeof msg.slug === "string" && /^[a-z0-9-]{1,120}$/.test(msg.slug) ? msg.slug : null;
+        if (slug) router.push({ pathname: "/film/[slug]", params: { slug } });
+        return;
+      }
       if (msg.type === "clear") setSelected(null);
       if (msg.type === "pin") {
         const p = msg.props;

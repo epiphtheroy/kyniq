@@ -61,6 +61,8 @@ export type FilmCard = {
   rank?: number | null;
   rank_total?: number | null;
   vcr?: { v: number; c: number; r: number } | null;
+  /** TMDB backdrop paths for the hero pager + mid-page figures (additive). */
+  images?: string[] | null;
   standing?: number | null; // canon prestige — the verdict comparator (NOT TakeScore)
   dims?: { key: string; label: string; val: number }[] | null; // 13-dim expectation chips
   kindred?: { slug: string; title: string; year: number | null; shared: number }[] | null;

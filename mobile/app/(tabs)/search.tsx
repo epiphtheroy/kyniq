@@ -69,6 +69,7 @@ export default function SearchScreen() {
   const [sel, setSel] = useState<BrowseSel>({ genres: new Set(), decades: new Set() });
   const [browseSort, setBrowseSort] = useState<SortKey>("ts");
   const [browseRows, setBrowseRows] = useState<TonightRow[]>([]);
+  const [minTs, setMinTs] = useState<number | null>(null); // score floor — compound criteria
   const [browseLoading, setBrowseLoading] = useState(false);
   const selActive = sel.genres.size > 0 || sel.decades.size > 0;
 
@@ -162,6 +163,7 @@ export default function SearchScreen() {
       genres?: string[];
       yearMin?: number;
       yearMax?: number;
+      tsMin?: number;
       sort?: string;
       dir?: "asc" | "desc";
     } = {};
@@ -173,6 +175,7 @@ export default function SearchScreen() {
     // v11 tokens bake direction into "newest"/"oldest" — never send sort=year.
     if (browseSort === "new") opts.sort = "newest";
     else if (browseSort === "old") opts.sort = "oldest";
+    if (minTs != null) opts.tsMin = minTs;
     api
       .tonight(country, [], opts)
       .then((p) => {
@@ -187,7 +190,7 @@ export default function SearchScreen() {
     return () => {
       alive = false;
     };
-  }, [selActive, genresKey, decadesKey, browseSort, country]);
+  }, [selActive, genresKey, decadesKey, browseSort, minTs, country]);
 
   const pickGenre = (g: string) =>
     setSel((prev) => {
@@ -266,6 +269,16 @@ export default function SearchScreen() {
           <Chip label={t("sort.takescore")} active={browseSort === "ts"} onPress={() => setBrowseSort("ts")} />
           <Chip label={t("sort.newest")} active={browseSort === "new"} onPress={() => setBrowseSort("new")} />
           <Chip label={t("sort.oldest")} active={browseSort === "old"} onPress={() => setBrowseSort("old")} />
+          {/* Score floor — composes with genre/decade/sort (owner 2026-07-20:
+              "TS ≥ n among the newest", "post-2000 by score"). Single-select. */}
+          {[60, 70, 80].map((n) => (
+            <Chip
+              key={n}
+              label={`TS ${n}+`}
+              active={minTs === n}
+              onPress={() => setMinTs(minTs === n ? null : n)}
+            />
+          ))}
         </View>
       ) : null}
       {browseLoading ? (

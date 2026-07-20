@@ -12,7 +12,7 @@ import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useMemo, useState } from "react";
 import { Platform, ScrollView, TextInput, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import {
+import { Serif,
   Btn,
   Chip,
   GradientBtn,
@@ -247,6 +247,10 @@ function StepWelcome({ onNext }: { onNext: () => void }) {
           <Row icon="albums-outline" title={t("welcome.p2t")} body={t("welcome.p2b")} />
           <Row icon="map-outline" title={t("welcome.p3t")} body={t("welcome.p3b")} />
         </View>
+        {/* Dedication (owner directive 2026-07-20) */}
+        <Serif size={fs.sm} italic color={pal.subtle} style={{ marginTop: sp.s6 }}>
+          to. W.H. Heo
+        </Serif>
       </ScrollView>
       <BottomBar>
         <GradientBtn label={t("welcome.start")} onPress={onNext} />

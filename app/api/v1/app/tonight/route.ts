@@ -142,6 +142,15 @@ export async function GET(req: Request) {
     pa.yearMin != null && yearMinParam != null
       ? Math.max(pa.yearMin, yearMinParam)
       : pa.yearMin ?? yearMinParam;
+  // ts_min/ts_max: explicit score-floor filters (owner directive 2026-07-20 —
+  // compound criteria like "TS ≥ 70, newest first"). Same intersection rule as
+  // year_min: when a preset also constrains TS, the tighter bound wins.
+  const tsMinParam = num("ts_min");
+  const tsMin =
+    pa.tsMin != null && tsMinParam != null ? Math.max(pa.tsMin, tsMinParam) : pa.tsMin ?? tsMinParam;
+  const tsMaxParam = num("ts_max");
+  const tsMax =
+    pa.tsMax != null && tsMaxParam != null ? Math.min(pa.tsMax, tsMaxParam) : pa.tsMax ?? tsMaxParam;
 
   const db = createAdminClient();
   if (await guardAndLog(db, req, "app_tonight", country)) {
@@ -160,8 +169,8 @@ export async function GET(req: Request) {
       p_genres: genres.length ? genres : null,
       p_year_min: yearMin,
       p_year_max: num("year_max"),
-      p_ts_min: pa.tsMin ?? null,
-      p_ts_max: pa.tsMax ?? null,
+      p_ts_min: tsMin ?? null,
+      p_ts_max: tsMax ?? null,
       p_max_votes: pa.maxVotes ?? null,
       p_sub: pa.sub ?? {},
       p_limit: limit,

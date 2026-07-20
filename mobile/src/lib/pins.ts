@@ -20,6 +20,8 @@ export type Pin = {
   filmTitle: string | null;
   /** TMDB poster path of the pin's film — drives the poster-thumbnail markers. */
   posterPath: string | null;
+  /** TakeScore of the pin's film — shown in the map callout bubble. */
+  ts: number | null;
 };
 
 type ApiLocRow = {
@@ -60,6 +62,7 @@ function toPin(row: ApiLocRow, id: number): Pin | null {
     filmSlug: row.film_slug ?? null,
     filmTitle: row.film_title ?? null,
     posterPath: null,
+    ts: null,
   };
 }
 
@@ -80,20 +83,30 @@ async function fetchCountryPins(country: string): Promise<ApiLocRow[]> {
 async function attachPosters(pins: Pin[]): Promise<void> {
   const slugs = [...new Set(pins.map((p) => p.filmSlug).filter(Boolean))] as string[];
   if (!slugs.length) return;
-  const bySlug = new Map<string, string>();
+  const posterBySlug = new Map<string, string>();
+  const tsBySlug = new Map<string, number>();
   for (let i = 0; i < slugs.length; i += 150) {
     const chunk = slugs.slice(i, i + 150);
     try {
-      const { data } = await supabase.from("films").select("slug,poster_path").in("slug", chunk);
-      for (const r of (data ?? []) as { slug: string; poster_path: string | null }[]) {
-        if (r.poster_path) bySlug.set(r.slug, r.poster_path);
+      const [posters, scores] = await Promise.all([
+        supabase.from("films").select("slug,poster_path").in("slug", chunk),
+        supabase.rpc("takescore_for_slugs", { p_slugs: chunk }),
+      ]);
+      for (const r of (posters.data ?? []) as { slug: string; poster_path: string | null }[]) {
+        if (r.poster_path) posterBySlug.set(r.slug, r.poster_path);
+      }
+      for (const r of (scores.data ?? []) as { slug: string; ts: number }[]) {
+        tsBySlug.set(r.slug, r.ts);
       }
     } catch {
       /* fail-soft */
     }
   }
   for (const p of pins) {
-    if (p.filmSlug) p.posterPath = bySlug.get(p.filmSlug) ?? null;
+    if (p.filmSlug) {
+      p.posterPath = posterBySlug.get(p.filmSlug) ?? null;
+      p.ts = tsBySlug.get(p.filmSlug) ?? null;
+    }
   }
 }
 
@@ -144,6 +157,7 @@ export function toFeatureCollection(pins: Pin[]): GeoJSON.FeatureCollection<
     film_slug: string | null;
     film_title: string | null;
     poster: string | null;
+    ts: number | null;
   }
 > {
   return {
@@ -161,6 +175,7 @@ export function toFeatureCollection(pins: Pin[]): GeoJSON.FeatureCollection<
         film_title: p.filmTitle,
         // Full URL baked here so the WebView page needs zero TMDB knowledge.
         poster: p.posterPath ? `https://image.tmdb.org/t/p/w154${p.posterPath}` : null,
+        ts: p.ts,
       },
     })),
   };
