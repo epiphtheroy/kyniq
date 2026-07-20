@@ -1,6 +1,57 @@
-# HANDOFF — Odyssey: 시네필 영화 지도 + 내비게이션 (정본)
+# HANDOFF — Odyssey / Journey / Board: 시네필 영화 지도·내비게이션·조감 (정본)
 
-*작성 2026-07-20. 상태: **v1 릴리즈됨(36d3f99→main 80e2db5) · 리뷰 수정 라운드 staging 대기**. 이 문서가 /odyssey 체계의 정본.*
+*작성·종합 2026-07-20. 이 문서가 세 표면(/odyssey · /journey · /board)의 정본. **다른 AI는 아래 §A 종합을 먼저 읽을 것.** §-1~§-6은 이터레이션 이력(참조용, 시간 역순).*
+
+---
+
+## §A ⭐ AS-BUILT 종합 — 이어서 작업할 AI는 여기부터 (2026-07-20 종합)
+
+### A0. 오늘 만든 세 표면 (한 문장씩)
+1. **`/odyssey` = 지도(아틀라스)** — 시네필 영화 1,959편을 **평면 t-SNE 유사도 캔버스**에 배치. 가로=연도(세대), 세로=취향 성향. 무브먼트·장르 **35개 노선(길)**이 지나가고, 영화 클릭→그 노선 점등, ⌘/Ctrl+드래그로 카메라 틸트. 세로 포스터 타일(줌인 시). `+` SSR 노선 페이지 35개(`/odyssey/line/[slug]`, SEO).
+2. **`/journey` = 여정 제안(The Metatake Deck)** — "지도≠GPS 내비"라는 오너 통찰. 큰 **METATAKE 버튼**을 누르면 **안정·모험·전혀 새로운 세 축 × 3편 = 9카드**가 게임처럼 뒤집혀 안 본 영화를 제안. 왼쪽에 본 영화 썸네일 뭉치. 필터(서비스·연도·장르). 카드별 seen/watchlist/별점.
+3. **`/board` = 전체 조감 바둑판** — Tier-1 1,958편(=우리가 다루는 "시네필 영화 전체")을 **30열 바둑판**으로. 색 토글(본 영화/볼 영화/내 서비스)로 색이 들어오고 필터로 좁힘. **정렬 토글 「바둑판/본 영화 중심」**(취향 나선 배치·구획선·「내 서비스 가까이」). hover 말풍선 + 우측 상세 드로어. 아래에 마이룸 정전·감독 커버리지.
+
+### A1. ⚠️⚠️ 배포 진실 — 중복/누락 방지 최우선으로 반드시 확인
+- **production `main`(현재 tip `889c828`, release 14:45) = 구 SVG 노선도 v1**(시간축 격자 metro map, `OdysseyMap.tsx`). **오늘의 갤럭시·평면지도·저니·보드는 production에 없다.**
+- 오늘 작업 **7커밋 전부 `staging`(tip `a33b481`)에만 있고 오너 릴리즈 대기**:
+  `7ebed04`(갤럭시 t-SNE 포스터/지형/노선) → `12110cd`(3D 틸트·클릭노선·확대) → `854be38`(평면 시대×성향) → `69f68d9`(Metatake Deck, /odyssey에 임베드) → `8353486`(덱을 `/journey`로 분리·/odyssey 지도전용 복귀) → `6cef688`(`/board` 바둑판+커버리지) → `a33b481`(보드 30열+본영화중심 취향배치).
+- **릴리즈는 오너만**(매일 22시 `release.command` = staging→main). **에이전트는 main 직푸시·release 금지.** staging 커밋은 자유(§배포체계 P0, `HANDOFF-배포체계-P0.md`).
+- **구 `components/odyssey/OdysseyMap.tsx`(SVG 시간축 노선도)는 미사용 보존**(오너가 timeline 뷰 재요청 대비). `app/odyssey/page.tsx`는 `OdysseyGalaxy` import. **SVG 재구축·삭제 금지.**
+
+### A2. 파일 맵 (표면별)
+| 표면 | 페이지 | 주 컴포넌트 | 로직/스타일 |
+|---|---|---|---|
+| Odyssey 지도 | `app/odyssey/page.tsx` · `app/odyssey/line/[slug]/page.tsx` | `components/odyssey/OdysseyGalaxy.tsx`(캔버스, GalaxyView 포크) | `lib/odyssey/types.ts`(elbowPath·타입) · `lib/odyssey/modes.ts`(목적지 8모드) · `app/odyssey/odyssey.css` |
+| Journey 덱 | `app/journey/page.tsx` | `components/odyssey/MetatakeDeck.tsx` | `lib/odyssey/deal.ts`(3축 딜) · `app/odyssey/deck.css` |
+| Board 바둑판 | `app/board/page.tsx` | `components/odyssey/BoardGrid.tsx` · `components/odyssey/BoardCoverage.tsx`(서버, 커버리지) | `lib/odyssey/board.ts`(packBoard·tasteLayout) · `app/board/board.css` |
+| 공통 데이터 | — | — | `public/odyssey/map.v1.json`(480KB) · `public/odyssey/avail.v1.json` · 빌드 `worker/odyssey-extract.py`·`worker/odyssey-build.py`·`worker/odyssey_overrides.json` |
+| 미사용 보존 | — | `components/odyssey/OdysseyMap.tsx`(구 SVG) | — |
+
+### A3. 공통 데이터 아티팩트 `public/odyssey/map.v1.json`
+빌드 산출(런타임 DB/LLM 0). station당 필드:
+`s`(slug) `t`(제목) `tk`(한국어 제목) `y`(연도) `d`(감독) `x`/`yy`(구 SVG 좌표) `b`(대역) `c`(고도 1–5=cinecodex C 5분위) `p`(poster_path) `pr`(prestige) `pk`(정전봉우리 top100) `ln`(노선 id[]) `tf`(환승) `tx`/`ty`(t-SNE 좌표) `cl`(취향 클러스터) `gi`(장르 인덱스[]) `v`(TakeScore value) `u`(TakeScore U). 최상위: `genres`(장르명[]) `lines`(35노선) `stations`(1,959). `avail.v1.json`={KR,US}→{slug→[provider]}.
+- **재빌드 절차**: ① curation/cinecodex는 REST 미노출 → Supabase에 임시 public 뷰(`tmp_ody_*`) 생성 → `odyssey-extract.py` 실행 → 뷰 드롭(뷰 SQL은 extract.py 주석). ② `python3 worker/odyssey-build.py <data_dir>`. **주의: 추출은 반드시 order 지정**(과거 order 누락→431편 고도 오류, §-1).
+
+### A4. 각 표면 의도(왜 만들었나) + 핵심 규칙
+- **Odyssey 지도**: 오너가 "구글 t-SNE Map처럼, 단 길(노선)이 있는 것"을 원함. 시간축 노선도(v1)→자유 t-SNE 갤럭시→**평면 시대×성향**으로 진화(x=시대라 노선이 좁은 시대대역 줄기로 추적 가능). 지형(3D)은 폐기(2D 캔버스 한계, 평면 카메라 틸트로 대체). ⚠️노선 기본 매우 은은(35개=스파게티 방지)·hover/클릭 시 점등.
+- **Journey 덱**: 오너 최상위 목표="지도 제시가 아니라 시네필이 되도록 돕는 실질적 여정 제안". 3축=`lib/odyssey/deal.ts`(씬≥3편이면 취향 centroid 거리밴드, 미만이면 고도 입문코스). ⚠️안 본 영화만.
+- **Board 바둑판**: "가치 상위 ~2000편을 한눈에 조감". TakeScore 상위는 대중 카탈로그 혼입→**Tier-1 1,958편이 곧 시네필 코퍼스**. 「본 영화 중심」=취향 중력(본 영화 중앙+구획선). ⚠️보드 세로로 매우 김·이미지 1958장 lazy.
+- 공통: **서버 HTML 개인화 금지**(본 영화/구독은 클라 오버레이, UserFilmsProvider `seenSlugs`+`toggleSeen`/`toggleWatch`/`rate`). 지도 좌표=고정 자산. 용어 헌장상 Atlas/Map/Network 점유(→ 새 이름 Odyssey/Journey/Board).
+
+### A5. 다음 단계(미완/후속) — 중복 착수 금지 위해 명시
+- **릴리즈**: 오너가 staging(a33b481)을 검토 후 release.command로 반영해야 라이브 됨. (에이전트 대기)
+- **Nav 진입점**: 세 표면이 상단 Nav에 없음(현재 상호 링크만). Nav 추가는 공유파일 수정→별도.
+- **로그인 실측 미완**: Board 「본 영화 중심」의 seen-중앙+구획선, Deck의 취향맞춤은 로그인+본영화 표시 상태에서 오너 검증 필요(개발은 미로그인으로 검증됨).
+- **틸트 강화**(Odyssey): 평면 원근 틸트는 subtle. 진짜 3D 릴리프는 WebGL급 후속.
+- **성향축 개선**: Board/평면지도 세로축=t-SNE ty 1축. 전용 1D tendency projection은 후속.
+- ko 프로젝션(노선명 desc_ko는 데이터 내장, UI 노출 후속)·사이트맵은 등재됨(/odyssey·35노선·/journey·/board).
+
+### A6. 커밋/배포 메커닉 (에이전트용)
+- 워킹트리에 무관 변경 다수 → **temp-index로 origin/staging 위에 원자 커밋**: `GIT_INDEX_FILE=<tmp> git read-tree origin/staging && git add <files> && TREE=$(git write-tree) && git commit-tree $TREE -p origin/staging -F msg.txt` → `git push origin <commit>:staging`. (bash의 `$(...)`가 커밋 메시지 등에서 bad substitution 나면 SHA를 변수로 받아 별도 push.)
+- CI 타입체크 래칫(기준선 20). 로컬 tsc는 타 작업(Expo/Metro) 부하 시 느림→CI로 검증.
+- dev 확인은 `npx next dev --webpack`(turbopack dev CSS 함정).
+
+---
 
 ## §-1 리뷰 수정 라운드 (2026-07-20, 릴리즈 직후)
 
