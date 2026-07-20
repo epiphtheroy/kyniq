@@ -334,10 +334,19 @@ for lid in ORDERED_LINE_IDS:
         "stations": lines[lid],
     })
 
+# genre vocabulary + per-station indices (compact; powers the deck's genre filter)
+genre_list = sorted({g for f in films for g in (f.get("genres") or [])})
+genre_idx = {g: i for i, g in enumerate(genre_list)}
+for st in stations:
+    f = by_slug.get(st["s"])
+    gs = [genre_idx[g] for g in (f.get("genres") or []) if g in genre_idx] if f else []
+    if gs:
+        st["gi"] = gs
+
 decades = [{"y": y, "x": round(year_x[y], 1)} for y in range(1900, 2030, 10) if y in year_x]
 os.makedirs(OUT, exist_ok=True)
 map_obj = {"v": 1, "w": W, "h": H, "bands": band_geo, "decades": decades,
-           "lines": line_arr, "stations": stations}
+           "genres": genre_list, "lines": line_arr, "stations": stations}
 with open(os.path.join(OUT, "map.v1.json"), "w") as fp:
     json.dump(map_obj, fp, ensure_ascii=False, separators=(",", ":"))
 

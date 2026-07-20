@@ -11,6 +11,15 @@
 - 기타: fly()가 pointerdown/휠/핀치에 취소(지터 제거)·runMode가 stale solo 정리·ascent/continue 근거·순서 교정·build 방어(빈 노선 max·codex 행 형태·country_override 우선)·/odyssey+35노선 코어 사이트맵 등재.
 - **오탐**: next-seo "untracked map.v1.json import"는 오탐(커밋됨·Vercel 빌드 성공). JSON-LD 이스케이프 minor는 리포 전반 관례라 보류.
 
+## §-5 The Metatake Deck — 여정 제안(진짜 내비게이션) (2026-07-20, 오너 지시)
+
+오너 핵심 재정의: **지도≠GPS 내비. 목표는 지도 제시가 아니라 시네필이 되도록 돕는 실질적 여정 제안.** → "메타테이크" 버튼을 누르면 **세 축 × 3편 = 9장의 카드가 게임처럼 화려하게 뒤집힘**.
+- **세 축**: `lib/odyssey/deal.ts` — 안정(취향 한복판·실패없음)·모험(한 걸음 밖)·전혀새로운(완전히 다른 세계). 씬≥3편이면 **취향중심(seen tx/ty centroid) 거리밴드**(0-18%/40-62%/85-100%), 미만이면 **고도(C밴드) 입문코스 폴백**. 밴드 내 prestige 우선+시드 셔플(다시 펼치기 변주). **안 본 영화만**.
+- **필터(누르기 전)**: 내 서비스만(avail·country)·연도범위·장르(아티팩트 `genres`+`gi` 신설, 빌드에 추가). 
+- **컴포넌트**: `components/odyssey/MetatakeDeck.tsx`+`app/odyssey/deck.css`. 큰 METATAKE 버튼(글로우·sheen)=코너 제목. **왼쪽에 본 영화 썸네일 작게 뭉침(deck-pile)**. 카드=3D flip(rotateY, `--i` 스태거)·backface·다크 게임테이블(단일테마 의도). 카드별 seen✓·watchlist＋·★5 별점(uf 직접).
+- **배치**: `/odyssey` 최상단(hero=여정), 그 아래 아틀라스(지도). 실측: 미로그인=입문코스(American Beauty▲→Parasite▲▲▲→Tree of Life/Persona/Mirror▲▲▲▲▲) 고도 진행 정확·다시펼치기 변주 확인.
+- ⚠️ 미로그인 hydration 경고는 브라우저 확장(data-sharkid) 소행·우리 버그 아님. 후속: 카드별 "왜 이 축" 근거·모바일 링크·seen 실적 반영 실시간.
+
 ## §-4 평면 시대×성향 전환 (2026-07-20, 오너 지시)
 
 오너 재정의: **지형(3D 산맥) 폐기·평면화**, **최초의 구획 복귀 = 가로 세대(시대)·세로 영화성향**, t-SNE는 성향축으로 채택(평면), 포스터 세로 유지, 지도 크게 유지, **평면이지만 카메라 수직틸트 가능**(길 가독성 목적).

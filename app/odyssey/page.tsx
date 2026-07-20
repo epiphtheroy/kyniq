@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import OdysseyGalaxy from "@/components/odyssey/OdysseyGalaxy";
+import MetatakeDeck from "@/components/odyssey/MetatakeDeck";
 import mapData from "@/public/odyssey/map.v1.json";
 import type { OdyMap } from "@/lib/odyssey/types";
 import "./odyssey.css";
+import "./deck.css";
 
 // Fully static: the map is a compile-time artifact (public/odyssey/map.v1.json,
 // built by worker/odyssey-build.py). Personalization — seen films, streaming
@@ -41,17 +43,25 @@ export default function OdysseyPage() {
       <main>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <header className="ody-hero">
-          <div className="seclbl">The map</div>
-          <h1 className="disp">Odyssey</h1>
+          <div className="seclbl">Odyssey</div>
+          <h1 className="disp">시네필이 되는 여정</h1>
           <p className="standfirst">
-            A map of cinephile cinema laid out by generation and sensibility:{" "}
-            {map.stations.length.toLocaleString()} films run left to right through the decades and
-            stack top to bottom by taste, so kindred films sit together. {lines.length} movements
-            and genres thread across it as lines you can follow — click a film to light up its line,
-            tilt the plane (⌘/Ctrl-drag) to trace the roads, and let a destination mode propose your
-            next ride. The point is to travel far without a failed night.
+            좋은 영화 목록이 아니라, 지금 당신에게 맞는 <b>다음 한 편</b>. 버튼을 누르면 세 방향의 길이
+            펼쳐지고, 아래 지도는 그 여정이 놓인 영화의 전경입니다.
           </p>
         </header>
+
+        <MetatakeDeck />
+
+        <div className="ody-hero" style={{ paddingTop: 8 }}>
+          <div className="seclbl">The atlas</div>
+          <h2 className="disp" style={{ fontSize: "1.5rem" }}>영화 전경 지도</h2>
+          <p className="standfirst">
+            시대(가로)와 취향(세로)으로 펼친 {map.stations.length.toLocaleString()}편의 지도. {lines.length}개
+            운동·장르가 길로 지나갑니다 — 영화를 누르면 그 노선이 켜지고, ⌘/Ctrl+드래그로 기울여 길을
+            따라갈 수 있습니다.
+          </p>
+        </div>
 
         <OdysseyGalaxy />
 

@@ -38,6 +38,7 @@ export type OdyStation = {
   tx?: number; // t-SNE x (similarity-galaxy layout)
   ty?: number; // t-SNE y
   cl?: number; // taste cluster id
+  gi?: number[]; // genre indices into OdyMap.genres
 };
 
 export type OdyMap = {
@@ -46,6 +47,7 @@ export type OdyMap = {
   h: number;
   bands: OdyBand[];
   decades: { y: number; x: number }[];
+  genres?: string[];
   lines: OdyLine[];
   stations: OdyStation[];
 };
