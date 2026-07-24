@@ -1,81 +1,53 @@
 "use client";
 
-import type { HomeV2 as HomeV2Data, Exhibits, ReadingCard } from "@/lib/home2";
+import type { HomeV2 as HomeV2Data } from "@/lib/home2";
 
 import type { ScreenerTop } from "@/app/page";
 import Nav from "./Nav";
-import HeroSurprise from "./HeroSurprise";
-import ScreenerPromo from "./ScreenerPromo";
+import DecisionHero from "./DecisionHero";
 import MyFilmsRibbon from "./MyFilmsRibbon";
-import Picked from "./Picked";
-import Top10 from "./EssentialTen";
-import Newly from "./Newly";
-import ReadingsDesk from "./ReadingsDesk";
-import ConceptTiles from "./ConceptsRail";
-import LensRail from "./LensRail";
-import Directors from "./DirectorsBlock";
-import Auteurs from "./AuteursRow";
-import Rhyme from "./Rhyme";
-import Canon from "./Canon";
-import BlogGraph from "./BlogGraph";
-import NowPlaying from "./NowPlaying";
-import TodayExhibits from "./TodayExhibits";
-import HomeTVCredits from "./HomeTVCredits";
-import HomeNetwork from "./HomeNetwork";
+import JustWatched from "./JustWatched";
+import MyCinemaTeaser from "./MyCinemaTeaser";
+import SurpriseStage from "./SurpriseStage";
 import HomeLocations from "./HomeLocations";
-import SixWays from "./SixWays";
+import NowPlaying from "./NowPlaying";
+import ExploreLinks from "./ExploreLinks";
 
 /**
- * v7 home, ported faithfully from metatake-home-mockup-v7.html.
- * 16 sections in mockup order with the paper / dark / paper-2 band rhythm.
- * Everything renders inside a single .mthome scope so app/home2.css applies.
+ * v9 home — the companion front door (HANDOFF-동반자-전환-마스터.md §4).
+ * Sections follow the watch cycle: Decide (hero) → Understand (just watched)
+ * → Journey (My Cinema + app) → one editorial rotation (Surprise) → the
+ * locations wedge → the live news strip → a flat explore-links band that keeps
+ * the crawl paths of every module the v7 "world's fair" home used to render.
+ * Design charter §4.3: three layout grammars only (poster rail + TS chip,
+ * list row, single feature); information dense, decoration light.
  */
-export default function HomeV2({ data, screenerTop = [], exhibits = null, readings = null }: { data: HomeV2Data; screenerTop?: ScreenerTop[]; exhibits?: Exhibits; readings?: ReadingCard[] | null }) {
+export default function HomeV2({ data, screenerTop = [] }: { data: HomeV2Data; screenerTop?: ScreenerTop[] }) {
   return (
     <div className="mthome">
       {/* 1 — Nav (dark, sticky) */}
       <Nav counts={data.stats} />
-      {/* 2 — Surprise me hero (dark): random draw + red space-bar + text panel */}
-      <HeroSurprise />
-      {/* 2a — The Screener: flagship entry into /takescore (dark), featured high */}
-      <ScreenerPromo rows={screenerTop} />
-      {/* 2b — My Films lens ribbon (client-personalised, server HTML identical) */}
+      {/* 2 — Decide: what should I watch tonight? (dark) */}
+      <DecisionHero rows={screenerTop} />
+      {/* 2a — My Films lens ribbon (client-personalised, server HTML identical) */}
       <MyFilmsRibbon />
-      {/* 2c — Now Playing: the live layer, featured big (renders nothing until the first piece) */}
-      <NowPlaying />
-      {/* 2d — Today at Metatake: one daily sample from each content layer */}
-      <TodayExhibits ex={exhibits} />
-      {/* 3 — Recommended by the map (paper) */}
-      <Picked data={data} />
-      {/* 4 — The essential 10 (dark) */}
-      <Top10 data={data} />
-      {/* 5 — Newly mapped (dark) */}
-      <Newly data={data} />
-      {/* 6 — From the readings desk (paper-2): news-box of strong readings */}
-      <ReadingsDesk items={readings} />
-      {/* 7 — Popular concepts (paper) */}
-      <ConceptTiles data={data} />
-      {/* 8 — Explore by lens (dark) */}
-      <LensRail data={data} />
-      {/* 8b — The living map of cinema + SentenceLexicon text grid (paper-2) */}
-      <HomeNetwork />
-      {/* 8c — The geographic Atlas (satellite) */}
+      {/* 3 — Understand: just watched something? (paper) */}
+      <JustWatched />
+      {/* 4 — Journey: My Room + the app (paper-2) */}
+      <MyCinemaTeaser />
+      {/* 5 — The one editorial rotation: Surprise me (dark hero band) */}
+      <section id="surprise" className="hero surpband" aria-label="Surprise me">
+        <div className="wrap">
+          <div className="surp-head">Or — surprise me</div>
+          <SurpriseStage auto />
+        </div>
+      </section>
+      {/* 6 — The locations wedge (satellite) */}
       <HomeLocations />
-      {/* 9 — Directors spotlight + cards (paper-2) */}
-      <Directors data={data} />
-      {/* 10 — Auteurs to explore (dark) */}
-      <Auteurs data={data} />
-      {/* 11 — Films that rhyme (paper) */}
-      <Rhyme data={data} />
-      {/* 12 — Recommended by (canon + guide) (paper-2) */}
-      <Canon data={data} />
-      {/* 13 — Between Film and the World + live node graph (paper-2) */}
-      <BlogGraph />
-      {/* 13b — Metatake TV (screen-essay channel) + the credits web (dark) */}
-      <HomeTVCredits />
-      {/* (BigSearch band removed from home per owner 2026-07-11 — search lives in the nav / ⌘K / /search) */}
-      {/* 15 — Six ways in (paper) */}
-      <SixWays data={data} />
+      {/* 7 — Now Playing: the live layer (renders nothing until the first piece) */}
+      <NowPlaying />
+      {/* 8 — Explore: flat crawlable links (paper) */}
+      <ExploreLinks />
       {/* Footer is rendered globally by app/layout.tsx (single unified site footer) */}
     </div>
   );

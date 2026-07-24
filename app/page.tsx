@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
 import { createClient } from "@supabase/supabase-js";
 import HomeV2 from "@/components/home2/HomeV2";
-import { PLACEHOLDER, type HomeV2 as HomeV2Data, type Exhibits, type ReadingCard } from "@/lib/home2";
+import { PLACEHOLDER, type HomeV2 as HomeV2Data } from "@/lib/home2";
 import "@/app/home2.css";
 
 // The home bundle changes ~nightly, so there is no reason to re-run the ~1.4s
@@ -15,9 +15,11 @@ import "@/app/home2.css";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: { absolute: "Metatake — A Critical Map of Cinema" },
+  // Companion positioning (전환마스터 §0): lead with the decision value; the
+  // critical map stays as the underlying method, not the headline.
+  title: { absolute: "Metatake — The Cinephile's Companion" },
   description:
-    "Read films closely — a critical map of cinema that links films through the readings they share. Strong Misreadings, tropes, directors, concepts and the canon, all on one map.",
+    "What should you watch tonight? Films scored for durable value (TakeScore), filtered to your streaming services — then understood: meanings, shooting locations, and the patterns they share. Your watch history as one map.",
   alternates: {
     canonical: "/",
     // Page-level alternates shallow-replace the layout's, so the RSS
@@ -94,52 +96,11 @@ const getScreenerTop = unstable_cache(
   { revalidate: 3600 },
 );
 
-// "Today at Metatake" band — one sample per content layer, held a full day
-// (YYYYMMDD seed) then rotated. Its own Data-Cache entry per day; never blocks
-// the home (null on any failure → the band self-omits).
-async function loadExhibits(): Promise<Exhibits> {
-  // Constant key for the same anti-stampede reason as loadV2; the day seed is
-  // read at regeneration time, so the band still flips on the UTC day change.
-  const getEx = unstable_cache(
-    async (): Promise<Exhibits> => {
-      const day = new Date().toISOString().slice(0, 10).replace(/-/g, ""); // YYYYMMDD, UTC
-      try {
-        const { data } = await db().rpc("home_daily_exhibits", { p_seed: day });
-        return (data as Exhibits) ?? null;
-      } catch {
-        return null;
-      }
-    },
-    ["home-exhibits"],
-    { revalidate: 3600, tags: ["home-v2"] },
-  );
-  return getEx();
-}
-
-// "From the readings desk" — hourly-rotating sample of strong published
-// readings (constant cache key, seed read at regeneration; same anti-stampede
-// pattern as loadV2). Null on failure → the section self-omits.
-async function loadReadings(): Promise<ReadingCard[] | null> {
-  const getRd = unstable_cache(
-    async (): Promise<ReadingCard[] | null> => {
-      const seed = new Date().toISOString().slice(0, 13).replace(/[-T]/g, ""); // YYYYMMDDHH, UTC
-      try {
-        const { data } = await db().rpc("home_readings_desk", { p_seed: seed });
-        const rows = data as ReadingCard[] | null;
-        return Array.isArray(rows) && rows.length > 0 ? rows : null;
-      } catch {
-        return null;
-      }
-    },
-    ["home-readings-desk"],
-    { revalidate: 3600, tags: ["home-v2"] },
-  );
-  return getRd();
-}
+// (v9 companion home: the daily-exhibits and readings-desk loaders left with
+//  their bands — HANDOFF-동반자-전환-마스터.md §4. Their RPCs remain in the DB;
+//  restore from git history if a band ever returns.)
 
 export default async function Home() {
-  const [data, screenerTop, exhibits, readings] = await Promise.all([
-    loadV2(), getScreenerTop(), loadExhibits(), loadReadings(),
-  ]);
-  return <HomeV2 data={data} screenerTop={screenerTop} exhibits={exhibits} readings={readings} />;
+  const [data, screenerTop] = await Promise.all([loadV2(), getScreenerTop()]);
+  return <HomeV2 data={data} screenerTop={screenerTop} />;
 }
