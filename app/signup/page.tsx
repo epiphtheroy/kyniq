@@ -26,9 +26,15 @@ export default function SignupPage() {
     setError(null);
 
     const supabase = getSupabase();
+    // First-run flow (전환마스터 §5): land new accounts on /me/import so the
+    // portfolio lights up immediately. If the redirect URL isn't allowlisted,
+    // Supabase falls back to the site URL — no worse than the old behavior.
     const { error: authError } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent("/me/import")}`,
+      },
     });
 
     if (authError) {
@@ -46,7 +52,7 @@ export default function SignupPage() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent("/me/import")}`,
       },
     });
   }
@@ -57,7 +63,8 @@ export default function SignupPage() {
         <div style={{ margin: "60px 0" }}>
           <h1 className="disp" style={{ fontSize: 22, marginBottom: 12 }}>Check your email</h1>
           <p className="ui muted" style={{ fontSize: 14, lineHeight: 1.6 }}>
-            We sent a verification link to <strong>{email}</strong>. Click it to activate your account.
+            We sent a verification link to <strong>{email}</strong>. Click it to activate your
+            account — then we&apos;ll take you straight to importing your films.
           </p>
         </div>
       </main>
@@ -73,9 +80,14 @@ export default function SignupPage() {
         <div className="tagline" style={{ marginTop: 6 }}>Read films closely.</div>
       </div>
 
-      <h1 className="disp" style={{ fontSize: 22, margin: "0 0 18px", textAlign: "center" }}>
-        Join the conversation
+      <h1 className="disp" style={{ fontSize: 22, margin: "0 0 10px", textAlign: "center" }}>
+        Create your cinema portfolio
       </h1>
+      <ul className="ui muted" style={{ fontSize: 13, lineHeight: 1.7, listStyle: "none", padding: 0, margin: "0 0 18px", textAlign: "center" }}>
+        <li>Your watch history as one map — coverage, blind spots, taste</li>
+        <li>Tonight picks scored for cinephiles, filtered to your services</li>
+        <li>A shelf for the films and readings you save</li>
+      </ul>
 
       {error && (
         <div style={{ padding: "10px 13px", marginBottom: 14, background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 4, color: "#991b1b", fontSize: 13, fontFamily: "var(--font-ui)" }}>
