@@ -20,6 +20,7 @@ import {
 } from "@/lib/seo";
 import { filmIndexRoster } from "@/lib/filmGate";
 import { directorIndexBar } from "@/lib/directorGate";
+import odysseyMap from "@/public/odyssey/map.v1.json";
 import { allLocationCities, loadLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
 
@@ -103,6 +104,7 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
   const entries: SitemapEntry[] = [
     { url: siteUrl },
     { url: `${siteUrl}/about` },
+    { url: `${siteUrl}/app` },
     { url: `${siteUrl}/updates`, lastmod: LATEST_UPDATE_DATE },
     { url: `${siteUrl}/discoveries` },
     { url: `${siteUrl}/film` },
@@ -130,7 +132,14 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/locations` },
     { url: `${siteUrl}/data` }, // dataset distribution hub (Dataset JSON-LD)
     { url: `${siteUrl}/partners` }, // machine-readable B2B proposal (§2.1)
+    { url: `${siteUrl}/odyssey` }, // the cinephile film map
+    { url: `${siteUrl}/journey` }, // the Metatake journey proposal
+    { url: `${siteUrl}/board` }, // the cinephile survey board
   ];
+  // Odyssey — one SSR page per line (static map artifact, prerendered).
+  for (const l of (odysseyMap as { lines: { id: string }[] }).lines) {
+    entries.push({ url: `${siteUrl}/odyssey/line/${l.id}` });
+  }
   // Strong Misreadings — the 14 framework hubs.
   for (const f of BROWSABLE) {
     entries.push({ url: `${siteUrl}/strong-misreadings/${f.slug}` });
