@@ -1,0 +1,185 @@
+/* Odyssey — cinephile metro map. Scoped under .ody-*. */
+
+.ody-hero { max-width: 1280px; margin: 0 auto; padding: 26px 18px 6px; }
+.ody-hero .standfirst { max-width: 70ch; }
+
+.ody-root { max-width: 1280px; margin: 0 auto; padding: 0 18px 40px; }
+
+.ody-loading { padding: 80px 0; text-align: center; color: #777; }
+.ody-retry { margin-left: 8px; border: 1px solid #e2ded5; background: #fff; color: #E3120B;
+  border-radius: 7px; padding: 5px 12px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.ody-retry:hover { border-color: #E3120B; }
+
+/* toolbar */
+.ody-toolbar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 14px 0 10px; }
+.ody-chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; flex: 1 1 640px; scrollbar-width: thin; }
+.ody-chip { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; border: 1px solid #e2ded5;
+  background: #fff; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 600; cursor: pointer; color: #222; }
+.ody-chip .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--lc, #999); flex: 0 0 auto; }
+.ody-chip .n { color: #999; font-weight: 500; font-size: 11px; }
+.ody-chip[aria-pressed="true"] { border-color: var(--lc, #222); box-shadow: inset 0 0 0 1px var(--lc, #222); }
+.ody-chip:hover { border-color: var(--lc, #888); }
+.ody-clear { border-color: #E3120B; color: #E3120B; }
+.ody-controls { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+.ody-tog { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: #555; cursor: pointer; white-space: nowrap; }
+.ody-tog input { accent-color: #E3120B; }
+.ody-cc { font-size: 12.5px; border: 1px solid #e2ded5; border-radius: 6px; padding: 3px 6px; background: #fff; }
+
+/* galaxy stage */
+.odg-root { max-width: 1480px; margin: 0 auto; }
+.odg-stage { position: relative; border: 1px solid #e2ded5; border-radius: 12px;
+  background: radial-gradient(120% 120% at 50% 40%, #f6f4ee 0%, #efece4 60%, #e7e3d8 100%);
+  overflow: hidden; }
+.odg-canvas { width: 100%; height: 100%; display: block; touch-action: none; user-select: none; }
+.odg-hint { position: absolute; left: 12px; bottom: 10px; font-size: 11.5px; color: #7a746a;
+  background: rgba(250,249,246,.72); border-radius: 999px; padding: 4px 11px; pointer-events: none;
+  backdrop-filter: blur(2px); max-width: calc(100% - 24px); }
+.odg-axis { position: absolute; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  color: #a9a094; pointer-events: none; text-transform: none; }
+.odg-axis-x { right: 14px; bottom: 34px; }
+.odg-axis-y { left: 12px; top: 10px; writing-mode: vertical-rl; }
+.odg-tip { position: absolute; background: rgba(255,255,255,.97); border: 1px solid #e2ded5;
+  border-radius: 8px; padding: 6px 9px; max-width: 200px; pointer-events: none; z-index: 5;
+  box-shadow: 0 4px 16px rgba(20,15,5,.12); font-size: 12.5px; }
+.odg-tip b { font-weight: 700; } .odg-tip span { opacity: .6; }
+.odg-tip .ln { font-size: 11px; color: #6f6a63; margin-top: 2px; }
+.odg-card { top: 12px; right: 12px; }
+
+/* timeline stage (legacy SVG map, kept for reference) */
+.ody-stage { position: relative; border: 1px solid #e2ded5; border-radius: 12px; background: #fdfcf9;
+  height: min(74vh, 780px); overflow: hidden; }
+.ody-svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; user-select: none; }
+.ody-svg:active { cursor: grabbing; }
+
+.ody-svg .band rect { fill: #f4f1ea; }
+.ody-svg .band:nth-of-type(2n) rect { fill: #f7f5ef; }
+.ody-svg .band text { fill: #b6b0a4; font-size: 15px; font-weight: 800; letter-spacing: 0.22em; }
+.ody-svg .grid line { stroke: #e7e3d9; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.ody-svg .grid text { fill: #a09a8e; font-size: 13px; font-variant-numeric: tabular-nums; }
+
+path.ody-line { fill: none; stroke-width: 3.4px; stroke-linecap: round; stroke-linejoin: round;
+  transition: opacity 0.16s; cursor: pointer; pointer-events: stroke; }
+/* Cross-band lines (genre/express) hop continents and would smear the whole
+   map with verticals — keep them ghosted until hovered or soloed. */
+path.ody-line.cross { opacity: 0.07; }
+.ody-svg.hl path.ody-line { opacity: 0.13; }
+.ody-svg.solo path.ody-line { opacity: 0.06; }
+.ody-svg.hl g.st { opacity: 0.3; }
+
+g.st { cursor: pointer; transition: opacity 0.16s; }
+g.st circle.c { fill: #fdfcf9; stroke: #8f8a80; stroke-width: 2px; }
+g.st.onl circle.c { stroke: #55504a; }
+g.st.tf circle.c { fill: #fff; stroke: #17140f; stroke-width: 2.4px; }
+g.st.loc circle.c { fill: #cfc9bd; stroke: none; }
+g.st.is-sel circle.c { stroke: #E3120B; stroke-width: 3px; }
+g.st circle.avr { fill: none; stroke: #0d9488; stroke-width: 1.8px; stroke-dasharray: 3 2.4; }
+.ody-svg.show-seen g.st.seen circle.c { fill: #17140f; stroke: #17140f; }
+.ody-svg.show-seen g.st.seen.loc circle.c { fill: #17140f; }
+
+g.st text.lbl { fill: #26221c; font-size: 10.5px; display: none; paint-order: stroke;
+  stroke: rgba(253, 252, 249, 0.85); stroke-width: 3px; pointer-events: none; }
+.ody-svg.z0 g.st.pk text.lbl { display: block; font-size: 20px; font-weight: 700; }
+.ody-svg.z1 g.st.pk text.lbl, .ody-svg.z1 g.st.tf text.lbl { display: block; font-size: 13px; font-weight: 600; }
+.ody-svg.z1 g.st.onl text.lbl { display: block; font-size: 11.5px; }
+.ody-svg.z2 g.st text.lbl { display: block; }
+.ody-svg.z0 g.st.loc { opacity: 0.55; }
+
+.ody-route { fill: none; stroke: #E3120B; stroke-width: 8px; opacity: 0.8; stroke-linecap: round;
+  stroke-dasharray: 2 13; animation: ody-dash 1.1s linear infinite; pointer-events: none; }
+.ody-pulse { fill: none; stroke: #E3120B; stroke-width: 3px; animation: ody-pulse 1.4s ease-out infinite; pointer-events: none; }
+@keyframes ody-dash { to { stroke-dashoffset: -30; } }
+@keyframes ody-pulse { 0% { r: 10; opacity: 0.95; } 100% { r: 34; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ody-route, .ody-pulse { animation: none; }
+}
+
+/* station card */
+.ody-card { position: absolute; top: 12px; right: 12px; width: 300px; max-width: calc(100% - 24px);
+  background: #fff; border: 1px solid #e2ded5; border-radius: 10px; padding: 14px 16px;
+  box-shadow: 0 8px 30px rgba(20, 15, 5, 0.13); z-index: 4; }
+.ody-card .x { position: absolute; top: 6px; right: 8px; border: 0; background: none; font-size: 18px;
+  cursor: pointer; color: #999; line-height: 1; padding: 4px; }
+.ody-card .row { display: flex; gap: 12px; }
+.ody-card img { border-radius: 6px; flex: 0 0 auto; object-fit: cover; }
+.ody-card .ttl { font-weight: 700; font-size: 15.5px; line-height: 1.3; }
+.ody-card .yr { color: #888; font-weight: 400; font-size: 13px; }
+.ody-card .tko { color: #666; font-size: 12.5px; margin-top: 2px; }
+.ody-card .dir { color: #555; font-size: 12.5px; margin-top: 2px; }
+.ody-card .alt { margin-top: 6px; font-size: 12px; color: #b3261e; letter-spacing: 1px; }
+.ody-card .alt span { color: #777; letter-spacing: 0; margin-left: 4px; }
+.ody-card .alt .peak { color: #E3120B; font-weight: 700; }
+.ody-card .lns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.ody-card .lns button { display: inline-flex; align-items: center; gap: 5px; border: 1px solid #e6e2d9;
+  background: #faf9f5; border-radius: 999px; padding: 3px 9px; font-size: 11.5px; font-weight: 600; cursor: pointer; }
+.ody-card .lns .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--lc, #999); }
+.ody-card .avl { margin-top: 9px; font-size: 12px; color: #0d9488; }
+.ody-card .cta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.ody-card .cta a, .ody-card .cta button { font-size: 12.5px; font-weight: 600; border: 1px solid #e2ded5;
+  border-radius: 7px; padding: 5px 10px; background: #fff; color: #222; text-decoration: none; cursor: pointer; }
+.ody-card .cta a:hover, .ody-card .cta button:hover { border-color: #E3120B; color: #E3120B; }
+.ody-card .cta button.on { background: #17140f; color: #fff; border-color: #17140f; }
+
+/* destinations */
+.ody-dest { border: 1px solid #e2ded5; border-radius: 12px; background: #fff; margin-top: 16px; padding: 18px 20px; }
+.ody-dest .head h2 { font-size: 19px; margin: 0 0 3px; }
+.ody-dest .head p { margin: 0 0 12px; color: #666; font-size: 13.5px; }
+.ody-dest .modes { display: flex; flex-wrap: wrap; gap: 8px; }
+.ody-dest .mode { border: 1px solid #e2ded5; background: #faf9f5; border-radius: 8px; padding: 8px 13px;
+  font-size: 13px; font-weight: 600; color: #222; cursor: pointer; }
+.ody-dest .mode:hover { border-color: #E3120B; color: #E3120B; }
+.ody-dest .mode[aria-pressed="true"] { border-color: #E3120B; color: #E3120B; box-shadow: inset 0 0 0 1px #E3120B; }
+.ody-dest .result { margin-top: 13px; border-left: 3px solid #E3120B; padding: 3px 0 3px 12px; font-size: 14px; }
+.ody-dest .result .dest { font-weight: 700; }
+.ody-dest .result a { color: #E3120B; text-decoration: none; font-weight: 600; }
+.ody-dest .anon { margin: 12px 0 0; color: #8a6d1d; background: #fdf6e3; border-radius: 8px;
+  padding: 9px 12px; font-size: 13px; }
+
+/* line index (SSR, SEO) */
+.ody-index { max-width: 1280px; margin: 26px auto 60px; padding: 0 18px; }
+.ody-index h2 { font-size: 20px; margin: 0 0 4px; }
+.ody-index .sub { color: #666; font-size: 13.5px; margin: 0 0 14px; }
+.ody-index .cols { columns: 3; column-gap: 28px; }
+@media (max-width: 900px) { .ody-index .cols { columns: 2; } }
+@media (max-width: 560px) { .ody-index .cols { columns: 1; } }
+.ody-index .li { break-inside: avoid; display: flex; align-items: baseline; gap: 8px; padding: 5px 0;
+  border-bottom: 1px dotted #e8e4da; }
+.ody-index .li .dot { width: 10px; height: 10px; border-radius: 999px; flex: 0 0 auto; align-self: center; }
+.ody-index .li a { color: #17140f; text-decoration: none; font-weight: 600; font-size: 14px; }
+.ody-index .li a:hover { color: #E3120B; }
+.ody-index .li .n { color: #999; font-size: 12px; }
+
+/* line page */
+.ody-line-page { max-width: 860px; margin: 0 auto; padding: 26px 18px 70px; }
+.ody-line-page .crumb { font-size: 12.5px; color: #888; margin-bottom: 10px; }
+.ody-line-page .crumb a { color: #888; text-decoration: none; }
+.ody-line-page .crumb a:hover { color: #E3120B; }
+.ody-line-page .lp-head { display: flex; align-items: center; gap: 12px; }
+.ody-line-page .lp-head .dot { width: 18px; height: 18px; border-radius: 999px; flex: 0 0 auto; }
+.ody-line-page h1 { margin: 0; }
+.ody-line-page .lp-desc { color: #555; max-width: 68ch; }
+.ody-line-page .lp-meta { color: #888; font-size: 13px; margin: 6px 0 18px; }
+.ody-line-page .lp-map-link { display: inline-block; margin: 2px 0 22px; font-weight: 600; font-size: 13.5px;
+  color: #E3120B; text-decoration: none; border: 1px solid #f2c7c5; border-radius: 8px; padding: 6px 12px; }
+.ody-stops { list-style: none; margin: 0; padding: 0; position: relative; }
+.ody-stops::before { content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 5px;
+  border-radius: 4px; background: var(--lc, #999); }
+.ody-stop { position: relative; padding: 10px 0 10px 38px; }
+.ody-stop::before { content: ""; position: absolute; left: 4px; top: 16px; width: 11px; height: 11px;
+  border-radius: 999px; background: #fff; border: 2.5px solid var(--lc, #555); }
+.ody-stop.tf::before { border-color: #17140f; width: 13px; height: 13px; left: 3px; }
+.ody-stop .t { font-weight: 700; font-size: 15.5px; }
+.ody-stop .t a { color: #17140f; text-decoration: none; }
+.ody-stop .t a:hover { color: #E3120B; }
+.ody-stop .t .yr { color: #999; font-weight: 400; font-size: 13px; margin-left: 6px; }
+.ody-stop .sub { color: #666; font-size: 12.5px; margin-top: 2px; }
+.ody-stop .alt { color: #b3261e; font-size: 11px; letter-spacing: 1px; margin-top: 2px; }
+.ody-stop .alt span { color: #999; letter-spacing: 0; margin-left: 5px; }
+.ody-stop .xfer { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 5px; }
+.ody-stop .xfer a { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600;
+  color: #444; text-decoration: none; border: 1px solid #e6e2d9; border-radius: 999px; padding: 2px 8px; }
+.ody-stop .xfer .dot { width: 7px; height: 7px; border-radius: 999px; }
+
+@media (max-width: 700px) {
+  .ody-stage { height: 66vh; }
+  .ody-card { top: auto; bottom: 10px; right: 10px; left: 10px; width: auto; }
+}

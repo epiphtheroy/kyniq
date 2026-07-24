@@ -1,6 +1,10 @@
-@import "tailwindcss";
-/* ScreenRant-family condensed display for the v2 broadcast channel (same pick as curious.css) */
+/* ScreenRant-family condensed display for the v2 broadcast channel (same pick as curious.css).
+   MUST precede the tailwind import: turbopack inlines `@import "tailwindcss"`, and a
+   url() import that lands after inlined statements fails lightningcss's
+   "@import must precede all other statements" — every dev route then 500s.
+   Google css2 ships only @font-face rules, so order carries no cascade weight. */
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@500;600;700;800&display=swap");
+@import "tailwindcss";
 
 /* ============================================================
    Metatake — design system v3 "Newspaper"
