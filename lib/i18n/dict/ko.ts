@@ -31,21 +31,21 @@ export const KO: Record<string, string> = {
   // one-line edit here — that is the entire cost, by design.
   // ──────────────────────────────────────────────────────────────────────────
 
-  // Nav groups (components/home2/Nav.tsx buildGroups)
-  Watch: "감상",
-  Wander: "탐색",
-  Read: "읽기",
-  Theory: "이론",
-  Patterns: "패턴",
-  You: "나",
+  // Nav groups (components/home2/Nav.tsx buildGroups — companion IA, 전환마스터 §3).
+  // Old group keys (Watch/Wander/Read/Theory/Patterns/You) removed 2026-07-24:
+  // no t()/tr() call site uses those bare words (verified by grep).
+  Tonight: "오늘 밤",
+  "My Cinema": "마이 시네마",
+  "Go Deeper": "더 깊이",
+  News: "뉴스",
 
-  // Nav group one-line descriptors (the "AI re-sees via framework" concept)
-  "Every film and director, re-seen through the framework.": "모든 영화와 감독을, 프레임워크로 다시 본다.",
-  "How the latest AI scores, maps, and connects cinema.": "최신 AI가 어떻게 점수 매기고·지도화하고·잇는지.",
-  "What the AI is writing now — arguments you can argue with.": "AI가 지금 쓰고 있는 것 — 반박할 수 있는 논증.",
-  "The ideas and thinkers films are read through — and why.": "영화를 읽어내는 개념과 사상가 — 그리고 그 이유.",
-  "What recurs across cinema, classified with its reasons.": "영화에서 반복되는 것을, 근거와 함께 분류한다.",
-  "Your shelf, your taste, your saved readings.": "당신의 서가·취향·저장한 리딩.",
+  // Nav group one-line descriptors (user-value language — never "the AI")
+  "What to watch tonight — scored for cinephiles, filtered to your services.": "오늘 밤 볼 영화 — 시네필 기준 점수로, 내 서비스에 맞춰.",
+  "Your watching life — mapped, scored, remembered.": "당신의 영화 생활 — 지도로, 점수로, 기록으로.",
+  "Every film and director, in depth.": "모든 영화와 감독을, 깊이 있게.",
+  "After you watch — meaning, places, patterns, theory.": "보고 난 뒤 — 의미·장소·패턴·이론.",
+  "What's happening in film, right now.": "지금 영화계에서 일어나는 일.",
+  "Get the app": "앱 받기",
 
   // Nav items — functional names get a Korean name; brand marks stay English.
   Films: "영화",

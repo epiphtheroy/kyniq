@@ -29,51 +29,55 @@ type Acct =
   | { state: "out" }
   | { state: "in"; name: string; username: string | null };
 
+// Companion IA (HANDOFF-동반자-전환-마스터.md §3): five groups ordered by the
+// watch cycle — Decide (Tonight) · Journey (My Cinema) · catalog (Films) ·
+// Understand (Go Deeper) · News. Descriptors speak user value, never "the AI"
+// (authorship credits stay on content pages; the nav is not a disclosure
+// surface). About/Methodology live in the global footer.
 function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
-    { id: "watch", label: "Watch", desc: "Every film and director, re-seen through the framework.", items: [
-      { t: "Films", h: "/film", c: c.films },
-      { t: "Directors", h: "/director", c: c.directors },
-      { t: "Latest", h: "/latest" },
-      { t: "Trending", h: "/trending" },
-    ] },
-    { id: "wander", label: "Wander", desc: "How the latest AI scores, maps, and connects cinema.", items: [
-      { t: "Metatake TV", h: "/tv" },
-      { t: "TakeScore", h: "/takescore" },
+    { id: "tonight", label: "Tonight", href: "/what-to-watch", desc: "What to watch tonight — scored for cinephiles, filtered to your services.", items: [
       { t: "What to Watch", h: "/what-to-watch" },
-      { t: "Lineage", h: "/lineage" },
-      { t: "Locations", h: "/locations" },
-      { t: "Movements", h: "/movements" },
-      { t: "Connections", h: "/network" },
+      { t: "TakeScore", h: "/takescore" },
       { t: "Where to watch", h: "/where-to-watch" },
-      { t: "Credits", h: "/credits" },
+      { t: "Trending", h: "/trending" },
+      { t: "Latest", h: "/latest" },
     ] },
-    { id: "read", label: "Read", desc: "What the AI is writing now — arguments you can argue with.", items: [
-      { t: "Now Playing", h: "/now" },
-      { t: "The Daily", h: "/blog" },
-      { t: "Updates", h: "/updates" },
-      { t: "Curious", h: "/curious" },
-      { t: "Newsletter", h: "/blog/subscribe" },
-    ] },
-    { id: "ideas", label: "Theory", desc: "The ideas and thinkers films are read through — and why.", items: [
-      { t: "Concepts", h: "/concept", c: c.concepts },
-      { t: "Theorists", h: "/theorist", c: c.theorists },
-      { t: "Traditions", h: "/tradition", c: c.traditions },
-      { t: "Strong Misreadings", h: "/strong-misreadings", c: c.readings },
-      { t: "Methodology", h: "/methodology" },
-    ] },
-    { id: "lenses", label: "Patterns", desc: "What recurs across cinema, classified with its reasons.", items: [
-      { t: "Tropes", h: "/tropes", c: c.tropes },
-      { t: "Archetypes", h: "/catalog" },
-    ] },
-    { id: "you", label: "You", desc: "Your shelf, your taste, your saved readings.", items: [
+    { id: "cinema", label: "My Cinema", desc: "Your watching life — mapped, scored, remembered.", items: [
       { t: "My Room", h: "/room" },
       { t: "Import your films", h: "/me/import" },
+      { t: "Get the app", h: "/app" },
       ...(acct.state === "in"
         ? [{ t: "Settings", h: "/settings" }]
         : acct.state === "out"
           ? [{ t: "Sign in", h: "/login" }, { t: "Create account", h: "/signup" }]
           : []),
+    ] },
+    { id: "films", label: "Films", desc: "Every film and director, in depth.", items: [
+      { t: "Films", h: "/film", c: c.films },
+      { t: "Directors", h: "/director", c: c.directors },
+    ] },
+    { id: "deeper", label: "Go Deeper", desc: "After you watch — meaning, places, patterns, theory.", items: [
+      { t: "Locations", h: "/locations" },
+      { t: "Lineage", h: "/lineage" },
+      { t: "Connections", h: "/network" },
+      { t: "Tropes", h: "/tropes", c: c.tropes },
+      { t: "Archetypes", h: "/catalog" },
+      { t: "Movements", h: "/movements" },
+      { t: "Concepts", h: "/concept", c: c.concepts },
+      { t: "Theorists", h: "/theorist", c: c.theorists },
+      { t: "Traditions", h: "/tradition", c: c.traditions },
+      { t: "Strong Misreadings", h: "/strong-misreadings", c: c.readings },
+      { t: "Credits", h: "/credits" },
+      { t: "Methodology", h: "/methodology" },
+    ] },
+    { id: "news", label: "News", desc: "What's happening in film, right now.", items: [
+      { t: "Now Playing", h: "/now" },
+      { t: "The Daily", h: "/blog" },
+      { t: "Metatake TV", h: "/tv" },
+      { t: "Updates", h: "/updates" },
+      { t: "Curious", h: "/curious" },
+      { t: "Newsletter", h: "/blog/subscribe" },
     ] },
   ];
 }
@@ -175,7 +179,13 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
               {g.href ? (
                 // a category that is itself a destination (Watch → /watch): the
                 // label navigates on click, the dropdown still opens on hover.
-                <Link className="ngl" href={g.href} aria-expanded={grp === g.id}>
+                <Link
+                  className="ngl"
+                  href={g.href}
+                  aria-haspopup="menu"
+                  aria-expanded={grp === g.id}
+                  onFocus={() => setGrp(g.id)}
+                >
                   {tr(locale, g.label)}
                 </Link>
               ) : (
