@@ -85,6 +85,20 @@ export async function POST(req: NextRequest) {
     const salt = process.env.METRICS_SALT || process.env.SUPABASE_SERVICE_ROLE_KEY?.slice(0, 16) || "mt";
     const day = new Date().toISOString().slice(0, 10);
     const visitor = createHash("sha256").update(`${day}|${ip}|${ua}|${salt}`).digest("hex").slice(0, 24);
+    // Week-scoped twin of the daily visitor hash — the companion north-star
+    // metric (weekly returning visitors) needs identity that survives across
+    // days but still rotates (every ISO week) and stores no PII. Kept in
+    // props.wv so collection needs no schema change; mt_weekly_return_json
+    // (migration 0111) aggregates it.
+    const isoWeek = (() => {
+      const u = new Date();
+      const t = new Date(Date.UTC(u.getUTCFullYear(), u.getUTCMonth(), u.getUTCDate()));
+      t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7)); // ISO week = week of its Thursday
+      const y = t.getUTCFullYear();
+      const wk = Math.ceil(((+t - Date.UTC(y, 0, 1)) / 86400000 + 1) / 7);
+      return `${y}-W${String(wk).padStart(2, "0")}`;
+    })();
+    const wv = createHash("sha256").update(`${isoWeek}|${ip}|${ua}|${salt}`).digest("hex").slice(0, 24);
 
     const ref = typeof b.ref === "string" ? b.ref.slice(0, 500) : "";
     const city = req.headers.get("x-vercel-ip-city");
@@ -106,7 +120,12 @@ export async function POST(req: NextRequest) {
       browser: browserOf(ua),
       lang: typeof b.lang === "string" ? b.lang.slice(0, 12) : null,
       screen_w: typeof b.sw === "number" && b.sw > 0 && b.sw < 20000 ? Math.round(b.sw) : null,
-      props: b.props && typeof b.props === "object" ? b.props : null,
+      props:
+        t === "pageview"
+          ? { ...(b.props && typeof b.props === "object" ? (b.props as Record<string, unknown>) : {}), wv }
+          : b.props && typeof b.props === "object"
+            ? b.props
+            : null,
     };
 
     const sb = createAdminClient();

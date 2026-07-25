@@ -98,13 +98,15 @@ export default async function MetricsPage({
   await refreshInsightsIfStale(supabase);
   const args = { p_from: from.toISOString(), p_to: to.toISOString(), p_tz: "Asia/Seoul", p_bucket: bucket };
 
-  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes] = await Promise.all([
+  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes, wrRes] = await Promise.all([
     supabase.rpc("mt_overview_json", args),
     supabase.rpc("mt_live_json"),
     drillPath ? supabase.rpc("mt_page_json", { p_path: drillPath, ...args }) : Promise.resolve({ data: null, error: null }),
     supabase.from("mt_insights").select("ts, kind, line").neq("kind", "_run").order("ts", { ascending: false }).limit(24),
     supabase.rpc("mt_gsc_overview_json", { p_days: 28 }),
     supabase.rpc("mt_ai_referrals_json", { p_from: from.toISOString(), p_to: to.toISOString() }),
+    // North star (전환마스터 §8): fails soft until migration 0111 is applied.
+    supabase.rpc("mt_weekly_return_json", { p_weeks: 8 }),
   ]);
 
   const ov = (ovRes.data ?? null) as Overview | null;
@@ -113,6 +115,7 @@ export default async function MetricsPage({
   const insights = (insightsRes.data ?? []) as { ts: string; kind: string; line: string }[];
   const gsc = (gscRes.data ?? null) as GscOverview | null;
   const ai = (aiRes.data ?? null) as AiReferrals | null;
+  const wr = (wrRes.data ?? null) as { week: string; visitors: number; returning: number }[] | null;
 
   if (ovRes.error) {
     return <div style={{ color: "#e66767" }}>Failed to load metrics: {ovRes.error.message}</div>;
@@ -211,6 +214,38 @@ export default async function MetricsPage({
       </Panel>
 
       {/* Google Search Console — rankings & exposure */}
+      {/* ⭐ North star — weekly returning visitors (동반자 전환의 성적표) */}
+      <Panel title="⭐ 주간 재방문자 (북극성)">
+        {wr && wr.length > 0 ? (
+          <table style={{ fontSize: 12.5 }}>
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th style={{ paddingRight: 16 }}>ISO week</th>
+                <th style={num}>visitors</th>
+                <th style={num}>returning (≥2일)</th>
+                <th style={num}>rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              {wr.map((r, i) => (
+                <tr key={i}>
+                  <td style={{ paddingRight: 16, color: "#cbd5e1" }}>{r.week}</td>
+                  <td style={num}>{fmt(r.visitors)}</td>
+                  <td style={num}><b style={{ color: "#f1f5f9" }}>{fmt(r.returning)}</b></td>
+                  <td style={num}>{r.visitors ? Math.round((r.returning / r.visitors) * 100) : 0}%</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div style={{ fontSize: 12.5, color: "#64748b", lineHeight: 1.6 }}>
+            아직 데이터 없음 — ①마이그레이션 0111 적용(오너 <code>!</code>) ②비콘이 props.wv를 쌓기 시작한
+            2026-07-25 이후 첫 주가 차면 나타납니다. 재방문 = 같은 ISO주에 ≥2일 방문한 방문자(주 단위 회전
+            해시, PII 없음). GSC 노출·클릭은 관찰 지표 — <b>이 표가 동반자 전환의 성적표입니다.</b>
+          </div>
+        )}
+      </Panel>
+
       <Panel title={`Google 검색 노출 (GSC, 최근 28일${gsc?.totals?.latest_day ? ` · 데이터 ~${gsc.totals.latest_day}` : ""})`}>
         {gsc && gsc.series.length > 0 ? (
           <>
