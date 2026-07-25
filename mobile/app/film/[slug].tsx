@@ -1,6 +1,7 @@
 // Film card — the JUDGMENT BRIEF, the app's heart (HANDOFF §5.1, §5.0).
-// Native decision layer only; deep reading is delegated to the in-app reader
-// (invariant §13-9). Design system v2 "Lava": full-bleed hero with floating
+// Fully native — no links out to metatake.net web pages (owner directive
+// 2026-07; Share keeps the web URL, §13-2).
+// Design system v2 "Lava": full-bleed hero with floating
 // glass discs, sheet-over-photo content, grouped surface sections.
 // v4: VerdictStrip (rank + V/C/R + runtime + dots), For You (server-supplied
 // evidence only — §13-17), What to Expect (13-dim chips), JudgeBar pinned
@@ -129,6 +130,7 @@ export default function FilmScreen() {
   const [reasons, setReasons] = useState<string[]>([]);
   const [toast, setToast] = useState<Toast | null>(null);
   const [showRating, setShowRating] = useState(false);
+  const [showAllLineage, setShowAllLineage] = useState(false);
   const [busy, setBusy] = useState(false);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -140,6 +142,7 @@ export default function FilmScreen() {
     setReasons([]);
     setToast(null);
     setShowRating(false);
+    setShowAllLineage(false);
     api
       .film(String(slug), country, locale)
       .then((c) => alive && setCard(c))
@@ -182,9 +185,6 @@ export default function FilmScreen() {
   const entry = card ? ledger.get(card.slug) : undefined;
   const webUrl = `${METATAKE_BASE}/film/${slug}`;
 
-  const openReader = (path: string, title: string) =>
-    router.push({ pathname: "/read", params: { path, title } });
-
   // Hero pager pages: server backdrops (images[0..3]) + the poster as the
   // final page (owner directive 2026-07-20). Falls back to the single
   // backdrop_path until the server ships `images`.
@@ -200,23 +200,6 @@ export default function FilmScreen() {
     if (card.poster_path) pages.push({ kind: "poster", path: card.poster_path });
     return pages;
   }, [card]);
-
-  const readMore = useMemo(
-    () =>
-      card
-        ? [
-            { label: "Why watch — the full page", path: `/film/${card.slug}` },
-            { label: "Reception — the afterlife", path: `/film/${card.slug}/reception` },
-            // /film/lineage/<slug> only exists for films WITH lineage rows —
-            // linking it unconditionally 404s (verified live 2026-07-20).
-            ...(card.lineage.length ? [{ label: "Honors", path: `/film/lineage/${card.slug}` }] : []),
-            { label: "Credits", path: `/film/${card.slug}/credits` },
-            { label: "Gallery", path: `/film/${card.slug}/gallery` },
-            { label: "Meaning — strong misreadings", path: `/film/meaning/${card.slug}` },
-          ]
-        : [],
-    [card],
-  );
 
   // For You (b): kindred films the ledger marks seen.
   const kindredSeen = useMemo(
@@ -629,7 +612,7 @@ export default function FilmScreen() {
             </View>
           ) : null}
 
-          {/* Where to watch — grouped rows */}
+          {/* Where to watch — grouped rows, native display only (no web link). */}
           <SectionTitle sub={country}>{t("film.whereToWatch")}</SectionTitle>
           {card.availability.length ? (
             <>
@@ -637,8 +620,7 @@ export default function FilmScreen() {
                 {card.availability.slice(0, 8).map((a, i) => (
                   <View key={`${a.pid}-${a.kind}`}>
                     {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-                    <Tactile
-                      onPress={() => openReader(`/whereto/${card.slug}`, card.title)}
+                    <View
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
@@ -657,8 +639,7 @@ export default function FilmScreen() {
                       <Ui size={fs.xs} color={pal.muted}>
                         {KIND_LABEL[a.kind] ? t(KIND_LABEL[a.kind] as Parameters<typeof t>[0]) : a.kind}
                       </Ui>
-                      <Ionicons name="chevron-forward" size={14} color={pal.subtle} />
-                    </Tactile>
+                    </View>
                   </View>
                 ))}
               </Group>
@@ -677,16 +658,15 @@ export default function FilmScreen() {
             </View>
           )}
 
-          {/* Lineage */}
+          {/* Lineage — static native rows off card.lineage (no web link). */}
           {card.lineage.length ? (
             <>
               <SectionTitle>{t("film.lineage")}</SectionTitle>
               <Group>
-                {card.lineage.slice(0, 6).map((l, i) => (
+                {(showAllLineage ? card.lineage : card.lineage.slice(0, 6)).map((l, i) => (
                   <View key={`${l.list_slug}-${i}`}>
                     {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-                    <Tactile
-                      onPress={() => openReader(`/film/lineage/${card.slug}`, card.title)}
+                    <View
                       style={{
                         flexDirection: "row",
                         alignItems: "baseline",
@@ -705,20 +685,22 @@ export default function FilmScreen() {
                       <Ui size={fs.sm} weight="600" color={brand.tsGreen}>
                         {l.rank ? `#${l.rank}${l.rank_max ? `/${l.rank_max}` : ""}` : (l.result ?? "")}
                       </Ui>
-                    </Tactile>
+                    </View>
                   </View>
                 ))}
                 {card.lineage.length > 6 ? (
                   <>
                     <Hairline style={{ marginLeft: sp.s4 }} />
-                    <Tactile onPress={() => openReader(`/film/lineage/${card.slug}`, card.title)}>
+                    <Tactile onPress={() => setShowAllLineage((v) => !v)}>
                       <Ui
                         size={fs.sm}
                         weight="500"
                         color={brand.accent}
                         style={{ paddingHorizontal: sp.s4, paddingVertical: 11 }}
                       >
-                        +{card.lineage.length - 6} more
+                        {showAllLineage
+                          ? t("common.showFewer")
+                          : t("common.showAll", { n: card.lineage.length })}
                       </Ui>
                     </Tactile>
                   </>
@@ -822,29 +804,6 @@ export default function FilmScreen() {
             </>
           ) : null}
 
-          {/* Read more on Metatake */}
-          <SectionTitle>{t("action.readMore")}</SectionTitle>
-          <Group>
-            {readMore.map((r, i) => (
-              <View key={r.path}>
-                {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-                <Tactile
-                  onPress={() => openReader(r.path, card.title)}
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    paddingHorizontal: sp.s4,
-                    paddingVertical: 13,
-                  }}
-                >
-                  <Ui size={fs.md} weight="500" style={{ flex: 1 }}>
-                    {r.label}
-                  </Ui>
-                  <Ionicons name="chevron-forward" size={15} color={pal.subtle} />
-                </Tactile>
-              </View>
-            ))}
-          </Group>
           <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
             {t("attribution.tmdb")}
           </Ui>

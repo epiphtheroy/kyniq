@@ -1,9 +1,10 @@
 // Director card (HANDOFF §2.2) — the decision subset natively (where to start,
-// the selection, filmography-on-your-services, who's next, the life); deep
-// reading is delegated to the in-app reader (invariant §13-9).
+// the selection, filmography-on-your-services, who's next, the life).
+// Fully native — no links out to metatake.net web pages (owner directive
+// 2026-07; Share keeps the web URL, §13-2).
 // Design system v2 "Lava": floating chrome discs over a centered identity
 // header, elevated where-to-start hero card, poster carousel for the
-// selection, grouped surface containers for the life + read more.
+// selection, grouped surface containers for the life.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
@@ -12,8 +13,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FilmRow } from "../../src/components/FilmRow";
 import {
   Btn,
-  Chip,
-  Hairline,
   Loading,
   PosterImg,
   Screen,
@@ -95,9 +94,6 @@ export default function DirectorScreen() {
 
   const webUrl = `${METATAKE_BASE}/director/${slug}`;
 
-  const openReader = (path: string, title: string) =>
-    router.push({ pathname: "/read", params: { path, title } });
-
   const goFilm = (filmSlug: string) =>
     router.push({ pathname: "/film/[slug]", params: { slug: filmSlug } });
 
@@ -124,26 +120,6 @@ export default function DirectorScreen() {
   const facts = useMemo(() => [...(card?.facts ?? [])].sort((a, b) => a.n - b.n), [card]);
 
   const nextRecs = useMemo(() => [...(card?.next ?? [])].sort((a, b) => a.pos - b.pos), [card]);
-
-  const readMore = useMemo(
-    () =>
-      card
-        ? [
-            {
-              label: t("director.records"),
-              path: `/director/${card.slug}/honors`,
-              chip: card.honors_count > 0 ? card.honors_count : null,
-            },
-            { label: t("director.reception"), path: `/director/${card.slug}/reception`, chip: null },
-            { label: t("director.theory"), path: `/director/${card.slug}/theory`, chip: null },
-            { label: "TakeScore", path: `/director/${card.slug}/takescore`, chip: null },
-            { label: t("film.locations"), path: `/director/${card.slug}/locations`, chip: null },
-            { label: t("director.misreadings"), path: `/director/${card.slug}/misreadings`, chip: null },
-            { label: t("director.fullPage"), path: `/director/${card.slug}`, chip: null },
-          ]
-        : [],
-    [card],
-  );
 
   if (err)
     return (
@@ -214,15 +190,6 @@ export default function DirectorScreen() {
             <Ui size={fs.base} color={pal.inkSoft} numberOfLines={6}>
               {portraitLead}
             </Ui>
-            <Tactile onPress={() => openReader(`/director/${card.slug}`, card.name)} hitSlop={8}>
-              <Ui
-                size={fs.sm}
-                weight="500"
-                style={{ paddingVertical: 6, textDecorationLine: "underline" }}
-              >
-                {t("common.more")}
-              </Ui>
-            </Tactile>
           </View>
         ) : null}
 
@@ -432,42 +399,6 @@ export default function DirectorScreen() {
           </>
         ) : null}
 
-        {/* Read more on Metatake — grouped rows into the webview reading layer */}
-        <SectionTitle>{t("action.readMore")}</SectionTitle>
-        <View
-          style={{
-            marginHorizontal: sp.s4,
-            backgroundColor: pal.surface,
-            borderRadius: radius.md,
-            overflow: "hidden",
-          }}
-        >
-          {readMore.map((r, i) => (
-            <View key={r.path}>
-              {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-              <Tactile
-                onPress={() => openReader(r.path, card.name)}
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: sp.s2,
-                  paddingHorizontal: sp.s4,
-                  paddingVertical: sp.s3 + 2,
-                }}
-              >
-                <Ui size={fs.md} weight="500" style={{ flex: 1 }}>
-                  {r.label}
-                </Ui>
-                {r.chip != null ? (
-                  <View pointerEvents="none">
-                    <Chip label={String(r.chip)} />
-                  </View>
-                ) : null}
-                <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
-              </Tactile>
-            </View>
-          ))}
-        </View>
         <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
           {t("attribution.tmdb")}
         </Ui>
