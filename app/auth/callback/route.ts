@@ -10,7 +10,10 @@ import { type NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next") ?? "/";
+  // Same-site paths only: `next=@evil.com` would make `${origin}${next}` parse
+  // as userinfo@host, and `//` is protocol-relative — both must fall back to "/".
+  const rawNext = searchParams.get("next") ?? "/";
+  const next = rawNext.startsWith("/") && !rawNext.startsWith("//") ? rawNext : "/";
 
   if (code) {
     let response = NextResponse.redirect(`${origin}${next}`);

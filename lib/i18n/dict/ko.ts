@@ -31,13 +31,21 @@ export const KO: Record<string, string> = {
   // one-line edit here — that is the entire cost, by design.
   // ──────────────────────────────────────────────────────────────────────────
 
-  // Nav groups (components/home2/Nav.tsx buildGroups)
-  Watch: "감상",
-  Wander: "탐색",
-  Read: "읽기",
-  Theory: "이론",
-  Patterns: "패턴",
-  You: "나",
+  // Nav groups (components/home2/Nav.tsx buildGroups — companion IA, 전환마스터 §3).
+  // Old group keys (Watch/Wander/Read/Theory/Patterns/You) removed 2026-07-24:
+  // no t()/tr() call site uses those bare words (verified by grep).
+  Tonight: "오늘 밤",
+  "My Cinema": "마이 시네마",
+  "Go Deeper": "더 깊이",
+  News: "뉴스",
+
+  // Nav group one-line descriptors (user-value language — never "the AI")
+  "What to watch tonight — scored for cinephiles, filtered to your services.": "오늘 밤 볼 영화 — 시네필 기준 점수로, 내 서비스에 맞춰.",
+  "Your watching life — mapped, scored, remembered.": "당신의 영화 생활 — 지도로, 점수로, 기록으로.",
+  "Every film and director, in depth.": "모든 영화와 감독을, 깊이 있게.",
+  "After you watch — meaning, places, patterns, theory.": "보고 난 뒤 — 의미·장소·패턴·이론.",
+  "What's happening in film, right now.": "지금 영화계에서 일어나는 일.",
+  "Get the app": "앱 받기",
 
   // Nav items — functional names get a Korean name; brand marks stay English.
   Films: "영화",

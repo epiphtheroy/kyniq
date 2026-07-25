@@ -104,6 +104,7 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
   const entries: SitemapEntry[] = [
     { url: siteUrl },
     { url: `${siteUrl}/about` },
+    { url: `${siteUrl}/app` },
     { url: `${siteUrl}/updates`, lastmod: LATEST_UPDATE_DATE },
     { url: `${siteUrl}/discoveries` },
     { url: `${siteUrl}/film` },

@@ -77,3 +77,7 @@ mobile/dist/
 mobile/web-build/
 mobile/ios/
 mobile/android/
+
+# DMARC aggregate reports (Google/others) — keep out of repo
+*!metatake.net!*.zip
+*!metatake.net!*.xml
