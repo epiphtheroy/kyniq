@@ -147,6 +147,19 @@
 - 주간 **"판단 다이제스트"**: 이번 주 볼만한 것(TakeScore 픽 3) + 깊이 읽기 1편 + 마이룸 훅.
 - 기존 /blog/subscribe·Updates 자산 위에 리듬만 확립. 발신 규칙은 CRM 발송 금지원칙과 무관(구독자 옵트인).
 
+### §7.1 운영 리듬 계약 (2026-07-25 확정)
+
+- **수집(이미 라이브):** `SubscribeForm` → RPC `newsletter_subscribe(p_email, p_source)` — 구독자는 퍼스트파티 DB에 쌓이는 중.
+- **케이던스: 매주 금요일 오후(KST)** — 주말 시청 결정 직전이 다이제스트의 자연 시점.
+- **템플릿(구성 고정, 내용만 갱신):**
+  1. **Tonight 3** — 이번 주 What-to-Watch 상위 TakeScore 픽 3편(포스터+TS+한 줄 verdict word+링크)
+  2. **One deep read** — 이번 주 최고 레터(/now) 또는 meaning 1편
+  3. **Your room** — 마이룸/임포트 훅 1줄 (신규 구독자용 CTA)
+  - 톤 = WRITER_SYSTEM과 동일 계약(세일즈 금지·논증이 본체·verdict words).
+- **발송 실행:** 초기 = 오너 수동(구독자 목록 SELECT → BCC 또는 도구). 자동화(worker 스크립트로 Gmail 발송)는
+  **오너 명시 승인 후에만** — 구독자 대상 발신은 외향 행위이므로 CRM 발송 게이트와 같은 급으로 취급.
+- **성공 지표:** 오픈이 아니라 **클릭→재방문**(§8 북극성과 연동 — 뉴스레터 유입은 utm_source=digest로 태깅).
+
 ---
 
 ## §8. 측정 (북극성 교체)
@@ -213,10 +226,18 @@ MyFilmsRibbon → JustWatched(신규 — /search GET 폼, no-JS 동작) → MyCi
 베타 명시·**공개 스토어 링크 없음을 명시**(저장소에 실제 URL 부재 확인, 위조 금지)·알림=뉴스레터 CTA·
 브라우저 대안(/room·/me/import) 안내. 배선: 네비(My Cinema)+홈(MyCinemaTeaser)+풋터 완료.
 
-**⚠️ 미커밋 항목:** lib/sitemap-data.ts의 `/app` 코어 엔트리 1줄 — 이 파일에 **미릴리즈 오디세이 사이트맵
-변경이 선재**해 분리 커밋 불가(무단 동반 커밋 방지). 작업트리에 남김; 오디세이 릴리즈 시 함께 나감.
+**staging 병합·푸시 완료 (2026-07-25 새벽, 오너 "진행해" 승인):** staging에 선재하던 오디세이/모바일
+작업과 정식 병합 — `b01ae35`가 staging+feat/discovery-feed 공통 팁. 충돌 해소: Nav·ko=동반자 IA 측 /
+**app/app/page.tsx=staging의 모바일 세션 정본 채택**(카피 계약 준수 — 밤샘 초안보다 우수; 배선은 그대로
+유효). 병합 장애물이던 작업트리의 오디세이 미추적 22파일은 전부 staging 커밋과 바이트 동일 확인 후 정식
+추적으로 정리(손실 0). .gitignore는 합집합(Expo+DMARC). 사이트맵 `/app` 엔트리도 함께 커밋됨.
+백업: 스크래치 `odyssey-backup/`(안전 확인 후 삭제 가능).
 
-**P5 (미착수):** 뉴스레터 리듬(오너 운영 결정 필요)·측정 대시보드 — 후속 세션.
+**P5 (2026-07-25 완료):** ①**북극성 측정 라이브 배선** — 비콘에 주 단위 방문자 해시(props.wv, PII 없음·ISO주 회전) + 마이그 **0111**(`mt_weekly_return_json` — 오너 `!` 적용 필요) + /admin/metrics ⭐주간 재방문자 패널(fail-soft). ②뉴스레터 리듬 계약 §7.1(금요 판단 다이제스트·수동 발송·자동화는 오너 승인 게이트). ③가입 착지 ?next= 검증: GoTrue는 허용목록을 origin+path로 매칭(쿼리 무시)+`/auth/callback`은 OAuth 가동으로 등재 확인됨 → 통과가 구조적 기본값. 잔여 확인=Supabase 대시보드 Auth→URL Configuration 1분 육안(오너).
+
+**T2 오디세이 소화 (2026-07-25 완료):** 오너 판단 반영 — ①**/board 취향나선(본영화중심) 제거**(단일중심 황금각 나선+외곽 지터=장식적 노이즈; /journey의 거리밴드가 같은 질문을 가독성 있게 답함 — BoardGrid 정렬 토글·tasteLayout·경계선 삭제) ②**BoardCoverage 제거→마이룸 링크**(서버 개인화 HTML 위반 해소+계기 중복 제거) ③진입점 개통: Nav My Cinema에 Journey·Board·Odyssey + 홈 ExploreLinks(고아 상태 종료) ④유보: 보드 1,958 img 가상화·journey 카드별 "왜 이 축" 근거문·odyssey y축 1D 프로젝션(후속).
+
+**T4 /now 수리+전략 (2026-07-25 완료):** 원인=launchd TCC 차단(2차 재발, 7/15~25 열흘 중단; API·모델 정상). plist 무력화+터미널 워처 재기동(§7 생존확인 1줄 추가). 전략: WRITER_SYSTEM 규칙7 "THE READER'S EVENING"(동반자 훅 — 자연스러울 때만) + 인베리언트12를 "문체 불가침"으로 정밀 개정(sonnet 라이트 역할 양립·Fable 금지·Opus 고정). 정본 HANDOFF-now-플레잉 v3.1.
 
 ## §11. 개정 로그
 
