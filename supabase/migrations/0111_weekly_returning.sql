@@ -38,7 +38,7 @@ as $$
   )
   select coalesce(
     jsonb_agg(
-      jsonb_build_object('week', wk, 'visitors', visitors, 'returning', returning)
+      jsonb_build_object('week', wk, 'visitors', visitors, 'returning', returners)
       order by wk
     ),
     '[]'::jsonb
@@ -46,7 +46,9 @@ as $$
   from (
     select wk,
            count(*)                              as visitors,
-           count(*) filter (where days >= 2)     as returning
+           -- "returning" is a reserved word (RETURNING clause) — alias differs,
+           -- the JSON key the panel reads stays 'returning'.
+           count(*) filter (where days >= 2)     as returners
     from per
     group by wk
   ) x;
