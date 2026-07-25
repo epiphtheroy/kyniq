@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import BoardGrid from "@/components/odyssey/BoardGrid";
-import BoardCoverage from "@/components/odyssey/BoardCoverage";
 import "../odyssey/odyssey.css";
 import "./board.css";
 
@@ -32,7 +31,18 @@ export default function BoardPage() {
         </header>
 
         <BoardGrid />
-        <BoardCoverage />
+        {/* Coverage (canon bars + auteur conquest) lives in My Room — linking
+            instead of duplicating keeps this page's server HTML non-personalized
+            (the embedded BoardCoverage was force-dynamic + auth, a breach of
+            the invariant) and keeps one instrument in one place. */}
+        <section className="ody-hero" style={{ paddingTop: 10, paddingBottom: 28 }}>
+          <p className="standfirst">
+            내 정전 커버리지와 감독 정복은{" "}
+            <Link href="/room" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>
+              마이룸에서 →
+            </Link>
+          </p>
+        </section>
       </main>
     </>
   );

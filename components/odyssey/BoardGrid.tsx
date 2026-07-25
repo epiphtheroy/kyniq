@@ -1,22 +1,16 @@
 "use client";
 
 /**
- * BoardGrid — a survey of the cinephile corpus with two arrangements.
- *
- *  · 바둑판 (grid): ~1,958 films tiled 30 columns of year × rows of taste.
- *  · 본 영화 중심 (taste): films re-sort around your seen-film centroid — your
- *    seen films pack the middle inside a boundary ring, kindred films cluster
- *    close, and the further out a film is the looser it scatters. Turn on
- *    "내 서비스 가까이" and films on your services are pulled inward.
- *
- * Cells are absolutely positioned by transform, so switching arrangements
- * morphs smoothly. Toggle 본/볼/서비스 to colour matching films; filter by year
- * or genre to thin the board. Hover for a bubble, click for a side drawer.
+ * BoardGrid — the goban survey of the cinephile corpus: ~1,958 films tiled
+ * 30 columns of year × rows of taste. Toggle 본/볼/서비스 to colour matching
+ * films; filter by year or genre to thin the board. Hover for a bubble, click
+ * for a side drawer. (The former "본 영화 중심" taste-spiral arrangement was
+ * removed 2026-07-25 — /journey answers taste-centric "what next" legibly.)
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useUserFilms } from "@/components/UserFilmsProvider";
 import type { OdyAvail, OdyMap, OdyStation } from "@/lib/odyssey/types";
-import { packBoard, tasteLayout } from "@/lib/odyssey/board";
+import { packBoard } from "@/lib/odyssey/board";
 
 const IMG = "https://image.tmdb.org/t/p";
 const NOW = 2025;
@@ -36,8 +30,10 @@ export default function BoardGrid() {
   const [yearMin, setYearMin] = useState(1900);
   const [yearMax, setYearMax] = useState(NOW);
   const [genre, setGenre] = useState<number | null>(null);
-  const [mode, setMode] = useState<"grid" | "taste">("grid");
-  const [servicesCloser, setServicesCloser] = useState(false);
+  // (The "본 영화 중심" taste-spiral arrangement was removed 2026-07-25 —
+  //  owner judgment: a single-centroid golden-angle spiral with outward jitter
+  //  reads as decorative noise, and /journey expresses seen-centric taste
+  //  better. The board is the goban, full stop.)
   const [hover, setHover] = useState<{ s: OdyStation; x: number; y: number } | null>(null);
   const [open, setOpen] = useState<OdyStation | null>(null);
   const [boardW, setBoardW] = useState(1200);
@@ -68,7 +64,7 @@ export default function BoardGrid() {
       .then((a: OdyAvail | null) => { if (a) setAvail(a); return a; }).catch(() => null);
   }, [avail]);
 
-  useEffect(() => { if (hlAvail || servicesCloser) void ensureAvail(); }, [hlAvail, servicesCloser, ensureAvail]);
+  useEffect(() => { if (hlAvail) void ensureAvail(); }, [hlAvail, ensureAvail]);
   useEffect(() => { try { localStorage.setItem("ody.cc", country); } catch {} }, [country]);
 
   const board = useMemo(() => (map ? packBoard(map.stations, COLS) : null), [map]);
@@ -80,18 +76,13 @@ export default function BoardGrid() {
   const cellW = pw + 2;
   const rowH = pw * 1.5 + 2;
 
-  // positions for the active arrangement
+  // goban positions
   const layout = useMemo(() => {
     if (!board || !map) return null;
-    const pos = new Map<string, { x: number; y: number; seen: boolean; core: boolean }>();
-    if (mode === "grid") {
-      for (const c of board.cells) pos.set(c.s.s, { x: c.col * cellW + 1, y: c.row * rowH + 1, seen: false, core: false });
-      return { pos, height: board.rows * rowH, boundary: null as null | { cx: number; cy: number; r: number } };
-    }
-    const t = tasteLayout(map.stations, seenSet, availCC, servicesCloser, boardW, cellW);
-    for (const [slug, p] of t.pos) pos.set(slug, { x: p.x - pw / 2, y: p.y - pw * 1.5 / 2, seen: p.seen, core: p.r <= t.boundaryR });
-    return { pos, height: t.height, boundary: { cx: t.cx, cy: t.cy, r: t.boundaryR } };
-  }, [board, map, mode, cellW, rowH, pw, seenSet, availCC, servicesCloser, boardW]);
+    const pos = new Map<string, { x: number; y: number }>();
+    for (const c of board.cells) pos.set(c.s.s, { x: c.col * cellW + 1, y: c.row * rowH + 1 });
+    return { pos, height: board.rows * rowH };
+  }, [board, map, cellW, rowH]);
 
   const visible = useCallback((s: OdyStation) => {
     const y = s.y ?? 0;
@@ -138,14 +129,6 @@ export default function BoardGrid() {
     <div className="board-root">
       <div className="board-controls">
         <div className="board-hl">
-          <span className="board-label">정렬</span>
-          <button className={`board-mode${mode === "grid" ? " on" : ""}`} onClick={() => setMode("grid")}>바둑판</button>
-          <button className={`board-mode${mode === "taste" ? " on" : ""}`} onClick={() => setMode("taste")}>본 영화 중심</button>
-          {mode === "taste" ? (
-            <button className={`board-tog avail${servicesCloser ? " on" : ""}`} onClick={() => setServicesCloser((v) => !v)}>내 서비스 가까이</button>
-          ) : null}
-        </div>
-        <div className="board-hl">
           <span className="board-label">색으로 보기</span>
           <button className={`board-tog seen${hlSeen ? " on" : ""}`} onClick={() => setHlSeen((v) => !v)}>본 영화</button>
           <button className={`board-tog watch${hlWatch ? " on" : ""}`} onClick={() => setHlWatch((v) => !v)}>볼 영화</button>
@@ -174,24 +157,13 @@ export default function BoardGrid() {
 
       <div className="board-scroll">
         <div
-          className={`board-stage${anyHl ? " has-hl" : ""}${mode === "taste" ? " is-taste" : ""}`}
+          className={`board-stage${anyHl ? " has-hl" : ""}`}
           ref={wrapRef}
           style={{ height: layout ? layout.height : 400 }}
           onMouseMove={onGridMove}
           onMouseLeave={() => setHover(null)}
           onClick={onGridClick}
         >
-          {mode === "taste" && layout?.boundary ? (
-            <div className="board-boundary" style={{
-              left: layout.boundary.cx - layout.boundary.r,
-              top: layout.boundary.cy - layout.boundary.r,
-              width: layout.boundary.r * 2,
-              height: layout.boundary.r * 2,
-            }}>
-              <span className="board-boundary-tag">내가 본 영화</span>
-            </div>
-          ) : null}
-
           {board.cells.map((c) => {
             const s = c.s;
             const p = layout?.pos.get(s.s);
@@ -231,9 +203,7 @@ export default function BoardGrid() {
         <span className="lg watch">볼 영화</span>
         <span className="lg avail">내 서비스({country})</span>
         <span className="lg-note">
-          {mode === "taste"
-            ? "가운데가 당신이 본 영화 · 가까울수록 취향이 닮은 영화 · 멀수록 낯선 영화입니다."
-            : "정렬을 「본 영화 중심」으로 바꾸면 취향을 중심으로 다시 모입니다."}
+          취향 중심의 다음 한 편은 <a className="accent" href="/journey">여정 제안</a>이 답합니다.
         </span>
       </div>
 

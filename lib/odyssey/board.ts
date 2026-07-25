@@ -46,69 +46,8 @@ export function packBoard(stations: OdyStation[], cols = 30, rows = 70): Board {
   return { cells, cols, rows: usedRows };
 }
 
-/**
- * tasteLayout — the "본 영화 중심" arrangement. Films are sorted by how close
- * their taste is to the viewer's seen-film centroid; a phyllotaxis spiral then
- * places them from the centre out, so seen films pack the middle, kindred films
- * cluster near, and the further out a film is the looser (jittered) it sits.
- * When servicesCloser is on, films on the viewer's services are pulled inward.
- */
-export type TastePos = { x: number; y: number; r: number; seen: boolean };
-export type TasteLayout = { pos: Map<string, TastePos>; width: number; height: number; cx: number; cy: number; boundaryR: number };
 
-function hash(s: string) {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
-  return (h >>> 0);
-}
-
-export function tasteLayout(
-  stations: OdyStation[],
-  seen: ReadonlySet<string>,
-  avail: Record<string, string[]> | null,
-  servicesCloser: boolean,
-  boardW: number,
-  cell: number,
-): TasteLayout {
-  const films = stations.filter((s) => s.y != null && s.p);
-  // centroid of seen films in t-SNE space
-  const seenPts = films.filter((s) => seen.has(s.s) && s.tx != null && s.ty != null);
-  let cx0 = 0, cy0 = 0;
-  if (seenPts.length) {
-    for (const s of seenPts) { cx0 += s.tx!; cy0 += s.ty!; }
-    cx0 /= seenPts.length; cy0 /= seenPts.length;
-  }
-  const dmaxRef = Math.max(1, ...films.filter((s) => s.tx != null).map((s) => Math.hypot((s.tx! - cx0), (s.ty! - cy0))));
-  const eff = (s: OdyStation) => {
-    if (seen.has(s.s)) return -1 + (hash(s.s) % 1000) / 1e6; // seen → dead centre, tiny spread
-    let d = s.tx != null && s.ty != null ? Math.hypot(s.tx - cx0, s.ty - cy0) : dmaxRef * 1.1;
-    if (servicesCloser && avail && (avail[s.s]?.length ?? 0) > 0) d *= 0.5; // pull services inward
-    return d;
-  };
-  const sorted = [...films].sort((a, b) => eff(a) - eff(b));
-
-  // spacing is clamped so the whole spiral fits the board width (a survey, not a scroll)
-  const spacing = Math.min(cell * 0.62, boardW / (2.4 * Math.sqrt(Math.max(1, films.length))));
-  const golden = Math.PI * (3 - Math.sqrt(5));
-  const cx = boardW / 2;
-  const pos = new Map<string, TastePos>();
-  let maxR = 0, boundaryR = 0;
-  const n = sorted.length;
-  sorted.forEach((s, i) => {
-    const R = spacing * Math.sqrt(i);
-    const th = i * golden;
-    const jitAmp = (R / (spacing * Math.sqrt(n) + 1)) * cell * 1.0; // grows outward
-    const h = hash(s.s);
-    const jx = (((h % 1000) / 1000) - 0.5) * 2 * jitAmp;
-    const jy = ((((h >> 10) % 1000) / 1000) - 0.5) * 2 * jitAmp;
-    const x = cx + R * Math.cos(th) + jx;
-    const y = R * Math.sin(th) + jy; // relative to centre; shifted after we know maxR
-    const isSeen = seen.has(s.s);
-    if (isSeen) boundaryR = Math.max(boundaryR, R);
-    pos.set(s.s, { x, y, r: R, seen: isSeen });
-    if (R > maxR) maxR = R;
-  });
-  const cy = maxR + cell;
-  for (const p of pos.values()) p.y += cy;
-  return { pos, width: boardW, height: 2 * maxR + 2 * cell, cx, cy, boundaryR: boundaryR + cell * 0.9 };
-}
+// (tasteLayout — the "본 영화 중심" phyllotaxis spiral — was removed 2026-07-25.
+//  Owner judgment: single-centroid distance + golden-angle spiral + outward
+//  jitter reads as decorative noise; /journey's distance-band deal expresses
+//  seen-centric taste legibly instead. Recover from git history if ever needed.)

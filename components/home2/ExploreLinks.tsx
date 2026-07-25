@@ -29,6 +29,9 @@ const LINKS: Array<{ t: string; h: string }> = [
   { t: "The Daily", h: "/blog" },
   { t: "Metatake TV", h: "/tv" },
   { t: "My Room", h: "/room" },
+  { t: "Journey", h: "/journey" },
+  { t: "Board", h: "/board" },
+  { t: "Odyssey", h: "/odyssey" },
 ];
 
 export default function ExploreLinks() {
