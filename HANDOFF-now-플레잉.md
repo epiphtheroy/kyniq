@@ -150,7 +150,10 @@ metatake.net의 라이브 뉴스층. 전 세계에서 스파이크하는 **영�
 
 **정지:** `touch ~/Documents/MetaTake/hourly/HOLD` (삭제로 재개).
 
-**⚠️ launchd/cron 불가:** macOS TCC가 launchd에서 뜬 프로세스의 ~/Documents 접근을 차단("Operation not permitted"). **반드시 터미널 컨텍스트 상주 워처**(auto-deploy-watch.sh와 동일 패턴)로만 가동. launchd plist는 bootout됨.
+**⚠️ launchd/cron 불가 — 2회 재발한 사고:** macOS TCC가 launchd에서 뜬 프로세스의 ~/Documents 접근을 차단("Operation not permitted"). **반드시 터미널 컨텍스트 상주 워처**(auto-deploy-watch.sh와 동일 패턴)로만 가동.
+- 1차 2026-07-09 관측 → 워처 패턴 확립. **2차 2026-07-15경 누군가 launchd 플리스트(net.metatake.nowplaying)를 재도입 → exit 2 무한반복 → 7/15~7/25 열흘 발행 중단**(API·모델·인증은 전부 정상이었음 — 순수 운영 사고).
+- 2026-07-25 수리: plist `~/Library/LaunchAgents/net.metatake.nowplaying.plist.disabled-tcc-blocked`로 개명·bootout, 워처 재기동. **launchd 플리스트를 발견하면 즉시 bootout+rename — 어떤 이유로도 재도입 금지.**
+- **생존 확인 1줄:** `kill -0 $(cat ~/Documents/MetaTake/hourly/.watch.pid) && tail -1 ~/Documents/MetaTake/hourly/ledger.md` — pid 살아있고 ledger 마지막 줄이 오늘이면 정상.
 
 **Mac 잠자면** 그 시간 건너뜀(다음 정각 재개). 24/7 원하면 소형 VPS 이전(스크립트는 레포+`.env.local`만 필요).
 
@@ -185,7 +188,7 @@ metatake.net의 라이브 뉴스층. 전 세계에서 스파이크하는 **영�
 9. **film_locations는 RLS** — anon 안 됨, datapack이 서비스키로 읽음.
 10. **now/[slug]은 다크 셸(.mt.cur #181818)** — .cur-paper.blg만 흰 시트. 헤더/인덱스=밝은 글자, 페이퍼 내부=어두운 글자.
 11. **Hidden Chrome 탭에서 MapLibre 안 뜸**(rAF 정지) — 지도 디버깅 전 visibilityState 확인.
-12. **sonnet 재도입 금지** — 원우 규칙: 기계 선별 후 Fable가 쓰면 발행, 제2모델 문체 게이트 없음.
+12. **제2모델의 문체 개입 금지 (인베리언트 개정 2026-07-25)** — 원칙의 핵심은 "문체 불가침": 어떤 제2모델도 레터의 프로즈를 개작하지 않는다. 현행 코드의 sonnet(LIGHT_MODEL)은 셀렉터·구조 게이트·컷플로어 한줄용 — 프로즈를 고치지 않으므로 핵심 원칙과 양립(구 문구 "sonnet 전면 제거"는 Fable-작성 시대 표현이라 개정). **작성=Opus 고정(Fable 금지 — 오너 지침 2026-07-21).** 문체를 고치는 게이트 재도입은 여전히 금지.
 13. **wire 기록은 모든 종료 경로에서** — produce.py의 `not cands`(발행후보 없음=가장 흔한 경우) 조기 종료가 record_stream을 건너뛰면 wire가 안 쌓임(2026-07-09 버그). 발행/일일캡/후보실패/후보없음 4경로 모두에서 record_stream 호출 필수.
 14. **wire 오매칭은 value_point 패스에서 drop** — 매처가 짧은/일반 제목을 잘못 매칭(cs2 update→Mirage 1965). `_value_points`가 Fable에게 real 판정 시켜 spurious면 drop. 발행된 기사는 항상 유지.
 
@@ -195,7 +198,8 @@ metatake.net의 라이브 뉴스층. 전 세계에서 스파이크하는 **영�
 
 - v1(폐기): substack figure-anchor + AVAULT 판정 결합.
 - v2(폐기): beat-first 데이터 심층, 정치판정 제거. → "데이터 너무 많아 재미없다" 피드백.
-- **v3(현재)**: 에디터 레터. 논증·겸손·검색어 제목·이너링크·지도. sonnet 제거.
+- **v3**: 에디터 레터. 논증·겸손·검색어 제목·이너링크·지도. sonnet 제거.
+- **v3.1(현재, 2026-07-25)**: 동반자 정합 — WRITER_SYSTEM 규칙 7 "THE READER'S EVENING" 추가(자연스러울 때만, 이 영화가 당신의 저녁 가치가 있는지+어디서 시작할지를 이너링크 하나로; 세일즈 톤 금지·논증이 본체). 작성=Opus 고정. 인베리언트 12 개정(문체 불가침로 정밀화). launchd 2차 사고 기록(§7).
 - 홀드룰(FORECAST §4): 일일 캡 4 유지, 비구글 30%·GSC 우위 전까지 증량 금지, 12주 선행지표 판정.
 - 자동발행+비동기검수(AVAULT 사람게이트 이탈), 아웃리치만 100% 사람게이트, 데일리 이메일은 큐레이션.
 - X 영구 제외(1K 미만 계정 링크글 참여 0%, $0.20/URL). 기각뉴스 지면 미게재. 발행 표면=metatake.net(신규 도메인 아님).

@@ -115,6 +115,8 @@ Non-negotiables, in order:
 
 6. FORM. 700-1200 words of prose. Short paragraphs (1-4 sentences), front-loaded, zero filler, no em-dashes, no listicles. Wit is welcome; it never touches the facts. Vary structure against the recent-pieces digest: no repeated openings, closings, or headline shapes.
 
+7. THE READER'S EVENING. Where it is NATURAL - and only then - let the letter also answer the reader's practical question: is this film worth my evening, and where would I start? One of the woven archive links may carry this (the film's own page; /what-to-watch when the piece surveys several). Never a sales register; the argument stays the product. Skip entirely when the story is not about a watchable film.
+
 Workflow (mandatory): use web_search at least twice - (a) verify and DATE the core facts beyond the provided links; (b) find the terrain of reaction and at least one fact the wire coverage does not carry. Only cite sources you actually saw.
 
 HTML rules for body fields: only <p>, <b>, <i>, <em>, <strong>, <ul>, <li>, <br>, <cite>, and <a href="..."> where href MUST start with "/" AND appear in the INTERNAL LINKS inventory. News sources go in the sources array, never as links in body HTML.
