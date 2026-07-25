@@ -37,7 +37,7 @@ ASSET_SHEET = """Metatake (metatake.net) — 실측 자산 (2026-07):
 - 라이브 MCP 서버(공식 MCP Registry 등재 net.metatake/mcp) · 공개 REST /api/v1 · 임베드 위젯 · 크롬 확장
 - 한국어 전면 로컬라이즈(/ko)
 - 라이선스(혼동 금지): 원저작 비평(readings·essays)=CC BY-NC 4.0 / **촬영지 지오데이터셋=CC BY 4.0**(상업 포함 자유·귀속만). 좌표 데이터는 개방, 비평은 비상업.
-- 이미 공개된 데이터셋: Hugging Face `wonwooyoon/metatake-filming-locations`(17,341 위치·1,917편·130개국·좌표100%·CC BY 4.0) + Zenodo DOI 동반.
+- 촬영지 데이터 소개법(2026-07-20 실측·오너 지시): **HF `wonwooyoon/metatake-filming-locations` = 오픈 스냅샷(17,341 위치·1,917편·CC BY 4.0)**이고, **라이브 전체 커버리지는 그보다 큼 — 28,400+ 좌표·6,000+ 편, 계속 성장 중**. 제공 방법 3종: ①HF 오픈 스냅샷 ②공개 REST API(/api/v1)+MCP 서버(라이브·전체) ③파트너용 확장 익스포트(요청 시). 제안서에는 "open snapshot on HF; full and growing coverage (28,400+ geocoded locations across 6,000+ films) via our public API/MCP; expanded exports available to partners" 프레이밍을 쓸 것.
 - 파트너십 창구: metatake.net/partners
 정직 규칙: 위 목록에 없는 수치·권위·트래픽을 지어내지 말 것. 초기 단계임을 숨기지 말 것. **오너의 기존 자산·계정을 언급할 땐 반드시 과거 자료 검색 결과의 실제 값만 쓸 것.**"""
 
@@ -88,7 +88,7 @@ CHANNELS = [
          channel_type="registry", depth="mid", grade="AAA",
          their_benefit="고품질 데이터셋 밀도 = 플랫폼 가치",
          screening_policy="데이터 카드 품질·라이선스·유용성(큐레이션/featured)",
-         our_fit="촬영지·온톨로지 유니크 데이터셋(CC BY-NC)"),
+         our_fit="촬영지 지오데이터=CC BY 4.0 · 비평 텍스트=CC BY-NC 유니크 데이터셋"),
     dict(name="University Libraries — LibGuides Inclusion Request",
          segment_code="E2", industry_family="학계·도서관",
          channel_url="https://community.libguides.com/",
@@ -394,6 +394,44 @@ def gmail_get_thread(env: dict, thread_id: str) -> dict | None:
         return None
 
 
+def gmail_create_draft(env: dict, to: str, subject: str, body_text: str) -> tuple[bool, str]:
+    """Create a plain-text outreach DRAFT (From=Wonwoo Yoon, the human sender).
+    Returns (ok, gmail_draft_id). Nothing is sent — the draft waits for a send call."""
+    at = gmail_token(env)
+    if not at:
+        return False, "no-token"
+    msg = MIMEText(body_text, "plain", "utf-8")
+    msg["From"] = f"Wonwoo Yoon <{FROM_ADDR}>"
+    msg["To"] = to
+    msg["Subject"] = subject
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+    req = urllib.request.Request(
+        "https://gmail.googleapis.com/gmail/v1/users/me/drafts",
+        data=json.dumps({"message": {"raw": raw}}).encode(),
+        headers={"Authorization": "Bearer " + at, "Content-Type": "application/json"}, method="POST")
+    try:
+        with urllib.request.urlopen(req) as r:
+            return True, json.loads(r.read()).get("id", "?")
+    except urllib.error.HTTPError as e:
+        return False, f"draft {e.code} {e.read().decode()[:300]}"
+
+
+def gmail_send_draft(env: dict, draft_id: str) -> tuple[bool, str]:
+    """Send an existing draft by id (users.drafts.send). Returns (ok, message_id)."""
+    at = gmail_token(env)
+    if not at:
+        return False, "no-token"
+    req = urllib.request.Request(
+        "https://gmail.googleapis.com/gmail/v1/users/me/drafts/send",
+        data=json.dumps({"id": draft_id}).encode(),
+        headers={"Authorization": "Bearer " + at, "Content-Type": "application/json"}, method="POST")
+    try:
+        with urllib.request.urlopen(req) as r:
+            return True, json.loads(r.read()).get("id", "sent")
+    except urllib.error.HTTPError as e:
+        return False, f"send-draft {e.code} {e.read().decode()[:300]}"
+
+
 def _payload_text(payload: dict) -> str:
     """Decode a Gmail message payload to plain text (prefer text/plain)."""
     import re
@@ -427,8 +465,9 @@ def _strip_quoted(text: str) -> str:
     return "\n".join(out).strip()
 
 
-def extract_owner_reply(env: dict, thread: dict, our_ids: set | None = None) -> tuple[str, str] | None:
+def extract_owner_reply(env: dict, thread: dict, our_ids: set | None = None) -> tuple[str, str, str] | None:
     """Newest message that is NOT one we sent = the owner's reply.
+    Returns (text, Message-ID header, gmail id).
     오너도 wonwoo@metatake.net에서 회신하므로 발신자로 구분 불가 → 우리가 보낸 메시지의
     Gmail id(브리핑 meta에 저장)로 우리 것을 제외하고, 콘텐츠 마커로 이중 방어."""
     our_ids = our_ids or set()
@@ -506,29 +545,67 @@ def render_final_html(understanding_ko: str, items: list, n_feedback: int) -> st
     </div>"""
 
 
-def process_reply(env: dict, briefing_id: int | None = None) -> int:
-    if briefing_id:
-        b = c.sb_get(env, f"crm_briefings?select=id,meta,kind&id=eq.{briefing_id}", service=True)
-    else:
-        b = c.sb_get(env, "crm_briefings?select=id,meta,kind&status=neq.closed&order=id.desc&limit=1", service=True)
-    if not b:
-        c.log("no briefing found"); return 1
-    b = b[0]; bid = b["id"]; meta = b.get("meta") or {}
-    thread_id = meta.get("gmail_thread_id")
-    if not thread_id:
-        c.log(f"briefing {bid} has no gmail_thread_id — cannot read reply"); return 1
-    thread = gmail_get_thread(env, thread_id)
-    if not thread:
-        c.log("thread fetch failed"); return 1
-    our_ids = set(filter(None, [meta.get("gmail_message_id")] + (meta.get("our_message_ids") or [])))
-    rep = extract_owner_reply(env, thread, our_ids)
-    if not rep:
-        c.log("no new owner reply"); return 2
-    reply_text, reply_msgid, reply_gid = rep
-    if reply_gid and reply_gid == meta.get("last_processed_reply_id"):
-        c.log("no new owner reply (already processed)"); return 2
-    c.log(f"owner reply captured ({len(reply_text)} chars) on briefing {bid}")
+# ── GO 2단계 회신 루프 (지시 → "이렇게 하겠습니다" → GO → 실행) ────────────────
+GO_TOKENS = {"GO", "GOGO", "GG", "ㄱㄱ", "고", "✅", "👍", "GO!", "GO."}
 
+
+def is_go_reply(text: str) -> bool:
+    """오너의 '실행 승인' 토큰 감지. 오발송 방지 위해 엄격: 첫 줄이 GO/✅ 계열일 때만.
+    긴 문장으로 시작하면(예: 'GO ahead but revise #2') 지시로 간주(안전)."""
+    if not text:
+        return False
+    first = next((ln.strip() for ln in text.splitlines() if ln.strip()), "")
+    if not first:
+        return False
+    if first in ("✅", "👍", "고", "ㄱㄱ"):
+        return True
+    norm = first.upper().strip(".!~ ")
+    if norm in GO_TOKENS:
+        return True
+    if norm.split()[:1] == ["GO"] and len(first) <= 20:  # "GO 발송해줘" 정도까지 허용
+        return True
+    return False
+
+
+def _target_kind(item: dict) -> str:
+    """항목의 제출 지점을 email/webform/none으로 분류."""
+    sb = item.get("score_breakdown") or {}
+    if sb.get("is_webform"):
+        return "webform"
+    t = (item.get("submit_target") or "").strip()
+    if not t:
+        return "none"
+    if t.startswith("http"):
+        return "webform"
+    if t.startswith("mailto:") or "@" in t:
+        return "email"
+    return "none"
+
+
+def _settings(env: dict) -> dict:
+    r = c.sb_get(env, "crm_settings?select=data&id=eq.1", service=True)
+    return (r or [{}])[0].get("data", {}) or {}
+
+
+def _daily_cap(env: dict) -> int:
+    return int((_settings(env).get("warmup") or {}).get("cold_daily_cap")
+               or _settings(env).get("daily_send_cap") or 3)
+
+
+def _sends_today(env: dict) -> int:
+    return int((_settings(env).get("send_log") or {}).get(c.now_utc()[:10], 0))
+
+
+def _bump_sends(env: dict, n: int) -> None:
+    st = _settings(env)
+    log = st.get("send_log") or {}
+    day = c.now_utc()[:10]
+    log[day] = int(log.get(day, 0)) + n
+    st["send_log"] = log
+    c.sb_update(env, "crm_settings", "id=eq.1", {"data": st})
+
+
+def _load_items(env: dict, bid: int) -> list:
     items = c.sb_get(env, f"crm_briefing_items?select=*&briefing_id=eq.{bid}&order=id.asc", service=True) or []
     for i, it in enumerate(items, start=1):
         it["_idx"] = i
@@ -540,54 +617,275 @@ def process_reply(env: dict, briefing_id: int | None = None) -> int:
             it["_title"] = r[0]["org_name"] if r else (it.get("draft_subject") or "항목")
         else:
             it["_title"] = it.get("draft_subject") or "항목"
+    return items
 
+
+def _reply_owner(env: dict, thread_id: str, in_reply_to: str, subject: str, html: str) -> str | None:
+    ok, msg, _ = gmail_send(env, OWNER_TO, subject, html, thread_id=thread_id, in_reply_to=in_reply_to)
+    c.log(f"owner reply email -> {'SENT ' + msg if ok else 'FAIL ' + msg}")
+    return msg if ok else None
+
+
+def _mark_processed(env: dict, bid: int, meta: dict, our_ids: set, reply_gid: str,
+                    our_msg: str | None = None, pending=None, clear_pending: bool = False,
+                    status: str | None = None) -> None:
+    nm = dict(meta)
+    ids = set(our_ids)
+    if our_msg:
+        ids.add(our_msg)
+    nm["our_message_ids"] = list(ids)
+    nm["last_processed_reply_id"] = reply_gid
+    if clear_pending:
+        nm.pop("pending_action", None)
+    elif pending is not None:
+        nm["pending_action"] = pending
+    patch = {"meta": nm}
+    if status:
+        patch["status"] = status
+    c.sb_update(env, "crm_briefings", f"id=eq.{bid}", patch)
+
+
+def _card(title: str, badge: str, bg: str, inner: str, edge: str = "#e3e3e3", bgc: str = "#fff") -> str:
+    return (f'<div style="border:1px solid {edge};border-radius:10px;padding:14px 16px;margin:12px 0;background:{bgc};">'
+            f'<div style="display:flex;justify-content:space-between;align-items:center;">'
+            f'<span style="font-weight:700;font-size:15px;">{title}</span>'
+            f'<span style="font-size:11px;color:#fff;background:{bg};padding:2px 8px;border-radius:10px;">{badge}</span></div>'
+            f'{inner}</div>')
+
+
+def render_proposal_html(understanding_ko: str, render: list, n_fb: int) -> str:
+    css = "font-family:-apple-system,Segoe UI,'Apple SD Gothic Neo',sans-serif;color:#1a1a1a;line-height:1.6;"
+    cards = ""
+    for e in render:
+        dec = e.get("decision", "ok")
+        if dec == "skip":
+            cards += _card(e["title"], "오늘 보류", "#8a8a8a",
+                           f'<div style="font-size:14px;margin-top:8px;color:#555;">{e.get("applied_ko","")}</div>')
+            continue
+        if e.get("kind") == "email":
+            armed = "발송 준비됨(초안)" if e.get("gmail_draft_id") else "초안 생성 실패"
+            inner = (f'<div style="font-size:13px;color:#1c4fd8;margin-top:6px;">GO 하면 발송 → <b>{e.get("to","")}</b></div>'
+                     f'<div style="font-size:13px;color:#555;">제목: {e.get("final_subject","")}</div>'
+                     f'<div style="font-size:13px;color:#7a4a10;margin-top:6px;">반영: {e.get("applied_ko","")}</div>'
+                     f'<div style="background:#f6f7f8;border-radius:8px;padding:10px;font-size:12px;'
+                     f'white-space:pre-wrap;margin-top:6px;max-height:180px;overflow:auto;">{e.get("final_body","")}</div>')
+            cards += _card(e["title"], armed, "#0e5a3a", inner)
+        elif e.get("kind") == "webform":
+            inner = (f'<div style="font-size:14px;margin-top:8px;">웹폼 창구 — <b>사장님이 제출</b>합니다(자동발송 아님).</div>'
+                     f'<div style="font-size:13px;color:#1c4fd8;">{e.get("target","")}</div>'
+                     f'<div style="font-size:13px;color:#7a4a10;margin-top:6px;">반영: {e.get("applied_ko","")}</div>')
+            cards += _card(e["title"], "웹폼 · 사장님", "#b8860b", inner, edge="#b8860b", bgc="#fdf9ef")
+        else:
+            cards += _card(e["title"], "확인 필요", "#8a8a8a",
+                           f'<div style="font-size:13px;margin-top:8px;color:#555;">제출 지점 불명확 — {e.get("applied_ko","")}</div>')
+    return (f'<div style="{css}max-width:720px;margin:0 auto;padding:8px;">'
+            f'<div style="border-bottom:3px solid #1c4fd8;padding-bottom:12px;margin-bottom:6px;">'
+            f'<div style="font-size:12px;color:#1c4fd8;letter-spacing:1px;">METATAKE · 총괄비서 · 실행안</div>'
+            f'<h2 style="margin:6px 0 2px;font-size:22px;">이렇게 하겠습니다 — 확인은 <span style="color:#0e5a3a;">GO</span></h2></div>'
+            f'<div style="background:#eef2fd;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;">'
+            f'<b>회신을 이렇게 이해했습니다</b><br>{understanding_ko}</div>'
+            f'{cards}'
+            f'<div style="border-top:1px solid #e3e3e3;margin-top:18px;padding-top:12px;font-size:13px;color:#555;">'
+            f'실행하려면 이 메일에 <b>GO</b>(또는 ✅) 한 줄로 회신하세요. 수정할 곳이 있으면 그냥 코멘트로 회신하시면 다시 반영합니다.<br>'
+            f'<span style="color:#888;">아직 상대에게 발송된 것은 <b>0건</b>입니다. 이번 회신에서 학습 신호 {n_fb}건 기록.</span></div></div>')
+
+
+def render_done_html(results: list, cap: int, used: int, gated: bool = False) -> str:
+    css = "font-family:-apple-system,Segoe UI,'Apple SD Gothic Neo',sans-serif;color:#1a1a1a;line-height:1.6;"
+    tag = {"sent": ("발송 완료", "#0e5a3a"), "deferred": ("대기(캡)", "#b8860b"),
+           "fail": ("실패", "#c0392b"), "owner_webform": ("웹폼 · 사장님", "#b8860b"),
+           "gated": ("초안 대기", "#8a8a8a")}
+    cards = ""
+    for r in results:
+        label, bg = tag.get(r.get("result", "gated"), ("—", "#8a8a8a"))
+        extra = ""
+        if r.get("result") == "sent":
+            extra = f'<div style="font-size:13px;color:#0e5a3a;margin-top:6px;">→ {r.get("to","")}</div>'
+        elif r.get("result") == "deferred":
+            extra = f'<div style="font-size:13px;color:#b8860b;margin-top:6px;">사유: {r.get("reason","")} — 다음 GO 때 발송</div>'
+        elif r.get("result") == "fail":
+            extra = f'<div style="font-size:13px;color:#c0392b;margin-top:6px;">사유: {r.get("reason","")}</div>'
+        elif r.get("result") == "owner_webform":
+            extra = f'<div style="font-size:13px;color:#b8860b;margin-top:6px;">{r.get("target","")} — 사장님이 제출</div>'
+        elif r.get("result") == "gated":
+            extra = f'<div style="font-size:13px;color:#555;margin-top:6px;">→ {r.get("to","")} · 임시보관함에 초안 준비됨</div>'
+        cards += _card(r.get("title", "항목"), label, bg, extra)
+    head = "발송 완료" if not gated else "초안 준비 완료 — 자동발송 스위치 꺼짐"
+    note = (f'오늘 발송 {used}/{cap}(워밍업 캡).' if not gated else
+            '시스템 자동발송이 꺼져 있어(system_send_enabled=false) 초안까지 준비했습니다. '
+            '임시보관함에서 직접 send 하시거나, 자동발송을 켜 주세요.')
+    return (f'<div style="{css}max-width:720px;margin:0 auto;padding:8px;">'
+            f'<div style="border-bottom:3px solid #0e5a3a;padding-bottom:12px;margin-bottom:6px;">'
+            f'<div style="font-size:12px;color:#0e5a3a;letter-spacing:1px;">METATAKE · 총괄비서 · 실행결과</div>'
+            f'<h2 style="margin:6px 0 2px;font-size:22px;">{head}</h2></div>'
+            f'{cards}'
+            f'<div style="border-top:1px solid #e3e3e3;margin-top:18px;padding-top:12px;font-size:13px;color:#555;">{note}</div></div>')
+
+
+def process_reply(env: dict, briefing_id: int | None = None) -> int:
+    """모든 open 브리핑의 신규 오너 회신을 처리(멱등). GO=실행, 그 외=실행안 제안."""
+    if briefing_id:
+        briefings = c.sb_get(env, f"crm_briefings?select=id,meta,kind,status&id=eq.{briefing_id}", service=True) or []
+    else:
+        briefings = c.sb_get(env, "crm_briefings?select=id,meta,kind,status&status=neq.closed&order=id.desc&limit=10", service=True) or []
+    if not briefings:
+        c.log("no briefing found"); return 1
+    acted = False
+    for b in briefings:
+        st = _handle_briefing_reply(env, b)
+        if st in ("proposed", "executed", "gated", "go-empty"):
+            acted = True
+    if not acted:
+        c.log("no new owner reply (already processed)")
+    return 0 if acted else 2
+
+
+def _handle_briefing_reply(env: dict, b: dict) -> str:
+    bid = b["id"]; meta = b.get("meta") or {}
+    thread_id = meta.get("gmail_thread_id")
+    if not thread_id:
+        return "no-thread"
+    thread = gmail_get_thread(env, thread_id)
+    if not thread:
+        return "thread-fail"
+    our_ids = set(filter(None, [meta.get("gmail_message_id")] + (meta.get("our_message_ids") or [])))
+    rep = extract_owner_reply(env, thread, our_ids)
+    if not rep:
+        return "none"
+    reply_text, reply_msgid, reply_gid = rep
+    if reply_gid and reply_gid == meta.get("last_processed_reply_id"):
+        return "none"
+    pending = meta.get("pending_action")
+    if is_go_reply(reply_text):
+        if pending and pending.get("items"):
+            return _execute_go(env, b, pending, reply_gid, reply_msgid, thread_id, our_ids)
+        our_msg = _reply_owner(env, thread_id, reply_msgid, "[Metatake 총괄비서] 실행 대기 항목 없음",
+            '<p style="font-family:sans-serif;">GO를 받았지만 실행 대기 중인 항목이 없습니다. '
+            '먼저 어떤 항목을 어떻게 할지 회신으로 지시해 주세요.</p>')
+        _mark_processed(env, bid, meta, our_ids, reply_gid, our_msg=our_msg)
+        return "go-empty"
+    return _propose(env, b, reply_text, reply_gid, reply_msgid, thread_id, our_ids)
+
+
+def _propose(env: dict, b: dict, reply_text: str, reply_gid: str, reply_msgid: str,
+             thread_id: str, our_ids: set) -> str:
+    """Stage A: 오너 지시 해석 → 초안 반영·생성 → '이렇게 하겠습니다(GO 대기)' 회신."""
+    bid = b["id"]; meta = b.get("meta") or {}
+    items = _load_items(env, bid)
+    c.log(f"[b{bid}] interpreting instruction via Opus …")
     lines = ["오늘 브리핑 항목(초안 포함):"]
     for it in items:
         lines.append(f"[{it['_idx']}] {it['_title']}")
         lines.append(f"    현재 제목: {it.get('draft_subject','')}")
         lines.append(f"    현재 본문: {it.get('draft_body','')}")
     lines.append("\n오너의 회신 원문:\n" + reply_text)
-    c.log("calling Opus to interpret reply + revise …")
     out = c.anthropic_call(env, model=OPUS, system=REPLY_SYSTEM, user="\n".join(lines), max_tokens=8192)
     parsed = c.parse_json_block(out) if out else None
     if not parsed or "items" not in parsed:
-        c.log("reply model returned no parseable items"); return 1
+        c.log(f"[b{bid}] reply model returned no parseable items"); return "error"
     by_idx = {int(i.get("idx", 0)): i for i in parsed["items"]}
 
-    render = []
+    render, pending_items = [], []
     for it in items:
         g = by_idx.get(it["_idx"], {})
         decision = g.get("decision", "ok")
         decision = decision if decision in ("ok", "revise", "skip") else "ok"
         patch = {"owner_decision": decision, "owner_comment": g.get("owner_comment", ""), "decided_at": c.now_utc()}
+        fsub, fbody = it.get("draft_subject", ""), it.get("draft_body", "")
         if decision == "revise":
-            if g.get("revised_subject"):
-                patch["draft_subject"] = g["revised_subject"]
-            if g.get("revised_body"):
-                patch["draft_body"] = g["revised_body"]
+            if g.get("revised_subject"): patch["draft_subject"] = fsub = g["revised_subject"]
+            if g.get("revised_body"): patch["draft_body"] = fbody = g["revised_body"]
         c.sb_update(env, "crm_briefing_items", f"id=eq.{it['id']}", patch)
-        render.append({**it, **patch, "applied_ko": g.get("applied_ko", "변경 없음"),
-                       "final_subject": patch.get("draft_subject", it.get("draft_subject", "")),
-                       "final_body": patch.get("draft_body", it.get("draft_body", ""))})
+        kind = _target_kind(it)
+        e = {"item_id": it["id"], "title": it["_title"], "decision": decision, "kind": kind,
+             "target": it.get("submit_target"), "applied_ko": g.get("applied_ko", "변경 없음"),
+             "final_subject": fsub, "final_body": fbody,
+             "crm_draft_id": (it.get("score_breakdown") or {}).get("crm_draft_id")}
+        if decision in ("ok", "revise") and kind == "email":
+            addr = (it.get("submit_target") or "").replace("mailto:", "").strip()
+            ok, gdid = gmail_create_draft(env, addr, fsub, fbody)
+            e["to"] = addr; e["gmail_draft_id"] = gdid if ok else None
+            if not ok: c.log(f"[b{bid}] draft create fail item {it['id']}: {gdid}")
+            pending_items.append(e)
+        elif decision in ("ok", "revise") and kind == "webform":
+            pending_items.append(e)
+        render.append(e)
 
     fb = parsed.get("feedback", []) or []
     for f in fb:
         c.sb_insert(env, "crm_feedback", {"scope": f.get("scope", "global"),
             "scope_key": f.get("scope_key"), "signal": (f.get("signal", "") or "")[:400], "weight": 1})
-    c.sb_update(env, "crm_briefings", f"id=eq.{bid}", {"status": "partly_acted"})
 
     understanding = parsed.get("reply_understanding_ko", "회신을 반영했습니다.")
-    html = render_final_html(understanding, render, len(fb))
-    Path(c.REPO / "worker" / "_last_final.html").write_text(html)
-    ok, msg, _ = gmail_send(env, OWNER_TO, "[Metatake 총괄비서] 최종본 — 회신 반영 완료",
-                            html, thread_id=thread_id, in_reply_to=reply_msgid)
-    c.log(f"final email -> {'SENT ' + msg if ok else 'FAIL ' + msg} | 학습 {len(fb)}건 기록")
-    if ok:
-        nm = dict(meta)
-        nm["our_message_ids"] = list(our_ids | {msg})
-        nm["last_processed_reply_id"] = reply_gid
-        c.sb_update(env, "crm_briefings", f"id=eq.{bid}", {"meta": nm})
-    return 0 if ok else 1
+    html = render_proposal_html(understanding, render, len(fb))
+    Path(c.REPO / "worker" / "_last_proposal.html").write_text(html)
+    email_n = sum(1 for e in pending_items if e["kind"] == "email" and e.get("gmail_draft_id"))
+    subj = f"[Metatake 총괄비서] 이렇게 하겠습니다 — GO 대기 ({email_n}건 발송 준비)"
+    our_msg = _reply_owner(env, thread_id, reply_msgid, subj, html)
+    pending = {"proposed_at": c.now_utc(), "items": pending_items}
+    _mark_processed(env, bid, meta, our_ids, reply_gid, our_msg=our_msg, pending=pending, status="partly_acted")
+    c.log(f"[b{bid}] proposed: {email_n} email drafts armed, awaiting GO")
+    return "proposed"
+
+
+def _execute_go(env: dict, b: dict, pending: dict, reply_gid: str, reply_msgid: str,
+                thread_id: str, our_ids: set) -> str:
+    """Stage B: 오너 GO → 이메일 초안 발송(웜업 캡·마스터 스위치 준수), 웹폼은 오너."""
+    bid = b["id"]; meta = b.get("meta") or {}
+    items = pending.get("items", [])
+    email_items = [e for e in items if e.get("kind") == "email" and e.get("gmail_draft_id")]
+    webform_items = [e for e in items if e.get("kind") == "webform"]
+    # Email items whose draft creation failed in _propose (gmail_draft_id=None):
+    # surface them as explicit failures instead of silently dropping them.
+    broken_items = [e for e in items if e.get("kind") == "email" and not e.get("gmail_draft_id")]
+
+    # 마스터 스위치: 꺼져 있으면 실제 발송하지 않고 초안까지만(안전 기본값).
+    if not _settings(env).get("system_send_enabled"):
+        results = [{**e, "result": "gated"} for e in email_items] + \
+                  [{**e, "result": "fail", "reason": "초안 생성 실패"} for e in broken_items] + \
+                  [{**e, "result": "owner_webform"} for e in webform_items]
+        html = render_done_html(results, _daily_cap(env), _sends_today(env), gated=True)
+        Path(c.REPO / "worker" / "_last_done.html").write_text(html)
+        our_msg = _reply_owner(env, thread_id, reply_msgid,
+            "[Metatake 총괄비서] GO 수신 — 자동발송 꺼짐(초안 준비됨)", html)
+        _mark_processed(env, bid, meta, our_ids, reply_gid, our_msg=our_msg, pending=pending, status="partly_acted")
+        c.log(f"[b{bid}] GO gated (system_send_enabled=false): {len(email_items)} drafts kept")
+        return "gated"
+
+    cap = _daily_cap(env)
+    remaining = max(0, cap - _sends_today(env))
+    results, sent_count = [], 0
+    for e in email_items:
+        if sent_count >= remaining:
+            results.append({**e, "result": "deferred", "reason": f"일일 워밍업 캡 {cap}"}); continue
+        ok, mid = gmail_send_draft(env, e["gmail_draft_id"])
+        if ok:
+            sent_count += 1
+            results.append({**e, "result": "sent", "message_id": mid})
+            if e.get("crm_draft_id"):
+                c.sb_update(env, "crm_drafts", f"id=eq.{e['crm_draft_id']}", {"status": "sent"})
+        else:
+            results.append({**e, "result": "fail", "reason": mid})
+    if sent_count:
+        _bump_sends(env, sent_count)
+    results += [{**e, "result": "fail", "reason": "초안 생성 실패"} for e in broken_items]
+    results += [{**e, "result": "owner_webform"} for e in webform_items]
+
+    n_sent = sum(1 for r in results if r["result"] == "sent")
+    n_def = sum(1 for r in results if r["result"] == "deferred")
+    html = render_done_html(results, cap, _sends_today(env))
+    Path(c.REPO / "worker" / "_last_done.html").write_text(html)
+    subj = f"[Metatake 총괄비서] 완료 — {n_sent}건 발송" + (f" · {n_def}건 대기(캡)" if n_def else "")
+    our_msg = _reply_owner(env, thread_id, reply_msgid, subj, html)
+    leftover = [r for r in results if r["result"] == "deferred"]
+    new_pending = ({"proposed_at": pending.get("proposed_at"),
+                    "items": [{k: v for k, v in r.items() if k not in ("result", "reason", "message_id")}
+                              for r in leftover]} if leftover else None)
+    _mark_processed(env, bid, meta, our_ids, reply_gid, our_msg=our_msg,
+                    pending=new_pending, clear_pending=(new_pending is None),
+                    status=("partly_acted" if leftover else "closed"))
+    c.log(f"[b{bid}] GO executed: {n_sent} sent, {n_def} deferred, {len(webform_items)} webform→owner")
+    return "executed"
 
 
 REDRAFT_SYSTEM = f"""너는 Metatake 총괄비서다. 오너가 특정 항목에 대해 '과거 자료를 찾아 반영하라'고 지시했다. 아래에 우리 문서에서 검색된 과거 자료가 주어진다. 그 실제 값(데이터셋 이름·URL·수치·라이선스)만 사용하고 **절대 지어내지 마라.** 과거 자료에 없으면 그 부분은 정직하게 비워라.
@@ -658,13 +956,107 @@ def redraft_item(env: dict, substr: str) -> int:
     Path(c.REPO / "worker" / "_last_redraft.html").write_text(html)
     ok, msg, _ = gmail_send(env, OWNER_TO, f"[Metatake 총괄비서] 수정 재제출 — {ch['name'].split('—')[0].strip()}",
                             html, thread_id=meta.get("gmail_thread_id"))
+    if ok:
+        # 이중 방어 유지: 재초안 메일의 Gmail id도 our_message_ids에 기록해, 다음
+        # --reply 폴링이 우리 메일을 오너 회신으로 오인하지 않게 한다(콘텐츠 마커
+        # 단일 방어로 무너지지 않도록 — _mark_processed와 같은 계약).
+        nm = dict(meta)
+        ids = set(nm.get("our_message_ids") or [])
+        ids.add(msg)
+        nm["our_message_ids"] = list(ids)
+        c.sb_update(env, "crm_briefings", f"id=eq.{bid}", {"meta": nm})
     c.log(f"redraft email -> {'SENT ' + msg if ok else 'FAIL ' + msg}")
+    return 0 if ok else 1
+
+
+def morning_briefing(env: dict, n: int = 3, send: bool = True) -> int:
+    """일일 아침 브리핑 — 준비된 풀에서 상위 N건 선별해 오너에게. 워밍업 캡 준수."""
+    st = (c.sb_get(env, "crm_settings?select=data&id=eq.1", service=True) or [{}])[0].get("data", {})
+    cap = int((st.get("warmup") or {}).get("cold_daily_cap") or n)
+    n = min(n, cap)
+    # 우선 액션(회신/폼) — under_review 채널
+    actions = c.sb_get(env, "crm_channels?select=id,name,owner_notes,channel_url&status=eq.under_review", service=True) or []
+    # 미브리핑 prepared 초안 상위 N (pool_meta.briefed 없는 것)
+    pool = c.sb_get(env, "crm_drafts?select=id,contact_id,subject,body,pool_score,submit_package,pool_meta&status=eq.prepared&order=pool_score.desc&limit=60", service=True) or []
+    fresh = [d for d in pool if not (d.get("pool_meta") or {}).get("briefed")][:n]
+    if not fresh and not actions:
+        c.log("morning: 브리핑할 신규 항목 없음"); return 0
+    css = "font-family:-apple-system,'Apple SD Gothic Neo',sans-serif;color:#1a1a1a;line-height:1.6;"
+    cards = []
+    for a in actions:
+        cards.append(f'<div style="border:1px solid #b8860b;border-radius:10px;padding:14px;margin:12px 0;background:#fdf9ef;">'
+                     f'<div style="font-size:11px;color:#b8860b;font-weight:700;">⚡ 우선 액션 (회신 도착)</div>'
+                     f'<div style="font-weight:700;">{a["name"]}</div><div style="font-size:14px;">{a.get("owner_notes","")}</div></div>')
+    for i, d in enumerate(fresh, 1):
+        pm = d.get("pool_meta") or {}
+        sp = d.get("submit_package") or {}
+        ch = "웹폼: " + sp["form_url"] if sp.get("form_url") else "이메일: " + str(sp.get("to", ""))
+        cards.append(f"""<div style="border:1px solid #e3e3e3;border-radius:10px;padding:14px;margin:12px 0;background:#fff;">
+          <div style="display:flex;justify-content:space-between;"><span style="font-weight:700;">#{i}. {d["subject"]}</span>
+          <span style="font-size:11px;color:#fff;background:#0e5a3a;padding:2px 8px;border-radius:10px;">점수 {int(d["pool_score"] or 0)}</span></div>
+          <div style="font-size:13px;color:#555;margin:4px 0;">{ch}</div>
+          <div style="font-size:13px;color:#0e5a3a;font-weight:700;margin-top:8px;">왜 중요</div><div style="font-size:14px;">{pm.get("rationale_ko","")}</div>
+          <div style="font-size:13px;color:#0e5a3a;font-weight:700;margin-top:6px;">초안 구조</div><div style="font-size:14px;">{pm.get("structure_ko","")}</div>
+          <details style="margin-top:8px;"><summary style="cursor:pointer;font-size:13px;font-weight:700;">📄 초안 전문</summary>
+          <div style="background:#f6f7f8;border-radius:8px;padding:10px;font-size:13px;white-space:pre-wrap;margin-top:6px;">{d["body"]}</div></details></div>""")
+    html = (f'<div style="{css}max-width:720px;margin:0 auto;">'
+            f'<div style="border-bottom:3px solid #0e5a3a;padding-bottom:10px;"><div style="font-size:12px;color:#0e5a3a;letter-spacing:1px;">METATAKE · 총괄비서 · 아침 브리핑</div>'
+            f'<h2 style="margin:6px 0 2px;">오늘의 제안 {len(fresh)}건{" + 우선 액션 " + str(len(actions)) if actions else ""}</h2>'
+            f'<div style="font-size:13px;color:#666;">사장님 — 워밍업 기간이라 오늘은 {n}건입니다. 판단만 해주십시오.</div></div>'
+            f'{"".join(cards)}'
+            f'<div style="border-top:1px solid #e3e3e3;margin-top:14px;padding-top:10px;font-size:12px;color:#888;">'
+            f'이메일 항목은 임시보관함/초안으로 준비돼 있고, 웹폼·창구는 위 링크로 제출하시면 됩니다. 발송은 사장님 OK 후에만. 풀 잔여 = 준비된 초안 다수.</div></div>')
+    if not send:
+        Path(c.REPO / "worker" / "_last_morning.html").write_text(html)
+        c.log(f"morning dry: {len(fresh)} items + {len(actions)} actions → _last_morning.html"); return 0
+
+    # 브리핑 레코드 생성 → 아침 브리핑 회신도 --reply가 추적 가능.
+    # kind는 스키마 제약상 'proposals'; 아침 변형 표식은 meta.variant.
+    brief = sb_insert_returning(env, "crm_briefings",
+        {"kind": "proposals", "status": "open",
+         "meta": {"variant": "morning", "n_items": len(fresh), "n_actions": len(actions), "generated_by": "crm-agent"}})
+    if not brief:
+        c.log("morning: briefing insert failed; abort."); return 1
+    bid = brief["id"]
+    for a in actions:  # 우선 액션(초대창구·회신 도착) → channel 항목
+        sb_insert_returning(env, "crm_briefing_items", {
+            "briefing_id": bid, "item_type": "channel", "channel_id": a.get("id"),
+            "submit_target": a.get("channel_url"), "draft_subject": f"[우선액션] {a['name']}",
+            "draft_body": a.get("owner_notes") or a["name"],
+            "rationale_ko": a.get("owner_notes") or "상대가 연 창구 · 회신 도착",
+            "why_today_ko": "상대가 이미 문을 열어 회신이 온 우선 처리 건",
+            "score_breakdown": {"kind": "priority_action"}})
+    for d in fresh:  # 제안 초안 → contact 항목(원본 crm_drafts.id는 score_breakdown에 보관)
+        pm = d.get("pool_meta") or {}; sp = d.get("submit_package") or {}
+        sb_insert_returning(env, "crm_briefing_items", {
+            "briefing_id": bid, "item_type": "contact", "contact_id": d.get("contact_id"),
+            "submit_target": sp.get("to") or sp.get("form_url"),
+            "draft_subject": d.get("subject", ""), "draft_body": d.get("body") or "(초안 없음)",
+            "score": d.get("pool_score"),
+            "structure_ko": pm.get("structure_ko", ""),
+            "rationale_ko": pm.get("rationale_ko") or "준비된 아웃리치 초안",
+            "why_today_ko": pm.get("why_today_ko") or "오늘 풀 상위 선정",
+            "score_breakdown": {"crm_draft_id": d["id"], "form_url": sp.get("form_url"),
+                                "is_webform": bool(sp.get("form_url"))}})
+
+    ok, msg, thread_id = gmail_send(env, OWNER_TO, f"[Metatake 총괄비서] 오늘의 제안 {len(fresh)}건", html)
+    c.log(f"morning briefing -> {'SENT ' + msg + ' thread=' + thread_id if ok else 'FAIL ' + msg}")
+    if ok:
+        meta = dict(brief.get("meta") or {})
+        meta.update({"gmail_message_id": msg, "gmail_thread_id": thread_id, "our_message_ids": [msg]})
+        c.sb_update(env, "crm_briefings", f"id=eq.{bid}", {"meta": meta})
+        for d in fresh:  # 브리핑한 초안 표시
+            pm = dict(d.get("pool_meta") or {}); pm["briefed"] = c.now_utc(); pm["briefing_id"] = bid
+            c.sb_update(env, "crm_drafts", f"id=eq.{d['id']}", {"pool_meta": pm})
+    else:
+        c.sb_update(env, "crm_briefings", f"id=eq.{bid}", {"status": "closed"})
     return 0 if ok else 1
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", action="store_true")
+    ap.add_argument("--morning", type=int, nargs="?", const=3, default=None, help="일일 아침 브리핑(기본 3건 선별·발송)")
     ap.add_argument("--redraft", type=str, default=None, help="특정 항목을 과거 자료 반영해 재초안·재발송(이름 부분일치)")
     ap.add_argument("--n", type=int, default=10)
     ap.add_argument("--contacts", type=int, default=2)
@@ -677,6 +1069,9 @@ def main() -> int:
 
     if args.reply:
         return process_reply(env, args.briefing)
+
+    if args.morning is not None:
+        return morning_briefing(env, args.morning, send=not args.no_send)
 
     if args.redraft:
         return redraft_item(env, args.redraft)
