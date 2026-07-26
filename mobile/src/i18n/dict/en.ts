@@ -297,6 +297,7 @@ export const en = {
   "nav.resumeKicker": "Continue your drive",
   "nav.resume": "Resume →",
   "nav.takescore": "TakeScore",
+  "nav.now": "Now",
   "nav.open": "Open →",
   // The Navigator — map v3 (odyssey hero lane)
   "nav.durHM": "{h}h {m}m",

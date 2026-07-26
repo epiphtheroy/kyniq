@@ -283,6 +283,7 @@ export const ko: Record<keyof typeof en, string> = {
   "nav.resumeKicker": "주행 이어가기",
   "nav.resume": "이어가기 →",
   "nav.takescore": "TakeScore",
+  "nav.now": "지금",
   "nav.open": "열기 →",
   // The Navigator — 지도 v3 (오디세이 히어로 레인)
   "nav.durHM": "{h}시간 {m}분",
