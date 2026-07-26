@@ -68,13 +68,14 @@ function card(d: PickDest, activeKey?: string) {
 }
 
 export default function NavigatorPicker({
-  directors, canon, decades = [], sub = null, activeKey,
+  directors, canon, decades = [], sub = null, activeKey, resume = null,
 }: {
   directors: PickDest[];
   canon: PickDest[];
   decades?: PickDest[];
   sub?: PickDest | null;
   activeKey?: string;
+  resume?: { label: string; href: string; kind: string } | null;
 }) {
   const empty = directors.length === 0 && canon.length === 0;
   return (
@@ -85,6 +86,16 @@ export default function NavigatorPicker({
         <p className="np-p">Pick a destination and your unwatched films become the route — the Navigator guides your next film, turn by turn.</p>
       </div>
       <div className="np-body">
+        {resume ? (
+          <Link className="np-resume" href={resume.href}>
+            <span className="np-resume-ic">▶</span>
+            <span className="np-resume-l">
+              <span className="np-resume-k">Continue your drive</span>
+              <span className="np-resume-n">{resume.label}</span>
+            </span>
+            <span className="np-resume-go">Resume →</span>
+          </Link>
+        ) : null}
         {empty ? (
           <div className="np-emptycard">
             No journeys in progress yet. <Link href="/room/ledger" className="np-lnk">Log</Link> a few films or{" "}

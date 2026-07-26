@@ -24,6 +24,8 @@ export interface NavFilm {
   seen: boolean;                   // ledger-derived (invariant §10-1)
   availability: Availability;
   leavingSoon?: boolean;
+  director?: string | null;        // for the map poster's info popup
+  takescore?: number | null;       // TakeScore, for the popup (display only)
   /** intrinsic destination order — lineage rank or chronology (lower = earlier) */
   order?: number | null;
   /** 0..1 taste distance to the viewer's seen centroid (tie-break only) */

@@ -23,7 +23,7 @@
 .navd .turn .then{display:flex;gap:8px;align-items:center;padding:8px 14px;background:#00000022;font-size:11.5px}
 .navd .turn .then .a{opacity:.8}
 
-.navd .map{position:relative;flex:1;min-height:0;overflow:hidden;background:linear-gradient(#EFE9D8,#E9E2D0 60%);cursor:grab;touch-action:none}
+.navd .map{position:relative;flex:1;min-height:0;overflow:hidden;background:linear-gradient(#E9EFD7,#E7E4C9 65%);cursor:grab;touch-action:none}
 .navd .map:active{cursor:grabbing}
 .navd .map .haze{position:absolute;left:0;right:0;top:0;height:26%;background:linear-gradient(#EFEADB,rgba(239,234,219,0));z-index:6;pointer-events:none}
 /* the pannable/zoomable layer (holds road + signposts + me) */
@@ -35,10 +35,10 @@
   font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(30,26,18,.22);display:flex;align-items:center;justify-content:center;cursor:pointer}
 .navd .mapctl button:active{background:#F1EDE4}
 .navd .sp img,.navd .street{user-select:none}
-.navd .street{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:10px;font-weight:800;color:#fff;background:#5E7C86;padding:2px 8px;border-radius:5px;box-shadow:0 2px 5px rgba(30,26,18,.25)}
+.navd .street{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:11.5px;font-weight:800;letter-spacing:.01em;color:#fff;background:#5E7C86;padding:3px 11px;border-radius:6px;box-shadow:0 2px 6px rgba(30,26,18,.28)}
 .navd .street.cur{background:#4A4640}
 
-.navd .sp{position:absolute;transform:translate(-50%,-100%);z-index:10}
+.navd .sp{position:absolute;transform:translate(-50%,-100%);z-index:10;border:0;padding:0;background:transparent;cursor:pointer;font:inherit}
 .navd .sp img{display:block;border-radius:7px;border:2px solid #fff;box-shadow:0 10px 16px rgba(30,26,18,.34);background:#ccc}
 .navd .sp .pole{position:absolute;left:50%;top:100%;width:2.5px;height:15px;background:linear-gradient(#9c927c,#b7ad96);transform:translateX(-50%);border-radius:2px}
 .navd .sp .shadow{position:absolute;left:50%;top:calc(100% + 14px);width:120%;height:9px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(40,34,22,.32),transparent 72%);z-index:-1}
@@ -48,10 +48,21 @@
 .navd .sp.dest .flag{position:absolute;left:50%;top:-15px;transform:translateX(-50%);font-size:16px}
 .navd .sp.dest .cap{background:var(--gold);color:#fff}
 
-.navd .me{position:absolute;left:50%;bottom:11%;transform:translateX(-50%);z-index:9;text-align:center}
+.navd .me{position:absolute;transform:translate(-50%,-50%);z-index:9;text-align:center}
 .navd .me .chev{width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-bottom:26px solid var(--red);filter:drop-shadow(0 3px 5px rgba(227,18,11,.55));margin:0 auto}
 .navd .me .dot{width:13px;height:13px;border-radius:50%;background:var(--red);border:2.5px solid #fff;margin:-3px auto 0}
 .navd .me .back{margin-top:6px;font-size:9.5px;font-weight:800;color:#a99f8c;background:rgba(255,255,255,.7);padding:1px 7px;border-radius:99px}
+
+/* map poster → place card: director · year · TakeScore */
+.navd .filmcard{position:absolute;left:12px;bottom:12px;width:min(440px,calc(100% - 74px));z-index:14;display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px 11px;box-shadow:0 12px 32px rgba(30,26,18,.3)}
+.navd .fc-po{flex:0 0 auto;width:40px;height:60px;border-radius:6px;background:#d9d2c2 center/cover;border:1px solid var(--line)}
+.navd .fc-tx{flex:1;min-width:0}
+.navd .fc-t{font-family:"PT Serif",Georgia,serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navd .fc-m{font-size:11.5px;color:var(--sub);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navd .fc-s{font-size:11.5px;color:var(--ink);margin-top:3px}
+.navd .fc-s b{color:var(--gold);font-size:13px}
+.navd .fc-open{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--green);text-decoration:none;background:#F1FAF4;border:1px solid #CDE7D8;border-radius:9px;padding:7px 11px}
+.navd .fc-x{flex:0 0 auto;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#F5F1E8;color:var(--sub);font-size:16px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
 /* peek sheet — compact by default so the map owns the screen */
 .navd .sheet{position:relative;z-index:20;background:#fff;border-radius:20px 20px 0 0;padding:6px 18px 12px;box-shadow:0 -10px 30px rgba(30,26,18,.16);margin-top:-16px;flex:0 0 auto}
@@ -109,6 +120,13 @@
 .navd.np .np-n{display:block;font-size:15px;font-weight:800;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .navd.np .np-m{display:block;font-size:11.5px;color:var(--sub);margin-top:2px}
 .navd.np .np-go{flex:0 0 auto;font-size:12.5px;font-weight:800;color:var(--green)}
+/* Resume card — the member's active drive, atop the rail */
+.navd.np .np-resume{display:flex;align-items:center;gap:12px;background:var(--green);color:#fff;border-radius:14px;padding:13px 15px;margin-bottom:14px;text-decoration:none;box-shadow:0 8px 22px rgba(20,60,38,.28)}
+.navd.np .np-resume-ic{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#ffffff26;border:1px solid #ffffff55;display:flex;align-items:center;justify-content:center;font-size:13px}
+.navd.np .np-resume-l{flex:1;min-width:0}
+.navd.np .np-resume-k{display:block;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;opacity:.85}
+.navd.np .np-resume-n{display:block;font-size:15.5px;font-weight:800;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navd.np .np-resume-go{flex:0 0 auto;font-size:12.5px;font-weight:800}
 .navd.np .np-emptycard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;line-height:1.7;color:#4A4640}
 .navd.np .np-lnk{color:var(--green);font-weight:700;text-decoration:none}
 .navd .ar-btn{border:0;cursor:pointer;font-family:inherit}
@@ -127,7 +145,7 @@
 .nav-rail{min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 .nav-rail .navd.np{max-width:none;width:100%;margin:0;background:transparent}
 .nav-stage{position:relative;min-height:0;display:flex;align-items:stretch;justify-content:center;overflow:hidden}
-.nav-stage .navd{height:100%;min-height:0;max-width:560px;width:100%;margin:0}
+.nav-stage .navd{height:100%;min-height:0;max-width:900px;width:100%;margin:0}
 .nav-back{position:absolute;left:2px;top:2px;z-index:30;display:none;align-items:center;gap:5px;
   font-size:12.5px;font-weight:800;color:var(--green);text-decoration:none;
   background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:99px;padding:7px 13px}

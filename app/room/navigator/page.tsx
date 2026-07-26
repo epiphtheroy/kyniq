@@ -57,12 +57,15 @@ export default async function NavigatorPage({
     .map((a) => ({ kind: "dir" as const, key: a.slug, label: a.name ?? a.slug, seen: NUM(a.seen), total: NUM(a.total), pct: Math.round(NUM(a.pct)) }))
     .filter((d) => d.pct < 100 && d.seen > 0 && d.total >= 8)
     .sort((a, b) => b.pct - a.pct)
-    .slice(0, 12));
+    .slice(0, 16));
+  // The full My-Room coverage list (canon/critics/festival/award/national), every drivable
+  // lineage not yet complete — in-progress first, then unstarted. The owner asked for all of
+  // them listed, not just the in-progress few. (Rail scrolls; 300-row RPC, capped at 40 cards.)
   const canon: PickDest[] = (((covRes.data as { slug: string; label: string; facet: string; seen: number | string | null; total: number | string | null; pct: number | string | null }[] | null) ?? [])
     .map((c) => ({ kind: "lineage" as const, key: c.slug, label: c.label, facet: c.facet, seen: NUM(c.seen), total: NUM(c.total), pct: Math.round(NUM(c.pct)) }))
-    .filter((d) => d.pct < 100 && d.seen > 0 && d.total >= 8 && d.total <= 60)
-    .sort((a, b) => b.pct - a.pct)
-    .slice(0, 12));
+    .filter((d) => d.pct < 100 && d.total >= 8)
+    .sort((a, b) => b.pct - a.pct || b.total - a.total)
+    .slice(0, 40));
 
   // Decade essentials (fixed 1950s–2010s cards). Coverage of the top-20 list is only
   // known once the drive loads, so cards carry a cheap seen∩decade hint (no ring).
@@ -85,26 +88,54 @@ export default async function NavigatorPage({
   let drive: DriveLoad | null = null;
   let activeKey: string | undefined;
   let requested = false;
+  let destKind: string | undefined, destKey: string | undefined, destLabel: string | undefined;
 
   if (dir) {
     requested = true;
     activeKey = `dir:${dir}`;
     const dirRow = await supabase.from("directors").select("name").eq("slug", dir).maybeSingle();
-    drive = await loadDirectorDestination(admin, { slug: dir, name: (dirRow.data?.name as string) ?? undefined, country: "US", seenSlugs, pacePerWeek });
+    const dName = (dirRow.data?.name as string) ?? dir;
+    drive = await loadDirectorDestination(admin, { slug: dir, name: dName, country: "US", seenSlugs, pacePerWeek });
+    [destKind, destKey, destLabel] = ["dir", dir, dName];
   } else if (lineage) {
     requested = true;
     activeKey = `lineage:${lineage}`;
-    drive = await loadCanonDestination(admin, { lineageSlug: lineage, label: label ?? lineage, country: "US", seenSlugs, pacePerWeek });
+    const lbl = label ?? lineage;
+    drive = await loadCanonDestination(admin, { lineageSlug: lineage, label: lbl, country: "US", seenSlugs, pacePerWeek });
+    [destKind, destKey, destLabel] = ["lineage", lineage, lbl];
   } else if (Number.isFinite(decade) && decade >= 1900 && decade <= 2100) {
     requested = true;
     const d0 = Math.floor(decade / 10) * 10;
     activeKey = `decade:${d0}`;
     drive = await loadDecadeDestination(admin, { decade, label, country: "US", seenSlugs, pacePerWeek });
+    [destKind, destKey, destLabel] = ["decade", String(d0), label ?? `${d0}s essentials`];
   } else if (sp.sub) {
     requested = true;
     activeKey = "sub:mine";
     drive = await loadSubscriptionDestination(admin, { label, country: "US", seenSlugs, pacePerWeek });
+    [destKind, destKey, destLabel] = ["sub", "mine", label ?? "Best on your subscriptions"];
   }
+
+  // Persist the active drive so /room/navigator can offer "Resume". Position/progress stay
+  // ledger-derived (§10-1) — we store only WHICH destination + pref. Arriving (no next film)
+  // retires it. Never let a resume write break the drive page.
+  if (drive && destKind && destKey) {
+    const arrived = !drive.routes[pref]?.next;
+    try {
+      if (arrived) await supabase.rpc("me_nav_arrive", { p_dest_kind: destKind, p_dest_key: destKey });
+      else await supabase.rpc("me_nav_start", { p_dest_kind: destKind, p_dest_key: destKey, p_dest_label: destLabel ?? destKey, p_route_pref: pref });
+    } catch { /* resume is best-effort */ }
+  }
+
+  // The member's active drive → the rail's "Resume" card (unless it's the one already open).
+  let resume: { label: string; href: string; kind: string } | null = null;
+  try {
+    const { data: activeData } = await supabase.rpc("me_nav_active");
+    const row = (((activeData as ActiveDrive[] | null) ?? [])[0]) ?? null;
+    if (row && `${row.dest_kind}:${row.dest_key}` !== activeKey) {
+      resume = { kind: row.dest_kind, label: row.dest_label ?? row.dest_key, href: resumeHref(row) };
+    }
+  } catch { /* no resume is fine */ }
 
   return (
     <NavigatorShell
@@ -113,6 +144,20 @@ export default async function NavigatorPage({
       pref={pref}
       activeKey={drive ? activeKey : undefined}
       notFound={requested && !drive}
+      resume={resume}
     />
   );
+}
+
+interface ActiveDrive { dest_kind: string; dest_key: string; dest_label: string | null; route_pref: string | null; }
+
+/** Build the drive URL for a stored active drive (the "Resume" link). */
+function resumeHref(r: ActiveDrive): string {
+  const p = new URLSearchParams();
+  if (r.dest_kind === "dir") p.set("dir", r.dest_key);
+  else if (r.dest_kind === "lineage") { p.set("lineage", r.dest_key); if (r.dest_label) p.set("label", r.dest_label); }
+  else if (r.dest_kind === "decade") { p.set("decade", r.dest_key); if (r.dest_label) p.set("label", r.dest_label); }
+  else { p.set("sub", "1"); if (r.dest_label) p.set("label", r.dest_label); }
+  if (r.route_pref && r.route_pref !== "fewest") p.set("pref", r.route_pref);
+  return `/room/navigator?${p.toString()}`;
 }

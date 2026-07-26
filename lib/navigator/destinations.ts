@@ -20,6 +20,8 @@ export interface SourceFilm {
   seen: boolean;
   availability?: Availability;   // default "none" when unknown
   leavingSoon?: boolean;
+  director?: string | null;      // for the map poster popup
+  takescore?: number | null;     // TakeScore, for the popup
   rank?: number | null;          // lineage rank (canon)
   tasteDist?: number | null;
 }
@@ -34,6 +36,8 @@ function toNavFilm(f: SourceFilm, order: number): NavFilm {
     seen: f.seen,
     availability: f.availability ?? "none",
     leavingSoon: f.leavingSoon,
+    director: f.director ?? null,
+    takescore: f.takescore ?? null,
     order,
     tasteDist: f.tasteDist ?? null,
   };

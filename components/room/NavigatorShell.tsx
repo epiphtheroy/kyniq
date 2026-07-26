@@ -24,7 +24,7 @@ export interface RailProps {
 }
 
 export default function NavigatorShell({
-  rail, drive, pref, activeKey, notFound = false,
+  rail, drive, pref, activeKey, notFound = false, resume = null,
 }: {
   rail: RailProps;
   drive: DriveLoad | null;
@@ -32,6 +32,8 @@ export default function NavigatorShell({
   activeKey?: string;
   /** a destination was requested but no route could be built */
   notFound?: boolean;
+  /** the member's active drive → a "Resume" card atop the rail */
+  resume?: { label: string; href: string; kind: string } | null;
 }) {
   return (
     <div className="nav-shell" data-mode={drive ? "drive" : "pick"}>
@@ -42,6 +44,7 @@ export default function NavigatorShell({
           decades={rail.decades}
           sub={rail.sub}
           activeKey={activeKey}
+          resume={resume}
         />
       </aside>
       <div className="nav-stage">
