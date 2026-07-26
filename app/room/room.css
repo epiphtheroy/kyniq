@@ -324,9 +324,11 @@
 /* On-demand inspector (slide-over · bottom sheet under 900px) */
 .room-root .insp-overlay{position:fixed;inset:0;background:rgba(20,20,20,.25);z-index:80;opacity:0;pointer-events:none;transition:opacity .18s ease}
 .room-root .insp-overlay.on{opacity:1;pointer-events:auto}
-.room-root .insp-panel{position:fixed;top:0;right:0;bottom:0;width:min(432px,94vw);background:var(--bg2);border-left:1px solid var(--line2);z-index:81;transform:translateX(103%);transition:transform .22s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-18px 0 44px rgba(20,20,20,.12)}
+/* start BELOW the sticky site nav (header.nav = 60px + 1px border, z-index 90) so the
+   card's title/poster aren't hidden behind it; the panel scrolls on its own (col-scroll). */
+.room-root .insp-panel{position:fixed;top:61px;right:0;bottom:0;width:min(432px,94vw);background:var(--bg2);border-left:1px solid var(--line2);z-index:81;transform:translateX(103%);transition:transform .22s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-18px 0 44px rgba(20,20,20,.12)}
 .room-root .insp-panel.on{transform:none}
-.room-root .insp-panel .col-scroll{flex:1}
+.room-root .insp-panel .col-scroll{flex:1;min-height:0;height:auto;overflow-y:auto;overscroll-behavior:contain}
 @media (max-width:900px){
   .room-root .insp-panel{top:auto;left:0;right:0;bottom:0;width:100%;height:min(78vh,640px);border-left:none;border-top:1px solid var(--line2);border-radius:14px 14px 0 0;transform:translateY(103%)}
   .room-root .insp-panel.on{transform:none}
