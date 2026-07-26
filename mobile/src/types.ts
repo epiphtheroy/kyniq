@@ -288,6 +288,8 @@ export type NavTurn = {
   runtime: number | null;
   availability: NavAvailability;
   leavingSoon: boolean;
+  director: string | null; // for the map poster's info card
+  takescore: number | null; // TakeScore, for the info card
   reason: string; // server-computed facts only (§10-2) — render as-is
 };
 
@@ -299,6 +301,8 @@ export type NavStop = {
   poster_path: string | null;
   runtime: number | null;
   availability: NavAvailability;
+  director: string | null; // for the map poster's info card
+  takescore: number | null; // TakeScore, for the info card
   toll: boolean; // under no_tolls: not playable on my services
 };
 
@@ -365,3 +369,18 @@ export type NavDestinations = { directors: NavPickDest[]; canon: NavPickDest[] }
 
 /** A drive destination descriptor passed to api.navigator(). */
 export type NavDest = { dir?: string; lineage?: string; label?: string };
+
+/**
+ * me_nav_active() — the member's single active drive (or none), so the picker can
+ * offer a "Resume" card. Position/progress stay ledger-derived (§10-1); only WHICH
+ * destination + pref is persisted (me_nav_start on drive open, me_nav_arrive on
+ * arrival). Mirror of app/room/navigator/page.tsx's ActiveDrive row.
+ */
+export type NavActive = {
+  dest_kind: string; // "dir" | "lineage" | "decade" | "sub"
+  dest_key: string;
+  dest_label: string | null;
+  route_pref: string | null;
+  started_at: string | null;
+  skipped: boolean | null;
+};

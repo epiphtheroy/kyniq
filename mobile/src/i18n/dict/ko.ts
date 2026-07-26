@@ -279,4 +279,9 @@ export const ko: Record<keyof typeof en, string> = {
   "nav.facetAward": "수상",
   "nav.facetNational": "국가 정전",
   "nav.facetList": "목록",
+  // The Navigator — 이어가기 카드 + 지도 포스터 정보 카드
+  "nav.resumeKicker": "주행 이어가기",
+  "nav.resume": "이어가기 →",
+  "nav.takescore": "TakeScore",
+  "nav.open": "열기 →",
 };

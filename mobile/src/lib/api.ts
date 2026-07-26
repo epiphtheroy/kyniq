@@ -10,6 +10,7 @@ import type {
   CoverageRow,
   DirectorCard,
   FilmCard,
+  NavActive,
   NavDest,
   NavDestinations,
   NavigatorPayload,
@@ -106,7 +107,10 @@ export const api = {
       }))
       .filter((d) => d.pct < 100 && d.seen > 0 && d.total >= 8)
       .sort((a, b) => b.pct - a.pct)
-      .slice(0, 12);
+      .slice(0, 16);
+    // The full coverage list — every drivable lineage not yet complete (parity with
+    // /room/navigator's relaxed rail: drop the seen>0 and total≤60 caps so unstarted
+    // and larger canons appear too; in-progress ranks first, then total). Capped 40.
     const canon: NavPickDest[] = (cov as CoverageRow[])
       .map((c) => ({
         kind: "lineage" as const,
@@ -117,9 +121,9 @@ export const api = {
         total: NUM(c.total),
         pct: Math.round(NUM(c.pct)),
       }))
-      .filter((d) => d.pct < 100 && d.seen > 0 && d.total >= 8 && d.total <= 60)
-      .sort((a, b) => b.pct - a.pct)
-      .slice(0, 12);
+      .filter((d) => d.pct < 100 && d.total >= 8)
+      .sort((a, b) => b.pct - a.pct || b.total - a.total)
+      .slice(0, 40);
     return { directors, canon };
   },
 
@@ -402,6 +406,43 @@ export const me = {
       .filter((r) => r.slug && r.seen >= 1 && r.total > r.seen) // started, not complete
       .sort((a, b) => b.seen - a.seen); // most invested first
     return rows[0]?.slug ?? null;
+  },
+
+  // ── Resume (이어가기) — persist WHICH destination is being driven so the picker
+  //    can offer a Resume card. Position/progress stay ledger-derived (§10-1): these
+  //    RPCs store only the destination descriptor + pref, never the chevron. Called
+  //    directly with the user's JWT (me_*, not *_mine — §13-4). Fire-and-forget from
+  //    the drive; a failed write must never break the screen.
+
+  /** Upsert the active drive (there IS a next turn). */
+  async navStart(p: {
+    dest_kind: string;
+    dest_key: string;
+    dest_label: string;
+    route_pref: string;
+  }): Promise<void> {
+    await supabase.rpc("me_nav_start", {
+      p_dest_kind: p.dest_kind,
+      p_dest_key: p.dest_key,
+      p_dest_label: p.dest_label,
+      p_route_pref: p.route_pref,
+    });
+  },
+
+  /** Retire the active drive (arrived — no next turn). */
+  async navArrive(p: { dest_kind: string; dest_key: string }): Promise<void> {
+    await supabase.rpc("me_nav_arrive", {
+      p_dest_kind: p.dest_kind,
+      p_dest_key: p.dest_key,
+    });
+  },
+
+  /** The member's single active drive (or null). me_nav_active returns ≤1 row. */
+  async navActive(): Promise<NavActive | null> {
+    const { data, error } = await supabase.rpc("me_nav_active");
+    if (error || !data) return null;
+    const row = Array.isArray(data) ? data[0] : data;
+    return (row ?? null) as NavActive | null;
   },
 };
 

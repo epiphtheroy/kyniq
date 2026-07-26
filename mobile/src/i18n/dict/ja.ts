@@ -278,4 +278,9 @@ export const ja: Record<keyof typeof en, string> = {
   "nav.facetAward": "受賞",
   "nav.facetNational": "国のカノン",
   "nav.facetList": "リスト",
+  // The Navigator — 再開カード + 地図ポスター情報カード
+  "nav.resumeKicker": "ドライブを続ける",
+  "nav.resume": "再開 →",
+  "nav.takescore": "TakeScore",
+  "nav.open": "開く →",
 };

@@ -293,6 +293,11 @@ export const en = {
   "nav.facetAward": "Awards",
   "nav.facetNational": "National canon",
   "nav.facetList": "List",
+  // The Navigator — Resume (이어가기) card + map poster info card
+  "nav.resumeKicker": "Continue your drive",
+  "nav.resume": "Resume →",
+  "nav.takescore": "TakeScore",
+  "nav.open": "Open →",
 } as const;
 
 export type DictKey = keyof typeof en;

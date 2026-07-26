@@ -278,4 +278,9 @@ export const es: Record<keyof typeof en, string> = {
   "nav.facetAward": "Premios",
   "nav.facetNational": "Canon nacional",
   "nav.facetList": "Lista",
+  // The Navigator — tarjeta Reanudar + tarjeta de info del póster en el mapa
+  "nav.resumeKicker": "Continúa tu ruta",
+  "nav.resume": "Reanudar →",
+  "nav.takescore": "TakeScore",
+  "nav.open": "Abrir →",
 };

@@ -12,8 +12,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Animated, LayoutChangeEvent, PanResponder, Share, View, useColorScheme, useWindowDimensions } from "react-native";
+import { Animated, LayoutChangeEvent, PanResponder, Share, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Svg, { Ellipse, Path, Rect } from "react-native-svg";
 import { Btn, Loading, PosterImg, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { getLocale, t } from "../../src/i18n";
@@ -27,6 +28,20 @@ const DEFAULT_DIR = "stanley-kubrick";
 const GOLD = "#8F6A1E";
 const PREFS: NavPref[] = ["fewest", "fastest", "no_tolls"];
 const MAXPAN = 130; // how far the road layer can be dragged from center
+
+// The winding "overworld" route (viewBox 0-100) + the poster stops that stand at its
+// nodes, near→far (nearer = larger, for depth). A Mario-style map you drive across —
+// mirrors components/room/NavigatorDrive.tsx exactly. The map stays a bright daytime
+// palette in BOTH light & dark (it's a stylized game map); cards/sheet stay theme-aware.
+const ROUTE_D =
+  "M11,80 C18,70 22,64 27,60 C34,55 40,68 45,72 C52,76 56,54 62,50 C68,46 74,56 78,60 C83,63 87,42 90,33";
+const WAYPOINTS = [
+  { top: 60, left: 27, w: 78 },
+  { top: 72, left: 45, w: 62 },
+  { top: 50, left: 62, w: 52 },
+  { top: 60, left: 78, w: 44 },
+];
+const MAP_BASE = "#E8EEDA"; // daytime overworld base — identical in light & dark
 
 /** Duration — locale-aware long form ("11시간 53분" / "11h 53m"). */
 function fmtDur(min: number | null): string {
@@ -92,7 +107,6 @@ export default function NavigatorDriveScreen() {
   const params = useLocalSearchParams<{ dir?: string; lineage?: string; label?: string }>();
   const router = useRouter();
   const pal = usePalette();
-  const scheme = useColorScheme();
   const insets = useSafeAreaInsets();
   const { width: winW } = useWindowDimensions();
   const { country } = usePrefs();
@@ -111,6 +125,7 @@ export default function NavigatorDriveScreen() {
   const [toast, setToast] = useState<string | null>(null);
   const [mapBox, setMapBox] = useState({ w: 0, h: 0 });
   const [sheetOpen, setSheetOpen] = useState(false); // peek by default; tap to expand
+  const [pick, setPick] = useState<NavStop | null>(null); // map poster → info card
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Draggable road layer (feels navigable). PanResponder claims only on a real drag,
@@ -172,6 +187,28 @@ export default function NavigatorDriveScreen() {
       alive = false;
     };
   }, [dest, country, gen]);
+
+  // Persist the active drive so the picker can offer "Resume" (§10-1: we store only
+  // WHICH destination + pref — position stays ledger-derived). There IS a next turn →
+  // me_nav_start; arrived (no next) → me_nav_arrive. Descriptor comes from the resolved
+  // destination (dest), which the picker/deep-link set. Fire-and-forget: a failed
+  // resume write must never block or break the drive.
+  useEffect(() => {
+    if (!session || !data || !dest) return;
+    const dest_kind = dest.lineage ? "lineage" : "dir";
+    const dest_key = dest.lineage ?? dest.dir;
+    if (!dest_key) return;
+    const dest_label = dest.label ?? data.label;
+    const hasNext = !!data.routes[pref]?.next;
+    (async () => {
+      try {
+        if (hasNext) await me.navStart({ dest_kind, dest_key, dest_label, route_pref: pref });
+        else await me.navArrive({ dest_kind, dest_key });
+      } catch {
+        /* resume is best-effort */
+      }
+    })();
+  }, [session, data, dest, pref]);
 
   useEffect(
     () => () => {
@@ -260,33 +297,20 @@ export default function NavigatorDriveScreen() {
   const rem = data.runtimeRemaining ?? 0;
   const doneFrac = trav + rem > 0 ? trav / (trav + rem) : arrived ? 1 : 0;
 
-  // ── receding-road signposts: nearest few + the flagged destination ────────
-  const near = view.stops.slice(0, 4);
-  const destStop = view.stops[view.stops.length - 1] ?? null;
-  const signList: { stop: NavStop; isDest: boolean }[] = near.map((s) => ({ stop: s, isDest: false }));
-  if (destStop && !near.some((s) => s.slug === destStop.slug)) {
-    signList.push({ stop: destStop, isDest: true });
-  } else if (destStop && near.length && near[near.length - 1].slug === destStop.slug) {
-    signList[signList.length - 1].isDest = true;
-  }
-  // depth layout: index 0 = nearest (large, low); higher = farther (small, high)
-  const layout = [
-    { leftPct: 0.71, bottomPct: 0.2, w: 66 },
-    { leftPct: 0.29, bottomPct: 0.37, w: 54 },
-    { leftPct: 0.69, bottomPct: 0.52, w: 43 },
-    { leftPct: 0.31, bottomPct: 0.64, w: 34 },
-    { leftPct: 0.5, bottomPct: 0.76, w: 29 },
+  // ── overworld poster stops: the nearest few stand at the route's nodes (near→far,
+  //    nearer = larger for depth), plus the flagged destination if it isn't among them ──
+  const near = view.stops.slice(0, WAYPOINTS.length);
+  const finalStop = view.stops[view.stops.length - 1] ?? null;
+  const destIsNear = !!finalStop && near.some((s) => s.slug === finalStop.slug);
+  // Road-name signs (decorative flavor + the current road = destination). Percent of box.
+  const roadName = data.label;
+  const signs = [
+    { left: 12, top: 91, label: roadName, cur: true },
+    { left: 31, top: 40, label: "Noir Line →", cur: false },
+    { left: 55, top: 27, label: "New Wave Way", cur: false },
+    { left: 73, top: 88, label: "Neorealism Rd", cur: false },
+    { left: 89, top: 17, label: "Formalist Blvd", cur: false },
   ];
-
-  const field: readonly [string, string] =
-    scheme === "dark" ? ["#2A2620", "#211E19"] : ["#EFE9D8", "#E7E0CE"];
-  const roadColor = scheme === "dark" ? "#3A352C" : "#D8D0BC";
-
-  // road trapezoid geometry (border trick — wide at bottom, narrow at top)
-  const roadBottomW = mapBox.w * 0.52;
-  const roadTopW = mapBox.w * 0.14;
-  const roadSide = Math.max(0, (roadBottomW - roadTopW) / 2);
-  const roadH = mapBox.h * 0.92;
 
   return (
     <Screen>
@@ -393,146 +417,245 @@ export default function NavigatorDriveScreen() {
         )}
       </View>
 
-      {/* ═══════════ ROAD — receding, with poster signposts (pannable) ═══════════ */}
-      <View style={{ flex: 1, overflow: "hidden" }} onLayout={onMapLayout}>
-        <LinearGradient
-          colors={field}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
-        />
-
+      {/* ═══════════ OVERWORLD MAP — an SVG world you drive across (pannable) ═══════════ */}
+      <View style={{ flex: 1, overflow: "hidden", backgroundColor: MAP_BASE }} onLayout={onMapLayout}>
         {mapBox.w > 0 && mapBox.h > 0 ? (
-          <Animated.View
-            style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, transform: pan.getTranslateTransform() }}
-            {...panResponder.panHandlers}
-          >
-            {/* road bed (trapezoid, wide at bottom) */}
-            <View
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: (mapBox.w - roadBottomW) / 2,
-                width: roadTopW,
-                height: 0,
-                borderBottomWidth: roadH,
-                borderBottomColor: roadColor,
-                borderLeftWidth: roadSide,
-                borderRightWidth: roadSide,
-                borderLeftColor: "transparent",
-                borderRightColor: "transparent",
-              }}
-            />
-            {/* lane marks + blue route dashes down the center (near big → far small) */}
-            {Array.from({ length: 7 }).map((_, i) => {
-              const f = i / 7; // 0 near → ~1 far
-              const y = mapBox.h * (0.12 + f * 0.72);
-              const w = 7 * (1 - f * 0.7);
-              const h = 16 * (1 - f * 0.7);
-              return (
+          <>
+            <Animated.View
+              style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, transform: pan.getTranslateTransform() }}
+              {...panResponder.panHandlers}
+            >
+              {/* the world — terrain, cross-roads (other lineages), then THE route.
+                  viewBox 0-100 stretched to fill the box; non-scaling strokes keep the
+                  road widths constant. A bright daytime overworld in both light & dark. */}
+              <Svg
+                width={mapBox.w}
+                height={mapBox.h}
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                style={{ position: "absolute", top: 0, left: 0 }}
+              >
+                <Rect x={0} y={0} width={100} height={100} fill={MAP_BASE} />
+                {/* world regions — grass · sand · water */}
+                <Ellipse cx={20} cy={26} rx={28} ry={19} fill="#D9E6BE" opacity={0.65} />
+                <Ellipse cx={84} cy={74} rx={26} ry={17} fill="#D7E4B8" opacity={0.6} />
+                <Ellipse cx={16} cy={86} rx={20} ry={13} fill="#EBDCB4" opacity={0.6} />
+                <Path d="M62,-6 C76,6 71,21 86,27 C99,32 110,23 114,31 L114,-8 Z" fill="#CFE2EA" opacity={0.6} />
+                {/* other roads you pass — each a lineage/route */}
+                <Path d="M-6,42 C18,36 34,51 54,43 C74,35 92,47 108,39" fill="none" stroke="#D6CDB2" strokeWidth={4.5} vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity={0.85} />
+                <Path d="M41,-6 C37,18 47,33 39,53 C32,71 43,87 37,108" fill="none" stroke="#D6CDB2" strokeWidth={4} vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity={0.8} />
+                <Path d="M-6,90 C22,82 41,93 63,85 C83,78 97,87 108,81" fill="none" stroke="#D6CDB2" strokeWidth={3.5} vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity={0.7} />
+                {/* THE route — the films you'll drive, winding across the world (4 stacked) */}
+                <Path d={ROUTE_D} fill="none" stroke="#D8D0BC" strokeWidth={12} vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
+                <Path d={ROUTE_D} fill="none" stroke="#ffffff" strokeWidth={9} vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
+                <Path d={ROUTE_D} fill="none" stroke="#3B7DED" strokeWidth={6} vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
+                <Path d={ROUTE_D} fill="none" stroke="#ffffffcc" strokeWidth={1.3} strokeDasharray="2 3" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
+              </Svg>
+
+              {/* road-name signs — small labels pinned across the map (the current road = destination) */}
+              {signs.map((s) => (
                 <View
-                  key={i}
+                  key={`${s.label}-${s.left}`}
                   style={{
                     position: "absolute",
-                    left: mapBox.w / 2 - w / 2,
-                    top: y,
-                    width: w,
-                    height: h,
-                    borderRadius: 2,
-                    backgroundColor: i < 3 ? brand.accent : "rgba(255,255,255,0.65)",
-                    opacity: 1 - f * 0.5,
-                  }}
-                />
-              );
-            })}
-
-            {/* poster signposts standing along the road */}
-            {signList.map(({ stop, isDest }, i) => {
-              const L = layout[Math.min(i, layout.length - 1)];
-              const w = L.w;
-              const h = Math.round(w * 1.5);
-              const left = mapBox.w * L.leftPct - w / 2;
-              const bottom = mapBox.h * L.bottomPct;
-              const isNow = i === 0;
-              return (
-                <View key={stop.slug} style={{ position: "absolute", left, bottom, alignItems: "center" }}>
-                  {isDest ? <Ionicons name="flag" size={16} color={GOLD} style={{ marginBottom: 1 }} /> : null}
-                  <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: stop.slug } })}>
-                    <View
-                      style={{
-                        borderRadius: 6,
-                        overflow: "hidden",
-                        borderWidth: 2,
-                        borderColor: isNow ? brand.accent : isDest ? GOLD : "#fff",
-                        ...shadow.card,
-                      }}
-                    >
-                      <PosterImg path={stop.poster_path} width={w} height={h} size="w185" rounded={4} />
-                    </View>
-                  </Tactile>
-                  {/* pole */}
-                  <View style={{ width: 2.5, height: 12, backgroundColor: "#b7ad96" }} />
-                  {isNow || isDest ? (
-                    <View
-                      style={{
-                        marginTop: 2,
-                        backgroundColor: isNow ? brand.accent : GOLD,
-                        borderRadius: radius.pill,
-                        paddingHorizontal: 7,
-                        paddingVertical: 1,
-                      }}
-                    >
-                      <Ui size={fs.xs - 2} weight="700" color="#fff" numberOfLines={1}>
-                        {isNow ? t("nav.next") : t("nav.destination")}
-                      </Ui>
-                    </View>
-                  ) : null}
-                </View>
-              );
-            })}
-
-            {/* "me" position chevron on the road */}
-            <View style={{ position: "absolute", left: mapBox.w / 2 - 16, bottom: mapBox.h * 0.06, alignItems: "center" }}>
-              <View
-                style={{
-                  width: 0,
-                  height: 0,
-                  borderLeftWidth: 15,
-                  borderRightWidth: 15,
-                  borderBottomWidth: 26,
-                  borderLeftColor: "transparent",
-                  borderRightColor: "transparent",
-                  borderBottomColor: brand.accent,
-                }}
-              />
-              <View
-                style={{
-                  width: 12,
-                  height: 12,
-                  borderRadius: 6,
-                  backgroundColor: brand.accent,
-                  borderWidth: 2.5,
-                  borderColor: "#fff",
-                  marginTop: -3,
-                }}
-              />
-              {data.seenCount > 0 ? (
-                <View
-                  style={{
-                    marginTop: 5,
-                    backgroundColor: scheme === "dark" ? "rgba(0,0,0,0.5)" : "rgba(255,255,255,0.75)",
+                    left: mapBox.w * (s.left / 100),
+                    top: mapBox.h * (s.top / 100),
+                    transform: [{ translateX: -32 }, { translateY: -9 }],
+                    maxWidth: 130,
+                    backgroundColor: s.cur ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.6)",
                     borderRadius: radius.pill,
-                    paddingHorizontal: 7,
-                    paddingVertical: 1,
+                    paddingHorizontal: 8,
+                    paddingVertical: 2,
                   }}
                 >
-                  <Ui size={fs.xs - 2} weight="700" color={pal.muted}>
-                    ↓ {t("nav.behindN", { n: data.seenCount })}
+                  <Ui size={fs.xs - 2} weight={s.cur ? "700" : "600"} color={s.cur ? "#4A4638" : "#7A745F"} numberOfLines={1}>
+                    {s.label}
                   </Ui>
                 </View>
+              ))}
+
+              {/* poster stops standing at the route nodes (near→far). Tap → info card.
+                  The PanResponder only claims on a real drag (dx/dy > 8), so a poster
+                  tap passes through to the Tactile below and never starts a pan. */}
+              {near.map((stop, i) => {
+                const wp = WAYPOINTS[i];
+                const w = wp.w;
+                const h = Math.round(w * 1.5);
+                const isNow = i === 0;
+                const isDest = destIsNear && finalStop != null && stop.slug === finalStop.slug;
+                return (
+                  <View
+                    key={stop.slug}
+                    style={{
+                      position: "absolute",
+                      left: mapBox.w * (wp.left / 100) - w / 2,
+                      bottom: mapBox.h * (1 - wp.top / 100),
+                      width: w,
+                      alignItems: "center",
+                    }}
+                  >
+                    {isNow ? (
+                      <View style={{ backgroundColor: brand.accent, borderRadius: radius.pill, paddingHorizontal: 7, paddingVertical: 1, marginBottom: 3 }}>
+                        <Ui size={fs.xs - 2} weight="700" color="#fff" numberOfLines={1}>
+                          {t("nav.next")}
+                        </Ui>
+                      </View>
+                    ) : wp.w >= 60 ? (
+                      <View style={{ backgroundColor: "rgba(255,255,255,0.85)", borderRadius: radius.pill, paddingHorizontal: 7, paddingVertical: 1, marginBottom: 3, maxWidth: w + 24 }}>
+                        <Ui size={fs.xs - 2} weight="600" color="#4A4638" numberOfLines={1}>
+                          {stop.title}
+                        </Ui>
+                      </View>
+                    ) : null}
+                    <Tactile onPress={() => setPick(stop)}>
+                      <View
+                        style={{
+                          borderRadius: 6,
+                          overflow: "hidden",
+                          borderWidth: 2,
+                          borderColor: isNow ? brand.accent : isDest ? GOLD : "#fff",
+                          ...shadow.card,
+                        }}
+                      >
+                        <PosterImg path={stop.poster_path} width={w} height={h} size="w185" rounded={4} />
+                      </View>
+                    </Tactile>
+                    {/* signpost pole standing on the road */}
+                    <View style={{ width: 2.5, height: 11, backgroundColor: "#b7ad96" }} />
+                  </View>
+                );
+              })}
+
+              {/* the flagged destination (🏁) — only when it isn't already among the near stops */}
+              {!destIsNear && finalStop ? (
+                <View
+                  style={{
+                    position: "absolute",
+                    left: mapBox.w * 0.9 - 15,
+                    bottom: mapBox.h * (1 - 0.33),
+                    width: 30,
+                    alignItems: "center",
+                  }}
+                >
+                  <Ionicons name="flag" size={16} color={GOLD} style={{ marginBottom: 1 }} />
+                  <Tactile onPress={() => setPick(finalStop)}>
+                    <View style={{ borderRadius: 5, overflow: "hidden", borderWidth: 2, borderColor: GOLD, ...shadow.card }}>
+                      <PosterImg path={finalStop.poster_path} width={30} height={45} size="w185" rounded={3} />
+                    </View>
+                  </Tactile>
+                  <View style={{ width: 2.5, height: 10, backgroundColor: "#b7ad96" }} />
+                </View>
               ) : null}
-            </View>
-          </Animated.View>
+
+              {/* "me" position marker (chevron) on the current road */}
+              <View
+                style={{
+                  position: "absolute",
+                  left: mapBox.w * 0.11 - 16,
+                  bottom: mapBox.h * (1 - 0.81) - 14,
+                  alignItems: "center",
+                }}
+              >
+                <View
+                  style={{
+                    width: 0,
+                    height: 0,
+                    borderLeftWidth: 15,
+                    borderRightWidth: 15,
+                    borderBottomWidth: 26,
+                    borderLeftColor: "transparent",
+                    borderRightColor: "transparent",
+                    borderBottomColor: brand.accent,
+                  }}
+                />
+                <View
+                  style={{
+                    width: 12,
+                    height: 12,
+                    borderRadius: 6,
+                    backgroundColor: brand.accent,
+                    borderWidth: 2.5,
+                    borderColor: "#fff",
+                    marginTop: -3,
+                  }}
+                />
+                {data.seenCount > 0 ? (
+                  <View style={{ marginTop: 5, backgroundColor: "rgba(255,255,255,0.85)", borderRadius: radius.pill, paddingHorizontal: 7, paddingVertical: 1 }}>
+                    <Ui size={fs.xs - 2} weight="700" color="#4A4638">
+                      ↓ {t("nav.behindN", { n: data.seenCount })}
+                    </Ui>
+                  </View>
+                ) : null}
+              </View>
+            </Animated.View>
+
+            {/* poster tap → info card (director · year · TakeScore · availability). Lives
+                OUTSIDE the pannable layer so it stays put, near the map's bottom edge. */}
+            {pick ? (
+              <View
+                style={[
+                  {
+                    position: "absolute",
+                    left: sp.s3,
+                    right: sp.s3,
+                    bottom: sp.s4,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: sp.s3,
+                    backgroundColor: pal.card,
+                    borderRadius: radius.md,
+                    borderWidth: 1,
+                    borderColor: pal.hairline,
+                    paddingVertical: sp.s3,
+                    paddingLeft: sp.s3,
+                    paddingRight: sp.s5,
+                  },
+                  shadow.float,
+                ]}
+              >
+                <View style={{ borderRadius: 6, overflow: "hidden" }}>
+                  <PosterImg path={pick.poster_path} width={40} height={60} size="w185" rounded={6} />
+                </View>
+                <View style={{ flex: 1, minWidth: 0 }}>
+                  <Serif size={fs.md} bold numberOfLines={1}>
+                    {pick.title}
+                  </Serif>
+                  <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 1 }}>
+                    {[pick.director, pick.year != null ? String(pick.year) : null].filter(Boolean).join(" · ") || "—"}
+                  </Ui>
+                  <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 3 }}>
+                    <Ui size={fs.xs} weight="700">
+                      {pick.takescore != null ? `${Math.round(pick.takescore)} ${t("nav.takescore")}` : `${t("nav.takescore")} —`}
+                    </Ui>
+                    {pick.availability !== "none" ? (
+                      <>
+                        <View style={{ width: 3, height: 3, borderRadius: 2, backgroundColor: pal.subtle }} />
+                        <Ui size={fs.xs} weight="600" color={pick.availability === "sub" ? brand.teal : GOLD}>
+                          {pick.availability === "sub" ? `▶ ${t("nav.playNow")}` : t("nav.rent")}
+                        </Ui>
+                      </>
+                    ) : null}
+                  </View>
+                </View>
+                <Tactile
+                  onPress={() => {
+                    const slug = pick.slug;
+                    setPick(null);
+                    router.push({ pathname: "/film/[slug]", params: { slug } });
+                  }}
+                >
+                  <View style={{ backgroundColor: pal.ink, borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 8 }}>
+                    <Ui size={fs.xs} weight="700" color={pal.bg} numberOfLines={1}>
+                      {t("nav.open")}
+                    </Ui>
+                  </View>
+                </Tactile>
+                <Tactile onPress={() => setPick(null)} hitSlop={8} style={{ position: "absolute", top: 4, right: 6 }}>
+                  <Ionicons name="close" size={16} color={pal.subtle} />
+                </Tactile>
+              </View>
+            ) : null}
+          </>
         ) : null}
       </View>
 
