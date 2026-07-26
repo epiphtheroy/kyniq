@@ -41,6 +41,8 @@ type Turn = {
   runtime: number | null;
   availability: NavFilm["availability"];
   leavingSoon: boolean;
+  director: string | null;   // for the map poster's info card
+  takescore: number | null;  // TakeScore, for the info card
   reason: string; // turnReason() — server-computed facts only (§10-2)
 };
 type Stop = {
@@ -50,6 +52,8 @@ type Stop = {
   poster_path: string | null;
   runtime: number | null;
   availability: NavFilm["availability"];
+  director: string | null;
+  takescore: number | null;
   toll: boolean;
 };
 
@@ -62,6 +66,8 @@ function toTurn(f: NavFilm, reason: string): Turn {
     runtime: f.runtime,
     availability: f.availability,
     leavingSoon: !!f.leavingSoon,
+    director: f.director ?? null,
+    takescore: f.takescore ?? null,
     reason,
   };
 }
@@ -73,6 +79,8 @@ function toStop(f: NavFilm, toll: boolean): Stop {
     poster_path: f.poster_path,
     runtime: f.runtime,
     availability: f.availability,
+    director: f.director ?? null,
+    takescore: f.takescore ?? null,
     toll,
   };
 }
