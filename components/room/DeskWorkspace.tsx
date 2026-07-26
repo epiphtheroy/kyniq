@@ -194,6 +194,16 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
   const today = rotation.length ? rotation[((cursor % rotation.length) + rotation.length) % rotation.length] : null;
   const todayKept = today ? today.in_watchlist === true || session.kept.has(today.slug) : false;
 
+  /* pool made browsable: the side rail peeks 4; the grid below tonight shows the next 9 */
+  const upNext = useMemo(() => rotation.filter((f) => f.slug !== today?.slug), [rotation, today?.slug]);
+  const journey9 = useMemo(() => upNext.slice(4, 13), [upNext]);
+  /* several Navigator destinations to suggest (in-progress director conquests, minus the resume one) */
+  const navDests = useMemo(() => (data.auteurs ?? [])
+    .filter((a) => a.pct < 100 && a.seen > 0 && a.slug !== data.navPrev?.dir)
+    .slice(0, 4)
+    .map((a) => ({ href: `/room/navigator?dir=${a.slug}`, label: a.name, meta: `${a.seen}/${a.total} · ${a.pct}%` })),
+  [data.auteurs, data.navPrev]);
+
   const openRec = useCallback((f: WwiRow, kept: boolean) => {
     insp.select(
       <RecInsp f={toRecFilm(f, kept)}
@@ -314,27 +324,43 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         <h2>Tonight</h2><span className="sub">what should I watch?</span>
       </div>
 
-      {/* ★ The Navigator — the flagship: resume the drive, or start one */}
-      {data.navPrev ? (
-        <Link className="nav-resume" href={`/room/navigator?dir=${data.navPrev.dir}`}>
-          <span className="nav-ic"><i className="ti ti-navigation" /></span>
-          <span className="nav-tx">
-            <span className="nav-k">The Navigator · 여정 이어가기</span>
-            <span className="nav-n">{data.navPrev.label} 정복 — 다음 한 편을 안내받으세요</span>
-            <span className="nav-m">{data.navPrev.seen}/{data.navPrev.total}편 · {data.navPrev.pct}%</span>
-          </span>
-          <span className="nav-go">주행 →</span>
-        </Link>
-      ) : (
-        <Link className="nav-resume nav-resume--new" href="/room/navigator">
-          <span className="nav-ic"><i className="ti ti-navigation" /></span>
-          <span className="nav-tx">
-            <span className="nav-k">The Navigator</span>
-            <span className="nav-n">목적지를 정하면, 볼 영화들이 경로가 되어 다음 한 편을 턴바이턴으로 안내합니다</span>
-          </span>
-          <span className="nav-go">시작 →</span>
-        </Link>
-      )}
+      {/* ★ The Navigator — the flagship: resume the drive, or pick a destination */}
+      <div className="nav-block">
+        {data.navPrev ? (
+          <Link className="nav-resume" href={`/room/navigator?dir=${data.navPrev.dir}`}>
+            <span className="nav-ic"><i className="ti ti-navigation" /></span>
+            <span className="nav-tx">
+              <span className="nav-k">The Navigator · Continue your drive</span>
+              <span className="nav-n">{data.navPrev.label} — turn-by-turn to your next film</span>
+              <span className="nav-m">{data.navPrev.seen}/{data.navPrev.total} watched · {data.navPrev.pct}% · excludes films you&apos;ve seen</span>
+            </span>
+            <span className="nav-go">Drive →</span>
+          </Link>
+        ) : (
+          <Link className="nav-resume nav-resume--new" href="/room/navigator">
+            <span className="nav-ic"><i className="ti ti-navigation" /></span>
+            <span className="nav-tx">
+              <span className="nav-k">The Navigator</span>
+              <span className="nav-n">Pick a destination and your unwatched films become the route — guided one turn at a time.</span>
+            </span>
+            <span className="nav-go">Start →</span>
+          </Link>
+        )}
+        {navDests.length ? (
+          <div className="nav-dests">
+            <span className="nav-dests-lbl">Or set a destination</span>
+            <div className="nav-dests-row">
+              {navDests.map((d) => (
+                <Link key={d.href} className="nav-dest" href={d.href}>
+                  <span className="nav-dest-n">{d.label}</span>
+                  <span className="nav-dest-m">{d.meta}</span>
+                </Link>
+              ))}
+              <Link className="nav-dest nav-dest--all" href="/room/navigator">All destinations →</Link>
+            </div>
+          </div>
+        ) : null}
+      </div>
 
       {/* ① Log bar */}
       <div style={{ marginBottom: 14 }}>
@@ -379,15 +405,34 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           Tonight&apos;s pool is cleared — <Link href={HREF.screener} style={{ color: "var(--mut)" }}>the Screener has more →</Link>
         </div>
       )}
+
+      {/* ② more for your journey — the next 9 pool picks, browsable below tonight */}
+      {journey9.length ? (
+        <div className="dk-journey">
+          <div className="dk-journey-hd">More for your journey <span className="sub">— from your pool, minus what you&apos;ve seen</span></div>
+          <div className="dk-journey-grid">
+            {journey9.map((f) => (
+              <button key={f.slug} type="button" className="dk-jcard"
+                title={`${f.title}${f.year ? ` (${f.year})` : ""}`}
+                onClick={() => openRec(f, f.in_watchlist === true || session.kept.has(f.slug))}>
+                <span className="dk-jpo" style={f.poster_path ? { backgroundImage: `url(${IMG185}${f.poster_path})` } : {}} />
+                <span className="dk-jtt">{f.title}</span>
+                {f.director ? <span className="dk-jdir">{f.director}</span> : null}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
       </div>{/* /dk-2col-main */}
 
       {/* up next — the pool made visible (rotation minus tonight's pick) */}
       <aside className="dk-2col-side">
         <div className="dk-card">
           <div className="dk-cardhd">Up next in your pool</div>
-          {rotation.length > 1 ? (
+          <div className="dk-cardsub">Your pool = films scored for your taste and playable on your services — minus what you&apos;ve already seen.</div>
+          {upNext.length ? (
             <div className="dk-upnext">
-              {rotation.filter((f) => f.slug !== today?.slug).slice(0, 4).map((f) => (
+              {upNext.slice(0, 4).map((f) => (
                 <button key={f.slug} type="button" className="dk-up" title={`${f.title}${f.year ? ` (${f.year})` : ""}`}
                   onClick={() => openRec(f, f.in_watchlist === true || session.kept.has(f.slug))}>
                   <span className="dk-uppo" style={f.poster_path ? { backgroundImage: `url(${IMG185}${f.poster_path})` } : {}} />
@@ -398,9 +443,9 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           ) : (
             <div className="emptyins">Rate a few films and the pool fills.</div>
           )}
-          <div className="dk-cardft">
-            <span className="sub">{alive.length} picks from your ratings &amp; services</span>
-            <Link className="dk-btn" href="/what-to-watch">Every filter → What to Watch</Link>
+          <div className="dk-poolft">
+            <span className="sub">{alive.length} picks · from your ratings &amp; services</span>
+            <Link className="dk-btn dk-btn--wtw" href="/what-to-watch">Every filter → What to Watch</Link>
           </div>
         </div>
       </aside>
@@ -436,7 +481,7 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         <div className="dk-card dk-card--map">
           <div className="dk-cardhd">Where your films took you</div>
           {data.geoDots?.length ? <MiniWorld dots={data.geoDots} /> : <div className="emptyins">Seen films pin the world.</div>}
-          <div className="dk-cardft"><span className="sub">{data.geoDots?.length ?? 0} pins</span><Link className="dk-btn" href="/room/locations">Open the map</Link></div>
+          <div className="dk-cardft"><span className="sub">{data.geoDots?.length ?? 0} pins · your films</span><Link className="dk-btn" href="/locations?lens=mine">Open the world map →</Link></div>
         </div>
         {/* directors — faces, not labels */}
         <div className="dk-card">

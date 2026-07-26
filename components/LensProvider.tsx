@@ -54,8 +54,17 @@ export function LensProvider({ children }: { children: React.ReactNode }) {
   const films = useUserFilms();
   const [rawMode, setRawMode] = useState<LensMode>("off");
 
-  // hydrate the stored preference after mount (SSR-safe)
-  useEffect(() => { setRawMode(readStoredMode()); }, []);
+  // hydrate the stored preference after mount (SSR-safe). A `?lens=mine` param
+  // (e.g. "Open the world map →" from My Room) activates the my-films lens on
+  // arrival, without overwriting the persisted preference.
+  useEffect(() => {
+    try {
+      const p = new URLSearchParams(window.location.search).get("lens");
+      if (p === "mine" || p === "only") { setRawMode("only"); return; }
+      if (p === "highlight") { setRawMode("highlight"); return; }
+    } catch { /* fall through to stored */ }
+    setRawMode(readStoredMode());
+  }, []);
 
   const setMode = useCallback((m: LensMode) => {
     setRawMode(m);

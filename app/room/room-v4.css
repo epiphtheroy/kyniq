@@ -163,3 +163,36 @@
 .room-v4 .nav-m{font-size:11.5px;opacity:.9;font-variant-numeric:tabular-nums}
 .room-v4 .nav-go{flex:0 0 auto;font-size:13px;font-weight:800;background:#ffffff26;border:1px solid #ffffff40;
   padding:8px 13px;border-radius:99px;white-space:nowrap}
+
+/* Navigator block: resume/start card + several suggested destinations */
+.room-v4 .nav-block{margin:0 0 14px}
+.room-v4 .nav-block .nav-resume{margin:0 0 8px}
+.room-v4 .nav-dests{background:#FBF7EF;border:1px solid #E9E3D5;border-radius:12px;padding:9px 12px}
+.room-v4 .nav-dests-lbl{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8A857C}
+.room-v4 .nav-dests-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.room-v4 .nav-dest{display:flex;flex-direction:column;gap:1px;text-decoration:none;background:#fff;border:1px solid #E4DFD3;
+  border-radius:10px;padding:6px 11px;min-width:0}
+.room-v4 .nav-dest:hover{border-color:#1E7A46}
+.room-v4 .nav-dest-n{font-size:12.5px;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:150px}
+.room-v4 .nav-dest-m{font-size:10.5px;color:#8A857C;font-variant-numeric:tabular-nums}
+.room-v4 .nav-dest--all{justify-content:center;background:transparent;border-style:dashed;color:#1E7A46;font-size:12px;font-weight:800}
+
+/* one-line explainer under a card header */
+.room-v4 .dk-cardsub{font-size:11.5px;color:#8A857C;line-height:1.5;margin:-4px 0 11px}
+
+/* pool footer — stacked (count over a full-width CTA) so the button isn't cramped left */
+.room-v4 .dk-poolft{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:11px}
+.room-v4 .dk-poolft .sub{font-size:11.5px;color:#8A857C}
+.room-v4 .dk-btn--wtw{display:block;text-align:center;background:var(--red);color:#fff;padding:9px 12px;border-radius:10px;font-weight:800}
+
+/* "More for your journey" — the next 9 pool picks under tonight's hero */
+.room-v4 .dk-journey{margin-top:16px}
+.room-v4 .dk-journey-hd{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8A857C;margin-bottom:10px}
+.room-v4 .dk-journey-hd .sub{font-weight:600;letter-spacing:0;text-transform:none}
+.room-v4 .dk-journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.room-v4 .dk-jcard{display:flex;flex-direction:column;gap:5px;border:0;background:transparent;padding:0;cursor:pointer;
+  text-align:left;min-width:0;font-family:inherit}
+.room-v4 .dk-jpo{display:block;width:100%;aspect-ratio:2/3;border-radius:9px;background:#F1EDE4 center/cover no-repeat;border:1px solid #E4DFD3}
+.room-v4 .dk-jcard:hover .dk-jpo{border-color:var(--red)}
+.room-v4 .dk-jtt{font-size:12px;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-v4 .dk-jdir{font-size:10.5px;color:#8A857C;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

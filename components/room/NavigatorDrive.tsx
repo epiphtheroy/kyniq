@@ -129,6 +129,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
           </div>
         </div>
         {then ? <div className="then"><span className="a">Then ↑</span> <b>{then.title}</b>{then.runtime ? ` · ${then.runtime} min` : ""}</div> : null}
+        <div className="turn-excl">✓ Excludes films you&apos;ve seen{stats.seenCount ? ` · ${stats.seenCount} behind you` : ""}</div>
       </div>
 
       {/* the map — pannable & zoomable */}
