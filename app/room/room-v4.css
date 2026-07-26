@@ -150,3 +150,16 @@
 .room-v4 .stk--room{background:#FFFFFF;border:1px solid #E4DFD3;border-radius:10px}
 .room-v4 .stk--room .stk-txt{color:#4A4640}
 .room-v4 .stk--room .stk-item{color:#4A4640}
+
+/* ★ Navigator resume card (desk Tonight, flagship) */
+.room-v4 .nav-resume{display:flex;align-items:center;gap:13px;margin:0 0 14px;padding:14px 16px;text-decoration:none;
+  background:linear-gradient(120deg,#1E7A46,#186039);color:#fff;border-radius:14px;box-shadow:0 10px 24px rgba(20,60,38,.24)}
+.room-v4 .nav-resume--new{background:linear-gradient(120deg,#2a2620,#171410)}
+.room-v4 .nav-ic{flex:0 0 auto;width:42px;height:42px;border-radius:12px;background:#ffffff22;border:1px solid #ffffff33;
+  display:flex;align-items:center;justify-content:center;font-size:22px}
+.room-v4 .nav-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.room-v4 .nav-k{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;opacity:.82}
+.room-v4 .nav-n{font-family:"PT Serif",Georgia,serif;font-size:16px;font-weight:700;line-height:1.15}
+.room-v4 .nav-m{font-size:11.5px;opacity:.9;font-variant-numeric:tabular-nums}
+.room-v4 .nav-go{flex:0 0 auto;font-size:13px;font-weight:800;background:#ffffff26;border:1px solid #ffffff40;
+  padding:8px 13px;border-radius:99px;white-space:nowrap}

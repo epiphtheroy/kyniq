@@ -51,6 +51,7 @@ export type ConquestTile = { label: string; rem: number; ms: number };
 export type BlindTile = { label: string; gap_reason: string };
 
 /** v4.1 preview types — the desk shows the map instead of linking to it. */
+export type NavPrev = { dir: string; label: string; seen: number; total: number; pct: number };
 export type CovBar = { label: string; seen: number; total: number; pct: number };
 export type AuteurLite = { slug: string; name: string; profile_path: string | null; seen: number; total: number; pct: number };
 export type GeoDot = { o: number; a: number; s: number }; // lng, lat, setting?
@@ -77,6 +78,8 @@ export type DeskData = {
   covRows: CovBar[] | null;
   auteurs: AuteurLite[] | null;
   geoDots: GeoDot[] | null;
+  /** Navigator resume preview — top in-progress director (null = none/failed). */
+  navPrev: NavPrev | null;
 };
 
 /* ── route lookups (nav.ts is the single source — never hardcode /room/* here) ── */
@@ -310,6 +313,28 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
       <div className="dk-sechd">
         <h2>Tonight</h2><span className="sub">what should I watch?</span>
       </div>
+
+      {/* ★ The Navigator — the flagship: resume the drive, or start one */}
+      {data.navPrev ? (
+        <Link className="nav-resume" href={`/room/navigator?dir=${data.navPrev.dir}`}>
+          <span className="nav-ic"><i className="ti ti-navigation" /></span>
+          <span className="nav-tx">
+            <span className="nav-k">The Navigator · 여정 이어가기</span>
+            <span className="nav-n">{data.navPrev.label} 정복 — 다음 한 편을 안내받으세요</span>
+            <span className="nav-m">{data.navPrev.seen}/{data.navPrev.total}편 · {data.navPrev.pct}%</span>
+          </span>
+          <span className="nav-go">주행 →</span>
+        </Link>
+      ) : (
+        <Link className="nav-resume nav-resume--new" href="/room/navigator">
+          <span className="nav-ic"><i className="ti ti-navigation" /></span>
+          <span className="nav-tx">
+            <span className="nav-k">The Navigator</span>
+            <span className="nav-n">목적지를 정하면, 볼 영화들이 경로가 되어 다음 한 편을 턴바이턴으로 안내합니다</span>
+          </span>
+          <span className="nav-go">시작 →</span>
+        </Link>
+      )}
 
       {/* ① Log bar */}
       <div style={{ marginBottom: 14 }}>

@@ -58,6 +58,7 @@ export const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((g) => g.items);
  *  under "More". Presentation-layer only — every route stays live, CmdK still
  *  iterates NAV_ITEMS, bookmarks and deep links are untouched. */
 export const PRIMARY_DOORS: NavItem[] = [
+  { label: "Navigator", icon: "ti-navigation", href: "/room/navigator" },
   { label: "Screener", icon: "ti-target-arrow", href: "/room/screener" },
   { label: "Slate", icon: "ti-stack-2", href: "/room/slate", countKey: "watchlist" },
   { label: "Ledger", icon: "ti-star", href: "/room/ledger" },

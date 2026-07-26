@@ -68,6 +68,7 @@ export const KO: Record<string, string> = {
   Tropes: "트로프",
   Archetypes: "원형",
   "My Room": "마이룸",
+  "The Navigator": "내비게이터",
   "Import your films": "내 영화 가져오기",
   Settings: "설정",
   "Sign in": "로그인",

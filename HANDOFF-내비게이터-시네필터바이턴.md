@@ -203,7 +203,7 @@ nav_drives (id, user_id, dest_id, route_pref, started_at, arrived_at, skipped[] 
 - **P0 기획 승인** — 이 문서, 오너 결정 §12.
 - **P1 종이 프로토타입 ✅ SHIPPED (2026-07-26)** — `public/navigator-preview.html` → **metatake.net/navigator-preview.html**(noindex, JS-0 CSP-proof, 실 큐브릭 데이터). 3화면 CSS-only 전환(어디로/경로/주행). 주행 뷰=구글맵 형태(초록 다음-턴 배너·파란 경로·빨간 위치 화살표·포스터 표지판·하단 ETA/진행바). 자가검수 스크린샷 2회. **오너 감각 검증 대기 → OK면 P2.**
 - **P2 목적지 카탈로그+경로 엔진 ✅ 코어 SHIPPED (2026-07-26)** — `lib/navigator/route.ts`(결정론 엔진: buildRoute 3경로·tripStats·turnReason·fmt, LLM-0·순수·무I/O) + `lib/navigator/destinations.ts`(directorDestination·canonDestination 조립). **실 큐브릭 데이터로 13/13 런타임 검증**(node --experimental-strip-types): 지나온 592=9:52·남은 713=11시간53분·fewest=연대기·fastest=러닝타임·no_tolls=구독먼저(대여=toll 후미)·ETA 주단위·결정론. tsc 클린. 잔여(P2.1): 실 RPC 배선(me_auteur_conquest·lineage rows→SourceFilm)·6과 확장·runtime 결측 처리.
-- **P3 웹 주행 뷰** — /room/navigator + 룸 Tonight 미니카드.
+- **P3 웹 주행 뷰 ✅ 구축 (2026-07-26)** — `app/room/navigator/page.tsx`(실 로더 배선: me_collection seen + directors.name + loadDirectorDestination, ?dir=·?pref=) + `components/room/NavigatorDrive.tsx`(주행뷰: 초록 턴카드·서있는 표지판 도로·소요시간 시트·경로전환 링크) + `app/room/navigator/navigator.css`. **진입점 3곳**: ①룸바 PRIMARY_DOORS 첫 항목 Navigator ②홈 상단메뉴 My Cinema 그룹 "The Navigator" ③마이룸 데스크 Tonight 최상단 여정 이어가기 카드(navPrev=me_auteur_conquest 재사용, 추가 RPC 0). ⚠️pacePerWeek=null(ETA 숨김, 후속 배선).
 - **P4 앱 이식** — Tonight 탭 통합(JS-only·OTA).
 - **P5 오버뷰(오디세이 오버레이)·도착 카드·공유.**
 

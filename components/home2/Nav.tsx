@@ -45,6 +45,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
     ] },
     { id: "cinema", label: "My Cinema", desc: "Your watching life — mapped, scored, remembered.", items: [
       { t: "My Room", h: "/room" },
+      { t: "The Navigator", h: "/room/navigator" },
       { t: "Import your films", h: "/me/import" },
       { t: "Journey", h: "/journey" },
       { t: "Board", h: "/board" },

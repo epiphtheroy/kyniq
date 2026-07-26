@@ -1,0 +1,66 @@
+/* The Navigator — web drive view (P3). Self-contained light palette so it works
+   inside the room without depending on room.css scope. Ported from the P1
+   prototype (public/navigator-preview.html). */
+.navd{--ink:#161512;--sub:#8A857C;--line:#E4DFD3;--red:#E3120B;--blue:#3B7DED;
+  --green:#1E7A46;--gold:#8F6A1E;--road:#D8D0BC;--field:#E9E2D0;
+  position:relative;display:flex;flex-direction:column;width:100%;max-width:520px;margin:0 auto;
+  height:calc(100dvh - 46px);min-height:520px;background:var(--field);border-radius:16px;overflow:hidden;
+  box-shadow:0 10px 40px rgba(30,26,18,.14);font-variant-numeric:tabular-nums}
+
+.navd .turn{position:relative;z-index:20;margin:12px 10px 0;background:var(--green);color:#fff;border-radius:16px;
+  box-shadow:0 10px 26px rgba(20,60,38,.3);overflow:hidden}
+.navd .turn .row{display:flex;align-items:center;gap:12px;padding:12px 14px 10px}
+.navd .turn .mnv{width:42px;text-align:center;flex:0 0 auto}
+.navd .turn .mnv .ar{font-size:30px;line-height:.9}
+.navd .turn .mnv .k{font-size:10px;font-weight:800;opacity:.9;margin-top:1px}
+.navd .turn .po{width:42px;height:63px;border-radius:6px;background:#0004 center/cover;border:1.5px solid #ffffff55;flex:0 0 auto}
+.navd .turn .tx{flex:1;min-width:0}
+.navd .turn .tt{font-family:"PT Serif",Georgia,serif;font-size:18px;font-weight:700;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.navd .turn .mt{font-size:11.5px;opacity:.9;margin-top:2px}
+.navd .turn .lane{display:inline-flex;align-items:center;gap:6px;margin-top:7px;background:#ffffff24;border:1px solid #ffffff40;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700}
+.navd .turn .lane .d{width:6px;height:6px;border-radius:50%;background:#84F3BC}
+.navd .turn .lane.rent .d{background:#F3D084}
+.navd .turn .then{display:flex;gap:8px;align-items:center;padding:8px 14px;background:#00000022;font-size:11.5px}
+.navd .turn .then .a{opacity:.8}
+
+.navd .map{position:relative;flex:1;min-height:0;overflow:hidden;background:linear-gradient(#EFE9D8,#E9E2D0 60%)}
+.navd .map .haze{position:absolute;left:0;right:0;top:0;height:32%;background:linear-gradient(#EFEADB,rgba(239,234,219,0));z-index:6}
+.navd .roadsvg{position:absolute;inset:0;width:100%;height:100%}
+.navd .street{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:10px;font-weight:800;color:#fff;background:#5E7C86;padding:2px 8px;border-radius:5px;box-shadow:0 2px 5px rgba(30,26,18,.25)}
+.navd .street.cur{background:#4A4640}
+
+.navd .sp{position:absolute;transform:translate(-50%,-100%);z-index:10}
+.navd .sp img{display:block;border-radius:7px;border:2px solid #fff;box-shadow:0 10px 16px rgba(30,26,18,.34);background:#ccc}
+.navd .sp .pole{position:absolute;left:50%;top:100%;width:2.5px;height:15px;background:linear-gradient(#9c927c,#b7ad96);transform:translateX(-50%);border-radius:2px}
+.navd .sp .shadow{position:absolute;left:50%;top:calc(100% + 14px);width:120%;height:9px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(40,34,22,.32),transparent 72%);z-index:-1}
+.navd .sp .cap{position:absolute;left:50%;top:calc(100% + 17px);transform:translateX(-50%);white-space:nowrap;font-size:10px;font-weight:700;color:#4A4640;background:rgba(255,255,255,.9);padding:1px 7px;border-radius:99px;box-shadow:0 1px 3px rgba(30,26,18,.15)}
+.navd .sp.now img{border-color:var(--red);box-shadow:0 0 0 3px rgba(227,18,11,.28),0 10px 16px rgba(30,26,18,.36)}
+.navd .sp.now .cap{background:var(--red);color:#fff}
+.navd .sp.dest .flag{position:absolute;left:50%;top:-15px;transform:translateX(-50%);font-size:16px}
+.navd .sp.dest .cap{background:var(--gold);color:#fff}
+
+.navd .me{position:absolute;left:50%;bottom:11%;transform:translateX(-50%);z-index:9;text-align:center}
+.navd .me .chev{width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-bottom:26px solid var(--red);filter:drop-shadow(0 3px 5px rgba(227,18,11,.55));margin:0 auto}
+.navd .me .dot{width:13px;height:13px;border-radius:50%;background:var(--red);border:2.5px solid #fff;margin:-3px auto 0}
+.navd .me .back{margin-top:6px;font-size:9.5px;font-weight:800;color:#a99f8c;background:rgba(255,255,255,.7);padding:1px 7px;border-radius:99px}
+
+.navd .sheet{position:relative;z-index:20;background:#fff;border-radius:20px 20px 0 0;padding:12px 18px 16px;box-shadow:0 -10px 30px rgba(30,26,18,.16);margin-top:-14px}
+.navd .sheet .grip{width:38px;height:5px;border-radius:99px;background:#E4DECF;margin:0 auto 12px}
+.navd .headline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.navd .headline .dur{font-size:25px;font-weight:800;letter-spacing:-.02em}
+.navd .headline .films{font-size:15px;font-weight:800;color:var(--red)}
+.navd .headline .soft{font-size:11.5px;color:var(--sub);font-weight:600;margin-left:auto}
+.navd .meter{margin:12px 0 2px}
+.navd .meter .track{position:relative;height:9px;border-radius:99px;background:#EDE7D8;overflow:hidden}
+.navd .meter .done{height:100%;background:linear-gradient(90deg,#C9A24A,var(--gold))}
+.navd .meter .knob{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--red);transform:translate(-50%,-50%)}
+.navd .meter .ends{display:flex;justify-content:space-between;margin-top:7px;font-size:11px}
+.navd .meter .ends b{font-weight:800}
+.navd .meter .ends .cap{display:block;color:var(--sub);font-weight:700;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1px}
+.navd .meter .ends .l .cap,.navd .meter .ends .l b{color:var(--gold)}
+.navd .meter .ends .r{text-align:right}.navd .meter .ends .r .cap,.navd .meter .ends .r b{color:var(--red)}
+.navd .prefs{display:flex;gap:6px;margin-top:13px}
+.navd .prefs a{flex:1;text-align:center;font-size:11.5px;font-weight:700;color:#4A4640;background:#F5F1E8;border:1px solid var(--line);border-radius:11px;padding:9px 0;text-decoration:none}
+.navd .prefs a.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.navd .arrived{text-align:center;padding:40px 20px}
+.navd .arrived .big{font-size:22px;font-weight:800;margin:8px 0}

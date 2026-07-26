@@ -3,7 +3,7 @@ import { loadWwi, loadCollection } from "@/lib/room/loadCollection";
 import { num, type NavHistRow, type WwiRow } from "@/lib/room/format";
 import DeskWorkspace, {
   type AuteurLite, type BlindTile, type ConquestTile, type CovBar, type DeskData, type GeoDot,
-  type NavJson, type PairState, type RateStats, type RecentRow,
+  type NavJson, type NavPrev, type PairState, type RateStats, type RecentRow,
 } from "@/components/room/DeskWorkspace";
 
 export const dynamic = "force-dynamic";
@@ -89,6 +89,18 @@ export default async function RoomDesk() {
       : (((auteurs.data as { slug: string; name: string | null; profile_path: string | null; seen: number | string | null; total: number | string | null; pct: number | string | null }[] | null) ?? [])
           .map((a) => ({ slug: a.slug, name: a.name ?? a.slug, profile_path: a.profile_path, seen: num(a.seen) ?? 0, total: num(a.total) ?? 0, pct: num(a.pct) ?? 0 }))
           .slice(0, 4) satisfies AuteurLite[]),
+    // Navigator "resume" preview — the top in-progress director conquest (reuses
+    // the me_auteur_conquest rows already fetched for My Map). Links into the
+    // full drive at /room/navigator; no extra RPC, no heavy load on the desk.
+    navPrev: auteurs.error
+      ? null
+      : (() => {
+          const rows = ((auteurs.data as { slug: string; name: string | null; seen: number | string | null; total: number | string | null; pct: number | string | null }[] | null) ?? [])
+            .map((a) => ({ dir: a.slug, label: a.name ?? a.slug, seen: num(a.seen) ?? 0, total: num(a.total) ?? 0, pct: num(a.pct) ?? 0 }))
+            .filter((a) => a.pct < 100 && a.seen > 0 && a.total >= 8)
+            .sort((a, b) => b.pct - a.pct);
+          return rows[0] ?? null;
+        })() satisfies NavPrev | null,
     geoDots: (() => {
       if (geo.error) return null;
       const g = geo.data as { points?: { lat: number | string | null; lng: number | string | null; narrative_setting: string | null }[] } | null;
