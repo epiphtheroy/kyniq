@@ -5,13 +5,14 @@ import MetatakeDeck from "@/components/odyssey/MetatakeDeck";
 import "../odyssey/odyssey.css";
 import "../odyssey/deck.css";
 
-// The journey proposal — the actual navigation. Static shell; the deck is a
-// client component that reads the map artifact and the viewer's seen films.
+// For You — a personalized draw of films, not a list. Static shell; the deck is
+// a client component that reads the map artifact and the viewer's seen films and
+// auto-deals nine picks on load.
 
 export const metadata: Metadata = {
-  title: "The Journey — your next film, not a list",
+  title: "For You — films picked from your taste",
   description:
-    "Not a list of good films — the next one that fits you right now. Metatake deals unseen films three ways — stable, adventure, and frontier — tuned to your taste, your services, and the years and genres you choose.",
+    "A personalized draw of nine unseen films, pulled from what you've watched and what's on your services. Three ways to go: a safe bet, a step past the familiar, and a different world entirely.",
   alternates: { canonical: "/journey" },
   robots: { index: true, follow: true },
 };
@@ -22,13 +23,18 @@ export default function JourneyPage() {
       <SiteNav />
       <main>
         <header className="ody-hero" style={{ paddingBottom: 4 }}>
-          <div className="seclbl">The journey</div>
-          <h1 className="disp">The journey to becoming a cinephile</h1>
+          <div className="seclbl">For You</div>
+          <h1 className="disp">Films picked for you</h1>
           <p className="standfirst">
-            Not a list of good films — the <b>next one</b> that fits you right now. Press the button and
-            unseen films fan out three ways: stable, adventure, and frontier. Want the whole picture?{" "}
+            A little box of picks, drawn just for you — from what you've watched and what's on your
+            services, <b>unseen ones only</b>, so there's always something new to open. Three ways to
+            go: a safe bet, a step further, and a different world entirely. Want the whole picture?{" "}
             <Link href="/odyssey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>
               Odyssey map →
+            </Link>{" "}
+            <span aria-hidden="true" style={{ color: "#cbc4b6" }}>·</span>{" "}
+            <Link href="/board" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>
+              Board →
             </Link>
           </p>
         </header>

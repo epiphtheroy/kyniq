@@ -1,4 +1,4 @@
-/* MetatakeDeck — the journey proposal. A dark "game table" (single-theme by
+/* MetatakeDeck — the "For You" draw. A dark "gift table" (single-theme by
    intent) so posters and the card flips pop. Scoped under .deck. */
 
 .deck { margin: 0 auto 26px; max-width: 1480px; padding: 0 18px; }
@@ -32,10 +32,11 @@
 .deck-div { width: 1px; height: 18px; background: #33291a; margin: 0 4px; }
 .deck-sel { background: #211b13; color: #efe9df; border: 1px solid #3a2f1e; border-radius: 8px;
   padding: 5px 8px; font-size: 12.5px; }
-.deck-sel:focus-visible, .deck-btn:focus-visible, .deal-act:focus-visible, .deal-star:focus-visible { outline: 2px solid #E3120B; outline-offset: 2px; }
+.deck-sel:focus-visible, .deck-draw:focus-visible, .deal-act:focus-visible, .deal-star:focus-visible { outline: 2px solid #E3120B; outline-offset: 2px; }
 
-/* seen pile + button */
-.deck-cta-row { position: relative; display: flex; align-items: center; gap: clamp(14px, 3vw, 40px); flex-wrap: wrap; }
+/* your seen pile + the gentle re-draw — anchored to the two ends of one row */
+.deck-cta-row { position: relative; display: flex; align-items: center; justify-content: space-between;
+  gap: clamp(14px, 3vw, 40px); flex-wrap: wrap; padding-bottom: 4px; border-bottom: 1px solid #241d13; }
 .deck-seen { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 120px; }
 .deck-pile { position: relative; width: 116px; height: 78px; }
 .deck-pile-img {
@@ -49,42 +50,54 @@
 .deck-seen-label { font-size: 12px; color: #a89e8c; }
 .deck-seen-label b { color: #f0c04b; font-weight: 800; font-size: 15px; }
 
-.deck-btn {
-  position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 1px; min-width: 260px; padding: 16px 34px; cursor: pointer; overflow: hidden;
-  border-radius: 14px; border: 1px solid #6a2018;
-  background: linear-gradient(175deg, #e3251a 0%, #C8102E 45%, #9c0f16 100%);
-  box-shadow: 0 14px 34px -14px rgba(227,18,11,.7), inset 0 1px 0 rgba(255,255,255,.28);
-  color: #fff; transition: transform .12s, box-shadow .2s;
+/* the re-draw — a warm, inviting pill, not a cold rectangle. It's secondary:
+   nine picks are already on screen, this just reshuffles the hand. */
+.deck-draw {
+  position: relative; display: inline-flex; align-items: center; gap: 9px;
+  padding: 11px 22px; cursor: pointer; white-space: nowrap;
+  border-radius: 999px; border: 1px solid rgba(240,192,75,.42);
+  background: linear-gradient(180deg, rgba(58,47,30,.72), rgba(30,25,17,.72));
+  color: #f2e6c9; font-size: 14px; font-weight: 600; letter-spacing: .01em; line-height: 1;
+  box-shadow: 0 8px 20px -12px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.07);
+  transition: transform .14s, box-shadow .22s, border-color .22s, background .22s;
 }
-.deck-btn::after { /* sheen */
-  content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
-  background: linear-gradient(100deg, transparent, rgba(255,255,255,.42), transparent);
-  transform: skewX(-18deg); animation: deck-sheen 4.5s ease-in-out infinite;
+.deck-draw:hover { transform: translateY(-1px); border-color: rgba(240,192,75,.72);
+  background: linear-gradient(180deg, rgba(70,56,35,.82), rgba(38,31,21,.82));
+  box-shadow: 0 14px 28px -14px rgba(240,192,75,.4), inset 0 1px 0 rgba(255,255,255,.12); }
+.deck-draw:active { transform: translateY(0); }
+.deck-draw:disabled { opacity: .55; cursor: default; box-shadow: none; }
+.deck-draw:disabled:hover { transform: none; border-color: rgba(240,192,75,.42);
+  background: linear-gradient(180deg, rgba(58,47,30,.72), rgba(30,25,17,.72)); }
+.deck-draw-icon { font-size: 17px; color: #f0c04b; transition: transform .5s cubic-bezier(.2,.75,.25,1); }
+.deck-draw:hover:not(:disabled) .deck-draw-icon { transform: rotate(-180deg); }
+.deck-draw.is-busy .deck-draw-icon { animation: deck-spin .8s cubic-bezier(.35,.1,.35,1) infinite; }
+@keyframes deck-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .deck-draw-icon, .deck-draw.is-busy .deck-draw-icon { animation: none; transition: none; }
 }
-@keyframes deck-sheen { 0%, 60% { left: -60%; } 85%, 100% { left: 130%; } }
-.deck-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 42px -14px rgba(227,18,11,.85), inset 0 1px 0 rgba(255,255,255,.3); }
-.deck-btn:active { transform: translateY(0); }
-.deck-btn:disabled { opacity: .6; cursor: default; }
-.deck-btn.is-dealing { animation: deck-press .4s ease; }
-@keyframes deck-press { 40% { transform: scale(.97); } }
-.deck-btn-mark { font-size: 15px; color: #ffe08a; text-shadow: 0 0 10px rgba(255,205,90,.7); }
-.deck-btn-word { font-family: Georgia, serif; font-weight: 800; font-size: 26px; letter-spacing: .12em; line-height: 1; }
-.deck-btn-sub { font-size: 11.5px; opacity: .9; letter-spacing: .05em; margin-top: 2px; }
 
 .deck-hint, .deck-basis { position: relative; margin-top: 16px; font-size: 13px; color: #a89e8c; }
 .deck-basis { color: #c79a3a; }
 
-/* dealt axes */
-.deck-axes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 24px); margin-top: 24px; }
-@media (max-width: 900px) { .deck-axes { grid-template-columns: 1fr; } }
-.deck-axis { border-top: 2px solid var(--ax); padding-top: 12px; }
-.deck-axis-head { margin-bottom: 12px; }
+/* the hand — even three-axis grid, aligned card rows, consistent rhythm */
+.deck-axes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 28px); margin-top: 26px; align-items: start; }
+@media (max-width: 900px) { .deck-axes { grid-template-columns: 1fr; gap: 22px; } }
+.deck-axis { display: flex; flex-direction: column; border-top: 2px solid var(--ax); padding-top: 14px; }
+.deck-axis-head { min-height: 50px; margin-bottom: 14px; }
 .deck-axis-title { font-family: Georgia, serif; font-size: 19px; font-weight: 800; color: var(--ax); }
 .deck-axis-axis { font-size: 13px; opacity: .7; margin-left: 1px; font-weight: 600; }
-.deck-axis-sub { display: block; font-size: 12px; color: #a89e8c; margin-top: 2px; }
-.deck-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.deck-axis-sub { display: block; font-size: 12px; color: #a89e8c; margin-top: 3px; line-height: 1.35; }
+.deck-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .deck-empty { grid-column: 1/-1; font-size: 12.5px; color: #8f8676; padding: 18px 4px; }
+
+/* forming state — skeleton posters at the exact card footprint, zero layout shift */
+.deck-skel { aspect-ratio: 2/3; border-radius: 9px; border: 1px solid rgba(255,255,255,.05);
+  background: linear-gradient(100deg, #17120c 28%, #241d14 50%, #17120c 72%);
+  background-size: 220% 100%; animation: deck-shim 1.4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 130ms); }
+@keyframes deck-shim { 0% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
+@media (prefers-reduced-motion: reduce) { .deck-skel { animation: none; } }
 
 /* flip cards */
 .deal-card { perspective: 1100px; }
@@ -136,7 +149,7 @@
 .deal-star.on { color: #f0c04b; }
 
 @media (max-width: 560px) {
-  .deck-btn { min-width: 0; width: 100%; }
-  .deck-cta-row { flex-direction: column; align-items: stretch; }
+  .deck-cta-row { flex-direction: column; align-items: center; gap: 16px; }
   .deck-seen { flex-direction: row; }
+  .deck-draw { align-self: center; }
 }

@@ -1,19 +1,19 @@
 "use client";
 
 /**
- * MetatakeDeck — the journey proposal (the actual navigation, not the atlas).
+ * MetatakeDeck — the "For You" draw. A warm box of picks, not a list.
  *
- * A big MET​ATAKE button, with a tiny pile of the films you've seen to its left
- * and the filters (your services · a year range · a genre) above it. Press it
- * and nine unseen films flip up like a dealt hand across three axes —
- * Stable (dead-centre of your taste), Adventure (a step past it),
- * Frontier (a different world). Each card takes Seen / Watchlist /
- * a star rating in place. Re-deal for a fresh hand.
+ * On load it auto-deals nine unseen films — a hand drawn from the viewer's own
+ * taste (the films they've seen) and their filters (services · a year range · a
+ * genre), laid out across three axes: Stable (dead-centre of your taste),
+ * Adventure (a step past it), Frontier (a different world). A tiny pile of the
+ * films you've seen sits alongside, each card takes Seen / Watchlist / a star
+ * rating in place, and a gentle "Draw again ↻" reshuffles the hand.
  */
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useUserFilms } from "@/components/UserFilmsProvider";
 import type { OdyAvail, OdyMap, OdyStation } from "@/lib/odyssey/types";
-import { AXES, dealJourney, type Axis, type DealFilters, type DealResult } from "@/lib/odyssey/deal";
+import { AXES, dealJourney, type DealFilters, type DealResult } from "@/lib/odyssey/deal";
 
 const IMG = "https://image.tmdb.org/t/p";
 const NOW = 2025;
@@ -73,6 +73,20 @@ export default function MetatakeDeck() {
     window.setTimeout(() => setDealing(false), 1400);
   }, [map, avail, servicesOnly, ensureAvail, yearMin, yearMax, genre, country, seed, seenSet]);
 
+  // Auto-deal on load: land the visitor on nine picks, never an empty state.
+  // We hold for the map artifact and — when a UserFilms provider is present —
+  // for the viewer's seen films to load, so the very first hand is taste-tuned
+  // rather than a starter course. Fires once; "Draw again" reshuffles after.
+  const ufReady = uf?.ready ?? false;
+  const hasProvider = !!uf;
+  const autoDealt = useRef(false);
+  useEffect(() => {
+    if (autoDealt.current || !map) return;
+    if (hasProvider && !ufReady) return;
+    autoDealt.current = true;
+    void deal();
+  }, [map, hasProvider, ufReady, deal]);
+
   const decades = useMemo(() => {
     const out: number[] = [];
     for (let d = 1900; d <= 2020; d += 10) out.push(d);
@@ -80,15 +94,13 @@ export default function MetatakeDeck() {
     return out;
   }, []);
 
-  const totalDealt = dealt ? (["stable", "adventure", "frontier"] as Axis[]).reduce((n, k) => n + dealt[k].length, 0) : 0;
-
   return (
-    <section className="deck" aria-label="Metatake journey">
+    <section className="deck" aria-label="Films picked for you">
       <div className="deck-inner">
-        <div className="deck-eyebrow">The Journey</div>
-        <h2 className="deck-title">The map is the atlas. This is the navigation.</h2>
+        <div className="deck-eyebrow">Drawn for you</div>
+        <h2 className="deck-title">Nine films, picked from your taste</h2>
         <p className="deck-lede">
-          From the films you've seen, we chart three ways forward — <b style={{ color: AXES[0].color }}>Stable</b> sits dead-centre of your taste,{" "}
+          Not a list of good films — the next ones that fit you. From what you've seen, three ways forward: <b style={{ color: AXES[0].color }}>Stable</b> sits dead-centre of your taste,{" "}
           <b style={{ color: AXES[1].color }}>Adventure</b> a step beyond, <b style={{ color: AXES[2].color }}>Frontier</b> a
           different world entirely. Unseen films only, tuned to your settings.
         </p>
@@ -120,7 +132,7 @@ export default function MetatakeDeck() {
           </select>
         </div>
 
-        {/* the button + seen pile */}
+        {/* your seen pile + the gentle re-draw */}
         <div className="deck-cta-row">
           <div className="deck-seen" title={`${seenSet.size} films seen`}>
             {seenPile.length ? (
@@ -136,14 +148,18 @@ export default function MetatakeDeck() {
             <div className="deck-seen-label">{seenSet.size ? <><b>{seenSet.size}</b> you've seen</> : "Nothing logged yet"}</div>
           </div>
 
-          <button className={`deck-btn${dealing ? " is-dealing" : ""}`} onClick={() => void deal()} disabled={!map}>
-            <span className="deck-btn-mark">✦</span>
-            <span className="deck-btn-word">METATAKE</span>
-            <span className="deck-btn-sub">{dealt ? "Deal again" : "Deal 9 films"}</span>
+          <button
+            className={`deck-draw${dealing || !dealt ? " is-busy" : ""}`}
+            onClick={() => void deal()}
+            disabled={!dealt}
+            aria-label={dealt ? "Draw again" : "Drawing your films"}
+          >
+            <span className="deck-draw-icon" aria-hidden="true">↻</span>
+            <span className="deck-draw-word">{dealt ? "Draw again" : "Drawing…"}</span>
           </button>
         </div>
 
-        {/* dealt hand */}
+        {/* the hand — nine picks, always on screen */}
         {dealt ? (
           <div className="deck-axes" key={seed}>
             {AXES.map((ax) => (
@@ -163,16 +179,26 @@ export default function MetatakeDeck() {
             ))}
           </div>
         ) : (
-          <div className="deck-hint">
-            {seenSet.size >= 3
-              ? "Press the button and three paths open from your taste."
-              : "Sign in and mark a few films you've seen, and the paths will start from your taste. (For now, we deal a starter course.)"}
+          <div className="deck-axes" aria-hidden="true">
+            {AXES.map((ax) => (
+              <div className="deck-axis" key={ax.key} style={{ ["--ax" as string]: ax.color, ["--axg" as string]: ax.glow }}>
+                <div className="deck-axis-head">
+                  <span className="deck-axis-title">{ax.title}<span className="deck-axis-axis"> axis</span></span>
+                  <span className="deck-axis-sub">{ax.sub}</span>
+                </div>
+                <div className="deck-cards">
+                  {[0, 1, 2].map((i) => <div className="deck-skel" key={i} style={{ ["--i" as string]: i }} />)}
+                </div>
+              </div>
+            ))}
           </div>
         )}
+
         {dealt && dealt.basis === "starter" ? (
-          <div className="deck-basis">Dealt as a starter course — the more films you mark as seen, the more the picks fit you.</div>
+          <div className="deck-basis">Drawn as a starter course — the more films you mark as seen, the more these picks fit you.</div>
+        ) : !dealt ? (
+          <div className="deck-hint">Drawing your films…</div>
         ) : null}
-        {dealt && totalDealt === 0 ? null : null}
       </div>
     </section>
   );
