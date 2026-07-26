@@ -66,7 +66,7 @@
   .signpost.dest .lbl{background:var(--gold);color:#fff}
 
   /* the "me" chevron */
-  .me{position:absolute;left:50%;top:340px;transform:translate(-50%,-50%);z-index:5}
+  .me{position:absolute;left:50%;top:372px;transform:translate(-50%,-50%);z-index:5}
   .me .puck{width:30px;height:30px;border-radius:50%;background:var(--red);border:3px solid #fff;
     box-shadow:0 3px 10px rgba(227,18,11,.5);position:relative}
   .me .puck::after{content:"";position:absolute;left:50%;top:-11px;transform:translateX(-50%);
@@ -204,40 +204,35 @@
       <div class="map"></div>
 
       <svg class="route-svg" viewBox="0 0 300 470" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M150,470 C150,410 118,372 120,318 C122,262 188,262 186,214
-                 C184,166 108,168 110,120 C112,78 182,84 180,52 C178,28 150,26 150,12"
-              fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round"/>
-        <path d="M150,470 C150,410 118,372 120,318 C122,262 188,262 186,214
-                 C184,166 108,168 110,120 C112,78 182,84 180,52 C178,28 150,26 150,12"
-              fill="none" stroke="#3B7DED" stroke-width="14" stroke-linecap="round"/>
+        <path d="M150,470 C150,420 96,398 96,352 C96,300 150,300 150,258
+                 C150,214 96,214 96,170 C96,128 150,128 150,92 C150,60 150,44 150,20"
+              fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round"/>
+        <path d="M150,470 C150,420 96,398 96,352 C96,300 150,300 150,258
+                 C150,214 96,214 96,170 C96,128 150,128 150,92 C150,60 150,44 150,20"
+              fill="none" stroke="#3B7DED" stroke-width="13" stroke-linecap="round"/>
       </svg>
 
       <div class="roadwrap">
-        <!-- passed -->
-        <div class="signpost" style="left:50%;top:96%;width:40px;filter:grayscale(1) opacity(.55)">
-          <img src="https://image.tmdb.org/t/p/w185/8Puqbeh0D95DpXFWep1rmH78btu.jpg" alt="">
-          <div class="lbl">✓ Lolita</div>
-        </div>
-        <!-- me -->
+        <!-- me (position marker on the road) -->
         <div class="me"><div class="beam"></div><div class="puck"></div></div>
-        <!-- upcoming -->
-        <div class="signpost now" style="left:40%;top:64%;width:58px">
+        <!-- next turn: to the right of the road, clear of the chevron -->
+        <div class="signpost now" style="left:63%;top:41%;width:40px">
           <img src="https://image.tmdb.org/t/p/w185/6x7MzQ6BOMlRzam1StcmPO9v61g.jpg" alt="">
-          <span class="stem"></span><div class="lbl">지금 · Dr. Strangelove</div>
+          <span class="stem"></span><div class="lbl">지금 · 700m</div>
         </div>
-        <div class="signpost" style="left:62%;top:47%;width:50px">
+        <div class="signpost" style="left:66%;top:32%;width:34px">
           <img src="https://image.tmdb.org/t/p/w185/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg" alt="">
           <span class="stem"></span><div class="lbl">2001</div>
         </div>
-        <div class="signpost" style="left:37%;top:33%;width:43px;opacity:.94">
+        <div class="signpost" style="left:31%;top:24%;width:31px;opacity:.94">
           <img src="https://image.tmdb.org/t/p/w185/4sHeTAp65WrSSuc05nRBKddhBxO.jpg" alt="">
-          <span class="stem"></span><div class="lbl">Clockwork Orange</div>
+          <span class="stem"></span><div class="lbl">Clockwork</div>
         </div>
-        <div class="signpost" style="left:60%;top:22%;width:37px;opacity:.86">
+        <div class="signpost" style="left:66%;top:16%;width:28px;opacity:.86">
           <img src="https://image.tmdb.org/t/p/w185/A0byHUHMwZ7dtBQtfZ44QIgDbjo.jpg" alt="">
           <span class="stem"></span><div class="lbl">Barry Lyndon</div>
         </div>
-        <div class="signpost dest" style="left:50%;top:11%;width:36px;opacity:.82">
+        <div class="signpost dest" style="left:50%;top:7%;width:30px;opacity:.85">
           <span class="flag">🏁</span>
           <img src="https://image.tmdb.org/t/p/w185/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg" alt="">
           <span class="stem"></span><div class="lbl">도착 · The Shining</div>
