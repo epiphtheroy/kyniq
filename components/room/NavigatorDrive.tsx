@@ -257,8 +257,13 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
     drag.current = { x: e.clientX, y: e.clientY, tx: view.tx, ty: view.ty };
   }, [view.tx, view.ty]);
   const onMove = useCallback((e: React.PointerEvent) => {
-    if (!drag.current) return;
-    setView((v) => ({ ...v, tx: drag.current!.tx + (e.clientX - drag.current!.x), ty: drag.current!.ty + (e.clientY - drag.current!.y) }));
+    // Snapshot the drag origin + pointer coords into locals BEFORE setView. A functional
+    // updater can run after onUp clears drag.current (fast flings batch updates), so it must
+    // never read the ref — otherwise `drag.current!.tx` throws "reading 'tx' of null".
+    const d = drag.current;
+    if (!d) return;
+    const cx = e.clientX, cy = e.clientY;
+    setView((v) => ({ ...v, tx: d.tx + (cx - d.x), ty: d.ty + (cy - d.y) }));
   }, []);
   const onUp = useCallback(() => { drag.current = null; }, []);
   const onWheel = useCallback((e: React.WheelEvent) => {
