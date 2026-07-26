@@ -121,7 +121,9 @@
 /* ── Two-pane shell (P5) — left destination rail · right drive map (Google-Maps desktop shape) ── */
 .nav-shell{--ink:#161512;--sub:#8A857C;--line:#E4DFD3;--field:#E9E2D0;--green:#1E7A46;
   display:grid;grid-template-columns:minmax(320px,380px) 1fr;gap:18px;
-  max-width:1180px;margin:0 auto;padding:14px 16px;box-sizing:border-box;height:calc(100dvh - 84px)}
+  max-width:1180px;margin:0 auto;padding:14px 16px;box-sizing:border-box;
+  /* fit exactly under the site nav + room bar so the whole two-pane shows without an initial scroll */
+  height:calc(100dvh - 112px)}
 .nav-rail{min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 .nav-rail .navd.np{max-width:none;width:100%;margin:0;background:transparent}
 .nav-stage{position:relative;min-height:0;display:flex;align-items:stretch;justify-content:center;overflow:hidden}
