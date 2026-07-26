@@ -54,6 +54,28 @@ export const NAV_GROUPS: NavGroup[] = [
 /** Flat list (rail order) — what CmdK PAGES iterates. */
 export const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((g) => g.items);
 
+/** v4 room bar (HANDOFF-마이룸-v4 §1-3): six primary doors + everything else
+ *  under "More". Presentation-layer only — every route stays live, CmdK still
+ *  iterates NAV_ITEMS, bookmarks and deep links are untouched. */
+export const PRIMARY_DOORS: NavItem[] = [
+  { label: "Screener", icon: "ti-target-arrow", href: "/room/screener" },
+  { label: "Slate", icon: "ti-stack-2", href: "/room/slate", countKey: "watchlist" },
+  { label: "Ledger", icon: "ti-star", href: "/room/ledger" },
+  { label: "Coverage", icon: "ti-chart-arcs", href: "/room/coverage" },
+  { label: "Locations", icon: "ti-map-2", href: "/room/locations" },
+  { label: "Takes", icon: "ti-feather", href: "/room/takes" },
+];
+export const MORE_DOORS: NavItem[] = [
+  { label: "Masquerade", icon: "ti-masks-theater", href: "/room/masquerade" },
+  { label: "Holdings", icon: "ti-list-details", href: "/room/holdings", countKey: "collection" },
+  { label: "Performance", icon: "ti-chart-line", href: "/room/performance" },
+  { label: "Auteurs", icon: "ti-crown", href: "/room/auteurs" },
+  { label: "Signature", icon: "ti-fingerprint", href: "/room/signature" },
+  { label: "Lens", icon: "ti-telescope", href: "/room/lens" },
+  { label: "Shelf", icon: "ti-books", href: "/room/shelf" },
+  { label: "Packs", icon: "ti-file-download", href: "/room/packs" },
+];
+
 /** Off-rail destinations that still deserve a palette entry. */
 export const EXTRA_PAGES: NavItem[] = [
   { label: "Public profile", icon: "ti-user-circle", href: "/u/me" },

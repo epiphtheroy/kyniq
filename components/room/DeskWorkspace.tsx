@@ -280,12 +280,27 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
   const todayDelta = today ? num(today.delta) : null;
 
   return (
-    <div className="v2wrap" style={{ gap: 22, paddingBottom: 40 }}>
-      {/* ⓪ Connection ticker — terminal tape of computed cross-film links */}
+    <div className="v2wrap" style={{ gap: 18, paddingBottom: 40 }}>
+      {/* ⓪ Connection ticker — ambient tape of computed cross-film links */}
       <SentenceTicker variant="room" n={40} />
 
+      {/* v4 (마이룸-v4 §1-4): the desk is three questions — Tonight / My Map /
+          Records — with sticky anchor tabs. Bands below are v3 logic, regrouped. */}
+      <nav className="dk-tabs" aria-label="Room sections">
+        <a className="dk-tab" href="#tonight">Tonight</a>
+        <a className="dk-tab" href="#mymap">My Map</a>
+        <a className="dk-tab" href="#records">Records</a>
+      </nav>
+
+      {/* ═ TONIGHT — what should I watch? ═ */}
+      <section id="tonight" className="dk-sec">
+      <div className="dk-sechd">
+        <h2>Tonight</h2><span className="sub">what should I watch?</span>
+        <Link className="go" href="/what-to-watch">Every filter → What to Watch</Link>
+      </div>
+
       {/* ① Log bar */}
-      <div>
+      <div style={{ marginBottom: 14 }}>
         <QuickRate onRate={(h: QuickHit, v: number) => void rateNew({ ...h, rating: null, date: null }, v)} />
         {sessionLine ? <div style={{ fontSize: 11.5, color: "var(--sub)", marginTop: 8 }}>{sessionLine}</div> : null}
       </div>
@@ -325,6 +340,53 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           Tonight&apos;s pool is cleared — <Link href={HREF.screener} style={{ color: "var(--mut)" }}>the Screener has more →</Link>
         </div>
       )}
+      </section>
+
+      {/* ═ MY MAP — who am I as a viewer? ═ */}
+      <section id="mymap" className="dk-sec">
+      <div className="dk-sechd">
+        <h2>My Map</h2><span className="sub">who am I as a viewer?</span>
+        <Link className="go" href={HREF.coverage}>Coverage →</Link>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
+        {data.conquest ? (
+          <Link className="vline" style={jobStyle} href={HREF.coverage}>
+            <i className="ti ti-flag" style={{ color: "var(--sub)" }} />
+            <span style={jobText}>{conquestLine(data.conquest)}</span>
+            <span style={jobDest}>→ Coverage</span>
+          </Link>
+        ) : null}
+        {data.blind ? (
+          <Link className="vline" style={jobStyle} href={HREF.coverage}>
+            <i className="ti ti-chart-arcs" style={{ color: "var(--sub)" }} />
+            <span style={jobText}>{data.blind.label}: {data.blind.gap_reason}</span>
+            <span style={jobDest}>→ Coverage</span>
+          </Link>
+        ) : null}
+        <Link className="vline" style={jobStyle} href="/room/locations">
+          <i className="ti ti-map-2" style={{ color: "var(--sub)" }} />
+          <span style={jobText}>Where your films took you — the world map</span>
+          <span style={jobDest}>→ Locations</span>
+        </Link>
+        <Link className="vline" style={jobStyle} href="/room/signature">
+          <i className="ti ti-fingerprint" style={{ color: "var(--sub)" }} />
+          <span style={jobText}>Your taste, fingerprinted</span>
+          <span style={jobDest}>→ Signature</span>
+        </Link>
+        <Link className="vline" style={jobStyle} href={HREF.masquerade}>
+          <i className="ti ti-masks-theater" style={{ color: "var(--sub)" }} />
+          <span style={jobText}>{pairLine(data)}</span>
+          <span style={jobDest}>→ Masquerade</span>
+        </Link>
+      </div>
+      </section>
+
+      {/* ═ RECORDS — what have I seen? ═ */}
+      <section id="records" className="dk-sec">
+      <div className="dk-sechd">
+        <h2>Records</h2><span className="sub">what have I seen &amp; kept?</span>
+        <Link className="go" href={HREF.ledger}>Full ledger →</Link>
+      </div>
 
       {/* ③ Session tape */}
       <div>
@@ -363,36 +425,30 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         </div>
       )}
 
-      {/* ⑤ Open jobs — link tiles only (doors, no modules) */}
-      <div>
-        <div className="v2h"><h3>Open jobs</h3></div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
-          {data.conquest ? (
-            <Link className="vline" style={jobStyle} href={HREF.coverage}>
-              <i className="ti ti-flag" style={{ color: "var(--sub)" }} />
-              <span style={jobText}>{conquestLine(data.conquest)}</span>
-              <span style={jobDest}>→ Coverage</span>
-            </Link>
-          ) : null}
-          {data.blind ? (
-            <Link className="vline" style={jobStyle} href={HREF.coverage}>
-              <i className="ti ti-chart-arcs" style={{ color: "var(--sub)" }} />
-              <span style={jobText}>{data.blind.label}: {data.blind.gap_reason}</span>
-              <span style={jobDest}>→ Coverage</span>
-            </Link>
-          ) : null}
-          <Link className="vline" style={jobStyle} href={HREF.masquerade}>
-            <i className="ti ti-masks-theater" style={{ color: "var(--sub)" }} />
-            <span style={jobText}>{pairLine(data)}</span>
-            <span style={jobDest}>→ Masquerade</span>
-          </Link>
-          <Link className="vline" style={jobStyle} href={HREF.screener}>
-            <i className="ti ti-target-arrow" style={{ color: "var(--sub)" }} />
-            <span style={jobText}>Full screener</span>
-            <span style={jobDest}>→</span>
-          </Link>
-        </div>
+      {/* doors — the rest of the records world (routes all live) */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10, marginTop: 12 }}>
+        <Link className="vline" style={jobStyle} href="/room/slate">
+          <i className="ti ti-stack-2" style={{ color: "var(--sub)" }} />
+          <span style={jobText}>Your watchlist, ranked</span>
+          <span style={jobDest}>→ Slate</span>
+        </Link>
+        <Link className="vline" style={jobStyle} href="/room/shelf">
+          <i className="ti ti-books" style={{ color: "var(--sub)" }} />
+          <span style={jobText}>Pins &amp; saved readings</span>
+          <span style={jobDest}>→ Shelf</span>
+        </Link>
+        <Link className="vline" style={jobStyle} href="/room/takes">
+          <i className="ti ti-feather" style={{ color: "var(--sub)" }} />
+          <span style={jobText}>Write your own take</span>
+          <span style={jobDest}>→ Takes</span>
+        </Link>
+        <Link className="vline" style={jobStyle} href="/me/import">
+          <i className="ti ti-download" style={{ color: "var(--sub)" }} />
+          <span style={jobText}>Import your watch history</span>
+          <span style={jobDest}>→ Import</span>
+        </Link>
       </div>
+      </section>
     </div>
   );
 }

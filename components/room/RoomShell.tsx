@@ -10,7 +10,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { NAV_GROUPS } from "@/lib/room/nav";
+import { PRIMARY_DOORS, MORE_DOORS } from "@/lib/room/nav";
 import { STR } from "./strings";
 import { InspectorProvider, useInspector } from "./InspectorContext";
 import { SessionStoreProvider } from "./SessionStore";
@@ -32,19 +32,6 @@ export type NavChip = {
   lines?: number | null;
 };
 export type RailCounts = { collection?: number; watchlist?: number };
-
-/* Collapsed state persists in localStorage; if unset, auto-collapse when the
-   viewport is narrower than `collapseBelow` so the workspace fits on first load. */
-function useSticky(key: string, collapseBelow = 0) {
-  const [v, setV] = useState(false);
-  useEffect(() => {
-    const s = localStorage.getItem(key);
-    if (s != null) setV(s === "1");
-    else if (collapseBelow > 0 && typeof window !== "undefined") setV(window.innerWidth < collapseBelow);
-  }, [key, collapseBelow]);
-  const toggle = () => setV((p) => { const n = !p; localStorage.setItem(key, n ? "1" : "0"); return n; });
-  return [v, toggle] as const;
-}
 
 /** Inline micro sparkline (no axes — a pulse, not a chart). Hidden under 2 points. */
 function Spark({ values, w = 64, h = 18 }: { values: number[]; w?: number; h?: number }) {
@@ -145,61 +132,68 @@ export default function RoomShell({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [railC, toggleRail] = useSticky("mt_rail", 900);
   const [cmdk, setCmdk] = useState(false);
+  const [more, setMore] = useState(false);
 
   useEffect(() => {
     const h = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); setCmdk((v) => !v); } };
     window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h);
   }, []);
+  useEffect(() => { setMore(false); }, [pathname]); // close More on navigation
+
+  const door = (it: (typeof PRIMARY_DOORS)[number]) => {
+    const on = pathname.startsWith(it.href);
+    const ct = it.countKey ? counts[it.countKey] : undefined;
+    return (
+      <Link key={it.href} className={`rb-door${on ? " on" : ""}`} href={it.href} title={it.label}>
+        {it.label}
+        {ct != null ? <span className="ct">{ct}</span> : null}
+      </Link>
+    );
+  };
 
   return (
-    /* .room-root is outermost so every portal-free child (toast host included)
-       stays inside the dark-shell CSS scope and its token set. */
-    <div className="room-root">
+    /* v4 (HANDOFF-마이룸-v4 §1): the room lives UNDER the global SiteNav in
+       normal document flow — no fixed-inset takeover, footer visible again.
+       The 15-item rail is replaced by a slim sticky room bar: [My Room] + six
+       primary doors + More (everything else) + NAV chip / Brief / profile.
+       .room-root stays outermost so the room CSS token scope still applies. */
+    <div className="room-root room-v4">
       <InspectorProvider>
         <SessionStoreProvider>
           <ToastProvider>
-            {/* APP BAR */}
-            <div className="appbar">
-              <Link className="logo" href="/room">META TAKE</Link>
-              <div className="cmdk" onClick={() => setCmdk(true)}><i className="ti ti-search" /><span>{STR.cmdk.placeholder}</span><span className="kbd">⌘K</span></div>
+            {/* ROOM BAR — slim, sticky under the site nav */}
+            <div className="roombar">
+              <Link className={`rb-home${pathname === "/room" ? " on" : ""}`} href="/room">My Room</Link>
+              <nav className="rb-doors" aria-label={STR.shell.railAria}>
+                {PRIMARY_DOORS.map(door)}
+                <span className="rb-more">
+                  <button type="button" className={`rb-door rb-morebtn${more ? " on" : ""}`} aria-expanded={more} onClick={() => setMore((v) => !v)}>
+                    More <i className="ti ti-chevron-down" />
+                  </button>
+                  {more ? (
+                    <span className="rb-moremenu" role="menu">
+                      {MORE_DOORS.map((it) => (
+                        <Link key={it.href} role="menuitem" className={`rb-mitem${pathname.startsWith(it.href) ? " on" : ""}`} href={it.href}>
+                          <i className={`ti ${it.icon}`} /> {it.label}
+                        </Link>
+                      ))}
+                      <Link role="menuitem" className="rb-mitem" href="/me/import"><i className="ti ti-download" /> {STR.shell.railImport}</Link>
+                    </span>
+                  ) : null}
+                </span>
+              </nav>
               <div className="abright">
                 <NavChipButton chip={chip} />
                 <BriefButton />
+                <span className="iconbtn" onClick={() => setCmdk(true)} title={STR.cmdk.placeholder}><i className="ti ti-search" /></span>
                 <span className="iconbtn" onClick={() => router.refresh()} title={STR.shell.refresh}><i className="ti ti-refresh" /></span>
                 <a className="ava ser" href="/u/me" title={STR.shell.publicProfile}>me</a>
               </div>
             </div>
 
-            {/* SHELL — rail + main (inspector is an on-demand overlay) */}
+            {/* MAIN — normal flow (v4 CSS neutralizes the old fixed shell) */}
             <div className="shell">
-              <nav className={`col rail${railC ? " collapsed" : ""}`} aria-label={STR.shell.railAria}>
-                <div className="col-scroll" style={{ display: "flex", flexDirection: "column" }}>
-                  <div className="railhd"><span className="eb">{STR.shell.railAria}</span><span className="chv" onClick={toggleRail}><i className="ti ti-layout-sidebar-left-collapse" /></span></div>
-                  {NAV_GROUPS.map((g) => (
-                    <div className="navsec" key={g.sec}>
-                      <div className="navlbl">{g.sec}</div>
-                      {g.items.map((it) => {
-                        const on = it.href === "/room" ? pathname === "/room" : pathname.startsWith(it.href);
-                        const ct = it.countKey ? counts[it.countKey] : undefined;
-                        return (
-                          <Link key={it.href} className={`nv${on ? " on" : ""}`} href={it.href} title={it.label}>
-                            <i className={`ti lead ${it.icon}`} />
-                            <span className="tx">{it.label}</span>
-                            {ct != null ? <span className="ct">{ct}</span> : null}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  ))}
-                  <div className="railft">
-                    <Link className="rimp" href="/me/import"><i className="ti ti-download" /> {STR.shell.railImport}</Link>
-                    <div>{STR.shell.railFooter}</div>
-                  </div>
-                </div>
-              </nav>
-
               <main className="col main"><div className="col-scroll">{children}</div></main>
             </div>
 

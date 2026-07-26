@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { num, tierOf, type NavHistRow } from "@/lib/room/format";
 import RoomShell, { type NavChip, type RailCounts } from "@/components/room/RoomShell";
+import SiteNav from "@/components/home2/SiteNav";
 import "./room.css";
+import "./room-v4.css";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -46,5 +48,11 @@ export default async function RoomLayout({ children }: { children: React.ReactNo
   };
   const counts: RailCounts = { collection: pb?.watched ?? undefined, watchlist: pb?.watchlist ?? undefined };
 
-  return <RoomShell chip={chip} counts={counts}>{children}</RoomShell>;
+  // v4: the room lives under the global site nav (노헤드 종료 — 마이룸-v4 §1-2).
+  return (
+    <>
+      <SiteNav />
+      <RoomShell chip={chip} counts={counts}>{children}</RoomShell>
+    </>
+  );
 }
