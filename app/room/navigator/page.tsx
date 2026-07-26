@@ -102,7 +102,7 @@ export default async function NavigatorPage({
     for (const r of ((idxRes.data as LineageIdxRow[] | null) ?? [])) {
       if (Number(r.film_count ?? 0) <= 0) continue;
       seenListSlugs.add(r.slug);
-      catalog.push({ slug: r.slug, label: r.label, facet: r.facet, film_count: Number(r.film_count ?? 0), ...(covBySlug.get(r.slug) ?? {}) });
+      catalog.push({ slug: r.slug, label: r.label, facet: r.facet, film_count: Number(r.film_count ?? 0), parent_label: r.parent_label ?? null, country: r.country ?? null, ...(covBySlug.get(r.slug) ?? {}) });
     }
     const mv = (mvRes.data as { movements?: MvHubRow[] } | null) ?? {};
     for (const h of (mv.movements ?? [])) {
@@ -181,7 +181,7 @@ export default async function NavigatorPage({
 interface ActiveDrive { dest_kind: string; dest_key: string; dest_label: string | null; route_pref: string | null; }
 
 /** lineage_index row (public RPC — same one /lineage & /room/locations read). */
-interface LineageIdxRow { facet: string; slug: string; label: string; country: string | null; film_count: number | string | null; }
+interface LineageIdxRow { facet: string; slug: string; label: string; parent_label: string | null; country: string | null; film_count: number | string | null; }
 /** movements_index().movements hub (public RPC — a movement that IS a lineage list). */
 interface MvHubRow { slug: string; label: string; film_count: number | string | null; }
 

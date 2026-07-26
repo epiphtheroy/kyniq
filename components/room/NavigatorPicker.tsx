@@ -36,6 +36,8 @@ export type CatalogEntry = {
   label: string;
   facet: string;
   film_count: number;
+  parent_label?: string | null;  // e.g. "Cannes Film Festival" for the "Palme d'Or" list
+  country?: string | null;
   seen?: number;
   total?: number;
   pct?: number;
@@ -159,14 +161,29 @@ export default function NavigatorPicker({
     return { m, facets };
   }, [catalog]);
 
-  // Instant client-side name filter over the whole catalog.
+  // Instant, fuzzy-ish client-side filter over the WHOLE catalog. Searches each list's
+  // label + parent (e.g. "Cannes Film Festival" for "Palme d'Or") + facet + country, so
+  // "cannes" finds the Palme d'Or list, "korea" finds Korean cinema, etc. Word-order
+  // independent: every whitespace-separated token must appear somewhere in that text.
   const nameHits = useMemo(() => {
     if (!searching) return [];
-    const s = query.toLowerCase();
+    const tokens = query.toLowerCase().split(/\s+/).filter(Boolean);
+    if (!tokens.length) return [];
+    const hay = (c: CatalogEntry) =>
+      `${c.label} ${c.parent_label ?? ""} ${FACET_EN[c.facet] ?? c.facet ?? ""} ${c.country ?? ""}`.toLowerCase();
+    const q0 = query.toLowerCase();
     return catalog
-      .filter((c) => c.label.toLowerCase().includes(s))
-      .sort((a, b) => (b.total ?? 0) - (a.total ?? 0) || b.film_count - a.film_count || a.label.localeCompare(b.label))
-      .slice(0, NAME_CAP);
+      .map((c) => ({ c, h: hay(c) }))
+      .filter(({ h }) => tokens.every((t) => h.includes(t)))
+      .map(({ c }) => {
+        const lbl = c.label.toLowerCase();
+        // rank: label starts-with > label contains the phrase > matched via parent/facet/country
+        const rank = lbl.startsWith(tokens[0]) ? 0 : lbl.includes(q0) ? 1 : 2;
+        return { c, rank };
+      })
+      .sort((a, b) => a.rank - b.rank || (b.c.total ?? 0) - (a.c.total ?? 0) || b.c.film_count - a.c.film_count || a.c.label.localeCompare(b.c.label))
+      .slice(0, NAME_CAP)
+      .map((x) => x.c);
   }, [catalog, query, searching]);
 
   // Debounced film→lists lookup. Same-origin fetch (CSP-safe), aborts stale calls.
