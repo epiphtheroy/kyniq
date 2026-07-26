@@ -2,6 +2,11 @@
    intent) so posters and the card flips pop. Scoped under .deck. */
 
 .deck { margin: 0 auto 26px; max-width: 1480px; padding: 0 18px; }
+/* /journey hero: align its text column with the deck's content + cards (same 1480
+   container + the deck-inner content inset) so the left edge is consistent. */
+.ody-hero.ody-hero--fy { max-width: 1480px;
+  padding-left: calc(18px + clamp(18px, 3vw, 40px));
+  padding-right: calc(18px + clamp(18px, 3vw, 40px)); }
 .deck-inner {
   position: relative; border-radius: 18px; padding: 26px clamp(18px, 3vw, 40px) 30px;
   background:

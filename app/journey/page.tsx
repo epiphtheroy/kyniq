@@ -22,7 +22,7 @@ export default function JourneyPage() {
     <>
       <SiteNav />
       <main>
-        <header className="ody-hero" style={{ paddingBottom: 4 }}>
+        <header className="ody-hero ody-hero--fy" style={{ paddingBottom: 4 }}>
           <div className="seclbl">For You</div>
           <h1 className="disp">Films picked for you</h1>
           <p className="standfirst">
