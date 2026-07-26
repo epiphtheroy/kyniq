@@ -202,7 +202,7 @@ nav_drives (id, user_id, dest_id, route_pref, started_at, arrived_at, skipped[] 
 
 - **P0 기획 승인** — 이 문서, 오너 결정 §12.
 - **P1 종이 프로토타입 ✅ SHIPPED (2026-07-26)** — `public/navigator-preview.html` → **metatake.net/navigator-preview.html**(noindex, JS-0 CSP-proof, 실 큐브릭 데이터). 3화면 CSS-only 전환(어디로/경로/주행). 주행 뷰=구글맵 형태(초록 다음-턴 배너·파란 경로·빨간 위치 화살표·포스터 표지판·하단 ETA/진행바). 자가검수 스크린샷 2회. **오너 감각 검증 대기 → OK면 P2.**
-- **P2 목적지 카탈로그+경로 엔진** — 6과 중 **정전·감독**부터(진행률 데이터 최상) · 순수 함수+테스트.
+- **P2 목적지 카탈로그+경로 엔진 ✅ 코어 SHIPPED (2026-07-26)** — `lib/navigator/route.ts`(결정론 엔진: buildRoute 3경로·tripStats·turnReason·fmt, LLM-0·순수·무I/O) + `lib/navigator/destinations.ts`(directorDestination·canonDestination 조립). **실 큐브릭 데이터로 13/13 런타임 검증**(node --experimental-strip-types): 지나온 592=9:52·남은 713=11시간53분·fewest=연대기·fastest=러닝타임·no_tolls=구독먼저(대여=toll 후미)·ETA 주단위·결정론. tsc 클린. 잔여(P2.1): 실 RPC 배선(me_auteur_conquest·lineage rows→SourceFilm)·6과 확장·runtime 결측 처리.
 - **P3 웹 주행 뷰** — /room/navigator + 룸 Tonight 미니카드.
 - **P4 앱 이식** — Tonight 탭 통합(JS-only·OTA).
 - **P5 오버뷰(오디세이 오버레이)·도착 카드·공유.**
