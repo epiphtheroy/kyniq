@@ -14,6 +14,12 @@
  * initial zoom adapts to journey size — short journeys frame intimately, long
  * journeys frame the road ahead and pan forward. If the odyssey data hasn't
  * loaded (or no film is on the map) the original synthetic overworld is drawn.
+ *
+ * The ~2,000 background stations live in a large pannable field (their real odyssey
+ * x,yy mapped over an area bigger than the viewport). Google-Maps style, only the
+ * films inside the current window + a one-screen buffer are rendered, recomputed
+ * from the pan transform on a throttled rAF and capped — so panning keeps revealing
+ * films with no blank flash and a fast fling never lags or crashes.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
@@ -92,28 +98,43 @@ function smoothArr(a: number[], w: number): number[] {
   return out;
 }
 
-/* Deterministic 0..1 hash of a slug — for stable, scattered background placement. */
-function hsh(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
-  return (h >>> 0) / 4294967295;
-}
-
 /* ── The odyssey-driven scene ─────────────────────────────────────────────── */
+
+const BG_CAP = 250;     // max background stations rendered at once (viewport-culled)
+const BG_POSTERS = 40;  // of those, the highest-TakeScore few render as posters (rest = dots)
 
 interface ScenePt { stop: RouteStop; nx: number; ny: number; w: number; now: boolean; dest: boolean; missing: boolean }
 interface SceneCross { id: string; name: string; d: string; lx: number; ly: number }
-interface SceneBgP { key: string; nx: number; ny: number; p: string }
-interface SceneDot { key: string; nx: number; ny: number }
+/** A non-route station in the pannable "field" — its real odyssey (x,yy) mapped to lane units. */
+interface BgStation { key: string; fx: number; fy: number; v: number; p: string }
 interface Scene {
   L: number;                 // total lane length, in lane units (= % of map width)
   routePts: ScenePt[];
   routeD: string;
   cross: SceneCross[];       // ambient (faded) lineage cross-streets
-  bgPosters: SceneBgP[];
-  bgDots: SceneDot[];
+  bgAll: BgStation[];        // the whole background field (v-sorted desc), culled per-view
   me: { nx: number; ny: number };
   missingCount: number;
+}
+
+/** The field-coordinate window currently visible, padded by one screen on every side
+ *  (the pre-render buffer). Inverts the pan transform (translate·scale, origin 50%):
+ *  a node at left:lx% sits at px = lx/100·w, screen = w/2 + k·(px − w/2) + tx. */
+function visibleWindow(tx: number, ty: number, k: number, w: number, h: number) {
+  const fx = (sx: number) => 100 * ((sx - tx - w / 2) / k + w / 2) / w;
+  const fy = (sy: number) => 100 * ((sy - ty - h / 2) / k + h / 2) / h;
+  return { lxMin: fx(-w), lxMax: fx(2 * w), lyMin: fy(-h), lyMax: fy(2 * h) };
+}
+
+/** The highest-TakeScore background stations inside the buffered window, capped. bg is
+ *  v-sorted desc, so iterating in order and stopping at the cap keeps the strongest films. */
+function cullField(bg: BgStation[], win: { lxMin: number; lxMax: number; lyMin: number; lyMax: number }, cap: number): BgStation[] {
+  const out: BgStation[] = [];
+  for (let i = 0; i < bg.length && out.length < cap; i++) {
+    const b = bg[i];
+    if (b.fx >= win.lxMin && b.fx <= win.lxMax && b.fy >= win.lyMin && b.fy <= win.lyMax) out.push(b);
+  }
+  return out;
 }
 
 /**
@@ -180,24 +201,31 @@ function buildScene(map: OdyMap, stops: RouteStop[]): Scene | null {
     };
   });
 
-  // faint background population, scattered along the whole pannable lane
+  // background FIELD — every non-route station at its real odyssey position, mapped over
+  // an area wider & taller than the viewport so panning keeps revealing films. This is the
+  // full pool (v-sorted); the rendered subset is viewport-culled per-view (see cullField).
   const onRoute = new Set(stops.map((s) => s.film.slug));
-  const cand = map.stations.filter((s) => !onRoute.has(s.s) && s.p);
-  cand.sort((a, b) => (b.v ?? 0) - (a.v ?? 0));
-  const posterN = Math.round(clamp(L / 46, 6, 22));
-  const dotN = Math.round(clamp(L / 7, 40, 200));
-  const bgPosters: SceneBgP[] = [];
-  const bgDots: SceneDot[] = [];
-  for (let i = 0; i < cand.length && (bgPosters.length < posterN || bgDots.length < dotN); i++) {
-    const s = cand[i];
-    const hx = hsh(s.s), hy = hsh(`${s.s}~`);
-    const x = hx * L;
-    const y = hy < 0.5 ? 5 + hy * 2 * 25 : 70 + (hy - 0.5) * 2 * 23; // top band [5,30] / bottom [70,93]
-    if (bgPosters.length < posterN && i % 3 === 0) bgPosters.push({ key: s.s, nx: x, ny: y, p: s.p as string });
-    else if (bgDots.length < dotN) bgDots.push({ key: s.s, nx: x, ny: y });
+  let ox0 = Infinity, ox1 = -Infinity, oy0 = Infinity, oy1 = -Infinity;
+  for (const s of map.stations) {
+    if (s.x < ox0) ox0 = s.x; if (s.x > ox1) ox1 = s.x;
+    if (s.yy < oy0) oy0 = s.yy; if (s.yy > oy1) oy1 = s.yy;
   }
+  const oxs = ox1 - ox0 || 1, oys = oy1 - oy0 || 1;
+  const FW = Math.max(L + 140, 360), FH = 250;          // field spans, in lane units
+  const FX0 = (X0 + L) / 2 - FW / 2, FY0 = 50 - FH / 2; // centred on the lane
+  const bgAll: BgStation[] = [];
+  for (const s of map.stations) {
+    if (onRoute.has(s.s) || !s.p) continue;
+    bgAll.push({
+      key: s.s,
+      fx: FX0 + ((s.x - ox0) / oxs) * FW,
+      fy: FY0 + ((s.yy - oy0) / oys) * FH,
+      v: s.v ?? 0, p: s.p,
+    });
+  }
+  bgAll.sort((a, b) => b.v - a.v);
 
-  return { L, routePts, routeD, cross, bgPosters, bgDots, me, missingCount: N - knownCount };
+  return { L, routePts, routeD, cross, bgAll, me, missingCount: N - knownCount };
 }
 
 /**
@@ -225,8 +253,11 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const [pick, setPick] = useState<NavFilm | null>(null); // map poster → info card
   const [ody, setOdy] = useState<OdyMap | null>(null); // the real /odyssey film-map
   const [size, setSize] = useState({ w: 0, h: 0 }); // map viewport px (for adaptive framing)
+  const [culled, setCulled] = useState<BgStation[]>([]); // viewport-culled background films
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
+  const winSigRef = useRef<string>("");        // last culled-window signature (skip idle recomputes)
+  const sceneRef = useRef<Scene | null>(null); // detect a new journey → force a recompute
 
   // load the odyssey map once (same-origin static asset); silent fallback on failure
   useEffect(() => {
@@ -251,6 +282,25 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   );
   // re-frame when the journey (or viewport) changes — plain panning never triggers this
   useEffect(() => { setView(defaultView); }, [defaultView]);
+
+  // Throttled viewport culling (Google-Maps style): once per animation frame recompute which
+  // background films fall inside the buffered window, and only when that window actually moved
+  // — so a fast fling can't queue work or thrash React. Null-safe on every early exit; the rAF
+  // callback reads only snapshot locals (tx/ty/k/bg), never a ref, so it can't crash mid-fling.
+  useEffect(() => {
+    if (!scene || !size.w || !size.h) { setCulled([]); winSigRef.current = ""; return; }
+    if (sceneRef.current !== scene) { sceneRef.current = scene; winSigRef.current = ""; }
+    const { tx, ty, k } = view;
+    const bg = scene.bgAll;
+    const id = requestAnimationFrame(() => {
+      const win = visibleWindow(tx, ty, k, size.w, size.h);
+      const sig = `${Math.round(win.lxMin / 5)}|${Math.round(win.lxMax / 5)}|${Math.round(win.lyMin / 5)}|${Math.round(win.lyMax / 5)}`;
+      if (sig === winSigRef.current) return; // window unchanged → keep current set (cheap idle)
+      winSigRef.current = sig;
+      setCulled(cullField(bg, win, BG_CAP));
+    });
+    return () => cancelAnimationFrame(id);
+  }, [scene, view, size.w, size.h]);
 
   const onDown = useCallback((e: React.PointerEvent) => {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
@@ -371,11 +421,12 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                   </g>
                 ))}
               </svg>
-              {/* faded background population — never competes with the route */}
-              {scene.bgDots.map((d) => <span key={d.key} className="bgdot" style={{ left: `${d.nx}%`, top: `${d.ny}%` }} />)}
-              {scene.bgPosters.map((bp) => (
+              {/* faded background — viewport-culled from the full odyssey field, with a
+                  one-screen pre-render buffer so panning reveals films with no blank flash */}
+              {culled.slice(BG_POSTERS).map((b) => <span key={b.key} className="bgdot" style={{ left: `${b.fx}%`, top: `${b.fy}%` }} />)}
+              {culled.slice(0, BG_POSTERS).map((b) => (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img key={bp.key} className="bgp" src={`${POSTER92}${bp.p}`} alt="" aria-hidden="true" loading="lazy" draggable={false} style={{ left: `${bp.nx}%`, top: `${bp.ny}%` }} />
+                <img key={b.key} className="bgp" src={`${POSTER92}${b.p}`} alt="" aria-hidden="true" loading="lazy" draggable={false} style={{ left: `${b.fx}%`, top: `${b.fy}%` }} />
               ))}
               {/* THE journey — one bold, bright, evenly-flowing lane */}
               <svg className="roadsvg routesvg" style={{ width: `${scene.L}%` }} viewBox={`0 0 ${scene.L} 100`} preserveAspectRatio="none" aria-hidden="true">
