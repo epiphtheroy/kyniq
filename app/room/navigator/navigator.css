@@ -4,7 +4,7 @@
 .navd{--ink:#161512;--sub:#8A857C;--line:#E4DFD3;--red:#E3120B;--blue:#3B7DED;
   --green:#1E7A46;--gold:#8F6A1E;--road:#D8D0BC;--field:#E9E2D0;
   position:relative;display:flex;flex-direction:column;width:100%;max-width:520px;margin:0 auto;
-  height:calc(100dvh - 46px);min-height:520px;background:var(--field);border-radius:16px;overflow:hidden;
+  height:min(780px,calc(100dvh - 108px));min-height:520px;background:var(--field);border-radius:16px;overflow:hidden;
   box-shadow:0 10px 40px rgba(30,26,18,.14);font-variant-numeric:tabular-nums}
 
 .navd .turn{position:relative;z-index:20;margin:12px 10px 0;background:var(--green);color:#fff;border-radius:16px;

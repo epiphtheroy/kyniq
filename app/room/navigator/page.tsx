@@ -6,7 +6,6 @@ import { loadCollection } from "@/lib/room/loadCollection";
 import { loadDirectorDestination } from "@/lib/navigator/load";
 import type { RoutePref } from "@/lib/navigator/route";
 import NavigatorDrive from "@/components/room/NavigatorDrive";
-import SiteNav from "@/components/home2/SiteNav";
 import "./navigator.css";
 
 export const dynamic = "force-dynamic";
@@ -48,19 +47,14 @@ export default async function NavigatorPage({
     pacePerWeek: null, // ETA hidden until pace is wired (§4.3 honest default)
   });
 
-  return (
-    <>
-      <SiteNav />
-      <main style={{ padding: "0 8px 24px" }}>
-        {load ? (
-          <NavigatorDrive load={load} pref={pref} />
-        ) : (
-          <div className="navd"><div className="arrived">
-            <div className="big">이 목적지의 경로를 만들 수 없습니다.</div>
-            <div style={{ color: "var(--sub)", fontSize: 13 }}>감독 슬러그를 확인해 주세요 (예: <code>?dir=akira-kurosawa</code>).</div>
-          </div></div>
-        )}
-      </main>
-    </>
+  // The room layout (app/room/layout.tsx) already provides SiteNav + the room
+  // bar + RoomShell's main; this page renders only the drive view inside it.
+  return load ? (
+    <NavigatorDrive load={load} pref={pref} />
+  ) : (
+    <div className="navd"><div className="arrived">
+      <div className="big">이 목적지의 경로를 만들 수 없습니다.</div>
+      <div style={{ color: "var(--sub)", fontSize: 13 }}>감독 슬러그를 확인해 주세요 (예: <code>?dir=akira-kurosawa</code>).</div>
+    </div></div>
   );
 }
