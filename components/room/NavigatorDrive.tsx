@@ -254,6 +254,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const [ody, setOdy] = useState<OdyMap | null>(null); // the real /odyssey film-map
   const [size, setSize] = useState({ w: 0, h: 0 }); // map viewport px (for adaptive framing)
   const [culled, setCulled] = useState<BgStation[]>([]); // viewport-culled background films
+  const [win, setWin] = useState<{ lxMin: number; lxMax: number; lyMin: number; lyMax: number } | null>(null); // buffered window → route-node culling
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
   const winSigRef = useRef<string>("");        // last culled-window signature (skip idle recomputes)
@@ -288,16 +289,17 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   // — so a fast fling can't queue work or thrash React. Null-safe on every early exit; the rAF
   // callback reads only snapshot locals (tx/ty/k/bg), never a ref, so it can't crash mid-fling.
   useEffect(() => {
-    if (!scene || !size.w || !size.h) { setCulled([]); winSigRef.current = ""; return; }
+    if (!scene || !size.w || !size.h) { setCulled([]); setWin(null); winSigRef.current = ""; return; }
     if (sceneRef.current !== scene) { sceneRef.current = scene; winSigRef.current = ""; }
     const { tx, ty, k } = view;
     const bg = scene.bgAll;
     const id = requestAnimationFrame(() => {
-      const win = visibleWindow(tx, ty, k, size.w, size.h);
-      const sig = `${Math.round(win.lxMin / 5)}|${Math.round(win.lxMax / 5)}|${Math.round(win.lyMin / 5)}|${Math.round(win.lyMax / 5)}`;
-      if (sig === winSigRef.current) return; // window unchanged → keep current set (cheap idle)
+      const wn = visibleWindow(tx, ty, k, size.w, size.h);
+      const sig = `${Math.round(wn.lxMin / 5)}|${Math.round(wn.lxMax / 5)}|${Math.round(wn.lyMin / 5)}|${Math.round(wn.lyMax / 5)}`;
+      if (sig === winSigRef.current) return; // window unchanged → keep current sets (cheap idle)
       winSigRef.current = sig;
-      setCulled(cullField(bg, win, BG_CAP));
+      setWin(wn);                          // drives ROUTE-node culling (below)
+      setCulled(cullField(bg, wn, BG_CAP)); // drives BACKGROUND culling
     });
     return () => cancelAnimationFrame(id);
   }, [scene, view, size.w, size.h]);
@@ -366,6 +368,16 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const laneRent = next.availability === "rent";
   const roadName = dest.family === "director" ? `${dest.label} filmography` : dest.label;
 
+  // Route-node culling (same buffered window as the background). Full poster nodes render
+  // near the window (+ always Now & the destination); a wider band renders lightweight
+  // numbered dots; the rest render nothing (the SVG lane path still shows the road) — so a
+  // 1000-stop route never mounts 1000 images, yet panning keeps revealing each film's poster.
+  const winPad = win ? (win.lxMax - win.lxMin) * 0.6 : 0;
+  const inWin = (nx: number, ny: number) =>
+    !!win && nx >= win.lxMin && nx <= win.lxMax && ny >= win.lyMin && ny <= win.lyMax;
+  const inDotBand = (nx: number, ny: number) =>
+    !!win && nx >= win.lxMin - winPad && nx <= win.lxMax + winPad && ny >= win.lyMin - winPad && ny <= win.lyMax + winPad;
+
   // synthetic (fallback) signpost
   const sp = (stop: RouteStop, slot: { top: number; left: number; w: number }, isNow: boolean) => (
     <button
@@ -416,8 +428,8 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                 <rect x="-10" y="34" width={scene.L + 20} height="32" fill="#E9E1C6" opacity="0.5" />
                 {scene.cross.map((c) => (
                   <g key={c.id}>
-                    <path d={c.d} fill="none" stroke="#C3B89E" strokeWidth="6" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.5" />
-                    <path d={c.d} fill="none" stroke="#DAD1BA" strokeWidth="2.4" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.5" />
+                    <path d={c.d} fill="none" stroke="#C3B89E" strokeWidth="6" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.72" />
+                    <path d={c.d} fill="none" stroke="#DAD1BA" strokeWidth="2.4" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.6" />
                   </g>
                 ))}
               </svg>
@@ -437,24 +449,40 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
               {/* faded lineage road-name signs */}
               {scene.cross.map((c) => <div key={c.id} className="street amb" style={{ left: `${c.lx}%`, top: `${c.ly}%` }}>{c.name}</div>)}
               <div className="street cur" style={{ left: `${scene.me.nx}%`, top: `${clamp(scene.me.ny + 10, 6, 94)}%` }}>{roadName}</div>
-              {/* the route's films — prominent poster level nodes, in drive order */}
-              {scene.routePts.map((rp, i) => (
-                <button
-                  type="button"
-                  key={rp.stop.film.slug}
-                  className={`sp${rp.now ? " now" : ""}${rp.dest ? " dest" : ""}`}
-                  style={{ left: `${rp.nx}%`, top: `${rp.ny}%` }}
-                  onPointerDown={(e) => e.stopPropagation()}
-                  onClick={() => setPick(rp.stop.film)}
-                >
-                  {rp.dest ? <span className="flag">🏁</span> : null}
-                  <span className="num">{i + 1}</span>
-                  <img src={po(rp.stop.film.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="lazy" draggable={false} />
-                  <span className="pole" /><span className="shadow" />
-                  {rp.now ? <span className="cap">Now · {rp.stop.film.title}</span>
-                    : rp.dest || i < 4 ? <span className="cap">{rp.stop.film.title}</span> : null}
-                </button>
-              ))}
+              {/* the route's films — poster level nodes in drive order, VIEWPORT-CULLED:
+                  full posters near the window (Now & the destination always), lightweight
+                  numbered dots in a wider band, nothing far off (the SVG lane shows the road) */}
+              {scene.routePts.map((rp, i) => {
+                const full = rp.now || rp.dest || inWin(rp.nx, rp.ny) || (!win && i < 10);
+                if (full) {
+                  const yr = rp.stop.film.year != null ? String(rp.stop.film.year) : null;
+                  const ts = rp.stop.film.takescore != null ? `${Math.round(rp.stop.film.takescore)} TakeScore` : null;
+                  const meta = [yr, ts].filter(Boolean).join(" · ");
+                  return (
+                    <button
+                      type="button"
+                      key={rp.stop.film.slug}
+                      className={`sp${rp.now ? " now" : ""}${rp.dest ? " dest" : ""}`}
+                      style={{ left: `${rp.nx}%`, top: `${rp.ny}%` }}
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onClick={() => setPick(rp.stop.film)}
+                    >
+                      {rp.dest ? <span className="flag">🏁</span> : null}
+                      <span className="num">{i + 1}</span>
+                      <img src={po(rp.stop.film.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="lazy" draggable={false} />
+                      <span className="pole" /><span className="shadow" />
+                      <span className="cap">
+                        <span className="cap-t">{rp.now ? "Now · " : ""}{rp.stop.film.title}</span>
+                        {meta ? <span className="cap-m">{meta}</span> : null}
+                      </span>
+                    </button>
+                  );
+                }
+                if (inDotBand(rp.nx, rp.ny)) {
+                  return <span key={rp.stop.film.slug} className="sp-dot" style={{ left: `${rp.nx}%`, top: `${rp.ny}%` }}>{i + 1}</span>;
+                }
+                return null;
+              })}
               {/* "me" — the chevron just before the next film */}
               <div className="me" style={{ left: `${scene.me.nx}%`, top: `${scene.me.ny}%` }}><div className="chev" /><div className="dot" /><div className="back">↓ {stats.seenCount} behind you</div></div>
             </>
