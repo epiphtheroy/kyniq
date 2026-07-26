@@ -272,7 +272,7 @@ export type RateStats = {
 export type PresetKey = "services" | "safe" | "gems" | "century" | "ninety" | "bold";
 
 // ---------------------------------------------------------------------------
-// The Navigator (HANDOFF-내비게이터-시네필터바이턴.md) — drive-view BFF payload,
+// The Navigator (HANDOFF-navigator) — drive-view BFF payload,
 // mirror of app/api/v1/app/navigator/route.ts. Route ordering is deterministic
 // (LLM-0); the chevron position is ledger-derived server-side (seen), never stored.
 
@@ -329,7 +329,7 @@ export type NavigatorPayload = {
   total: number;
   remaining: number;
   runtimeTraveled: number | null; // minutes traveled toward the destination
-  runtimeRemaining: number | null; // minutes left = the 남은 소요시간
+  runtimeRemaining: number | null; // minutes left (time remaining)
   subCoverage: number; // 0..1 of remaining playable on my services
   etaWeeks: number | null; // ceil(remaining / pace); null when pace unknown
   seen: NavStop[]; // the passed segment (grey), chronological
@@ -338,6 +338,30 @@ export type NavigatorPayload = {
   then: NavTurn | null;
   stops: NavStop[];
   routes: Record<NavPref, NavRouteBlock>;
+};
+
+// The Navigator map v3 — the odyssey plane artifact (public/odyssey/map.v1.json on
+// the web), slimmed to the fields buildScene needs to idealise the hero lane + faded
+// world. The full artifact carries far more (bands, decades, t-SNE, …) we don't read.
+export type OdyStationLite = {
+  s: string; // slug
+  x?: number; // odyssey plane x (unused by the lane, kept for completeness)
+  yy?: number; // vertical position on the odyssey plane — drives the lane's gentle drift
+  v?: number; // TakeScore value axis (ranks the faded background posters)
+  p?: string; // poster_path
+  d?: string | null; // director
+  ln?: string[]; // line (lineage) memberships
+};
+export type OdyLineLite = {
+  id: string;
+  name_en: string; // English lineage name (the faded cross-street signs)
+  color?: string;
+  stations?: string[];
+};
+export type OdyMapLite = {
+  v: number;
+  lines: OdyLineLite[];
+  stations: OdyStationLite[];
 };
 
 /** me_auteur_conquest() row — used to pick the mid-conquest default destination. */

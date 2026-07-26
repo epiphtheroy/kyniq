@@ -1,13 +1,23 @@
-// The Navigator — cinephile turn-by-turn drive (HANDOFF-내비게이터-시네필터바이턴.md §5.3).
-// One destination, one next turn, the road ahead. Renders the familiar Google-Maps
-// driving shape with RN Views only — NO native map: a green maneuver card (next film),
-// a receding road with poster signposts (near large → far small for depth), the "me"
-// chevron, and a COLLAPSIBLE bottom sheet (peek: 남은 소요시간 + N편 + progress; expand:
-// traveled/remaining meter + 최단/최속/무료도로 switch + actions) so the map keeps the
-// majority of the screen. The road layer pans (PanResponder) so it feels navigable.
+// The Navigator — cinephile turn-by-turn drive (HANDOFF-navigator §5.3).
+// One destination, one next turn, the road ahead. The familiar Google-Maps driving
+// shape with RN + react-native-svg (NO native map): a green maneuver card (next film),
+// a pannable overworld MAP whose hero is the route, the "me" chevron, and a COLLAPSIBLE
+// bottom sheet (peek: time remaining + N films + progress; expand: traveled/remaining
+// meter + fewest/fastest/no-tolls switch + actions) so the map owns the screen.
+//
+// MAP v3 (ported from web components/room/NavigatorDrive.tsx): the ordered films are
+// idealised into ONE clean, evenly-spaced, gently-flowing LANE — X = drive order, Y a
+// smoothed echo of each film's real /odyssey band (missing slugs interpolated, the lane
+// never breaks). One bright blue road; each film a poster node with a drive-order badge
+// (red on "Now", gold on the 🏁 destination). The real lineages/stations the journey
+// passes are hard-faded to grey context behind it. The lane length grows with the film
+// count and the initial zoom adapts to journey size (short = intimate, long = frame the
+// road ahead and pan forward). If the odyssey data isn't loaded — or no route film is on
+// the plane — the original synthetic overworld is drawn instead (never breaks).
+//
 // A destination is a director conquest ({ dir }) or a canon list ({ lineage, label }).
 // Position is ledger-derived server-side (invariant §10-1); marking the next film seen
-// advances the chevron ("경로를 재탐색합니다").
+// advances the chevron ("rerouting").
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
@@ -17,12 +27,21 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Svg, { Ellipse, Path, Rect } from "react-native-svg";
 import { Btn, Loading, PosterImg, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
-import { getLocale, t } from "../../src/i18n";
+import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { useFilms } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
-import type { NavAvailability, NavDest, NavPref, NavStop, NavigatorPayload } from "../../src/types";
+import { brand, fs, motion, radius, shadow, sp, usePalette } from "../../src/theme";
+import type {
+  NavAvailability,
+  NavDest,
+  NavPref,
+  NavStop,
+  NavigatorPayload,
+  OdyLineLite,
+  OdyMapLite,
+  OdyStationLite,
+} from "../../src/types";
 
 const DEFAULT_DIR = "stanley-kubrick";
 const GOLD = "#8F6A1E";
@@ -43,15 +62,232 @@ const WAYPOINTS = [
 ];
 const MAP_BASE = "#E8EEDA"; // daytime overworld base — identical in light & dark
 
-/** Duration — locale-aware long form ("11시간 53분" / "11h 53m"). */
+// ── Map v3 — the odyssey hero-lane engine (ported from web NavigatorDrive.tsx) ──
+// Lane geometry, in "lane units" that equal % of the map box: 100 units = one box
+// width across, so nodes past 100 are reached by panning. Y units = % of box height.
+const SP = 20; // even spacing between drive-order nodes
+const X0 = 22; // first node's x (room for the "me" chevron on the left)
+const AMP = 12; // gentle vertical undulation of the lane
+const BLUE = "#3B7DED"; // the bright hero road
+const BLUE_CASING = "#2B5FB0";
+const RED = "#E3120B"; // "Now" ring + badge
+
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+const r2 = (n: number) => Math.round(n * 100) / 100;
+
+/** A smooth-through-points path (quadratic midpoints) for the flowing lane. */
+function smoothD(pts: Array<{ x: number; y: number }>): string {
+  const n = pts.length;
+  if (!n) return "";
+  if (n === 1) return `M${r2(pts[0].x)} ${r2(pts[0].y)}`;
+  if (n === 2) return `M${r2(pts[0].x)} ${r2(pts[0].y)} L${r2(pts[1].x)} ${r2(pts[1].y)}`;
+  let d = `M${r2(pts[0].x)} ${r2(pts[0].y)}`;
+  for (let i = 1; i < n - 1; i++) {
+    const mx = (pts[i].x + pts[i + 1].x) / 2;
+    const my = (pts[i].y + pts[i + 1].y) / 2;
+    d += ` Q${r2(pts[i].x)} ${r2(pts[i].y)} ${r2(mx)} ${r2(my)}`;
+  }
+  d += ` L${r2(pts[n - 1].x)} ${r2(pts[n - 1].y)}`;
+  return d;
+}
+
+/** Linear-interpolate null entries by index (edges hold the nearest known value). */
+function fillNulls(a: Array<number | null>): void {
+  const n = a.length;
+  let first = -1;
+  for (let i = 0; i < n; i++)
+    if (a[i] != null) {
+      first = i;
+      break;
+    }
+  if (first < 0) return;
+  for (let i = 0; i < first; i++) a[i] = a[first];
+  let lastK = first;
+  for (let i = first + 1; i < n; i++) {
+    if (a[i] != null) {
+      const v0 = a[lastK] as number,
+        v1 = a[i] as number;
+      for (let j = lastK + 1; j < i; j++) a[j] = v0 + ((v1 - v0) * (j - lastK)) / (i - lastK);
+      lastK = i;
+    }
+  }
+  for (let i = lastK + 1; i < n; i++) a[i] = a[lastK];
+}
+
+/** Moving-average smoothing (window ±w) — flattens the lane's drift to a gentle flow. */
+function smoothArr(a: number[], w: number): number[] {
+  const n = a.length;
+  const out = new Array<number>(n);
+  for (let i = 0; i < n; i++) {
+    let s = 0,
+      c = 0;
+    for (let j = Math.max(0, i - w); j <= Math.min(n - 1, i + w); j++) {
+      s += a[j];
+      c++;
+    }
+    out[i] = s / c;
+  }
+  return out;
+}
+
+type ScenePt = { stop: NavStop; nx: number; ny: number; w: number; now: boolean; dest: boolean; missing: boolean };
+type SceneCross = { id: string; name: string; d: string; lx: number; ly: number };
+type SceneBgP = { key: string; nx: number; ny: number; p: string };
+type SceneDot = { key: string; nx: number; ny: number };
+
+// A background film in the explorable world: its real odyssey position mapped into
+// the pannable layer's lane-unit space (wx,wy), kept for viewport culling on pan.
+type WorldStation = { key: string; wx: number; wy: number; v: number; p?: string };
+type World = {
+  stations: WorldStation[];
+  bounds: { WX0: number; WSPANX: number; WY0: number; WSPANY: number };
+};
+
+/**
+ * Spread ALL off-route odyssey stations over a large world in the pannable layer's
+ * lane-unit space, mapped linearly from each station's real (x, yy). The area is
+ * several screens wide/tall so panning in any direction keeps surfacing new films
+ * (Google-Maps feel). The hero route lane stays anchored on top; this is only the
+ * faded, viewport-culled background world.
+ */
+function buildWorld(stations: OdyStationLite[], onRoute: Set<string>, L: number): World {
+  let minX = Infinity,
+    maxX = -Infinity,
+    minY = Infinity,
+    maxY = -Infinity;
+  for (const s of stations) {
+    if (typeof s.x !== "number" || typeof s.yy !== "number") continue;
+    if (s.x < minX) minX = s.x;
+    if (s.x > maxX) maxX = s.x;
+    if (s.yy < minY) minY = s.yy;
+    if (s.yy > maxY) maxY = s.yy;
+  }
+  const spanX = maxX - minX || 1;
+  const spanY = maxY - minY || 1;
+  const WSPANX = clamp(L * 2.4, 380, 1400); // world width in lane units (≥ ~4 screens)
+  const WSPANY = 260; // world height in lane units (~2.6 screens tall)
+  const WX0 = (X0 + L) / 2 - WSPANX / 2; // centre the world on the lane's middle
+  const WY0 = 50 - WSPANY / 2;
+  const out: WorldStation[] = [];
+  for (const s of stations) {
+    if (onRoute.has(s.s)) continue;
+    if (typeof s.x !== "number" || typeof s.yy !== "number") continue;
+    const nx = (s.x - minX) / spanX;
+    const ny = (s.yy - minY) / spanY;
+    out.push({ key: s.s, wx: WX0 + nx * WSPANX, wy: WY0 + ny * WSPANY, v: s.v ?? 0, p: s.p });
+  }
+  return { stations: out, bounds: { WX0, WSPANX, WY0, WSPANY } };
+}
+type Scene = {
+  L: number; // total lane length, in lane units (= % of box width)
+  routePts: ScenePt[];
+  routeD: string;
+  cross: SceneCross[];
+  me: { nx: number; ny: number };
+  missingCount: number;
+};
+
+/**
+ * Lay the journey out as the hero lane (verbatim port of the web buildScene):
+ *  1. ordered stops → evenly-spaced nodes on a gently-flowing centreline. x is pure
+ *     drive order; y drifts with a smoothed, idealised echo of each film's real
+ *     odyssey band. Films absent from the map keep their sequence place (band
+ *     interpolated) — the lane never breaks.
+ *  2. the real lineages the journey passes become faded grey cross-streets — soft
+ *     context only. (The explorable background world of stations is culled separately.)
+ *  3. the lane length grows with the film count (a long road you pan to follow).
+ * Returns null when NO stop is on the map (caller draws the synthetic fallback).
+ */
+function buildScene(map: OdyMapLite, stops: NavStop[]): Scene | null {
+  const N = stops.length;
+  if (!N) return null;
+  const byId = new Map<string, OdyStationLite>(map.stations.map((s) => [s.s, s]));
+
+  const yReal: Array<number | null> = stops.map((s) => byId.get(s.slug)?.yy ?? null);
+  const missing = stops.map((s) => !byId.has(s.slug));
+  const knownCount = missing.filter((m) => !m).length;
+  if (!knownCount) return null;
+  fillNulls(yReal);
+  let mn = Infinity,
+    mx = -Infinity;
+  for (const v of yReal)
+    if (v != null) {
+      mn = Math.min(mn, v);
+      mx = Math.max(mx, v);
+    }
+  const span = mx - mn;
+  const norm = yReal.map((v) => (span > 1 && v != null ? ((v - mn) / span) * 2 - 1 : 0));
+  const drift = smoothArr(norm, 2);
+
+  // the hero lane — evenly-spaced nodes on a gently flowing centreline
+  const nodes = stops.map((stop, i) => ({
+    stop,
+    i,
+    lx: X0 + i * SP,
+    ly: clamp(50 + AMP * (0.55 * Math.sin(i * 0.7 + 0.6) + 0.45 * drift[i]), 30, 70),
+  }));
+  const L = Math.max(150, X0 + (N - 1) * SP + 40);
+  const last = N - 1;
+  const routePts: ScenePt[] = nodes.map((n) => ({
+    stop: n.stop,
+    nx: n.lx,
+    ny: n.ly,
+    w: clamp(58 - n.i * 2.5, 40, 58),
+    now: n.i === 0,
+    dest: n.i === last,
+    missing: missing[n.i],
+  }));
+  const routeD = smoothD(nodes.map((n) => ({ x: n.lx, y: n.ly })));
+  const meMarker = { nx: X0 - SP * 0.55, ny: nodes[0].ly };
+
+  // ambient cross-streets — the real lineages this journey passes, hard-faded,
+  // spread across the whole lane so panning keeps revealing context
+  const lineById = new Map<string, OdyLineLite>(map.lines.map((l) => [l.id, l]));
+  const touched: string[] = [];
+  const seenL = new Set<string>();
+  for (const s of stops) {
+    const st = byId.get(s.slug);
+    for (const id of st?.ln ?? []) if (!seenL.has(id)) { seenL.add(id); touched.push(id); }
+  }
+  const lineIds = touched.slice(0, 6);
+  for (const l of map.lines) {
+    if (lineIds.length >= 4) break;
+    if (!seenL.has(l.id)) { seenL.add(l.id); lineIds.push(l.id); }
+  }
+  const cross: SceneCross[] = lineIds.map((id, idx) => {
+    const cx = X0 + ((idx + 0.5) * (L - X0)) / Math.max(1, lineIds.length);
+    return {
+      id,
+      name: lineById.get(id)?.name_en ?? "Lineage",
+      d: `M${r2(cx)} 3 C${r2(cx + 6)} 30 ${r2(cx - 6)} 70 ${r2(cx)} 97`,
+      lx: clamp(cx, 6, L - 4),
+      ly: idx % 2 ? 12 : 88,
+    };
+  });
+
+  return { L, routePts, routeD, cross, me: meMarker, missingCount: N - knownCount };
+}
+
+/**
+ * Adaptive default view (mobile equivalent of the web computeDefaultView). Zoom scales
+ * INVERSELY with film count: a short journey zooms in (intimate), a long one holds a
+ * comfortable zoom and frames the road ahead so you pan forward. Returns a screen-space
+ * pan translate (tx,ty) + scale k for the pan/zoom layer (origin = box centre).
+ */
+function computeDefaultView(n: number, w: number, h: number): { tx: number; ty: number; k: number } {
+  if (!w || !h) return { tx: 0, ty: 0, k: 1 };
+  const k = clamp(2.0 - n * 0.16, 0.92, 1.85);
+  const visSpan = 100 / k; // % of lane width shown across the viewport
+  const frameLx = X0 - SP * 0.55 + visSpan * 0.3;
+  return { tx: k * w * (0.5 - frameLx / 100), ty: 0, k };
+}
+
+/** Duration — locale-aware long form via the dict (e.g. "11h 53m"). */
 function fmtDur(min: number | null): string {
   if (min == null) return "—";
   const h = Math.floor(min / 60);
   const m = min % 60;
-  const loc = getLocale();
-  if (loc === "ko") return h ? `${h}시간 ${m}분` : `${m}분`;
-  if (loc === "ja") return h ? `${h}時間${m}分` : `${m}分`;
-  return h ? `${h}h ${m}m` : `${m}m`;
+  return h ? t("nav.durHM", { h, m }) : t("nav.durMin", { m });
 }
 /** Compact meter form ("9:52"). */
 function fmtHM(min: number | null): string {
@@ -126,32 +362,70 @@ export default function NavigatorDriveScreen() {
   const [mapBox, setMapBox] = useState({ w: 0, h: 0 });
   const [sheetOpen, setSheetOpen] = useState(false); // peek by default; tap to expand
   const [pick, setPick] = useState<NavStop | null>(null); // map poster → info card
+  const [ody, setOdy] = useState<OdyMapLite | null>(null); // the odyssey plane (map v3)
+  const [k, setK] = useState(1); // adaptive map scale (short journey = zoomed in)
+  const [viewCenter, setViewCenter] = useState({ cx: 50, cy: 50 }); // pan centre, lane units → background culling
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Draggable road layer (feels navigable). PanResponder claims only on a real drag,
-  // so poster taps still pass through; offset is clamped to a soft box around center.
+  // Draggable + adaptively-zoomed map layer. PanResponder claims only on a real drag
+  // (poster taps pass through); the offset is clamped to the whole explorable world and
+  // the scale k adapts to journey size. Both live in refs the framing effect populates,
+  // so the responder itself never needs re-creating. During the drag we also update the
+  // cull centre (quantised to a cell so setState stays cheap) → background swaps in.
   const pan = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
-  const panOffset = useRef({ x: 0, y: 0 });
-  const clampP = (v: number, m: number) => Math.max(-m, Math.min(m, v));
+  const panBase = useRef({ x: 0, y: 0 }); // committed offset (screen px)
+  const clampRef = useRef({ loX: -MAXPAN, hiX: MAXPAN, loY: -MAXPAN, hiY: MAXPAN });
+  const defaultRef = useRef({ tx: 0, ty: 0, k: 1 });
+  const frameRef = useRef({ w: 0, h: 0, k: 1 }); // box + scale, read inside the responder
+  const cellRef = useRef({ qx: 9999, qy: 9999 }); // last quantised cull cell
+  const CELL = 22; // cull-centre quantum, in lane units
+  const pushCenter = useCallback((px: number, py: number) => {
+    const { w, h, k: kk } = frameRef.current;
+    if (!w || !h) return;
+    const cx = 50 - (100 * px) / (kk * w);
+    const cy = 50 - (100 * py) / (kk * h);
+    const qx = Math.round(cx / CELL),
+      qy = Math.round(cy / CELL);
+    if (qx !== cellRef.current.qx || qy !== cellRef.current.qy) {
+      cellRef.current = { qx, qy };
+      setViewCenter({ cx, cy });
+    }
+  }, []);
   const panResponder = useMemo(
     () =>
       PanResponder.create({
         onMoveShouldSetPanResponder: (_e, g) => Math.abs(g.dx) > 8 || Math.abs(g.dy) > 8,
         onPanResponderMove: (_e, g) => {
-          pan.setValue({
-            x: clampP(panOffset.current.x + g.dx, MAXPAN),
-            y: clampP(panOffset.current.y + g.dy, MAXPAN),
-          });
+          const c = clampRef.current;
+          const nx = clamp(panBase.current.x + g.dx, c.loX, c.hiX);
+          const ny = clamp(panBase.current.y + g.dy, c.loY, c.hiY);
+          pan.setValue({ x: nx, y: ny });
+          pushCenter(nx, ny); // reveal films in the direction of travel
         },
         onPanResponderRelease: (_e, g) => {
-          panOffset.current = {
-            x: clampP(panOffset.current.x + g.dx, MAXPAN),
-            y: clampP(panOffset.current.y + g.dy, MAXPAN),
-          };
+          const c = clampRef.current;
+          const nx = clamp(panBase.current.x + g.dx, c.loX, c.hiX);
+          const ny = clamp(panBase.current.y + g.dy, c.loY, c.hiY);
+          panBase.current = { x: nx, y: ny };
+          pushCenter(nx, ny);
         },
       }),
-    [pan],
+    [pan, pushCenter],
   );
+  // ◎ recenter — snap the map back to its adaptive default frame.
+  const recenter = useCallback(() => {
+    const d = defaultRef.current;
+    panBase.current = { x: d.tx, y: d.ty };
+    Animated.spring(pan, {
+      toValue: { x: d.tx, y: d.ty },
+      useNativeDriver: false,
+      damping: motion.spring.damping,
+      stiffness: motion.spring.stiffness,
+      mass: motion.spring.mass,
+    }).start();
+    cellRef.current = { qx: 9999, qy: 9999 };
+    pushCenter(d.tx, d.ty);
+  }, [pan, pushCenter]);
 
   // Resolve the destination when opened without params (deep link): the director the
   // user is mid-conquest on, else the canon default (§3 v1). With params the picker
@@ -167,6 +441,21 @@ export default function NavigatorDriveScreen() {
       alive = false;
     };
   }, [dest, session]);
+
+  // Load the odyssey plane once (public static JSON on the web origin), cached in state.
+  // Silent-catch: a miss keeps the synthetic overworld — the drive never breaks (map v3).
+  useEffect(() => {
+    let live = true;
+    api
+      .odysseyMap()
+      .then((m) => {
+        if (live) setOdy(m);
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
 
   // Fetch the drive.
   useEffect(() => {
@@ -235,6 +524,82 @@ export default function NavigatorDriveScreen() {
       base.next?.slug === slug ? base.next.reason : base.then?.slug === slug ? base.then.reason : "";
     return { base, stops, reasonFor };
   }, [data, pref, skipped]);
+
+  // ── Map v3: idealise the route into the hero lane over the odyssey plane. Null when
+  //    the plane hasn't loaded or no route film is on it → the synthetic overworld. ──
+  const scene = useMemo(() => (ody && view ? buildScene(ody, view.stops) : null), [ody, view]);
+  const defaultView = useMemo(
+    () => (scene ? computeDefaultView(scene.routePts.length, mapBox.w, mapBox.h) : null),
+    [scene, mapBox.w, mapBox.h],
+  );
+  // The explorable background world — all off-route stations spread over a large area.
+  const world = useMemo(
+    () => (ody && scene && view ? buildWorld(ody.stations, new Set(view.stops.map((s) => s.slug)), scene.L) : null),
+    [ody, scene, view],
+  );
+  // Viewport culling — only the stations inside the current window + margin, capped and
+  // TakeScore-prioritised, split into a few faded posters + faint dots. As the cull
+  // centre (viewCenter) moves with the pan, this set swaps → new films keep appearing.
+  const bg = useMemo(() => {
+    const empty = { posters: [] as SceneBgP[], dots: [] as SceneDot[] };
+    if (!world) return empty;
+    const hx = 50 / k + 26; // half visible lane-x span + margin
+    const hy = 50 / k + 26;
+    const inWin: WorldStation[] = [];
+    for (const s of world.stations) {
+      if (Math.abs(s.wx - viewCenter.cx) < hx && Math.abs(s.wy - viewCenter.cy) < hy) inWin.push(s);
+    }
+    inWin.sort((a, b) => b.v - a.v); // prioritise higher TakeScore when over the cap
+    const capped = inWin.slice(0, 230);
+    const posters: SceneBgP[] = [];
+    const dots: SceneDot[] = [];
+    for (const s of capped) {
+      if (posters.length < 16 && s.p) posters.push({ key: s.key, nx: s.wx, ny: s.wy, p: s.p });
+      else dots.push({ key: s.key, nx: s.wx, ny: s.wy });
+    }
+    return { posters, dots };
+  }, [world, viewCenter, k]);
+
+  // Re-frame when the journey (or box) changes: adaptive scale + a pan clamp that spans
+  // the whole explorable world (pan any direction to reveal more). Not on plain drags.
+  useEffect(() => {
+    if (!mapBox.w || !mapBox.h) return;
+    const w = mapBox.w,
+      h = mapBox.h;
+    if (scene && defaultView && world) {
+      const kk = defaultView.k;
+      const baseX = (X: number) => w / 2 + kk * ((X / 100) * w - w / 2);
+      const baseY = (Y: number) => h / 2 + kk * ((Y / 100) * h - h / 2);
+      const { WX0, WSPANX, WY0, WSPANY } = world.bounds;
+      const maxPanX = 0.2 * w - baseX(WX0); // world left edge reachable near left
+      const minPanX = 0.8 * w - baseX(WX0 + WSPANX); // world right edge near right
+      const maxPanY = 0.2 * h - baseY(WY0);
+      const minPanY = 0.8 * h - baseY(WY0 + WSPANY);
+      const loX = Math.min(minPanX, maxPanX),
+        hiX = Math.max(minPanX, maxPanX);
+      const loY = Math.min(minPanY, maxPanY),
+        hiY = Math.max(minPanY, maxPanY);
+      const tx = clamp(defaultView.tx, loX, hiX);
+      const ty = clamp(defaultView.ty, loY, hiY);
+      clampRef.current = { loX, hiX, loY, hiY };
+      defaultRef.current = { tx, ty, k: kk };
+      frameRef.current = { w, h, k: kk };
+      panBase.current = { x: tx, y: ty };
+      cellRef.current = { qx: 9999, qy: 9999 };
+      setK(kk);
+      pan.setValue({ x: tx, y: ty });
+      setViewCenter({ cx: 50 - (100 * tx) / (kk * w), cy: 50 - (100 * ty) / (kk * h) });
+    } else {
+      // synthetic fallback overworld — unit scale, soft box clamp around centre
+      clampRef.current = { loX: -MAXPAN, hiX: MAXPAN, loY: -MAXPAN, hiY: MAXPAN };
+      defaultRef.current = { tx: 0, ty: 0, k: 1 };
+      frameRef.current = { w, h, k: 1 };
+      panBase.current = { x: 0, y: 0 };
+      setK(1);
+      pan.setValue({ x: 0, y: 0 });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scene, defaultView, world, mapBox.w, mapBox.h]);
 
   const onMapLayout = (e: LayoutChangeEvent) => {
     const { width, height } = e.nativeEvent.layout;
@@ -422,9 +787,239 @@ export default function NavigatorDriveScreen() {
         {mapBox.w > 0 && mapBox.h > 0 ? (
           <>
             <Animated.View
-              style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, transform: pan.getTranslateTransform() }}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                transform: [...pan.getTranslateTransform(), { scale: k }],
+              }}
               {...panResponder.panHandlers}
             >
+              {scene ? (
+                /* ── Map v3 — the odyssey hero lane over the explorable faded world ── */
+                <>
+                  {/* back layer — soft terrain + faded lineage cross-streets (viewBox 0..L) */}
+                  <Svg
+                    width={(scene.L / 100) * mapBox.w}
+                    height={mapBox.h}
+                    viewBox={`0 0 ${scene.L} 100`}
+                    preserveAspectRatio="none"
+                    style={{ position: "absolute", top: 0, left: 0 }}
+                  >
+                    <Rect x={-10} y={-10} width={scene.L + 20} height={120} fill="#DCE9C2" opacity={0.5} />
+                    <Rect x={-10} y={2} width={scene.L + 20} height={22} fill="#CFE0A8" opacity={0.3} />
+                    <Rect x={-10} y={76} width={scene.L + 20} height={24} fill="#CFE0A8" opacity={0.3} />
+                    <Rect x={-10} y={34} width={scene.L + 20} height={32} fill="#E9E1C6" opacity={0.5} />
+                    {scene.cross.map((c) => (
+                      <Path
+                        key={c.id}
+                        d={c.d}
+                        fill="none"
+                        stroke="#C3B89E"
+                        strokeWidth={5}
+                        vectorEffect="non-scaling-stroke"
+                        strokeLinecap="round"
+                        opacity={0.5}
+                      />
+                    ))}
+                  </Svg>
+
+                  {/* the faded background WORLD — viewport-culled dots + a few desaturated
+                      posters; panning any direction swaps this set → more films appear */}
+                  {bg.dots.map((d) => (
+                    <View
+                      key={d.key}
+                      style={{
+                        position: "absolute",
+                        left: (d.nx / 100) * mapBox.w - 2.5,
+                        top: (d.ny / 100) * mapBox.h - 2.5,
+                        width: 5,
+                        height: 5,
+                        borderRadius: 3,
+                        backgroundColor: "#b2a88f",
+                        opacity: 0.28,
+                      }}
+                    />
+                  ))}
+                  {bg.posters.map((bp) => (
+                    <View
+                      key={bp.key}
+                      style={{
+                        position: "absolute",
+                        left: (bp.nx / 100) * mapBox.w - 9,
+                        top: (bp.ny / 100) * mapBox.h - 13,
+                        opacity: 0.2,
+                      }}
+                    >
+                      <PosterImg path={bp.p} width={18} height={27} size="w92" rounded={3} />
+                    </View>
+                  ))}
+
+                  {/* THE journey — one bold, bright, evenly-flowing lane (casing → blue → dash) */}
+                  <Svg
+                    width={(scene.L / 100) * mapBox.w}
+                    height={mapBox.h}
+                    viewBox={`0 0 ${scene.L} 100`}
+                    preserveAspectRatio="none"
+                    style={{ position: "absolute", top: 0, left: 0 }}
+                  >
+                    <Path d={scene.routeD} fill="none" stroke={BLUE_CASING} strokeWidth={14} vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
+                    <Path d={scene.routeD} fill="none" stroke={BLUE} strokeWidth={10} vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
+                    <Path d={scene.routeD} fill="none" stroke="#ffffff" strokeWidth={1.8} strokeDasharray="2.4 3.2" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
+                  </Svg>
+
+                  {/* faded lineage road-name signs */}
+                  {scene.cross.map((c) => (
+                    <View
+                      key={c.id}
+                      style={{
+                        position: "absolute",
+                        left: (c.lx / 100) * mapBox.w,
+                        top: (c.ly / 100) * mapBox.h,
+                        transform: [{ translateX: -32 }, { translateY: -8 }],
+                        maxWidth: 120,
+                        backgroundColor: "rgba(156,146,124,0.66)",
+                        borderRadius: 6,
+                        paddingHorizontal: 7,
+                        paddingVertical: 1,
+                      }}
+                    >
+                      <Ui size={fs.xs - 3} weight="700" color="#fff" numberOfLines={1}>
+                        {c.name}
+                      </Ui>
+                    </View>
+                  ))}
+                  {/* the current road = destination */}
+                  <View
+                    style={{
+                      position: "absolute",
+                      left: (scene.me.nx / 100) * mapBox.w,
+                      top: (clamp(scene.me.ny + 10, 6, 94) / 100) * mapBox.h,
+                      transform: [{ translateX: -30 }, { translateY: -9 }],
+                      maxWidth: 160,
+                      backgroundColor: "rgba(74,70,64,0.94)",
+                      borderRadius: 6,
+                      paddingHorizontal: 9,
+                      paddingVertical: 2,
+                    }}
+                  >
+                    <Ui size={fs.xs - 1} weight="700" color="#fff" numberOfLines={1}>
+                      {roadName}
+                    </Ui>
+                  </View>
+
+                  {/* the route's films — poster nodes in drive order, with number badges */}
+                  {scene.routePts.map((rp, i) => {
+                    const ph = Math.round(rp.w * 1.5);
+                    const badgeBg = rp.now ? RED : rp.dest ? GOLD : BLUE;
+                    return (
+                      <View
+                        key={rp.stop.slug}
+                        style={{
+                          position: "absolute",
+                          left: (rp.nx / 100) * mapBox.w - rp.w / 2,
+                          top: (rp.ny / 100) * mapBox.h - ph,
+                          width: rp.w,
+                          alignItems: "center",
+                        }}
+                      >
+                        <Tactile onPress={() => setPick(rp.stop)}>
+                          <View
+                            style={{
+                              borderRadius: 6,
+                              overflow: "hidden",
+                              borderWidth: 2,
+                              borderColor: rp.now ? RED : rp.dest ? GOLD : "#fff",
+                              ...shadow.card,
+                            }}
+                          >
+                            <PosterImg path={rp.stop.poster_path} width={rp.w} height={ph} size="w185" rounded={4} />
+                          </View>
+                        </Tactile>
+                        {/* signpost pole */}
+                        <View style={{ width: 2.5, height: 12, backgroundColor: "#b7ad96" }} />
+                        {rp.now || rp.dest || i < 4 ? (
+                          <View
+                            style={{
+                              marginTop: 3,
+                              backgroundColor: rp.now ? RED : rp.dest ? GOLD : "rgba(255,255,255,0.9)",
+                              borderRadius: radius.pill,
+                              paddingHorizontal: 7,
+                              paddingVertical: 1,
+                              maxWidth: rp.w + 44,
+                            }}
+                          >
+                            <Ui size={fs.xs - 2} weight="700" color={rp.now || rp.dest ? "#fff" : "#4A4638"} numberOfLines={1}>
+                              {rp.now ? `${t("nav.next")} · ${rp.stop.title}` : rp.stop.title}
+                            </Ui>
+                          </View>
+                        ) : null}
+                        {/* drive-order badge (absolute — anchored to the poster's top-left) */}
+                        <View
+                          style={{
+                            position: "absolute",
+                            left: -7,
+                            top: -7,
+                            minWidth: 17,
+                            height: 17,
+                            paddingHorizontal: 4,
+                            borderRadius: radius.pill,
+                            backgroundColor: badgeBg,
+                            borderWidth: 1.5,
+                            borderColor: "#fff",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <Ui size={fs.xs - 2} weight="700" color="#fff">
+                            {i + 1}
+                          </Ui>
+                        </View>
+                        {/* 🏁 flag over the destination (absolute — keeps poster anchoring uniform) */}
+                        {rp.dest ? (
+                          <View style={{ position: "absolute", top: -20, left: 0, right: 0, alignItems: "center" }}>
+                            <Ui size={fs.md}>🏁</Ui>
+                          </View>
+                        ) : null}
+                      </View>
+                    );
+                  })}
+
+                  {/* "me" — the chevron just before the next film */}
+                  <View
+                    style={{
+                      position: "absolute",
+                      left: (scene.me.nx / 100) * mapBox.w - 15,
+                      top: (scene.me.ny / 100) * mapBox.h - 16,
+                      alignItems: "center",
+                    }}
+                  >
+                    <View
+                      style={{
+                        width: 0,
+                        height: 0,
+                        borderLeftWidth: 13,
+                        borderRightWidth: 13,
+                        borderBottomWidth: 22,
+                        borderLeftColor: "transparent",
+                        borderRightColor: "transparent",
+                        borderBottomColor: RED,
+                      }}
+                    />
+                    <View style={{ width: 11, height: 11, borderRadius: 6, backgroundColor: RED, borderWidth: 2.5, borderColor: "#fff", marginTop: -3 }} />
+                    {data.seenCount > 0 ? (
+                      <View style={{ marginTop: 4, backgroundColor: "rgba(255,255,255,0.82)", borderRadius: radius.pill, paddingHorizontal: 6, paddingVertical: 1 }}>
+                        <Ui size={fs.xs - 3} weight="700" color="#8a806c">
+                          ↓ {t("nav.behindN", { n: data.seenCount })}
+                        </Ui>
+                      </View>
+                    ) : null}
+                  </View>
+                </>
+              ) : (
+              <>
               {/* the world — terrain, cross-roads (other lineages), then THE route.
                   viewBox 0-100 stretched to fill the box; non-scaling strokes keep the
                   road widths constant. A bright daytime overworld in both light & dark. */}
@@ -587,7 +1182,52 @@ export default function NavigatorDriveScreen() {
                   </View>
                 ) : null}
               </View>
+              </>
+              )}
             </Animated.View>
+
+            {/* ◎ recenter — outside the transformed layer (hidden while a card is open) */}
+            {!pick ? (
+              <Tactile onPress={recenter} hitSlop={6} style={{ position: "absolute", right: sp.s3, bottom: sp.s4 }}>
+                <View
+                  accessibilityLabel={t("nav.recenter")}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: radius.pill,
+                    backgroundColor: pal.card,
+                    borderWidth: 1,
+                    borderColor: pal.hairline,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    ...shadow.card,
+                  }}
+                >
+                  <Ionicons name="locate" size={20} color={pal.ink} />
+                </View>
+              </Tactile>
+            ) : null}
+
+            {/* note when some route films aren't charted on the odyssey plane */}
+            {scene && scene.missingCount > 0 ? (
+              <View
+                style={{
+                  position: "absolute",
+                  left: sp.s3,
+                  top: sp.s3,
+                  backgroundColor: "rgba(255,255,255,0.88)",
+                  borderRadius: radius.pill,
+                  paddingHorizontal: 10,
+                  paddingVertical: 4,
+                  borderWidth: 1,
+                  borderColor: pal.hairline,
+                }}
+              >
+                <Ui size={fs.xs - 2} weight="700" color="#6a6153">
+                  ✦ {t("nav.offmap", { n: scene.missingCount })}
+                </Ui>
+              </View>
+            ) : null}
 
             {/* poster tap → info card (director · year · TakeScore · availability). Lives
                 OUTSIDE the pannable layer so it stays put, near the map's bottom edge. */}
@@ -677,7 +1317,7 @@ export default function NavigatorDriveScreen() {
           <View>
             <View style={{ width: 38, height: 5, borderRadius: 99, backgroundColor: pal.hairline2, alignSelf: "center", marginBottom: sp.s3 }} />
 
-            {/* headline: 남은 소요시간 + N편 + pace + expand chevron */}
+            {/* headline: time remaining + N films + pace + expand chevron */}
             <View style={{ flexDirection: "row", alignItems: "baseline", flexWrap: "wrap", gap: sp.s2 }}>
               <Ui size={fs.x2} weight="700">
                 {arrived ? "0:00" : fmtDur(data.runtimeRemaining)}
@@ -724,7 +1364,7 @@ export default function NavigatorDriveScreen() {
               </View>
             </View>
 
-            {/* route-pref switch (최단 / 최속 / 무료도로) */}
+            {/* route-pref switch (fewest / fastest / no tolls) */}
             <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s4 }}>
               {PREFS.map((p) => {
                 const on = pref === p;
@@ -756,7 +1396,7 @@ export default function NavigatorDriveScreen() {
               })}
             </View>
 
-            {/* actions: 본 걸로 (advance) · 이 턴 건너뛰기 */}
+            {/* actions: mark seen (advance) · skip this turn */}
             {!arrived && head ? (
               <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s2 }}>
                 <Tactile onPress={() => onMarkSeen(head.slug)} style={{ flex: 1 }}>

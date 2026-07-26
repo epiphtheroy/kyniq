@@ -16,6 +16,7 @@ import type {
   NavigatorPayload,
   NavPickDest,
   NavPref,
+  OdyMapLite,
   RateStats,
   SearchRow,
   Service,
@@ -56,7 +57,7 @@ export const api = {
   },
 
   /**
-   * The Navigator drive view (HANDOFF-내비게이터 §5.3). A destination is either a
+   * The Navigator drive view (HANDOFF-navigator §5.3). A destination is either a
    * director conquest ({ dir }) or a canon list ({ lineage, label }); nothing set
    * falls back server-side to the canon default. The chevron position is ledger-
    * derived server-side, so we send the app's Bearer token when signed in;
@@ -78,6 +79,16 @@ export const api = {
     return getJSON(`/api/v1/app/navigator?${q.toString()}`, {
       headers: token ? { authorization: `Bearer ${token}` } : undefined,
     });
+  },
+
+  /**
+   * The odyssey plane artifact (map v3) — a public static JSON on the web origin.
+   * The drive idealises the route into a hero lane over this map's faded lineages
+   * and stations. Fetched once, cached in component state; callers silent-catch and
+   * fall back to the synthetic overworld, so a miss never breaks the drive.
+   */
+  odysseyMap(): Promise<OdyMapLite> {
+    return getJSON(`/odyssey/map.v1.json`);
   },
 
   /**
@@ -408,7 +419,7 @@ export const me = {
     return rows[0]?.slug ?? null;
   },
 
-  // ── Resume (이어가기) — persist WHICH destination is being driven so the picker
+  // ── Resume — persist WHICH destination is being driven so the picker
   //    can offer a Resume card. Position/progress stay ledger-derived (§10-1): these
   //    RPCs store only the destination descriptor + pref, never the chevron. Called
   //    directly with the user's JWT (me_*, not *_mine — §13-4). Fire-and-forget from

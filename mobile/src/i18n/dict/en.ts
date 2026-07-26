@@ -298,6 +298,11 @@ export const en = {
   "nav.resume": "Resume →",
   "nav.takescore": "TakeScore",
   "nav.open": "Open →",
+  // The Navigator — map v3 (odyssey hero lane)
+  "nav.durHM": "{h}h {m}m",
+  "nav.durMin": "{m}m",
+  "nav.offmap": "{n} off-map · placed by lineage",
+  "nav.recenter": "Recenter",
 } as const;
 
 export type DictKey = keyof typeof en;

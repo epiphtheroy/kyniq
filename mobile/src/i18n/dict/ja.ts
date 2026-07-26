@@ -283,4 +283,9 @@ export const ja: Record<keyof typeof en, string> = {
   "nav.resume": "再開 →",
   "nav.takescore": "TakeScore",
   "nav.open": "開く →",
+  // The Navigator — 地図 v3 (オデッセイ・ヒーローレーン)
+  "nav.durHM": "{h}時間{m}分",
+  "nav.durMin": "{m}分",
+  "nav.offmap": "地図外 {n}本 · 系譜で配置",
+  "nav.recenter": "再センタリング",
 };

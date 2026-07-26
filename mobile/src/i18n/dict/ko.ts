@@ -284,4 +284,9 @@ export const ko: Record<keyof typeof en, string> = {
   "nav.resume": "이어가기 →",
   "nav.takescore": "TakeScore",
   "nav.open": "열기 →",
+  // The Navigator — 지도 v3 (오디세이 히어로 레인)
+  "nav.durHM": "{h}시간 {m}분",
+  "nav.durMin": "{m}분",
+  "nav.offmap": "지도 밖 {n}편 · 계보로 배치",
+  "nav.recenter": "다시 중앙으로",
 };
