@@ -28,7 +28,7 @@
 .room-root .newbtn:disabled{opacity:.4;cursor:default}
 .room-root .nlfilt{display:flex;gap:4px;padding:7px 9px;border-bottom:1px solid var(--line);font-size:10px}
 .room-root .nlfilt button{background:transparent;border:1px solid var(--line2);color:var(--mut);border-radius:11px;padding:2px 9px;cursor:pointer;font-family:var(--ui);font-size:10px}
-.room-root .nlfilt button.on{background:var(--ink);color:#0A0A0B;border-color:var(--ink)}
+.room-root .nlfilt button.on{background:var(--ink);color:#FAF8F3;border-color:var(--ink)}
 .room-root .nlitems{overflow:auto;flex:1;min-height:0}
 .room-root .li{padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;position:relative}
 .room-root .li:hover{background:var(--pnl2)}
@@ -42,8 +42,8 @@
 
 /* status chip + upvotes (row number budget: one status, one count, one date) */
 .room-root .tk-st{font-size:9px;font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:3px;border:1px solid var(--line2);color:var(--mut)}
-.room-root .tk-st.pub{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
-.room-root .tk-st.dra{color:#edc873;border-color:#5e4d1d;background:#211a08}
+.room-root .tk-st.pub{color:#127B5C;border-color:#B5DCCB;background:#E9F5F0}
+.room-root .tk-st.dra{color:#8F6A1E;border-color:#D9C68F;background:#F8F1DC}
 .room-root .tk-up{display:inline-flex;align-items:center;gap:2px;font-family:var(--mono);font-size:10px;color:var(--mut)}
 .room-root .tk-up .ti{font-size:11px}
 
@@ -53,7 +53,7 @@
 .room-root .tk-seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
 .room-root .tk-seg button{background:transparent;color:var(--mut);border:none;border-right:1px solid var(--line);padding:5px 10px;font-family:var(--ui);font-size:11px;cursor:pointer;display:flex;align-items:center;gap:5px}
 .room-root .tk-seg button:last-child{border-right:none}
-.room-root .tk-seg button.on{background:var(--ink);color:#0A0A0B}
+.room-root .tk-seg button.on{background:var(--ink);color:#FAF8F3}
 .room-root .tk-seg button:disabled{opacity:.4;cursor:default}
 
 /* honest save-state pill: Saved to server / Draft on this device / Unsaved */
@@ -65,7 +65,7 @@
 
 .room-root .savebtn{background:var(--red);color:#fff;border:none;border-radius:5px;padding:6px 13px;font-size:11.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-weight:600}
 .room-root .savebtn:disabled{opacity:.45;cursor:default}
-.room-root .savebtn.pub{background:var(--safe);box-shadow:0 0 0 1px rgba(31,178,134,.3)}
+.room-root .savebtn.pub{background:var(--safe);box-shadow:0 0 0 1px rgba(18,123,92,.35)}
 .room-root .savebtn.ghost{background:var(--pnl);color:var(--ink);border:1px solid var(--line2)}
 .room-root .savebtn.ghost:hover{border-color:var(--line3)}
 .room-root .savebtn.arch{background:transparent;color:var(--mut);border:1px solid var(--line2)}
@@ -78,15 +78,15 @@
 
 .room-root .tk-canvas{flex:1;overflow:auto;padding:24px 30px;min-height:0}
 .room-root .tk-canvas .inner{max-width:680px;margin:0 auto}
-.room-root .hintbanner{font-size:11.5px;color:#edc873;background:#1c1708;border:1px solid #5e4d1d;border-radius:5px;padding:7px 11px;margin-bottom:16px}
+.room-root .hintbanner{font-size:11.5px;color:#8F6A1E;background:#F8F1DC;border:1px solid #D9C68F;border-radius:5px;padding:7px 11px;margin-bottom:16px}
 .room-root .titlein{width:100%;background:transparent;border:none;color:var(--ink);font-family:var(--ser);font-size:29px;font-weight:700;line-height:1.2;padding:0;margin-bottom:8px}
 .room-root .titlein:focus{outline:none}
-.room-root .titlein::placeholder{color:#3a3a40}
+.room-root .titlein::placeholder{color:#B3ACA0}
 .room-root .fmtbar{display:flex;gap:3px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px}
 .room-root .fmtbar button{background:transparent;color:var(--mut);border:none;width:30px;height:28px;border-radius:4px;cursor:pointer;font-size:15px}
 .room-root .fmtbar button:hover{background:var(--pnl2);color:var(--ink)}
-.room-root .bodyed{font-family:var(--ser);font-size:17px;line-height:1.72;color:#E4E2DC;min-height:240px;outline:none}
-.room-root .bodyed:empty:before{content:attr(data-ph);color:#3a3a40}
+.room-root .bodyed{font-family:var(--ser);font-size:17px;line-height:1.72;color:#2A2824;min-height:240px;outline:none}
+.room-root .bodyed:empty:before{content:attr(data-ph);color:#B3ACA0}
 .room-root .bodyed h2{font-size:22px;margin:1.2em 0 .4em}
 .room-root .bodyed blockquote{border-left:2px solid var(--red);margin:1em 0;padding:2px 0 2px 16px;color:var(--mut);font-style:italic}
 .room-root .bodyed a{color:var(--frontier);text-decoration:underline}
@@ -118,7 +118,7 @@
 .room-root .achips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;position:relative}
 .room-root .achip{font-size:11.5px;border-radius:13px;padding:3px 5px 3px 9px;display:flex;align-items:center;gap:6px;font-family:var(--ser);border:1px solid}
 .room-root .achip.film{background:var(--pnl2);border-color:var(--line2);color:var(--ink)}
-.room-root .achip.misread{background:#211a08;border-color:#5e4d1d;color:#e6c884}
+.room-root .achip.misread{background:#F8F1DC;border-color:#D9C68F;color:#8F6A1E}
 .room-root .achip .yr{color:var(--sub);font-size:10px;font-family:var(--ui)}
 .room-root .achip .x{cursor:pointer;color:var(--sub);font-size:13px}
 .room-root .achip .x:hover{color:var(--red)}
@@ -127,7 +127,7 @@
 .room-root .asrch{position:relative}
 .room-root .asrch input{background:var(--pnl);border:1px solid var(--line3);border-radius:13px;padding:4px 10px;color:var(--ink);font-size:12px;width:180px;font-family:var(--ui)}
 .room-root .asrch input:focus{outline:none}
-.room-root .adrop{position:absolute;top:32px;left:0;background:#161618;border:1px solid var(--line3);border-radius:6px;z-index:9;min-width:236px;max-height:260px;overflow:auto;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.room-root .adrop{position:absolute;top:32px;left:0;background:#FFFFFF;border:1px solid var(--line3);border-radius:6px;z-index:9;min-width:236px;max-height:260px;overflow:auto;box-shadow:0 8px 24px rgba(20,20,20,.12)}
 .room-root .adrop .ai{padding:7px 11px;cursor:pointer;border-bottom:1px solid var(--line);font-size:12.5px}
 .room-root .adrop .ai:last-child{border-bottom:0}
 .room-root .adrop .ai:hover{background:var(--pnl2)}

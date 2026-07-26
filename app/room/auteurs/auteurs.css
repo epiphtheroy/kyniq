@@ -31,7 +31,7 @@
 
 .room-root .au-thumb{
   width:44px;height:44px;border-radius:50%;
-  background:linear-gradient(145deg,#26262c,#151517);border:1px solid var(--line2);
+  background:linear-gradient(145deg,#F1EDE4,#E4DFD3);border:1px solid var(--line2);
   background-size:cover;background-position:center top;flex:0 0 auto;
 }
 .room-root .au-name{min-width:0}
@@ -47,9 +47,9 @@
 /* 4-state accents (row-level: bar glow + left edge on Near/Complete) */
 .room-root .au-row.st-lock .au-track i{background:var(--sub)}
 .room-root .au-row.st-prog .au-track i{background:var(--canon)}
-.room-root .au-row.st-near .au-track i{background:var(--canon);box-shadow:0 0 7px rgba(200,146,43,.65)}
+.room-root .au-row.st-near .au-track i{background:var(--canon);box-shadow:0 1px 3px rgba(20,20,20,.07)}
 .room-root .au-row.st-near{box-shadow:inset 2px 0 0 var(--canon)}
-.room-root .au-row.st-done .au-track i{background:var(--conquer);box-shadow:0 0 8px rgba(227,18,11,.55)}
+.room-root .au-row.st-done .au-track i{background:var(--conquer);box-shadow:0 1px 3px rgba(20,20,20,.07)}
 .room-root .au-row.st-done{box-shadow:inset 2px 0 0 var(--conquer)}
 
 /* avg-star cell — shared read-only <Stars> (.v2stars) + mono mean below */
@@ -62,7 +62,7 @@
   border:1px solid var(--line2);border-radius:999px;padding:2px 4px;white-space:nowrap;
 }
 .room-root .au-row.st-prog .au-statetag,
-.room-root .au-row.st-near .au-statetag{color:var(--canon);border-color:rgba(200,146,43,.4)}
+.room-root .au-row.st-near .au-statetag{color:var(--canon);border-color:rgba(143,106,30,.4)}
 .room-root .au-row.st-done .au-statetag{color:var(--conquer);border-color:rgba(227,18,11,.45);background:rgba(227,18,11,.08)}
 
 /* ── conquest desk row (flat cross-director) ── */
@@ -76,7 +76,7 @@
 
 .room-root .au-cpo{
   width:40px;height:58px;border-radius:3px;
-  background:linear-gradient(145deg,#26262c,#151517);border:1px solid var(--line2);
+  background:linear-gradient(145deg,#F1EDE4,#E4DFD3);border:1px solid var(--line2);
   background-size:cover;background-position:center;flex:0 0 auto;
 }
 .room-root .au-cbody{min-width:0}

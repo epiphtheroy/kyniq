@@ -14,9 +14,9 @@
 .room-root .hmc{width:11px;height:11px;border-radius:2px;background:var(--pnl2);border:1px solid var(--line);cursor:pointer}
 .room-root .hmc:hover{border-color:var(--line3)}
 .room-root .hmc.off{visibility:hidden}
-.room-root .hmc.l1{background:rgba(200,146,43,.22)}
-.room-root .hmc.l2{background:rgba(200,146,43,.45)}
-.room-root .hmc.l3{background:rgba(200,146,43,.72)}
+.room-root .hmc.l1{background:rgba(143,106,30,.22)}
+.room-root .hmc.l2{background:rgba(143,106,30,.45)}
+.room-root .hmc.l3{background:rgba(143,106,30,.72)}
 .room-root .hmc.l4{background:var(--canon)}
 .room-root .hmc.on{outline:1px solid var(--ink)}
 .room-root .hmhint{font-size:10.5px;color:var(--sub);margin-top:7px}
@@ -28,7 +28,7 @@
 /* ── entry rows (poster · title · inline stars · date · loved flame) ── */
 .room-root .lrow{display:grid;grid-template-columns:44px minmax(0,1fr) auto 86px 22px;gap:12px;align-items:center;padding:8px 10px;border:1px solid transparent;border-bottom:1px solid var(--line);border-radius:8px;cursor:pointer}
 .room-root .lrow:hover{background:var(--pnl);border-color:var(--line2)}
-.room-root .lrow .fpo{width:44px;height:64px;border-radius:4px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .lrow .fpo{width:44px;height:64px;border-radius:4px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover;border:1px solid var(--line2)}
 .room-root .lrow .ldate{font-family:var(--mono);font-size:11px;color:var(--sub);text-align:right;white-space:nowrap}
 .room-root .lrow .lflame{color:var(--conquer);font-size:14px;text-align:center}
 @media (max-width:640px){
@@ -39,7 +39,7 @@
 /* ── rating histogram (0.5–5 distribution) ── */
 .room-root .histo{display:flex;align-items:flex-end;gap:4px}
 .room-root .histo .hcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;cursor:help}
-.room-root .histo .hbar{display:block;width:100%;background:rgba(200,146,43,.55);border-radius:2px 2px 0 0}
+.room-root .histo .hbar{display:block;width:100%;background:rgba(143,106,30,.55);border-radius:2px 2px 0 0}
 .room-root .histo .hcol:hover .hbar{background:var(--canon)}
 .room-root .histo .hlbl{font-size:8.5px;font-family:var(--mono);color:var(--sub);height:11px}
 .room-root .hfoot{font-size:10.5px;color:var(--sub);margin-top:9px;border-top:1px solid var(--line);padding-top:8px}
@@ -50,4 +50,4 @@
 .room-root .ledstrip .pnt{margin-top:4px;font-size:10.5px;color:var(--sub);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .room-root .ledstrip .pkeep{margin-top:5px;width:100%;font-size:10px;padding:3px 0;border:1px solid var(--line2);border-radius:5px;background:var(--pnl);color:var(--mut);cursor:pointer;font-family:var(--ui)}
 .room-root .ledstrip .pkeep:hover{color:var(--ink);border-color:var(--line3)}
-.room-root .ledstrip .pkeep.done{color:var(--safe);border-color:#1d5145}
+.room-root .ledstrip .pkeep.done{color:var(--safe);border-color:#A8D4C4}

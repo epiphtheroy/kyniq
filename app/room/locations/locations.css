@@ -4,8 +4,8 @@
    FULLY SCOPED under .room-root so it never leaks. Reuses shared room.css tokens
    (--bg,--pnl,--ink,--frontier,--blind,--safe,--risk,…). Page-only tints below. */
 .room-root{
-  --at-filmed:#0F6E56; --at-setting:#3E8FE0; --at-ocean:#0d0d10;
-  --at-land:#17171c; --at-landline:#2a2a31; --at-blindtx:#edc873;
+  --at-filmed:#E3120B; --at-setting:#1F6BB8; --at-ocean:#F3EFE6;
+  --at-land:#E2DCCB; --at-landline:#CFC8B4; --at-blindtx:#8F6A1E;
 }
 
 /* ── hero: geographic reach ── */
@@ -13,7 +13,7 @@
   background:linear-gradient(180deg,var(--pnl),var(--bg2));border:1px solid var(--line2);
   border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
 .room-root .at-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
-  border-radius:50%;background:radial-gradient(circle,rgba(62,143,224,.10),transparent 70%)}
+  border-radius:50%;background:radial-gradient(circle,rgba(31,107,184,.08),transparent 70%)}
 @media(max-width:900px){.room-root .at-hero{grid-template-columns:1fr}}
 .room-root .at-navbig{display:flex;align-items:center;gap:16px}
 .room-root .at-ring{position:relative;flex:0 0 auto}
@@ -22,7 +22,7 @@
 .room-root .at-navmeta .at-pctl b{color:var(--frontier);font-family:var(--mono)}
 .room-root .at-sig-prose{grid-column:1/-1;font-size:13px;font-family:var(--ser);line-height:1.55;
   color:var(--ink);border-top:1px solid var(--line);margin-top:12px;padding-top:11px}
-.room-root .at-sig-prose b{font-style:normal;color:#86b9ec}
+.room-root .at-sig-prose b{font-style:normal;color:#1F6BB8}
 .room-root .at-sig-prose .em{color:var(--at-blindtx);font-weight:700}
 .room-root .at-foot{grid-column:1/-1;font-size:10.5px;color:var(--sub);margin-top:9px;line-height:1.5}
 .room-root .at-foot b{color:var(--mut);font-style:normal}
@@ -33,7 +33,7 @@
 @media(max-width:900px){.room-root .at-components{border-left:0;padding-left:0}}
 .room-root .at-comp{display:grid;grid-template-columns:118px 1fr 44px;align-items:center;gap:10px}
 .room-root .at-comp .cl{font-size:11px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.room-root .at-comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .at-comp .ct{height:6px;background:#F1EDE4;border-radius:4px;overflow:hidden}
 .room-root .at-comp .ct>i{display:block;height:100%;border-radius:4px}
 .room-root .at-comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
 .room-root .at-comp.blind .cl{color:var(--at-blindtx)}
@@ -46,7 +46,7 @@
 .room-root .at-kpi .v{font-family:var(--mono);font-size:23px;line-height:1.05;margin-top:4px}
 .room-root .at-kpi .v small{font-size:13px;color:var(--sub)}
 .room-root .at-kpi .d{font-size:10.5px;margin-top:3px;color:var(--mut)}
-.room-root .at-kpi.blindkpi{border-color:#5e4d1d;background:linear-gradient(180deg,#1a1407,var(--pnl));position:relative}
+.room-root .at-kpi.blindkpi{border-color:#D9C68F;background:linear-gradient(180deg,#F8F1DC,var(--pnl));position:relative}
 .room-root .at-kpi.blindkpi::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;
   border-radius:2px;background:var(--blind)}
 .room-root .at-kpi.blindkpi .v{color:var(--at-blindtx)}
@@ -95,7 +95,7 @@
 .room-root .at-cov .cn{font-family:var(--ser);font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   display:flex;align-items:center;gap:7px}
 .room-root .at-cov .cn .flag{font-family:var(--ui);font-size:13px}
-.room-root .at-cov .track{height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .at-cov .track{height:7px;background:#F1EDE4;border-radius:4px;overflow:hidden}
 .room-root .at-cov .track>i{display:block;height:100%;border-radius:4px;background:var(--frontier)}
 .room-root .at-cov.top .track>i{background:var(--safe)}
 .room-root .at-cov .frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
@@ -103,11 +103,11 @@
 
 /* ── geographic blind spots ── */
 .room-root .at-blindwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
-.room-root .at-blindchip{display:flex;flex-direction:column;gap:3px;background:linear-gradient(180deg,#1a1407,var(--pnl));
-  border:1px solid #5e4d1d;border-radius:8px;padding:11px 12px;position:relative;overflow:hidden;cursor:pointer}
+.room-root .at-blindchip{display:flex;flex-direction:column;gap:3px;background:linear-gradient(180deg,#F8F1DC,var(--pnl));
+  border:1px solid #D9C68F;border-radius:8px;padding:11px 12px;position:relative;overflow:hidden;cursor:pointer}
 .room-root .at-blindchip::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;
   border-radius:2px;background:var(--blind)}
-.room-root .at-blindchip:hover{border-color:#7a6526}
+.room-root .at-blindchip:hover{border-color:#CBB271}
 .room-root .at-blindchip .bc-c{display:flex;align-items:center;gap:6px;font-family:var(--ser);font-size:14px;color:var(--at-blindtx)}
 .room-root .at-blindchip .bc-c i{font-size:15px}
 .room-root .at-blindchip .bc-d{font-size:10.5px;color:var(--mut);line-height:1.4}
@@ -124,7 +124,7 @@
 .room-root .at-gap:last-child{border-bottom:0}
 .room-root .at-gap.seen{opacity:.5}
 .room-root .at-gpo{width:34px;height:50px;border-radius:3px;border:1px solid var(--line2);
-  background:linear-gradient(145deg,#26262c,#151517) center/cover}
+  background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover}
 .room-root .at-gtt{font-family:var(--ser);font-size:12.5px;color:var(--ink);line-height:1.25;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .room-root .at-gtt a{color:inherit;text-decoration:none}
@@ -139,7 +139,7 @@
   display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;cursor:pointer;padding:0}
 .room-root .at-gb:hover:not(:disabled){color:var(--ink);border-color:var(--line3)}
 .room-root .at-gb.done,.room-root .at-gb:disabled{cursor:default}
-.room-root .at-gb.done{color:var(--safe);border-color:#1d5145}
+.room-root .at-gb.done{color:var(--safe);border-color:#A8D4C4}
 .room-root .at-gretry{margin-left:8px;font-size:10.5px;font-family:var(--ui);color:var(--frontier);
   background:none;border:1px solid var(--line2);border-radius:5px;padding:2px 8px;cursor:pointer}
 .room-root .at-gretry:hover{color:var(--ink);border-color:var(--line3)}

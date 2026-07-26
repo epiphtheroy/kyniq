@@ -595,13 +595,13 @@ export default function LocationsWorkspace({ data, countryRef, nationalLineages 
             <div className="at-navbig">
               <div className="at-ring">
                 <svg width="92" height="92" viewBox="0 0 92 92">
-                  <circle cx="46" cy="46" r="38" fill="none" stroke="#24242a" strokeWidth="7" />
+                  <circle cx="46" cy="46" r="38" fill="none" stroke="#E4DFD3" strokeWidth="7" />
                   {(() => { const C = 2 * Math.PI * 38; const frac = Math.min(1, countryCount / refNations); return (
                     <circle cx="46" cy="46" r="38" fill="none" stroke="var(--frontier)" strokeWidth="7" strokeLinecap="round"
                       strokeDasharray={C.toFixed(1)} strokeDashoffset={(C * (1 - frac)).toFixed(1)} transform="rotate(-90 46 46)" />
                   ); })()}
-                  <text x="46" y="43" textAnchor="middle" fontSize="16" fill="#ECEAE5" fontFamily="ui-monospace,monospace" fontWeight="600">{countryCount}</text>
-                  <text x="46" y="57" textAnchor="middle" fontSize="8" fill="#6C6960" letterSpacing="1">COUNTRIES</text>
+                  <text x="46" y="43" textAnchor="middle" fontSize="16" fill="#141414" fontFamily="ui-monospace,monospace" fontWeight="600">{countryCount}</text>
+                  <text x="46" y="57" textAnchor="middle" fontSize="8" fill="#8A857C" letterSpacing="1">COUNTRIES</text>
                 </svg>
               </div>
               <div className="at-navmeta">
@@ -696,7 +696,7 @@ export default function LocationsWorkspace({ data, countryRef, nationalLineages 
                             ? `${first.title} · ${first.name ?? displayCountry(first.country)}`
                             : `${first.name ?? displayCountry(first.country)} · ${uniq.length} films`}</title>
                           <circle className="hit" cx={c.x} cy={c.y} r={11} fill="transparent" />
-                          <circle cx={c.x} cy={c.y} r={rr} fill={fill} fillOpacity={0.85} stroke="#0a0a0b" strokeWidth={0.8} />
+                          <circle cx={c.x} cy={c.y} r={rr} fill={fill} fillOpacity={0.85} stroke="#FFFFFF" strokeWidth={1} />
                           {uniq.length > 1 ? (
                             <text x={c.x} y={c.y - rr - 2.5} textAnchor="middle" fontSize="7.5" fill="#9A968D">{uniq.length}</text>
                           ) : null}

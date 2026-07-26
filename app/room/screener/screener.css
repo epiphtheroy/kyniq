@@ -24,7 +24,7 @@
 /* Score-anatomy expander footer — WWI formula gloss + NAV chip (links to Performance only). */
 .room-root .scr-xfoot{display:flex;align-items:center;gap:12px;margin-top:9px;font-size:10.5px;color:var(--sub)}
 .room-root .scr-xfoot .wwi{font-family:var(--mono)}
-.room-root .scr-navchip{font-family:var(--mono);font-size:10.5px;color:var(--safe);border:1px solid rgba(31,178,134,.4);border-radius:4px;padding:1px 7px}
+.room-root .scr-navchip{font-family:var(--mono);font-size:10.5px;color:var(--safe);border:1px solid rgba(18,123,92,.4);border-radius:4px;padding:1px 7px}
 .room-root .scr-navchip:hover{border-color:var(--safe)}
 
 /* Inline buttons inside empty/error states. */
@@ -47,7 +47,7 @@
 .room-root .scr-hist{display:flex;flex-direction:column}
 .room-root .scr-hrow{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
 .room-root .scr-hrow:last-child{border-bottom:none;padding-bottom:2px}
-.room-root .scr-hrow .hpo{width:26px;height:37px;border-radius:3px;background:linear-gradient(145deg,#26262c,#151517) center/cover no-repeat;border:1px solid var(--line2);flex:0 0 auto}
+.room-root .scr-hrow .hpo{width:26px;height:37px;border-radius:3px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover no-repeat;border:1px solid var(--line2);flex:0 0 auto}
 .room-root .scr-hrow .ht{min-width:0;flex:1;display:flex;flex-direction:column;gap:1px}
 .room-root .scr-hrow .t{font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .room-root .scr-hrow .y{font-family:var(--mono);font-size:10px;color:var(--sub)}

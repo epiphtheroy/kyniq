@@ -3,17 +3,17 @@
    under .room-root. Masquerade violet tokens stay local to this route. */
 
 .room-root {
-  --masque: #9B8CF0;       /* masquerade violet */
-  --masque-bd: #4a3f86;    /* violet border */
-  --masque-tx: #bda1f0;    /* violet text */
-  --masque-bg: #2a2440;    /* violet fill */
-  --masque-deep: #16121f;  /* deep card background */
-  --masque-iris: #221d36;  /* mask iris fill */
+  --masque: #5B4FC0;       /* masquerade violet */
+  --masque-bd: #C9BFEA;    /* violet border */
+  --masque-tx: #5B4FC0;    /* violet text */
+  --masque-bg: #DCD4F0;    /* violet fill */
+  --masque-deep: #F5F2FB;  /* pale card background */
+  --masque-iris: #E7E1F5;  /* mask iris fill */
 }
 
 /* single card */
 .room-root .mq-card{background:linear-gradient(160deg,var(--masque-deep),var(--bg2));border:1px solid var(--masque-bg);border-radius:10px;padding:18px 20px 14px;position:relative;overflow:hidden;max-width:620px;margin:0 auto}
-.room-root .mq-card::after{content:"";position:absolute;left:-30px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(155,140,240,.08),transparent 70%);pointer-events:none}
+.room-root .mq-card::after{content:"";position:absolute;left:-30px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(91,79,192,.06),transparent 70%);pointer-events:none}
 
 /* two masks + sync */
 .room-root .mq-pair{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px}
@@ -52,7 +52,7 @@
 .room-root .mq-foot{margin-top:14px;border-top:1px solid var(--line);padding-top:11px}
 .room-root .mq-veil{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
 .room-root .mq-veil .vc{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;padding:3px 9px;border-radius:13px;border:1px solid var(--line2)}
-.room-root .mq-veil .vc.show{color:#8ee3cc;border-color:#1d5145;background:rgba(31,178,134,.06)}
+.room-root .mq-veil .vc.show{color:#127B5C;border-color:#A8D4C4;background:rgba(18,123,92,.06)}
 .room-root .mq-veil .vc.hide{color:var(--sub);border-color:var(--line2)}
 .room-root .mq-veil .vc i{font-size:12px}
 .room-root .mq-rotate{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:10px;font-size:10.5px;color:var(--sub)}

@@ -1,16 +1,16 @@
-/* /room — dedicated dark "operating-system shell" CSS.
-   FULLY SCOPED under .room-root so it never leaks into the light main site
+/* /room — dedicated light-paper "operating-system shell" CSS.
+   FULLY SCOPED under .room-root so it never leaks into the main site
    (globals.css / home2.css are untouched). Class contract mirrors mockup-me-*.html. */
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css");
 
 .room-root{
-  --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
-  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14); --line3:rgba(255,255,255,.22);
-  --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --faint:#48463F;
+  --bg:#FAF8F3; --bg2:#F4F1E9; --pnl:#FFFFFF; --pnl2:#F1EDE4; --pnl3:#EAE6DA;
+  --line:#E4DFD3; --line2:#D8D2C4; --line3:#C6BEAC;
+  --ink:#141414; --mut:#4A4640; --sub:#8A857C; --faint:#B3ACA0;
   --red:#E3120B; --reddim:#7a1410;
-  --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
-  --blind:#E8B23A; --forming:#C8922B; --risk:#D64518;
+  --safe:#127B5C; --frontier:#1F6BB8; --canon:#8F6A1E; --gap:#9A6900; --conquer:#E3120B; --reading:#5B4FC0; --avail:#1E7E3C;
+  --blind:#9A6900; --forming:#8F6A1E; --risk:#B3261E;
   --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --rail:212px; --insp:344px; --feed:286px;
@@ -25,8 +25,8 @@
 .room-root .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
 .room-root a{color:inherit;text-decoration:none}
 .room-root ::-webkit-scrollbar{width:9px;height:9px}
-.room-root ::-webkit-scrollbar-thumb{background:#26262b;border-radius:6px}
-.room-root ::-webkit-scrollbar-thumb:hover{background:#34343a}
+.room-root ::-webkit-scrollbar-thumb{background:#D5CEBE;border-radius:6px}
+.room-root ::-webkit-scrollbar-thumb:hover{background:#C2BAA8}
 .room-root ::-webkit-scrollbar-track{background:transparent}
 .room-root .gloss{border-bottom:1px dotted var(--line3);cursor:help}
 
@@ -44,7 +44,7 @@
 .room-root .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
 .room-root .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;margin:0;padding:0}
 .room-root .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
-.room-root .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
+.room-root .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#F1EDE4,#E4DFD3);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
 
 /* ── SHELL ── */
 /* NOTE: globals.css has a bare `.shell{max-width;margin:0 auto;padding}` — override it here. */
@@ -119,9 +119,9 @@
 
 /* risk badge (--risk, distinct from --red) */
 .room-root .riskbadge{display:inline-flex;align-items:center;gap:3px;font-family:var(--mono);font-size:10px;border-radius:4px;padding:1px 6px;border:1px solid var(--line2);color:var(--mut)}
-.room-root .riskbadge.lo{color:var(--safe);border-color:rgba(31,178,134,.4)}
-.room-root .riskbadge.mid{color:var(--gap);border-color:rgba(232,178,58,.4)}
-.room-root .riskbadge.hi{color:var(--risk);border-color:rgba(214,69,24,.5);background:rgba(214,69,24,.08)}
+.room-root .riskbadge.lo{color:var(--safe);border-color:rgba(18,123,92,.4)}
+.room-root .riskbadge.mid{color:var(--gap);border-color:rgba(154,105,0,.4)}
+.room-root .riskbadge.hi{color:var(--risk);border-color:rgba(179,38,30,.5);background:rgba(179,38,30,.06)}
 
 /* Availability dot (shared — FilmContentHub, Slate) */
 .room-root .availdot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-left:6px;vertical-align:middle}
@@ -146,7 +146,7 @@
 .room-root .backlink{font-size:11px;color:var(--sub);cursor:pointer;margin-bottom:9px;display:inline-block}
 .room-root .backlink:hover{color:var(--ink)}
 .room-root .selhead{display:flex;gap:10px;margin-bottom:11px}
-.room-root .selhead .po{width:44px;height:64px;border-radius:3px;background:linear-gradient(145deg,#26262c,#151517);border:1px solid var(--line2);flex:0 0 auto;background-size:cover;background-position:center}
+.room-root .selhead .po{width:44px;height:64px;border-radius:3px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3);border:1px solid var(--line2);flex:0 0 auto;background-size:cover;background-position:center}
 .room-root .seltitle{font-family:var(--ser);font-size:16px}
 .room-root .selsub{font-size:11px;color:var(--mut);margin-top:2px}
 .room-root .actbar{display:flex;gap:8px;margin-top:6px}
@@ -156,8 +156,8 @@
 .room-root .emptyins{color:var(--sub);font-size:12px;padding:20px 4px;text-align:center}
 
 /* ── CINECODEX CARD (S11) ── */
-.room-root .cc-card{border-color:#5a2a18;background:linear-gradient(160deg,rgba(90,42,24,.14),var(--pnl))}
-.room-root .cc-card h4{color:#d98a5e}
+.room-root .cc-card{border-color:#DCBBA6;background:linear-gradient(160deg,rgba(90,42,24,.06),var(--pnl))}
+.room-root .cc-card h4{color:#9C4A1F}
 .room-root .ccaxes{display:flex;gap:14px;align-items:center;margin-bottom:10px}
 .room-root .ccbig{flex:0 0 auto;text-align:center}
 .room-root .ccbig .u{font-family:var(--mono);font-size:30px;color:var(--ink);line-height:1}
@@ -175,12 +175,12 @@
 .room-root .sbs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}
 .room-root .sc{border:1px solid var(--line);border-radius:6px;padding:7px 8px;background:var(--bg2)}
 .room-root .sc h5{margin:0 0 5px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub)}
-.room-root .sc.ours h5{color:#d98a5e} .room-root .sc.ext h5{color:var(--frontier)} .room-root .sc.canon h5{color:var(--canon)}
+.room-root .sc.ours h5{color:#9C4A1F} .room-root .sc.ext h5{color:var(--frontier)} .room-root .sc.canon h5{color:var(--canon)}
 .room-root .sc .r{display:flex;justify-content:space-between;font-size:10.5px;color:var(--mut);padding:1px 0}
 .room-root .sc .r b{color:var(--ink);font-family:var(--mono)}
 .room-root .tierbadge,.room-root .polarbadge,.room-root .flagchip{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;border-radius:999px;padding:1px 8px;border:1px solid var(--line2);color:var(--mut);margin-right:5px}
-.room-root .polarbadge{color:var(--reading);border-color:rgba(139,127,232,.4)}
-.room-root .flagchip{color:var(--gap);border-color:rgba(232,178,58,.4)}
+.room-root .polarbadge{color:var(--reading);border-color:rgba(91,79,192,.45)}
+.room-root .flagchip{color:var(--gap);border-color:rgba(154,105,0,.4)}
 .room-root .relcard{margin-top:8px;font-size:10.5px;color:var(--sub)}
 .room-root .relcard summary{cursor:pointer;color:var(--mut)}
 .room-root .relcard .kv{font-size:10px}
@@ -192,7 +192,7 @@
 .room-root .vpq .b .bl{font-size:9px;color:var(--sub)}
 
 /* ── CmdK palette ── */
-.room-root .palette{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;display:none;align-items:flex-start;justify-content:center;padding-top:12vh}
+.room-root .palette{position:fixed;inset:0;background:rgba(20,20,20,.25);z-index:60;display:none;align-items:flex-start;justify-content:center;padding-top:12vh}
 .room-root .palette.show{display:flex}
 .room-root .palbox{width:540px;max-width:92vw;background:var(--pnl);border:1px solid var(--line2);border-radius:10px;overflow:hidden}
 .room-root .palbox input{width:100%;background:var(--pnl3);border:0;border-bottom:1px solid var(--line);outline:0;color:var(--ink);font-size:14px;padding:12px 14px;font-family:var(--ui)}
@@ -219,17 +219,17 @@
 .room-root .mod.closed .modbody{display:none}
 .room-root .mod.closed .modh .cx{transform:rotate(-90deg)}
 .room-root .fhero{display:grid;grid-template-columns:96px 1fr;gap:16px;background:linear-gradient(180deg,var(--pnl),var(--bg2));border:1px solid var(--line2);border-radius:10px;padding:16px 18px;margin-bottom:13px;position:relative;overflow:hidden}
-.room-root .fposter{width:96px;height:140px;border-radius:4px;background:linear-gradient(150deg,#2b2b31,#161618) center/cover;border:1px solid var(--line2)}
+.room-root .fposter{width:96px;height:140px;border-radius:4px;background:linear-gradient(150deg,#F1EDE4,#E4DFD3) center/cover;border:1px solid var(--line2)}
 .room-root .fmeta{min-width:0}
 .room-root .ftitle{font-family:var(--ser);font-size:24px;line-height:1.1}
 .room-root .ftitle small{font-family:var(--ui);color:var(--mut);font-size:13px;margin-left:8px;font-weight:400}
 .room-root .fsub{font-size:11.5px;color:var(--mut);margin-top:3px}
 .room-root .fbadges{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;align-items:center}
-.room-root .tierbadge{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#1f1808,#171205);border:1px solid #5b481f;color:#e0bb6e;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600}
+.room-root .tierbadge{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#F8F1DC,#F2E7C9);border:1px solid #D9C68F;color:#8F6A1E;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600}
 .room-root .tierbadge .lv{font-family:var(--mono);font-size:14px}
 .room-root .tierbadge .of{font-size:9.5px;color:var(--sub);font-weight:400}
 .room-root .polarbadge{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line2);background:var(--pnl2);color:var(--mut);border-radius:20px;padding:4px 10px;font-size:10.5px}
-.room-root .flagchip{display:inline-flex;align-items:center;gap:5px;border:1px solid #5e4d1d;background:#211a08;color:#edc873;border-radius:4px;padding:3px 8px;font-size:10px;font-family:var(--mono)}
+.room-root .flagchip{display:inline-flex;align-items:center;gap:5px;border:1px solid #D9C68F;background:#F8F1DC;color:#8F6A1E;border-radius:4px;padding:3px 8px;font-size:10px;font-family:var(--mono)}
 .room-root .axisgrid{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr) 1.4fr;gap:14px;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
 .room-root .donutcell{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
 .room-root .donutcell .cap{font-size:10px;color:var(--mut)}
@@ -249,9 +249,9 @@
 .room-root .grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:13px 0 6px;display:flex;align-items:center;gap:8px}
 .room-root .grp:first-child{margin-top:0}
 .room-root .grp .ax{font-family:var(--mono);font-size:10px;padding:1px 7px;border-radius:3px;border:1px solid}
-.room-root .grp .ax.v{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
-.room-root .grp .ax.c{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
-.room-root .grp .ax.r{color:#e3a3cf;border-color:#5a3049;background:#22101b}
+.room-root .grp .ax.v{color:#127B5C;border-color:#B5DCCB;background:#E9F5F0}
+.room-root .grp .ax.c{color:#1F6BB8;border-color:#B9D3EC;background:#EAF2FA}
+.room-root .grp .ax.r{color:#A5487F;border-color:#E3C2D7;background:#F8ECF3}
 .room-root .grp .line{flex:1;height:1px;background:var(--line)}
 .room-root .sub{display:grid;grid-template-columns:180px 1fr 46px;align-items:start;gap:12px;padding:9px 8px;border-radius:6px;border:1px solid transparent}
 .room-root .sub:hover{background:var(--pnl2);border-color:var(--line)}
@@ -264,13 +264,13 @@
 .room-root .sub .lvcell{text-align:right}
 .room-root .sub .lvcell .lvn{font-family:var(--mono);font-size:16px;font-weight:600}
 .room-root .sub .lvcell .lvd{font-size:8px;color:var(--sub);letter-spacing:.08em}
-.room-root .lvn.g{color:#5fd0b2}.room-root .lvn.m{color:#e0bb6e}.room-root .lvn.b{color:var(--risk)}.room-root .lvn.n{color:var(--mut)}
+.room-root .lvn.g{color:#127B5C}.room-root .lvn.m{color:#8F6A1E}.room-root .lvn.b{color:var(--risk)}.room-root .lvn.n{color:var(--mut)}
 .room-root .formula{font-size:10.5px;color:var(--sub);margin-top:12px;border-top:1px solid var(--line);padding-top:9px;line-height:1.5}
 .room-root .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .room-root .tcol{background:var(--pnl2);border:1px solid var(--line2);border-radius:8px;padding:12px}
-.room-root .tcol.ours{border-color:#1d4d40}
+.room-root .tcol.ours{border-color:#B5DCCB}
 .room-root .tcol .thd{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-.room-root .tcol.ours .thd{color:#5fd0b2}.room-root .tcol.ext .thd{color:#86b9ec}.room-root .tcol.canon .thd{color:#e0bb6e}
+.room-root .tcol.ours .thd{color:#127B5C}.room-root .tcol.ext .thd{color:#1F6BB8}.room-root .tcol.canon .thd{color:#8F6A1E}
 .room-root .tcol .thd .tag{margin-left:auto;font-family:var(--mono);font-size:8.5px;color:var(--sub);text-transform:uppercase;font-weight:400}
 .room-root .tmetric{display:flex;align-items:baseline;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
 .room-root .tmetric:last-child{border-bottom:0}
@@ -282,10 +282,10 @@
 .room-root .nomerge i{color:var(--risk)}
 .room-root .relgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
 .room-root .ec-kv{display:flex;justify-content:space-between;font-size:11.5px;padding:5px 0;border-bottom:1px solid var(--line)}
-.room-root .ec-kv .k{color:var(--mut)}.room-root .ec-kv .v{font-family:var(--mono);color:var(--ink)}.room-root .ec-kv .v.warn{color:#edc873}
+.room-root .ec-kv .k{color:var(--mut)}.room-root .ec-kv .v{font-family:var(--mono);color:var(--ink)}.room-root .ec-kv .v.warn{color:#8F6A1E}
 .room-root .honest{font-size:11px;color:var(--sub);line-height:1.55;margin-top:11px;border-top:1px solid var(--line);padding-top:10px}
 .room-root .honest b{color:var(--mut)}
-.room-root .pass2{display:flex;align-items:center;gap:7px;margin-top:10px;font-size:11px;color:#edc873;background:#211a08;border:1px solid #5e4d1d;border-radius:6px;padding:8px 11px}
+.room-root .pass2{display:flex;align-items:center;gap:7px;margin-top:10px;font-size:11px;color:#8F6A1E;background:#F8F1DC;border:1px solid #D9C68F;border-radius:6px;padding:8px 11px}
 .room-root .baskrow{display:grid;grid-template-columns:1fr 34px 30px;gap:7px;align-items:center;font-size:11px;padding:3px 0}
 .room-root .baskrow .nm{font-family:var(--ser);color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .room-root .baskrow .bu{font-family:var(--mono);color:var(--safe);text-align:right}
@@ -315,16 +315,16 @@
 .room-root .fh-poster--e{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-family:var(--ser);font-size:11px;color:var(--sub)}
 .room-root .fh-loc{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mut);padding:2px 0}
 .room-root .fh-locdot{width:7px;height:7px;border-radius:50%;flex:0 0 auto}
-.room-root .fh-locdot.filmed{background:#0F6E56}
+.room-root .fh-locdot.filmed{background:#E3120B}
 .room-root .fh-locdot.setting{background:var(--frontier)}
 .room-root .fh-locn{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* ═══════════ v2 shell base (2026-07-03) — on-demand inspector · workspace skeleton · shared rows ═══════════ */
 .room-root .mainpad{max-width:880px;margin:0 auto}
 /* On-demand inspector (slide-over · bottom sheet under 900px) */
-.room-root .insp-overlay{position:fixed;inset:0;background:rgba(6,6,8,.55);z-index:80;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.room-root .insp-overlay{position:fixed;inset:0;background:rgba(20,20,20,.25);z-index:80;opacity:0;pointer-events:none;transition:opacity .18s ease}
 .room-root .insp-overlay.on{opacity:1;pointer-events:auto}
-.room-root .insp-panel{position:fixed;top:0;right:0;bottom:0;width:min(432px,94vw);background:var(--bg2);border-left:1px solid var(--line2);z-index:81;transform:translateX(103%);transition:transform .22s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-18px 0 44px rgba(0,0,0,.45)}
+.room-root .insp-panel{position:fixed;top:0;right:0;bottom:0;width:min(432px,94vw);background:var(--bg2);border-left:1px solid var(--line2);z-index:81;transform:translateX(103%);transition:transform .22s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-18px 0 44px rgba(20,20,20,.12)}
 .room-root .insp-panel.on{transform:none}
 .room-root .insp-panel .col-scroll{flex:1}
 @media (max-width:900px){
@@ -342,21 +342,21 @@
 /* Shared film row (same judgment unit on every screen) */
 .room-root .frow{display:grid;grid-template-columns:44px minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:9px 10px;border:1px solid transparent;border-bottom:1px solid var(--line);cursor:pointer;border-radius:8px}
 .room-root .frow:hover{background:var(--pnl);border-color:var(--line2)}
-.room-root .frow .fpo{width:44px;height:64px;border-radius:4px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .frow .fpo{width:44px;height:64px;border-radius:4px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover;border:1px solid var(--line2)}
 .room-root .frow .ft{font-family:var(--ser);font-size:15px;color:var(--ink);line-height:1.3}
 .room-root .frow .ft small{color:var(--sub);font-family:inherit;font-size:11.5px;margin-left:6px}
 .room-root .frow .fm{margin-top:4px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--sub);flex-wrap:wrap}
-.room-root .frow .fit{font-family:var(--mono);font-size:17px;color:#86b9ec;text-align:right}
+.room-root .frow .fit{font-family:var(--mono);font-size:17px;color:#1F6BB8;text-align:right}
 .room-root .frow .fit small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.1em}
 .room-root .frow .fact{display:flex;gap:6px;opacity:0;transition:opacity .12s}
 .room-root .frow:hover .fact,.room-root .frow .fact:focus-within{opacity:1}
 .room-root .frow .fact .fb{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:14px;cursor:pointer}
 .room-root .frow .fact .fb:hover{color:var(--ink);border-color:var(--line3)}
-.room-root .frow .fact .fb.done{color:var(--safe);border-color:#1d5145}
+.room-root .frow .fact .fb.done{color:var(--safe);border-color:#A8D4C4}
 .room-root .avdot{width:7px;height:7px;border-radius:50%;background:var(--avail);display:inline-block;flex:0 0 auto}
 /* Tonight hero */
-.room-root .today{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:16px;border:1px solid var(--line2);border-radius:12px;background:linear-gradient(160deg,#17171b,#101013)}
-.room-root .today .tpo{width:132px;height:192px;border-radius:8px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .today{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:16px;border:1px solid var(--line2);border-radius:12px;background:linear-gradient(160deg,#FFFFFF,#F4F1E9)}
+.room-root .today .tpo{width:132px;height:192px;border-radius:8px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover;border:1px solid var(--line2)}
 .room-root .today .tt{font-family:var(--ser);font-size:24px;color:var(--ink);line-height:1.25;margin:2px 0 4px}
 .room-root .today .tsub{font-size:12.5px;color:var(--sub)}
 .room-root .today .twhy{margin-top:9px;font-size:13px;color:var(--mut);line-height:1.55;font-family:var(--ser)}
@@ -367,15 +367,15 @@
 .room-root .qrate .qin{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:10px;padding:11px 14px}
 .room-root .qrate .qin:focus-within{border-color:var(--line3)}
 .room-root .qrate input{flex:1;background:transparent;border:0;outline:0;color:var(--ink);font-size:14.5px;min-width:0}
-.room-root .qdrop{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--bg2);border:1px solid var(--line2);border-radius:10px;z-index:40;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.room-root .qdrop{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--bg2);border:1px solid var(--line2);border-radius:10px;z-index:40;overflow:hidden;box-shadow:0 8px 24px rgba(20,20,20,.12)}
 .room-root .qhit{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line)}
 .room-root .qhit:last-child{border-bottom:none}
-.room-root .qhit .qpo{width:34px;height:48px;border-radius:3px;background:linear-gradient(145deg,#26262c,#151517) center/cover;flex:0 0 auto}
+.room-root .qhit .qpo{width:34px;height:48px;border-radius:3px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover;flex:0 0 auto}
 .room-root .qhit .qt{flex:1;min-width:0;font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .room-root .qhit .qt small{color:var(--sub);margin-left:6px}
 /* Shared half-star widget (no rate.css dependency) */
 .room-root .v2stars{display:inline-flex;line-height:1}
-.room-root .v2stars .s{position:relative;display:inline-block;color:#3a3a40;padding:0 1px;user-select:none}
+.room-root .v2stars .s{position:relative;display:inline-block;color:#D5CEBE;padding:0 1px;user-select:none}
 .room-root .v2stars .s.lit{color:var(--canon)}
 .room-root .v2stars .s.hf::before{content:"★";position:absolute;left:1px;top:0;width:52%;overflow:hidden;color:var(--canon)}
 .room-root .v2stars .s .hz{position:absolute;inset:0;display:flex;cursor:pointer}
@@ -383,7 +383,7 @@
 /* Recent-watch poster strip */
 .room-root .postrip{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
 .room-root .postrip .pcard{flex:0 0 auto;width:86px;cursor:pointer}
-.room-root .postrip .ppo{width:86px;height:126px;border-radius:6px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .postrip .ppo{width:86px;height:126px;border-radius:6px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover;border:1px solid var(--line2)}
 .room-root .postrip .pcard:hover .ppo{border-color:var(--line3)}
 .room-root .postrip .pst{margin-top:4px;font-size:10.5px;color:var(--canon);font-family:var(--mono);text-align:center}
 /* Near-conquest row */
@@ -391,7 +391,7 @@
 .room-root .covrow2:hover{background:var(--pnl)}
 .room-root .covrow2 .cn{font-size:13.5px;color:var(--ink);font-family:var(--ser)}
 .room-root .covrow2 .cn small{display:block;font-family:var(--sans,inherit);font-size:10.5px;color:var(--sub);margin-top:2px}
-.room-root .covrow2 .track{height:6px;border-radius:4px;background:#1d1d22;overflow:hidden}
+.room-root .covrow2 .track{height:6px;border-radius:4px;background:#F1EDE4;overflow:hidden}
 .room-root .covrow2 .track i{display:block;height:100%;background:var(--canon)}
 .room-root .covrow2 .rem{font-family:var(--mono);font-size:12px;color:var(--canon);white-space:nowrap}
 /* One-line NAV summary */
@@ -400,7 +400,7 @@
 .room-root .vline .tier{color:var(--canon);letter-spacing:.08em;font-size:11px;font-weight:600}
 .room-root .vline:hover{border-color:var(--line3)}
 /* Single toast host (Toast.tsx) — with optional action slot (Undo) */
-.room-root .v2toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#1c1c20;border:1px solid #3a3a40;color:var(--ink);padding:9px 16px;border-radius:8px;font-size:12px;box-shadow:0 6px 22px rgba(0,0,0,.5)}
+.room-root .v2toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#FFFFFF;border:1px solid #D5CEBE;color:var(--ink);padding:9px 16px;border-radius:8px;font-size:12px;box-shadow:0 8px 24px rgba(20,20,20,.12)}
 .room-root .v2toast .tact{background:transparent;border:0;padding:0;margin:0;color:var(--safe);font-family:var(--ui);font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.02em}
 .room-root .v2toast .tact:hover{text-decoration:underline}
 .room-root .pgn{display:flex;align-items:center;gap:8px;justify-content:center;padding:14px 0}
@@ -453,15 +453,15 @@
 @media (max-width:640px){.room-root .fexp{padding-left:12px}.room-root .fexp .bars{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Verdict chips (my ★ vs Standing — Holdings, Appraisal). --risk ≠ --red. */
 .room-root .vchip{display:inline-flex;align-items:center;font-size:9.5px;border-radius:4px;padding:1px 6px;border:1px solid var(--line2);color:var(--mut)}
-.room-root .vchip.find{color:var(--safe);border-color:rgba(31,178,134,.4)}
-.room-root .vchip.letdown{color:var(--risk);border-color:rgba(214,69,24,.5)}
+.room-root .vchip.find{color:var(--safe);border-color:rgba(18,123,92,.4)}
+.room-root .vchip.letdown{color:var(--risk);border-color:rgba(179,38,30,.5)}
 .room-root .vchip.aligned{color:var(--mut)}
 /* Age badges (Slate decay) */
 .room-root .agebd{display:inline-flex;align-items:center;font-family:var(--mono);font-size:9.5px;border-radius:4px;padding:1px 6px;border:1px solid var(--line2);color:var(--mut)}
-.room-root .agebd.aging{color:var(--gap);border-color:rgba(232,178,58,.4)}
-.room-root .agebd.stale{color:var(--risk);border-color:rgba(214,69,24,.5)}
+.room-root .agebd.aging{color:var(--gap);border-color:rgba(154,105,0,.4)}
+.room-root .agebd.stale{color:var(--risk);border-color:rgba(179,38,30,.5)}
 /* Shared error card — RPC failures say so ("Couldn't load — retry") */
-.room-root .errcard{border:1px solid rgba(214,69,24,.4);border-radius:9px;background:var(--pnl);padding:14px 16px;margin:0 0 16px;font-size:12.5px;color:var(--mut);display:flex;align-items:center;gap:10px}
+.room-root .errcard{border:1px solid rgba(179,38,30,.4);border-radius:9px;background:var(--pnl);padding:14px 16px;margin:0 0 16px;font-size:12.5px;color:var(--mut);display:flex;align-items:center;gap:10px}
 .room-root .errcard i{color:var(--risk);font-size:16px}
 /* Skeleton ghosts for loading.tsx (.mod ghost / standalone .ghost blocks) */
 @keyframes room-ghost{0%{opacity:.45}50%{opacity:.85}100%{opacity:.45}}

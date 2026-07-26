@@ -3,7 +3,7 @@
    rows) and rescoped sg-*. FULLY SCOPED under .room-root so it never leaks.
    Shared tokens (--ink, --pnl, --risk, …) come from room.css. */
 .room-root{
-  --sg-risktx:#f0937a;
+  --sg-risktx:#B3261E;
 }
 
 /* ── hero: signature ── */
@@ -11,14 +11,14 @@
   background:linear-gradient(180deg,var(--pnl),var(--bg2));border:1px solid var(--line2);
   border-radius:9px;padding:16px 18px;margin-bottom:14px;position:relative;overflow:hidden}
 .room-root .sg-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
-  border-radius:50%;background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+  border-radius:50%;background:radial-gradient(circle,rgba(227,18,11,.06),transparent 70%)}
 .room-root .sg-hl{font-family:var(--ser);font-size:24px;line-height:1.2;margin-top:6px;color:var(--ink)}
 .room-root .sg-prose{font-size:13px;font-family:var(--ser);line-height:1.55;color:var(--ink);margin-top:9px}
-.room-root .sg-prose b{font-style:normal;color:#c6bcf7}
-.room-root .sg-prose .em{color:#e98a86;font-weight:700}
+.room-root .sg-prose b{font-style:normal;color:#5B4FC0}
+.room-root .sg-prose .em{color:#B3261E;font-weight:700}
 .room-root .sg-anchorchips{margin-top:11px;display:flex;flex-wrap:wrap;gap:5px}
-.room-root .sg-chip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;
-  color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block}
+.room-root .sg-chip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #C9BFEA;
+  color:#5B4FC0;border-radius:13px;padding:3px 10px;display:inline-block}
 .room-root .sg-chip .n{color:var(--sub);font-family:var(--mono);margin-left:4px}
 .room-root .sg-foot{font-size:10.5px;color:var(--sub);margin-top:10px;line-height:1.5}
 .room-root .sg-foot b{color:var(--mut);font-style:normal}
@@ -57,7 +57,7 @@
 .room-root .sg-side .sg-lead2{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:var(--mut);
   line-height:1.5;border-left:2px solid var(--risk);padding-left:9px;margin-bottom:11px}
 .room-root .sg-side .sg-lead2 i.ti{color:var(--sg-risktx);flex:0 0 auto}
-.room-root .sg-side .sg-lead2 b.ideal{color:#5fd0b2;font-style:normal}
+.room-root .sg-side .sg-lead2 b.ideal{color:#127B5C;font-style:normal}
 .room-root .sg-side .sg-lead2 b.riskw{color:var(--sg-risktx);font-style:normal}
 .room-root .sg-grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:0 0 8px}
 .room-root .sg-stat{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:11.5px;padding:4px 0;
@@ -65,12 +65,12 @@
 .room-root .sg-stat:last-of-type{border-bottom:0}
 .room-root .sg-stat .k{color:var(--mut)}
 .room-root .sg-stat .v{font-family:var(--mono);color:var(--ink);text-align:right}
-.room-root .sg-stat .v.rk{color:var(--sg-risktx)} .room-root .sg-stat .v.ok{color:#5fd0b2}
+.room-root .sg-stat .v.rk{color:var(--sg-risktx)} .room-root .sg-stat .v.ok{color:#127B5C}
 .room-root .sg-legend{display:flex;flex-direction:column;gap:6px;font-size:10.5px;color:var(--mut);margin-top:9px}
 .room-root .sg-legend .lg{display:flex;align-items:center;gap:7px}
 .room-root .sg-legend .lg i{flex:0 0 auto;width:10px;height:10px;border-radius:50%;display:inline-block}
 .room-root .sg-legend .lg i.mine{background:var(--ink)} .room-root .sg-legend .lg i.riskd{background:var(--risk)}
-.room-root .sg-legend .lg i.ideald{background:#5fd0b2}
+.room-root .sg-legend .lg i.ideald{background:#127B5C}
 .room-root .sg-legend .lg i.avg{width:11px;height:11px;border-radius:2px;background:none;border:1.5px solid var(--red);transform:rotate(45deg)}
 .room-root .sg-note{font-size:10px;color:var(--sub);margin-top:9px;line-height:1.5}
 .room-root .sg-note b{font-style:normal;color:var(--mut)}
@@ -79,10 +79,10 @@
 
 /* ── figure cloud ── */
 .room-root .sg-cloud{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.room-root .sg-cloud .sg-fc{font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;
+.room-root .sg-cloud .sg-fc{font-family:var(--ser);background:var(--pnl2);border:1px solid #C9BFEA;color:#5B4FC0;
   border-radius:13px;padding:3px 10px;cursor:pointer;transition:.12s;line-height:1.3}
 .room-root .sg-cloud .sg-fc:hover{border-color:var(--line3);background:var(--pnl3)}
-.room-root .sg-cloud .sg-fc b{font-weight:700;color:#c6bcf7;margin-left:5px;font-family:var(--mono)}
+.room-root .sg-cloud .sg-fc b{font-weight:700;color:#5B4FC0;margin-left:5px;font-family:var(--mono)}
 
 /* ── kindred films (taste neighbors) ── */
 .room-root .sg-rrow{display:grid;grid-template-columns:22px minmax(0,1fr) 132px 64px auto;gap:12px;align-items:center;
@@ -92,7 +92,7 @@
 .room-root .sg-rt{font-family:var(--ser);font-size:15px;color:var(--ink)}
 .room-root .sg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
 .room-root .sg-barwrap{display:flex;align-items:center;gap:8px}
-.room-root .sg-barwrap .track{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .sg-barwrap .track{flex:1;height:7px;background:#F1EDE4;border-radius:4px;overflow:hidden}
 .room-root .sg-barwrap .track>i{display:block;height:100%;border-radius:4px;background:var(--reading)}
 .room-root .sg-barwrap .pct{font-family:var(--mono);font-size:12px;width:38px;text-align:right;color:var(--reading)}
 .room-root .sg-sim{text-align:right}
@@ -103,13 +103,13 @@
 .room-root .sg-ract .fb{width:28px;height:28px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);
   display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;cursor:pointer}
 .room-root .sg-ract .fb:hover{color:var(--ink);border-color:var(--line3)}
-.room-root .sg-ract .fb.done{color:var(--safe);border-color:#1d5145}
+.room-root .sg-ract .fb.done{color:var(--safe);border-color:#A8D4C4}
 @media(max-width:640px){.room-root .sg-rrow{grid-template-columns:22px minmax(0,1fr) 64px auto}.room-root .sg-barwrap{display:none}}
 
 /* ── framework fingerprint bars ── */
 .room-root .sg-comp{display:grid;grid-template-columns:132px 1fr 34px;align-items:center;gap:10px;margin-bottom:7px}
 .room-root .sg-comp .cl{font-size:11px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.room-root .sg-comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .sg-comp .ct{height:6px;background:#F1EDE4;border-radius:4px;overflow:hidden}
 .room-root .sg-comp .ct>i{display:block;height:100%;border-radius:4px}
 .room-root .sg-comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
 

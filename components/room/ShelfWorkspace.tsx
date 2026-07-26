@@ -47,7 +47,7 @@ export type ShelfRow = {
 type TypeKey = "film" | "trope" | "misreading" | "figure";
 /* Literal colors (not island CSS vars) — inspector content renders outside .sh-wrap. */
 const TYPES: Record<TypeKey, { l: string; c: string; i: string }> = {
-  film: { l: "Film", c: "#ECEAE5", i: "ti-movie" },
+  film: { l: "Film", c: "#4A4640", i: "ti-movie" },
   trope: { l: "Trope", c: "#1FB286", i: "ti-affiliate" },
   misreading: { l: "Misreading", c: "#C8922B", i: "ti-quote" },
   figure: { l: "Figure", c: "#86b9ec", i: "ti-eye" },

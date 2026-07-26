@@ -75,11 +75,11 @@ function Donut({ val, color, label, of }: { val: number; color: string; label: R
   return (
     <div className="donutcell">
       <svg width="86" height="86" viewBox="0 0 86 86">
-        <circle cx="43" cy="43" r="34" fill="none" stroke="#24242a" strokeWidth="7" />
+        <circle cx="43" cy="43" r="34" fill="none" stroke="#E4DFD3" strokeWidth="7" />
         <circle cx="43" cy="43" r="34" fill="none" stroke={color} strokeWidth="7" strokeLinecap="round"
           strokeDasharray={C.toFixed(1)} strokeDashoffset={off.toFixed(1)} transform="rotate(-90 43 43)" />
-        <text x="43" y="40" textAnchor="middle" fontSize="20" fill="#ECEAE5" fontFamily="ui-monospace,monospace" fontWeight="600">{Math.round(val)}</text>
-        <text x="43" y="54" textAnchor="middle" fontSize="8" fill="#6C6960" letterSpacing="1">/100</text>
+        <text x="43" y="40" textAnchor="middle" fontSize="20" fill="#141414" fontFamily="ui-monospace,monospace" fontWeight="600">{Math.round(val)}</text>
+        <text x="43" y="54" textAnchor="middle" fontSize="8" fill="#8A857C" letterSpacing="1">/100</text>
       </svg>
       <div className="cap">{label}</div>
       <div className="note">{of}</div>

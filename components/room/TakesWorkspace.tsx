@@ -570,7 +570,7 @@ function AttachRail({ draft, onAddFilm, onRmFilm, onFramework, supabase }: {
         {/* films */}
         <div className="arow">
           {/* literal colors, not island vars — this rail also renders inside the inspector */}
-          <div className="arlbl"><span className="d" style={{ background: "#ECEAE5" }} />Films<span className="ct">{draft.films.length}</span></div>
+          <div className="arlbl"><span className="d" style={{ background: "#4A4640" }} />Films<span className="ct">{draft.films.length}</span></div>
           <div className="achips">
             {draft.films.map((f) => (
               <span className="achip film" key={f.slug}>{f.title}{f.year ? <span className="yr">&apos;{String(f.year).slice(2)}</span> : null}<i className="ti ti-x x" onClick={() => onRmFilm(f.slug)} /></span>

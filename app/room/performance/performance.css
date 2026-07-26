@@ -7,7 +7,7 @@
 .room-root .pf-hero{border:1px solid var(--line2);border-radius:12px;background:linear-gradient(170deg,var(--pnl),var(--bg2));padding:18px 20px;overflow:hidden}
 .room-root .pf-htop{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:8px}
 .room-root .pf-navbig{font-family:var(--mono);font-size:52px;font-weight:600;line-height:.95;color:var(--ink);font-variant-numeric:tabular-nums}
-.room-root .pf-tier{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(180deg,#1f1808,#171205);border:1px solid #5b481f;color:#e0bb6e;border-radius:20px;padding:4px 12px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;align-self:center}
+.room-root .pf-tier{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(180deg,#F8F1DC,#F2E7C9);border:1px solid #D9C68F;color:#8F6A1E;border-radius:20px;padding:4px 12px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;align-self:center}
 .room-root .pf-htop .xseg{margin-left:auto;align-self:center}
 .room-root .pf-chart{display:block;width:100%;height:auto}
 .room-root .pf-chartnote{font-size:11.5px;color:var(--sub);padding:14px 4px}
@@ -21,9 +21,9 @@
 /* ── Tier ladder ── */
 .room-root .pf-ladder{position:relative;padding:8px 0 34px}
 .room-root .pf-ltrack{position:relative;height:10px;border-radius:6px;background:var(--pnl3)}
-.room-root .pf-ltrack .fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,rgba(200,146,43,.3),var(--canon))}
+.room-root .pf-ltrack .fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,rgba(143,106,30,.3),var(--canon))}
 .room-root .pf-ltick{position:absolute;top:-3px;bottom:-3px;width:1.5px;background:var(--line3)}
-.room-root .pf-lmark{position:absolute;top:-7px;width:2.5px;height:24px;background:var(--ink);border-radius:2px;box-shadow:0 0 0 3px rgba(236,234,229,.08)}
+.room-root .pf-lmark{position:absolute;top:-7px;width:2.5px;height:24px;background:var(--ink);border-radius:2px;box-shadow:0 0 0 3px rgba(20,20,20,.08)}
 .room-root .pf-lstep{position:absolute;top:26px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--sub);transform:translateX(-50%);white-space:nowrap}
 .room-root .pf-lstep.s0{transform:none}
 .room-root .pf-lstep.here{color:var(--canon);font-weight:600}

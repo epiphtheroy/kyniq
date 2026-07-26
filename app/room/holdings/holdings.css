@@ -11,7 +11,7 @@
 .room-root .hrow{border-bottom:1px solid var(--line);cursor:pointer}
 .room-root .hrow:last-child{border-bottom:0}
 .room-root .hrow:hover{background:var(--pnl2)}
-.room-root .hrow .fpo{width:40px;height:58px;border-radius:4px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .hrow .fpo{width:40px;height:58px;border-radius:4px;background:linear-gradient(145deg,#F1EDE4,#E4DFD3) center/cover;border:1px solid var(--line2)}
 .room-root .hrow .ht{font-family:var(--ser);font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .room-root .hrow .ht small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:6px}
 
