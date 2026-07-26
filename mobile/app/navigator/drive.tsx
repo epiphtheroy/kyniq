@@ -1,30 +1,32 @@
-// The Navigator — cinephile turn-by-turn (HANDOFF-내비게이터-시네필터바이턴.md §5.3).
-// The flagship "여정 안내" mode: one destination, one next turn, the road ahead.
-// Renders the familiar Google-Maps driving shape natively with RN Views only —
-// NO native map: a green maneuver card (next film), a receding road with poster
-// signposts (near large → far small for depth), the "me" chevron, and a bottom
-// sheet led by 남은 소요시간 with a traveled/remaining meter and a 최단/최속/무료도로
-// switch. Position is ledger-derived server-side (invariant §10-1); marking the
-// next film seen advances the chevron ("경로를 재탐색합니다"). Works on web too
-// (pure RN primitives), so mobile and web stay in step.
+// The Navigator — cinephile turn-by-turn drive (HANDOFF-내비게이터-시네필터바이턴.md §5.3).
+// One destination, one next turn, the road ahead. Renders the familiar Google-Maps
+// driving shape with RN Views only — NO native map: a green maneuver card (next film),
+// a receding road with poster signposts (near large → far small for depth), the "me"
+// chevron, and a COLLAPSIBLE bottom sheet (peek: 남은 소요시간 + N편 + progress; expand:
+// traveled/remaining meter + 최단/최속/무료도로 switch + actions) so the map keeps the
+// majority of the screen. The road layer pans (PanResponder) so it feels navigable.
+// A destination is a director conquest ({ dir }) or a canon list ({ lineage, label }).
+// Position is ledger-derived server-side (invariant §10-1); marking the next film seen
+// advances the chevron ("경로를 재탐색합니다").
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { LayoutChangeEvent, Share, View, useColorScheme, useWindowDimensions } from "react-native";
+import { Animated, LayoutChangeEvent, PanResponder, Share, View, useColorScheme, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Btn, Loading, PosterImg, Screen, Serif, Tactile, Ui } from "../src/components/ui";
-import { METATAKE_BASE } from "../src/config";
-import { getLocale, t } from "../src/i18n";
-import { api, me } from "../src/lib/api";
-import { useFilms } from "../src/state/films";
-import { usePrefs } from "../src/state/prefs";
-import { brand, fs, radius, shadow, sp, usePalette } from "../src/theme";
-import type { NavAvailability, NavPref, NavStop, NavigatorPayload } from "../src/types";
+import { Btn, Loading, PosterImg, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
+import { METATAKE_BASE } from "../../src/config";
+import { getLocale, t } from "../../src/i18n";
+import { api, me } from "../../src/lib/api";
+import { useFilms } from "../../src/state/films";
+import { usePrefs } from "../../src/state/prefs";
+import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
+import type { NavAvailability, NavDest, NavPref, NavStop, NavigatorPayload } from "../../src/types";
 
 const DEFAULT_DIR = "stanley-kubrick";
 const GOLD = "#8F6A1E";
 const PREFS: NavPref[] = ["fewest", "fastest", "no_tolls"];
+const MAXPAN = 130; // how far the road layer can be dragged from center
 
 /** Duration — locale-aware long form ("11시간 53분" / "11h 53m"). */
 function fmtDur(min: number | null): string {
@@ -86,8 +88,8 @@ function Disc({
   );
 }
 
-export default function NavigatorScreen() {
-  const params = useLocalSearchParams<{ dir?: string }>();
+export default function NavigatorDriveScreen() {
+  const params = useLocalSearchParams<{ dir?: string; lineage?: string; label?: string }>();
   const router = useRouter();
   const pal = usePalette();
   const scheme = useColorScheme();
@@ -96,7 +98,11 @@ export default function NavigatorScreen() {
   const { country } = usePrefs();
   const { session, markSeen } = useFilms();
 
-  const [dir, setDir] = useState<string | null>(params.dir ?? null);
+  const [dest, setDest] = useState<NavDest | null>(() => {
+    if (params.lineage) return { lineage: params.lineage, label: params.label };
+    if (params.dir) return { dir: params.dir };
+    return null;
+  });
   const [data, setData] = useState<NavigatorPayload | null>(null);
   const [err, setErr] = useState(false);
   const [gen, setGen] = useState(0); // refetch bump (reroute after a judgment)
@@ -104,30 +110,57 @@ export default function NavigatorScreen() {
   const [skipped, setSkipped] = useState<ReadonlySet<string>>(new Set());
   const [toast, setToast] = useState<string | null>(null);
   const [mapBox, setMapBox] = useState({ w: 0, h: 0 });
+  const [sheetOpen, setSheetOpen] = useState(false); // peek by default; tap to expand
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Resolve the destination: an explicit ?dir, else the director the user is
-  // mid-conquest on, else the canon default (§3 v1).
+  // Draggable road layer (feels navigable). PanResponder claims only on a real drag,
+  // so poster taps still pass through; offset is clamped to a soft box around center.
+  const pan = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+  const panOffset = useRef({ x: 0, y: 0 });
+  const clampP = (v: number, m: number) => Math.max(-m, Math.min(m, v));
+  const panResponder = useMemo(
+    () =>
+      PanResponder.create({
+        onMoveShouldSetPanResponder: (_e, g) => Math.abs(g.dx) > 8 || Math.abs(g.dy) > 8,
+        onPanResponderMove: (_e, g) => {
+          pan.setValue({
+            x: clampP(panOffset.current.x + g.dx, MAXPAN),
+            y: clampP(panOffset.current.y + g.dy, MAXPAN),
+          });
+        },
+        onPanResponderRelease: (_e, g) => {
+          panOffset.current = {
+            x: clampP(panOffset.current.x + g.dx, MAXPAN),
+            y: clampP(panOffset.current.y + g.dy, MAXPAN),
+          };
+        },
+      }),
+    [pan],
+  );
+
+  // Resolve the destination when opened without params (deep link): the director the
+  // user is mid-conquest on, else the canon default (§3 v1). With params the picker
+  // already chose (director or canon), so this only runs for a bare /navigator/drive.
   useEffect(() => {
-    if (dir) return;
+    if (dest) return;
     let alive = true;
     (async () => {
       const d = session ? await me.midConquestDirector().catch(() => null) : null;
-      if (alive) setDir(d ?? DEFAULT_DIR);
+      if (alive) setDest({ dir: d ?? DEFAULT_DIR });
     })();
     return () => {
       alive = false;
     };
-  }, [dir, session]);
+  }, [dest, session]);
 
   // Fetch the drive.
   useEffect(() => {
-    if (!dir) return;
+    if (!dest) return;
     let alive = true;
     setData(null);
     setErr(false);
     api
-      .navigator(dir, country)
+      .navigator(dest, country)
       .then((d) => {
         if (!alive) return;
         setData(d);
@@ -138,7 +171,7 @@ export default function NavigatorScreen() {
     return () => {
       alive = false;
     };
-  }, [dir, country, gen]);
+  }, [dest, country, gen]);
 
   useEffect(
     () => () => {
@@ -190,6 +223,8 @@ export default function NavigatorScreen() {
     setSkipped((prev) => new Set(prev).add(slug));
   }, []);
 
+  const back = () => (router.canGoBack() ? router.back() : router.replace("/navigator"));
+
   // ── loading / error ─────────────────────────────────────────────────────
   if (err)
     return (
@@ -200,7 +235,7 @@ export default function NavigatorScreen() {
         </Ui>
         <Btn label={t("action.retry")} onPress={() => setGen((g) => g + 1)} style={{ alignSelf: "stretch" }} />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+          <Disc icon="chevron-back" onPress={back} />
         </View>
       </Screen>
     );
@@ -210,7 +245,7 @@ export default function NavigatorScreen() {
         <Stack.Screen options={{ headerShown: false }} />
         <Loading />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+          <Disc icon="chevron-back" onPress={back} />
         </View>
       </Screen>
     );
@@ -358,7 +393,7 @@ export default function NavigatorScreen() {
         )}
       </View>
 
-      {/* ═══════════ ROAD — receding, with poster signposts ═══════════ */}
+      {/* ═══════════ ROAD — receding, with poster signposts (pannable) ═══════════ */}
       <View style={{ flex: 1, overflow: "hidden" }} onLayout={onMapLayout}>
         <LinearGradient
           colors={field}
@@ -368,7 +403,10 @@ export default function NavigatorScreen() {
         />
 
         {mapBox.w > 0 && mapBox.h > 0 ? (
-          <>
+          <Animated.View
+            style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, transform: pan.getTranslateTransform() }}
+            {...panResponder.panHandlers}
+          >
             {/* road bed (trapezoid, wide at bottom) */}
             <View
               style={{
@@ -494,11 +532,11 @@ export default function NavigatorScreen() {
                 </View>
               ) : null}
             </View>
-          </>
+          </Animated.View>
         ) : null}
       </View>
 
-      {/* ═══════════ BOTTOM SHEET — trip meter + pref switch ═══════════ */}
+      {/* ═══════════ BOTTOM SHEET — collapsible: peek → full trip meter ═══════════ */}
       <View
         style={{
           backgroundColor: pal.card,
@@ -511,123 +549,136 @@ export default function NavigatorScreen() {
           ...shadow.float,
         }}
       >
-        <View style={{ width: 38, height: 5, borderRadius: 99, backgroundColor: pal.hairline2, alignSelf: "center", marginBottom: sp.s3 }} />
+        {/* PEEK — tap to expand/collapse */}
+        <Tactile onPress={() => setSheetOpen((o) => !o)}>
+          <View>
+            <View style={{ width: 38, height: 5, borderRadius: 99, backgroundColor: pal.hairline2, alignSelf: "center", marginBottom: sp.s3 }} />
 
-        {/* headline: 남은 소요시간 + N편 + pace */}
-        <View style={{ flexDirection: "row", alignItems: "baseline", flexWrap: "wrap", gap: sp.s2 }}>
-          <Ui size={fs.x2} weight="700">
-            {arrived ? "0:00" : fmtDur(data.runtimeRemaining)}
-          </Ui>
-          <Ui size={fs.md} weight="700" color={brand.accent}>
-            {t("nav.filmsN", { n: data.remaining })}
-          </Ui>
-          <Ui size={fs.xs} weight="600" color={pal.muted} style={{ marginLeft: "auto" }}>
-            {t("nav.remainingTime")}
-            {data.etaWeeks ? ` · ${t("nav.pace", { n: data.etaWeeks })}` : ""}
-          </Ui>
-        </View>
-
-        {/* traveled / remaining meter */}
-        <View style={{ marginTop: sp.s3 }}>
-          <View style={{ height: 9, borderRadius: 99, backgroundColor: pal.surface, overflow: "hidden", flexDirection: "row" }}>
-            <View style={{ width: `${Math.round(doneFrac * 100)}%`, height: "100%", backgroundColor: GOLD }} />
-          </View>
-          <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: sp.s2 }}>
-            <View>
-              <Ui size={fs.xs - 2} weight="700" color={pal.subtle}>
-                {t("nav.traveled").toUpperCase()}
+            {/* headline: 남은 소요시간 + N편 + pace + expand chevron */}
+            <View style={{ flexDirection: "row", alignItems: "baseline", flexWrap: "wrap", gap: sp.s2 }}>
+              <Ui size={fs.x2} weight="700">
+                {arrived ? "0:00" : fmtDur(data.runtimeRemaining)}
               </Ui>
-              <Ui size={fs.xs} weight="700" color={GOLD}>
-                {t("nav.filmsN", { n: data.seenCount })} · {fmtHM(data.runtimeTraveled)}
+              <Ui size={fs.md} weight="700" color={brand.accent}>
+                {t("nav.filmsN", { n: data.remaining })}
               </Ui>
+              <View style={{ marginLeft: "auto", flexDirection: "row", alignItems: "center", gap: 4 }}>
+                <Ui size={fs.xs} weight="600" color={pal.muted}>
+                  {sheetOpen
+                    ? t("nav.remainingTime") + (data.etaWeeks ? ` · ${t("nav.pace", { n: data.etaWeeks })}` : "")
+                    : t("nav.moreDetails")}
+                </Ui>
+                <Ionicons name={sheetOpen ? "chevron-down" : "chevron-up"} size={16} color={pal.subtle} />
+              </View>
             </View>
-            <View style={{ alignItems: "flex-end" }}>
-              <Ui size={fs.xs - 2} weight="700" color={pal.subtle}>
-                {t("nav.remainingLane").toUpperCase()}
-              </Ui>
-              <Ui size={fs.xs} weight="700" color={brand.accent}>
-                {t("nav.filmsN", { n: data.remaining })} · {fmtHM(data.runtimeRemaining)}
-              </Ui>
+
+            {/* thin progress bar (always visible in peek) */}
+            <View style={{ height: 9, borderRadius: 99, backgroundColor: pal.surface, overflow: "hidden", flexDirection: "row", marginTop: sp.s3 }}>
+              <View style={{ width: `${Math.round(doneFrac * 100)}%`, height: "100%", backgroundColor: GOLD }} />
             </View>
           </View>
-        </View>
+        </Tactile>
 
-        {/* route-pref switch (최단 / 최속 / 무료도로) */}
-        <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s4 }}>
-          {PREFS.map((p) => {
-            const on = pref === p;
-            const label = p === "fewest" ? t("nav.prefFewest") : p === "fastest" ? t("nav.prefFastest") : t("nav.prefNoTolls");
-            const tolls = data.routes[p].tollCount;
-            return (
-              <Tactile key={p} onPress={() => setPref(p)} style={{ flex: 1 }}>
-                <View
-                  style={{
-                    borderRadius: radius.sm,
-                    paddingVertical: 9,
-                    alignItems: "center",
-                    backgroundColor: on ? pal.ink : pal.surface,
-                    borderWidth: on ? 0 : 1,
-                    borderColor: pal.hairline,
-                  }}
-                >
-                  <Ui size={fs.sm} weight="700" color={on ? pal.bg : pal.ink}>
-                    {label}
-                  </Ui>
-                  {p === "no_tolls" && tolls > 0 ? (
-                    <Ui size={fs.xs - 2} weight="600" color={on ? "rgba(255,255,255,0.75)" : GOLD}>
-                      {t("nav.tollN", { n: tolls })}
+        {sheetOpen ? (
+          <>
+            {/* traveled / remaining meter labels */}
+            <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: sp.s2 }}>
+              <View>
+                <Ui size={fs.xs - 2} weight="700" color={pal.subtle}>
+                  {t("nav.traveled").toUpperCase()}
+                </Ui>
+                <Ui size={fs.xs} weight="700" color={GOLD}>
+                  {t("nav.filmsN", { n: data.seenCount })} · {fmtHM(data.runtimeTraveled)}
+                </Ui>
+              </View>
+              <View style={{ alignItems: "flex-end" }}>
+                <Ui size={fs.xs - 2} weight="700" color={pal.subtle}>
+                  {t("nav.remainingLane").toUpperCase()}
+                </Ui>
+                <Ui size={fs.xs} weight="700" color={brand.accent}>
+                  {t("nav.filmsN", { n: data.remaining })} · {fmtHM(data.runtimeRemaining)}
+                </Ui>
+              </View>
+            </View>
+
+            {/* route-pref switch (최단 / 최속 / 무료도로) */}
+            <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s4 }}>
+              {PREFS.map((p) => {
+                const on = pref === p;
+                const label = p === "fewest" ? t("nav.prefFewest") : p === "fastest" ? t("nav.prefFastest") : t("nav.prefNoTolls");
+                const tolls = data.routes[p].tollCount;
+                return (
+                  <Tactile key={p} onPress={() => setPref(p)} style={{ flex: 1 }}>
+                    <View
+                      style={{
+                        borderRadius: radius.sm,
+                        paddingVertical: 9,
+                        alignItems: "center",
+                        backgroundColor: on ? pal.ink : pal.surface,
+                        borderWidth: on ? 0 : 1,
+                        borderColor: pal.hairline,
+                      }}
+                    >
+                      <Ui size={fs.sm} weight="700" color={on ? pal.bg : pal.ink}>
+                        {label}
+                      </Ui>
+                      {p === "no_tolls" && tolls > 0 ? (
+                        <Ui size={fs.xs - 2} weight="600" color={on ? "rgba(255,255,255,0.75)" : GOLD}>
+                          {t("nav.tollN", { n: tolls })}
+                        </Ui>
+                      ) : null}
+                    </View>
+                  </Tactile>
+                );
+              })}
+            </View>
+
+            {/* actions: 본 걸로 (advance) · 이 턴 건너뛰기 */}
+            {!arrived && head ? (
+              <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s2 }}>
+                <Tactile onPress={() => onMarkSeen(head.slug)} style={{ flex: 1 }}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: 6,
+                      borderRadius: radius.sm,
+                      paddingVertical: 11,
+                      backgroundColor: pal.surface,
+                      borderWidth: 1,
+                      borderColor: pal.hairline,
+                    }}
+                  >
+                    <Ionicons name="checkmark" size={16} color={brand.teal} />
+                    <Ui size={fs.sm} weight="700">
+                      {t("nav.markSeen")}
                     </Ui>
-                  ) : null}
-                </View>
-              </Tactile>
-            );
-          })}
-        </View>
-
-        {/* actions: 본 걸로 (advance) · 이 턴 건너뛰기 */}
-        {!arrived && head ? (
-          <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s2 }}>
-            <Tactile onPress={() => onMarkSeen(head.slug)} style={{ flex: 1 }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: 6,
-                  borderRadius: radius.sm,
-                  paddingVertical: 11,
-                  backgroundColor: pal.surface,
-                  borderWidth: 1,
-                  borderColor: pal.hairline,
-                }}
-              >
-                <Ionicons name="checkmark" size={16} color={brand.teal} />
-                <Ui size={fs.sm} weight="700">
-                  {t("nav.markSeen")}
-                </Ui>
+                  </View>
+                </Tactile>
+                <Tactile onPress={() => onSkip(head.slug)} style={{ flex: 1 }}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: 6,
+                      borderRadius: radius.sm,
+                      paddingVertical: 11,
+                      backgroundColor: pal.surface,
+                      borderWidth: 1,
+                      borderColor: pal.hairline,
+                    }}
+                  >
+                    <Ionicons name="play-skip-forward-outline" size={15} color={pal.ink} />
+                    <Ui size={fs.sm} weight="700">
+                      {t("nav.skip")}
+                    </Ui>
+                  </View>
+                </Tactile>
               </View>
-            </Tactile>
-            <Tactile onPress={() => onSkip(head.slug)} style={{ flex: 1 }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: 6,
-                  borderRadius: radius.sm,
-                  paddingVertical: 11,
-                  backgroundColor: pal.surface,
-                  borderWidth: 1,
-                  borderColor: pal.hairline,
-                }}
-              >
-                <Ionicons name="play-skip-forward-outline" size={15} color={pal.ink} />
-                <Ui size={fs.sm} weight="700">
-                  {t("nav.skip")}
-                </Ui>
-              </View>
-            </Tactile>
-          </View>
+            ) : null}
+          </>
         ) : null}
       </View>
 
@@ -644,7 +695,7 @@ export default function NavigatorScreen() {
         }}
         pointerEvents="box-none"
       >
-        <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+        <Disc icon="chevron-back" onPress={back} />
         <View
           style={[
             { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: pal.chrome, borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 7 },

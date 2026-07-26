@@ -10,7 +10,10 @@ import type {
   CoverageRow,
   DirectorCard,
   FilmCard,
+  NavDest,
+  NavDestinations,
   NavigatorPayload,
+  NavPickDest,
   NavPref,
   RateStats,
   SearchRow,
@@ -52,20 +55,72 @@ export const api = {
   },
 
   /**
-   * The Navigator drive view (HANDOFF-내비게이터 §5.3). The chevron position is
-   * ledger-derived server-side, so we send the app's Bearer token when signed in;
+   * The Navigator drive view (HANDOFF-내비게이터 §5.3). A destination is either a
+   * director conquest ({ dir }) or a canon list ({ lineage, label }); nothing set
+   * falls back server-side to the canon default. The chevron position is ledger-
+   * derived server-side, so we send the app's Bearer token when signed in;
    * anonymous callers get a not-yet-started drive (full route from film 1).
    * `pref` only sets which route is the top-level convenience block — all three
    * routes come back either way, so the switch is instant with no refetch.
    */
-  async navigator(dir: string, country: string, pref?: NavPref): Promise<NavigatorPayload> {
+  async navigator(dest: NavDest, country: string, pref?: NavPref): Promise<NavigatorPayload> {
     const { data } = await supabase.auth.getSession();
     const token = data.session?.access_token;
-    const q = new URLSearchParams({ dir, country });
+    const q = new URLSearchParams({ country });
+    if (dest.lineage) {
+      q.set("lineage", dest.lineage);
+      if (dest.label) q.set("label", dest.label);
+    } else if (dest.dir) {
+      q.set("dir", dest.dir);
+    }
     if (pref) q.set("pref", pref);
     return getJSON(`/api/v1/app/navigator?${q.toString()}`, {
       headers: token ? { authorization: `Bearer ${token}` } : undefined,
     });
+  },
+
+  /**
+   * The "Where to?" picker lists (§5.1) — destinations the viewer is mid-journey on.
+   * Built client-side from the auth.uid()-scoped me_* RPCs (me_coverage + me_auteur_
+   * conquest) — the same rows /room/navigator's picker uses, with the same gates.
+   * These are personal reads called directly with the user's JWT (no BFF hop, no
+   * `*_mine` — §13-4). Signed-out callers get empty lists (the screen shows the CTA).
+   */
+  async navigatorDestinations(): Promise<NavDestinations> {
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) return { directors: [], canon: [] };
+    const NUM = (v: number | string | null | undefined): number =>
+      v == null ? 0 : typeof v === "string" ? parseFloat(v) || 0 : v;
+    const [cov, aut] = await Promise.all([
+      me.coverage(5, 300).catch(() => [] as CoverageRow[]),
+      me.auteurConquest(60).catch(() => null),
+    ]);
+    const directors: NavPickDest[] = ((aut as AuteurConquestRow[] | null) ?? [])
+      .map((a) => ({
+        kind: "dir" as const,
+        key: a.slug,
+        label: a.name ?? a.slug,
+        seen: NUM(a.seen),
+        total: NUM(a.total),
+        pct: Math.round(NUM(a.pct)),
+      }))
+      .filter((d) => d.pct < 100 && d.seen > 0 && d.total >= 8)
+      .sort((a, b) => b.pct - a.pct)
+      .slice(0, 12);
+    const canon: NavPickDest[] = (cov as CoverageRow[])
+      .map((c) => ({
+        kind: "lineage" as const,
+        key: c.slug,
+        label: c.label,
+        facet: c.facet,
+        seen: NUM(c.seen),
+        total: NUM(c.total),
+        pct: Math.round(NUM(c.pct)),
+      }))
+      .filter((d) => d.pct < 100 && d.seen > 0 && d.total >= 8 && d.total <= 60)
+      .sort((a, b) => b.pct - a.pct)
+      .slice(0, 12);
+    return { directors, canon };
   },
 
   tonight(

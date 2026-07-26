@@ -276,6 +276,23 @@ export const en = {
   "nav.tollN": "{n} rental",
   "nav.rerouting": "Rerouting…",
   "nav.empty": "Sign in and start watching to chart a route.",
+  // The Navigator — "Where to?" picker (§5.1)
+  "nav.whereTo": "Where to?",
+  "nav.whereToSub": "Pick a destination and your films become a route — one turn at a time.",
+  "nav.sectDirectors": "Director conquests — good to continue",
+  "nav.sectCanon": "Canon & lists",
+  "nav.leftN": "{n} left",
+  "nav.tryKubrick": "Try Kubrick →",
+  "nav.pickEmpty": "No journeys in progress yet. Log or import a few films and canon & director destinations appear.",
+  "nav.drive": "Drive →",
+  "nav.moreDetails": "Details",
+  "nav.familyConquest": "Director conquest",
+  "nav.facetCanon": "Canon",
+  "nav.facetCritics": "Critics' picks",
+  "nav.facetFestival": "Festival",
+  "nav.facetAward": "Awards",
+  "nav.facetNational": "National canon",
+  "nav.facetList": "List",
 } as const;
 
 export type DictKey = keyof typeof en;

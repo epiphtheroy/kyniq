@@ -344,3 +344,24 @@ export type AuteurConquestRow = {
   total: number | string | null;
   pct: number | string | null;
 };
+
+/**
+ * One row in the Navigator's "Where to?" picker (§5.1) — a destination the viewer
+ * is mid-journey on. Assembled client-side from me_auteur_conquest (directors) +
+ * me_coverage (canon lineages), mirroring /room/navigator's picker filters.
+ */
+export type NavPickDest = {
+  kind: "dir" | "lineage";
+  key: string; // director slug or lineage slug
+  label: string;
+  facet?: string; // lineage facet (canon | critics | festival | award | national | …)
+  seen: number;
+  total: number;
+  pct: number; // 0..100
+};
+
+/** Picker payload — the two families the app lists as onward destinations. */
+export type NavDestinations = { directors: NavPickDest[]; canon: NavPickDest[] };
+
+/** A drive destination descriptor passed to api.navigator(). */
+export type NavDest = { dir?: string; lineage?: string; label?: string };
