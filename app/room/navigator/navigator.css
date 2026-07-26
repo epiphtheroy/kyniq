@@ -23,9 +23,18 @@
 .navd .turn .then{display:flex;gap:8px;align-items:center;padding:8px 14px;background:#00000022;font-size:11.5px}
 .navd .turn .then .a{opacity:.8}
 
-.navd .map{position:relative;flex:1;min-height:0;overflow:hidden;background:linear-gradient(#EFE9D8,#E9E2D0 60%)}
-.navd .map .haze{position:absolute;left:0;right:0;top:0;height:32%;background:linear-gradient(#EFEADB,rgba(239,234,219,0));z-index:6}
+.navd .map{position:relative;flex:1;min-height:0;overflow:hidden;background:linear-gradient(#EFE9D8,#E9E2D0 60%);cursor:grab;touch-action:none}
+.navd .map:active{cursor:grabbing}
+.navd .map .haze{position:absolute;left:0;right:0;top:0;height:26%;background:linear-gradient(#EFEADB,rgba(239,234,219,0));z-index:6;pointer-events:none}
+/* the pannable/zoomable layer (holds road + signposts + me) */
+.navd .mapview{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform}
 .navd .roadsvg{position:absolute;inset:0;width:100%;height:100%}
+/* map controls — outside the transformed layer */
+.navd .mapctl{position:absolute;right:12px;bottom:12px;z-index:12;display:flex;flex-direction:column;gap:6px}
+.navd .mapctl button{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);
+  font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(30,26,18,.22);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.navd .mapctl button:active{background:#F1EDE4}
+.navd .sp img,.navd .street{user-select:none}
 .navd .street{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:10px;font-weight:800;color:#fff;background:#5E7C86;padding:2px 8px;border-radius:5px;box-shadow:0 2px 5px rgba(30,26,18,.25)}
 .navd .street.cur{background:#4A4640}
 
@@ -44,8 +53,15 @@
 .navd .me .dot{width:13px;height:13px;border-radius:50%;background:var(--red);border:2.5px solid #fff;margin:-3px auto 0}
 .navd .me .back{margin-top:6px;font-size:9.5px;font-weight:800;color:#a99f8c;background:rgba(255,255,255,.7);padding:1px 7px;border-radius:99px}
 
-.navd .sheet{position:relative;z-index:20;background:#fff;border-radius:20px 20px 0 0;padding:12px 18px 16px;box-shadow:0 -10px 30px rgba(30,26,18,.16);margin-top:-14px}
-.navd .sheet .grip{width:38px;height:5px;border-radius:99px;background:#E4DECF;margin:0 auto 12px}
+/* peek sheet — compact by default so the map owns the screen */
+.navd .sheet{position:relative;z-index:20;background:#fff;border-radius:20px 20px 0 0;padding:6px 18px 12px;box-shadow:0 -10px 30px rgba(30,26,18,.16);margin-top:-16px;flex:0 0 auto}
+.navd .sheet .grip{display:block;width:40px;height:5px;border-radius:99px;background:#E4DECF;margin:2px auto 8px;border:0;padding:0;cursor:pointer}
+.navd .peek{cursor:pointer}
+.navd .peekbar{height:5px;border-radius:99px;background:#EDE7D8;margin-top:9px;overflow:hidden}
+.navd .peekbar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--red));border-radius:99px}
+.navd .fnote{font-size:10.5px;color:var(--sub);text-align:center;margin-top:11px}
+.navd .fnote a{color:var(--green);font-weight:700;text-decoration:none}
+.navd .ar-btn{display:inline-block;margin-top:16px;background:var(--green);color:#fff;font-weight:800;font-size:14px;padding:12px 20px;border-radius:12px;text-decoration:none}
 .navd .headline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .navd .headline .dur{font-size:25px;font-weight:800;letter-spacing:-.02em}
 .navd .headline .films{font-size:15px;font-weight:800;color:var(--red)}
@@ -83,3 +99,5 @@
 .navd.np .np-go{flex:0 0 auto;font-size:12.5px;font-weight:800;color:var(--green)}
 .navd.np .np-emptycard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;line-height:1.7;color:#4A4640}
 .navd.np .np-lnk{color:var(--green);font-weight:700;text-decoration:none}
+.navd .ar-btn{border:0;cursor:pointer;font-family:inherit}
+.navd .ar-btn--2{background:#F1EDE4;color:var(--ink);border:1px solid var(--line)}
