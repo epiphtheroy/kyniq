@@ -36,8 +36,14 @@
   font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(30,26,18,.22);display:flex;align-items:center;justify-content:center;cursor:pointer}
 .navd .mapctl button:active{background:#F1EDE4}
 .navd .sp img,.navd .street{user-select:none}
-.navd .street{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:11.5px;font-weight:800;letter-spacing:.01em;color:#fff;background:#5E7C86;padding:3px 11px;border-radius:6px;box-shadow:0 2px 6px rgba(30,26,18,.28)}
+.navd .street{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:11.5px;font-weight:800;letter-spacing:.01em;color:#fff;background:#5E7C86;padding:3px 11px;border-radius:6px;box-shadow:0 2px 6px rgba(30,26,18,.28);text-shadow:0 1px 2px rgba(0,0,0,.38)}
 .navd .street.cur{background:#4A4640}
+/* faint background posters — nearby odyssey stations, so the world feels populated */
+.navd .bgp{position:absolute;transform:translate(-50%,-50%);z-index:3;width:22px;height:33px;border-radius:4px;
+  opacity:.32;filter:saturate(.72);border:1px solid #ffffff70;box-shadow:0 2px 5px rgba(30,26,18,.16);pointer-events:none;background:#cfc8b8}
+/* note: some route films aren't on the odyssey plane (placed by lineage) */
+.navd .offmap{position:absolute;left:12px;top:12px;z-index:12;font-size:10px;font-weight:800;color:#6a6153;
+  background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:99px;padding:4px 10px;box-shadow:0 2px 6px rgba(30,26,18,.14)}
 
 .navd .sp{position:absolute;transform:translate(-50%,-100%);z-index:10;border:0;padding:0;background:transparent;cursor:pointer;font:inherit}
 .navd .sp img{display:block;border-radius:7px;border:2px solid #fff;box-shadow:0 10px 16px rgba(30,26,18,.34);background:#ccc}
