@@ -142,3 +142,11 @@
 .room-v4 .dk-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#4A4640;
   padding:6px 11px;border:1px solid #E4DFD3;border-radius:99px;text-decoration:none;background:#FFFFFF}
 .room-v4 .dk-chip:hover{border-color:var(--red);color:var(--red)}
+
+/* v4.1 polish: hero must not stretch to the side column's height */
+.room-v4 .dk-2col:not(.dk-2col--even){align-items:start}
+
+/* the room ticker joins the paper (last black stripe in the light room) */
+.room-v4 .stk--room{background:#FFFFFF;border:1px solid #E4DFD3;border-radius:10px}
+.room-v4 .stk--room .stk-txt{color:#4A4640}
+.room-v4 .stk--room .stk-item{color:#4A4640}

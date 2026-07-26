@@ -106,6 +106,7 @@ function Spark({ rows }: { rows: NavHistRow[] }) {
   if (pts.length < 2) return null;
   const w = 150, h = 26;
   const min = Math.min(...pts), max = Math.max(...pts);
+  if (max === min) return null; // a flat line reads as a stray rule, not a pulse
   const span = max - min || 1;
   const d = pts.map((v, i) =>
     `${i === 0 ? "M" : "L"}${(1 + (i / (pts.length - 1)) * (w - 2)).toFixed(1)},${(h - 2 - ((v - min) / span) * (h - 4)).toFixed(1)}`,

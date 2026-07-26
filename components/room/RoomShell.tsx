@@ -37,6 +37,7 @@ export type RailCounts = { collection?: number; watchlist?: number };
 function Spark({ values, w = 64, h = 18 }: { values: number[]; w?: number; h?: number }) {
   if (values.length < 2) return null;
   const min = Math.min(...values), max = Math.max(...values);
+  if (max === min) return null; // flat = a stray underline, render nothing
   const span = max - min || 1;
   const pts = values.map((v, i) => `${((i / (values.length - 1)) * (w - 2) + 1).toFixed(1)},${(h - 2 - ((v - min) / span) * (h - 4) + 1).toFixed(1)}`).join(" ");
   return (
