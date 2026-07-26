@@ -80,6 +80,17 @@ export default function RecInsp({ f, onKeep, onSeen, onDismiss, onRate }: {
           ) : null}
         </ICard>
       ) : null}
+
+      {/* continuity (마이룸-v4 §4.1): the sheet is the film's front door — the
+          full pages are one tap away, and Esc/back returns right here. */}
+      <div style={{ display: "flex", gap: 14, marginTop: 10, fontSize: 12, fontWeight: 600 }}>
+        <Link href={`/takescore/film/${f.slug}`} style={{ color: "var(--red)", textDecoration: "none" }}>
+          Full TakeScore card →
+        </Link>
+        <Link href={`/film/${f.slug}`} style={{ color: "var(--mut)", textDecoration: "none" }}>
+          Film page →
+        </Link>
+      </div>
     </div>
   );
 }

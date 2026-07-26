@@ -2,7 +2,8 @@ import { createClient } from "@/lib/supabase/server";
 import { loadWwi, loadCollection } from "@/lib/room/loadCollection";
 import { num, type NavHistRow, type WwiRow } from "@/lib/room/format";
 import DeskWorkspace, {
-  type BlindTile, type ConquestTile, type DeskData, type NavJson, type PairState, type RateStats, type RecentRow,
+  type AuteurLite, type BlindTile, type ConquestTile, type CovBar, type DeskData, type GeoDot,
+  type NavJson, type PairState, type RateStats, type RecentRow,
 } from "@/components/room/DeskWorkspace";
 
 export const dynamic = "force-dynamic";
@@ -40,7 +41,7 @@ function nearestConquest(rows: CovRow[]): ConquestTile | null {
 export default async function RoomDesk() {
   const supabase = await createClient();
 
-  const [recsQ, stats, recent, nav, hist, cov, blind, pair] = await Promise.all([
+  const [recsQ, stats, recent, nav, hist, cov, blind, pair, auteurs, geo] = await Promise.all([
     loadWwi(1.0, 24).then((rows) => ({ rows, err: false as const })).catch(() => ({ rows: null, err: true as const })),
     supabase.rpc("me_rate_stats"),
     supabase.rpc("me_recent_ratings", { p_limit: 12 }),
@@ -49,6 +50,9 @@ export default async function RoomDesk() {
     supabase.rpc("me_coverage", { p_min_total: 5, p_limit: 300 }),
     supabase.rpc("me_blindspots", { p_limit: 1 }),
     supabase.rpc("me_pair_state"),
+    // v4.1 previews (마이룸-v4): the desk SHOWS the map instead of linking to it.
+    supabase.rpc("me_auteur_conquest", { p_limit: 6 }),
+    supabase.rpc("me_geo_coverage"),
   ]);
 
   /* FormingCard meter (only needed when the engine returns nothing — the
@@ -71,6 +75,29 @@ export default async function RoomDesk() {
     pair: pair.error ? null : (((pair.data as PairState[] | null) ?? [])[0] ?? null),
     pairErr: !!pair.error,
     ratedHigh,
+    // v4.1 previews — top in-progress canon lineages (closest to done first),
+    // director conquest with faces, and the geo dots for the mini world map.
+    covRows: cov.error
+      ? null
+      : (((cov.data as CovRow[] | null) ?? [])
+          .map((c) => ({ label: c.label, seen: num(c.seen) ?? 0, total: num(c.total) ?? 0, pct: num(c.pct) ?? 0 }))
+          .filter((c) => c.seen > 0 && c.pct < 100)
+          .sort((a, b) => b.pct - a.pct)
+          .slice(0, 4) satisfies CovBar[]),
+    auteurs: auteurs.error
+      ? null
+      : (((auteurs.data as { slug: string; name: string | null; profile_path: string | null; seen: number | string | null; total: number | string | null; pct: number | string | null }[] | null) ?? [])
+          .map((a) => ({ slug: a.slug, name: a.name ?? a.slug, profile_path: a.profile_path, seen: num(a.seen) ?? 0, total: num(a.total) ?? 0, pct: num(a.pct) ?? 0 }))
+          .slice(0, 4) satisfies AuteurLite[]),
+    geoDots: (() => {
+      if (geo.error) return null;
+      const g = geo.data as { points?: { lat: number | string | null; lng: number | string | null; narrative_setting: string | null }[] } | null;
+      const pts = (g?.points ?? [])
+        .map((p) => ({ o: num(p.lng), a: num(p.lat), s: p.narrative_setting ? 1 : 0 }))
+        .filter((p): p is GeoDot => p.o != null && p.a != null)
+        .slice(0, 900);
+      return pts;
+    })(),
   };
 
   return <DeskWorkspace data={data} />;

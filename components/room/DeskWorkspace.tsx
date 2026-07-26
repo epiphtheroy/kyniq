@@ -12,7 +12,7 @@
  *    ⑤ Open jobs    — one-line link tiles: doors only, no modules behind them
  *  Invariants: reason chips render only server-sent codes; no fake numbers
  *  (honest empty copy instead); NAV surfaces never link to the Ledger. */
-import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import SentenceTicker from "@/components/SentenceTicker";
 import { useInspector } from "./InspectorContext";
@@ -22,6 +22,7 @@ import FormingCard from "./FormingCard";
 import ICard from "./insp/ICard";
 import KV from "./insp/KV";
 import { useRoomActions } from "./useRoomActions";
+import MiniWorld from "./MiniWorld";
 import { STR } from "./strings";
 import { NAV_ITEMS } from "@/lib/room/nav";
 import { num, IMG185, IMG342, tierOf, chipsOf, type WwiRow, type NavHistRow } from "@/lib/room/format";
@@ -49,6 +50,11 @@ export type ConquestTile = { label: string; rem: number; ms: number };
 /** Top blind spot (me_blindspots row 1 — label + gap reason only). */
 export type BlindTile = { label: string; gap_reason: string };
 
+/** v4.1 preview types — the desk shows the map instead of linking to it. */
+export type CovBar = { label: string; seen: number; total: number; pct: number };
+export type AuteurLite = { slug: string; name: string; profile_path: string | null; seen: number; total: number; pct: number };
+export type GeoDot = { o: number; a: number; s: number }; // lng, lat, setting?
+
 export type DeskData = {
   /** me_recommend_wwi(1.0, 24); null = RPC failed → errcard. */
   recs: WwiRow[] | null;
@@ -67,6 +73,10 @@ export type DeskData = {
   pairErr: boolean;
   /** Count of films rated ★3.5+ (server-computed only when recs is empty — FormingCard meter). */
   ratedHigh: number;
+  /** v4.1 previews (null = RPC failed → card self-omits, honest empty). */
+  covRows: CovBar[] | null;
+  auteurs: AuteurLite[] | null;
+  geoDots: GeoDot[] | null;
 };
 
 /* ── route lookups (nav.ts is the single source — never hardcode /room/* here) ── */
@@ -107,11 +117,6 @@ function Spark({ rows }: { rows: NavHistRow[] }) {
   );
 }
 
-const conquestLine = (c: ConquestTile) =>
-  c.ms === 100
-    ? `${c.rem} film${c.rem === 1 ? "" : "s"} from finishing ${c.label}`
-    : `${c.rem} film${c.rem === 1 ? "" : "s"} to ${c.ms}% of ${c.label}`;
-
 function pairLine(d: DeskData): string {
   if (d.pairErr || !d.pair) return "A masked partner may be waiting";
   const lovedN = num(d.pair.loved_n) ?? 0;
@@ -121,9 +126,6 @@ function pairLine(d: DeskData): string {
 }
 
 /* Open-jobs tiles reuse .vline (hover + hairline) as compact one-line links. */
-const jobStyle: CSSProperties = { fontSize: 12, padding: "10px 12px", gap: 8, flexWrap: "nowrap", textDecoration: "none", minWidth: 0 };
-const jobText: CSSProperties = { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0, color: "var(--ink)" };
-const jobDest: CSSProperties = { marginLeft: "auto", flex: "0 0 auto", fontSize: 11, color: "var(--sub)" };
 
 /** Session tape card (server rows + optimistic prepends from the log bar). */
 type TapeCard = {
@@ -292,11 +294,20 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         <a className="dk-tab" href="#records">Records</a>
       </nav>
 
+      {/* identity strip — who this room belongs to, in one dense line */}
+      {data.nav || data.stats ? (
+        <div className="dk-id">
+          <b>{num(data.nav?.n_watched) ?? 0}</b> films watched
+          <span className="dot">·</span><b>{loved}</b> loved
+          <span className="dot">·</span>NAV <b>{navV ?? "—"}</b> <span className="dk-tier">{tier}</span>
+          {data.hist?.length ? <span className="dk-idspark"><Spark rows={data.hist} /></span> : null}
+        </div>
+      ) : null}
+
       {/* ═ TONIGHT — what should I watch? ═ */}
       <section id="tonight" className="dk-sec">
       <div className="dk-sechd">
         <h2>Tonight</h2><span className="sub">what should I watch?</span>
-        <Link className="go" href="/what-to-watch">Every filter → What to Watch</Link>
       </div>
 
       {/* ① Log bar */}
@@ -305,6 +316,8 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         {sessionLine ? <div style={{ fontSize: 11.5, color: "var(--sub)", marginTop: 8 }}>{sessionLine}</div> : null}
       </div>
 
+      <div className="dk-2col">
+      <div className="dk-2col-main">
       {/* ② Tonight hero */}
       {data.recs == null ? (
         <div className="errcard"><i className="ti ti-alert-triangle" />{STR.common.errorLoad}</div>
@@ -340,44 +353,87 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           Tonight&apos;s pool is cleared — <Link href={HREF.screener} style={{ color: "var(--mut)" }}>the Screener has more →</Link>
         </div>
       )}
+      </div>{/* /dk-2col-main */}
+
+      {/* up next — the pool made visible (rotation minus tonight's pick) */}
+      <aside className="dk-2col-side">
+        <div className="dk-card">
+          <div className="dk-cardhd">Up next in your pool</div>
+          {rotation.length > 1 ? (
+            <div className="dk-upnext">
+              {rotation.filter((f) => f.slug !== today?.slug).slice(0, 4).map((f) => (
+                <button key={f.slug} type="button" className="dk-up" title={`${f.title}${f.year ? ` (${f.year})` : ""}`}
+                  onClick={() => openRec(f, f.in_watchlist === true || session.kept.has(f.slug))}>
+                  <span className="dk-uppo" style={f.poster_path ? { backgroundImage: `url(${IMG185}${f.poster_path})` } : {}} />
+                  <span className="dk-uptt">{f.title}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="emptyins">Rate a few films and the pool fills.</div>
+          )}
+          <div className="dk-cardft">
+            <span className="sub">{alive.length} picks from your ratings &amp; services</span>
+            <Link className="dk-btn" href="/what-to-watch">Every filter → What to Watch</Link>
+          </div>
+        </div>
+      </aside>
+      </div>{/* /dk-2col */}
       </section>
 
-      {/* ═ MY MAP — who am I as a viewer? ═ */}
+      {/* ═ MY MAP — who am I as a viewer? (previews, not doors) ═ */}
       <section id="mymap" className="dk-sec">
       <div className="dk-sechd">
         <h2>My Map</h2><span className="sub">who am I as a viewer?</span>
-        <Link className="go" href={HREF.coverage}>Coverage →</Link>
+        <Link className="go" href={HREF.coverage}>Full coverage →</Link>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
-        {data.conquest ? (
-          <Link className="vline" style={jobStyle} href={HREF.coverage}>
-            <i className="ti ti-flag" style={{ color: "var(--sub)" }} />
-            <span style={jobText}>{conquestLine(data.conquest)}</span>
-            <span style={jobDest}>→ Coverage</span>
-          </Link>
-        ) : null}
-        {data.blind ? (
-          <Link className="vline" style={jobStyle} href={HREF.coverage}>
-            <i className="ti ti-chart-arcs" style={{ color: "var(--sub)" }} />
-            <span style={jobText}>{data.blind.label}: {data.blind.gap_reason}</span>
-            <span style={jobDest}>→ Coverage</span>
-          </Link>
-        ) : null}
-        <Link className="vline" style={jobStyle} href="/room/locations">
-          <i className="ti ti-map-2" style={{ color: "var(--sub)" }} />
-          <span style={jobText}>Where your films took you — the world map</span>
-          <span style={jobDest}>→ Locations</span>
-        </Link>
-        <Link className="vline" style={jobStyle} href="/room/signature">
-          <i className="ti ti-fingerprint" style={{ color: "var(--sub)" }} />
-          <span style={jobText}>Your taste, fingerprinted</span>
-          <span style={jobDest}>→ Signature</span>
-        </Link>
-        <Link className="vline" style={jobStyle} href={HREF.masquerade}>
-          <i className="ti ti-masks-theater" style={{ color: "var(--sub)" }} />
-          <span style={jobText}>{pairLine(data)}</span>
-          <span style={jobDest}>→ Masquerade</span>
-        </Link>
+      <div className="dk-3col">
+        {/* canon coverage — real bars */}
+        <div className="dk-card">
+          <div className="dk-cardhd">Canon coverage</div>
+          {data.covRows?.length ? (
+            <div className="dk-bars">
+              {data.covRows.map((c) => (
+                <Link className="dk-bar" key={c.label} href={HREF.coverage} title={`${c.label} — ${c.seen}/${c.total}`}>
+                  <span className="dk-barlbl">{c.label}</span>
+                  <span className="dk-bartrack"><span className="dk-barfill" style={{ width: `${Math.min(100, c.pct)}%` }} /></span>
+                  <span className="dk-barnum">{c.seen}/{c.total}</span>
+                </Link>
+              ))}
+              {data.blind ? <div className="dk-blind"><i className="ti ti-alert-triangle" /> Blind spot: {data.blind.label}</div> : null}
+            </div>
+          ) : (
+            <div className="emptyins">Mark films seen and the canon lights up.</div>
+          )}
+        </div>
+        {/* the world, actually shown */}
+        <div className="dk-card dk-card--map">
+          <div className="dk-cardhd">Where your films took you</div>
+          {data.geoDots?.length ? <MiniWorld dots={data.geoDots} /> : <div className="emptyins">Seen films pin the world.</div>}
+          <div className="dk-cardft"><span className="sub">{data.geoDots?.length ?? 0} pins</span><Link className="dk-btn" href="/room/locations">Open the map</Link></div>
+        </div>
+        {/* directors — faces, not labels */}
+        <div className="dk-card">
+          <div className="dk-cardhd">Director conquest</div>
+          {data.auteurs?.length ? (
+            <div className="dk-auteurs">
+              {data.auteurs.map((a) => (
+                <Link className="dk-au" key={a.slug} href="/room/auteurs" title={`${a.name} — ${a.seen}/${a.total} (${a.pct}%)`}>
+                  <span className="dk-aupo" style={a.profile_path ? { backgroundImage: `url(${IMG185}${a.profile_path})` } : {}} />
+                  <span className="dk-aunm">{a.name}</span>
+                  <span className="dk-aupct">{a.pct}%</span>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="emptyins">Directors appear as you watch.</div>
+          )}
+          <div className="dk-cardft"><span className="sub">by films seen per director</span><Link className="dk-btn" href="/room/auteurs">All directors</Link></div>
+        </div>
+      </div>
+      <div className="dk-linkrow">
+        <Link href="/room/signature"><i className="ti ti-fingerprint" /> Your taste, fingerprinted → Signature</Link>
+        <Link href={HREF.masquerade}><i className="ti ti-masks-theater" /> {pairLine(data)} → Masquerade</Link>
       </div>
       </section>
 
@@ -412,41 +468,33 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         )}
       </div>
 
-      {/* ④ NAV line */}
-      {data.navErr ? (
-        <div className="errcard"><i className="ti ti-alert-triangle" />{STR.common.errorLoad}</div>
-      ) : (
-        <div className="vline" role="button" tabIndex={0} title={STR.shell.navChipTitle} onClick={openNav}
-          onKeyDown={(e) => { if (e.key === "Enter") openNav(); }}>
-          NAV <b>{navV ?? "—"}</b> <span className="tier">{tier}</span>
-          <span>· <b style={{ fontSize: 13 }}>{num(data.nav?.n_watched) ?? 0}</b> watched</span>
-          {data.stats ? <span>· <b style={{ fontSize: 13 }}>{loved}</b> loved</span> : null}
-          {data.hist ? <span style={{ marginLeft: "auto" }}><Spark rows={data.hist} /></span> : null}
+      {/* ④ NAV card + doors — dense two-column close (no full-width gap rows) */}
+      <div className="dk-2col dk-2col--even" style={{ marginTop: 12 }}>
+        {data.navErr ? (
+          <div className="errcard"><i className="ti ti-alert-triangle" />{STR.common.errorLoad}</div>
+        ) : (
+          <div className="dk-card dk-card--nav" role="button" tabIndex={0} title={STR.shell.navChipTitle} onClick={openNav}
+            onKeyDown={(e) => { if (e.key === "Enter") openNav(); }}>
+            <div className="dk-cardhd">Portfolio</div>
+            <div className="dk-navrow">
+              <span className="dk-navbig">NAV <b>{navV ?? "—"}</b> <span className="dk-tier">{tier}</span></span>
+              <span className="dk-navkv"><b>{num(data.nav?.n_watched) ?? 0}</b> watched</span>
+              {data.stats ? <span className="dk-navkv"><b>{loved}</b> loved</span> : null}
+            </div>
+            {data.hist ? <div style={{ marginTop: 8 }}><Spark rows={data.hist} /></div> : null}
+          </div>
+        )}
+        <div className="dk-card">
+          <div className="dk-cardhd">Keep going</div>
+          <div className="dk-chips">
+            <Link className="dk-chip" href="/room/slate"><i className="ti ti-stack-2" /> Watchlist → Slate</Link>
+            <Link className="dk-chip" href="/room/shelf"><i className="ti ti-books" /> Pins → Shelf</Link>
+            <Link className="dk-chip" href="/room/takes"><i className="ti ti-feather" /> Write → Takes</Link>
+            <Link className="dk-chip" href="/me/import"><i className="ti ti-download" /> Import history</Link>
+            <Link className="dk-chip" href="/room/performance"><i className="ti ti-chart-line" /> Performance</Link>
+            <Link className="dk-chip" href="/room/holdings"><i className="ti ti-list-details" /> Holdings</Link>
+          </div>
         </div>
-      )}
-
-      {/* doors — the rest of the records world (routes all live) */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10, marginTop: 12 }}>
-        <Link className="vline" style={jobStyle} href="/room/slate">
-          <i className="ti ti-stack-2" style={{ color: "var(--sub)" }} />
-          <span style={jobText}>Your watchlist, ranked</span>
-          <span style={jobDest}>→ Slate</span>
-        </Link>
-        <Link className="vline" style={jobStyle} href="/room/shelf">
-          <i className="ti ti-books" style={{ color: "var(--sub)" }} />
-          <span style={jobText}>Pins &amp; saved readings</span>
-          <span style={jobDest}>→ Shelf</span>
-        </Link>
-        <Link className="vline" style={jobStyle} href="/room/takes">
-          <i className="ti ti-feather" style={{ color: "var(--sub)" }} />
-          <span style={jobText}>Write your own take</span>
-          <span style={jobDest}>→ Takes</span>
-        </Link>
-        <Link className="vline" style={jobStyle} href="/me/import">
-          <i className="ti ti-download" style={{ color: "var(--sub)" }} />
-          <span style={jobText}>Import your watch history</span>
-          <span style={jobDest}>→ Import</span>
-        </Link>
       </div>
       </section>
     </div>

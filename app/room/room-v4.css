@@ -50,3 +50,95 @@
   .room-v4 .abright .briefbtn .tx{display:none}
   .room-v4 .main{padding:0 12px 32px}
 }
+
+/* ── v4.1 — previews, not doors (오너 피드백 2026-07-26: 중간공백 금지·
+      2~3단 조판·지도/막대/얼굴을 직접 보여주기) ─────────────────────── */
+
+/* roombar: balanced 3-zone — doors centered, not sagging left */
+.room-v4 .rb-doors{justify-content:center}
+.room-v4 .rb-home{flex:0 0 auto}
+.room-v4 .abright{flex:0 0 auto}
+/* NAV chip: compact pill (the light theme made the spark read as a stray underline) */
+.room-v4 .navchip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid #E4DFD3;
+  border-radius:99px;background:#FFFFFF;cursor:pointer}
+.room-v4 .navchip .spk{width:44px;height:14px}
+
+/* identity strip */
+.room-v4 .dk-id{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:#4A4640;
+  padding:10px 14px;background:#FFFFFF;border:1px solid #E4DFD3;border-radius:10px}
+.room-v4 .dk-id b{color:var(--ink);font-size:15px}
+.room-v4 .dk-id .dot{color:#C6BEAC}
+.room-v4 .dk-tier{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--canon)}
+.room-v4 .dk-idspark{margin-left:auto}
+
+/* grids */
+.room-v4 .dk-2col{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:12px;align-items:stretch}
+.room-v4 .dk-2col--even{grid-template-columns:1fr 1fr}
+.room-v4 .dk-3col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+@media (max-width:980px){
+  .room-v4 .dk-2col,.room-v4 .dk-2col--even{grid-template-columns:1fr}
+  .room-v4 .dk-3col{grid-template-columns:1fr}
+}
+
+/* cards — tight, bordered, no floating numbers */
+.room-v4 .dk-card{background:#FFFFFF;border:1px solid #E4DFD3;border-radius:12px;padding:12px 14px;
+  display:flex;flex-direction:column;min-width:0}
+.room-v4 .dk-cardhd{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:#8A857C;margin-bottom:10px}
+.room-v4 .dk-cardft{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;
+  padding-top:10px;font-size:11.5px}
+.room-v4 .dk-cardft .sub{color:#8A857C}
+.room-v4 .dk-btn{font-size:12px;font-weight:700;color:var(--red);text-decoration:none;white-space:nowrap}
+
+/* up next (tonight right column) */
+.room-v4 .dk-upnext{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.room-v4 .dk-up{display:flex;flex-direction:column;gap:5px;border:0;background:transparent;padding:0;
+  cursor:pointer;text-align:left;min-width:0;font-family:inherit}
+.room-v4 .dk-uppo{display:block;width:100%;aspect-ratio:2/3;border-radius:8px;background:#F1EDE4 center/cover no-repeat;
+  border:1px solid #E4DFD3}
+.room-v4 .dk-up:hover .dk-uppo{border-color:var(--red)}
+.room-v4 .dk-uptt{font-size:11.5px;font-weight:600;color:#4A4640;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* coverage bars — label left, bar center, number right, NO dead middle */
+.room-v4 .dk-bars{display:flex;flex-direction:column;gap:8px}
+.room-v4 .dk-bar{display:grid;grid-template-columns:minmax(0,120px) 1fr 44px;align-items:center;gap:8px;
+  text-decoration:none}
+.room-v4 .dk-barlbl{font-size:12px;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-v4 .dk-bartrack{height:7px;border-radius:99px;background:#F1EDE4;overflow:hidden}
+.room-v4 .dk-barfill{display:block;height:100%;border-radius:99px;background:var(--canon)}
+.room-v4 .dk-bar:hover .dk-barfill{background:var(--red)}
+.room-v4 .dk-barnum{font-size:11px;color:#8A857C;text-align:right;font-variant-numeric:tabular-nums}
+.room-v4 .dk-blind{margin-top:8px;font-size:11.5px;color:#9A6900;display:flex;align-items:center;gap:6px}
+
+/* mini world map */
+.room-v4 .mw-wrap{display:block;border-radius:10px;overflow:hidden;border:1px solid #E4DFD3}
+.room-v4 .mw-wrap:hover{border-color:var(--red)}
+.room-v4 .mw-svg{display:block;width:100%;height:auto}
+
+/* director conquest — faces */
+.room-v4 .dk-auteurs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (max-width:980px){.room-v4 .dk-auteurs{grid-template-columns:repeat(4,minmax(70px,1fr))}}
+.room-v4 .dk-au{display:flex;flex-direction:column;gap:5px;text-decoration:none;min-width:0}
+.room-v4 .dk-aupo{display:block;width:100%;aspect-ratio:1/1;border-radius:10px;background:#F1EDE4 center/cover no-repeat;
+  border:1px solid #E4DFD3}
+.room-v4 .dk-au:hover .dk-aupo{border-color:var(--red)}
+.room-v4 .dk-aunm{font-size:11px;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-v4 .dk-aupct{font-size:10.5px;color:var(--canon);font-weight:700}
+
+/* slim link row under the map band */
+.room-v4 .dk-linkrow{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:12px}
+.room-v4 .dk-linkrow a{color:#4A4640;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.room-v4 .dk-linkrow a:hover{color:var(--red)}
+
+/* NAV card + chips */
+.room-v4 .dk-navrow{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.room-v4 .dk-navbig{font-size:15px;color:var(--ink)}
+.room-v4 .dk-navbig b{font-size:20px}
+.room-v4 .dk-navkv{font-size:12.5px;color:#4A4640}
+.room-v4 .dk-navkv b{color:var(--ink)}
+.room-v4 .dk-card--nav{cursor:pointer}
+.room-v4 .dk-card--nav:hover{border-color:var(--red)}
+.room-v4 .dk-chips{display:flex;flex-wrap:wrap;gap:6px}
+.room-v4 .dk-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#4A4640;
+  padding:6px 11px;border:1px solid #E4DFD3;border-radius:99px;text-decoration:none;background:#FFFFFF}
+.room-v4 .dk-chip:hover{border-color:var(--red);color:var(--red)}
