@@ -56,7 +56,7 @@ export interface TripStats {
   seenCount: number;
   remaining: number;
   runtimeTraveled: number | null;  // minutes watched toward this destination
-  runtimeRemaining: number | null; // minutes left = the "소요시간"
+  runtimeRemaining: number | null; // minutes left = the trip's "time remaining"
   subCoverage: number;             // 0..1 of remaining playable on my services
   etaWeeks: number | null;         // ceil(remaining / pace); null when pace unknown
 }
@@ -130,24 +130,26 @@ export function tripStats(dest: Destination, pacePerWeek: number | null): TripSt
   };
 }
 
-/** The turn card's "why this turn" — server-computed facts only, no invention. */
+/** The turn card's "why this turn" — server-computed facts only, no invention.
+ *  English is the engine's default language (site-canonical); the web + BFF
+ *  render this as-is. (Per-locale reasons would need a structured contract.) */
 export function turnReason(next: NavFilm, dest: Destination, stats: TripStats): string {
   const parts: string[] = [];
   if (dest.family === "director" || dest.family === "canon") {
     parts.push(`${dest.label} ${stats.seenCount + 1}/${stats.total}`);
   }
-  if (next.leavingSoon) parts.push("곧 내려감");
-  else if (next.availability === "sub") parts.push("지금 재생 가능");
-  else if (next.availability === "rent") parts.push("대여");
+  if (next.leavingSoon) parts.push("Leaving soon");
+  else if (next.availability === "sub") parts.push("Play now");
+  else if (next.availability === "rent") parts.push("Rent");
   return parts.join(" · ");
 }
 
-/** Duration display, matching the prototype ("11시간 53분"). */
+/** Duration display, Google-Maps style ("11 hr 53 min"). */
 export function fmtRuntimeK(min: number | null): string {
   if (min == null) return "—";
   const h = Math.floor(min / 60);
   const m = min % 60;
-  return h ? `${h}시간 ${m}분` : `${m}분`;
+  return h ? `${h} hr ${m} min` : `${m} min`;
 }
 /** Compact meter display ("9:52"). */
 export function fmtHM(min: number | null): string {

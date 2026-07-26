@@ -6,9 +6,9 @@ import "../odyssey/odyssey.css";
 import "./board.css";
 
 export const metadata: Metadata = {
-  title: "Board — 시네필 영화 전체 조감",
+  title: "Board — the whole cinephile corpus at a glance",
   description:
-    "메타테이크가 다루는 시네필 영화 약 2,000편을 바둑판으로 — 가로는 시대, 세로는 취향 분류. 본 영화·볼 영화·내 서비스로 색이 바뀌고, 필터로 좁혀 한눈에 조감합니다.",
+    "The ~2,000 cinephile films Metatake covers, laid out on one board — columns by era, rows by taste. Highlight what you've seen, your watchlist, or what's on your services, then filter to survey it all at a glance.",
   alternates: { canonical: "/board" },
   robots: { index: true, follow: true },
 };
@@ -20,13 +20,13 @@ export default function BoardPage() {
       <main>
         <header className="ody-hero" style={{ paddingBottom: 6 }}>
           <div className="seclbl">The board</div>
-          <h1 className="disp">시네필 영화 전체를 한눈에</h1>
+          <h1 className="disp">Every cinephile film at a glance</h1>
           <p className="standfirst">
-            메타테이크가 다루는 시네필 영화 약 2,000편의 바둑판. 가로는 시대, 세로는 취향 분류.{" "}
-            <b>본 영화·볼 영화·내 서비스</b>를 켜면 그 영화들에 색이 들어오고, 연도·장르로 좁히면 판이
-            줄어듭니다. 영화에 마우스를 올리면 요약이 뜨고, 누르면 옆에 자세히 열립니다.{" "}
-            <Link href="/journey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>여정 제안 →</Link>{" "}
-            <Link href="/odyssey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>지도 →</Link>
+            A board of the ~2,000 cinephile films Metatake covers. Columns are eras, rows are taste.{" "}
+            Turn on <b>Seen · Watchlist · On my services</b> to light those films up, and narrow by year
+            or genre to thin the board. Hover a film for a summary, or click to open the details alongside.{" "}
+            <Link href="/journey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>The Journey →</Link>{" "}
+            <Link href="/odyssey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>Odyssey map →</Link>
           </p>
         </header>
 
@@ -37,9 +37,9 @@ export default function BoardPage() {
             the invariant) and keeps one instrument in one place. */}
         <section className="ody-hero" style={{ paddingTop: 10, paddingBottom: 28 }}>
           <p className="standfirst">
-            내 정전 커버리지와 감독 정복은{" "}
+            Your canon coverage and auteur conquest live in{" "}
             <Link href="/room" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>
-              마이룸에서 →
+              My Room →
             </Link>
           </p>
         </section>

@@ -78,6 +78,18 @@
 .navd .prefs{display:flex;gap:6px;margin-top:13px}
 .navd .prefs a{flex:1;text-align:center;font-size:11.5px;font-weight:700;color:#4A4640;background:#F5F1E8;border:1px solid var(--line);border-radius:11px;padding:9px 0;text-decoration:none}
 .navd .prefs a.on{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* remaining route — the full ordered list of films left (Google-Maps "steps") */
+.navd .steps{margin-top:14px}
+.navd .steps-h{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
+.navd .steps-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:5px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.navd .step{flex:0 0 auto;width:66px;text-decoration:none}
+.navd .step-po{display:block;position:relative;width:66px;height:99px;border-radius:7px;background:#d9d2c2 center/cover;border:1px solid var(--line)}
+.navd .step.now .step-po{border-color:var(--red);box-shadow:0 0 0 2px rgba(227,18,11,.28)}
+.navd .step-n{position:absolute;left:4px;top:4px;min-width:16px;height:16px;padding:0 3px;border-radius:99px;background:rgba(20,18,14,.72);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.navd .step.now .step-n{background:var(--red)}
+.navd .step-t{display:block;font-size:10px;font-weight:700;color:var(--ink);margin-top:4px;line-height:1.2;max-height:24px;overflow:hidden}
+.navd .step-m{display:block;font-size:9px;color:var(--sub);margin-top:1px}
 .navd .arrived{text-align:center;padding:40px 20px}
 .navd .arrived .big{font-size:22px;font-weight:800;margin:8px 0}
 
@@ -101,3 +113,32 @@
 .navd.np .np-lnk{color:var(--green);font-weight:700;text-decoration:none}
 .navd .ar-btn{border:0;cursor:pointer;font-family:inherit}
 .navd .ar-btn--2{background:#F1EDE4;color:var(--ink);border:1px solid var(--line)}
+
+/* active destination in the rail (two-pane shell) */
+.navd.np .np-card.on{border-color:var(--green);background:#F1FAF4;box-shadow:inset 3px 0 0 var(--green)}
+.navd.np .np-card.on .np-go{color:var(--green)}
+
+/* ── Two-pane shell (P5) — left destination rail · right drive map (Google-Maps desktop shape) ── */
+.nav-shell{--ink:#161512;--sub:#8A857C;--line:#E4DFD3;--field:#E9E2D0;--green:#1E7A46;
+  display:grid;grid-template-columns:minmax(320px,380px) 1fr;gap:18px;
+  max-width:1180px;margin:0 auto;padding:14px 16px;box-sizing:border-box;height:calc(100dvh - 84px)}
+.nav-rail{min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.nav-rail .navd.np{max-width:none;width:100%;margin:0;background:transparent}
+.nav-stage{position:relative;min-height:0;display:flex;align-items:stretch;justify-content:center;overflow:hidden}
+.nav-stage .navd{height:100%;min-height:0;max-width:560px;width:100%;margin:0}
+.nav-back{position:absolute;left:2px;top:2px;z-index:30;display:none;align-items:center;gap:5px;
+  font-size:12.5px;font-weight:800;color:var(--green);text-decoration:none;
+  background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:99px;padding:7px 13px}
+.nav-empty{margin:auto;text-align:center;max-width:380px;padding:40px 24px}
+.nav-empty .ne-badge{font-size:46px;line-height:1}
+.nav-empty .ne-h{font-family:"PT Serif",Georgia,serif;font-size:23px;font-weight:800;color:var(--ink);margin:12px 0 7px}
+.nav-empty .ne-p{font-size:13.5px;color:var(--sub);line-height:1.65}
+
+@media (max-width:860px){
+  .nav-shell{grid-template-columns:1fr;gap:0;height:auto;padding:0;max-width:520px}
+  .nav-shell[data-mode="pick"] .nav-stage{display:none}
+  .nav-shell[data-mode="drive"] .nav-rail{display:none}
+  .nav-shell[data-mode="drive"] .nav-stage{flex-direction:column;align-items:stretch;overflow:visible}
+  .nav-stage .navd{height:min(780px,calc(100dvh - 148px));max-width:none}
+  .nav-back{position:static;display:inline-flex;align-self:flex-start;margin:8px 8px 4px}
+}

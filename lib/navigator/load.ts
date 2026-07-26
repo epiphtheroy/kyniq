@@ -9,7 +9,9 @@
  * auth-agnostic and the chevron position remains ledger-derived (invariant §10-1).
  */
 import type { createAdminClient } from "@/lib/supabase/admin";
-import { directorDestination, canonDestination } from "./destinations";
+import {
+  directorDestination, canonDestination, decadeDestination, subscriptionDestination, type SourceFilm,
+} from "./destinations";
 import { buildRoute, tripStats, type Availability, type Destination, type Route, type TripStats } from "./route";
 
 type Db = ReturnType<typeof createAdminClient>;
@@ -123,5 +125,76 @@ export async function loadCanonDestination(db: Db, opts: CanonLoadOpts): Promise
       availability: availMap.get(m.film_slug) ?? "none", rank: m.rank,
     })),
   );
+  return assemble(dest, opts.pacePerWeek ?? null);
+}
+
+/** One row of cinecodex_ranked (the Screener/TakeScore engine) — `u`=TakeScore, `rank`=order. */
+interface RankedRow {
+  slug: string; title: string; year: number | null; poster_path: string | null;
+  u: number | null; rank: number | null;
+}
+
+/** Pull the top rows of a cinecodex_ranked query (returns json `{ total, rows }`). */
+async function rankedTop(db: Db, params: Record<string, unknown>): Promise<RankedRow[]> {
+  const { data } = await db.rpc("cinecodex_ranked", params);
+  return ((data as { rows?: RankedRow[] } | null)?.rows) ?? [];
+}
+
+/** Attach runtime (films join) + my-services availability + seen to ranked rows → SourceFilm[]. */
+async function enrichRanked(db: Db, rows: RankedRow[], country: string, seen: ReadonlySet<string>): Promise<SourceFilm[]> {
+  const slugs = rows.map((r) => r.slug);
+  // cinecodex_ranked carries no runtime — join films for it (typical N ≤ ~120, well under the 1000 cap).
+  const { data: rtRows } = await db.from("films").select("slug, runtime").in("slug", slugs);
+  const rtMap = new Map(((rtRows ?? []) as { slug: string; runtime: number | null }[]).map((r) => [r.slug, r.runtime]));
+  const availMap = await availabilityMap(db, slugs, country);
+  return rows.map((r) => ({
+    slug: r.slug, title: r.title, year: r.year, poster_path: r.poster_path,
+    runtime: rtMap.get(r.slug) ?? null, seen: seen.has(r.slug),
+    availability: availMap.get(r.slug) ?? "none", rank: r.rank,
+  }));
+}
+
+export interface DecadeLoadOpts {
+  decade: number;
+  label?: string;
+  country?: string;
+  seenSlugs?: ReadonlySet<string>;
+  pacePerWeek?: number | null;
+}
+
+/** Decade essentials: the top ~20 TakeScore films of a decade (cinecodex_ranked, year-filtered). */
+export async function loadDecadeDestination(db: Db, opts: DecadeLoadOpts): Promise<DriveLoad | null> {
+  const country = (opts.country || "US").toUpperCase().slice(0, 2);
+  const d0 = Math.floor(opts.decade / 10) * 10;
+  const rows = await rankedTop(db, {
+    p_sort: "u", p_lambda: 1.0, p_year_min: d0, p_year_max: d0 + 9, p_limit: 20, p_offset: 0,
+  });
+  if (!rows.length) return null;
+  const seen = opts.seenSlugs ?? new Set<string>();
+  const films = await enrichRanked(db, rows, country, seen);
+  const dest = decadeDestination(d0, films);
+  if (opts.label) dest.label = opts.label;
+  return assemble(dest, opts.pacePerWeek ?? null);
+}
+
+export interface SubLoadOpts {
+  label?: string;
+  country?: string;
+  seenSlugs?: ReadonlySet<string>;
+  pacePerWeek?: number | null;
+}
+
+/** My-subscription priority: top TakeScore films playable now on my services (flatrate/free/ads), ~15. */
+export async function loadSubscriptionDestination(db: Db, opts: SubLoadOpts): Promise<DriveLoad | null> {
+  const country = (opts.country || "US").toUpperCase().slice(0, 2);
+  // Over-fetch the TakeScore head, then keep only the sub-playable — most top films aren't on flatrate.
+  const rows = await rankedTop(db, { p_sort: "u", p_lambda: 1.0, p_limit: 120, p_offset: 0 });
+  if (!rows.length) return null;
+  const seen = opts.seenSlugs ?? new Set<string>();
+  const enriched = await enrichRanked(db, rows, country, seen);
+  const playable = enriched.filter((f) => f.availability === "sub").slice(0, 15);
+  if (!playable.length) return null;
+  const dest = subscriptionDestination(playable);
+  if (opts.label) dest.label = opts.label;
   return assemble(dest, opts.pacePerWeek ?? null);
 }

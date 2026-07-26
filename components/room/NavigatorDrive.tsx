@@ -51,7 +51,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const fit = () => setView({ tx: 0, ty: 0, k: 1 });
 
   const share = useCallback(() => {
-    const text = `🏁 ${dest.label} 완주 — ${stats.total}편 · ${fmtRuntimeK(stats.runtimeTraveled)}. Metatake Navigator로 시네필 여정을 달렸습니다.`;
+    const text = `🏁 Finished ${dest.label} — ${stats.total} films · ${fmtRuntimeK(stats.runtimeTraveled)}. Charted with the Metatake Navigator.`;
     const url = "https://metatake.net/room/navigator";
     const nav = navigator as Navigator & { share?: (d: { title?: string; text?: string; url?: string }) => Promise<void> };
     if (nav.share) void nav.share({ title: "The Navigator", text, url }).catch(() => {});
@@ -63,11 +63,11 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
       <div className="navd">
         <div className="arrived">
           <div style={{ fontSize: 38 }}>🏁</div>
-          <div className="big">도착했습니다 — {dest.label}</div>
-          <div style={{ color: "var(--sub)", fontSize: 13 }}>{stats.total}편 완주 · 총 {fmtRuntimeK(stats.runtimeTraveled)}</div>
+          <div className="big">Arrived — {dest.label}</div>
+          <div style={{ color: "var(--sub)", fontSize: 13 }}>{stats.total} films · {fmtRuntimeK(stats.runtimeTraveled)} total</div>
           <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
-            <button type="button" className="ar-btn" onClick={share}>여정 공유 ↗</button>
-            <Link href="/room/navigator" className="ar-btn ar-btn--2">다른 목적지 →</Link>
+            <button type="button" className="ar-btn" onClick={share}>Share journey ↗</button>
+            <Link href="/room/navigator" className="ar-btn ar-btn--2">New destination →</Link>
           </div>
         </div>
       </div>
@@ -83,13 +83,13 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const remMin = stats.runtimeRemaining ?? 0;
   const donePct = travMin + remMin > 0 ? Math.round((travMin / (travMin + remMin)) * 100) : 0;
   const laneRent = next.availability === "rent";
-  const roadName = dest.family === "director" ? `${dest.label} 필모길` : dest.label;
+  const roadName = dest.family === "director" ? `${dest.label} filmography` : dest.label;
 
   const sp = (stop: RouteStop, slot: { top: number; left: number; w: number }, isNow: boolean) => (
     <div key={stop.film.slug} className={`sp${isNow ? " now" : ""}`} style={{ left: `${slot.left}%`, top: `${slot.top}%` }}>
       <img src={po(stop.film.poster_path)} alt="" style={{ width: slot.w, height: slot.w * 1.5 }} loading="lazy" draggable={false} />
       <span className="pole" /><span className="shadow" />
-      {isNow ? <span className="cap">지금 · {stop.film.title}</span> : slot.w >= 60 ? <span className="cap">{stop.film.title}</span> : null}
+      {isNow ? <span className="cap">Now · {stop.film.title}</span> : slot.w >= 60 ? <span className="cap">{stop.film.title}</span> : null}
     </div>
   );
 
@@ -98,17 +98,17 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
       {/* turn card — the next film */}
       <div className="turn">
         <div className="row">
-          <div className="mnv"><div className="ar">↰</div><div className="k">다음</div></div>
+          <div className="mnv"><div className="ar">↰</div><div className="k">NEXT</div></div>
           <span className="po" style={{ backgroundImage: `url(${po(next.poster_path)})` }} />
           <div className="tx">
             <div className="tt">{next.title}</div>
-            <div className="mt">{next.year ?? "?"} · {next.runtime ? `${next.runtime}분` : "—"} · {turnReason(next, dest, stats)}</div>
+            <div className="mt">{next.year ?? "?"} · {next.runtime ? `${next.runtime} min` : "—"} · {turnReason(next, dest, stats)}</div>
             {next.availability !== "none" ? (
-              <span className={`lane${laneRent ? " rent" : ""}`}><span className="d" />{laneRent ? "대여 가능" : "지금 재생 가능"}</span>
+              <span className={`lane${laneRent ? " rent" : ""}`}><span className="d" />{laneRent ? "Rent" : "Play now"}</span>
             ) : null}
           </div>
         </div>
-        {then ? <div className="then"><span className="a">그다음 ↑</span> <b>{then.title}</b>{then.runtime ? ` · ${then.runtime}분` : ""}</div> : null}
+        {then ? <div className="then"><span className="a">Then ↑</span> <b>{then.title}</b>{then.runtime ? ` · ${then.runtime} min` : ""}</div> : null}
       </div>
 
       {/* the map — pannable & zoomable */}
@@ -125,8 +125,8 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
             <path d="M50,96 L50,60 C50,50 49.6,44 49.6,40 L50,24" fill="none" stroke="#ffffffbb" strokeWidth="1.2" strokeDasharray="2 3" vectorEffect="non-scaling-stroke" />
           </svg>
           <div className="street cur" style={{ left: "34%", top: "88%" }}>{roadName}</div>
-          <div className="street" style={{ left: "20%", top: "68%" }}>느와르 계보 →</div>
-          <div className="street" style={{ left: "80%", top: "44%" }}>형식주의 대로</div>
+          <div className="street" style={{ left: "20%", top: "68%" }}>Noir lineage →</div>
+          <div className="street" style={{ left: "80%", top: "44%" }}>Formalist Blvd</div>
           {near.map((stop, i) => sp(stop, SLOTS[i], i === 0))}
           {!destIsNear ? (
             <div className="sp dest" style={{ left: "50%", top: "28%" }}>
@@ -135,24 +135,24 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
               <span className="shadow" /><span className="cap">{finalStop.film.title}</span>
             </div>
           ) : null}
-          <div className="me"><div className="chev" /><div className="dot" /><div className="back">↓ 지나온 {stats.seenCount}편</div></div>
+          <div className="me"><div className="chev" /><div className="dot" /><div className="back">↓ {stats.seenCount} behind you</div></div>
         </div>
         {/* map controls (outside the transformed layer) */}
         <div className="mapctl">
-          <button type="button" aria-label="확대" onClick={() => zoom(1.25)}>＋</button>
-          <button type="button" aria-label="축소" onClick={() => zoom(0.8)}>－</button>
-          <button type="button" aria-label="맞춤" onClick={fit}>◎</button>
+          <button type="button" aria-label="Zoom in" onClick={() => zoom(1.25)}>＋</button>
+          <button type="button" aria-label="Zoom out" onClick={() => zoom(0.8)}>－</button>
+          <button type="button" aria-label="Reset view" onClick={fit}>◎</button>
         </div>
       </div>
 
       {/* peek sheet — short by default so the map owns the screen; tap to expand */}
       <div className={`sheet${open ? " open" : ""}`}>
-        <button type="button" className="grip" aria-label={open ? "접기" : "펼치기"} onClick={() => setOpen((o) => !o)} />
+        <button type="button" className="grip" aria-label={open ? "Collapse" : "Expand"} onClick={() => setOpen((o) => !o)} />
         <div className="peek" onClick={() => setOpen((o) => !o)}>
           <div className="headline">
             <span className="dur">{fmtRuntimeK(stats.runtimeRemaining)}</span>
-            <span className="films">영화 {stats.remaining}편</span>
-            <span className="soft">{open ? "남은 소요시간" : "탭하면 상세"}{stats.etaWeeks ? ` · 약 ${stats.etaWeeks}주` : ""}</span>
+            <span className="films">{stats.remaining} films</span>
+            <span className="soft">{open ? "time remaining" : "tap for detail"}{stats.etaWeeks ? ` · ~${stats.etaWeeks} wk` : ""}</span>
           </div>
           {!open ? <div className="peekbar"><span style={{ width: `${progressPct}%` }} /></div> : null}
         </div>
@@ -161,18 +161,33 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
             <div className="meter">
               <div className="track"><span className="done" style={{ width: `${donePct}%` }} /><span className="knob" style={{ left: `${donePct}%` }} /></div>
               <div className="ends">
-                <span className="l"><span className="cap">지나온 길</span><b>{stats.seenCount}편 · {fmtHM(stats.runtimeTraveled)}</b></span>
-                <span className="r"><span className="cap">남은 길</span><b>{stats.remaining}편 · {fmtHM(stats.runtimeRemaining)}</b></span>
+                <span className="l"><span className="cap">Traveled</span><b>{stats.seenCount} films · {fmtHM(stats.runtimeTraveled)}</b></span>
+                <span className="r"><span className="cap">Remaining</span><b>{stats.remaining} films · {fmtHM(stats.runtimeRemaining)}</b></span>
               </div>
             </div>
             <div className="prefs">
               {(["fewest", "fastest", "no_tolls"] as RoutePref[]).map((p) => (
                 <Link key={p} className={p === pref ? "on" : ""} href={`?pref=${p}`} scroll={false}>
-                  {p === "fewest" ? "최단" : p === "fastest" ? "최속" : "무료도로"}
+                  {p === "fewest" ? "Fewest" : p === "fastest" ? "Fastest" : "No tolls"}
                 </Link>
               ))}
             </div>
-            <div className="fnote">진행률 {progressPct}% · {dest.label} · 위치는 내 기록에서 자동 계산 · <Link href="/room/navigator">다른 목적지</Link></div>
+            {/* the full remaining route — every film left, in drive order (Google-Maps "steps") */}
+            <div className="steps">
+              <div className="steps-h">Remaining route · {stats.remaining} films</div>
+              <div className="steps-row">
+                {route.stops.map((s, i) => (
+                  <Link key={s.film.slug} href={`/film/${s.film.slug}`} className={`step${i === 0 ? " now" : ""}`} title={s.film.title}>
+                    <span className="step-po" style={{ backgroundImage: `url(${po(s.film.poster_path)})` }}>
+                      <span className="step-n">{i + 1}</span>
+                    </span>
+                    <span className="step-t">{s.film.title}</span>
+                    <span className="step-m">{s.film.runtime ? `${s.film.runtime}m` : "—"}{s.toll ? " · toll" : s.film.availability === "sub" ? " · ▶" : ""}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="fnote">{progressPct}% complete · {dest.label} · position from your ledger · <Link href="/room/navigator">Change destination</Link></div>
           </>
         ) : null}
       </div>

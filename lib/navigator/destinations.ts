@@ -64,6 +64,35 @@ export function canonDestination(id: string, label: string, films: SourceFilm[])
   };
 }
 
+/** Decade essentials — the TakeScore rank within the decade is the intrinsic order. */
+export function decadeDestination(decade: number, films: SourceFilm[]): Destination {
+  const d0 = Math.floor(decade / 10) * 10;
+  return {
+    id: `decade:${d0}`,
+    family: "decade",
+    label: `${d0}s essentials`,
+    ordered: true,
+    films: films.map((f, i) => toNavFilm({ ...f }, f.rank ?? i)),
+  };
+}
+
+/** My-subscription priority — leaving-soon floats up, then TakeScore rank (the pre-sorted input order). */
+export function subscriptionDestination(films: SourceFilm[]): Destination {
+  const ordered = [...films].sort(
+    (a, b) =>
+      (a.leavingSoon === b.leavingSoon ? 0 : a.leavingSoon ? -1 : 1) ||
+      (a.rank ?? 1e9) - (b.rank ?? 1e9) ||
+      (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0),
+  );
+  return {
+    id: "subscription:mine",
+    family: "subscription",
+    label: "Best on your subscriptions",
+    ordered: true,
+    films: ordered.map((f, i) => toNavFilm({ ...f }, i)),
+  };
+}
+
 /** Guard for the size rule (§3): destinations should be 8–40 films; larger canons split. */
 export function isShippableSize(dest: Destination): boolean {
   return dest.films.length >= 8 && dest.films.length <= 40;

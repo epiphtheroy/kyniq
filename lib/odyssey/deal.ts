@@ -4,9 +4,9 @@ import type { OdyMap, OdyStation } from "./types";
  * The Metatake deal — the actual navigation. Given the viewer's taste (the
  * films they've seen) and their filters, it deals three axes of three unseen
  * films each:
- *   - stable   (안정축): dead-centre of your taste — a near-certain hit.
- *   - adventure(모험축): a step past the familiar — you'll likely grow into it.
- *   - frontier (전혀 새로운 축): a different world entirely — the leap that
+ *   - stable   (the Stable axis): dead-centre of your taste — a near-certain hit.
+ *   - adventure(the Adventure axis): a step past the familiar — you'll likely grow into it.
+ *   - frontier (the Frontier axis): a different world entirely — the leap that
  *              widens a cinephile's eye.
  *
  * With ≥3 seen films the axes are distance-from-your-taste bands over the t-SNE
@@ -17,9 +17,9 @@ import type { OdyMap, OdyStation } from "./types";
 export type Axis = "stable" | "adventure" | "frontier";
 
 export const AXES: { key: Axis; title: string; sub: string; color: string; glow: string }[] = [
-  { key: "stable", title: "안정", sub: "취향 한복판 · 실패 없는 선택", color: "#0d9488", glow: "13,148,136" },
-  { key: "adventure", title: "모험", sub: "익숙함에서 한 걸음", color: "#d97706", glow: "217,119,6" },
-  { key: "frontier", title: "전혀 새로운", sub: "완전히 다른 세계로", color: "#E3120B", glow: "227,18,11" },
+  { key: "stable", title: "Stable", sub: "Dead-centre of your taste · a safe bet", color: "#0d9488", glow: "13,148,136" },
+  { key: "adventure", title: "Adventure", sub: "A step past the familiar", color: "#d97706", glow: "217,119,6" },
+  { key: "frontier", title: "Frontier", sub: "Into a different world entirely", color: "#E3120B", glow: "227,18,11" },
 ];
 
 export type DealFilters = {

@@ -6,8 +6,8 @@
  * A big MET​ATAKE button, with a tiny pile of the films you've seen to its left
  * and the filters (your services · a year range · a genre) above it. Press it
  * and nine unseen films flip up like a dealt hand across three axes —
- * 안정 (stable, dead-centre of your taste), 모험 (adventure, a step past it),
- * 전혀 새로운 (frontier, a different world). Each card takes Seen / Watchlist /
+ * Stable (dead-centre of your taste), Adventure (a step past it),
+ * Frontier (a different world). Each card takes Seen / Watchlist /
  * a star rating in place. Re-deal for a fresh hand.
  */
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -85,26 +85,26 @@ export default function MetatakeDeck() {
   return (
     <section className="deck" aria-label="Metatake journey">
       <div className="deck-inner">
-        <div className="deck-eyebrow">여정 제안 · The journey</div>
-        <h2 className="deck-title">지도는 아틀라스, 이것이 내비게이션입니다</h2>
+        <div className="deck-eyebrow">The Journey</div>
+        <h2 className="deck-title">The map is the atlas. This is the navigation.</h2>
         <p className="deck-lede">
-          당신이 본 영화로부터 세 방향의 길을 냅니다 — <b style={{ color: AXES[0].color }}>안정</b>은 취향 한복판,{" "}
-          <b style={{ color: AXES[1].color }}>모험</b>은 한 걸음 밖, <b style={{ color: AXES[2].color }}>전혀 새로운</b>은
-          완전히 다른 세계. 안 본 영화만, 당신의 설정에 맞춰.
+          From the films you've seen, we chart three ways forward — <b style={{ color: AXES[0].color }}>Stable</b> sits dead-centre of your taste,{" "}
+          <b style={{ color: AXES[1].color }}>Adventure</b> a step beyond, <b style={{ color: AXES[2].color }}>Frontier</b> a
+          different world entirely. Unseen films only, tuned to your settings.
         </p>
 
         {/* filters */}
         <div className="deck-filters">
           <label className="deck-chk">
             <input type="checkbox" checked={servicesOnly} onChange={(e) => setServicesOnly(e.target.checked)} />
-            내 서비스 영화만
+            On my services only
           </label>
           <select className="deck-sel" value={country} onChange={(e) => setCountry(e.target.value === "KR" ? "KR" : "US")} aria-label="Country">
             <option value="US">US</option>
             <option value="KR">KR</option>
           </select>
           <span className="deck-div" />
-          <span className="deck-flabel">연도</span>
+          <span className="deck-flabel">Years</span>
           <select className="deck-sel" value={yearMin} onChange={(e) => setYearMin(Math.min(+e.target.value, yearMax))} aria-label="From year">
             {decades.map((d) => <option key={d} value={d}>{d}</option>)}
           </select>
@@ -113,9 +113,9 @@ export default function MetatakeDeck() {
             {decades.map((d) => <option key={d} value={d}>{d}</option>)}
           </select>
           <span className="deck-div" />
-          <span className="deck-flabel">장르</span>
+          <span className="deck-flabel">Genre</span>
           <select className="deck-sel" value={genre ?? ""} onChange={(e) => setGenre(e.target.value === "" ? null : +e.target.value)} aria-label="Genre">
-            <option value="">전체</option>
+            <option value="">All</option>
             {(map?.genres ?? []).map((g, i) => <option key={g} value={i}>{g}</option>)}
           </select>
         </div>
@@ -133,13 +133,13 @@ export default function MetatakeDeck() {
             ) : (
               <div className="deck-pile deck-pile-empty" aria-hidden="true" />
             )}
-            <div className="deck-seen-label">{seenSet.size ? <><b>{seenSet.size}</b>편의 나</> : "아직 기록이 없어요"}</div>
+            <div className="deck-seen-label">{seenSet.size ? <><b>{seenSet.size}</b> you've seen</> : "Nothing logged yet"}</div>
           </div>
 
           <button className={`deck-btn${dealing ? " is-dealing" : ""}`} onClick={() => void deal()} disabled={!map}>
             <span className="deck-btn-mark">✦</span>
             <span className="deck-btn-word">METATAKE</span>
-            <span className="deck-btn-sub">{dealt ? "다시 펼치기" : "9편을 펼치다"}</span>
+            <span className="deck-btn-sub">{dealt ? "Deal again" : "Deal 9 films"}</span>
           </button>
         </div>
 
@@ -149,12 +149,12 @@ export default function MetatakeDeck() {
             {AXES.map((ax) => (
               <div className="deck-axis" key={ax.key} style={{ ["--ax" as string]: ax.color, ["--axg" as string]: ax.glow }}>
                 <div className="deck-axis-head">
-                  <span className="deck-axis-title">{ax.title}<span className="deck-axis-axis">축</span></span>
+                  <span className="deck-axis-title">{ax.title}<span className="deck-axis-axis"> axis</span></span>
                   <span className="deck-axis-sub">{ax.sub}</span>
                 </div>
                 <div className="deck-cards">
                   {dealt[ax.key].length === 0 ? (
-                    <div className="deck-empty">이 조건에 맞는 새 영화가 없어요 — 필터를 넓혀 보세요.</div>
+                    <div className="deck-empty">No new films match these filters — try widening them.</div>
                   ) : dealt[ax.key].map((s, i) => (
                     <Card key={s.s} s={s} idx={i} />
                   ))}
@@ -165,12 +165,12 @@ export default function MetatakeDeck() {
         ) : (
           <div className="deck-hint">
             {seenSet.size >= 3
-              ? "버튼을 누르면 당신의 취향에서 세 방향의 길이 펼쳐집니다."
-              : "로그인하고 본 영화를 몇 편 표시하면, 길이 당신의 취향에서 시작됩니다. (지금은 입문 코스로 펼쳐집니다.)"}
+              ? "Press the button and three paths open from your taste."
+              : "Sign in and mark a few films you've seen, and the paths will start from your taste. (For now, we deal a starter course.)"}
           </div>
         )}
         {dealt && dealt.basis === "starter" ? (
-          <div className="deck-basis">입문 코스로 펼쳤습니다 — 본 영화를 표시할수록 제안이 당신에게 맞춰집니다.</div>
+          <div className="deck-basis">Dealt as a starter course — the more films you mark as seen, the more the picks fit you.</div>
         ) : null}
         {dealt && totalDealt === 0 ? null : null}
       </div>
@@ -202,7 +202,7 @@ function Card({ s, idx }: { s: OdyStation; idx: number }) {
             <div className="deal-ttl">{s.t}</div>
             <div className="deal-meta">
               {s.y ?? ""}{s.d ? ` · ${s.d}` : ""}
-              {s.pk ? <span className="deal-peak"> · 정전</span> : null}
+              {s.pk ? <span className="deal-peak"> · Canon</span> : null}
               <span className="deal-alt" title="altitude — how much it asks of you"> · {"▲".repeat(s.c)}</span>
             </div>
           </a>

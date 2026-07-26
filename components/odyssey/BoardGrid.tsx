@@ -2,10 +2,10 @@
 
 /**
  * BoardGrid — the goban survey of the cinephile corpus: ~1,958 films tiled
- * 30 columns of year × rows of taste. Toggle 본/볼/서비스 to colour matching
- * films; filter by year or genre to thin the board. Hover for a bubble, click
- * for a side drawer. (The former "본 영화 중심" taste-spiral arrangement was
- * removed 2026-07-25 — /journey answers taste-centric "what next" legibly.)
+ * 30 columns of year × rows of taste. Toggle Seen/Watchlist/Services to colour
+ * matching films; filter by year or genre to thin the board. Hover for a bubble,
+ * click for a side drawer. (The former "seen-centric" taste-spiral arrangement
+ * was removed 2026-07-25 — /journey answers taste-centric "what next" legibly.)
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useUserFilms } from "@/components/UserFilmsProvider";
@@ -30,7 +30,7 @@ export default function BoardGrid() {
   const [yearMin, setYearMin] = useState(1900);
   const [yearMax, setYearMax] = useState(NOW);
   const [genre, setGenre] = useState<number | null>(null);
-  // (The "본 영화 중심" taste-spiral arrangement was removed 2026-07-25 —
+  // (The "seen-centric" taste-spiral arrangement was removed 2026-07-25 —
   //  owner judgment: a single-centroid golden-angle spiral with outward jitter
   //  reads as decorative noise, and /journey expresses seen-centric taste
   //  better. The board is the goban, full stop.)
@@ -129,17 +129,17 @@ export default function BoardGrid() {
     <div className="board-root">
       <div className="board-controls">
         <div className="board-hl">
-          <span className="board-label">색으로 보기</span>
-          <button className={`board-tog seen${hlSeen ? " on" : ""}`} onClick={() => setHlSeen((v) => !v)}>본 영화</button>
-          <button className={`board-tog watch${hlWatch ? " on" : ""}`} onClick={() => setHlWatch((v) => !v)}>볼 영화</button>
-          <button className={`board-tog avail${hlAvail ? " on" : ""}`} onClick={() => setHlAvail((v) => !v)}>내 서비스</button>
+          <span className="board-label">Highlight</span>
+          <button className={`board-tog seen${hlSeen ? " on" : ""}`} onClick={() => setHlSeen((v) => !v)}>Seen</button>
+          <button className={`board-tog watch${hlWatch ? " on" : ""}`} onClick={() => setHlWatch((v) => !v)}>Watchlist</button>
+          <button className={`board-tog avail${hlAvail ? " on" : ""}`} onClick={() => setHlAvail((v) => !v)}>On my services</button>
           <select className="board-sel" value={country} onChange={(e) => setCountry(e.target.value === "KR" ? "KR" : "US")} aria-label="Country">
             <option value="US">US</option>
             <option value="KR">KR</option>
           </select>
         </div>
         <div className="board-filters">
-          <span className="board-label">거르기</span>
+          <span className="board-label">Filter</span>
           <select className="board-sel" value={yearMin} onChange={(e) => setYearMin(Math.min(+e.target.value, yearMax))} aria-label="From year">
             {yearOpts().map((y) => <option key={y} value={y}>{y}</option>)}
           </select>
@@ -148,10 +148,10 @@ export default function BoardGrid() {
             {yearOpts().map((y) => <option key={y} value={y}>{y}</option>)}
           </select>
           <select className="board-sel" value={genre ?? ""} onChange={(e) => setGenre(e.target.value === "" ? null : +e.target.value)} aria-label="Genre">
-            <option value="">모든 장르</option>
+            <option value="">All genres</option>
             {genres.map((g, i) => <option key={g} value={i}>{g}</option>)}
           </select>
-          <span className="board-count"><b>{shownCount.toLocaleString()}</b> / {board.cells.length.toLocaleString()}편</span>
+          <span className="board-count"><b>{shownCount.toLocaleString()}</b> / {board.cells.length.toLocaleString()} films</span>
         </div>
       </div>
 
@@ -189,21 +189,21 @@ export default function BoardGrid() {
             <b>{hover.s.t}</b> <span>{hover.s.y ?? ""}</span>
             {hover.s.d ? <div className="d">{hover.s.d}</div> : null}
             <div className="m">
-              {hover.s.v != null ? <span className="v">가치 {hover.s.v}</span> : null}
+              {hover.s.v != null ? <span className="v">Value {hover.s.v}</span> : null}
               <span className="a">{"▲".repeat(hover.s.c)}</span>
-              {seenSet.has(hover.s.s) ? <span className="s">✓ 봤어요</span> : null}
+              {seenSet.has(hover.s.s) ? <span className="s">✓ Seen</span> : null}
             </div>
-            <div className="go">클릭하면 자세히 보기 →</div>
+            <div className="go">Click for details →</div>
           </div>
         ) : null}
       </div>
 
       <div className="board-legend">
-        <span className="lg seen">본 영화</span>
-        <span className="lg watch">볼 영화</span>
-        <span className="lg avail">내 서비스({country})</span>
+        <span className="lg seen">Seen</span>
+        <span className="lg watch">Watchlist</span>
+        <span className="lg avail">On my services ({country})</span>
         <span className="lg-note">
-          취향 중심의 다음 한 편은 <a className="accent" href="/journey">여정 제안</a>이 답합니다.
+          For a taste-driven next film, <a className="accent" href="/journey">The Journey</a> has the answer.
         </span>
       </div>
 
@@ -236,7 +236,7 @@ function Drawer({ s, map, availCC, country, onClose }: {
     <>
       <div className="board-scrim" onClick={onClose} />
       <aside className="board-drawer" role="dialog" aria-label={s.t}>
-        <button className="bd-x" onClick={onClose} aria-label="닫기">×</button>
+        <button className="bd-x" onClick={onClose} aria-label="Close">×</button>
         <div className="bd-head">
           {s.p ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -246,21 +246,21 @@ function Drawer({ s, map, availCC, country, onClose }: {
             <h3>{s.t}</h3>
             {s.tk ? <div className="bd-ko">{s.tk}</div> : null}
             <div className="bd-sub">{s.y ?? ""}{s.d ? ` · ${s.d}` : ""}</div>
-            {s.pk ? <div className="bd-peak">★ 정전 봉우리</div> : null}
+            {s.pk ? <div className="bd-peak">★ Canon peak</div> : null}
           </div>
         </div>
 
         <div className="bd-scores">
-          {s.v != null ? <div className="bd-score"><b>{s.v}</b><span>가치 (TakeScore)</span></div> : null}
-          <div className="bd-score"><b>{s.c}/5</b><span>고도 · 요구도</span></div>
-          {s.pr != null ? <div className="bd-score"><b>{Math.round(s.pr)}</b><span>정전 위상</span></div> : null}
+          {s.v != null ? <div className="bd-score"><b>{s.v}</b><span>Value (TakeScore)</span></div> : null}
+          <div className="bd-score"><b>{s.c}/5</b><span>Altitude · demand</span></div>
+          {s.pr != null ? <div className="bd-score"><b>{Math.round(s.pr)}</b><span>Canon standing</span></div> : null}
         </div>
 
         {genres.length ? <div className="bd-genres">{genres.map((g) => <span key={g} className="bd-g">{g}</span>)}</div> : null}
 
         {s.ln?.length ? (
           <div className="bd-lines">
-            <div className="bd-lbl">노선</div>
+            <div className="bd-lbl">Lines</div>
             {s.ln.map((id) => {
               const l = lineById.get(id);
               if (!l) return null;
@@ -270,24 +270,24 @@ function Drawer({ s, map, availCC, country, onClose }: {
         ) : null}
 
         {availCC?.[s.s]?.length ? (
-          <div className="bd-avail"><div className="bd-lbl">스트리밍 ({country})</div>{availCC[s.s].join(" · ")}</div>
+          <div className="bd-avail"><div className="bd-lbl">Streaming ({country})</div>{availCC[s.s].join(" · ")}</div>
         ) : null}
 
         {uf ? (
           <div className="bd-actions">
-            <button className={st?.seen ? "on" : ""} onClick={() => uf.toggleSeen({ slug: s.s })}>{st?.seen ? "✓ 봤어요" : "봤어요"}</button>
-            <button className={st?.watchlist ? "on" : ""} onClick={() => uf.toggleWatch({ slug: s.s })}>{st?.watchlist ? "＋ 볼래요" : "볼래요"}</button>
+            <button className={st?.seen ? "on" : ""} onClick={() => uf.toggleSeen({ slug: s.s })}>{st?.seen ? "✓ Seen" : "Seen"}</button>
+            <button className={st?.watchlist ? "on" : ""} onClick={() => uf.toggleWatch({ slug: s.s })}>{st?.watchlist ? "＋ Watchlist" : "Watchlist"}</button>
             <div className="bd-stars">
               {[1, 2, 3, 4, 5].map((n) => (
-                <button key={n} className={rating >= n ? "on" : ""} aria-label={`${n}점`} onClick={() => uf.rate({ slug: s.s }, rating === n ? 0 : n)}>★</button>
+                <button key={n} className={rating >= n ? "on" : ""} aria-label={`${n} stars`} onClick={() => uf.rate({ slug: s.s }, rating === n ? 0 : n)}>★</button>
               ))}
             </div>
           </div>
         ) : null}
 
         <div className="bd-links">
-          <a href={`/film/${s.s}`}>전체 페이지 열기 →</a>
-          <a href={`/whereto/${s.s}`}>어디서 볼까 →</a>
+          <a href={`/film/${s.s}`}>Open full page →</a>
+          <a href={`/whereto/${s.s}`}>Where to watch →</a>
         </div>
       </aside>
     </>

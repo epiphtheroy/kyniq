@@ -2,21 +2,25 @@ import { NextResponse } from "next/server";
 import { createClient as createServerClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
-import { loadDirectorDestination } from "@/lib/navigator/load";
+import { loadDirectorDestination, loadCanonDestination } from "@/lib/navigator/load";
 import { turnReason, type NavFilm, type Route, type RoutePref } from "@/lib/navigator/route";
 
 /**
  * Mobile BFF — The Navigator drive view (HANDOFF-내비게이터-시네필터바이턴.md §5.3).
- * Given ?dir=<slug>&country=<cc> and the caller's auth, assembles the destination
- * (director conquest, v1) + three deterministic routes + trip stats, shaped so the
- * app can render the drive: green turn card (next film), the road signposts (stops),
- * and the trip meter (traveled vs remaining). Position stays ledger-derived
- * (invariant §10-1): seen is computed here from the authed user's user_movies, never
- * stored. Anonymous callers get a not-yet-started drive (empty seen).
+ * Two destination families (parity with /room/navigator):
+ *   ?dir=<slug>               → director conquest (filmography, chronological)
+ *   ?lineage=<slug>&label=…    → canon list (lineage members, intrinsic rank order)
+ * plus &country=<cc> and the caller's auth. Assembles the destination + three
+ * deterministic routes + trip stats, shaped so the app can render the drive: green
+ * turn card (next film), the road signposts (stops), and the trip meter (traveled vs
+ * remaining). Position stays ledger-derived (invariant §10-1): seen is computed here
+ * from the authed user's user_movies, never stored. Anonymous callers get a not-yet-
+ * started drive (empty seen).
  *
  * Auth mirrors /api/lens/marquee: cookie session first, then a Bearer fallback for
- * the app. The route reuses the proven director data paths via loadDirectorDestination
- * — no `*_mine` RPC (invariant §13-4).
+ * the app. The route reuses the proven director/canon loaders — no `*_mine` RPC
+ * (invariant §13-4). loadDecade/loadSubscription do not exist yet, so only the two
+ * shipped families are wired.
  */
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -77,15 +81,50 @@ function sumRuntime(xs: { runtime: number | null }[]): number | null {
   return known.length ? known.reduce((s, f) => s + (f.runtime as number), 0) : null;
 }
 
+type Db = ReturnType<typeof createAdminClient>;
+
+/**
+ * Ledger-derived seen set for a BOUNDED film-slug set (a filmography or a lineage),
+ * never the whole ledger — mirrors the director path's cost profile. Absent user or
+ * empty set → an empty seen (a fresh drive).
+ */
+async function seenSlugsFor(db: Db, slugs: string[], userId: string | null): Promise<Set<string>> {
+  const out = new Set<string>();
+  if (!userId || !slugs.length) return out;
+  const { data: filmRows } = await db.from("films").select("id, slug").in("slug", slugs);
+  const films = (filmRows ?? []) as { id: string; slug: string }[];
+  if (!films.length) return out;
+  const idToSlug = new Map(films.map((f) => [f.id, f.slug]));
+  const { data: seenRows } = await db
+    .from("user_movies")
+    .select("film_id")
+    .eq("user_id", userId)
+    .eq("seen", true)
+    .in(
+      "film_id",
+      films.map((f) => f.id),
+    );
+  for (const r of (seenRows ?? []) as { film_id: string }[]) {
+    const s = idToSlug.get(r.film_id);
+    if (s) out.add(s);
+  }
+  return out;
+}
+
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const dir = (url.searchParams.get("dir") || DEFAULT_DIR).slice(0, 120);
+  const dirParam = (url.searchParams.get("dir") || "").slice(0, 120);
+  const lineage = (url.searchParams.get("lineage") || "").slice(0, 120);
+  const label = (url.searchParams.get("label") || "").slice(0, 80);
   const country = (url.searchParams.get("country") || "US").toUpperCase().slice(0, 2);
   const wantPref = (url.searchParams.get("pref") || "fewest") as RoutePref;
   const defaultPref: RoutePref = PREFS.includes(wantPref) ? wantPref : "fewest";
+  // A lineage destination takes precedence; otherwise a director (default: Kubrick).
+  const dir = lineage ? "" : dirParam || DEFAULT_DIR;
 
   const db = createAdminClient();
-  if (await guardAndLog(db, req, "app_navigator", dir)) {
+  const rlKey = lineage ? `lineage:${lineage}` : dir;
+  if (await guardAndLog(db, req, "app_navigator", rlKey)) {
     return NextResponse.json(TOO_MANY, { status: 429, headers: API_CORS });
   }
 
@@ -107,39 +146,9 @@ export async function GET(req: Request) {
   }
 
   try {
-    // Director name for the destination label (falls back to slug).
-    const { data: dirRow } = await db
-      .from("directors")
-      .select("name")
-      .eq("slug", dir)
-      .maybeSingle();
-
-    // Seen set + pace are ledger-derived. Bound the seen query to this director's
-    // films (≤ a filmography) rather than pulling the whole ledger.
-    const { data: filmRows } = await db
-      .from("films")
-      .select("id, slug")
-      .eq("director_slug", dir)
-      .eq("visible", true);
-    const films = (filmRows ?? []) as { id: string; slug: string }[];
-
-    const seenSlugs = new Set<string>();
+    // Pace is destination-independent: last-90-day seen / week (§4.3). ETA hides at 0.
     let pacePerWeek: number | null = null;
-    if (userId && films.length) {
-      const idToSlug = new Map(films.map((f) => [f.id, f.slug]));
-      const { data: seenRows } = await db
-        .from("user_movies")
-        .select("film_id")
-        .eq("user_id", userId)
-        .eq("seen", true)
-        .in("film_id", films.map((f) => f.id));
-      for (const r of (seenRows ?? []) as { film_id: string }[]) {
-        const s = idToSlug.get(r.film_id);
-        if (s) seenSlugs.add(s);
-      }
-    }
     if (userId) {
-      // Pace = last-90-day seen / week (§4.3). ETA hides when pace is 0.
       const cutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString();
       const { count } = await db
         .from("user_movies")
@@ -150,13 +159,43 @@ export async function GET(req: Request) {
       if (count && count > 0) pacePerWeek = count / (90 / 7);
     }
 
-    const load = await loadDirectorDestination(db, {
-      slug: dir,
-      name: dirRow?.name ?? dir,
-      country,
-      seenSlugs,
-      pacePerWeek,
-    });
+    let load: Awaited<ReturnType<typeof loadDirectorDestination>> = null;
+    let destKey = dir;
+
+    if (lineage) {
+      destKey = lineage;
+      // Member slugs first (to bound the seen query), then assemble the canon drive.
+      const { data: memberRows } = await db.rpc("lineage_list_films", { p_slug: lineage });
+      const memberSlugs = ((memberRows ?? []) as { film_slug: string }[])
+        .map((m) => m.film_slug)
+        .filter(Boolean);
+      const seenSlugs = await seenSlugsFor(db, memberSlugs, userId);
+      load = await loadCanonDestination(db, {
+        lineageSlug: lineage,
+        label: label || lineage,
+        country,
+        seenSlugs,
+        pacePerWeek,
+      });
+    } else {
+      // Director name for the destination label (falls back to slug).
+      const { data: dirRow } = await db.from("directors").select("name").eq("slug", dir).maybeSingle();
+      const { data: filmRows } = await db
+        .from("films")
+        .select("slug")
+        .eq("director_slug", dir)
+        .eq("visible", true);
+      const dirSlugs = ((filmRows ?? []) as { slug: string }[]).map((f) => f.slug);
+      const seenSlugs = await seenSlugsFor(db, dirSlugs, userId);
+      load = await loadDirectorDestination(db, {
+        slug: dir,
+        name: dirRow?.name ?? dir,
+        country,
+        seenSlugs,
+        pacePerWeek,
+      });
+    }
+
     if (!load) {
       return NextResponse.json({ error: "not_found" }, { status: 404, headers: API_CORS });
     }
@@ -188,7 +227,7 @@ export async function GET(req: Request) {
     return NextResponse.json(
       {
         v: 1,
-        dir,
+        dir: destKey,
         country,
         label: destination.label,
         family: destination.family,

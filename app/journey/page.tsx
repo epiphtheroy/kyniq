@@ -9,9 +9,9 @@ import "../odyssey/deck.css";
 // client component that reads the map artifact and the viewer's seen films.
 
 export const metadata: Metadata = {
-  title: "여정 — 시네필이 되는 다음 한 편",
+  title: "The Journey — your next film, not a list",
   description:
-    "좋은 영화 목록이 아니라, 지금 당신에게 맞는 다음 한 편. Metatake가 안정·모험·전혀 새로운 세 방향으로 안 본 영화를 펼쳐 줍니다 — 당신의 취향, 서비스, 연도와 장르에 맞춰.",
+    "Not a list of good films — the next one that fits you right now. Metatake deals unseen films three ways — stable, adventure, and frontier — tuned to your taste, your services, and the years and genres you choose.",
   alternates: { canonical: "/journey" },
   robots: { index: true, follow: true },
 };
@@ -23,12 +23,12 @@ export default function JourneyPage() {
       <main>
         <header className="ody-hero" style={{ paddingBottom: 4 }}>
           <div className="seclbl">The journey</div>
-          <h1 className="disp">시네필이 되는 여정</h1>
+          <h1 className="disp">The journey to becoming a cinephile</h1>
           <p className="standfirst">
-            좋은 영화 목록이 아니라, 지금 당신에게 맞는 <b>다음 한 편</b>. 버튼을 누르면 안정·모험·전혀
-            새로운 세 방향으로 안 본 영화가 펼쳐집니다. 전체 지도가 보고 싶다면{" "}
+            Not a list of good films — the <b>next one</b> that fits you right now. Press the button and
+            unseen films fan out three ways: stable, adventure, and frontier. Want the whole picture?{" "}
             <Link href="/odyssey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>
-              Odyssey 지도 →
+              Odyssey map →
             </Link>
           </p>
         </header>
