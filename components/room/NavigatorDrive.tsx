@@ -8,6 +8,7 @@
  */
 import { useCallback, useRef, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import type { DriveLoad } from "@/lib/navigator/load";
 import type { RoutePref, RouteStop, NavFilm } from "@/lib/navigator/route";
 import { turnReason, fmtRuntimeK, fmtHM } from "@/lib/navigator/route";
@@ -52,6 +53,15 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   }, []);
   const zoom = (f: number) => setView((v) => ({ ...v, k: clamp(v.k * f, 0.55, 3) }));
   const fit = () => setView({ tx: 0, ty: 0, k: 1 });
+
+  // Route-pref links must PRESERVE the destination params (?dir/?lineage/?label/…)
+  // and only change ?pref — otherwise the click drops to the picker instead of re-sorting.
+  const params = useSearchParams();
+  const prefHref = useCallback((p: RoutePref) => {
+    const q = new URLSearchParams(params?.toString() ?? "");
+    q.set("pref", p);
+    return `?${q.toString()}`;
+  }, [params]);
 
   const share = useCallback(() => {
     const text = `🏁 Finished ${dest.label} — ${stats.total} films · ${fmtRuntimeK(stats.runtimeTraveled)}. Charted with the Metatake Navigator.`;
@@ -202,7 +212,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
             </div>
             <div className="prefs">
               {(["fewest", "fastest", "no_tolls"] as RoutePref[]).map((p) => (
-                <Link key={p} className={p === pref ? "on" : ""} href={`?pref=${p}`} scroll={false}>
+                <Link key={p} className={p === pref ? "on" : ""} href={prefHref(p)} scroll={false}>
                   {p === "fewest" ? "Fewest" : p === "fastest" ? "Fastest" : "No tolls"}
                 </Link>
               ))}
