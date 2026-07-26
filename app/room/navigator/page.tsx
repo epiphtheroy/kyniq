@@ -6,7 +6,7 @@ import { loadCollection } from "@/lib/room/loadCollection";
 import { loadDirectorDestination, loadCanonDestination, loadDecadeDestination, loadSubscriptionDestination, type DriveLoad } from "@/lib/navigator/load";
 import type { RoutePref } from "@/lib/navigator/route";
 import NavigatorShell, { type RailProps } from "@/components/room/NavigatorShell";
-import { type PickDest } from "@/components/room/NavigatorPicker";
+import { type PickDest, type CatalogEntry } from "@/components/room/NavigatorPicker";
 import "./navigator.css";
 
 export const dynamic = "force-dynamic";
@@ -82,7 +82,36 @@ export default async function NavigatorPage({
     .slice(0, 6).map(decadeCard);
   const sub: PickDest = { kind: "sub", key: "mine", label: "Best on your subscriptions", seen: 0, total: 0, pct: 0 };
 
-  const rail: RailProps = { directors, canon, decades, sub };
+  // ── Full list catalog for the "All lists" browse-all — loaded only when the
+  //    picker is on screen (no destination chosen), so a drive never pays for it.
+  //    lineage_index is the whole vocabulary (national/award/canon/auteur/festival);
+  //    movements are merged in only if the index doesn't already carry them. The
+  //    viewer's me_coverage is overlaid by slug so browsed lists keep their ring. ──
+  const wantPicker = !dir && !lineage && !(Number.isFinite(decade) && decade >= 1900 && decade <= 2100) && !sp.sub;
+  const catalog: CatalogEntry[] = [];
+  if (wantPicker) {
+    const [idxRes, mvRes] = await Promise.all([
+      supabase.rpc("lineage_index"),
+      supabase.rpc("movements_index"),
+    ]);
+    const covBySlug = new Map<string, { seen: number; total: number; pct: number }>();
+    for (const c of ((covRes.data as { slug: string; seen: number | string | null; total: number | string | null; pct: number | string | null }[] | null) ?? [])) {
+      covBySlug.set(c.slug, { seen: NUM(c.seen), total: NUM(c.total), pct: Math.round(NUM(c.pct)) });
+    }
+    const seenListSlugs = new Set<string>();
+    for (const r of ((idxRes.data as LineageIdxRow[] | null) ?? [])) {
+      if (Number(r.film_count ?? 0) <= 0) continue;
+      seenListSlugs.add(r.slug);
+      catalog.push({ slug: r.slug, label: r.label, facet: r.facet, film_count: Number(r.film_count ?? 0), ...(covBySlug.get(r.slug) ?? {}) });
+    }
+    const mv = (mvRes.data as { movements?: MvHubRow[] } | null) ?? {};
+    for (const h of (mv.movements ?? [])) {
+      if (Number(h.film_count ?? 0) <= 0 || seenListSlugs.has(h.slug)) continue;
+      catalog.push({ slug: h.slug, label: h.label, facet: "movement", film_count: Number(h.film_count ?? 0), ...(covBySlug.get(h.slug) ?? {}) });
+    }
+  }
+
+  const rail: RailProps = { directors, canon, decades, sub, catalog };
 
   // ── RIGHT stage: the drive (when a destination is chosen) ──
   let drive: DriveLoad | null = null;
@@ -150,6 +179,11 @@ export default async function NavigatorPage({
 }
 
 interface ActiveDrive { dest_kind: string; dest_key: string; dest_label: string | null; route_pref: string | null; }
+
+/** lineage_index row (public RPC — same one /lineage & /room/locations read). */
+interface LineageIdxRow { facet: string; slug: string; label: string; country: string | null; film_count: number | string | null; }
+/** movements_index().movements hub (public RPC — a movement that IS a lineage list). */
+interface MvHubRow { slug: string; label: string; film_count: number | string | null; }
 
 /** Build the drive URL for a stored active drive (the "Resume" link). */
 function resumeHref(r: ActiveDrive): string {

@@ -149,6 +149,18 @@
 .navd.np .np-resume-go{flex:0 0 auto;font-size:12.5px;font-weight:800}
 .navd.np .np-emptycard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;line-height:1.7;color:#4A4640}
 .navd.np .np-lnk{color:var(--green);font-weight:700;text-decoration:none}
+/* search box — name-filters the loaded catalog + queries film→lists */
+.navd.np .np-search{width:100%;box-sizing:border-box;margin:2px 0 4px;padding:11px 14px;font:inherit;font-size:14px;
+  background:#fff;border:1px solid var(--line);border-radius:12px;color:var(--ink);-webkit-appearance:none;appearance:none}
+.navd.np .np-search::placeholder{color:var(--sub)}
+.navd.np .np-search:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(30,122,70,.12)}
+/* "All lists" divider heading + per-facet count + show-all toggle */
+.navd.np .np-allhead{font-family:"PT Serif",Georgia,serif;font-size:17px;font-weight:700;color:var(--ink);
+  margin:22px 2px 2px;padding-top:14px;border-top:1px solid var(--line)}
+.navd.np .np-sect-n{color:var(--sub);font-weight:800}
+.navd.np .np-more{display:block;width:100%;margin:0 0 12px;padding:9px 0;font:inherit;font-size:12px;font-weight:800;
+  color:var(--green);background:#F1FAF4;border:1px solid #CDE7D8;border-radius:11px;cursor:pointer}
+.navd.np .np-more:hover{background:#E6F5EC}
 .navd .ar-btn{border:0;cursor:pointer;font-family:inherit}
 .navd .ar-btn--2{background:#F1EDE4;color:var(--ink);border:1px solid var(--line)}
 

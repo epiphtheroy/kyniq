@@ -12,7 +12,7 @@
  */
 import Link from "next/link";
 import NavigatorDrive from "./NavigatorDrive";
-import NavigatorPicker, { type PickDest } from "./NavigatorPicker";
+import NavigatorPicker, { type PickDest, type CatalogEntry } from "./NavigatorPicker";
 import type { DriveLoad } from "@/lib/navigator/load";
 import type { RoutePref } from "@/lib/navigator/route";
 
@@ -21,6 +21,8 @@ export interface RailProps {
   canon: PickDest[];
   decades: PickDest[];
   sub: PickDest | null;
+  /** full lineage catalog for the "All lists" browse-all (picker view only) */
+  catalog: CatalogEntry[];
 }
 
 export default function NavigatorShell({
@@ -43,6 +45,7 @@ export default function NavigatorShell({
           canon={rail.canon}
           decades={rail.decades}
           sub={rail.sub}
+          catalog={rail.catalog}
           activeKey={activeKey}
           resume={resume}
         />
