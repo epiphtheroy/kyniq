@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>The Navigator — 종이 프로토타입</title>
+<style>
+  :root{
+    --paper:#E8E4DB; --ink:#141414; --sub:#8A857C; --line:#E4DFD3;
+    --red:#E3120B; --blue:#3B7DED; --green:#1E7A46; --gold:#8F6A1E;
+    --map:#E9E3D2; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0}
+  body{background:radial-gradient(120% 90% at 50% 0%,#F2EEE6,#DCD6C9);
+    font-family:-apple-system,"SF Pro Text","Segoe UI","Apple SD Gothic Neo",Roboto,sans-serif;
+    color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:22px 12px 46px}
+  .kick{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin:2px 0 4px}
+  h1{font-family:"PT Serif",Georgia,serif;font-size:22px;margin:0;font-weight:700}
+  .lede{font-size:12.5px;color:#5b564d;margin:6px 0 18px;text-align:center;max-width:460px;line-height:1.5}
+  .lede b{color:var(--ink)}
+
+  /* radios drive the CSS-only screen switch (no JS → CSP-proof) */
+  .sw{position:absolute;opacity:0;pointer-events:none}
+
+  .phone{position:relative;width:384px;max-width:96vw;height:812px;max-height:82vh;
+    background:#000;border-radius:46px;padding:11px;box-shadow:0 30px 70px rgba(30,26,18,.34),0 2px 0 #3a3a3a inset}
+  .screen-host{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:var(--map)}
+  .screen{position:absolute;inset:0;display:none;flex-direction:column}
+  #r-drive:checked ~ .wrap .s-drive{display:flex}
+  #r-route:checked ~ .wrap .s-route{display:flex}
+  #r-where:checked ~ .wrap .s-where{display:flex}
+
+  /* iOS status bar */
+  .status{position:absolute;top:0;left:0;right:0;height:40px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 26px;font-size:13.5px;font-weight:700;z-index:6;color:#111}
+  .status.on-dark{color:#fff}
+  .status .dots{display:flex;gap:5px;align-items:center}
+  .status .bat{width:22px;height:11px;border:1.4px solid currentColor;border-radius:3px;position:relative;opacity:.9}
+  .status .bat::after{content:"";position:absolute;left:1.4px;top:1.4px;bottom:1.4px;width:70%;background:currentColor;border-radius:1px}
+
+  /* ─────────── DRIVE SCREEN ─────────── */
+  .s-drive{background:var(--map)}
+  .map{position:absolute;inset:0;
+    background:
+      radial-gradient(80% 55% at 50% 8%, #EFE9DC, #E4DDCB 60%, #DDD5C0),
+      repeating-linear-gradient(24deg, transparent 0 26px, rgba(150,140,115,.05) 26px 27px),
+      repeating-linear-gradient(-24deg, transparent 0 30px, rgba(150,140,115,.04) 30px 31px);}
+  .map::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(2px 2px at 18% 30%, rgba(120,110,90,.18), transparent 60%),
+    radial-gradient(2px 2px at 74% 22%, rgba(120,110,90,.16), transparent 60%),
+    radial-gradient(2px 2px at 60% 68%, rgba(120,110,90,.14), transparent 60%),
+    radial-gradient(2px 2px at 30% 80%, rgba(120,110,90,.14), transparent 60%);}
+  .route-svg{position:absolute;left:0;right:0;top:150px;bottom:0;width:100%;height:auto}
+  .roadwrap{position:absolute;left:0;right:0;top:150px;bottom:180px}
+
+  .signpost{position:absolute;transform:translate(-50%,-50%);text-align:center;z-index:3}
+  .signpost img{width:100%;border-radius:7px;display:block;box-shadow:0 6px 14px rgba(30,26,18,.28);border:2px solid #fff}
+  .signpost .stem{position:absolute;left:50%;top:100%;width:2px;height:16px;background:rgba(60,52,40,.5);transform:translateX(-50%)}
+  .signpost .lbl{margin-top:16px;font-size:10px;font-weight:700;color:#4A4640;white-space:nowrap;
+    background:rgba(255,255,255,.82);padding:1px 6px;border-radius:99px;display:inline-block;backdrop-filter:blur(2px)}
+  .signpost.now img{border-color:var(--red);box-shadow:0 0 0 4px rgba(227,18,11,.22),0 6px 14px rgba(30,26,18,.3)}
+  .signpost.now .lbl{background:var(--red);color:#fff}
+  .signpost.dest .flag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:17px}
+  .signpost.dest .lbl{background:var(--gold);color:#fff}
+
+  /* the "me" chevron */
+  .me{position:absolute;left:50%;top:340px;transform:translate(-50%,-50%);z-index:5}
+  .me .puck{width:30px;height:30px;border-radius:50%;background:var(--red);border:3px solid #fff;
+    box-shadow:0 3px 10px rgba(227,18,11,.5);position:relative}
+  .me .puck::after{content:"";position:absolute;left:50%;top:-11px;transform:translateX(-50%);
+    border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:13px solid var(--red)}
+  .me .beam{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);
+    width:120px;height:90px;background:radial-gradient(50% 90% at 50% 100%,rgba(227,18,11,.18),transparent 72%);
+    clip-path:polygon(50% 100%,0 0,100% 0)}
+
+  /* TOP turn banner (green — the familiar maneuver header) */
+  .turn{position:absolute;left:8px;right:8px;top:46px;z-index:7;background:var(--green);color:#fff;
+    border-radius:16px;box-shadow:0 10px 26px rgba(20,60,38,.32);overflow:hidden}
+  .turn .main{display:flex;align-items:center;gap:12px;padding:12px 14px 10px}
+  .turn .mnv{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;width:52px}
+  .turn .mnv .arrow{font-size:30px;line-height:1}
+  .turn .mnv .dist{font-size:12px;font-weight:800;margin-top:1px}
+  .turn .po{flex:0 0 auto;width:46px;height:69px;border-radius:6px;background:#0003 center/cover;border:1.5px solid #ffffff5c}
+  .turn .tx{min-width:0;flex:1}
+  .turn .tt{font-family:"PT Serif",Georgia,serif;font-size:18px;font-weight:700;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .turn .meta{font-size:11.5px;opacity:.92;margin-top:2px}
+  .turn .lane{display:inline-flex;align-items:center;gap:5px;margin-top:7px;background:#ffffff26;
+    border:1px solid #ffffff40;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:700}
+  .turn .lane .dot{width:6px;height:6px;border-radius:50%;background:#7CF0B4}
+  .turn .then{display:flex;align-items:center;gap:8px;padding:7px 14px;background:#00000022;font-size:11.5px}
+  .turn .then b{font-weight:700}
+
+  /* recenter FAB */
+  .fab{position:absolute;right:14px;bottom:196px;width:46px;height:46px;border-radius:50%;background:#fff;
+    box-shadow:0 4px 14px rgba(30,26,18,.28);display:flex;align-items:center;justify-content:center;z-index:8;
+    font-size:20px;color:var(--blue)}
+
+  /* bottom sheet */
+  .sheet{position:absolute;left:0;right:0;bottom:0;z-index:9;background:#fff;border-radius:22px 22px 0 0;
+    padding:12px 18px calc(16px + env(safe-area-inset-bottom));box-shadow:0 -8px 26px rgba(30,26,18,.16)}
+  .sheet .grip{width:38px;height:5px;border-radius:99px;background:#E1DBCE;margin:0 auto 12px}
+  .sheet .eta{display:flex;align-items:baseline;gap:9px}
+  .sheet .eta .big{font-size:23px;font-weight:800;color:var(--green);letter-spacing:-.01em}
+  .sheet .eta .pace{font-size:11.5px;color:var(--sub);font-weight:600}
+  .sheet .sub{font-size:13px;color:#4A4640;margin-top:2px;font-weight:600}
+  .sheet .sub b{color:var(--ink)}
+  .sheet .bar{height:7px;border-radius:99px;background:#EFEAdd;margin:11px 0 4px;overflow:hidden}
+  .sheet .bar i{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--gold),var(--red));border-radius:99px}
+  .sheet .barlbl{display:flex;justify-content:space-between;font-size:10.5px;color:var(--sub);font-weight:700}
+  .sheet .acts{display:flex;gap:8px;margin-top:13px}
+  .sheet .act{flex:1;text-align:center;font-size:12px;font-weight:700;color:#4A4640;background:#F4F0E7;
+    border:1px solid var(--line);border-radius:11px;padding:9px 0}
+  .sheet .act.end{color:var(--red);background:#FCEEED;border-color:#F4CFCC}
+
+  /* ─────────── ROUTE SELECT SCREEN ─────────── */
+  .s-route{background:#F6F2EA}
+  .rtmap{position:absolute;top:40px;left:0;right:0;height:300px;background:var(--map);overflow:hidden}
+  .rtmap .strip{position:absolute;bottom:16px;left:0;right:0;display:flex;gap:6px;padding:0 16px;
+    overflow:hidden;align-items:flex-end}
+  .rtmap .strip img{width:44px;border-radius:5px;flex:0 0 auto;box-shadow:0 4px 10px rgba(30,26,18,.24);border:1.5px solid #fff}
+  .rtmap .strip img.seen{filter:grayscale(1) opacity(.5)}
+  .rtmap .rline{position:absolute;left:24px;right:24px;bottom:74px;height:4px;border-radius:99px;
+    background:linear-gradient(90deg,#c8c0ad 50%,var(--blue) 50%)}
+  .rtmap .rme{position:absolute;bottom:68px;left:calc(24px + (100% - 48px) * .5 - 8px);
+    width:16px;height:16px;border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 2px 6px rgba(227,18,11,.5)}
+  .rt-body{position:absolute;top:340px;left:0;right:0;bottom:0;padding:6px 16px 16px;overflow:auto;background:#F6F2EA}
+  .desthd{font-family:"PT Serif",Georgia,serif;font-size:20px;font-weight:700;margin:6px 0 2px}
+  .desthd .fam{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px}
+  .desthd .prog{font-size:12px;color:var(--sub);font-weight:600;margin-top:3px}
+  .opt{display:flex;align-items:center;gap:12px;padding:13px 14px;background:#fff;border:1.5px solid var(--line);
+    border-radius:14px;margin-top:10px}
+  .opt.sel{border-color:var(--blue);box-shadow:0 0 0 3px #3b7ded22}
+  .opt .ic{width:38px;height:38px;border-radius:10px;background:#EEF3FD;color:var(--blue);display:flex;
+    align-items:center;justify-content:center;font-size:19px;flex:0 0 auto}
+  .opt.sel .ic{background:var(--blue);color:#fff}
+  .opt .lab{flex:1;min-width:0}
+  .opt .lab .n{font-size:14px;font-weight:800}
+  .opt .lab .d{font-size:11.5px;color:var(--sub);margin-top:1px}
+  .opt .pick{font-size:12px;font-weight:800;color:var(--blue)}
+  .opt.toll .ic{background:#FBF1E0;color:var(--gold)}
+  .go{margin-top:16px;background:var(--green);color:#fff;text-align:center;font-size:15px;font-weight:800;
+    padding:15px;border-radius:14px;box-shadow:0 8px 20px rgba(20,60,38,.28)}
+
+  /* ─────────── WHERE TO SCREEN ─────────── */
+  .s-where{background:#F6F2EA}
+  .w-body{position:absolute;inset:0;top:44px;padding:14px 16px;overflow:auto}
+  .search{display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--line);
+    border-radius:14px;padding:13px 15px;box-shadow:0 3px 10px rgba(30,26,18,.06)}
+  .search .mag{font-size:17px;color:var(--sub)}
+  .search .ph{font-size:14.5px;color:var(--sub);font-weight:600}
+  .fams{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 6px}
+  .fam-chip{font-size:12px;font-weight:700;color:#4A4640;background:#fff;border:1px solid var(--line);
+    border-radius:99px;padding:7px 12px}
+  .fam-chip.on{background:var(--red);color:#fff;border-color:var(--red)}
+  .sect{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--sub);margin:16px 2px 8px}
+  .dcard{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:11px 13px;margin-bottom:9px}
+  .ring{flex:0 0 auto;width:44px;height:44px;border-radius:50%;
+    background:conic-gradient(var(--red) var(--p),#EDE7DA 0);display:flex;align-items:center;justify-content:center}
+  .ring span{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;color:var(--ink)}
+  .dcard .dl{flex:1;min-width:0}
+  .dcard .dl .n{font-size:14.5px;font-weight:800}
+  .dcard .dl .m{font-size:11.5px;color:var(--sub);margin-top:2px}
+  .dcard .arr{color:var(--sub);font-size:18px}
+  .resume{background:linear-gradient(120deg,#1E7A46,#186039);color:#fff;border-radius:16px;padding:14px;
+    display:flex;align-items:center;gap:12px;box-shadow:0 10px 24px rgba(20,60,38,.26)}
+  .resume .rp{width:42px;height:63px;border-radius:6px;background:#0003 center/cover;border:1.5px solid #ffffff5c;flex:0 0 auto}
+  .resume .rt{flex:1}
+  .resume .rt .k{font-size:10.5px;font-weight:800;letter-spacing:.1em;opacity:.85}
+  .resume .rt .n{font-family:"PT Serif",Georgia,serif;font-size:16px;font-weight:700;margin-top:1px}
+  .resume .rt .s{font-size:11.5px;opacity:.9;margin-top:2px}
+  .resume .rgo{font-size:22px}
+
+  /* segmented switch (labels) */
+  .tabs{margin-top:16px;display:flex;gap:6px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px;
+    box-shadow:0 3px 12px rgba(30,26,18,.1)}
+  .tab{font-size:12.5px;font-weight:700;color:#4A4640;padding:8px 16px;border-radius:99px;cursor:pointer}
+  #r-where:checked ~ .wrap .tab-where,
+  #r-route:checked ~ .wrap .tab-route,
+  #r-drive:checked ~ .wrap .tab-drive{background:var(--red);color:#fff}
+  .note{font-size:11px;color:#6b665c;margin-top:12px;text-align:center;max-width:430px;line-height:1.55}
+  .note b{color:var(--ink)}
+</style>
+</head>
+<body>
+  <div class="kick">The Navigator · 종이 프로토타입 P1</div>
+  <h1>시네필 턴바이턴</h1>
+  <p class="lede">구글맵 내비게이션 그대로 — <b>목적지</b>를 고르면 볼 영화들이 <b>경로</b>가 되고,
+    주행 뷰는 <b>지금 볼 한 편</b>만 안내합니다. 아래 탭으로 세 화면을 넘겨보세요. (실제 데이터: 감독 정복 · 스탠리 큐브릭)</p>
+
+  <input type="radio" name="scr" id="r-where" class="sw">
+  <input type="radio" name="scr" id="r-route" class="sw">
+  <input type="radio" name="scr" id="r-drive" class="sw" checked>
+
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center">
+   <div class="phone"><div class="screen-host">
+
+    <!-- ═══════════ DRIVE ═══════════ -->
+    <div class="screen s-drive">
+      <div class="status on-dark"><span>9:41</span><span class="dots">●●● &nbsp;<span class="bat"></span></span></div>
+      <div class="map"></div>
+
+      <svg class="route-svg" viewBox="0 0 300 470" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M150,470 C150,410 118,372 120,318 C122,262 188,262 186,214
+                 C184,166 108,168 110,120 C112,78 182,84 180,52 C178,28 150,26 150,12"
+              fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round"/>
+        <path d="M150,470 C150,410 118,372 120,318 C122,262 188,262 186,214
+                 C184,166 108,168 110,120 C112,78 182,84 180,52 C178,28 150,26 150,12"
+              fill="none" stroke="#3B7DED" stroke-width="14" stroke-linecap="round"/>
+      </svg>
+
+      <div class="roadwrap">
+        <!-- passed -->
+        <div class="signpost" style="left:50%;top:96%;width:40px;filter:grayscale(1) opacity(.55)">
+          <img src="https://image.tmdb.org/t/p/w185/8Puqbeh0D95DpXFWep1rmH78btu.jpg" alt="">
+          <div class="lbl">✓ Lolita</div>
+        </div>
+        <!-- me -->
+        <div class="me"><div class="beam"></div><div class="puck"></div></div>
+        <!-- upcoming -->
+        <div class="signpost now" style="left:40%;top:64%;width:58px">
+          <img src="https://image.tmdb.org/t/p/w185/6x7MzQ6BOMlRzam1StcmPO9v61g.jpg" alt="">
+          <span class="stem"></span><div class="lbl">지금 · Dr. Strangelove</div>
+        </div>
+        <div class="signpost" style="left:62%;top:47%;width:50px">
+          <img src="https://image.tmdb.org/t/p/w185/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg" alt="">
+          <span class="stem"></span><div class="lbl">2001</div>
+        </div>
+        <div class="signpost" style="left:37%;top:33%;width:43px;opacity:.94">
+          <img src="https://image.tmdb.org/t/p/w185/4sHeTAp65WrSSuc05nRBKddhBxO.jpg" alt="">
+          <span class="stem"></span><div class="lbl">Clockwork Orange</div>
+        </div>
+        <div class="signpost" style="left:60%;top:22%;width:37px;opacity:.86">
+          <img src="https://image.tmdb.org/t/p/w185/A0byHUHMwZ7dtBQtfZ44QIgDbjo.jpg" alt="">
+          <span class="stem"></span><div class="lbl">Barry Lyndon</div>
+        </div>
+        <div class="signpost dest" style="left:50%;top:11%;width:36px;opacity:.82">
+          <span class="flag">🏁</span>
+          <img src="https://image.tmdb.org/t/p/w185/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg" alt="">
+          <span class="stem"></span><div class="lbl">도착 · The Shining</div>
+        </div>
+      </div>
+
+      <!-- green maneuver banner -->
+      <div class="turn">
+        <div class="main">
+          <div class="mnv"><span class="arrow">↰</span><span class="dist">다음</span></div>
+          <span class="po" style="background-image:url(https://image.tmdb.org/t/p/w185/6x7MzQ6BOMlRzam1StcmPO9v61g.jpg)"></span>
+          <div class="tx">
+            <div class="tt">Dr. Strangelove</div>
+            <div class="meta">1964 · 95분 · 큐브릭 코어 6/10</div>
+            <span class="lane"><span class="dot"></span>Criterion Channel · 지금 재생 가능</span>
+          </div>
+        </div>
+        <div class="then">그다음 ↑ <b>2001: A Space Odyssey</b> · 149분</div>
+      </div>
+
+      <div class="fab">◎</div>
+
+      <div class="sheet">
+        <div class="grip"></div>
+        <div class="eta"><span class="big">9월 21일 도착</span><span class="pace">이 페이스면 (주 2편)</span></div>
+        <div class="sub"><b>5편</b> 남음 · 11시간 53분 · 감독 정복 · 큐브릭</div>
+        <div class="bar"><i></i></div>
+        <div class="barlbl"><span>5 / 10편 완주</span><span>1956 → 1980</span></div>
+        <div class="acts">
+          <label class="act" for="r-route">⤢ 전체 경로</label>
+          <div class="act">↷ 이 턴 건너뛰기</div>
+          <div class="act end">✕ 주행 종료</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ ROUTE SELECT ═══════════ -->
+    <div class="screen s-route">
+      <div class="status"><span>9:41</span><span class="dots">●●● &nbsp;<span class="bat"></span></span></div>
+      <div class="rtmap">
+        <div class="rline"></div><div class="rme"></div>
+        <div class="strip">
+          <img class="seen" src="https://image.tmdb.org/t/p/w92/A6VzUPcADZGYdGHlVdWvpMNDF5d.jpg" alt="">
+          <img class="seen" src="https://image.tmdb.org/t/p/w92/p7OHwomA8UOhe3EhckF2IetBTh9.jpg" alt="">
+          <img class="seen" src="https://image.tmdb.org/t/p/w92/rLbad0lscycS4R3qTSrKguZ0Zz5.jpg" alt="">
+          <img class="seen" src="https://image.tmdb.org/t/p/w92/r0Fgg1GyZgzokaiw2HFQv3oPaL2.jpg" alt="">
+          <img class="seen" src="https://image.tmdb.org/t/p/w92/8Puqbeh0D95DpXFWep1rmH78btu.jpg" alt="">
+          <img src="https://image.tmdb.org/t/p/w92/6x7MzQ6BOMlRzam1StcmPO9v61g.jpg" alt="">
+          <img src="https://image.tmdb.org/t/p/w92/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg" alt="">
+          <img src="https://image.tmdb.org/t/p/w92/4sHeTAp65WrSSuc05nRBKddhBxO.jpg" alt="">
+          <img src="https://image.tmdb.org/t/p/w92/A0byHUHMwZ7dtBQtfZ44QIgDbjo.jpg" alt="">
+          <img src="https://image.tmdb.org/t/p/w92/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg" alt="">
+        </div>
+      </div>
+      <div class="rt-body">
+        <div class="desthd"><span class="fam">감독 정복 · Director</span>스탠리 큐브릭
+          <div class="prog">이미 5편 봤어요 · 남은 5편으로 경로를 짭니다 · 내 구독 커버리지 80%</div>
+        </div>
+        <div class="opt sel"><div class="ic">⚡</div><div class="lab"><div class="n">최단 경로</div>
+          <div class="d">핵심 5편 · 11h 53m · 이 페이스면 ~9월 21일</div></div><div class="pick">선택됨</div></div>
+        <div class="opt"><div class="ic">⏱</div><div class="lab"><div class="n">최속 경로</div>
+          <div class="d">짧은 것부터 · 같은 5편 재정렬 · 큰 부담 없이</div></div><div class="pick">›</div></div>
+        <div class="opt toll"><div class="ic">◈</div><div class="lab"><div class="n">무료도로 (내 구독만)</div>
+          <div class="d">4편 지금 가능 · 1편은 대여(유료도로)</div></div><div class="pick">›</div></div>
+        <label class="go" for="r-drive">안내 시작 →</label>
+      </div>
+    </div>
+
+    <!-- ═══════════ WHERE TO ═══════════ -->
+    <div class="screen s-where">
+      <div class="status"><span>9:41</span><span class="dots">●●● &nbsp;<span class="bat"></span></span></div>
+      <div class="w-body">
+        <div class="search"><span class="mag">⌕</span><span class="ph">어디로 갈까요? — 목적지 검색</span></div>
+        <div class="fams">
+          <span class="fam-chip on">정전</span><span class="fam-chip">감독</span>
+          <span class="fam-chip">TakeScore</span><span class="fam-chip">연대</span>
+          <span class="fam-chip">내 구독</span><span class="fam-chip">사조</span>
+        </div>
+
+        <label class="resume" for="r-route" style="margin-top:6px">
+          <span class="rp" style="background-image:url(https://image.tmdb.org/t/p/w185/6x7MzQ6BOMlRzam1StcmPO9v61g.jpg)"></span>
+          <span class="rt"><span class="k">주행 중 · 이어가기</span><span class="n">스탠리 큐브릭</span>
+            <span class="s">5/10 · 다음 정거장 Dr. Strangelove</span></span>
+          <span class="rgo">▸</span>
+        </label>
+
+        <div class="sect">당신을 위한 목적지</div>
+        <label class="dcard" for="r-route">
+          <span class="ring" style="--p:180deg"><span>50%</span></span>
+          <span class="dl"><span class="n">스탠리 큐브릭 정복</span><span class="m">10편 · 22h 41m · 감독</span></span>
+          <span class="arr">›</span>
+        </label>
+        <div class="dcard">
+          <span class="ring" style="--p:108deg"><span>30%</span></span>
+          <span class="dl"><span class="n">Sight &amp; Sound Top 10</span><span class="m">10편 · 21h 30m · 정전</span></span>
+          <span class="arr">›</span>
+        </div>
+        <div class="dcard">
+          <span class="ring" style="--p:216deg"><span>60%</span></span>
+          <span class="dl"><span class="n">1960년대 에센셜 20</span><span class="m">20편 · 41h · 연대별 TakeScore</span></span>
+          <span class="arr">›</span>
+        </div>
+        <div class="dcard">
+          <span class="ring" style="--p:72deg"><span>20%</span></span>
+          <span class="dl"><span class="n">내 서비스의 최고작 15 — 떠나기 전에</span><span class="m">Criterion·MUBI · leaving-soon 우선</span></span>
+          <span class="arr">›</span>
+        </div>
+      </div>
+    </div>
+
+   </div></div>
+
+   <div class="tabs">
+     <label class="tab tab-where" for="r-where">① 어디로?</label>
+     <label class="tab tab-route" for="r-route">② 경로</label>
+     <label class="tab tab-drive" for="r-drive">③ 주행</label>
+   </div>
+   <p class="note"><b>③ 주행</b>이 제품의 심장입니다 — 복잡한 연산(경로·점수·가용성)은 뒤에서, 화면엔 <b>지금 갈 한 편</b>만.
+     상단 초록 배너=다음 턴, 파란 길=경로, 빨간 화살표=내 위치, 하단=남은 편수·시간·도착 예정.
+     포스터를 길가 표지판처럼 세워 시네마 전체 지도 위를 달립니다.</p>
+  </div>
+</body>
+</html>
