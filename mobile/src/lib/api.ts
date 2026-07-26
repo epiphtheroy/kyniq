@@ -4,11 +4,14 @@
 //  - personalization (hide-seen) via /api/lens/* with a Bearer token
 import { METATAKE_BASE } from "../config";
 import type {
+  AuteurConquestRow,
   BlindspotRow,
   CollectionRow,
   CoverageRow,
   DirectorCard,
   FilmCard,
+  NavigatorPayload,
+  NavPref,
   RateStats,
   SearchRow,
   Service,
@@ -46,6 +49,23 @@ export const api = {
 
   director(slug: string, country: string): Promise<DirectorCard> {
     return getJSON(`/api/v1/app/director/${enc(slug)}?country=${enc(country)}`);
+  },
+
+  /**
+   * The Navigator drive view (HANDOFF-내비게이터 §5.3). The chevron position is
+   * ledger-derived server-side, so we send the app's Bearer token when signed in;
+   * anonymous callers get a not-yet-started drive (full route from film 1).
+   * `pref` only sets which route is the top-level convenience block — all three
+   * routes come back either way, so the switch is instant with no refetch.
+   */
+  async navigator(dir: string, country: string, pref?: NavPref): Promise<NavigatorPayload> {
+    const { data } = await supabase.auth.getSession();
+    const token = data.session?.access_token;
+    const q = new URLSearchParams({ dir, country });
+    if (pref) q.set("pref", pref);
+    return getJSON(`/api/v1/app/navigator?${q.toString()}`, {
+      headers: token ? { authorization: `Bearer ${token}` } : undefined,
+    });
   },
 
   tonight(
@@ -307,6 +327,26 @@ export const me = {
     const { data, error } = await supabase.rpc("me_auteur_conquest", { p_limit: limit });
     if (error) return null;
     return data;
+  },
+
+  /**
+   * The director the user is mid-conquest on — most-invested started oeuvre with
+   * films still to go — for the Navigator's default destination (§3). Null when
+   * signed out or nothing started; the screen then falls back to a canon default.
+   * me_auteur_conquest returns a single JSON array (cap-safe), so no paging.
+   */
+  async midConquestDirector(): Promise<string | null> {
+    const { data, error } = await supabase.rpc("me_auteur_conquest", { p_limit: 30 });
+    if (error || !data) return null;
+    const num = (x: number | string | null): number => {
+      const n = typeof x === "string" ? parseFloat(x) : x;
+      return Number.isFinite(n as number) ? (n as number) : 0;
+    };
+    const rows = (data as AuteurConquestRow[])
+      .map((r) => ({ slug: r.slug, seen: num(r.seen), total: num(r.total) }))
+      .filter((r) => r.slug && r.seen >= 1 && r.total > r.seen) // started, not complete
+      .sort((a, b) => b.seen - a.seen); // most invested first
+    return rows[0]?.slug ?? null;
   },
 };
 

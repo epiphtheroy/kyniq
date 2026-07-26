@@ -5,6 +5,7 @@
 // Design system v2 "Lava" grammar kept: SearchPill front door, chip rows,
 // rounded image cards with TSBadge + HeartButton overlays.
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { LinearGradient } from "expo-linear-gradient";
 import { Redirect, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -44,7 +45,7 @@ import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
+import { brand, fs, gradient, radius, shadow, sp, usePalette } from "../../src/theme";
 import type { PresetKey, TonightRow, WwiRow } from "../../src/types";
 
 type JudgeKind = "want" | "pass" | "seen";
@@ -362,6 +363,11 @@ export default function TonightScreen() {
           onPress={() => router.push("/search")}
         />
       </View>
+      {/* The Navigator — the flagship "여정 안내" mode. Visually distinct from the
+          triage deck below so it never reads as another Tonight pick. */}
+      <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
+        <NavigatorEntry onPress={() => router.push("/navigator")} />
+      </View>
       <View
         style={{
           flexDirection: "row",
@@ -621,6 +627,49 @@ export default function TonightScreen() {
 }
 
 // ---------------------------------------------------------------------------
+
+/** The Navigator entry — the "여정 안내" front door (HANDOFF §6). A gradient
+ * compass disc marks it as a distinct mode, not another affirmative CTA card. */
+function NavigatorEntry({ onPress }: { onPress: () => void }) {
+  const pal = usePalette();
+  return (
+    <Tactile onPress={onPress}>
+      <View
+        style={[
+          {
+            flexDirection: "row",
+            alignItems: "center",
+            gap: sp.s3,
+            backgroundColor: pal.card,
+            borderRadius: radius.md,
+            borderWidth: StyleSheet.hairlineWidth,
+            borderColor: pal.hairline,
+            padding: sp.s3,
+          },
+          shadow.card,
+        ]}
+      >
+        <LinearGradient
+          colors={gradient}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={{ width: 44, height: 44, borderRadius: radius.pill, alignItems: "center", justifyContent: "center" }}
+        >
+          <Ionicons name="navigate" size={22} color="#fff" />
+        </LinearGradient>
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <Ui size={fs.md} weight="700" numberOfLines={1}>
+            {t("nav.title")}
+          </Ui>
+          <Ui size={fs.sm} color={pal.muted} numberOfLines={1}>
+            {t("nav.tagline")}
+          </Ui>
+        </View>
+        <Ionicons name="chevron-forward" size={20} color={pal.subtle} />
+      </View>
+    </Tactile>
+  );
+}
 
 /** Quiet circular judgment button — never gradient (the deck's low-key verbs). */
 function JudgeDot({

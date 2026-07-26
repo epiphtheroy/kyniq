@@ -270,3 +270,77 @@ export type RateStats = {
 // Tonight situation preset chips (§5.2). Three reuse the screener registry
 // (lib/takescore_presets.ts: safe / gems / century); three are app-defined.
 export type PresetKey = "services" | "safe" | "gems" | "century" | "ninety" | "bold";
+
+// ---------------------------------------------------------------------------
+// The Navigator (HANDOFF-내비게이터-시네필터바이턴.md) — drive-view BFF payload,
+// mirror of app/api/v1/app/navigator/route.ts. Route ordering is deterministic
+// (LLM-0); the chevron position is ledger-derived server-side (seen), never stored.
+
+export type NavAvailability = "sub" | "rent" | "none";
+export type NavPref = "fewest" | "fastest" | "no_tolls";
+
+/** The next (or then) turn — the green maneuver card. */
+export type NavTurn = {
+  slug: string;
+  title: string;
+  year: number | null;
+  poster_path: string | null;
+  runtime: number | null;
+  availability: NavAvailability;
+  leavingSoon: boolean;
+  reason: string; // server-computed facts only (§10-2) — render as-is
+};
+
+/** A signpost standing along the road (remaining) or a passed grey marker. */
+export type NavStop = {
+  slug: string;
+  title: string;
+  year: number | null;
+  poster_path: string | null;
+  runtime: number | null;
+  availability: NavAvailability;
+  toll: boolean; // under no_tolls: not playable on my services
+};
+
+/** One preference's rendered route — the app switches these with no refetch. */
+export type NavRouteBlock = {
+  pref: NavPref;
+  next: NavTurn | null;
+  then: NavTurn | null;
+  stops: NavStop[]; // remaining films, in this pref's order
+  tollCount: number;
+  runtimeRemaining: number | null;
+  etaWeeks: number | null;
+};
+
+export type NavigatorPayload = {
+  v: number;
+  dir: string;
+  country: string;
+  label: string; // destination name (e.g. "Stanley Kubrick")
+  family: string; // "director" | "canon" | …
+  defaultPref: NavPref;
+  // Trip meter (shared across prefs) — the bottom sheet.
+  seenCount: number;
+  total: number;
+  remaining: number;
+  runtimeTraveled: number | null; // minutes traveled toward the destination
+  runtimeRemaining: number | null; // minutes left = the 남은 소요시간
+  subCoverage: number; // 0..1 of remaining playable on my services
+  etaWeeks: number | null; // ceil(remaining / pace); null when pace unknown
+  seen: NavStop[]; // the passed segment (grey), chronological
+  // Selected-pref convenience (mirrors routes[defaultPref]).
+  next: NavTurn | null;
+  then: NavTurn | null;
+  stops: NavStop[];
+  routes: Record<NavPref, NavRouteBlock>;
+};
+
+/** me_auteur_conquest() row — used to pick the mid-conquest default destination. */
+export type AuteurConquestRow = {
+  slug: string;
+  name: string | null;
+  seen: number | string | null;
+  total: number | string | null;
+  pct: number | string | null;
+};
