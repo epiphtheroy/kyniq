@@ -6,12 +6,14 @@
  * The route preference switches via a plain link (?pref=) — the server re-sorts
  * deterministically, no client math.
  *
- * The MAP scene is a Mario-style overworld built on the REAL /odyssey film-map
- * (public/odyssey/map.v1.json): the route's films stand at their true odyssey
- * positions, lineage lines become chunky roads, continent bands become terrain.
- * A wide region around the journey is framed dynamically. If the odyssey data
- * hasn't loaded (or the route is entirely off-map), the original synthetic
- * overworld is drawn instead so the screen never breaks.
+ * The MAP is a Mario-style overworld whose HERO is the route: the ordered films
+ * are laid along one clean, evenly-spaced, gently-flowing LANE (their real
+ * /odyssey positions idealised into a legible road, not plotted as scattered
+ * coords). Every non-route lineage + station is hard-faded to muted grey context
+ * behind it. The lane's length scales with the number of remaining films and the
+ * initial zoom adapts to journey size — short journeys frame intimately, long
+ * journeys frame the road ahead and pan forward. If the odyssey data hasn't
+ * loaded (or no film is on the map) the original synthetic overworld is drawn.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
@@ -19,14 +21,13 @@ import { useSearchParams } from "next/navigation";
 import type { DriveLoad } from "@/lib/navigator/load";
 import type { RoutePref, RouteStop, NavFilm } from "@/lib/navigator/route";
 import { turnReason, fmtRuntimeK, fmtHM } from "@/lib/navigator/route";
-import type { OdyMap, OdyStation } from "@/lib/odyssey/types";
+import type { OdyMap } from "@/lib/odyssey/types";
 
 const POSTER = "https://image.tmdb.org/t/p/w185";
 const POSTER92 = "https://image.tmdb.org/t/p/w92";
 const po = (p: string | null) => (p ? `${POSTER}${p}` : "");
 
-/* The winding "overworld" route (viewBox 0-100) + the poster stops that stand at its
-   nodes, near→far (nearer = larger, for depth). The synthetic fallback map. */
+/* The synthetic fallback overworld (viewBox 0-100) + its poster stops. */
 const ROUTE_D = "M11,80 C18,70 22,64 27,60 C34,55 40,68 45,72 C52,76 56,54 62,50 C68,46 74,56 78,60 C83,63 87,42 90,33";
 const WAYPOINTS = [
   { top: 60, left: 27, w: 78 },
@@ -35,20 +36,16 @@ const WAYPOINTS = [
   { top: 60, left: 78, w: 44 },
 ];
 
-/* Terrain tints for the 4 odyssey continent bands (anglo · europe · eastasia · south) —
-   a soft daytime overworld: meadow · grassland · sand · shallow water. */
-const TERRAIN = [
-  { fill: "#D7E8B4", op: 0.7 },
-  { fill: "#E7E6BA", op: 0.62 },
-  { fill: "#F0E3C0", op: 0.68 },
-  { fill: "#C9E6E4", op: 0.68 },
-];
-const BAND_DOT = ["#8AA85B", "#B9A24A", "#C79A5A", "#5FA3A0"];
+/* Lane geometry, in "lane units" that equal % of the map's width. 100 units = one
+   viewport wide, so nodes past 100 are reached by panning right. */
+const SP = 20;   // even spacing between nodes (generous)
+const X0 = 22;   // the first node's x (room for the "me" chevron on the left)
+const AMP = 12;  // gentle vertical undulation of the lane
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 const r2 = (n: number) => Math.round(n * 100) / 100;
 
-/* A smooth-through-points path (quadratic midpoints) for winding roads. */
+/* A smooth-through-points path (quadratic midpoints) for the flowing lane. */
 function smoothD(pts: Array<{ x: number; y: number }>): string {
   const n = pts.length;
   if (!n) return "";
@@ -64,18 +61,55 @@ function smoothD(pts: Array<{ x: number; y: number }>): string {
   return d;
 }
 
+/* Linear-interpolate null entries by index (edges hold the nearest known value). */
+function fillNulls(a: Array<number | null>): void {
+  const n = a.length;
+  let first = -1;
+  for (let i = 0; i < n; i++) if (a[i] != null) { first = i; break; }
+  if (first < 0) return;
+  for (let i = 0; i < first; i++) a[i] = a[first];
+  let lastK = first;
+  for (let i = first + 1; i < n; i++) {
+    if (a[i] != null) {
+      const v0 = a[lastK] as number, v1 = a[i] as number;
+      for (let j = lastK + 1; j < i; j++) a[j] = v0 + (v1 - v0) * (j - lastK) / (i - lastK);
+      lastK = i;
+    }
+  }
+  for (let i = lastK + 1; i < n; i++) a[i] = a[lastK];
+}
+
+/* Moving-average smoothing (window ±w) — flattens the lane's drift so it reads
+   as a gentle flow rather than a scribble. */
+function smoothArr(a: number[], w: number): number[] {
+  const n = a.length;
+  const out = new Array<number>(n);
+  for (let i = 0; i < n; i++) {
+    let s = 0, c = 0;
+    for (let j = Math.max(0, i - w); j <= Math.min(n - 1, i + w); j++) { s += a[j]; c++; }
+    out[i] = s / c;
+  }
+  return out;
+}
+
+/* Deterministic 0..1 hash of a slug — for stable, scattered background placement. */
+function hsh(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return (h >>> 0) / 4294967295;
+}
+
 /* ── The odyssey-driven scene ─────────────────────────────────────────────── */
 
 interface ScenePt { stop: RouteStop; nx: number; ny: number; w: number; now: boolean; dest: boolean; missing: boolean }
-interface SceneRoad { id: string; name: string; color: string; d: string; lx: number; ly: number; n: number }
-interface SceneBand { i: number; y0: number; y1: number }
+interface SceneCross { id: string; name: string; d: string; lx: number; ly: number }
 interface SceneBgP { key: string; nx: number; ny: number; p: string }
-interface SceneDot { key: string; nx: number; ny: number; c: string }
+interface SceneDot { key: string; nx: number; ny: number }
 interface Scene {
+  L: number;                 // total lane length, in lane units (= % of map width)
   routePts: ScenePt[];
   routeD: string;
-  roads: SceneRoad[];
-  bands: SceneBand[];
+  cross: SceneCross[];       // ambient (faded) lineage cross-streets
   bgPosters: SceneBgP[];
   bgDots: SceneDot[];
   me: { nx: number; ny: number };
@@ -83,110 +117,101 @@ interface Scene {
 }
 
 /**
- * Frame the journey on the real odyssey plane.
- *  1. Look each stop's slug up to its station (x, yy). Slugs absent from the map
- *     are placed by interpolating between their charted neighbours (or, at the
- *     ends, extrapolating along the route's mean heading) so the path stays whole.
- *  2. Bounding-box the route, pad generously, then widen the short axis to the
- *     screen's aspect → a wide region with no distortion. Normalise (x,yy)→[0,100].
- *  3. Draw the lineage lines that cross that region as chunky roads, the ordered
- *     films as level nodes, and nearby stations as faint terrain population.
- * Returns null when NO stop is on the map (caller falls back to the synthetic map).
+ * Lay the journey out as the hero lane.
+ *  1. The ordered stops become evenly-spaced nodes on a gently-flowing centreline.
+ *     x is purely the drive order (clean, even); y drifts slightly with a smoothed,
+ *     idealised echo of each film's real odyssey band, so the lane bends naturally.
+ *     Films absent from the odyssey map keep their place in the sequence (their
+ *     missing band is interpolated) — the lane never breaks.
+ *  2. The real lineages the journey passes become faded grey cross-streets;
+ *     nearby stations become faint background posters/dots — soft context only.
+ *  3. The lane length grows with the film count (a long road you pan to follow).
+ * Returns null when NO stop is on the map (caller draws the synthetic fallback).
  */
-function buildScene(map: OdyMap, stops: RouteStop[], aspect: number): Scene | null {
-  if (!stops.length) return null;
+function buildScene(map: OdyMap, stops: RouteStop[]): Scene | null {
+  const N = stops.length;
+  if (!N) return null;
   const byId = new Map(map.stations.map((s) => [s.s, s]));
 
-  type P = { x: number; y: number };
-  const pts: P[] = new Array(stops.length);
-  const missing: boolean[] = new Array(stops.length);
-  const known: number[] = [];
-  stops.forEach((stop, i) => {
-    const st = byId.get(stop.film.slug);
-    if (st) { pts[i] = { x: st.x, y: st.yy }; missing[i] = false; known.push(i); }
-    else { missing[i] = true; }
-  });
-  if (!known.length) return null;
+  // real vertical position per node (drives the gentle, idealised lane drift)
+  const yReal: Array<number | null> = stops.map((s) => byId.get(s.film.slug)?.yy ?? null);
+  const missing = stops.map((s) => !byId.has(s.film.slug));
+  const knownCount = missing.filter((m) => !m).length;
+  if (!knownCount) return null;
+  fillNulls(yReal);
+  let mn = Infinity, mx = -Infinity;
+  for (const v of yReal) if (v != null) { mn = Math.min(mn, v); mx = Math.max(mx, v); }
+  const span = mx - mn;
+  const norm = yReal.map((v) => (span > 1 && v != null ? ((v - mn) / span) * 2 - 1 : 0));
+  const drift = smoothArr(norm, 2);
 
-  // mean heading, for extrapolating unknown runs at either end
-  const kf = known[0], kl = known[known.length - 1];
-  const dir: P = kl > kf
-    ? { x: (pts[kl].x - pts[kf].x) / (kl - kf), y: (pts[kl].y - pts[kf].y) / (kl - kf) }
-    : { x: 70, y: 45 };
-  for (let i = 0; i < stops.length; i++) {
-    if (!missing[i]) continue;
-    let lo = -1, hi = -1;
-    for (const k of known) { if (k < i) lo = k; if (k > i) { hi = k; break; } }
-    if (lo >= 0 && hi >= 0) {
-      const t = (i - lo) / (hi - lo);
-      pts[i] = { x: pts[lo].x + (pts[hi].x - pts[lo].x) * t, y: pts[lo].y + (pts[hi].y - pts[lo].y) * t };
-    } else if (lo >= 0) {
-      pts[i] = { x: pts[lo].x + dir.x * (i - lo), y: pts[lo].y + dir.y * (i - lo) };
-    } else {
-      pts[i] = { x: pts[hi].x - dir.x * (hi - i), y: pts[hi].y - dir.y * (hi - i) };
-    }
-  }
-
-  // bounding box of the route → generous pad → aspect-fit the short axis (wider region)
-  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-  for (const p of pts) { minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x); minY = Math.min(minY, p.y); maxY = Math.max(maxY, p.y); }
-  const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
-  let hx = Math.max((maxX - minX) / 2, 200) * 1.5;
-  let hy = Math.max((maxY - minY) / 2, 200) * 1.5;
-  const asp = aspect > 0 ? aspect : 0.78;
-  if (hx / hy < asp) hx = hy * asp; else hy = hx / asp;
-  const bx0 = cx - hx, by0 = cy - hy, sx = 100 / (2 * hx), sy = 100 / (2 * hy);
-  const nx = (x: number) => (x - bx0) * sx;
-  const ny = (y: number) => (y - by0) * sy;
-
-  const last = stops.length - 1;
-  const routePts: ScenePt[] = stops.map((stop, i) => ({
-    stop, nx: nx(pts[i].x), ny: ny(pts[i].y),
-    w: Math.max(24, 62 - i * 5), now: i === 0, dest: i === last, missing: missing[i],
+  // the hero lane — evenly-spaced nodes on a gently flowing centreline
+  const nodes = stops.map((stop, i) => ({
+    stop, i,
+    lx: X0 + i * SP,
+    ly: clamp(50 + AMP * (0.55 * Math.sin(i * 0.7 + 0.6) + 0.45 * drift[i]), 30, 70),
   }));
-  const routeD = smoothD(pts.map((p) => ({ x: nx(p.x), y: ny(p.y) })));
-  const me = { nx: clamp(nx(pts[0].x - dir.x * 0.5), 2, 98), ny: clamp(ny(pts[0].y - dir.y * 0.5), 2, 98) };
+  const L = Math.max(150, X0 + (N - 1) * SP + 40);
+  const last = N - 1;
+  const routePts: ScenePt[] = nodes.map((n) => ({
+    stop: n.stop, nx: n.lx, ny: n.ly, w: clamp(58 - n.i * 2.5, 40, 58),
+    now: n.i === 0, dest: n.i === last, missing: missing[n.i],
+  }));
+  const routeD = smoothD(nodes.map((n) => ({ x: n.lx, y: n.ly })));
+  const me = { nx: X0 - SP * 0.55, ny: nodes[0].ly };
 
-  // lineage roads — lines with ≥2 stations inside the region (drawn locally + clipped)
-  const roads: SceneRoad[] = [];
-  for (const line of map.lines) {
-    const mem: OdyStation[] = [];
-    for (const sl of line.stations) { const s = byId.get(sl); if (s) mem.push(s); }
-    if (mem.length < 2) continue;
-    const proj = mem.map((s) => ({ x: nx(s.x), y: ny(s.yy) }));
-    const inIdx: number[] = [];
-    proj.forEach((p, i) => { if (p.x >= -15 && p.x <= 115 && p.y >= -15 && p.y <= 115) inIdx.push(i); });
-    if (inIdx.length < 2) continue;
-    const lo = Math.max(0, inIdx[0] - 1), hi = Math.min(proj.length - 1, inIdx[inIdx.length - 1] + 1);
-    let lxs = 0, lys = 0; for (const i of inIdx) { lxs += proj[i].x; lys += proj[i].y; }
-    roads.push({
-      id: line.id, name: line.name_en, color: line.color, d: smoothD(proj.slice(lo, hi + 1)),
-      lx: clamp(lxs / inIdx.length, 7, 93), ly: clamp(lys / inIdx.length, 6, 94), n: inIdx.length,
-    });
+  // ambient cross-streets — the real lineages this journey passes, hard-faded,
+  // spread across the whole lane so panning keeps revealing context
+  const lineById = new Map(map.lines.map((l) => [l.id, l]));
+  const touched: string[] = [];
+  const seenL = new Set<string>();
+  for (const s of stops) {
+    const st = byId.get(s.film.slug);
+    for (const id of st?.ln ?? []) if (!seenL.has(id)) { seenL.add(id); touched.push(id); }
   }
-  roads.sort((a, b) => b.n - a.n);
-
-  // terrain bands (continents) overlapping the region
-  const bands: SceneBand[] = [];
-  map.bands.forEach((b, i) => {
-    const y0 = ny(b.y0), y1 = ny(b.y1);
-    if (y1 >= -5 && y0 <= 105) bands.push({ i, y0, y1 });
+  const lineIds = touched.slice(0, 6);
+  for (const l of map.lines) { if (lineIds.length >= 4) break; if (!seenL.has(l.id)) { seenL.add(l.id); lineIds.push(l.id); } }
+  const cross: SceneCross[] = lineIds.map((id, idx) => {
+    const cx = X0 + (idx + 0.5) * (L - X0) / Math.max(1, lineIds.length);
+    return {
+      id, name: lineById.get(id)?.name_en ?? "Lineage",
+      d: `M${r2(cx)} 3 C${r2(cx + 6)} 30 ${r2(cx - 6)} 70 ${r2(cx)} 97`,
+      lx: clamp(cx, 6, L - 4), ly: idx % 2 ? 12 : 88,
+    };
   });
 
-  // faint population — nearby stations not on the route (dots for texture, a few posters)
+  // faint background population, scattered along the whole pannable lane
   const onRoute = new Set(stops.map((s) => s.film.slug));
-  const cand: Array<{ s: OdyStation; nx: number; ny: number }> = [];
-  for (const s of map.stations) {
-    if (onRoute.has(s.s)) continue;
-    const px = nx(s.x), py = ny(s.yy);
-    if (px < -2 || px > 102 || py < -2 || py > 102) continue;
-    cand.push({ s, nx: px, ny: py });
+  const cand = map.stations.filter((s) => !onRoute.has(s.s) && s.p);
+  cand.sort((a, b) => (b.v ?? 0) - (a.v ?? 0));
+  const posterN = Math.round(clamp(L / 46, 6, 22));
+  const dotN = Math.round(clamp(L / 7, 40, 200));
+  const bgPosters: SceneBgP[] = [];
+  const bgDots: SceneDot[] = [];
+  for (let i = 0; i < cand.length && (bgPosters.length < posterN || bgDots.length < dotN); i++) {
+    const s = cand[i];
+    const hx = hsh(s.s), hy = hsh(`${s.s}~`);
+    const x = hx * L;
+    const y = hy < 0.5 ? 5 + hy * 2 * 25 : 70 + (hy - 0.5) * 2 * 23; // top band [5,30] / bottom [70,93]
+    if (bgPosters.length < posterN && i % 3 === 0) bgPosters.push({ key: s.s, nx: x, ny: y, p: s.p as string });
+    else if (bgDots.length < dotN) bgDots.push({ key: s.s, nx: x, ny: y });
   }
-  cand.sort((a, b) => (b.s.v ?? 0) - (a.s.v ?? 0));
-  const bgDots: SceneDot[] = cand.slice(0, 200).map((c) => ({ key: c.s.s, nx: c.nx, ny: c.ny, c: BAND_DOT[c.s.b] ?? "#9c927c" }));
-  const bgPosters: SceneBgP[] = cand.filter((c) => c.s.p).slice(0, 18).map((c) => ({ key: c.s.s, nx: c.nx, ny: c.ny, p: c.s.p as string }));
 
-  return { routePts, routeD, roads, bands, bgPosters, bgDots, me, missingCount: known.length === stops.length ? 0 : stops.length - known.length };
+  return { L, routePts, routeD, cross, bgPosters, bgDots, me, missingCount: N - knownCount };
+}
+
+/**
+ * Adaptive default view. The zoom scales INVERSELY with the film count: a short
+ * journey zooms in (big, intimate nodes), a long one holds a comfortable zoom and
+ * frames the road ahead so you pan forward. "me"/the next film sits toward the
+ * left third. Needs the map's pixel size (the pan transform is in px).
+ */
+function computeDefaultView(n: number, w: number, h: number): { tx: number; ty: number; k: number } {
+  if (!w || !h) return { tx: 0, ty: 0, k: 1 };
+  const k = clamp(2.0 - n * 0.16, 0.92, 1.85);
+  const visSpan = 100 / k;               // % of lane width shown across the viewport
+  const frameLx = (X0 - SP * 0.55) + visSpan * 0.30;
+  return { tx: k * w * (0.5 - frameLx / 100), ty: 0, k };
 }
 
 export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: RoutePref }) {
@@ -199,7 +224,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const [open, setOpen] = useState(false); // sheet peek(false) / expanded(true)
   const [pick, setPick] = useState<NavFilm | null>(null); // map poster → info card
   const [ody, setOdy] = useState<OdyMap | null>(null); // the real /odyssey film-map
-  const [aspect, setAspect] = useState(0.78); // map viewport w/h — keeps roads undistorted
+  const [size, setSize] = useState({ w: 0, h: 0 }); // map viewport px (for adaptive framing)
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
 
@@ -209,15 +234,23 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
     fetch("/odyssey/map.v1.json").then((r) => r.json()).then((m: OdyMap) => { if (live) setOdy(m); }).catch(() => {});
     return () => { live = false; };
   }, []);
-  // track the map viewport aspect so the framed region isn't stretched
+  // measure the map viewport so the initial zoom can adapt to it
   useEffect(() => {
     const el = mapRef.current;
     if (!el) return;
-    const ro = new ResizeObserver(() => { if (el.clientHeight) setAspect(el.clientWidth / el.clientHeight); });
+    const ro = new ResizeObserver(() => setSize({ w: el.clientWidth, h: el.clientHeight }));
     ro.observe(el);
-    if (el.clientHeight) setAspect(el.clientWidth / el.clientHeight);
+    setSize({ w: el.clientWidth, h: el.clientHeight });
     return () => ro.disconnect();
   }, []);
+
+  const scene = useMemo(() => (ody ? buildScene(ody, route.stops) : null), [ody, route.stops]);
+  const defaultView = useMemo(
+    () => (scene ? computeDefaultView(scene.routePts.length, size.w, size.h) : { tx: 0, ty: 0, k: 1 }),
+    [scene, size.w, size.h],
+  );
+  // re-frame when the journey (or viewport) changes — plain panning never triggers this
+  useEffect(() => { setView(defaultView); }, [defaultView]);
 
   const onDown = useCallback((e: React.PointerEvent) => {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
@@ -232,7 +265,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
     setView((v) => ({ ...v, k: clamp(v.k * (e.deltaY < 0 ? 1.12 : 0.89), 0.55, 3) }));
   }, []);
   const zoom = (f: number) => setView((v) => ({ ...v, k: clamp(v.k * f, 0.55, 3) }));
-  const fit = () => setView({ tx: 0, ty: 0, k: 1 });
+  const fit = () => setView(defaultView); // ◎ returns to the adaptive default, not a whole-world fit
 
   // Route-pref links must PRESERVE the destination params (?dir/?lineage/?label/…)
   // and only change ?pref — otherwise the click drops to the picker instead of re-sorting.
@@ -250,8 +283,6 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
     if (nav.share) void nav.share({ title: "The Navigator", text, url }).catch(() => {});
     else void navigator.clipboard?.writeText(`${text} ${url}`);
   }, [dest.label, stats.total, stats.runtimeTraveled]);
-
-  const scene = useMemo(() => (ody ? buildScene(ody, route.stops, aspect) : null), [ody, route.stops, aspect]);
 
   if (!next) {
     return (
@@ -320,44 +351,38 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
         <div className="haze" />
         <div className="mapview" style={{ transform: `translate(${view.tx}px, ${view.ty}px) scale(${view.k})` }}>
           {scene ? (
-            /* ── the real /odyssey overworld ── */
+            /* ── the real /odyssey journey: the hero lane over faded context ── */
             <>
-              <svg className="roadsvg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                {/* terrain — base grass + continent bands + a couple of soft hills */}
-                <rect x="-10" y="-10" width="120" height="120" fill="#DCE9C2" opacity="0.55" />
-                {scene.bands.map((b) => (
-                  <rect key={b.i} x="-10" y={b.y0} width="120" height={Math.max(0, b.y1 - b.y0)} fill={TERRAIN[b.i]?.fill} opacity={TERRAIN[b.i]?.op} />
-                ))}
-                <ellipse cx="20" cy="22" rx="17" ry="11" fill="#C9DEA0" opacity="0.42" />
-                <ellipse cx="83" cy="80" rx="19" ry="12" fill="#C9DEA0" opacity="0.38" />
-                {/* faint population dots */}
-                {scene.bgDots.map((d) => <circle key={d.key} cx={d.nx} cy={d.ny} r="0.55" fill={d.c} opacity="0.3" />)}
-                {/* lineage roads — the streets you pass are all real lineages */}
-                {scene.roads.slice(0, 9).map((rd) => (
-                  <g key={rd.id}>
-                    <path d={rd.d} fill="none" stroke="#2a2a2a" strokeOpacity="0.12" strokeWidth="12" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d={rd.d} fill="none" stroke={rd.color} strokeWidth="8" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" opacity="0.88" />
-                    <path d={rd.d} fill="none" stroke="#fff" strokeWidth="1.3" strokeDasharray="0.4 3.4" vectorEffect="non-scaling-stroke" opacity="0.6" strokeLinecap="round" />
+              {/* back layer — soft terrain + faded lineage cross-streets */}
+              <svg className="roadsvg" style={{ width: `${scene.L}%` }} viewBox={`0 0 ${scene.L} 100`} preserveAspectRatio="none" aria-hidden="true">
+                <rect x="-10" y="-10" width={scene.L + 20} height="120" fill="#DCE9C2" opacity="0.5" />
+                <rect x="-10" y="2" width={scene.L + 20} height="22" fill="#CFE0A8" opacity="0.3" />
+                <rect x="-10" y="76" width={scene.L + 20} height="24" fill="#CFE0A8" opacity="0.3" />
+                <rect x="-10" y="34" width={scene.L + 20} height="32" fill="#E9E1C6" opacity="0.5" />
+                {scene.cross.map((c) => (
+                  <g key={c.id}>
+                    <path d={c.d} fill="none" stroke="#C3B89E" strokeWidth="6" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.5" />
+                    <path d={c.d} fill="none" stroke="#DAD1BA" strokeWidth="2.4" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.5" />
                   </g>
                 ))}
-                {/* THE journey — the ordered films you'll drive, as a bold road */}
-                <path d={scene.routeD} fill="none" stroke="#B58C4A" strokeWidth="13" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
-                <path d={scene.routeD} fill="none" stroke="#fff" strokeWidth="9.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
-                <path d={scene.routeD} fill="none" stroke="var(--blue)" strokeWidth="6" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
-                <path d={scene.routeD} fill="none" stroke="#ffffffcc" strokeWidth="1.3" strokeDasharray="2 3" vectorEffect="non-scaling-stroke" />
               </svg>
-              {/* road-name signs — each is a real lineage (top few, to stay legible) */}
-              {scene.roads.slice(0, 6).map((rd) => (
-                <div key={rd.id} className="street" style={{ left: `${rd.lx}%`, top: `${rd.ly}%`, background: rd.color }}>{rd.name}</div>
-              ))}
-              <div className="street cur" style={{ left: `${scene.me.nx}%`, top: `${clamp(scene.me.ny + 8, 4, 96)}%` }}>{roadName}</div>
-              {/* faint background posters so the world feels populated */}
+              {/* faded background population — never competes with the route */}
+              {scene.bgDots.map((d) => <span key={d.key} className="bgdot" style={{ left: `${d.nx}%`, top: `${d.ny}%` }} />)}
               {scene.bgPosters.map((bp) => (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img key={bp.key} className="bgp" src={`${POSTER92}${bp.p}`} alt="" aria-hidden="true" loading="lazy" draggable={false} style={{ left: `${bp.nx}%`, top: `${bp.ny}%` }} />
               ))}
-              {/* the route's films — poster "level nodes" at their real odyssey positions */}
-              {scene.routePts.map((rp) => (
+              {/* THE journey — one bold, bright, evenly-flowing lane */}
+              <svg className="roadsvg routesvg" style={{ width: `${scene.L}%` }} viewBox={`0 0 ${scene.L} 100`} preserveAspectRatio="none" aria-hidden="true">
+                <path d={scene.routeD} fill="none" stroke="#2B5FB0" strokeWidth="14" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
+                <path d={scene.routeD} fill="none" stroke="var(--blue)" strokeWidth="10" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round" />
+                <path d={scene.routeD} fill="none" stroke="#fff" strokeWidth="1.8" strokeDasharray="2.4 3.2" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
+              </svg>
+              {/* faded lineage road-name signs */}
+              {scene.cross.map((c) => <div key={c.id} className="street amb" style={{ left: `${c.lx}%`, top: `${c.ly}%` }}>{c.name}</div>)}
+              <div className="street cur" style={{ left: `${scene.me.nx}%`, top: `${clamp(scene.me.ny + 10, 6, 94)}%` }}>{roadName}</div>
+              {/* the route's films — prominent poster level nodes, in drive order */}
+              {scene.routePts.map((rp, i) => (
                 <button
                   type="button"
                   key={rp.stop.film.slug}
@@ -367,10 +392,11 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                   onClick={() => setPick(rp.stop.film)}
                 >
                   {rp.dest ? <span className="flag">🏁</span> : null}
+                  <span className="num">{i + 1}</span>
                   <img src={po(rp.stop.film.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="lazy" draggable={false} />
                   <span className="pole" /><span className="shadow" />
                   {rp.now ? <span className="cap">Now · {rp.stop.film.title}</span>
-                    : rp.dest || rp.w >= 46 ? <span className="cap">{rp.stop.film.title}</span> : null}
+                    : rp.dest || i < 4 ? <span className="cap">{rp.stop.film.title}</span> : null}
                 </button>
               ))}
               {/* "me" — the chevron just before the next film */}
@@ -413,7 +439,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
         <div className="mapctl">
           <button type="button" aria-label="Zoom in" onClick={() => zoom(1.25)}>＋</button>
           <button type="button" aria-label="Zoom out" onClick={() => zoom(0.8)}>－</button>
-          <button type="button" aria-label="Fit whole journey" onClick={fit}>◎</button>
+          <button type="button" aria-label="Reset view" onClick={fit}>◎</button>
         </div>
         {/* note when some route films aren't charted on the odyssey plane */}
         {scene && scene.missingCount > 0 ? (
