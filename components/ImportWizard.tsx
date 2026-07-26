@@ -8,8 +8,9 @@
  * The flow is shown as a 5-stage process diagram + a live, work-status-style
  * progress panel so people understand the wait and stay patient.
  */
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { MatchCandidate, MatchResult, NormalizedRow } from "@/lib/import/types";
+import { createClient } from "@/lib/supabase/client";
 
 const IMG = "https://image.tmdb.org/t/p/w92";
 const MATCH_BATCH = 25;
@@ -19,6 +20,7 @@ const SOURCE_LABEL: Record<string, string> = {
   letterboxd_zip: "Letterboxd export (ZIP)",
   letterboxd_csv: "Letterboxd CSV",
   imdb_csv: "IMDb ratings CSV",
+  netflix_csv: "Netflix viewing history (CSV)",
   sheet: "Spreadsheet (Excel / CSV)",
   watcha_text: "Text list (rule-parsed)",
   freeform_llm: "Text list (AI-parsed)",
@@ -34,6 +36,24 @@ type RowState = NormalizedRow & {
   candidates?: MatchCandidate[];
 };
 type Summary = { added: number; updated: number; logged: number; skipped_dupes: number; failed: string[] };
+
+/* Per-source tiles above the drop zone. All six are formats
+ * lib/import/parsers.ts reads today — a tile just opens the right input
+ * (file picker or paste box) and shows a one-line export guide. */
+const SOURCE_TILES = [
+  { key: "letterboxd", name: "Letterboxd", fmt: "ZIP · CSV", kind: "file" as const,
+    guide: "Letterboxd → Settings → Data → Export your data, then drop the ZIP here." },
+  { key: "imdb", name: "IMDb", fmt: "CSV", kind: "file" as const,
+    guide: "IMDb → Your Ratings → Export, then drop the ratings CSV here." },
+  { key: "netflix", name: "Netflix", fmt: "CSV", kind: "file" as const,
+    guide: "Netflix → Account → Profile → Viewing activity → Download all, then drop the CSV here." },
+  { key: "watcha", name: "Watcha", fmt: "paste", kind: "paste" as const,
+    guide: "Copy your ratings list from Watcha and paste it in the text box below." },
+  { key: "sheet", name: "Excel / CSV", fmt: "any sheet", kind: "file" as const,
+    guide: "Any spreadsheet with a title column (year, rating, date optional) — drop it here." },
+  { key: "text", name: "Free text", fmt: "AI-parsed", kind: "paste" as const,
+    guide: "Paste any list of titles below — format doesn't matter, we decode it." },
+];
 
 /* Process diagram stages, in order. */
 const STAGES = [
@@ -59,7 +79,9 @@ export default function ImportWizard() {
   const [overwrite, setOverwrite] = useState(false);
   const [summary, setSummary] = useState<Summary | null>(null);
   const [drag, setDrag] = useState(false);
+  const [guideKey, setGuideKey] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement | null>(null);
+  const textRef = useRef<HTMLTextAreaElement | null>(null);
 
   const busy = phase !== "idle";
   const addLog = (line: string) => setLog((l) => [...l, line]);
@@ -222,9 +244,9 @@ export default function ImportWizard() {
             <li><span className="b">◎</span><span>Recommendations and lists re-center on <b>your</b> history instead of the global map.</span></li>
           </ul>
         </div>
-        <p style={{ marginTop: 18, display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <a className="btn" href="/room">Go to My Room →</a>
-          <button type="button" className="btn-ghost" onClick={() => { setStep("input"); setRows([]); setSummary(null); setText(""); setLog([]); }}>Import more</button>
+        <p style={{ marginTop: 18, display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+          <a className="btn iw-cta" href="/room">Go to My Room →</a>
+          <button type="button" className="btn-ghost iw-cta-2nd" onClick={() => { setStep("input"); setRows([]); setSummary(null); setText(""); setLog([]); }}>Import more</button>
         </p>
       </div>
     );
@@ -326,6 +348,31 @@ export default function ImportWizard() {
 
       {!busy && (
         <>
+          <div className="iw-sources">
+            <div className="iw-tiles" role="list">
+              {SOURCE_TILES.map((t) => (
+                <button
+                  key={t.key}
+                  type="button"
+                  role="listitem"
+                  className={`iw-tile${guideKey === t.key ? " sel" : ""}`}
+                  onClick={() => {
+                    setGuideKey(t.key);
+                    if (t.kind === "file") fileRef.current?.click();
+                    else textRef.current?.focus();
+                  }}
+                >
+                  <span className="t">{t.name}</span>
+                  <span className="f">{t.fmt}</span>
+                </button>
+              ))}
+            </div>
+            {guideKey && (
+              <p className="iw-guide">{SOURCE_TILES.find((t) => t.key === guideKey)?.guide}</p>
+            )}
+            <ConnectTiles />
+          </div>
+
           <div
             className={`iw-drop${drag ? " drag" : ""}`}
             onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
@@ -337,13 +384,14 @@ export default function ImportWizard() {
               Drag a file here, or{" "}
               <button type="button" className="iw-linkbtn" onClick={() => fileRef.current?.click()}>browse</button>
             </p>
-            <p className="sub">Letterboxd export (ZIP), IMDb ratings (CSV), Trakt, Excel (.xlsx), or any CSV</p>
+            <p className="sub">Letterboxd export (ZIP), IMDb ratings (CSV), Netflix viewing history (CSV), Excel (.xlsx), or any CSV — Watcha lists paste below</p>
             <input ref={fileRef} type="file" accept=".zip,.csv,.tsv,.xlsx,.xls,.txt" style={{ display: "none" }}
               onChange={(e) => { const f = e.target.files?.[0]; if (f) parseFile(f); e.target.value = ""; }} />
           </div>
 
           <p style={{ fontSize: 14, margin: "0 0 6px" }}>Or paste any text — a Letterboxd diary, a notes-app list, anything. Format doesn&apos;t matter:</p>
           <textarea
+            ref={textRef}
             className="iw-textarea"
             value={text} onChange={(e) => setText(e.target.value)}
             placeholder={"e.g.\nParasite\n2019 · watched ★5.0\n\nEverything Everywhere All at Once (2022) ★4.5 — the bagel got me\nThe Godfather 1972 rated 5\nPortrait of a Lady on Fire — want to watch"}
@@ -403,5 +451,153 @@ function ManualSearch({ onPick }: { onPick: (c: MatchCandidate) => void }) {
         </span>
       )}
     </span>
+  );
+}
+
+/* ---------------- OAuth auto-sync tiles (Trakt / TMDB / Simkl) ----------------
+ * Web leg of Connect (HANDOFF-커넥트-기록이관.md §2.4). Status comes from the
+ * me_connections() RPC (SECURITY DEFINER, auth.uid-scoped — same one the app
+ * uses); connect goes /start → provider → /connect-callback → /callback, all
+ * token exchange server-side. Everything fails soft: an RPC error or a 503
+ * from /start (env not configured) shows an honest "Coming soon" state. */
+
+type ConnectProvider = "trakt" | "tmdb" | "simkl";
+
+/** Token-free connection row from the me_connections() RPC. */
+type ConnectionRow = {
+  provider: ConnectProvider;
+  status: "connected" | "error" | "revoked";
+  last_sync_at: string | null;
+  synced_films: number | null;
+  error: string | null;
+  created_at: string;
+};
+
+const CONNECT_PROVIDERS: ConnectProvider[] = ["trakt", "tmdb", "simkl"];
+const CONNECT_LABEL: Record<ConnectProvider, string> = { trakt: "Trakt", tmdb: "TMDB", simkl: "Simkl" };
+const COMING_SOON = "Coming soon — auto-sync in preparation, opening here and in the app together";
+const PENDING_KEY = "mt-connect-pending";
+
+function ConnectTiles() {
+  const [conns, setConns] = useState<Record<string, ConnectionRow>>({});
+  const [rpcOk, setRpcOk] = useState<boolean | null>(null); // null = loading
+  const [soon, setSoon] = useState<Record<string, boolean>>({});
+  const [busy, setBusy] = useState<ConnectProvider | null>(null);
+  const [note, setNote] = useState<string | null>(null);
+
+  const loadStates = useCallback(async () => {
+    try {
+      const { data, error } = await createClient().rpc("me_connections");
+      if (error) { setRpcOk(false); return; }
+      const map: Record<string, ConnectionRow> = {};
+      for (const r of (data ?? []) as ConnectionRow[]) map[r.provider] = r;
+      setConns(map); setRpcOk(true);
+    } catch { setRpcOk(false); }
+  }, []);
+
+  useEffect(() => {
+    // Inline outcome of the /connect-callback round-trip (?connected / ?connect_error).
+    const sp = new URLSearchParams(window.location.search);
+    const ok = sp.get("connected");
+    const err = sp.get("connect_error");
+    if (ok) setNote(`${CONNECT_LABEL[ok as ConnectProvider] ?? ok} connected — press "Sync now" to pull your history.`);
+    else if (err) setNote(err === "denied" ? "Connection cancelled on the provider's side." : `Connection failed (${err}). Please try again.`);
+    if (ok || err) window.history.replaceState(null, "", window.location.pathname);
+    loadStates();
+  }, [loadStates]);
+
+  const connect = async (p: ConnectProvider) => {
+    setBusy(p); setNote(null);
+    try {
+      const r = await fetch(`/api/connect/${p}/start`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ redirect_uri: `${window.location.origin}/connect-callback` }),
+      });
+      if (r.status === 503) { setSoon((s) => ({ ...s, [p]: true })); return; }
+      if (!r.ok) { setNote(`Couldn't start the ${CONNECT_LABEL[p]} connection. Please try again.`); return; }
+      const d = (await r.json()) as { url: string; pending?: string | null };
+      sessionStorage.setItem(PENDING_KEY, JSON.stringify({ provider: p, pending: d.pending ?? null }));
+      window.location.href = d.url; // finishes at /connect-callback
+    } catch {
+      setNote("Network error — please try again.");
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const syncNow = async (p: ConnectProvider) => {
+    setBusy(p); setNote(null);
+    try {
+      const r = await fetch(`/api/connect/${p}/sync`, { method: "POST" });
+      const d = (await r.json().catch(() => ({}))) as { added?: number; updated?: number; error?: string };
+      if (!r.ok) { setNote(`${CONNECT_LABEL[p]} sync failed (${d.error ?? r.status}). Try again in a minute.`); return; }
+      setNote(`${CONNECT_LABEL[p]} sync complete — ${d.added ?? 0} added, ${d.updated ?? 0} updated.`);
+      loadStates();
+    } catch {
+      setNote("Network error — please try again.");
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const disconnect = async (p: ConnectProvider) => {
+    setBusy(p); setNote(null);
+    try {
+      const r = await fetch(`/api/connect/${p}/disconnect`, { method: "POST" });
+      if (!r.ok) { setNote(`Couldn't disconnect ${CONNECT_LABEL[p]}. Please try again.`); return; }
+      setNote(`${CONNECT_LABEL[p]} disconnected. Your imported films stay in your library.`);
+      setConns((prev) => { const next = { ...prev }; delete next[p]; return next; });
+    } catch {
+      setNote("Network error — please try again.");
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  return (
+    <>
+      <div className="iw-tiles-divider"><span>Auto-sync</span></div>
+      {note && <p className="iw-connect-note" role="status">{note}</p>}
+      <div className="iw-tiles iw-tiles-oauth" role="list">
+        {CONNECT_PROVIDERS.map((p) => {
+          const row = conns[p];
+          const connected = rpcOk === true && row && row.status !== "revoked";
+          const comingSoon = rpcOk === false || soon[p];
+          return (
+            <div key={p} role="listitem" className={`iw-tile iw-tile-oauth${connected ? " on" : ""}`}>
+              <span className="t">{CONNECT_LABEL[p]}</span>
+              {connected ? (
+                <>
+                  <span className="f">
+                    Connected
+                    {row.last_sync_at
+                      ? ` · last sync ${new Date(row.last_sync_at).toLocaleDateString("en-US", { month: "short", day: "numeric" })}`
+                      : " · not synced yet"}
+                    {row.status === "error" ? " · needs attention" : ""}
+                  </span>
+                  <span className="iw-tile-actions">
+                    <button type="button" className="iw-linkbtn" disabled={busy === p} onClick={() => syncNow(p)}>
+                      {busy === p ? "Syncing…" : "Sync now"}
+                    </button>
+                    <button type="button" className="iw-linkbtn dim" disabled={busy === p} onClick={() => disconnect(p)}>
+                      Disconnect
+                    </button>
+                  </span>
+                </>
+              ) : comingSoon ? (
+                <span className="f">{COMING_SOON}</span>
+              ) : (
+                <span className="iw-tile-actions">
+                  <button type="button" className="iw-linkbtn" disabled={busy === p || rpcOk === null} onClick={() => connect(p)}>
+                    {busy === p ? "Opening…" : "Connect"}
+                  </button>
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }

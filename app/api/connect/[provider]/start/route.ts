@@ -37,6 +37,23 @@ async function authUser(request: Request) {
   return null;
 }
 
+/** Web flow (§2.4 web leg): accept exactly `<own origin>/connect-callback` —
+ * the request's own origin (covers previews + local dev) or the canonical
+ * site. Exact path, no query/hash, https only (http for localhost).
+ * Fail-closed on anything unparsable. */
+function isOwnWebCallback(redirectUri: string, request: Request): boolean {
+  try {
+    const u = new URL(redirectUri);
+    if (u.pathname !== "/connect-callback" || u.search || u.hash) return false;
+    const local = u.hostname === "localhost" || u.hostname === "127.0.0.1";
+    if (u.protocol !== "https:" && !(u.protocol === "http:" && local)) return false;
+    if (u.host === "metatake.net" || u.host === "www.metatake.net") return true;
+    return u.origin === new URL(request.url).origin;
+  } catch {
+    return false;
+  }
+}
+
 export async function OPTIONS() {
   return new NextResponse(null, { status: 204, headers: CONNECT_CORS });
 }
@@ -67,11 +84,14 @@ export async function POST(
   if (!redirectUri) {
     return NextResponse.json({ error: "redirect_uri_required" }, { status: 400, headers: CONNECT_CORS });
   }
-  // Allowlist the redirect target — only the app's own deep-link scheme
-  // (metatake://…) or an Expo dev URL (exp://…/--/connect-callback). Prevents a
-  // caller from starting an OAuth flow that redirects the approved token to an
-  // attacker-controlled URL.
-  const REDIRECT_OK = /^metatake:\/\//i.test(redirectUri) || /^exp:\/\/.*connect-callback/i.test(redirectUri);
+  // Allowlist the redirect target — the app's own deep-link scheme
+  // (metatake://…), an Expo dev URL (exp://…/--/connect-callback), or the
+  // site's own /connect-callback web page. Prevents a caller from starting an
+  // OAuth flow that redirects the approved token to an attacker-controlled URL.
+  const REDIRECT_OK =
+    /^metatake:\/\//i.test(redirectUri) ||
+    /^exp:\/\/.*connect-callback/i.test(redirectUri) ||
+    isOwnWebCallback(redirectUri, request);
   if (!REDIRECT_OK) {
     return NextResponse.json({ error: "redirect_uri_not_allowed" }, { status: 400, headers: CONNECT_CORS });
   }

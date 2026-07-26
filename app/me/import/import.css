@@ -4,6 +4,106 @@
 
 .iw { font-family: var(--font-ui); }
 
+/* ── 3-step how-it-works row (page header, compact — not a hero) ── */
+.iw-3steps {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.iw-3steps li { display: flex; align-items: center; gap: 7px; position: relative; }
+.iw-3steps li + li::before { content: "→"; position: absolute; left: -17px; color: var(--subtle); }
+.iw-3steps .n {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline-2);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── App-sync banner (one account = one history) ───────────── */
+.iw-appsync {
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--surface-2);
+  padding: 10px 14px;
+  margin: 0 0 20px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.iw-appsync p { margin: 0; }
+.iw-appsync .s { margin-top: 3px; color: var(--subtle); }
+.iw-appsync b { color: var(--ink); }
+
+/* ── Per-source tiles (file/paste + OAuth auto-sync) ───────── */
+.iw-sources { margin-bottom: 16px; }
+.iw-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.iw-tile {
+  font-family: var(--font-ui);
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 9px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: border-color 0.15s, background 0.15s;
+}
+button.iw-tile:hover { border-color: var(--hairline-2); background: var(--surface-2); }
+.iw-tile.sel { border-color: var(--accent); }
+.iw-tile .t { font-size: 13px; font-weight: 600; color: var(--ink); }
+.iw-tile .f { font-size: 11px; color: var(--subtle); line-height: 1.35; }
+.iw-tile-oauth { cursor: default; }
+.iw-tile-oauth.on { border-color: var(--hairline-2); background: var(--surface-2); }
+.iw-tile-actions { display: flex; gap: 10px; margin-top: 2px; }
+.iw-tile-actions .iw-linkbtn { font-size: 12px; }
+.iw-tile-actions .iw-linkbtn:disabled { opacity: 0.5; cursor: default; }
+.iw-tile-actions .iw-linkbtn.dim { color: var(--subtle); }
+.iw-guide {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  border-radius: 0 6px 6px 0;
+  padding: 7px 11px;
+  margin: 8px 0 0;
+}
+.iw-tiles-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.iw-tiles-divider::before,
+.iw-tiles-divider::after { content: ""; height: 1px; background: var(--hairline); flex: 1; }
+.iw-connect-note { font-size: 12.5px; color: var(--ink-soft); margin: 0 0 8px; }
+
+/* ── Success CTA emphasis ──────────────────────────────────── */
+.iw-cta { font-size: 15.5px; font-weight: 700; padding: 12px 26px; }
+.iw-cta-2nd { font-size: 13px; padding: 7px 14px; color: var(--subtle); }
+
 /* ── Process stepper / diagram ─────────────────────────────── */
 .iw-steps {
   display: flex;
@@ -149,4 +249,5 @@
 @media (max-width: 560px) {
   .iw-step .sub { display: none; }
   .iw-step .lbl { font-size: 11px; }
+  .iw-tiles { grid-template-columns: repeat(2, 1fr); }
 }
