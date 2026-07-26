@@ -91,7 +91,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
           <path d="M50,96 L50,60 C50,50 49.6,44 49.6,40 L50,24" fill="none" stroke="#ffffffbb" strokeWidth="1.2" strokeDasharray="2 3" vectorEffect="non-scaling-stroke" />
         </svg>
 
-        <div className="street cur" style={{ left: "34%", top: "88%" }}>{dest.label} 필모길</div>
+        <div className="street cur" style={{ left: "34%", top: "88%" }}>{dest.family === "director" ? `${dest.label} 필모길` : dest.label}</div>
         <div className="street" style={{ left: "20%", top: "68%" }}>느와르 계보 →</div>
         <div className="street" style={{ left: "80%", top: "44%" }}>형식주의 대로</div>
 

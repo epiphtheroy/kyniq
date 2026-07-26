@@ -64,3 +64,22 @@
 .navd .prefs a.on{background:var(--blue);border-color:var(--blue);color:#fff}
 .navd .arrived{text-align:center;padding:40px 20px}
 .navd .arrived .big{font-size:22px;font-weight:800;margin:8px 0}
+
+/* ── "Where to?" picker (P5) ── */
+.navd.np{height:auto;min-height:auto;overflow:visible;background:#F6F2EA}
+.navd.np .np-head{padding:20px 20px 6px}
+.navd.np .np-k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.navd.np .np-h{font-family:"PT Serif",Georgia,serif;font-size:24px;font-weight:700;margin:4px 0 4px}
+.navd.np .np-p{font-size:12.5px;color:var(--sub);font-weight:600;line-height:1.5}
+.navd.np .np-body{padding:8px 16px 24px}
+.navd.np .np-sect{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);margin:16px 2px 9px}
+.navd.np .np-card{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:9px;text-decoration:none}
+.navd.np .np-card:hover{border-color:var(--green)}
+.navd.np .np-ring{flex:0 0 auto;width:46px;height:46px;border-radius:50%;background:conic-gradient(var(--green) var(--p),#E7E1D2 0);display:flex;align-items:center;justify-content:center}
+.navd.np .np-ring span{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--ink)}
+.navd.np .np-l{flex:1;min-width:0}
+.navd.np .np-n{display:block;font-size:15px;font-weight:800;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navd.np .np-m{display:block;font-size:11.5px;color:var(--sub);margin-top:2px}
+.navd.np .np-go{flex:0 0 auto;font-size:12.5px;font-weight:800;color:var(--green)}
+.navd.np .np-emptycard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;line-height:1.7;color:#4A4640}
+.navd.np .np-lnk{color:var(--green);font-weight:700;text-decoration:none}
