@@ -1,21 +1,35 @@
 "use client";
 
 /**
- * BoardGrid — the goban survey of the cinephile corpus: ~1,958 films tiled
- * 30 columns of year × rows of taste. Toggle Seen/Watchlist/Services to colour
- * matching films; filter by year or genre to thin the board. Hover for a bubble,
- * click for a side drawer. (The former "seen-centric" taste-spiral arrangement
- * was removed 2026-07-25 — /journey answers taste-centric "what next" legibly.)
+ * BoardGrid — the goban survey of the cinephile corpus, tiled as a dense,
+ * width-filling grid ranked by TakeScore. A scale selector (100 · 500 · 1000 ·
+ * 2000/All) shows the top-N films by TakeScore, packed row-major so the board
+ * always fills the width with no dead gaps. Columns and poster size are computed
+ * from the container width and the chosen scale, so posters land comfortably
+ * large at every breakpoint. A three-mode Seen filter (All · Only seen · Exclude
+ * seen) actually thins the tiles; the Seen/Watchlist/On-my-services toggles tint
+ * matching tiles. Hover for a bubble, click for a side drawer.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { useUserFilms } from "@/components/UserFilmsProvider";
 import type { OdyAvail, OdyMap, OdyStation } from "@/lib/odyssey/types";
-import { packBoard } from "@/lib/odyssey/board";
 
 const IMG = "https://image.tmdb.org/t/p";
 const NOW = 2025;
 const EMPTY: ReadonlySet<string> = new Set();
-const COLS = 30;
+
+type Scale = 100 | 500 | 1000 | 2000;
+type SeenMode = "all" | "only" | "exclude";
+type SortMode = "score" | "year";
+
+const SCALES: Scale[] = [100, 500, 1000, 2000];
+// Target poster width (px) per scale — fewer films → bigger posters. Columns are
+// derived from the live container width so the last column reaches the edge.
+const TARGET_W: Record<Scale, number> = { 100: 132, 500: 92, 1000: 76, 2000: 62 };
+const GAP = 4;
+
+const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
 export default function BoardGrid() {
   const uf = useUserFilms();
@@ -24,16 +38,15 @@ export default function BoardGrid() {
   const [map, setMap] = useState<OdyMap | null>(null);
   const [avail, setAvail] = useState<OdyAvail | null>(null);
   const [country, setCountry] = useState<"KR" | "US">("US");
+  const [scale, setScale] = useState<Scale>(500);
+  const [seenMode, setSeenMode] = useState<SeenMode>("all");
+  const [sort, setSort] = useState<SortMode>("score");
   const [hlSeen, setHlSeen] = useState(false);
   const [hlWatch, setHlWatch] = useState(false);
   const [hlAvail, setHlAvail] = useState(false);
   const [yearMin, setYearMin] = useState(1900);
   const [yearMax, setYearMax] = useState(NOW);
   const [genre, setGenre] = useState<number | null>(null);
-  // (The "seen-centric" taste-spiral arrangement was removed 2026-07-25 —
-  //  owner judgment: a single-centroid golden-angle spiral with outward jitter
-  //  reads as decorative noise, and /journey expresses seen-centric taste
-  //  better. The board is the goban, full stop.)
   const [hover, setHover] = useState<{ s: OdyStation; x: number; y: number } | null>(null);
   const [open, setOpen] = useState<OdyStation | null>(null);
   const [boardW, setBoardW] = useState(1200);
@@ -46,6 +59,10 @@ export default function BoardGrid() {
       if ((navigator.language || "").toLowerCase().startsWith("ko")) setCountry("KR");
       const cc = localStorage.getItem("ody.cc");
       if (cc === "KR" || cc === "US") setCountry(cc);
+      const sc = Number(localStorage.getItem("board.scale"));
+      if (SCALES.includes(sc as Scale)) setScale(sc as Scale);
+      const sm = localStorage.getItem("board.seen");
+      if (sm === "all" || sm === "only" || sm === "exclude") setSeenMode(sm);
     } catch {}
   }, []);
 
@@ -66,35 +83,57 @@ export default function BoardGrid() {
 
   useEffect(() => { if (hlAvail) void ensureAvail(); }, [hlAvail, ensureAvail]);
   useEffect(() => { try { localStorage.setItem("ody.cc", country); } catch {} }, [country]);
+  useEffect(() => { try { localStorage.setItem("board.scale", String(scale)); } catch {} }, [scale]);
+  useEffect(() => { try { localStorage.setItem("board.seen", seenMode); } catch {} }, [seenMode]);
 
-  const board = useMemo(() => (map ? packBoard(map.stations, COLS) : null), [map]);
   const byId = useMemo(() => new Map((map?.stations ?? []).map((s) => [s.s, s])), [map]);
   const availCC = useMemo(() => (avail ? avail[country] ?? {} : null), [avail, country]);
 
-  // cell geometry
-  const pw = Math.max(16, Math.min(34, Math.floor(boardW / COLS) - 2));
-  const cellW = pw + 2;
-  const rowH = pw * 1.5 + 2;
+  // Whole corpus ranked by TakeScore (v), descending — the spine of every view.
+  const ranked = useMemo(() => {
+    const films = (map?.stations ?? []).filter((s) => s.v != null && s.p);
+    films.sort((a, b) => (b.v! - a.v!) || a.s.localeCompare(b.s));
+    return films;
+  }, [map]);
 
-  // goban positions
-  const layout = useMemo(() => {
-    if (!board || !map) return null;
-    const pos = new Map<string, { x: number; y: number }>();
-    for (const c of board.cells) pos.set(c.s.s, { x: c.col * cellW + 1, y: c.row * rowH + 1 });
-    return { pos, height: board.rows * rowH };
-  }, [board, map, cellW, rowH]);
+  // The chosen scale = the top-N films by TakeScore.
+  const pool = useMemo(() => ranked.slice(0, scale), [ranked, scale]);
 
-  const visible = useCallback((s: OdyStation) => {
+  // Display order within the pool: TakeScore (default) or chronological (era).
+  const ordered = useMemo(() => {
+    if (sort === "year") return pool.slice().sort((a, b) => (a.y ?? 0) - (b.y ?? 0) || (b.v! - a.v!));
+    return pool;
+  }, [pool, sort]);
+
+  const passFilter = useCallback((s: OdyStation) => {
     const y = s.y ?? 0;
     if (y < yearMin || y > yearMax) return false;
     if (genre != null && !(s.gi ?? []).includes(genre)) return false;
     return true;
   }, [yearMin, yearMax, genre]);
 
-  const shownCount = useMemo(
-    () => (board ? board.cells.filter((c) => visible(c.s)).length : 0),
-    [board, visible],
+  // The survey set = pool ∩ year ∩ genre. This is the "board" the seen counter
+  // measures against; the seen-mode below only changes which tiles render.
+  const survey = useMemo(() => ordered.filter(passFilter), [ordered, passFilter]);
+
+  const displayList = useMemo(() => {
+    if (seenMode === "only") return survey.filter((s) => seenSet.has(s.s));
+    if (seenMode === "exclude") return survey.filter((s) => !seenSet.has(s.s));
+    return survey;
+  }, [survey, seenMode, seenSet]);
+
+  const seenInSurvey = useMemo(
+    () => survey.reduce((n, s) => n + (seenSet.has(s.s) ? 1 : 0), 0),
+    [survey, seenSet],
   );
+
+  // Columns + poster size from the live width and the chosen scale.
+  const cols = useMemo(() => {
+    const t = TARGET_W[scale];
+    return clamp(Math.round((boardW + GAP) / (t + GAP)), 4, 40);
+  }, [boardW, scale]);
+  const posterW = Math.max(1, Math.floor((boardW - GAP * (cols - 1)) / cols));
+  const imgSz = posterW <= 100 ? "w92" : posterW <= 165 ? "w154" : "w185";
 
   const onGridMove = useCallback((e: React.MouseEvent) => {
     const el = (e.target as HTMLElement).closest("[data-slug]") as HTMLElement | null;
@@ -112,22 +151,59 @@ export default function BoardGrid() {
   }, [byId]);
 
   const anyHl = hlSeen || hlWatch || hlAvail;
-  // only recede the rest when a highlight actually matches something
+  // only recede the rest when a highlight actually matches something on the board
   const hasLit = useMemo(() => {
-    if (!anyHl || !board) return false;
-    return board.cells.some((c) => {
-      const sl = c.s.s;
+    if (!anyHl) return false;
+    return displayList.some((s) => {
+      const sl = s.s;
       return (hlSeen && seenSet.has(sl)) || (hlWatch && (uf?.get({ slug: sl }).watchlist ?? false))
         || (hlAvail && availCC && (availCC[sl]?.length ?? 0) > 0);
     });
-  }, [anyHl, board, hlSeen, hlWatch, hlAvail, seenSet, uf, availCC]);
+  }, [anyHl, displayList, hlSeen, hlWatch, hlAvail, seenSet, uf, availCC]);
 
-  if (!map || !board) return <div className="board-loading">Charting the board…</div>;
+  if (!map) return <div className="board-loading">Charting the board…</div>;
   const genres = map.genres ?? [];
+  const signedIn = !!uf?.uid;
 
   return (
     <div className="board-root">
       <div className="board-controls">
+        <div className="board-group">
+          <span className="board-label">Films</span>
+          <div className="board-seg" role="group" aria-label="How many films">
+            {SCALES.map((n) => (
+              <button key={n} className={scale === n ? "on" : ""} aria-pressed={scale === n}
+                onClick={() => setScale(n)}>
+                {n === 2000 ? "All" : n.toLocaleString()}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="board-group">
+          <span className="board-label">Show</span>
+          <div className="board-seg" role="group" aria-label="Seen filter">
+            <button className={seenMode === "all" ? "on" : ""} aria-pressed={seenMode === "all"} onClick={() => setSeenMode("all")}>All</button>
+            <button className={seenMode === "only" ? "on" : ""} aria-pressed={seenMode === "only"} onClick={() => setSeenMode("only")}>Only seen</button>
+            <button className={seenMode === "exclude" ? "on" : ""} aria-pressed={seenMode === "exclude"} onClick={() => setSeenMode("exclude")}>Exclude seen</button>
+          </div>
+        </div>
+        <div className="board-group">
+          <span className="board-label">Order</span>
+          <div className="board-seg" role="group" aria-label="Sort order">
+            <button className={sort === "score" ? "on" : ""} aria-pressed={sort === "score"} onClick={() => setSort("score")}>TakeScore</button>
+            <button className={sort === "year" ? "on" : ""} aria-pressed={sort === "year"} onClick={() => setSort("year")}>Year</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="board-readout">
+        <div className="board-seencount">
+          {signedIn ? (
+            <>You've seen <b>{seenInSurvey.toLocaleString()}</b> of <b>{survey.length.toLocaleString()}</b> on this board</>
+          ) : (
+            <><Link className="accent" href="/login?next=/board">Sign in</Link> to see how many of these <b>{survey.length.toLocaleString()}</b> you've watched</>
+          )}
+        </div>
         <div className="board-hl">
           <span className="board-label">Highlight</span>
           <button className={`board-tog seen${hlSeen ? " on" : ""}`} onClick={() => setHlSeen((v) => !v)}>Seen</button>
@@ -138,50 +214,50 @@ export default function BoardGrid() {
             <option value="KR">KR</option>
           </select>
         </div>
-        <div className="board-filters">
-          <span className="board-label">Filter</span>
-          <select className="board-sel" value={yearMin} onChange={(e) => setYearMin(Math.min(+e.target.value, yearMax))} aria-label="From year">
-            {yearOpts().map((y) => <option key={y} value={y}>{y}</option>)}
-          </select>
-          <span className="board-dash">–</span>
-          <select className="board-sel" value={yearMax} onChange={(e) => setYearMax(Math.max(+e.target.value, yearMin))} aria-label="To year">
-            {yearOpts().map((y) => <option key={y} value={y}>{y}</option>)}
-          </select>
-          <select className="board-sel" value={genre ?? ""} onChange={(e) => setGenre(e.target.value === "" ? null : +e.target.value)} aria-label="Genre">
-            <option value="">All genres</option>
-            {genres.map((g, i) => <option key={g} value={i}>{g}</option>)}
-          </select>
-          <span className="board-count"><b>{shownCount.toLocaleString()}</b> / {board.cells.length.toLocaleString()} films</span>
-        </div>
+      </div>
+
+      <div className="board-filters">
+        <span className="board-label">Filter</span>
+        <select className="board-sel" value={yearMin} onChange={(e) => setYearMin(Math.min(+e.target.value, yearMax))} aria-label="From year">
+          {yearOpts().map((y) => <option key={y} value={y}>{y}</option>)}
+        </select>
+        <span className="board-dash">–</span>
+        <select className="board-sel" value={yearMax} onChange={(e) => setYearMax(Math.max(+e.target.value, yearMin))} aria-label="To year">
+          {yearOpts().map((y) => <option key={y} value={y}>{y}</option>)}
+        </select>
+        <select className="board-sel" value={genre ?? ""} onChange={(e) => setGenre(e.target.value === "" ? null : +e.target.value)} aria-label="Genre">
+          <option value="">All genres</option>
+          {genres.map((g, i) => <option key={g} value={i}>{g}</option>)}
+        </select>
+        <span className="board-count"><b>{displayList.length.toLocaleString()}</b> tiles shown</span>
       </div>
 
       <div className="board-scroll">
         <div
           className={`board-stage${anyHl ? " has-hl" : ""}`}
           ref={wrapRef}
-          style={{ height: layout ? layout.height : 400 }}
+          style={{ ["--cols" as string]: cols, ["--gap" as string]: `${GAP}px` }}
           onMouseMove={onGridMove}
           onMouseLeave={() => setHover(null)}
           onClick={onGridClick}
         >
-          {board.cells.map((c) => {
-            const s = c.s;
-            const p = layout?.pos.get(s.s);
-            if (!p) return null;
+          {displayList.map((s) => {
             const seen = seenSet.has(s.s);
             const watch = uf?.get({ slug: s.s }).watchlist ?? false;
             const availOn = availCC ? (availCC[s.s]?.length ?? 0) > 0 : false;
             const lit = (hlSeen && seen) || (hlWatch && watch) || (hlAvail && availOn);
             const ring = hlSeen && seen ? "r-seen" : hlWatch && watch ? "r-watch" : hlAvail && availOn ? "r-avail" : "";
-            const cls = ["bcell", !visible(s) ? "off" : "", hasLit && !lit ? "dim" : "", ring].filter(Boolean).join(" ");
+            const cls = ["bcell", hasLit && !lit ? "dim" : "", ring].filter(Boolean).join(" ");
             return (
-              <div key={s.s} className={cls} data-slug={s.s}
-                style={{ width: pw, height: pw * 1.5, transform: `translate(${p.x}px, ${p.y}px)` }}>
+              <div key={s.s} className={cls} data-slug={s.s}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${IMG}/w92${s.p}`} alt="" loading="lazy" draggable={false} />
+                <img src={`${IMG}/${imgSz}${s.p}`} alt="" loading="lazy" draggable={false} />
               </div>
             );
           })}
+          {displayList.length === 0 ? (
+            <div className="board-empty">No films match these filters. Widen the year range, clear the genre, or switch the Show filter back to All.</div>
+          ) : null}
         </div>
 
         {hover ? (
@@ -189,7 +265,7 @@ export default function BoardGrid() {
             <b>{hover.s.t}</b> <span>{hover.s.y ?? ""}</span>
             {hover.s.d ? <div className="d">{hover.s.d}</div> : null}
             <div className="m">
-              {hover.s.v != null ? <span className="v">Value {hover.s.v}</span> : null}
+              {hover.s.v != null ? <span className="v">TakeScore {hover.s.v}</span> : null}
               <span className="a">{"▲".repeat(hover.s.c)}</span>
               {seenSet.has(hover.s.s) ? <span className="s">✓ Seen</span> : null}
             </div>
@@ -251,7 +327,7 @@ function Drawer({ s, map, availCC, country, onClose }: {
         </div>
 
         <div className="bd-scores">
-          {s.v != null ? <div className="bd-score"><b>{s.v}</b><span>Value (TakeScore)</span></div> : null}
+          {s.v != null ? <div className="bd-score"><b>{s.v}</b><span>TakeScore</span></div> : null}
           <div className="bd-score"><b>{s.c}/5</b><span>Altitude · demand</span></div>
           {s.pr != null ? <div className="bd-score"><b>{Math.round(s.pr)}</b><span>Canon standing</span></div> : null}
         </div>

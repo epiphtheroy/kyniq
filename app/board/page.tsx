@@ -8,7 +8,7 @@ import "./board.css";
 export const metadata: Metadata = {
   title: "Board — the whole cinephile corpus at a glance",
   description:
-    "The ~2,000 cinephile films Metatake covers, laid out on one board — columns by era, rows by taste. Highlight what you've seen, your watchlist, or what's on your services, then filter to survey it all at a glance.",
+    "The ~2,000 cinephile films Metatake covers, tiled on one board ranked by TakeScore. Pick a scale — the top 100, 500, 1,000, or all — highlight what you've seen, your watchlist, or what's on your services, and see how many you've watched.",
   alternates: { canonical: "/board" },
   robots: { index: true, follow: true },
 };
@@ -22,9 +22,10 @@ export default function BoardPage() {
           <div className="seclbl">The board</div>
           <h1 className="disp">Every cinephile film at a glance</h1>
           <p className="standfirst">
-            A board of the ~2,000 cinephile films Metatake covers. Columns are eras, rows are taste.{" "}
-            Turn on <b>Seen · Watchlist · On my services</b> to light those films up, and narrow by year
-            or genre to thin the board. Hover a film for a summary, or click to open the details alongside.{" "}
+            A board of the ~2,000 cinephile films Metatake covers, tiled densely and ranked by <b>TakeScore</b>.{" "}
+            Choose a scale — the top <b>100 · 500 · 1,000</b> or <b>all</b> — and it shows how many you've seen.{" "}
+            Turn on <b>Seen · Watchlist · On my services</b> to light those films up, filter by year or genre,
+            or switch the Show filter to survey only what you've seen. Hover for a summary, or click for details.{" "}
             <Link href="/journey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>The Journey →</Link>{" "}
             <Link href="/odyssey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>Odyssey map →</Link>
           </p>
