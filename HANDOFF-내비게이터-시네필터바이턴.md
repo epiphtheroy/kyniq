@@ -201,7 +201,7 @@ nav_drives (id, user_id, dest_id, route_pref, started_at, arrived_at, skipped[] 
 ## §9. 단계
 
 - **P0 기획 승인** — 이 문서, 오너 결정 §12.
-- **P1 종이 프로토타입** — 주행 뷰·경로 선택 정적 목업 2장(HTML)으로 오너 감각 검증. *코드 최소.*
+- **P1 종이 프로토타입 ✅ SHIPPED (2026-07-26)** — `public/navigator-preview.html` → **metatake.net/navigator-preview.html**(noindex, JS-0 CSP-proof, 실 큐브릭 데이터). 3화면 CSS-only 전환(어디로/경로/주행). 주행 뷰=구글맵 형태(초록 다음-턴 배너·파란 경로·빨간 위치 화살표·포스터 표지판·하단 ETA/진행바). 자가검수 스크린샷 2회. **오너 감각 검증 대기 → OK면 P2.**
 - **P2 목적지 카탈로그+경로 엔진** — 6과 중 **정전·감독**부터(진행률 데이터 최상) · 순수 함수+테스트.
 - **P3 웹 주행 뷰** — /room/navigator + 룸 Tonight 미니카드.
 - **P4 앱 이식** — Tonight 탭 통합(JS-only·OTA).
