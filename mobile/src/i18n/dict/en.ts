@@ -273,7 +273,8 @@ export const en = {
   "nav.destination": "Destination",
   "nav.arrived": "You've arrived",
   "nav.arrivedSub": "{label} complete · {n} films",
-  "nav.tollN": "{n} rental",
+  "nav.toll1": "1 rental",
+  "nav.tollN": "{n} rentals",
   "nav.rerouting": "Rerouting…",
   "nav.empty": "Sign in and start watching to chart a route.",
   // The Navigator — "Where to?" picker (§5.1)
@@ -305,6 +306,15 @@ export const en = {
   "nav.durMin": "{m}m",
   "nav.offmap": "{n} off-map · placed by lineage",
   "nav.recenter": "Recenter",
+  // The Navigator — a11y labels, map zoom, the remaining-route steps, and share
+  "nav.close": "Close",
+  "nav.back": "Back",
+  "nav.share": "Share this journey",
+  "nav.zoomIn": "Zoom in",
+  "nav.zoomOut": "Zoom out",
+  "nav.stepsHead": "Remaining route",
+  "nav.shareArrived": "🏁 Finished {label} — {n} films, charted with the Metatake Navigator.",
+  "nav.shareDrive": "🧭 On the road to {label} — {n} films to go on the Metatake Navigator.",
 } as const;
 
 export type DictKey = keyof typeof en;

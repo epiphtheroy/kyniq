@@ -27,11 +27,13 @@ const FACET_KEY: Record<string, DictKey> = {
 };
 
 /** Floating chrome disc — matches the drive/director back affordance. */
-function Disc({ icon, onPress }: { icon: React.ComponentProps<typeof Ionicons>["name"]; onPress: () => void }) {
+function Disc({ icon, onPress, label }: { icon: React.ComponentProps<typeof Ionicons>["name"]; onPress: () => void; label: string }) {
   const pal = usePalette();
   return (
     <Tactile onPress={onPress} hitSlop={8}>
       <View
+        accessibilityRole="button"
+        accessibilityLabel={label}
         style={[
           { width: 36, height: 36, borderRadius: radius.pill, backgroundColor: pal.chrome, alignItems: "center", justifyContent: "center" },
           shadow.card,
@@ -192,7 +194,7 @@ export default function NavigatorPicker() {
         </Ui>
         <Btn label={t("action.retry")} onPress={() => setGen((g) => g + 1)} style={{ alignSelf: "stretch" }} />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} />
+          <Disc icon="chevron-back" onPress={back} label={t("nav.back")} />
         </View>
       </Screen>
     );
@@ -202,7 +204,7 @@ export default function NavigatorPicker() {
         <Stack.Screen options={{ headerShown: false }} />
         <Loading />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} />
+          <Disc icon="chevron-back" onPress={back} label={t("nav.back")} />
         </View>
       </Screen>
     );
@@ -282,7 +284,7 @@ export default function NavigatorPicker() {
 
       {/* floating back */}
       <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }} pointerEvents="box-none">
-        <Disc icon="chevron-back" onPress={back} />
+        <Disc icon="chevron-back" onPress={back} label={t("nav.back")} />
       </View>
     </Screen>
   );
