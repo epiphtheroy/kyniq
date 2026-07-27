@@ -67,7 +67,9 @@
   background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:99px;padding:4px 10px;box-shadow:0 2px 6px rgba(30,26,18,.14)}
 
 .navd .sp{position:absolute;transform:translate(-50%,-100%);z-index:10;border:0;padding:0;background:transparent;cursor:pointer;font:inherit}
-.navd .sp img{display:block;border-radius:7px;border:2px solid #fff;box-shadow:0 10px 16px rgba(30,26,18,.34);background:#ccc}
+/* max-width:none breaks the global `img{max-width:100%}` circular constraint against the
+   shrink-to-fit .sp button — otherwise re-culled/panned-in posters collapse to border-only 4px. */
+.navd .sp img{display:block;max-width:none;border-radius:7px;border:2px solid #fff;box-shadow:0 10px 16px rgba(30,26,18,.34);background:#ccc}
 .navd .sp .pole{position:absolute;left:50%;top:100%;width:2.5px;height:15px;background:linear-gradient(#9c927c,#b7ad96);transform:translateX(-50%);border-radius:2px}
 .navd .sp .shadow{position:absolute;left:50%;top:calc(100% + 14px);width:120%;height:9px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(40,34,22,.32),transparent 72%);z-index:-1}
 .navd .sp .cap{position:absolute;left:50%;top:calc(100% + 17px);transform:translateX(-50%);
