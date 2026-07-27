@@ -692,14 +692,14 @@ export async function filmsKoEntries(): Promise<SitemapEntry[]> {
 /** /movies-like/* companions — one per visible film. */
 export async function moviesLikeEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  // Mirror the page bar EXACTLY (app/movies-like/[slug]: filmMainIndexable && recs>=3),
+  // Mirror the page bar EXACTLY (app/movies-like/[slug]: filmMainIndexable && recs>=6),
   // fixing the old contradiction where every visible film was advertised but the page
-  // noindexed <3-rec films. n_affinities counts only visible-related recs (RPC 0097).
+  // noindexed thin-rec films. n_affinities counts only visible-related recs (RPC 0097).
   // Empty on RPC error — better a temporary gap than re-advertising noindex URLs.
   let roster: Record<string, FilmIndexSignals> = {};
   try { roster = await filmIndexRoster(); } catch { roster = {}; }
   const gated = Object.values(roster)
-    .filter((s) => filmIndexBar(s) && (s.n_affinities ?? 0) >= 3)
+    .filter((s) => filmIndexBar(s) && (s.n_affinities ?? 0) >= 6)
     .map((s) => s.slug)
     .sort();
   if (gated.length > 0) return gated.map((slug) => ({ url: `${siteUrl}/movies-like/${slug}` }));

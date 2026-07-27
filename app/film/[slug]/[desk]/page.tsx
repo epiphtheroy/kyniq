@@ -193,7 +193,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots(true),
+    // Quality bar (SEO "prune to grow"): index only essays substantial enough to
+    // stand as criticism — a real reading is ≥3 min (~550+ words). Thin stubs
+    // noindex so they stop draining crawl budget (they were "crawled – currently
+    // not indexed" anyway). The essay stays live + linked; enrich past the bar and
+    // it re-indexes automatically. Tunable: raise to 4 if the tail is still large.
+    robots: pageRobots(data.essay.minutes >= 3),
   };
 }
 
