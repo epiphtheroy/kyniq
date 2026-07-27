@@ -39,15 +39,15 @@
 .navd .street{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:11.5px;font-weight:800;letter-spacing:.01em;color:#fff;background:#5E7C86;padding:3px 11px;border-radius:6px;box-shadow:0 2px 6px rgba(30,26,18,.28);text-shadow:0 1px 2px rgba(0,0,0,.38)}
 .navd .street.cur{background:#4A4640}
 /* faded lineage road-name signs — muted context, never competing with the route */
-.navd .street.amb{background:#5f5647;opacity:.96;font-weight:800;font-size:10px;padding:2px 8px;z-index:4;
-  box-shadow:0 1px 4px rgba(30,26,18,.28);text-shadow:none}
+.navd .street.amb{background:#524a3d;opacity:1;font-weight:800;font-size:10px;padding:2px 8px;z-index:4;
+  box-shadow:0 1px 4px rgba(30,26,18,.32);text-shadow:none}
 /* the bright hero lane sits above faded background posters/dots but below the nodes */
 .navd .routesvg{z-index:5}
 /* hard-faded background — nearby odyssey stations, soft context BEHIND the route */
-.navd .bgp{position:absolute;transform:translate(-50%,-50%);z-index:3;width:20px;height:30px;border-radius:4px;
-  opacity:.55;filter:saturate(.95);border:1px solid #ffffff80;pointer-events:none;background:#cfc8b8}
+.navd .bgp{position:absolute;transform:translate(-50%,-50%);z-index:3;width:21px;height:31px;border-radius:4px;
+  opacity:.7;border:1px solid #ffffff8c;box-shadow:0 1px 4px rgba(30,26,18,.2);pointer-events:none;background:#cfc8b8}
 .navd .bgdot{position:absolute;transform:translate(-50%,-50%);z-index:2;width:6px;height:6px;border-radius:50%;
-  background:#9a8f72;opacity:.5;pointer-events:none}
+  background:#8f8568;opacity:.6;pointer-events:none}
 /* lightweight route markers — far stops on the lane, numbered, until panned near */
 .navd .sp-dot{position:absolute;transform:translate(-50%,-50%);z-index:8;min-width:16px;height:16px;padding:0 4px;
   border-radius:99px;background:var(--blue);color:#fff;font-size:9px;font-weight:800;
@@ -59,9 +59,9 @@
 .navd .sp.now .num{background:var(--red)}
 .navd .sp.dest .num{background:var(--gold)}
 /* TakeScore badge — the proprietary score, its own thing (top-right, opposite the number) */
-.navd .sp .ts{position:absolute;right:-9px;top:-7px;z-index:3;height:17px;padding:0 5px;border-radius:99px;
-  background:var(--gold);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.02em;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(30,26,18,.34);border:1.5px solid #fff}
+.navd .sp .ts{position:absolute;right:-10px;top:-7px;z-index:3;height:16px;line-height:16px;padding:0 6px;border-radius:99px;
+  white-space:nowrap;background:var(--gold);color:#fff;font-size:9px;font-weight:800;letter-spacing:.01em;
+  box-shadow:0 2px 5px rgba(30,26,18,.34);border:1.5px solid #fff}
 /* note: some route films aren't on the odyssey plane (placed by lineage) */
 .navd .offmap{position:absolute;left:12px;top:12px;z-index:12;font-size:10px;font-weight:800;color:#6a6153;
   background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:99px;padding:4px 10px;box-shadow:0 2px 6px rgba(30,26,18,.14)}

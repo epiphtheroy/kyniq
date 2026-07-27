@@ -256,6 +256,9 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const [culled, setCulled] = useState<BgStation[]>([]); // viewport-culled background films
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
+  const mapviewRef = useRef<HTMLDivElement | null>(null);      // the pannable layer — transform written imperatively
+  const viewRef = useRef({ tx: 0, ty: 0, k: 1 });              // live view (source of truth); `view` state lags on a throttle
+  const commitTimerRef = useRef<number | null>(null);          // trailing-throttle handle for committing view → state
   const winSigRef = useRef<string>("");        // last culled-window signature (skip idle recomputes)
   const sceneRef = useRef<Scene | null>(null); // detect a new journey → force a recompute
 
@@ -280,8 +283,24 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
     () => (scene ? computeDefaultView(scene.routePts.length, size.w, size.h) : { tx: 0, ty: 0, k: 1 }),
     [scene, size.w, size.h],
   );
+  // Write the live view straight to the pannable layer's transform (GPU, no React render).
+  const paint = useCallback(() => {
+    const el = mapviewRef.current, v = viewRef.current;
+    if (el) el.style.transform = `translate(${v.tx}px, ${v.ty}px) scale(${v.k})`;
+  }, []);
+  // Commit the live view → React state on a trailing throttle, so the culled node sets
+  // (route full-poster window + background) re-cull ~7×/sec instead of every pan frame.
+  const scheduleCommit = useCallback(() => {
+    if (commitTimerRef.current != null) return; // one commit already in flight
+    commitTimerRef.current = window.setTimeout(() => {
+      commitTimerRef.current = null;
+      setView({ ...viewRef.current });
+    }, 140);
+  }, []);
+  useEffect(() => () => { if (commitTimerRef.current != null) clearTimeout(commitTimerRef.current); }, []);
+
   // re-frame when the journey (or viewport) changes — plain panning never triggers this
-  useEffect(() => { setView(defaultView); }, [defaultView]);
+  useEffect(() => { viewRef.current = { ...defaultView }; setView(defaultView); paint(); }, [defaultView, paint]);
 
   // Throttled viewport culling (Google-Maps style): once per animation frame recompute which
   // background films fall inside the buffered window, and only when that window actually moved
@@ -304,23 +323,37 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
 
   const onDown = useCallback((e: React.PointerEvent) => {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-    drag.current = { x: e.clientX, y: e.clientY, tx: view.tx, ty: view.ty };
-  }, [view.tx, view.ty]);
+    const v = viewRef.current;
+    drag.current = { x: e.clientX, y: e.clientY, tx: v.tx, ty: v.ty };
+  }, []);
   const onMove = useCallback((e: React.PointerEvent) => {
-    // Snapshot the drag origin + pointer coords into locals BEFORE setView. A functional
-    // updater can run after onUp clears drag.current (fast flings batch updates), so it must
-    // never read the ref — otherwise `drag.current!.tx` throws "reading 'tx' of null".
+    // Snapshot the drag origin into a local BEFORE touching anything else (onUp can clear
+    // drag.current mid-fling → reading the ref later throws). Panning is a CHEAP transform:
+    // update the live ref + paint the DOM directly, NO setState — so no per-frame re-render.
     const d = drag.current;
     if (!d) return;
-    const cx = e.clientX, cy = e.clientY;
-    setView((v) => ({ ...v, tx: d.tx + (cx - d.x), ty: d.ty + (cy - d.y) }));
+    viewRef.current = { ...viewRef.current, tx: d.tx + (e.clientX - d.x), ty: d.ty + (e.clientY - d.y) };
+    paint();
+    scheduleCommit();
+  }, [paint, scheduleCommit]);
+  const onUp = useCallback(() => {
+    drag.current = null;
+    if (commitTimerRef.current != null) { clearTimeout(commitTimerRef.current); commitTimerRef.current = null; }
+    setView({ ...viewRef.current }); // final commit → cull exactly at the resting position
   }, []);
-  const onUp = useCallback(() => { drag.current = null; }, []);
   const onWheel = useCallback((e: React.WheelEvent) => {
-    setView((v) => ({ ...v, k: clamp(v.k * (e.deltaY < 0 ? 1.12 : 0.89), 0.55, 3) }));
-  }, []);
-  const zoom = (f: number) => setView((v) => ({ ...v, k: clamp(v.k * f, 0.55, 3) }));
-  const fit = () => setView(defaultView); // ◎ returns to the adaptive default, not a whole-world fit
+    const v = viewRef.current;
+    viewRef.current = { ...v, k: clamp(v.k * (e.deltaY < 0 ? 1.12 : 0.89), 0.55, 3) };
+    paint();
+    scheduleCommit();
+  }, [paint, scheduleCommit]);
+  const zoom = (f: number) => {
+    const v = viewRef.current;
+    viewRef.current = { ...v, k: clamp(v.k * f, 0.55, 3) };
+    paint();
+    setView({ ...viewRef.current });
+  };
+  const fit = () => { viewRef.current = { ...defaultView }; paint(); setView({ ...defaultView }); }; // ◎ → adaptive default
 
   // Route-pref links must PRESERVE the destination params (?dir/?lineage/?label/…)
   // and only change ?pref — otherwise the click drops to the picker instead of re-sorting.
@@ -417,7 +450,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
       {/* the map — pannable & zoomable */}
       <div className="map" ref={mapRef} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerLeave={onUp} onWheel={onWheel}>
         <div className="haze" />
-        <div className="mapview" style={{ transform: `translate(${view.tx}px, ${view.ty}px) scale(${view.k})` }}>
+        <div className="mapview" ref={mapviewRef} style={{ transform: `translate(${viewRef.current.tx}px, ${viewRef.current.ty}px) scale(${viewRef.current.k})` }}>
           {scene ? (
             /* ── the real /odyssey journey: the hero lane over faded context ── */
             <>
@@ -429,8 +462,8 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                 <rect x="-10" y="34" width={scene.L + 20} height="32" fill="#E9E1C6" opacity="0.5" />
                 {scene.cross.map((c) => (
                   <g key={c.id}>
-                    <path d={c.d} fill="none" stroke="#B4A683" strokeWidth="6.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.85" />
-                    <path d={c.d} fill="none" stroke="#D8CFB6" strokeWidth="2.6" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.72" />
+                    <path d={c.d} fill="none" stroke="#A2946C" strokeWidth="6.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.9" />
+                    <path d={c.d} fill="none" stroke="#DAD1B5" strokeWidth="2.6" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.8" />
                   </g>
                 ))}
               </svg>
@@ -471,7 +504,8 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                       {rp.dest ? <span className="flag">🏁</span> : null}
                       <span className="num">{i + 1}</span>
                       {ts != null ? <span className="ts">TS {ts}</span> : null}
-                      <img src={po(f.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="lazy" draggable={false} />
+                      {/* culled to the viewport already → load eagerly so every on-screen node shows its board */}
+                      <img src={po(f.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="eager" draggable={false} />
                       <span className="pole" /><span className="shadow" />
                       <span className="cap">
                         <span className="cap-t">{rp.now ? "Now · " : ""}{f.title}</span>
