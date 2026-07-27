@@ -21,7 +21,7 @@
  * from the pan transform on a throttled rAF and capped — so panning keeps revealing
  * films with no blank flash and a fast fling never lags or crashes.
  */
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import type { DriveLoad } from "@/lib/navigator/load";
@@ -102,8 +102,11 @@ function smoothArr(a: number[], w: number): number[] {
 
 const BG_CAP = 250;     // max background stations rendered at once (viewport-culled)
 const BG_POSTERS = 40;  // of those, the highest-TakeScore few render as posters (rest = dots)
+const MAX_X = 4;        // max transit interchanges drawn on screen at once (keep it legible)
 
-interface ScenePt { stop: RouteStop; nx: number; ny: number; w: number; now: boolean; dest: boolean; missing: boolean }
+/** A crossing lineage line at an interchange — its name/colour + a few nearby member films. */
+interface XLine { name: string; color: string; members: NavFilm[] }
+interface ScenePt { stop: RouteStop; nx: number; ny: number; w: number; now: boolean; dest: boolean; missing: boolean; x?: XLine }
 interface SceneCross { id: string; name: string; d: string; lx: number; ly: number }
 /** A non-route station in the pannable "field" — its real odyssey (x,yy) mapped to lane units. */
 interface BgStation { key: string; fx: number; fy: number; v: number; p: string }
@@ -224,6 +227,44 @@ function buildScene(map: OdyMap, stops: RouteStop[]): Scene | null {
     });
   }
   bgAll.sort((a, b) => b.v - a.v);
+
+  // INTERCHANGES — a route film that also rides ANOTHER lineage line is a transfer station.
+  // For each such stop, pick its strongest crossing line (the member-richest lineage it belongs
+  // to) and 2–4 of that line's NEAREST members (by riding order, excluding the route film and any
+  // other route film), so the node can branch perpendicular like a subway interchange. This is
+  // data only — memoised with the scene, never recomputed on pan; rendering is culled + capped.
+  const nearOrder = (n: number, idx: number): number[] => {
+    const out: number[] = [];
+    for (let d = 1; d < n && out.length < 10; d++) {
+      if (idx - d >= 0) out.push(idx - d);
+      if (idx + d < n) out.push(idx + d);
+    }
+    return out;
+  };
+  for (let i = 0; i < routePts.length; i++) {
+    const st = byId.get(stops[i].film.slug);
+    const lns = st?.ln;
+    if (!st || !lns || lns.length < 2) continue; // interchange = station on ≥2 lines
+    let best: OdyMap["lines"][number] | null = null;
+    for (const id of lns) {
+      const l = lineById.get(id);
+      if (l && (!best || l.stations.length > best.stations.length)) best = l;
+    }
+    if (!best) continue;
+    const idx = best.stations.indexOf(st.s);
+    if (idx < 0) continue;
+    const members: NavFilm[] = [];
+    for (const j of nearOrder(best.stations.length, idx)) {
+      if (members.length >= 4) break;
+      const ms = byId.get(best.stations[j]);
+      if (!ms || !ms.p || onRoute.has(ms.s)) continue; // need a poster; skip route films (no dupes)
+      members.push({
+        slug: ms.s, title: ms.t, year: ms.y, poster_path: ms.p ?? null, runtime: null,
+        seen: false, availability: "none", director: ms.d ?? null, takescore: ms.v ?? null,
+      });
+    }
+    if (members.length >= 2) routePts[i].x = { name: best.name_en, color: best.color, members };
+  }
 
   return { L, routePts, routeD, cross, bgAll, me, missingCount: N - knownCount };
 }
@@ -412,6 +453,41 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const inDotBand = (nx: number, ny: number) =>
     !!rWin && nx >= rWin.lxMin - rPad && nx <= rWin.lxMax + rPad && ny >= rWin.lyMin - rPad && ny <= rWin.lyMax + rPad;
 
+  // Draw interchanges only for the NEAREST (lowest drive-index) ~4 that are in view — so a big
+  // drive with many transfer stations never clutters. Bounded scan, cheap; runs only on commits.
+  const xIdx = new Set<number>();
+  if (scene && rWin) {
+    for (let i = 0; i < scene.routePts.length && xIdx.size < MAX_X; i++) {
+      const rp = scene.routePts[i];
+      if (rp.x && inWin(rp.nx, rp.ny)) xIdx.add(i);
+    }
+  }
+  // A transfer station's perpendicular branch: the crossing line's few nearby films, stacked
+  // vertically clear of the standing route poster (above it) and its caption/pole (below).
+  const renderX = (rp: ScenePt) => {
+    const x = rp.x!;
+    const ph = size.h ? (rp.w * 1.5) / size.h * 100 : 16;      // standing-poster height, % of H
+    const upY0 = rp.ny - ph - 3;                               // first slot above clears the poster
+    const dnY0 = rp.ny + (size.h ? 3400 / size.h : 7) + 3;     // first slot below clears pole+caption
+    const gap = 9;                                             // spacing between stacked crossing films
+    let up = 0, dn = 0;
+    const ys = x.members.map((_, k) => clamp(k % 2 === 0 ? upY0 - up++ * gap : dnY0 + dn++ * gap, 4, 96));
+    const top = Math.min(rp.ny, ...ys), bot = Math.max(rp.ny, ...ys);
+    return (
+      <>
+        <span className="xline" style={{ left: `${rp.nx}%`, top: `${top}%`, height: `${bot - top}%`, background: x.color }} />
+        <span className="xlabel" style={{ left: `${rp.nx}%`, top: `${clamp(top - 3.5, 2, 97)}%`, background: x.color }}>{x.name}</span>
+        {x.members.map((m, k) => (
+          <button type="button" key={m.slug} className="xp" style={{ left: `${rp.nx}%`, top: `${ys[k]}%`, borderColor: x.color }}
+            onPointerDown={(e) => e.stopPropagation()} onClick={() => setPick(m)}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={po(m.poster_path)} alt="" loading="eager" draggable={false} />
+          </button>
+        ))}
+      </>
+    );
+  };
+
   // synthetic (fallback) signpost
   const sp = (stop: RouteStop, slot: { top: number; left: number; w: number }, isNow: boolean) => (
     <button
@@ -493,25 +569,28 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                   const meta = [f.year != null ? String(f.year) : null, f.director || null].filter(Boolean).join(" · ");
                   const ts = f.takescore != null ? Math.round(f.takescore) : null;
                   return (
-                    <button
-                      type="button"
-                      key={f.slug}
-                      className={`sp${rp.now ? " now" : ""}${rp.dest ? " dest" : ""}`}
-                      style={{ left: `${rp.nx}%`, top: `${rp.ny}%` }}
-                      onPointerDown={(e) => e.stopPropagation()}
-                      onClick={() => setPick(f)}
-                    >
-                      {rp.dest ? <span className="flag">🏁</span> : null}
-                      <span className="num">{i + 1}</span>
-                      {ts != null ? <span className="ts">TS {ts}</span> : null}
-                      {/* culled to the viewport already → load eagerly so every on-screen node shows its board */}
-                      <img src={po(f.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="eager" draggable={false} />
-                      <span className="pole" /><span className="shadow" />
-                      <span className="cap">
-                        <span className="cap-t">{rp.now ? "Now · " : ""}{f.title}</span>
-                        {meta ? <span className="cap-m">{meta}</span> : null}
-                      </span>
-                    </button>
+                    <Fragment key={f.slug}>
+                      {/* transit interchange: crossing lineage branches perpendicular (nearest ~4 in view) */}
+                      {xIdx.has(i) ? renderX(rp) : null}
+                      <button
+                        type="button"
+                        className={`sp${rp.now ? " now" : ""}${rp.dest ? " dest" : ""}`}
+                        style={{ left: `${rp.nx}%`, top: `${rp.ny}%` }}
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={() => setPick(f)}
+                      >
+                        {rp.dest ? <span className="flag">🏁</span> : null}
+                        <span className="num">{i + 1}</span>
+                        {ts != null ? <span className="ts">TS {ts}</span> : null}
+                        {/* culled to the viewport already → load eagerly so every on-screen node shows its board */}
+                        <img src={po(f.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="eager" draggable={false} />
+                        <span className="pole" /><span className="shadow" />
+                        <span className="cap">
+                          <span className="cap-t">{rp.now ? "Now · " : ""}{f.title}</span>
+                          {meta ? <span className="cap-m">{meta}</span> : null}
+                        </span>
+                      </button>
+                    </Fragment>
                   );
                 }
                 if (inDotBand(rp.nx, rp.ny)) {

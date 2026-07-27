@@ -52,6 +52,14 @@
 .navd .sp-dot{position:absolute;transform:translate(-50%,-50%);z-index:8;min-width:16px;height:16px;padding:0 4px;
   border-radius:99px;background:var(--blue);color:#fff;font-size:9px;font-weight:800;
   display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(30,26,18,.3);border:1.5px solid #fff;pointer-events:none}
+/* transit INTERCHANGE — a route film on another lineage branches perpendicular. Secondary to the
+   blue hero lane (which crosses over it), but clearly present in the crossing line's real colour. */
+.navd .xline{position:absolute;transform:translateX(-50%);z-index:4;width:6px;border-radius:99px;opacity:.92;box-shadow:0 1px 4px rgba(30,26,18,.28)}
+.navd .xlabel{position:absolute;transform:translate(-50%,-50%);z-index:7;white-space:nowrap;font-size:9px;font-weight:800;color:#fff;
+  padding:2px 7px;border-radius:99px;box-shadow:0 1px 3px rgba(30,26,18,.3);letter-spacing:.02em;text-shadow:0 1px 1px rgba(0,0,0,.25)}
+.navd .xp{position:absolute;transform:translate(-50%,-50%);z-index:8;padding:0;border:2px solid #888;border-radius:5px;
+  background:#cfc8b8;cursor:pointer;line-height:0;box-shadow:0 3px 8px rgba(30,26,18,.32)}
+.navd .xp img{display:block;width:30px;height:45px;border-radius:3px}
 /* drive-order badge on each route node — the sequence you follow */
 .navd .sp .num{position:absolute;left:-7px;top:-7px;z-index:3;min-width:17px;height:17px;padding:0 4px;border-radius:99px;
   background:var(--blue);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;
