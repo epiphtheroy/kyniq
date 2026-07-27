@@ -22,6 +22,7 @@ export default function SettingsPage() {
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
   const [isPublic, setIsPublic] = useState(true);
+  const [marketing, setMarketing] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -38,6 +39,8 @@ export default function SettingsPage() {
         setUsername(p.username || "");
         setBio(p.bio || "");
         setIsPublic((p.is_public ?? true) && (p.portfolio_public ?? false));
+        // Fault-soft: marketing_consent column may not exist yet (migration 0115 pending).
+        try { setMarketing(!!(p as any).marketing_consent); } catch { setMarketing(false); }
       }
       setLoading(false);
     }
@@ -64,6 +67,38 @@ export default function SettingsPage() {
       setMessage("Settings saved.");
     }
     setSaving(false);
+  }
+
+  async function handleToggleMarketing() {
+    if (!user) return;
+    const next = !marketing;
+    setMarketing(next); // optimistic; UI stays responsive even if the DB write can't land yet
+
+    const supabase = getSupabase();
+
+    // (a) Persist the preference on the profile. FAULT-SOFT: profiles.marketing_consent
+    // does not exist until migration 0115 ships — a missing column returns an error in the
+    // response (or throws). Swallow both so the page never white-screens.
+    try {
+      await supabase.from("profiles").update(
+        next
+          ? { marketing_consent: true, email_optin_at: new Date().toISOString() }
+          : { marketing_consent: false },
+      ).eq("id", user.id);
+    } catch {
+      /* column not present yet — non-fatal, ignore */
+    }
+
+    // (b) On opt-in, subscribe the auth email to the list. This is independent of the
+    // profile write above, so it still runs even when marketing_consent doesn't exist yet.
+    if (next && user.email) {
+      try {
+        await supabase.rpc("newsletter_subscribe", { p_email: user.email, p_source: "settings" });
+        setMessage("Subscribed — the weekly Metatake Read is on its way.");
+      } catch {
+        /* list write failed — non-fatal */
+      }
+    }
   }
 
   async function handleSignOut() {
@@ -165,12 +200,26 @@ export default function SettingsPage() {
 
       <hr className="rule" />
 
-      {/* Notifications stub */}
+      {/* Notifications */}
       <div className="seclbl">Notifications</div>
       <div className="tick" />
-      <div className="ui muted" style={{ fontSize: 13, maxWidth: 480 }}>
-        Email me when my reading is promoted into a canonical answer.{" "}
-        <span style={{ fontSize: 11.5 }}>(fuller preferences coming later)</span>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 480 }}>
+        <label style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, border: "1px solid var(--hairline)", borderRadius: 4, padding: "11px 13px", cursor: "pointer" }}>
+          <span className="ui" style={{ fontSize: 14 }}>
+            Email me the weekly Metatake Read <span className="muted" style={{ fontSize: 12 }}>— unsubscribe anytime</span>
+          </span>
+          <input
+            type="checkbox"
+            checked={marketing}
+            onChange={handleToggleMarketing}
+            aria-label="Email me the weekly Metatake Read"
+            style={{ width: 16, height: 16, accentColor: "var(--accent)", cursor: "pointer", flex: "none" }}
+          />
+        </label>
+        <div className="ui muted" style={{ fontSize: 12 }}>
+          Email me when my reading is promoted into a canonical answer.{" "}
+          <span style={{ fontSize: 11.5 }}>(fuller preferences coming later)</span>
+        </div>
       </div>
 
       <hr className="rule" />

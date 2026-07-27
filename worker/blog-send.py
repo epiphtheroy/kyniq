@@ -18,7 +18,7 @@ SAFETY: DRY by default — renders a preview file + prints who WOULD receive it,
   python3 blog-send.py --send --slug 2026-06-18
 Sender domain must be verified in Resend first (DNS), or sends 403.
 """
-import os, sys, json, re, time, datetime, urllib.request, urllib.error
+import os, sys, json, re, time, datetime, urllib.request, urllib.error, hmac, hashlib, base64
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 
 def load_env(p):
@@ -44,6 +44,18 @@ SLUG = args[args.index("--slug") + 1] if "--slug" in args else None
 SITE = "https://metatake.net"
 FROM = os.environ.get("BLOG_FROM", "Metatake <wonwoo@metatake.net>")
 REPLYTO = "wonwoo@metatake.net"
+
+# One-click unsubscribe — the token MUST byte-for-byte match nlUnsubToken() in
+# app/api/newsletter/unsub/route.ts (secret + "|nl" scope + first-22 sig slice).
+NL_SECRET = os.environ.get("NEWSLETTER_UNSUB_SECRET") or os.environ.get("REVALIDATION_SECRET") or "mt-nl-unsub-fallback"
+def _b64u(b):  # standard base64 → url-safe, unpadded (matches the route's b64u())
+    return base64.b64encode(b).decode().replace("+", "-").replace("/", "_").rstrip("=")
+def nl_unsub_token(email):
+    e = (email or "").strip().lower()
+    sig = hmac.new(NL_SECRET.encode(), f"{e}|nl".encode(), hashlib.sha256).digest()
+    return f"{_b64u(e.encode())}.{_b64u(sig)[:22]}"
+def unsub_url(email):
+    return f"{SITE}/api/newsletter/unsub?t={nl_unsub_token(email)}"
 
 def http(method, url, headers=None, body=None, timeout=60):
     req = urllib.request.Request(url, method=method, data=json.dumps(body).encode() if body is not None else None)
@@ -118,7 +130,7 @@ def render(post):
     Each event was reduced to a figure, then matched against the live Metatake corpus — every film and reading was confirmed before linking. <b style="color:#E3120B">Retrieved, not remembered.</b></td></tr>
   <tr><td style="padding:20px 24px 30px;font-family:Arial,sans-serif;font-size:12px;color:#9A9A9A">
     <a href="{SITE}/blog/{esc(post.get('slug'))}" style="color:#E3120B;font-weight:600;text-decoration:none">Read this edition online →</a><br><br>
-    You&apos;re getting this because you subscribed at metatake.net. To unsubscribe, reply with &ldquo;unsubscribe&rdquo;.<br>
+    You&apos;re getting this because you subscribed at metatake.net. <a href="__UNSUB_URL__" style="color:#9A9A9A;text-decoration:underline">Unsubscribe</a>.<br>
     © 2026 Metatake · Seoul, Republic of Korea</td></tr>
 </tbody></table></td></tr></tbody></table></body></html>"""
 
@@ -142,7 +154,7 @@ def main():
     subject = f"Between Film and the World — {pretty(post['edition_date'])}"
     html = render(post)
     preview = os.path.join(HERE, "blog-email-preview.html")
-    open(preview, "w", encoding="utf-8").write(html)
+    open(preview, "w", encoding="utf-8").write(html.replace("__UNSUB_URL__", unsub_url("subscriber@example.com")))
 
     st, tx = sb("GET", "newsletter_subscribers?status=eq.active&select=email&limit=20000")
     subs = [r["email"] for r in (json.loads(tx) if st == 200 else []) if r.get("email")]
@@ -161,7 +173,10 @@ def main():
     if not RESEND: print("\nMissing RESEND_API_KEY in .env.local — cannot send."); sys.exit(1)
 
     if TEST:
-        st, tx = resend_send([{ "from": FROM, "to": [TEST], "subject": "[TEST] " + subject, "html": html, "reply_to": REPLYTO }])
+        u = unsub_url(TEST)
+        st, tx = resend_send([{ "from": FROM, "to": [TEST], "subject": "[TEST] " + subject,
+                                "html": html.replace("__UNSUB_URL__", u), "reply_to": REPLYTO,
+                                "headers": {"List-Unsubscribe": f"<{u}>"} }])
         print(f"\nTest → {TEST}: {st} {tx[:200]}")
         return
 
@@ -169,11 +184,13 @@ def main():
     if post.get("sent_at") and not FORCE:
         print("\nThis edition is already marked sent. Re-run with --force to send again."); sys.exit(1)
     if not subs: print("\nNo active subscribers."); return
-    hdr = {"List-Unsubscribe": f"<mailto:{REPLYTO}?subject=unsubscribe>"}
     ok = 0; fail = 0
     for i in range(0, len(subs), 100):
         chunk = subs[i:i+100]
-        items = [{ "from": FROM, "to": [a], "subject": subject, "html": html, "reply_to": REPLYTO, "headers": hdr } for a in chunk]
+        # Per-recipient: mint THIS subscriber's unsub token → footer link + List-Unsubscribe header.
+        items = [{ "from": FROM, "to": [a], "subject": subject,
+                   "html": html.replace("__UNSUB_URL__", unsub_url(a)), "reply_to": REPLYTO,
+                   "headers": {"List-Unsubscribe": f"<{unsub_url(a)}>"} } for a in chunk]
         st, tx = resend_send(items)
         if st in (200, 201): ok += len(chunk); print(f"  batch {i//100+1}: sent {len(chunk)} ✓")
         else: fail += len(chunk); print(f"  batch {i//100+1}: FAILED {st} {tx[:200]}")

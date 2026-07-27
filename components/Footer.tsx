@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import SubscribeForm from "@/components/SubscribeForm";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { t } from "@/lib/i18n";
 
@@ -68,6 +69,16 @@ export default function Footer() {
               wonwoo@metatake.net
             </a>
           </div>
+        </div>
+
+        {/* Newsletter capture — calm, compact; persistent chrome, not a hero */}
+        <div
+          style={{ marginTop: 26, paddingTop: 20, borderTop: "1px solid var(--hairline)", maxWidth: 440 }}
+        >
+          <div className="footer-head" style={{ marginBottom: 8 }}>
+            {t(locale, "The Metatake Read — one film, read closely. Free.")}
+          </div>
+          <SubscribeForm source="footer" button="Subscribe" />
         </div>
 
         {/* TMDB attribution (required, SPEC §10) */}

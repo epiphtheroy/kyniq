@@ -23,6 +23,7 @@ import ICard from "./insp/ICard";
 import KV from "./insp/KV";
 import { useRoomActions } from "./useRoomActions";
 import MiniWorld from "./MiniWorld";
+import ActivationChecklist from "./ActivationChecklist";
 import { STR } from "./strings";
 import { NAV_ITEMS } from "@/lib/room/nav";
 import { num, IMG185, IMG342, tierOf, chipsOf, type WwiRow, type NavHistRow } from "@/lib/room/format";
@@ -317,6 +318,9 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           {data.hist?.length ? <span className="dk-idspark"><Spark rows={data.hist} /></span> : null}
         </div>
       ) : null}
+
+      {/* "Get set up" ladder — self-hides once import + services + 3★3.5+ are done */}
+      <ActivationChecklist ratedHigh={data.ratedHigh} seenCount={num(data.nav?.n_watched) ?? 0} />
 
       {/* ═ TONIGHT — what should I watch? ═ */}
       <section id="tonight" className="dk-sec">
