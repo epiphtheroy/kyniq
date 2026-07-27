@@ -49,13 +49,14 @@ export default function MetatakeDeck() {
   }, [avail]);
 
   const byId = useMemo(() => new Map((map?.stations ?? []).map((s) => [s.s, s])), [map]);
-  // the seen pile — up to 14 of the viewer's watched posters
+  // the seen pile — up to 9 of the viewer's watched posters (the fan is decorative;
+  // the real total shows in the label). Cap must match deck.css's --i centre (4).
   const seenPile = useMemo(() => {
     const out: OdyStation[] = [];
     for (const slug of seenSet) {
       const s = byId.get(slug);
       if (s?.p) out.push(s);
-      if (out.length >= 14) break;
+      if (out.length >= 9) break;
     }
     return out;
   }, [seenSet, byId]);
@@ -87,6 +88,16 @@ export default function MetatakeDeck() {
     void deal();
   }, [map, hasProvider, ufReady, deal]);
 
+  // Filters apply live: after the first hand is on screen, any filter change re-draws
+  // immediately (with the deal animation) instead of doing nothing until "Draw again".
+  const filtersMounted = useRef(false);
+  useEffect(() => {
+    if (!filtersMounted.current) { filtersMounted.current = true; return; } // skip mount
+    if (!autoDealt.current) return; // let the auto-deal land the first hand
+    void deal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [servicesOnly, country, yearMin, yearMax, genre]);
+
   const decades = useMemo(() => {
     const out: number[] = [];
     for (let d = 1900; d <= 2020; d += 10) out.push(d);
@@ -100,16 +111,16 @@ export default function MetatakeDeck() {
         <div className="deck-eyebrow">Drawn for you</div>
         <h2 className="deck-title">Nine films, picked from your taste</h2>
         <p className="deck-lede">
-          Not a list of good films — the next ones that fit you. From what you've seen, three ways forward: <b style={{ color: AXES[0].color }}>Stable</b> sits dead-centre of your taste,{" "}
-          <b style={{ color: AXES[1].color }}>Adventure</b> a step beyond, <b style={{ color: AXES[2].color }}>Frontier</b> a
-          different world entirely. Unseen films only, tuned to your settings.
+          Each is scored by how close it sits to the films you've marked seen, then dealt nearest-first across{" "}
+          <b style={{ color: AXES[0].color }}>Stable</b>, <b style={{ color: AXES[1].color }}>Adventure</b>, and{" "}
+          <b style={{ color: AXES[2].color }}>Frontier</b>. Mark any card seen, save it to your watchlist, or rate it in place.
         </p>
 
         {/* filters */}
         <div className="deck-filters">
           <label className="deck-chk">
             <input type="checkbox" checked={servicesOnly} onChange={(e) => setServicesOnly(e.target.checked)} />
-            On my services only
+            Available to stream
           </label>
           <select className="deck-sel" value={country} onChange={(e) => setCountry(e.target.value === "KR" ? "KR" : "US")} aria-label="Country">
             <option value="US">US</option>
@@ -236,12 +247,14 @@ function Card({ s, idx }: { s: OdyStation; idx: number }) {
             <div className="deal-actions" onClick={(e) => e.stopPropagation()}>
               <button className={`deal-act${seen ? " on" : ""}`} title="Seen" onClick={() => uf.toggleSeen({ slug: s.s })}>✓</button>
               <button className={`deal-act${watch ? " on" : ""}`} title="Watchlist" onClick={() => uf.toggleWatch({ slug: s.s })}>＋</button>
-              <div className="deal-stars" role="radiogroup" aria-label="Rating">
+              <div className="deal-stars" role="radiogroup" aria-label={rating ? `Rating: ${rating} of 5` : "Rating"}>
                 {[1, 2, 3, 4, 5].map((n) => (
                   <button
                     key={n}
                     className={`deal-star${rating >= n ? " on" : ""}`}
-                    aria-label={`${n} stars`}
+                    role="radio"
+                    aria-checked={rating === n}
+                    aria-label={`${n} star${n === 1 ? "" : "s"}`}
                     onClick={() => uf.rate({ slug: s.s }, rating === n ? 0 : n)}
                   >★</button>
                 ))}

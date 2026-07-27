@@ -293,6 +293,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const [open, setOpen] = useState(false); // sheet peek(false) / expanded(true)
   const [pick, setPick] = useState<NavFilm | null>(null); // map poster → info card
   const [ody, setOdy] = useState<OdyMap | null>(null); // the real /odyssey film-map
+  const [odyReady, setOdyReady] = useState(false); // fetch settled? (loading vs genuine off-map)
   const [size, setSize] = useState({ w: 0, h: 0 }); // map viewport px (for adaptive framing)
   const [culled, setCulled] = useState<BgStation[]>([]); // viewport-culled background films
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
@@ -306,7 +307,8 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   // load the odyssey map once (same-origin static asset); silent fallback on failure
   useEffect(() => {
     let live = true;
-    fetch("/odyssey/map.v1.json").then((r) => r.json()).then((m: OdyMap) => { if (live) setOdy(m); }).catch(() => {});
+    fetch("/odyssey/map.v1.json").then((r) => r.json()).then((m: OdyMap) => { if (live) setOdy(m); })
+      .catch(() => {}).finally(() => { if (live) setOdyReady(true); });
     return () => { live = false; };
   }, []);
   // measure the map viewport so the initial zoom can adapt to it
@@ -340,8 +342,18 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   }, []);
   useEffect(() => () => { if (commitTimerRef.current != null) clearTimeout(commitTimerRef.current); }, []);
 
-  // re-frame when the journey (or viewport) changes — plain panning never triggers this
-  useEffect(() => { viewRef.current = { ...defaultView }; setView(defaultView); paint(); }, [defaultView, paint]);
+  // Re-frame only on a new journey or a WIDTH change — plain panning never triggers this,
+  // and a height-only shift (opening the peek sheet, the mobile URL bar collapsing, rotation)
+  // must NOT snap the map home and throw away the user's pan/zoom. computeDefaultView ignores
+  // height (it's just a measured-guard), so height churn would otherwise reframe for free.
+  const framedRef = useRef<{ scene: Scene | null; w: number }>({ scene: null, w: 0 });
+  useEffect(() => {
+    if (!scene || !size.w || !size.h) return;
+    const f = framedRef.current;
+    if (f.scene === scene && f.w === size.w) return; // same journey & width → keep the user's view
+    framedRef.current = { scene, w: size.w };
+    viewRef.current = { ...defaultView }; setView(defaultView); paint();
+  }, [scene, size.w, size.h, defaultView, paint]);
 
   // Throttled viewport culling (Google-Maps style): once per animation frame recompute which
   // background films fall inside the buffered window, and only when that window actually moved
@@ -468,7 +480,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
     const x = rp.x!;
     const ph = size.h ? (rp.w * 1.5) / size.h * 100 : 16;      // standing-poster height, % of H
     const upY0 = rp.ny - ph - 3;                               // first slot above clears the poster
-    const dnY0 = rp.ny + (size.h ? 3400 / size.h : 7) + 3;     // first slot below clears pole+caption
+    const dnY0 = rp.ny + (size.h ? 8200 / size.h : 16) + 1.5;  // first slot below clears the pole + 2-line caption & meta
     const gap = 9;                                             // spacing between stacked crossing films
     let up = 0, dn = 0;
     const ys = x.members.map((_, k) => clamp(k % 2 === 0 ? upY0 - up++ * gap : dnY0 + dn++ * gap, 4, 96));
@@ -478,7 +490,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
         <span className="xline" style={{ left: `${rp.nx}%`, top: `${top}%`, height: `${bot - top}%`, background: x.color }} />
         <span className="xlabel" style={{ left: `${rp.nx}%`, top: `${clamp(top - 3.5, 2, 97)}%`, background: x.color }}>{x.name}</span>
         {x.members.map((m, k) => (
-          <button type="button" key={m.slug} className="xp" style={{ left: `${rp.nx}%`, top: `${ys[k]}%`, borderColor: x.color }}
+          <button type="button" key={m.slug} className="xp" aria-label={m.title} style={{ left: `${rp.nx}%`, top: `${ys[k]}%`, borderColor: x.color }}
             onPointerDown={(e) => e.stopPropagation()} onClick={() => setPick(m)}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={po(m.poster_path)} alt="" loading="eager" draggable={false} />
@@ -513,7 +525,7 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
           <span className="po" style={{ backgroundImage: `url(${po(next.poster_path)})` }} />
           <div className="tx">
             <div className="tt">{next.title}</div>
-            <div className="mt">{next.year ?? "?"} · {next.runtime ? `${next.runtime} min` : "—"} · {turnReason(next, dest, stats)}</div>
+            <div className="mt">{[next.year ?? "?", next.runtime ? `${next.runtime} min` : "—", turnReason(next, dest, stats)].filter(Boolean).join(" · ")}</div>
             {next.availability !== "none" ? (
               <span className={`lane${laneRent ? " rent" : ""}`}><span className="d" />{laneRent ? "Rent" : "Play now"}</span>
             ) : null}
@@ -618,10 +630,16 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                 <path d={ROUTE_D} fill="none" stroke="#ffffffcc" strokeWidth="1.3" strokeDasharray="2 3" vectorEffect="non-scaling-stroke" />
               </svg>
               <div className="street cur" style={{ left: "12%", top: "91%" }}>{roadName}</div>
-              <div className="street" style={{ left: "31%", top: "40%" }}>Noir Line →</div>
-              <div className="street" style={{ left: "55%", top: "27%" }}>New Wave Way</div>
-              <div className="street" style={{ left: "73%", top: "88%" }}>Neorealism Rd</div>
-              <div className="street" style={{ left: "89%", top: "17%" }}>Formalist Blvd</div>
+              {/* invented lineage road-names are flavour for the genuine off-map fallback only —
+                  suppress them during the brief map-loading window so they never flash as "real" */}
+              {odyReady ? (
+                <>
+                  <div className="street" style={{ left: "31%", top: "40%" }}>Noir Line →</div>
+                  <div className="street" style={{ left: "55%", top: "27%" }}>New Wave Way</div>
+                  <div className="street" style={{ left: "73%", top: "88%" }}>Neorealism Rd</div>
+                  <div className="street" style={{ left: "89%", top: "17%" }}>Formalist Blvd</div>
+                </>
+              ) : null}
               {near.map((stop, i) => sp(stop, WAYPOINTS[i], i === 0))}
               {!destIsNear ? (
                 <button type="button" className="sp dest" style={{ left: "90%", top: "33%" }} onClick={() => setPick(finalStop.film)}>
@@ -695,7 +713,14 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
               <div className="steps-row">
                 {route.stops.map((s, i) => (
                   <Link key={s.film.slug} href={`/film/${s.film.slug}`} className={`step${i === 0 ? " now" : ""}`} title={s.film.title}>
-                    <span className="step-po" style={{ backgroundImage: `url(${po(s.film.poster_path)})` }}>
+                    {/* real <img loading="lazy"> so a long remaining route (hundreds/~1000 stops)
+                        doesn't fire every poster request the moment the sheet expands — off-screen
+                        posters in this horizontal scroller load only as they're scrolled near */}
+                    <span className="step-po">
+                      {s.film.poster_path ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img className="step-img" src={po(s.film.poster_path)} alt="" loading="lazy" draggable={false} />
+                      ) : null}
                       <span className="step-n">{i + 1}</span>
                     </span>
                     <span className="step-t">{s.film.title}</span>

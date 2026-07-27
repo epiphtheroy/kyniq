@@ -1,7 +1,7 @@
 /* The Navigator — web drive view (P3). Self-contained light palette so it works
    inside the room without depending on room.css scope. Ported from the P1
    prototype (public/navigator-preview.html). */
-.navd{--ink:#161512;--sub:#8A857C;--line:#E4DFD3;--red:#E3120B;--blue:#3B7DED;
+.navd{--ink:#161512;--sub:#6E695F;--line:#E4DFD3;--red:#E3120B;--blue:#3B7DED;
   --green:#1E7A46;--gold:#8F6A1E;--road:#D8D0BC;--field:#E9E2D0;
   position:relative;display:flex;flex-direction:column;width:100%;max-width:520px;margin:0 auto;
   height:min(780px,calc(100dvh - 108px));min-height:520px;background:var(--field);border-radius:16px;overflow:hidden;
@@ -139,12 +139,13 @@
 .navd .steps-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:5px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 .navd .step{flex:0 0 auto;width:66px;text-decoration:none}
 .navd .step-po{display:block;position:relative;width:66px;height:99px;border-radius:7px;background:#d9d2c2 center/cover;border:1px solid var(--line)}
+.navd .step-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:7px;background:#d9d2c2}
 .navd .step.now .step-po{border-color:var(--red);box-shadow:0 0 0 2px rgba(227,18,11,.28)}
 .navd .step-n{position:absolute;left:4px;top:4px;min-width:16px;height:16px;padding:0 3px;border-radius:99px;background:rgba(20,18,14,.72);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
 .navd .step.now .step-n{background:var(--red)}
 .navd .step-t{display:block;font-size:10px;font-weight:700;color:var(--ink);margin-top:4px;line-height:1.2;max-height:24px;overflow:hidden}
 .navd .step-m{display:block;font-size:9px;color:var(--sub);margin-top:1px}
-.navd .arrived{text-align:center;padding:40px 20px}
+.navd .arrived{text-align:center;padding:40px 20px;margin:auto}
 .navd .arrived .big{font-size:22px;font-weight:800;margin:8px 0}
 
 /* ── "Where to?" picker (P5) ── */
@@ -192,7 +193,7 @@
 .navd.np .np-card.on .np-go{color:var(--green)}
 
 /* ── Two-pane shell (P5) — left destination rail · right drive map (Google-Maps desktop shape) ── */
-.nav-shell{--ink:#161512;--sub:#8A857C;--line:#E4DFD3;--field:#E9E2D0;--green:#1E7A46;
+.nav-shell{--ink:#161512;--sub:#6E695F;--line:#E4DFD3;--field:#E9E2D0;--green:#1E7A46;
   display:grid;grid-template-columns:minmax(320px,380px) 1fr;gap:18px;
   max-width:1180px;margin:0 auto;padding:14px 16px;box-sizing:border-box;
   /* fit exactly under the site nav + room bar so the whole two-pane shows without an initial scroll */

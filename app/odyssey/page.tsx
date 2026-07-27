@@ -51,7 +51,7 @@ export default function OdysseyPage() {
             tilt the plane (⌘/Ctrl-drag) to trace the roads, and let a destination mode propose your
             next ride. The point is to travel far without a failed night.{" "}
             <Link href="/journey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>
-              Or let Metatake deal you a journey →
+              Or let Metatake deal you a hand, picked for you →
             </Link>
           </p>
         </header>

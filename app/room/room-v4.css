@@ -4,8 +4,11 @@
    (six doors + More). Colors come from the v4 light tokens in room.css; this
    file is layout/chrome only. */
 
-.room-root.room-v4{position:static;inset:auto;display:block;height:auto;min-height:60vh}
-.room-v4 .shell{display:block;height:auto}
+/* overflow:visible is load-bearing here — base room.css sets overflow:hidden on
+   .room-root and .shell (the old fixed-inset takeover). Left in place they become
+   the sticky scroll-container and defeat the sticky room bar + section tabs. */
+.room-root.room-v4{position:static;inset:auto;display:block;height:auto;min-height:60vh;overflow:visible}
+.room-v4 .shell{display:block;height:auto;overflow:visible}
 .room-v4 .col{height:auto}
 .room-v4 .col-scroll{overflow:visible;height:auto}
 .room-v4 .main{max-width:1280px;margin:0 auto;padding:0 20px 40px}
@@ -54,8 +57,10 @@
 /* ── v4.1 — previews, not doors (오너 피드백 2026-07-26: 중간공백 금지·
       2~3단 조판·지도/막대/얼굴을 직접 보여주기) ─────────────────────── */
 
-/* roombar: balanced 3-zone — doors centered, not sagging left */
-.room-v4 .rb-doors{justify-content:center}
+/* roombar: balanced 3-zone — doors centered when they fit, but `safe` falls back
+   to flex-start on overflow so the leading doors never scroll out of reach (the row
+   is overflow-x:auto; plain `center` clips the left-overflowed doors unreachably). */
+.room-v4 .rb-doors{justify-content:safe center}
 .room-v4 .rb-home{flex:0 0 auto}
 .room-v4 .abright{flex:0 0 auto}
 /* NAV chip: compact pill (the light theme made the spark read as a stray underline) */
@@ -145,6 +150,21 @@
 
 /* v4.1 polish: hero must not stretch to the side column's height */
 .room-v4 .dk-2col:not(.dk-2col--even){align-items:start}
+
+/* Tonight hero a11y (cluster W-ROOM): the card is a plain wrapper — the opener is a
+   real <button> whose hit-area is stretched over the whole card via ::after, so the
+   poster/title still open the inspector, while the reason chips and Keep/Seen/Another
+   sit above it (z-index) as independent, keyboard-operable controls. */
+.room-v4 .today{position:relative}
+.room-v4 .today .tt-open{display:block;text-align:left;background:none;border:0;padding:0;cursor:pointer;font-family:inherit}
+.room-v4 .today .tt-open::after{content:"";position:absolute;inset:0;z-index:0}
+.room-v4 .today .twhy,.room-v4 .today .tact{position:relative;z-index:1}
+.room-v4 .today .tact .actbtn{font-family:inherit}
+
+/* Session-tape poster cards → real <button> (matching .dk-jcard / .dk-up): reset the
+   native button chrome and keep the rating line block-level below the poster. */
+.room-v4 .postrip .pcard{background:none;border:0;padding:0;font-family:inherit;text-align:center;cursor:pointer}
+.room-v4 .postrip .pst{display:block}
 
 /* the room ticker joins the paper (last black stripe in the light room) */
 .room-v4 .stk--room{background:#FFFFFF;border:1px solid #E4DFD3;border-radius:10px}

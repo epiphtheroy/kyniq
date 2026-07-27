@@ -36,6 +36,13 @@ export type UpdatePost = {
 
 export const UPDATES: UpdatePost[] = [
   {
+    id: "2026-07-27-navigator",
+    date: "2026-07-27",
+    cat: "feature",
+    title: "The Navigator: your next film, one turn at a time",
+    body: "[The Navigator](/room/navigator) turns your unwatched films into a turn-by-turn route across the film map: choose a destination — a director, a canon, an award like the Palme d'Or, a decade, or the services you subscribe to — and it calls your next film one turn at a time, always leaving out what you have already seen. The map is there to pan and read on its own terms, with films as stations, lineages as the lines that run through them, and interchange stations where a film sits on more than one line; search for any list to set a course, even by a festival's name. The same guidance travels on the [mobile app](/app).",
+  },
+  {
     id: "2026-07-18-credit-intent",
     date: "2026-07-18",
     cat: "policy",

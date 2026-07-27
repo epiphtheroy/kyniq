@@ -26,7 +26,7 @@ export default function BoardPage() {
             Choose a scale — the top <b>100 · 500 · 1,000</b> or <b>all</b> — and it shows how many you've seen.{" "}
             Turn on <b>Seen · Watchlist · On my services</b> to light those films up, filter by year or genre,
             or switch the Show filter to survey only what you've seen. Hover for a summary, or click for details.{" "}
-            <Link href="/journey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>The Journey →</Link>{" "}
+            <Link href="/journey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>For You →</Link>{" "}
             <Link href="/odyssey" className="accent" style={{ textDecoration: "none", fontWeight: 600 }}>Odyssey map →</Link>
           </p>
         </header>

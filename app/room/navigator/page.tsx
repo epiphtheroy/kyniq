@@ -78,8 +78,12 @@ export default async function NavigatorPage({
   }
   const decadeCard = (d: number): PickDest => ({ kind: "decade", key: String(d), label: `${d}s essentials`, seen: decadeSeen.get(d) ?? 0, total: 0, pct: 0 });
   const partial = DECADES.filter((d) => (decadeSeen.get(d) ?? 0) > 0);
-  const decades: PickDest[] = (partial.length ? partial.sort((a, b) => (decadeSeen.get(b) ?? 0) - (decadeSeen.get(a) ?? 0)) : DECADES)
-    .slice(0, 6).map(decadeCard);
+  // Cold-start (nothing logged in-range) shows ALL seven decades incl. the 1950s; partial coverage
+  // features the six most-logged. (Slicing both would silently drop the oldest decade for new users.)
+  const decades: PickDest[] = (partial.length
+    ? partial.sort((a, b) => (decadeSeen.get(b) ?? 0) - (decadeSeen.get(a) ?? 0)).slice(0, 6)
+    : DECADES
+  ).map(decadeCard);
   const sub: PickDest = { kind: "sub", key: "mine", label: "Best on your subscriptions", seen: 0, total: 0, pct: 0 };
 
   // ── Full list catalog for the "All lists" browse-all — loaded only when the
