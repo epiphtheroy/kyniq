@@ -7,8 +7,9 @@
  * A never-touched film referenced by slug resolves its id lazily on first toggle. Logged-out → /login.
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
+import { requireAuthEvent } from "@/lib/conversion/bus";
+import type { IntentVerb } from "@/lib/conversion/intent";
 
 export type FilmState = { seen: boolean; watchlist: boolean; rating: number };
 export type FilmKey = { id?: string | null; slug?: string | null };
@@ -30,7 +31,6 @@ function sb() {
 }
 
 export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
   const [ready, setReady] = useState(false);
   const [uid, setUid] = useState<string | null>(null);
   const [map, setMap] = useState<Record<string, FilmState>>({});
@@ -89,8 +89,16 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
     else await c.from("user_movies").upsert({ user_id: uid!, film_id: id, seen: s.seen, watchlist: s.watchlist, rating: s.rating || null }, { onConflict: "user_id,film_id" });
   }, [uid]);
 
-  const apply = useCallback(async (key: FilmKey, patch: (cur: FilmState) => FilmState) => {
-    if (!uid) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return; }
+  const apply = useCallback(async (key: FilmKey, patch: (cur: FilmState) => FilmState, hint?: { v: IntentVerb; rating?: number }) => {
+    if (!uid) {
+      // Anon → in-context AuthSheet (ConversionProvider listens), replaying this exact
+      // action after sign-in. Falls back to a bare gate if no declarative slug is known.
+      requireAuthEvent({
+        ctx: { kind: "save", verb: hint?.v ?? "seen" },
+        decl: hint && key.slug ? { v: hint.v, slug: key.slug, rating: hint.rating } : undefined,
+      });
+      return;
+    }
     const id = await resolveId(key);
     if (!id) return;
     setMap((prev) => {
@@ -98,7 +106,7 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
       persist(id, next);
       return { ...prev, [id]: next };
     });
-  }, [uid, router, resolveId, persist]);
+  }, [uid, resolveId, persist]);
 
   // idBySlug is a ref, but it is always populated before the setMap that makes a
   // film seen (initial load and lazy resolve both write the index first), so a
@@ -115,9 +123,9 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
       const id = key.id ?? (key.slug ? idBySlug.current[key.slug] : null);
       return (id && map[id]) || EMPTY;
     },
-    toggleSeen: (key) => apply(key, (c) => ({ ...c, seen: !c.seen, rating: c.seen ? 0 : c.rating })),
-    toggleWatch: (key) => apply(key, (c) => ({ ...c, watchlist: !c.watchlist })),
-    rate: (key, n) => apply(key, (c) => ({ ...c, rating: c.rating === n ? 0 : n, seen: c.rating === n ? c.seen : true })),
+    toggleSeen: (key) => apply(key, (c) => ({ ...c, seen: !c.seen, rating: c.seen ? 0 : c.rating }), { v: "seen" }),
+    toggleWatch: (key) => apply(key, (c) => ({ ...c, watchlist: !c.watchlist }), { v: "watchlist" }),
+    rate: (key, n) => apply(key, (c) => ({ ...c, rating: c.rating === n ? 0 : n, seen: c.rating === n ? c.seen : true }), { v: "rate", rating: n }),
   }), [ready, uid, apply, map, seenSlugs]);
 
   return <UserFilms.Provider value={value}>{children}</UserFilms.Provider>;

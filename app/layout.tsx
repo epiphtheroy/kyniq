@@ -7,6 +7,7 @@ import LocaleSuggestBanner from "@/components/i18n/LocaleSuggestBanner";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { LensProvider } from "@/components/LensProvider";
+import ConversionProvider from "@/components/conversion/ConversionProvider";
 import { pageRobots, ORG_SAME_AS, KNOWS_ABOUT, PERSON_SAME_AS } from "@/lib/seo";
 import "./globals.css";
 
@@ -158,7 +159,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
         <LocaleSuggestBanner />
-        <UserFilmsProvider><UserSavesProvider><LensProvider>{children}</LensProvider></UserSavesProvider></UserFilmsProvider>
+        <UserFilmsProvider><UserSavesProvider><LensProvider><ConversionProvider>{children}</ConversionProvider></LensProvider></UserSavesProvider></UserFilmsProvider>
         <Footer />
         <GlobalCmdK />
         <Analytics />
