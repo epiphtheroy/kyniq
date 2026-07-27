@@ -12,6 +12,7 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useUserFilms } from "@/components/UserFilmsProvider";
+import { useConversion } from "@/components/conversion/ConversionProvider";
 import type { OdyAvail, OdyMap, OdyStation } from "@/lib/odyssey/types";
 import { AXES, dealJourney, type DealFilters, type DealResult } from "@/lib/odyssey/deal";
 
@@ -21,6 +22,9 @@ const NOW = 2025;
 export default function MetatakeDeck() {
   const uf = useUserFilms();
   const seenSet = uf?.seenSlugs ?? (new Set() as ReadonlySet<string>);
+  // Nullable by design (ConversionProvider may be absent) — the CTA only renders
+  // when the provider is present and the visitor is signed out.
+  const conv = useConversion();
 
   const [map, setMap] = useState<OdyMap | null>(null);
   const [avail, setAvail] = useState<OdyAvail | null>(null);
@@ -156,7 +160,25 @@ export default function MetatakeDeck() {
             ) : (
               <div className="deck-pile deck-pile-empty" aria-hidden="true" />
             )}
-            <div className="deck-seen-label">{seenSet.size ? <><b>{seenSet.size}</b> you've seen</> : "Nothing logged yet"}</div>
+            <div className="deck-seen-label">
+              {seenSet.size ? (
+                <><b>{seenSet.size}</b> you've seen</>
+              ) : conv && !conv.signedIn ? (
+                <button
+                  type="button"
+                  onClick={() => conv.openAuth({ ctx: { kind: "claim", surface: "lens" } })}
+                  style={{
+                    background: "none", border: 0, padding: 0, margin: 0, font: "inherit",
+                    color: "#f0c04b", fontWeight: 700, cursor: "pointer",
+                    textDecoration: "underline", textUnderlineOffset: "2px",
+                  }}
+                >
+                  Log the films you&apos;ve seen →
+                </button>
+              ) : (
+                "Nothing logged yet"
+              )}
+            </div>
           </div>
 
           <button

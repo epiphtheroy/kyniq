@@ -2,6 +2,7 @@ import Link from "next/link";
 import { hubExploreData, type HubKind } from "@/lib/hubExplore";
 import BroadcastCard from "@/components/BroadcastCard";
 import { playlistExists } from "@/lib/tvExists";
+import JoinCard from "@/components/conversion/JoinCard";
 
 /**
  * HubExplore — the "Keep exploring" footer for entity/category hub pages
@@ -54,6 +55,10 @@ export default async function HubExplore({ kind, slug }: { kind: HubKind; slug: 
           <span key={c.href}><br /><Link href={c.href}>{c.label} →</Link></span>
         ))}
       </p>
+
+      <div style={{ marginTop: 32 }}>
+        <JoinCard variant="hub" source="hub" />
+      </div>
     </section>
     </>
   );

@@ -38,6 +38,7 @@ import PosterActions from "@/components/PosterActions";
 import LensDirectorCoverage from "@/components/LensDirectorCoverage";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import JoinCard from "@/components/conversion/JoinCard";
 import TakeScoreBoxes from "@/components/read/TakeScoreBoxes";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { cachedRankedScores } from "@/lib/takescore-bulk";
@@ -1328,6 +1329,8 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
             <CreditsExplorer embed initialD={director} />
           </Suspense>
         </section>
+
+        <JoinCard variant="director" source="director-main" />
       </div>
 
       {/* Bottom plate band — doors to every director article that exists

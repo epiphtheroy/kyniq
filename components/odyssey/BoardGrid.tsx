@@ -13,6 +13,8 @@
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useUserFilms } from "@/components/UserFilmsProvider";
+import { useConversion } from "@/components/conversion/ConversionProvider";
+import { mtEvent } from "@/components/mtTrack";
 import type { OdyAvail, OdyMap, OdyStation } from "@/lib/odyssey/types";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -33,10 +35,19 @@ const TARGET_W: Record<Scale, number> = { 100: 132, 500: 92, 1000: 76, 2000: 62 
 const GAP = 4;
 
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
+// Inline "link button": an in-context AuthSheet trigger that reads as a text link.
+// Board CSS is out of scope here, so the link affordance is styled inline.
+const LINK_BTN: React.CSSProperties = {
+  background: "none", border: 0, padding: 0, margin: 0, font: "inherit", cursor: "pointer",
+  textDecoration: "underline", textUnderlineOffset: "2px", fontWeight: 700,
+};
 
 export default function BoardGrid() {
   const uf = useUserFilms();
   const seenSet = uf?.seenSlugs ?? EMPTY;
+  // Nullable by design: if the ConversionProvider isn't mounted, we fall back to
+  // the plain /login link so the readout is never a dead end.
+  const conv = useConversion();
 
   const [map, setMap] = useState<OdyMap | null>(null);
   const [avail, setAvail] = useState<OdyAvail | null>(null);
@@ -90,6 +101,12 @@ export default function BoardGrid() {
   useEffect(() => { try { localStorage.setItem("ody.cc", country); } catch {} }, [country]);
   useEffect(() => { try { localStorage.setItem("board.scale", String(scale)); } catch {} }, [scale]);
   useEffect(() => { try { localStorage.setItem("board.seen", seenMode); } catch {} }, [seenMode]);
+
+  // A signed-out visitor sees an in-context join invitation in place of the seen
+  // count; count that it surfaced (once per page — mtEvent dedupes on path|name).
+  useEffect(() => {
+    if ((uf?.ready ?? false) && !uf?.uid) mtEvent("nudge_shown:board");
+  }, [uf?.ready, uf?.uid]);
 
   const byId = useMemo(() => new Map((map?.stations ?? []).map((s) => [s.s, s])), [map]);
   const availCC = useMemo(() => (avail ? avail[country] ?? {} : null), [avail, country]);
@@ -216,6 +233,14 @@ export default function BoardGrid() {
             <>Counting what you've seen…</>
           ) : signedIn ? (
             <>You've seen <b>{seenInSurvey.toLocaleString()}</b> of <b>{survey.length.toLocaleString()}</b> on this board</>
+          ) : conv ? (
+            <>
+              <button type="button" className="accent" style={LINK_BTN}
+                onClick={() => conv.openAuth({ ctx: { kind: "claim", surface: "board" } })}>
+                Sign in
+              </button>{" "}
+              to see how many of these <b>{survey.length.toLocaleString()}</b> you've watched — your canon lights up.
+            </>
           ) : (
             <><Link className="accent" href="/login?next=/board">Sign in</Link> to see how many of these <b>{survey.length.toLocaleString()}</b> you've watched</>
           )}

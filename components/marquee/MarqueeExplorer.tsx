@@ -20,6 +20,8 @@ import { useUserFilms } from "@/components/UserFilmsProvider";
 import PosterActions from "@/components/PosterActions";
 import FilmCardPanel from "@/components/screener/FilmCardPanel";
 import ServicesPicker, { type Service } from "@/components/marquee/ServicesPicker";
+import { loadAccountServices, saveAccountServices } from "@/lib/conversion/services";
+import { useConversion } from "@/components/conversion/ConversionProvider";
 import AccessBadges, { type AvailRow } from "@/components/marquee/AccessBadges";
 import type { ScrRow, Country } from "@/components/screener/ScreenerExplorer";
 import { WTW_GENRES } from "@/lib/wtw_genres";
@@ -63,6 +65,7 @@ export default function MarqueeExplorer({
 }) {
   const uf = useUserFilms();
   const uid = uf?.uid ?? null;
+  const conv = useConversion();
   const seenSlugs = uf?.seenSlugs;
 
   const [country, setCountry] = useState(DEFAULT_CFG.country);
@@ -140,7 +143,25 @@ export default function MarqueeExplorer({
       localStorage.setItem("mt-marquee-cfg", JSON.stringify(currentCfg()));
       localStorage.setItem("mt-watch-prefs", JSON.stringify({ country, providers }));
     } catch { /* ignore */ }
-  }, [currentCfg, country, providers]);
+    // Mirror to the account so services survive across devices + reach the room
+    // (fault-soft: no-op until migration 0114 is applied). See services→account, P4.
+    if (uid) saveAccountServices(country, providers);
+  }, [currentCfg, country, providers, uid]);
+
+  // On sign-in, the account is the source of truth for a member's services; if the
+  // account has none yet, migrate the local prefs up. Fault-soft (null until 0114).
+  useEffect(() => {
+    if (!uid) return;
+    let alive = true;
+    (async () => {
+      const acc = await loadAccountServices();
+      if (!alive) return;
+      if (acc && (acc.providers.length || acc.country)) applyCfg({ country: acc.country, providers: acc.providers });
+      else if (providers.length) saveAccountServices(country, providers);
+    })();
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uid]);
 
   // Country options: SSR passes them, but if the ISR snapshot was rendered while
   // wtw_countries was empty/timed-out, fetch them client-side so the dropdown always
@@ -288,6 +309,12 @@ export default function MarqueeExplorer({
                 </select>
               ) : null}
             </>
+          ) : conv ? (
+            // Anon → in-context sheet. If they've configured services, the highest-intent
+            // moment: "keep your services" persists them to the account on sign-in (P4).
+            <button type="button" className="mq-signin" onClick={() => conv.openAuth({ ctx: { kind: "claim", surface: providers.length ? "services" : "room" } })}>
+              {providers.length ? "Sign in to keep your services" : "Sign in to save views"}
+            </button>
           ) : <Link className="mq-signin" href={`/login?next=${encodeURIComponent("/what-to-watch")}`}>Sign in to save views</Link>}
 
           <span className="mq-bar-sep" />
