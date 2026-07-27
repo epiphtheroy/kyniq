@@ -283,6 +283,7 @@ export const es: Record<keyof typeof en, string> = {
   "nav.resume": "Reanudar →",
   "nav.takescore": "TakeScore",
   "nav.now": "Ahora",
+  "nav.ts": "TS {n}",
   "nav.open": "Abrir →",
   // The Navigator — mapa v3 (carril héroe de la odisea)
   "nav.durHM": "{h}h {m}m",

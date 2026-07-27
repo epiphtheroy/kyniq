@@ -379,11 +379,18 @@ export default function NavigatorDriveScreen() {
   const frameRef = useRef({ w: 0, h: 0, k: 1 }); // box + scale, read inside the responder
   const cellRef = useRef({ qx: 9999, qy: 9999 }); // last quantised cull cell
   const CELL = 22; // cull-centre quantum, in lane units
+  // The LIVE (un-quantized) pan centre in lane units, updated on every pan frame. The
+  // background cull reads the throttled `viewCenter` cell (its lag is invisible), but the
+  // ROUTE-node window must never lag the pan — a stale window would misclassify on-screen
+  // posters as number-only. So route culling reads this ref (the exact current transform)
+  // at render time, mirroring the web fix of computing the route window from the live view.
+  const liveCenterRef = useRef({ cx: 50, cy: 50 });
   const pushCenter = useCallback((px: number, py: number) => {
     const { w, h, k: kk } = frameRef.current;
     if (!w || !h) return;
     const cx = 50 - (100 * px) / (kk * w);
     const cy = 50 - (100 * py) / (kk * h);
+    liveCenterRef.current = { cx, cy }; // live centre → route-node window (never quantized)
     const qx = Math.round(cx / CELL),
       qy = Math.round(cy / CELL);
     if (qx !== cellRef.current.qx || qy !== cellRef.current.qy) {
@@ -588,6 +595,7 @@ export default function NavigatorDriveScreen() {
       cellRef.current = { qx: 9999, qy: 9999 };
       setK(kk);
       pan.setValue({ x: tx, y: ty });
+      liveCenterRef.current = { cx: 50 - (100 * tx) / (kk * w), cy: 50 - (100 * ty) / (kk * h) };
       setViewCenter({ cx: 50 - (100 * tx) / (kk * w), cy: 50 - (100 * ty) / (kk * h) });
     } else {
       // synthetic fallback overworld — unit scale, soft box clamp around centre
@@ -595,6 +603,7 @@ export default function NavigatorDriveScreen() {
       defaultRef.current = { tx: 0, ty: 0, k: 1 };
       frameRef.current = { w, h, k: 1 };
       panBase.current = { x: 0, y: 0 };
+      liveCenterRef.current = { cx: 50, cy: 50 };
       setK(1);
       pan.setValue({ x: 0, y: 0 });
     }
@@ -677,13 +686,13 @@ export default function NavigatorDriveScreen() {
     { left: 89, top: 17, label: "Formalist Blvd", cur: false },
   ];
 
-  // Route-node viewport culling (mirrors web inWin/inDotBand). Only stops inside the
-  // visible lane window + a one-screen buffer mount as full poster nodes; a wider band
-  // renders lightweight numbered dots; the rest render nothing (the SVG lane still draws
-  // the road end-to-end). "Now" (stop 0) and the 🏁 destination ALWAYS render as full
-  // posters regardless of window. Derived from the same pan centre (viewCenter, lane
-  // units) + scale k the background cull uses — so panning the lane continuously reveals
-  // each film's poster and a 1000-stop route never mounts 1000 images.
+  // Route-node viewport culling (mirrors web inWin/inDotBand), computed from the LIVE pan
+  // centre (liveCenterRef, exact — NOT the quantized viewCenter the background uses) so the
+  // poster window never lags the pan: every on-screen node + a full one-screen buffer on
+  // each side ALWAYS renders as a full poster. A wider band renders lightweight numbered
+  // dots (for 1000-stop lists); the rest render nothing (the SVG lane still draws the road
+  // end-to-end). "Now" (stop 0) and the 🏁 destination are always full regardless of window.
+  const rc = liveCenterRef.current; // exact current pan centre, in lane units
   const rnFullHalf = 50 / k + 100 / k; // visible half-span + one-screen buffer
   const rnDotHalf = rnFullHalf * 2.2; // wider band → dots (web winPad = 0.6·window width)
 
@@ -823,16 +832,26 @@ export default function NavigatorDriveScreen() {
                     <Rect x={-10} y={76} width={scene.L + 20} height={24} fill="#CFE0A8" opacity={0.3} />
                     <Rect x={-10} y={34} width={scene.L + 20} height={32} fill="#E9E1C6" opacity={0.5} />
                     {scene.cross.map((c) => (
-                      <Path
-                        key={c.id}
-                        d={c.d}
-                        fill="none"
-                        stroke="#C3B89E"
-                        strokeWidth={6}
-                        vectorEffect="non-scaling-stroke"
-                        strokeLinecap="round"
-                        opacity={0.66}
-                      />
+                      <React.Fragment key={c.id}>
+                        <Path
+                          d={c.d}
+                          fill="none"
+                          stroke="#B4A683"
+                          strokeWidth={6.5}
+                          vectorEffect="non-scaling-stroke"
+                          strokeLinecap="round"
+                          opacity={0.85}
+                        />
+                        <Path
+                          d={c.d}
+                          fill="none"
+                          stroke="#D8CFB6"
+                          strokeWidth={2.6}
+                          vectorEffect="non-scaling-stroke"
+                          strokeLinecap="round"
+                          opacity={0.72}
+                        />
+                      </React.Fragment>
                     ))}
                   </Svg>
 
@@ -843,13 +862,13 @@ export default function NavigatorDriveScreen() {
                       key={d.key}
                       style={{
                         position: "absolute",
-                        left: (d.nx / 100) * mapBox.w - 2.5,
-                        top: (d.ny / 100) * mapBox.h - 2.5,
-                        width: 5,
-                        height: 5,
+                        left: (d.nx / 100) * mapBox.w - 3,
+                        top: (d.ny / 100) * mapBox.h - 3,
+                        width: 6,
+                        height: 6,
                         borderRadius: 3,
-                        backgroundColor: "#b2a88f",
-                        opacity: 0.4,
+                        backgroundColor: "#9a8f72",
+                        opacity: 0.5,
                       }}
                     />
                   ))}
@@ -858,12 +877,12 @@ export default function NavigatorDriveScreen() {
                       key={bp.key}
                       style={{
                         position: "absolute",
-                        left: (bp.nx / 100) * mapBox.w - 9,
-                        top: (bp.ny / 100) * mapBox.h - 13,
-                        opacity: 0.34,
+                        left: (bp.nx / 100) * mapBox.w - 10,
+                        top: (bp.ny / 100) * mapBox.h - 15,
+                        opacity: 0.55,
                       }}
                     >
-                      <PosterImg path={bp.p} width={18} height={27} size="w92" rounded={3} />
+                      <PosterImg path={bp.p} width={20} height={30} size="w92" rounded={3} />
                     </View>
                   ))}
 
@@ -890,7 +909,7 @@ export default function NavigatorDriveScreen() {
                         top: (c.ly / 100) * mapBox.h,
                         transform: [{ translateX: -32 }, { translateY: -8 }],
                         maxWidth: 120,
-                        backgroundColor: "rgba(156,146,124,0.82)",
+                        backgroundColor: "rgba(95,86,71,0.96)",
                         borderRadius: 6,
                         paddingHorizontal: 7,
                         paddingVertical: 1,
@@ -924,10 +943,10 @@ export default function NavigatorDriveScreen() {
                       full posters inside the visible window + one-screen buffer (Now & the
                       destination always), lightweight numbered dots in a wider band, nothing
                       far off (the SVG lane still shows the road end-to-end). Caption under
-                      every full node = title · year · TakeScore. */}
+                      every full node = title · (year · director); TakeScore is its own badge. */}
                   {scene.routePts.map((rp, i) => {
-                    const dx = Math.abs(rp.nx - viewCenter.cx);
-                    const dy = Math.abs(rp.ny - viewCenter.cy);
+                    const dx = Math.abs(rp.nx - rc.cx);
+                    const dy = Math.abs(rp.ny - rc.cy);
                     const full = rp.now || rp.dest || (dx <= rnFullHalf && dy <= rnFullHalf);
                     if (!full) {
                       // out of the poster window → a lightweight numbered dot on the lane
@@ -961,9 +980,9 @@ export default function NavigatorDriveScreen() {
                     const ph = Math.round(rp.w * 1.5);
                     const badgeBg = rp.now ? RED : rp.dest ? GOLD : BLUE;
                     const yr = rp.stop.year != null ? String(rp.stop.year) : null;
-                    const ts =
-                      rp.stop.takescore != null ? `${Math.round(rp.stop.takescore)} ${t("nav.takescore")}` : null;
-                    const meta = [yr, ts].filter(Boolean).join(" · ");
+                    const dir = rp.stop.director || null;
+                    const meta = [yr, dir].filter(Boolean).join(" · ");
+                    const tsVal = rp.stop.takescore != null ? Math.round(rp.stop.takescore) : null;
                     return (
                       <View
                         key={rp.stop.slug}
@@ -990,7 +1009,7 @@ export default function NavigatorDriveScreen() {
                         </Tactile>
                         {/* signpost pole */}
                         <View style={{ width: 2.5, height: 12, backgroundColor: "#b7ad96" }} />
-                        {/* caption — title, then year · TakeScore (two lines) under every node */}
+                        {/* caption — title, then year · director (two lines) under every node */}
                         <View
                           style={{
                             marginTop: 3,
@@ -1044,6 +1063,29 @@ export default function NavigatorDriveScreen() {
                             {i + 1}
                           </Ui>
                         </View>
+                        {/* TakeScore badge — its own thing, gold, top-right (clear of the
+                            drive-order number top-left); only when takescore is known */}
+                        {tsVal != null ? (
+                          <View
+                            style={{
+                              position: "absolute",
+                              right: -7,
+                              top: -7,
+                              height: 17,
+                              paddingHorizontal: 5,
+                              borderRadius: radius.pill,
+                              backgroundColor: GOLD,
+                              borderWidth: 1.5,
+                              borderColor: "#fff",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <Ui size={fs.xs - 3} weight="700" color="#fff">
+                              {t("nav.ts", { n: tsVal })}
+                            </Ui>
+                          </View>
+                        ) : null}
                         {/* 🏁 flag over the destination (absolute — keeps poster anchoring uniform) */}
                         {rp.dest ? (
                           <View style={{ position: "absolute", top: -20, left: 0, right: 0, alignItems: "center" }}>

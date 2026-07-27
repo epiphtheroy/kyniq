@@ -298,6 +298,7 @@ export const en = {
   "nav.resume": "Resume →",
   "nav.takescore": "TakeScore",
   "nav.now": "Now",
+  "nav.ts": "TS {n}",
   "nav.open": "Open →",
   // The Navigator — map v3 (odyssey hero lane)
   "nav.durHM": "{h}h {m}m",
