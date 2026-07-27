@@ -254,7 +254,6 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const [ody, setOdy] = useState<OdyMap | null>(null); // the real /odyssey film-map
   const [size, setSize] = useState({ w: 0, h: 0 }); // map viewport px (for adaptive framing)
   const [culled, setCulled] = useState<BgStation[]>([]); // viewport-culled background films
-  const [win, setWin] = useState<{ lxMin: number; lxMax: number; lyMin: number; lyMax: number } | null>(null); // buffered window → route-node culling
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
   const winSigRef = useRef<string>("");        // last culled-window signature (skip idle recomputes)
@@ -289,17 +288,16 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   // — so a fast fling can't queue work or thrash React. Null-safe on every early exit; the rAF
   // callback reads only snapshot locals (tx/ty/k/bg), never a ref, so it can't crash mid-fling.
   useEffect(() => {
-    if (!scene || !size.w || !size.h) { setCulled([]); setWin(null); winSigRef.current = ""; return; }
+    if (!scene || !size.w || !size.h) { setCulled([]); winSigRef.current = ""; return; }
     if (sceneRef.current !== scene) { sceneRef.current = scene; winSigRef.current = ""; }
     const { tx, ty, k } = view;
     const bg = scene.bgAll;
     const id = requestAnimationFrame(() => {
       const wn = visibleWindow(tx, ty, k, size.w, size.h);
       const sig = `${Math.round(wn.lxMin / 5)}|${Math.round(wn.lxMax / 5)}|${Math.round(wn.lyMin / 5)}|${Math.round(wn.lyMax / 5)}`;
-      if (sig === winSigRef.current) return; // window unchanged → keep current sets (cheap idle)
+      if (sig === winSigRef.current) return; // window unchanged → keep current set (cheap idle)
       winSigRef.current = sig;
-      setWin(wn);                          // drives ROUTE-node culling (below)
-      setCulled(cullField(bg, wn, BG_CAP)); // drives BACKGROUND culling
+      setCulled(cullField(bg, wn, BG_CAP)); // BACKGROUND culling only (route uses the live window)
     });
     return () => cancelAnimationFrame(id);
   }, [scene, view, size.w, size.h]);
@@ -368,15 +366,18 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
   const laneRent = next.availability === "rent";
   const roadName = dest.family === "director" ? `${dest.label} filmography` : dest.label;
 
-  // Route-node culling (same buffered window as the background). Full poster nodes render
-  // near the window (+ always Now & the destination); a wider band renders lightweight
-  // numbered dots; the rest render nothing (the SVG lane path still shows the road) — so a
-  // 1000-stop route never mounts 1000 images, yet panning keeps revealing each film's poster.
-  const winPad = win ? (win.lxMax - win.lxMin) * 0.6 : 0;
+  // Route-node culling. The window is computed DIRECTLY from the live view every render
+  // (cheap, O(1)) so poster coverage never lags the pan transform: every node on screen —
+  // plus a full one-screen buffer on each side — renders as a FULL POSTER, and panning
+  // keeps turning the next ones into posters. A wider band renders lightweight numbered
+  // dots (for 1000-stop lists); the rest render nothing (the SVG lane still shows the road).
+  // Background stays on the throttled `culled` set (its lag is invisible).
+  const rWin = size.w && size.h ? visibleWindow(view.tx, view.ty, view.k, size.w, size.h) : null;
+  const rPad = rWin ? (rWin.lxMax - rWin.lxMin) * 0.6 : 0;
   const inWin = (nx: number, ny: number) =>
-    !!win && nx >= win.lxMin && nx <= win.lxMax && ny >= win.lyMin && ny <= win.lyMax;
+    !!rWin && nx >= rWin.lxMin && nx <= rWin.lxMax && ny >= rWin.lyMin && ny <= rWin.lyMax;
   const inDotBand = (nx: number, ny: number) =>
-    !!win && nx >= win.lxMin - winPad && nx <= win.lxMax + winPad && ny >= win.lyMin - winPad && ny <= win.lyMax + winPad;
+    !!rWin && nx >= rWin.lxMin - rPad && nx <= rWin.lxMax + rPad && ny >= rWin.lyMin - rPad && ny <= rWin.lyMax + rPad;
 
   // synthetic (fallback) signpost
   const sp = (stop: RouteStop, slot: { top: number; left: number; w: number }, isNow: boolean) => (
@@ -428,8 +429,8 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                 <rect x="-10" y="34" width={scene.L + 20} height="32" fill="#E9E1C6" opacity="0.5" />
                 {scene.cross.map((c) => (
                   <g key={c.id}>
-                    <path d={c.d} fill="none" stroke="#C3B89E" strokeWidth="6" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.72" />
-                    <path d={c.d} fill="none" stroke="#DAD1BA" strokeWidth="2.4" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.6" />
+                    <path d={c.d} fill="none" stroke="#B4A683" strokeWidth="6.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.85" />
+                    <path d={c.d} fill="none" stroke="#D8CFB6" strokeWidth="2.6" vectorEffect="non-scaling-stroke" strokeLinecap="round" opacity="0.72" />
                   </g>
                 ))}
               </svg>
@@ -453,26 +454,27 @@ export default function NavigatorDrive({ load, pref }: { load: DriveLoad; pref: 
                   full posters near the window (Now & the destination always), lightweight
                   numbered dots in a wider band, nothing far off (the SVG lane shows the road) */}
               {scene.routePts.map((rp, i) => {
-                const full = rp.now || rp.dest || inWin(rp.nx, rp.ny) || (!win && i < 10);
+                const full = rp.now || rp.dest || inWin(rp.nx, rp.ny) || (!rWin && i < 10);
                 if (full) {
-                  const yr = rp.stop.film.year != null ? String(rp.stop.film.year) : null;
-                  const ts = rp.stop.film.takescore != null ? `${Math.round(rp.stop.film.takescore)} TakeScore` : null;
-                  const meta = [yr, ts].filter(Boolean).join(" · ");
+                  const f = rp.stop.film;
+                  const meta = [f.year != null ? String(f.year) : null, f.director || null].filter(Boolean).join(" · ");
+                  const ts = f.takescore != null ? Math.round(f.takescore) : null;
                   return (
                     <button
                       type="button"
-                      key={rp.stop.film.slug}
+                      key={f.slug}
                       className={`sp${rp.now ? " now" : ""}${rp.dest ? " dest" : ""}`}
                       style={{ left: `${rp.nx}%`, top: `${rp.ny}%` }}
                       onPointerDown={(e) => e.stopPropagation()}
-                      onClick={() => setPick(rp.stop.film)}
+                      onClick={() => setPick(f)}
                     >
                       {rp.dest ? <span className="flag">🏁</span> : null}
                       <span className="num">{i + 1}</span>
-                      <img src={po(rp.stop.film.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="lazy" draggable={false} />
+                      {ts != null ? <span className="ts">TS {ts}</span> : null}
+                      <img src={po(f.poster_path)} alt="" style={{ width: rp.w, height: rp.w * 1.5 }} loading="lazy" draggable={false} />
                       <span className="pole" /><span className="shadow" />
                       <span className="cap">
-                        <span className="cap-t">{rp.now ? "Now · " : ""}{rp.stop.film.title}</span>
+                        <span className="cap-t">{rp.now ? "Now · " : ""}{f.title}</span>
                         {meta ? <span className="cap-m">{meta}</span> : null}
                       </span>
                     </button>
