@@ -10,7 +10,10 @@ import { useEffect, useRef } from "react";
 import { createBrowserClient } from "@supabase/ssr";
 import { mtEvent } from "@/components/mtTrack";
 
-const CID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+// Google client IDs are public (they ship in the page), so hard-coding a default is
+// safe; the env var still overrides it per-environment if set.
+const CID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
+  || "254213169747-57nl6mkcs0oqp2q2g8m4lnq7q2ji41vh.apps.googleusercontent.com";
 const DISMISS_KEY = "mt_onetap_until";
 
 declare global { interface Window { google?: any } }
@@ -30,6 +33,7 @@ export default function GoogleOneTap({ enabled }: { enabled: boolean }) {
       window.google.accounts.id.initialize({
         client_id: CID,
         cancel_on_tap_outside: true,
+        use_fedcm_for_prompt: true, // Chrome now gates One-Tap behind FedCM (3p-cookie deprecation)
         callback: async (resp: { credential?: string }) => {
           if (!resp?.credential) return;
           mtEvent("onetap:accept");
