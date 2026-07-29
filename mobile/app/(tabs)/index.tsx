@@ -339,23 +339,25 @@ export default function TonightScreen() {
     });
   }, []);
 
-  if (ready && !onboarded) return <Redirect href="/onboarding" />;
-  if (!ready) return <Loading />;
-
-  const edition = EDITIONS[country] ?? DEFAULT_EDITION;
+  // visible + the hide-seen pagination effect MUST run before the early returns below —
+  // React hooks can never be called conditionally. visible depends only on rows/ledger/prefs.
   const visible = rows.filter((r) => {
     const e = ledger.get(r.slug);
     if (e?.dismissed) return false; // always hide passed films
     if (hideSeenEff && session && e?.seen) return false;
     return true;
   });
-
   // Hide-seen can filter the whole fetched page to empty while the deeper catalog is
   // still unpulled; RN never fires onEndReached on an empty list, so pull the next page
   // here to avoid a premature "Deck cleared". loadMore self-guards against over-fetching.
   useEffect(() => {
     if (status === "idle" && !bold && visible.length === 0 && fetched < total) loadMore();
   }, [status, bold, visible.length, fetched, total, loadMore]);
+
+  if (ready && !onboarded) return <Redirect href="/onboarding" />;
+  if (!ready) return <Loading />;
+
+  const edition = EDITIONS[country] ?? DEFAULT_EDITION;
 
   // Header — pill search, title row, then the situation preset chips (§5.2).
   const header = (
