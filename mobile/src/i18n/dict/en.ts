@@ -124,6 +124,8 @@ export const en = {
   // v4 — tabs
   "tab.explore": "Explore",
   "tab.shelf": "Shelf",
+  "tab.navigator": "Navigator",
+  "tab.you": "You",
   // v4 — judgment bar & states
   "judge.want": "Want to see",
   "judge.pass": "Pass",

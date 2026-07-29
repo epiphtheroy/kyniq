@@ -86,7 +86,6 @@ function RootLayoutNav() {
             }}
           >
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="navigator/index" options={{ headerShown: false }} />
             <Stack.Screen name="navigator/drive" options={{ headerShown: false }} />
             <Stack.Screen name="film/[slug]" options={{ title: "" }} />
             <Stack.Screen name="director/[slug]" options={{ title: "" }} />

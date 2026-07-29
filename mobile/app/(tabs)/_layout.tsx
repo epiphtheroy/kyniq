@@ -93,21 +93,21 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="map"
+        name="navigator"
         options={{
-          title: t("tab.map"),
+          title: t("tab.navigator"),
           tabBarIcon: ({ color, size, focused }) => (
-            <TabIcon name={focused ? "map" : "map-outline"} size={size} color={color} focused={focused} />
+            <TabIcon name={focused ? "navigate" : "navigate-outline"} size={size} color={color} focused={focused} />
           ),
         }}
       />
       <Tabs.Screen
         name="my"
         options={{
-          title: t("tab.shelf"),
+          title: t("tab.you"),
           tabBarIcon: ({ color, size, focused }) => (
             <TabIcon
-              name={focused ? "library" : "library-outline"}
+              name={focused ? "person" : "person-outline"}
               size={size}
               color={color}
               focused={focused}
@@ -115,6 +115,9 @@ export default function TabLayout() {
           ),
         }}
       />
+      {/* Map retired as a tab (owner 2026-07-29) — the route stays (href:null hides the
+          tab) so the film detail's Locations mini-map "open in map" deep-link still works. */}
+      <Tabs.Screen name="map" options={{ href: null }} />
     </Tabs>
   );
 }

@@ -109,6 +109,8 @@ export const es: Record<keyof typeof en, string> = {
   // v4 — pestañas
   "tab.explore": "Explorar",
   "tab.shelf": "Estantería",
+  "tab.navigator": "Navegador",
+  "tab.you": "Tú",
   // v4 — barra de juicio
   "judge.want": "Quiero verla",
   "judge.pass": "Paso",

@@ -109,6 +109,8 @@ export const ja: Record<keyof typeof en, string> = {
   // v4 — タブ
   "tab.explore": "探索",
   "tab.shelf": "本棚",
+  "tab.navigator": "ナビ",
+  "tab.you": "マイ",
   // v4 — 判断バー
   "judge.want": "観たい",
   "judge.pass": "パス",

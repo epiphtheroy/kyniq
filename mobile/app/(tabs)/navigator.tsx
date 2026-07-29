@@ -1,11 +1,11 @@
-// The Navigator — "Where to?" picker (HANDOFF-내비게이터-시네필터바이턴.md §5.1).
-// The front door of the drive: lists the destinations the viewer is mid-journey on
-// — director conquests + canon/list lineages, each with progress — and taps into the
-// turn-by-turn drive for that destination. Parity with web /room/navigator's picker:
-// same me_auteur_conquest + me_coverage rows, same gates. Signed-out or empty → a
-// Kubrick sampler so the drive is always reachable.
+// The Navigator tab — "Where to?" (HANDOFF-내비게이터-시네필터바이턴.md §5.1), promoted
+// from a card inside Tonight to a first-class bottom tab (owner 2026-07-29). Front door of
+// the drive: lists the destinations the viewer is mid-journey on — director conquests +
+// canon/list lineages, each with progress — and taps into the turn-by-turn drive. As a tab
+// root it has no back affordance (unlike the old pushed picker). Parity with web
+// /room/navigator's picker: same me_auteur_conquest + me_coverage rows, same gates.
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Stack, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -25,23 +25,6 @@ const FACET_KEY: Record<string, DictKey> = {
   award: "nav.facetAward",
   national: "nav.facetNational",
 };
-
-/** Floating chrome disc — matches the drive/director back affordance. */
-function Disc({ icon, onPress }: { icon: React.ComponentProps<typeof Ionicons>["name"]; onPress: () => void }) {
-  const pal = usePalette();
-  return (
-    <Tactile onPress={onPress} hitSlop={8}>
-      <View
-        style={[
-          { width: 36, height: 36, borderRadius: radius.pill, backgroundColor: pal.chrome, alignItems: "center", justifyContent: "center" },
-          shadow.card,
-        ]}
-      >
-        <Ionicons name={icon} size={20} color={pal.ink} />
-      </View>
-    </Tactile>
-  );
-}
 
 /** One destination card — label, family/facet · progress, and a thin progress bar. */
 function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
@@ -141,7 +124,7 @@ function ResumeCard({ r, onPress }: { r: NavActive; onPress: () => void }) {
   );
 }
 
-export default function NavigatorPicker() {
+export default function NavigatorTab() {
   const router = useRouter();
   const pal = usePalette();
   const insets = useSafeAreaInsets();
@@ -181,29 +164,19 @@ export default function NavigatorPicker() {
       ? router.push({ pathname: "/navigator/drive", params: { dir: r.dest_key } })
       : router.push({ pathname: "/navigator/drive", params: { lineage: r.dest_key, label: r.dest_label ?? r.dest_key } });
 
-  const back = () => (router.canGoBack() ? router.back() : router.replace("/(tabs)"));
-
   if (err)
     return (
       <Screen style={{ alignItems: "center", justifyContent: "center", gap: sp.s4, padding: sp.s5 }}>
-        <Stack.Screen options={{ headerShown: false }} />
         <Ui size={fs.md} color={pal.muted} style={{ textAlign: "center" }}>
           {t("error.network")}
         </Ui>
         <Btn label={t("action.retry")} onPress={() => setGen((g) => g + 1)} style={{ alignSelf: "stretch" }} />
-        <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} />
-        </View>
       </Screen>
     );
   if (!dests)
     return (
       <Screen>
-        <Stack.Screen options={{ headerShown: false }} />
         <Loading />
-        <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} />
-        </View>
       </Screen>
     );
 
@@ -211,13 +184,12 @@ export default function NavigatorPicker() {
 
   return (
     <Screen>
-      <Stack.Screen options={{ headerShown: false }} />
       <ScrollView
         contentContainerStyle={{ paddingHorizontal: sp.s4, paddingBottom: insets.bottom + sp.s6 }}
         showsVerticalScrollIndicator={false}
       >
-        {/* header */}
-        <View style={{ paddingTop: insets.top + 52, marginBottom: sp.s4 }}>
+        {/* header (tab root — no back affordance) */}
+        <View style={{ paddingTop: insets.top + sp.s3, marginBottom: sp.s4 }}>
           <Ui size={fs.xs} weight="700" color={brand.accent} style={{ letterSpacing: 0.6, marginBottom: 4 }}>
             {t("nav.title").toUpperCase()}
           </Ui>
@@ -279,11 +251,6 @@ export default function NavigatorPicker() {
           </>
         ) : null}
       </ScrollView>
-
-      {/* floating back */}
-      <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }} pointerEvents="box-none">
-        <Disc icon="chevron-back" onPress={back} />
-      </View>
     </Screen>
   );
 }

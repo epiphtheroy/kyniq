@@ -110,6 +110,8 @@ export const ko: Record<keyof typeof en, string> = {
   // v4 — 탭
   "tab.explore": "탐색",
   "tab.shelf": "서재",
+  "tab.navigator": "내비게이터",
+  "tab.you": "나",
   // v4 — 판단 바·상태
   "judge.want": "볼래",
   "judge.pass": "패스",
