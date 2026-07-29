@@ -21,6 +21,15 @@ const FILM_HUB_RE = /^\/film\/([^/?#]+)\/?$/;
 const DIRECTOR_HUB_RE = /^\/director\/([^/?#]+)\/?$/;
 
 const stripTrailingSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+// A malformed %-sequence in an intercepted URL must not throw inside the nav
+// callback (URIError) and derail link handling — fall back to the raw slug.
+const safeDecode = (s: string) => {
+  try {
+    return decodeURIComponent(s);
+  } catch {
+    return s;
+  }
+};
 
 /** 32px circle-disc chrome button (sheet header grammar). */
 function HeaderDisc({
@@ -114,14 +123,14 @@ export default function ReadScreen() {
       // /film/lineage/*, /film/x/reception, …) intentionally do NOT match.
       const film = pathname.match(FILM_HUB_RE);
       if (film) {
-        router.replace({ pathname: "/film/[slug]", params: { slug: decodeURIComponent(film[1]) } });
+        router.replace({ pathname: "/film/[slug]", params: { slug: safeDecode(film[1]) } });
         return false;
       }
       const director = pathname.match(DIRECTOR_HUB_RE);
       if (director) {
         router.replace({
           pathname: "/director/[slug]",
-          params: { slug: decodeURIComponent(director[1]) },
+          params: { slug: safeDecode(director[1]) },
         });
         return false;
       }
@@ -162,7 +171,11 @@ export default function ReadScreen() {
           }}
         >
           <View style={{ width: 84, alignItems: "flex-start" }}>
-            <HeaderDisc icon="close" iconSize={18} onPress={() => router.back()} />
+            <HeaderDisc
+              icon="close"
+              iconSize={18}
+              onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))}
+            />
           </View>
           <Ui size={fs.base} weight="600" numberOfLines={1} style={{ flex: 1, textAlign: "center" }}>
             {title}

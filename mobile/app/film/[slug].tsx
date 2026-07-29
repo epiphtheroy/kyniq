@@ -317,8 +317,15 @@ export default function FilmScreen() {
   }
 
   const heroH = Math.round(width * 0.72);
-  const lead = card.invitation ?? (card.lead_fallback.length ? card.lead_fallback.join(" ") : null);
-  const availKinds = [...new Set(card.availability.map((a) => a.kind))];
+  // Defend every core payload array/object the way the director screen does — a single
+  // missing field (e.g. lead_fallback is EN-only; a ko/es/ja edition or shape-drifted
+  // server can omit it) would otherwise throw during render and blank the whole screen.
+  const lead = card.invitation ?? (card.lead_fallback?.length ? card.lead_fallback.join(" ") : null);
+  const availability = card.availability ?? [];
+  const lineage = card.lineage ?? [];
+  const locCount = card.locations?.count ?? 0;
+  const locPins = card.locations?.pins ?? [];
+  const availKinds = [...new Set(availability.map((a) => a.kind))];
   const hasRank = card.rank != null && card.rank_total != null;
   const topDims = card.dims?.length ? [...card.dims].sort((a, b) => b.val - a.val).slice(0, 3) : [];
   const myVerdict =
@@ -614,10 +621,10 @@ export default function FilmScreen() {
 
           {/* Where to watch — grouped rows, native display only (no web link). */}
           <SectionTitle sub={country}>{t("film.whereToWatch")}</SectionTitle>
-          {card.availability.length ? (
+          {availability.length ? (
             <>
               <Group>
-                {card.availability.slice(0, 8).map((a, i) => (
+                {availability.slice(0, 8).map((a, i) => (
                   <View key={`${a.pid}-${a.kind}`}>
                     {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
                     <View
@@ -659,11 +666,11 @@ export default function FilmScreen() {
           )}
 
           {/* Lineage — static native rows off card.lineage (no web link). */}
-          {card.lineage.length ? (
+          {lineage.length ? (
             <>
               <SectionTitle>{t("film.lineage")}</SectionTitle>
               <Group>
-                {(showAllLineage ? card.lineage : card.lineage.slice(0, 6)).map((l, i) => (
+                {(showAllLineage ? lineage : lineage.slice(0, 6)).map((l, i) => (
                   <View key={`${l.list_slug}-${i}`}>
                     {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
                     <View
@@ -688,7 +695,7 @@ export default function FilmScreen() {
                     </View>
                   </View>
                 ))}
-                {card.lineage.length > 6 ? (
+                {lineage.length > 6 ? (
                   <>
                     <Hairline style={{ marginLeft: sp.s4 }} />
                     <Tactile onPress={() => setShowAllLineage((v) => !v)}>
@@ -700,7 +707,7 @@ export default function FilmScreen() {
                       >
                         {showAllLineage
                           ? t("common.showFewer")
-                          : t("common.showAll", { n: card.lineage.length })}
+                          : t("common.showAll", { n: lineage.length })}
                       </Ui>
                     </Tactile>
                   </>
@@ -724,20 +731,20 @@ export default function FilmScreen() {
 
           {/* Locations — embedded map with ONLY this film's pins (owner directive
               2026-07-18), then the named rows; both open the Map tab film-focused. */}
-          {card.locations.count > 0 ? (
+          {locCount > 0 ? (
             <>
-              <SectionTitle sub={`${card.locations.count}`}>{t("film.locations")}</SectionTitle>
-              {card.locations.pins.length ? (
+              <SectionTitle sub={`${locCount}`}>{t("film.locations")}</SectionTitle>
+              {locPins.length ? (
                 <View style={{ marginHorizontal: sp.s4, marginBottom: sp.s3 }}>
                   <FilmMiniMap
-                    pins={card.locations.pins}
+                    pins={locPins}
                     height={Math.round((width - sp.s4 * 2) * 0.56)}
                     onPress={() => router.push({ pathname: "/(tabs)/map", params: { film: card.slug } })}
                   />
                 </View>
               ) : null}
               <Group>
-                {card.locations.pins.slice(0, 3).map((p, i) => (
+                {locPins.slice(0, 3).map((p, i) => (
                   <View key={String(p.id)}>
                     {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
                     <Tactile
@@ -792,7 +799,7 @@ export default function FilmScreen() {
                         {card.the_life.intro}
                       </Ui>
                     ) : null}
-                    {card.the_life.facts.slice(0, 2).map((f) => (
+                    {(card.the_life.facts ?? []).slice(0, 2).map((f) => (
                       <Ui key={f.n} size={fs.xs} color={pal.muted} numberOfLines={2} style={{ marginTop: 4 }}>
                         {f.n}. {f.text}
                       </Ui>

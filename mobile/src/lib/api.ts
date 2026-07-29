@@ -37,12 +37,21 @@ const HEADERS: Record<string, string> = {
 };
 
 async function getJSON<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${METATAKE_BASE}${path}`, {
-    ...init,
-    headers: { ...HEADERS, ...(init?.headers as Record<string, string> | undefined) },
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);
-  return (await res.json()) as T;
+  // Bound every request: a stalled mobile connection must reject (→ the screen's
+  // error+retry path), not hang a spinner forever with no way back.
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const res = await fetch(`${METATAKE_BASE}${path}`, {
+      ...init,
+      signal: ctrl.signal,
+      headers: { ...HEADERS, ...(init?.headers as Record<string, string> | undefined) },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);
+    return (await res.json()) as T;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 const enc = encodeURIComponent;

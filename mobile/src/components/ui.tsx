@@ -264,6 +264,7 @@ export function HeartButton({
 
 /** Availability dots: ● sub ● free ● rent/buy. */
 export function AvailabilityDots({ tiers }: { tiers: string[] }) {
+  if (!Array.isArray(tiers)) return null; // a drifted BFF row with tiers null must skip, not crash the card
   const groups = [...new Set(tiers.map(tierColor))];
   if (!groups.length) return null;
   return (
