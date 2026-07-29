@@ -7,13 +7,14 @@
 // posters, whitespace-separated rows (no hairlines), ghost web-search CTA.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
   StyleSheet,
   TextInput,
   View,
+  useWindowDimensions,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
@@ -23,16 +24,19 @@ import {
   PosterImg,
   Screen,
   SectionTitle,
+  Serif,
   Tactile,
   TSBadge,
   Ui,
 } from "../../src/components/ui";
-import { t } from "../../src/i18n";
+import { t, type DictKey } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
+import { AXES, dealNine, type Axis } from "../../src/lib/deal";
+import { useFilms } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme";
-import type { SearchRow, TmdbFallbackRow, TonightRow } from "../../src/types";
+import type { OdyMapLite, OdyStationLite, SearchRow, TmdbFallbackRow, TonightRow } from "../../src/types";
 
 const DEBOUNCE_MS = 250;
 
@@ -72,6 +76,32 @@ export default function SearchScreen() {
   const [minTs, setMinTs] = useState<number | null>(null); // score floor — compound criteria
   const [browseLoading, setBrowseLoading] = useState(false);
   const selActive = sel.genres.size > 0 || sel.decades.size > 0;
+
+  // "For you — nine films" (owner 07-29): the Metatake deal at the bottom of browse.
+  // Reuses the Navigator's /odyssey/map.v1.json artifact + the ledger's seen set;
+  // seeded so "Deal again" re-draws (적절히 랜덤) without Math.random in the algorithm.
+  const { ledger } = useFilms();
+  const { width } = useWindowDimensions();
+  const [ody, setOdy] = useState<OdyMapLite | null>(null);
+  const [dealSeed, setDealSeed] = useState(() => (Date.now() % 0x7fffffff) | 1);
+  const showBrowseNow = q.trim().length === 0;
+  useEffect(() => {
+    if (!showBrowseNow || ody) return;
+    let alive = true;
+    api
+      .odysseyMap()
+      .then((m) => alive && setOdy(m))
+      .catch(() => {}); // silent — the section simply doesn't render
+    return () => {
+      alive = false;
+    };
+  }, [showBrowseNow, ody]);
+  const seenSet = useMemo(() => {
+    const s = new Set<string>();
+    for (const [slug, e] of ledger) if (e.seen) s.add(slug);
+    return s;
+  }, [ledger]);
+  const dealt = useMemo(() => (ody ? dealNine(ody, seenSet, dealSeed) : null), [ody, seenSet, dealSeed]);
 
   const openReader = (path: string, title: string) =>
     router.push({ pathname: "/read", params: { path, title } });
@@ -418,6 +448,101 @@ export default function SearchScreen() {
                 onPress={() => openReader(`/omni?q=${encodeURIComponent(q)}`, q)}
               />
             </View>
+          ) : showBrowse && !selActive ? (
+            /* ── Bottom of browse: the deal + a quiet door to the web archive ── */
+            <View style={{ paddingTop: sp.s5 }}>
+              <SectionTitle sub={t("explore.forYouSub")}>{t("explore.forYou")}</SectionTitle>
+              {dealt ? (
+                <>
+                  {AXES.map((ax) => {
+                    const films = dealt[ax.key];
+                    if (!films.length) return null;
+                    return (
+                      <View key={ax.key} style={{ paddingTop: sp.s3 }}>
+                        <View
+                          style={{
+                            flexDirection: "row",
+                            alignItems: "baseline",
+                            gap: sp.s2,
+                            paddingHorizontal: sp.s4,
+                          }}
+                        >
+                          <View
+                            style={{
+                              width: 8,
+                              height: 8,
+                              borderRadius: radius.pill,
+                              backgroundColor: ax.color,
+                              alignSelf: "center",
+                            }}
+                          />
+                          <Ui size={fs.sm} weight="700">
+                            {t(AXIS_COPY[ax.key].title)}
+                          </Ui>
+                          <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ flex: 1 }}>
+                            {t(AXIS_COPY[ax.key].sub)}
+                          </Ui>
+                        </View>
+                        <View
+                          style={{
+                            flexDirection: "row",
+                            gap: sp.s3,
+                            paddingHorizontal: sp.s4,
+                            paddingTop: sp.s2,
+                          }}
+                        >
+                          {films.map((f) => (
+                            <DealCard key={f.s} f={f} w={(width - sp.s4 * 2 - sp.s3 * 2) / 3} />
+                          ))}
+                        </View>
+                      </View>
+                    );
+                  })}
+                  <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s4 }}>
+                    <Btn
+                      kind="ghost"
+                      label={t("explore.dealAgain")}
+                      onPress={() => setDealSeed((s) => ((s * 48271) % 0x7fffffff) | 1)}
+                    />
+                  </View>
+                </>
+              ) : (
+                <View style={{ paddingVertical: sp.s5 }}>
+                  <ActivityIndicator color={brand.accent} />
+                </View>
+              )}
+
+              {/* Metatake on the web — the archive door (owner 07-29: promote the site) */}
+              <Tactile onPress={() => openReader("/", "Metatake")}>
+                <View
+                  style={[
+                    {
+                      marginHorizontal: sp.s4,
+                      marginTop: sp.s6,
+                      backgroundColor: pal.card,
+                      borderRadius: radius.lg,
+                      borderWidth: StyleSheet.hairlineWidth,
+                      borderColor: pal.hairline,
+                      padding: sp.s4,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: sp.s3,
+                    },
+                    shadow.card,
+                  ]}
+                >
+                  <View style={{ flex: 1, minWidth: 0 }}>
+                    <Serif size={fs.lg} bold>
+                      Metatake
+                    </Serif>
+                    <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 2 }}>
+                      {t("explore.webCardSub")}
+                    </Ui>
+                  </View>
+                  <Ionicons name="arrow-forward" size={18} color={brand.accent} />
+                </View>
+              </Tactile>
+            </View>
           ) : null
         }
       />
@@ -426,6 +551,32 @@ export default function SearchScreen() {
 }
 
 // ---------------------------------------------------------------------------
+
+/** Axis → i18n copy for the deal section (explicit map keeps DictKey typing). */
+const AXIS_COPY: Record<Axis, { title: DictKey; sub: DictKey }> = {
+  stable: { title: "axis.stable", sub: "axis.stableSub" },
+  adventure: { title: "axis.adventure", sub: "axis.adventureSub" },
+  frontier: { title: "axis.frontier", sub: "axis.frontierSub" },
+};
+
+/** One dealt pick — poster card, title + year, into the native film brief. */
+function DealCard({ f, w }: { f: OdyStationLite; w: number }) {
+  const router = useRouter();
+  const pal = usePalette();
+  return (
+    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: f.s } })} style={{ width: w }}>
+      <PosterImg path={f.p ?? null} width={w} height={Math.round(w * 1.5)} rounded={radius.sm} />
+      <Ui size={fs.xs} weight="600" numberOfLines={1} style={{ marginTop: 6 }}>
+        {f.t ?? f.s}
+      </Ui>
+      {f.y ? (
+        <Ui size={fs.xs} color={pal.muted}>
+          {f.y}
+        </Ui>
+      ) : null}
+    </Tactile>
+  );
+}
 
 /** Film result — rounded poster, sans title, dots + TS on the right. */
 function FilmResultRow({

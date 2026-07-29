@@ -351,6 +351,14 @@ export type OdyStationLite = {
   p?: string; // poster_path
   d?: string | null; // director
   ln?: string[]; // line (lineage) memberships
+  // Deal fields (the "For you — nine films" draw, ported from web lib/odyssey/deal.ts).
+  // map.v1.json always carried these; the Lite type simply didn't read them before.
+  t?: string; // title
+  y?: number | null; // year
+  c?: number; // altitude band 1..5 (starter-deal fallback axis)
+  pr?: number; // prestige score (canon weight inside a band)
+  tx?: number; // t-SNE x (taste-distance space)
+  ty?: number; // t-SNE y
 };
 export type OdyLineLite = {
   id: string;

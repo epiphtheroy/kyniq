@@ -38,7 +38,6 @@ import {
   UndoPill,
   Wordmark,
 } from "../../src/components/ui";
-import { DEFAULT_EDITION, EDITIONS } from "../../src/editions";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
@@ -357,7 +356,6 @@ export default function TonightScreen() {
   if (ready && !onboarded) return <Redirect href="/onboarding" />;
   if (!ready) return <Loading />;
 
-  const edition = EDITIONS[country] ?? DEFAULT_EDITION;
 
   // Header — pill search, title row, then the situation preset chips (§5.2).
   const header = (
@@ -389,10 +387,18 @@ export default function TonightScreen() {
         <Ui size={fs.lg} weight="600" style={{ flex: 1 }} numberOfLines={1}>
           {t("tonight.title")}
         </Ui>
+        {/* Services chip (owner 07-29): Tonight is about WHAT I CAN WATCH — surface the
+            subscription picker here; country is auto-detected and edited from You. */}
         <Chip
-          label={`${edition.flag} ${country}`}
+          label={
+            providerIds.length
+              ? t("tonight.myServices", { n: providerIds.length })
+              : t("tonight.pickServices")
+          }
+          icon="tv-outline"
+          active={providerIds.length > 0}
           onPress={() =>
-            router.push({ pathname: "/onboarding", params: { step: "country" } })
+            router.push({ pathname: "/onboarding", params: { step: "services" } })
           }
         />
         {session ? (
