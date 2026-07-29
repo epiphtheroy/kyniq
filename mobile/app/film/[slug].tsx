@@ -13,7 +13,7 @@ import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Image, ScrollView, Share, StyleSheet, View, useWindowDimensions } from "react-native";
+import { Image, Linking, ScrollView, Share, StyleSheet, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FilmMiniMap from "../../src/components/FilmMiniMap";
 import { TSDonut } from "../../src/components/TSDonut";
@@ -325,6 +325,13 @@ export default function FilmScreen() {
   const lineage = card.lineage ?? [];
   const locCount = card.locations?.count ?? 0;
   const locPins = card.locations?.pins ?? [];
+  // Open a filming location in the device's native maps app (Google Maps if installed,
+  // else Apple Maps/Safari) — no CDN, no API key, no freeze. Replaces the old in-app
+  // WebView map tab which hung on slow tile/CDN loads and trapped the back button.
+  const openPinInMaps = (pin?: { lat: number; lng: number }) => {
+    if (!pin) return;
+    Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${pin.lat},${pin.lng}`).catch(() => {});
+  };
   const availKinds = [...new Set(availability.map((a) => a.kind))];
   const hasRank = card.rank != null && card.rank_total != null;
   const topDims = card.dims?.length ? [...card.dims].sort((a, b) => b.val - a.val).slice(0, 3) : [];
@@ -739,7 +746,7 @@ export default function FilmScreen() {
                   <FilmMiniMap
                     pins={locPins}
                     height={Math.round((width - sp.s4 * 2) * 0.56)}
-                    onPress={() => router.push({ pathname: "/(tabs)/map", params: { film: card.slug } })}
+                    onPress={() => openPinInMaps(locPins[0])}
                   />
                 </View>
               ) : null}
@@ -748,7 +755,7 @@ export default function FilmScreen() {
                   <View key={String(p.id)}>
                     {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
                     <Tactile
-                      onPress={() => router.push({ pathname: "/(tabs)/map", params: { film: card.slug } })}
+                      onPress={() => openPinInMaps(p)}
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
