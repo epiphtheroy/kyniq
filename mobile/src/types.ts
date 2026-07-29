@@ -68,6 +68,17 @@ export type FilmCard = {
   kindred?: { slug: string; title: string; year: number | null; shared: number }[] | null;
 };
 
+/** tow_comment RPC — the curator's letter (mirror of web components/read/TowCard.tsx). */
+export type TowComment = {
+  verdict: string;
+  verdict_label: string | null;
+  authority_label: string | null;
+  rationale: string | null;
+  director?: string | null;
+  auteur?: boolean | null;
+  rec_date?: string | null;
+};
+
 export type DirectorFilm = {
   film_id: string;
   slug: string;

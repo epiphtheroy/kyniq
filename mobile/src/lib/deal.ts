@@ -32,9 +32,20 @@ function shuffle<T>(arr: T[], seed: number): T[] {
   return a;
 }
 
-export function dealNine(map: OdyMapLite, seen: ReadonlySet<string>, seed: number, perAxis = 3): DealResult {
-  // Eligible = unseen stations that can actually render a card (title + poster).
-  const eligible = map.stations.filter((s) => !seen.has(s.s) && !!s.t && !!s.p);
+export function dealNine(
+  map: OdyMapLite,
+  seen: ReadonlySet<string>,
+  seed: number,
+  availSet: ReadonlySet<string> | null = null,
+  perAxis = 3,
+): DealResult {
+  // Eligible = unseen stations that can actually render a card (title + poster),
+  // filtered to the viewer's services when the /odyssey/avail artifact gave us a set
+  // (mirrors web /journey's servicesOnly). If that filter starves the hand, fall back
+  // to the open catalog — a thin services library must never deal an empty hand.
+  const base = map.stations.filter((s) => !seen.has(s.s) && !!s.t && !!s.p);
+  let eligible = availSet ? base.filter((s) => availSet.has(s.s)) : base;
+  if (availSet && eligible.length < perAxis * 4) eligible = base;
 
   // Taste centroid from seen films that carry a t-SNE position.
   const seenPts = map.stations.filter((s) => seen.has(s.s) && s.tx != null && s.ty != null);

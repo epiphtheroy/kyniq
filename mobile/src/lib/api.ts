@@ -24,6 +24,7 @@ import type {
   Service,
   TmdbFallbackRow,
   TonightPayload,
+  TowComment,
   WatchlistScoredRow,
   WwiRow,
 } from "../types";
@@ -38,11 +39,14 @@ const HEADERS: Record<string, string> = {
   accept: "application/json",
 };
 
-async function getJSON<T>(path: string, init?: RequestInit): Promise<T> {
+async function getJSON<T>(path: string, init?: RequestInit, timeoutMs = 15000): Promise<T> {
   // Bound every request: a stalled mobile connection must reject (→ the screen's
-  // error+retry path), not hang a spinner forever with no way back.
+  // error+retry path), not hang a spinner forever with no way back. Long-running
+  // import/sync calls pass a bigger budget — a first Trakt sync or a big Watcha
+  // paste legitimately runs the server for minutes (QA 07-29: the blanket 15s was
+  // aborting client-side while the server finished and wrote anyway).
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 15000);
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
   try {
     const res = await fetch(`${METATAKE_BASE}${path}`, {
       ...init,
@@ -100,6 +104,12 @@ export const api = {
    */
   odysseyMap(): Promise<OdyMapLite> {
     return getJSON(`/odyssey/map.v1.json`);
+  },
+
+  /** The /journey availability artifact (country → slug → provider list) — the same
+   * public JSON the web deck filters its deal with. Callers silent-catch. */
+  odysseyAvail(): Promise<Record<string, Record<string, unknown[]>>> {
+    return getJSON(`/odyssey/avail.v1.json`);
   },
 
   /**
@@ -352,12 +362,25 @@ export const api = {
       slug: r.slug,
       film_slug: r.slug,
       title: r.title,
-      sub: r.director ?? r.original_title ?? "",
+      // Year FIRST in the subtitle (owner 07-29: every film row must show year + TS)
+      // — mirrors search_all's "1994 · Wong Kar-wai" format.
+      sub: [r.year, r.director ?? r.original_title].filter(Boolean).join(" · "),
       poster: r.poster_path,
       year: r.year,
       score: r.score,
       is_catalog: r.is_catalog,
     }));
+  },
+
+  /**
+   * to.W — the curator's letter for one film ("to. WY. Heo / from. Metatake AI
+   * Editorial", LLM-0 template over curation.v_film_comment). Same anon tow_comment
+   * RPC the web TowCard uses. Null is a real state (curation-less films show nothing).
+   */
+  async towComment(slug: string): Promise<TowComment | null> {
+    const { data, error } = await supabase.rpc("tow_comment", { p_slug: slug });
+    if (error) return null;
+    return (data as TowComment | null) ?? null;
   },
 
   /** Bulk TakeScore for search rows. */
@@ -638,11 +661,21 @@ export const importApi = {
       name: file.name,
       type: file.mimeType ?? "application/octet-stream",
     } as unknown as Blob);
-    const res = await fetch(`${METATAKE_BASE}/api/import/parse`, {
-      method: "POST",
-      headers: { ...auth, accept: "application/json" }, // content-type set by FormData
-      body: form,
-    });
+    // Bound the upload (QA 07-29: this was the one unbounded fetch — a stalled
+    // cellular upload hung "Reading the file…" forever). Generous: big ZIPs are real.
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 180_000);
+    let res: Response;
+    try {
+      res = await fetch(`${METATAKE_BASE}/api/import/parse`, {
+        method: "POST",
+        headers: { ...auth, accept: "application/json" }, // content-type set by FormData
+        body: form,
+        signal: ctrl.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
     if (!res.ok) throw new Error(`parse ${res.status}`);
     return (await res.json()) as ImportParseResult;
   },
@@ -650,11 +683,15 @@ export const importApi = {
   /** Parse pasted text (Watcha clipboard flow — server has an LLM fallback). */
   async parseText(text: string): Promise<ImportParseResult> {
     const auth = await bearerHeaders();
-    return getJSON(`/api/import/parse`, {
-      method: "POST",
-      headers: { ...auth, "content-type": "application/json" },
-      body: JSON.stringify({ text }),
-    });
+    return getJSON(
+      `/api/import/parse`,
+      {
+        method: "POST",
+        headers: { ...auth, "content-type": "application/json" },
+        body: JSON.stringify({ text }),
+      },
+      180_000, // Watcha paste runs a sequential LLM fallback server-side — minutes, not 15s
+    );
   },
 
   /** TMDB matching — imdb_id (tt…) rows resolve exactly. The server route CAPS
@@ -666,11 +703,15 @@ export const importApi = {
     const out: ImportMatch[] = [];
     for (let from = 0; from < rows.length; from += 25) {
       const chunk = rows.slice(from, from + 25);
-      const res = await getJSON<{ results?: ImportMatch[] } | ImportMatch[]>(`/api/import/match`, {
-        method: "POST",
-        headers: { ...auth, "content-type": "application/json" },
-        body: JSON.stringify({ rows: chunk }),
-      });
+      const res = await getJSON<{ results?: ImportMatch[] } | ImportMatch[]>(
+        `/api/import/match`,
+        {
+          method: "POST",
+          headers: { ...auth, "content-type": "application/json" },
+          body: JSON.stringify({ rows: chunk }),
+        },
+        60_000, // 25 TMDB lookups on a slow link outrun 15s
+      );
       out.push(...(Array.isArray(res) ? res : (res.results ?? [])));
       onChunk?.(Math.min(from + 25, rows.length), rows.length);
     }
@@ -685,22 +726,28 @@ export const importApi = {
     source: string,
     filename: string | null,
     onChunk?: (committed: number, total: number) => void,
-  ): Promise<{ jobId: string | null; committed: number }> {
+  ): Promise<{ jobId: string | null; committed: number; failed: { title: string; year?: number | null }[] }> {
     const auth = await bearerHeaders();
     let jobId: string | null = null;
     let committed = 0;
+    const failed: { title: string; year?: number | null }[] = [];
     for (let from = 0; from < rows.length; from += 50) {
       const chunk = rows.slice(from, from + 50);
-      const res: { job_id?: string; added?: number; updated?: number } = await getJSON(`/api/import/commit`, {
-        method: "POST",
-        headers: { ...auth, "content-type": "application/json" },
-        body: JSON.stringify({ job_id: jobId, source, filename, rows: chunk }),
-      });
+      const res: { job_id?: string; added?: number; updated?: number; failed?: { title: string; year?: number | null }[] } = await getJSON(
+        `/api/import/commit`,
+        {
+          method: "POST",
+          headers: { ...auth, "content-type": "application/json" },
+          body: JSON.stringify({ job_id: jobId, source, filename, rows: chunk }),
+        },
+        60_000, // per-chunk Tier-2 film resolution hits TMDB — needs headroom
+      );
       jobId = res.job_id ?? jobId;
       committed += (res.added ?? 0) + (res.updated ?? 0);
+      failed.push(...(res.failed ?? [])); // unresolvable films — surfaced as honest leftovers
       onChunk?.(committed, rows.length);
     }
-    return { jobId, committed };
+    return { jobId, committed, failed };
   },
 };
 
@@ -771,11 +818,15 @@ export const connectApi = {
     provider: ConnectProvider,
   ): Promise<{ ok: boolean; added: number; updated: number; films: number }> {
     const auth = await bearerHeaders();
-    return getJSON(`/api/connect/${provider}/sync`, {
-      method: "POST",
-      headers: { ...auth, "content-type": "application/json" },
-      body: JSON.stringify({}),
-    });
+    return getJSON(
+      `/api/connect/${provider}/sync`,
+      {
+        method: "POST",
+        headers: { ...auth, "content-type": "application/json" },
+        body: JSON.stringify({}),
+      },
+      120_000, // first sync pulls + commits the entire provider library in one request
+    );
   },
 
   /** Revoke + delete the stored tokens (§6-3). Imported ledger rows remain. */

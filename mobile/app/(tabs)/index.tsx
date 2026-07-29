@@ -25,12 +25,12 @@ import {
   Btn,
   Chip,
   GradientBtn,
+  HeaderSearch,
   HeartButton,
   Loading,
   PosterImg,
   ReasonChip,
   Screen,
-  SearchPill,
   Serif,
   Tactile,
   TSBadge,
@@ -364,31 +364,19 @@ export default function TonightScreen() {
         paddingTop: insets.top + sp.s3,
         paddingBottom: sp.s3,
         backgroundColor: pal.bg,
+        // Rides inside the padded FlatList as its ListHeader — restore full-bleed so
+        // the chip rows still run edge to edge.
+        marginHorizontal: -sp.s4,
       }}
     >
-      <View style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s3 }}>
-        <Wordmark />
-      </View>
-      <View style={{ paddingHorizontal: sp.s4 }}>
-        <SearchPill
-          placeholder={t("search.placeholder")}
-          onPress={() => router.push("/search")}
-        />
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingHorizontal: sp.s4,
-          paddingTop: sp.s4,
-          gap: sp.s2,
-        }}
-      >
-        <Ui size={fs.lg} weight="600" style={{ flex: 1 }} numberOfLines={1}>
-          {t("tonight.title")}
-        </Ui>
-        {/* Services chip (owner 07-29): Tonight is about WHAT I CAN WATCH — surface the
-            subscription picker here; country is auto-detected and edited from You. */}
+      {/* ONE-line masthead (owner 07-29: the controls were burying the deck — compact
+          hard so 2–3 more film rows show). Wordmark + search disc + services chip;
+          every filter lives in the single combined row below. */}
+      <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, paddingHorizontal: sp.s4 }}>
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <Wordmark />
+        </View>
+        <HeaderSearch onPress={() => router.push("/search")} />
         <Chip
           label={
             providerIds.length
@@ -400,6 +388,21 @@ export default function TonightScreen() {
           onPress={() =>
             router.push({ pathname: "/onboarding", params: { step: "services" } })
           }
+        />
+      </View>
+      {/* ONE combined filter row — the app's navigational heart (owner 07-29): moods
+          MULTI-SELECT and compose over "on my services", ranked by TakeScore by
+          default; the sort axis rides the same row instead of its own line. */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ marginTop: sp.s2 }}
+        contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2, alignItems: "center" }}
+      >
+        <Chip
+          label={t("preset.onMyServices")}
+          active={servicesOn}
+          onPress={() => setServicesOn((v) => !v)}
         />
         {session ? (
           <Chip
@@ -413,18 +416,6 @@ export default function TonightScreen() {
             }}
           />
         ) : null}
-      </View>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={{ marginTop: sp.s3 }}
-        contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2 }}
-      >
-        <Chip
-          label={t("preset.onMyServices")}
-          active={servicesOn}
-          onPress={() => setServicesOn((v) => !v)}
-        />
         <Chip label={t("preset.safeBet")} active={presets.has("safe")} onPress={() => togglePreset("safe")} />
         <Chip label={t("preset.hiddenGems")} active={presets.has("gems")} onPress={() => togglePreset("gems")} />
         <Chip
@@ -436,29 +427,15 @@ export default function TonightScreen() {
         {session ? (
           <Chip label={t("preset.boldPick")} active={bold} onPress={() => togglePreset("bold")} />
         ) : null}
+        {!bold ? (
+          <>
+            <View style={{ width: StyleSheet.hairlineWidth, height: 18, backgroundColor: pal.hairline2 }} />
+            <Chip label={t("sort.takescore")} icon="podium-outline" active={sortKey === "ts"} onPress={() => setSortKey("ts")} />
+            <Chip label={t("sort.newest")} active={sortKey === "new"} onPress={() => setSortKey("new")} />
+            <Chip label={t("sort.oldest")} active={sortKey === "old"} onPress={() => setSortKey("old")} />
+          </>
+        ) : null}
       </ScrollView>
-      {/* Sort — hidden under Bold pick (that list carries the wwi order). */}
-      {!bold ? (
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: sp.s2,
-            paddingHorizontal: sp.s4,
-            marginTop: sp.s2,
-          }}
-        >
-          <Ionicons name="swap-vertical" size={14} color={pal.muted} />
-          <Chip label={t("sort.takescore")} active={sortKey === "ts"} onPress={() => setSortKey("ts")} />
-          <Chip label={t("sort.newest")} active={sortKey === "new"} onPress={() => setSortKey("new")} />
-          <Chip label={t("sort.oldest")} active={sortKey === "old"} onPress={() => setSortKey("old")} />
-        </View>
-      ) : null}
-      {session && visible.length > 0 ? (
-        <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s2 }}>
-          {t("tonight.swipeHint")}
-        </Ui>
-      ) : null}
       {passed.length > 0 ? (
         <View style={{ paddingTop: sp.s3 }}>
           <Ui size={fs.xs} weight="600" color={pal.muted} style={{ paddingHorizontal: sp.s4 }}>
@@ -542,7 +519,7 @@ export default function TonightScreen() {
   if (needsServices)
     return (
       <Screen>
-        {header}
+        <View style={{ paddingHorizontal: sp.s4 }}>{header}</View>
         <View
           style={{
             flex: 1,
@@ -570,7 +547,7 @@ export default function TonightScreen() {
   if (status === "error" && rows.length === 0)
     return (
       <Screen>
-        {header}
+        <View style={{ paddingHorizontal: sp.s4 }}>{header}</View>
         <View
           style={{ flex: 1, alignItems: "center", justifyContent: "center", gap: sp.s4 }}
         >
@@ -584,7 +561,7 @@ export default function TonightScreen() {
   if (status === "loading" && rows.length === 0)
     return (
       <Screen>
-        {header}
+        <View style={{ paddingHorizontal: sp.s4 }}>{header}</View>
         <Loading />
         {floaters}
       </Screen>
@@ -594,10 +571,12 @@ export default function TonightScreen() {
 
   return (
     <Screen>
-      {header}
+      {/* Masthead + filters ride INSIDE the list (owner 07-29: chrome must scroll away
+          dynamically — films own the screen once you start browsing). */}
       <FlatList
         data={visible}
         keyExtractor={(item) => item.slug}
+        ListHeaderComponent={header}
         renderItem={({ item }) => (
           <LobbyCard
             row={item}

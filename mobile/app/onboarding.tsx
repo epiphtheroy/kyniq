@@ -40,7 +40,9 @@ import type { Service, TonightRow } from "../src/types";
 // refreshes on the next `expo start` — the cast keeps tsc green until then.
 const CONNECT_HREF = "/connect" as Href;
 
-const STEPS = ["welcome", "country", "services", "account", "taste"] as const;
+// Account rides RIGHT AFTER the welcome pitch (owner 07-29: a new install should sign
+// up — Google, naturally — the moment the app opens), then the value setup follows.
+const STEPS = ["welcome", "account", "country", "services", "taste"] as const;
 type Step = (typeof STEPS)[number];
 
 function isStep(s: string | undefined): s is Step {
@@ -75,6 +77,20 @@ export default function OnboardingScreen() {
   // writes). Session state may still be propagating right after verifyOtp /
   // Apple sign-in, so ask the auth client directly rather than trusting context.
   const accountDone = async () => {
+    // Re-entry (already onboarded, "Sign in" buttons land here): don't re-walk the
+    // funnel — offer taste calibration when a session exists, else just close.
+    if (onboarded) {
+      const { data } = await supabase.auth.getSession();
+      if (data.session) setStep("taste");
+      else finish();
+      return;
+    }
+    // First run: signed-in OR skipped, the value setup continues either way.
+    setStep("country");
+  };
+
+  // Last setup step — taste calibration needs a session (me_mark_seen writes).
+  const servicesDone = async () => {
     const { data } = await supabase.auth.getSession();
     if (data.session) setStep("taste");
     else finish();
@@ -162,12 +178,12 @@ export default function OnboardingScreen() {
         </View>
       </View>
 
-      {step === "welcome" ? <StepWelcome onNext={() => setStep("country")} /> : null}
+      {step === "welcome" ? <StepWelcome onNext={() => setStep("account")} /> : null}
       {step === "country" ? (
         <StepCountry onNext={() => (editOne ? finish() : setStep("services"))} />
       ) : null}
       {step === "services" ? (
-        <StepServices onNext={() => (editOne ? finish() : setStep("account"))} />
+        <StepServices onNext={() => (editOne ? finish() : void servicesDone())} />
       ) : null}
       {step === "account" ? <StepAccount onDone={() => void accountDone()} /> : null}
       {step === "taste" ? <StepTaste onDone={finish} /> : null}

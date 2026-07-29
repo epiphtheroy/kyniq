@@ -6,7 +6,7 @@
 // Skinned to design system v2 "Lava": pill search bar with a soft shadow, rounded
 // posters, whitespace-separated rows (no hairlines), ghost web-search CTA.
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { type Href, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -39,6 +39,9 @@ import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme
 import type { NavCatalogEntry, OdyMapLite, OdyStationLite, SearchRow, TmdbFallbackRow, TonightRow } from "../../src/types";
 
 const DEBOUNCE_MS = 250;
+
+// Connect hub route (same Href cast as the You tab).
+const CONNECT_HREF = "/connect" as Href;
 
 // Browse chips are MULTI-SELECT (owner directive 2026-07-18): genres AND
 // (p_genres is an array) with a decade span; a second tap clears that chip.
@@ -101,7 +104,46 @@ export default function SearchScreen() {
     for (const [slug, e] of ledger) if (e.seen) s.add(slug);
     return s;
   }, [ledger]);
-  const dealt = useMemo(() => (ody ? dealNine(ody, seenSet, dealSeed) : null), [ody, seenSet, dealSeed]);
+  // /journey parity (owner 07-29): same avail artifact the web deck filters with —
+  // when the viewer picked services, the hand is dealt from what they can watch.
+  const { providerIds } = usePrefs();
+  const [availCountry, setAvailCountry] = useState<Record<string, unknown[]> | null>(null);
+  useEffect(() => {
+    if (!showBrowseNow || availCountry) return;
+    let alive = true;
+    api
+      .odysseyAvail()
+      .then((a) => alive && setAvailCountry((a?.[country] ?? {}) as Record<string, unknown[]>))
+      .catch(() => alive && setAvailCountry({}));
+    return () => {
+      alive = false;
+    };
+  }, [showBrowseNow, availCountry, country]);
+  const availSet = useMemo(() => {
+    if (!availCountry || !providerIds.length) return null;
+    const s = new Set<string>();
+    for (const [slug, arr] of Object.entries(availCountry)) if ((arr?.length ?? 0) > 0) s.add(slug);
+    return s.size ? s : null;
+  }, [availCountry, providerIds.length]);
+  const dealt = useMemo(
+    () => (ody ? dealNine(ody, seenSet, dealSeed, availSet) : null),
+    [ody, seenSet, dealSeed, availSet],
+  );
+  // TakeScore for the nine dealt cards (owner 07-29: every film shows year + TS).
+  const [dealTs, setDealTs] = useState<Map<string, number>>(new Map());
+  useEffect(() => {
+    if (!dealt) return;
+    const slugs = [...dealt.stable, ...dealt.adventure, ...dealt.frontier].map((f) => f.s);
+    if (!slugs.length) return;
+    let alive = true;
+    api
+      .takescores(slugs)
+      .then((m) => alive && setDealTs(m))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [dealt]);
 
   // Collections rail (owner 07-29): the lineage lists, curated + facet-tinted, each
   // driving straight into the native Navigator. Lazy on first browse; fail-soft to [].
@@ -527,7 +569,7 @@ export default function SearchScreen() {
                           }}
                         >
                           {films.map((f) => (
-                            <DealCard key={f.s} f={f} w={(width - sp.s4 * 2 - sp.s3 * 2) / 3} />
+                            <DealCard key={f.s} f={f} w={(width - sp.s4 * 2 - sp.s3 * 2) / 3} ts={dealTs.get(f.s) ?? null} />
                           ))}
                         </View>
                       </View>
@@ -540,6 +582,27 @@ export default function SearchScreen() {
                       onPress={() => setDealSeed((s) => ((s * 48271) % 0x7fffffff) | 1)}
                     />
                   </View>
+                  {dealt.basis === "starter" ? (
+                    /* Empty-ledger nudge (owner 07-29): this service tunes to logged
+                       films — say so and point at Bring-your-film. */
+                    <Tactile
+                      onPress={() => router.push(CONNECT_HREF)}
+                      style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}
+                    >
+                      <Ui size={fs.xs} color={pal.muted}>
+                        {t("explore.dealStarterNudge")}
+                      </Ui>
+                    </Tactile>
+                  ) : null}
+                  {/* Provenance — this hand IS the web's For You deal (owner 07-29). */}
+                  <Tactile
+                    onPress={() => openReader("/journey", "For You")}
+                    style={{ alignSelf: "center", paddingTop: sp.s2 }}
+                  >
+                    <Ui size={fs.xs} weight="500" color={pal.subtle} style={{ textDecorationLine: "underline" }}>
+                      metatake.net/journey
+                    </Ui>
+                  </Tactile>
                 </>
               ) : (
                 <View style={{ paddingVertical: sp.s5 }}>
@@ -700,8 +763,8 @@ const AXIS_COPY: Record<Axis, { title: DictKey; sub: DictKey }> = {
   frontier: { title: "axis.frontier", sub: "axis.frontierSub" },
 };
 
-/** One dealt pick — poster card, title + year, into the native film brief. */
-function DealCard({ f, w }: { f: OdyStationLite; w: number }) {
+/** One dealt pick — poster card, title, then year · TS (owner 07-29: both always show). */
+function DealCard({ f, w, ts }: { f: OdyStationLite; w: number; ts: number | null }) {
   const router = useRouter();
   const pal = usePalette();
   return (
@@ -710,11 +773,14 @@ function DealCard({ f, w }: { f: OdyStationLite; w: number }) {
       <Ui size={fs.xs} weight="600" numberOfLines={1} style={{ marginTop: 6 }}>
         {f.t ?? f.s}
       </Ui>
-      {f.y ? (
-        <Ui size={fs.xs} color={pal.muted}>
-          {f.y}
-        </Ui>
-      ) : null}
+      <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2 }}>
+        {f.y ? (
+          <Ui size={fs.xs} color={pal.muted}>
+            {f.y}
+          </Ui>
+        ) : null}
+        <TSBadge ts={ts} size={fs.xs} />
+      </View>
     </Tactile>
   );
 }

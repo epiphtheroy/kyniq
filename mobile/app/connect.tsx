@@ -65,6 +65,9 @@ import { verdictOf } from "../src/lib/verdict";
 import { useFilms } from "../src/state/films";
 import { brand, font, fs, gradient, motion, radius, shadow, sp, usePalette } from "../src/theme";
 
+/** Loose title normalizer for year-less ambiguous matches. */
+const normTitle = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+
 // Display names are brand proper nouns (same spelling in every dict — see
 // connect.entry.sub); everything else on this screen goes through t().
 const NAMES: Record<ConnectorId, string> = {
@@ -491,7 +494,11 @@ export default function ConnectScreen() {
           tmdb_id: r.tmdb_id,
           imdb_id: r.imdb_id,
         })) as ImportRow[];
-        const matches = await importApi.match(minimal);
+        const matches = await importApi.match(minimal, (done) => {
+          // Truthful matching progress (QA 07-29: the bar parked at 30% for minutes
+          // on big files) — feeds the 0.30→0.45 band below.
+          setRun((s) => (s && s.id === c.id ? { ...s, matched: done } : s));
+        });
         const byI = new Map(matches.map((m) => [m.i, m]));
         const matchedRows: ImportRow[] = [];
         const unmatched: { title: string; year?: number }[] = [];
@@ -505,7 +512,13 @@ export default function ConnectScreen() {
           if (!pick && m?.status === "ambiguous" && m.candidates?.length) {
             const c0 = m.candidates[0];
             const cy = parseInt(c0.year ?? "", 10);
-            if (!r.year || !Number.isFinite(cy) || Math.abs(cy - r.year) <= 1) pick = c0;
+            if (r.year) {
+              if (!Number.isFinite(cy) || Math.abs(cy - r.year) <= 1) pick = c0;
+            } else if (normTitle(c0.title) === normTitle(r.title)) {
+              // Year-less rows (Netflix export): require exact normalized-title equality —
+              // otherwise a same-title remake/doc silently imports as the wrong film (QA 07-29).
+              pick = c0;
+            }
           }
           if (pick) {
             matchedRows.push({ ...r, tmdb_id: pick.tmdb_id });
@@ -529,11 +542,14 @@ export default function ConnectScreen() {
             : s,
         );
         startCascade(c.id, matchedRows.length, posters.length);
-        const { committed } = matchedRows.length
+        const { committed, failed } = matchedRows.length
           ? await importApi.commit(matchedRows, c.sourceLabel, input.file?.name ?? null, (done) => {
               setRun((s) => (s && s.id === c.id ? { ...s, committed: done } : s));
             })
-          : { committed: 0 };
+          : { committed: 0, failed: [] as { title: string; year?: number | null }[] };
+        // Commit-level failures (unresolvable tmdb_id) join the honest leftovers —
+        // silent truncation reads as success (QA 07-29).
+        for (const f of failed) unmatched.push({ title: f.title, year: f.year ?? undefined });
 
         const ratings = matchedRows.filter((r) => r.rating != null).length;
         await setConnectState(c.id, {
@@ -722,6 +738,12 @@ export default function ConnectScreen() {
         return;
       }
       if (!back) return;
+      // Provider "Deny" comes back as a success-typed redirect carrying ?error= —
+      // that's a user decision, not a failure: stay quiet (QA 07-29).
+      if (back.searchParams.get("error")) {
+        await clearConnectState(c.id);
+        return;
+      }
 
       const code = back.searchParams.get("code") ?? undefined;
       const request_token = back.searchParams.get("request_token") ?? undefined;
@@ -843,7 +865,7 @@ export default function ConnectScreen() {
     }
     let p = 0.08; // reading
     if (run.stage === "connecting") p = 0.12;
-    else if (run.stage === "matching") p = 0.3;
+    else if (run.stage === "matching") p = 0.3 + (run.total > 0 ? 0.15 * Math.min(1, run.matched / run.total) : 0);
     else if (run.stage === "syncing") p = 0.5;
     else if (run.stage === "writing")
       p =

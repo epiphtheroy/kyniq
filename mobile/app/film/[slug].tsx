@@ -42,7 +42,7 @@ import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, radius, shadow, sp, tierColor, usePalette } from "../../src/theme";
-import type { FilmCard as FilmCardT } from "../../src/types";
+import type { FilmCard as FilmCardT, TowComment } from "../../src/types";
 
 const KIND_LABEL: Record<string, string> = {
   flatrate: "kind.flatrate",
@@ -125,6 +125,7 @@ export default function FilmScreen() {
   } = useFilms();
 
   const [card, setCard] = useState<FilmCardT | null>(null);
+  const [tow, setTow] = useState<TowComment | null>(null);
   const [err, setErr] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
   const [reasons, setReasons] = useState<string[]>([]);
@@ -147,6 +148,13 @@ export default function FilmScreen() {
       .film(String(slug), country, locale)
       .then((c) => alive && setCard(c))
       .catch(() => alive && setErr(true));
+    // to.W — the curator's letter (owner 07-29: every film carries it when curated).
+    // Fail-soft: null renders nothing.
+    setTow(null);
+    api
+      .towComment(String(slug))
+      .then((tw) => alive && setTow(tw))
+      .catch(() => {});
     return () => {
       alive = false;
     };
@@ -529,6 +537,38 @@ export default function FilmScreen() {
                 </Serif>
               </View>
             </>
+          ) : null}
+
+          {/* to.W — the curator's letter (owner 07-29: every curated film carries it).
+              Addressee/signature are fixed brand strings (contract — never localized). */}
+          {tow?.rationale ? (
+            <View
+              style={{
+                marginHorizontal: sp.s4,
+                marginTop: sp.s5,
+                backgroundColor: pal.surface,
+                borderRadius: radius.md,
+                padding: sp.s4,
+                gap: sp.s2,
+              }}
+            >
+              <Ui size={fs.xs} weight="700" color={pal.muted} style={{ letterSpacing: 0.5 }}>
+                to. WY. Heo
+              </Ui>
+              <Serif size={fs.sm} style={{ lineHeight: fs.sm * 1.65 }}>
+                {tow.rationale}
+              </Serif>
+              <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 2 }}>
+                {tow.verdict_label ? (
+                  <Ui size={fs.xs} weight="700" color={brand.accent}>
+                    {tow.verdict_label}
+                  </Ui>
+                ) : null}
+                <Ui size={fs.xs} color={pal.subtle} style={{ flex: 1, textAlign: "right" }}>
+                  from. Metatake AI Editorial
+                </Ui>
+              </View>
+            </View>
           ) : null}
 
           {/* For You — signed-in, server-supplied evidence only; whole section

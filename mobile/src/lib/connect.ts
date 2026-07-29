@@ -73,7 +73,7 @@ export const CONNECTORS: Connector[] = [
     tint: "#5A9E4B",
     exportUrl: "https://letterboxd.com/settings/data/",
     stepKeys: ["connect.letterboxd.s1", "connect.letterboxd.s2", "connect.letterboxd.s3"],
-    fileTypes: ["application/zip", "text/csv", "text/comma-separated-values"],
+    fileTypes: ["application/zip", "text/csv", "text/comma-separated-values", "text/plain", "application/octet-stream"],
     sourceLabel: "letterboxd",
   },
   {
@@ -85,7 +85,7 @@ export const CONNECTORS: Connector[] = [
     collectUrl: "https://www.imdb.com/exports/",
     stepKeys: ["connect.imdb.s1", "connect.imdb.s2", "connect.imdb.s3"],
     noteKey: "connect.imdb.wait",
-    fileTypes: ["text/csv", "text/comma-separated-values"],
+    fileTypes: ["text/csv", "text/comma-separated-values", "text/plain", "application/octet-stream"],
     sourceLabel: "imdb",
   },
   {
@@ -96,7 +96,7 @@ export const CONNECTORS: Connector[] = [
     exportUrl: "https://www.netflix.com/settings/viewing-history",
     stepKeys: ["connect.netflix.s1", "connect.netflix.s2", "connect.netflix.s3"],
     noteKey: "connect.netflix.note",
-    fileTypes: ["text/csv", "text/comma-separated-values"],
+    fileTypes: ["text/csv", "text/comma-separated-values", "text/plain", "application/octet-stream"],
     sourceLabel: "netflix",
   },
   {
