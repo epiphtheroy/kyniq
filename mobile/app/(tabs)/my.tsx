@@ -381,6 +381,46 @@ export default function ShelfScreen() {
           </View>
         ) : (
           <>
+            {/* My edition — services + country surfaced at the TOP of You (owner 07-29:
+                not hidden behind the gear). Each row taps straight into its editor. */}
+            <View
+              style={{
+                marginHorizontal: sp.s4,
+                marginTop: sp.s3,
+                backgroundColor: pal.card,
+                borderRadius: radius.md,
+                borderWidth: 1,
+                borderColor: pal.hairline,
+                overflow: "hidden",
+              }}
+            >
+              <Tactile onPress={() => router.push({ pathname: "/onboarding", params: { step: "services" } })}>
+                <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, paddingHorizontal: sp.s4, paddingVertical: 13 }}>
+                  <Ionicons name="tv-outline" size={19} color={brand.accent} />
+                  <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
+                    {t("my.services")}
+                  </Ui>
+                  <Ui size={fs.sm} color={pal.muted}>
+                    {prefs.providerIds.length}
+                  </Ui>
+                  <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+                </View>
+              </Tactile>
+              <Hairline style={{ marginLeft: sp.s4 }} />
+              <Tactile onPress={() => router.push({ pathname: "/onboarding", params: { step: "country" } })}>
+                <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, paddingHorizontal: sp.s4, paddingVertical: 13 }}>
+                  <Ionicons name="globe-outline" size={19} color={brand.accent} />
+                  <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
+                    {t("my.country")}
+                  </Ui>
+                  <Ui size={fs.sm} color={pal.muted}>
+                    {prefs.country}
+                  </Ui>
+                  <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+                </View>
+              </Tactile>
+            </View>
+
             {/* Connect entry — the empty shelf is the primary discovery moment
                 (HANDOFF-커넥트 §2.1: Shelf body card, not the gear sheet) */}
             {queue !== null && qTotal === 0 ? <ConnectEntryCard /> : null}
