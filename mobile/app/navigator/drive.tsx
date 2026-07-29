@@ -164,7 +164,10 @@ function buildWorld(stations: OdyStationLite[], onRoute: Set<string>, L: number)
   }
   const spanX = maxX - minX || 1;
   const spanY = maxY - minY || 1;
-  const WSPANX = clamp(L * 2.4, 380, 1400); // world width in lane units (≥ ~4 screens)
+  // World width MUST always contain the full route lane [X0..L], else the pan clamp
+  // (derived from these bounds) can't reach the "Now" chevron or the 🏁 destination on
+  // large canon/lineage drives (N≳70). No upper cap — mirror web (field ⊇ lane).
+  const WSPANX = Math.max(L * 1.4, 380); // world width in lane units (always ⊇ lane)
   const WSPANY = 260; // world height in lane units (~2.6 screens tall)
   const WX0 = (X0 + L) / 2 - WSPANX / 2; // centre the world on the lane's middle
   const WY0 = 50 - WSPANY / 2;

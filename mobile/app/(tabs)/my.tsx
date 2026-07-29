@@ -133,8 +133,8 @@ export default function ShelfScreen() {
     const [rows, coll, cov, blind] = await Promise.all([
       me.watchlistScored().catch(() => [] as WatchlistScoredRow[]),
       me.collection().catch(() => [] as CollectionRow[]),
-      me.coverage(5, 40),
-      me.blindspots(1),
+      me.coverage(5, 40).catch(() => [] as CoverageRow[]),
+      me.blindspots(1).catch(() => [] as BlindspotRow[]),
     ]);
     if (!alive.current) return;
     setQueue(rows);
@@ -272,9 +272,11 @@ export default function ShelfScreen() {
     [coverage],
   );
 
-  // Same idiom as the film screen's "Read more" rows — the in-app reader.
-  const openRoom = (title: string) =>
-    router.push({ pathname: "/read", params: { path: "/room/coverage", title } });
+  // The Journey zone drives a specific canon NATIVELY (owner 07-29: reduce web
+  // handoffs) — coverage rows + blindspots are lineages, so open the turn-by-turn
+  // Navigator drive for that exact list instead of one generic web /room/coverage page.
+  const driveLineage = (slug: string, label: string) =>
+    router.push({ pathname: "/navigator/drive", params: { lineage: slug, label } });
 
   const showUndo = (tok: JudgmentUndo) => {
     if (undoTimer.current) clearTimeout(undoTimer.current);
@@ -565,7 +567,7 @@ export default function ShelfScreen() {
                       return (
                         <React.Fragment key={c.list_id}>
                           {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-                          <Tactile onPress={() => openRoom(c.label)}>
+                          <Tactile onPress={() => driveLineage(c.slug, c.label)}>
                             <View
                               style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s3, gap: 6 }}
                             >
@@ -603,7 +605,7 @@ export default function ShelfScreen() {
                 ) : null}
                 {blindspot ? (
                   <Tactile
-                    onPress={() => openRoom(blindspot.label)}
+                    onPress={() => driveLineage(blindspot.slug, blindspot.label)}
                     style={{ marginHorizontal: sp.s4, marginTop: sp.s3 }}
                   >
                     <View
@@ -629,7 +631,7 @@ export default function ShelfScreen() {
                   </Tactile>
                 ) : null}
                 <Tactile
-                  onPress={() => openRoom(t("shelf.journey"))}
+                  onPress={() => router.push("/navigator")}
                   hitSlop={6}
                   style={{ alignSelf: "flex-start", paddingHorizontal: sp.s4, paddingVertical: sp.s3 }}
                 >

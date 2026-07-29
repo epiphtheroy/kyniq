@@ -5,7 +5,6 @@
 // Design system v2 "Lava" grammar kept: SearchPill front door, chip rows,
 // rounded image cards with TSBadge + HeartButton overlays.
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { LinearGradient } from "expo-linear-gradient";
 import { Redirect, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -45,7 +44,7 @@ import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, fs, gradient, radius, shadow, sp, usePalette } from "../../src/theme";
+import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
 import type { PresetKey, TonightRow, WwiRow } from "../../src/types";
 
 type JudgeKind = "want" | "pass" | "seen";
@@ -147,6 +146,12 @@ export default function TonightScreen() {
     },
     [],
   );
+
+  // "Bold pick" swaps the source to the auth-scoped me_recommend_wwi; on sign-out its
+  // chip hides but the preset would linger and fetch an empty anonymous deck — drop it.
+  useEffect(() => {
+    if (!session) setPresets((p) => (p.has("bold") ? new Set([...p].filter((x) => x !== "bold")) : p));
+  }, [session]);
 
   const fetchDeck = useCallback(async (): Promise<{ rows: DeckRow[]; total: number }> => {
     if (bold) {
@@ -344,6 +349,13 @@ export default function TonightScreen() {
     if (hideSeenEff && session && e?.seen) return false;
     return true;
   });
+
+  // Hide-seen can filter the whole fetched page to empty while the deeper catalog is
+  // still unpulled; RN never fires onEndReached on an empty list, so pull the next page
+  // here to avoid a premature "Deck cleared". loadMore self-guards against over-fetching.
+  useEffect(() => {
+    if (status === "idle" && !bold && visible.length === 0 && fetched < total) loadMore();
+  }, [status, bold, visible.length, fetched, total, loadMore]);
 
   // Header — pill search, title row, then the situation preset chips (§5.2).
   const header = (

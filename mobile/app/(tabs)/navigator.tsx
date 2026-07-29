@@ -138,6 +138,7 @@ export default function NavigatorTab() {
   const [q, setQ] = useState("");
   const [catalog, setCatalog] = useState<NavCatalog | null>(null);
   const [catBusy, setCatBusy] = useState(false);
+  const [catErr, setCatErr] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -172,14 +173,17 @@ export default function NavigatorTab() {
   // Lazy-load the browse catalog the first time the user searches (never on tab open —
   // it's a large payload). Failure falls back to an empty catalog (search shows nothing).
   useEffect(() => {
-    if (!q.trim() || catalog || catBusy) return;
+    // catErr blocks auto-retry (no per-keystroke network spam on a persistent failure);
+    // the inline Retry button clears it to re-attempt. Leaving `catalog` null on failure
+    // (not a truthy empty object) is what makes retry possible at all.
+    if (!q.trim() || catalog || catBusy || catErr) return;
     setCatBusy(true);
     api
       .navigatorCatalog()
       .then(setCatalog)
-      .catch(() => setCatalog({ directors: [], lineages: [] }))
+      .catch(() => setCatErr(true))
       .finally(() => setCatBusy(false));
-  }, [q, catalog, catBusy]);
+  }, [q, catalog, catBusy, catErr]);
 
   const query = q.trim().toLowerCase();
   const results = useMemo(() => {
@@ -265,8 +269,17 @@ export default function NavigatorTab() {
         {query ? (
           /* ── search results ── */
           <View style={{ marginTop: sp.s4 }}>
-            {!catalog && catBusy ? (
-              <Loading />
+            {!catalog ? (
+              catErr ? (
+                <View style={{ gap: sp.s3 }}>
+                  <Ui size={fs.sm} color={pal.muted}>
+                    {t("error.network")}
+                  </Ui>
+                  <Btn label={t("action.retry")} onPress={() => setCatErr(false)} kind="ghost" />
+                </View>
+              ) : (
+                <Loading />
+              )
             ) : results && (results.directors.length > 0 || results.lineages.length > 0) ? (
               <>
                 {results.directors.length ? (
