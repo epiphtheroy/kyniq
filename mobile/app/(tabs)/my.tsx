@@ -29,6 +29,7 @@ import { Serif,
   Btn,
   GradientBtn,
   Hairline,
+  HeaderSearch,
   PosterImg,
   SectionTitle,
   Tactile,
@@ -328,6 +329,8 @@ export default function ShelfScreen() {
           <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
             {t("shelf.title")}
           </Ui>
+          <HeaderSearch onPress={() => router.push("/search")} />
+          <View style={{ width: sp.s2 }} />
           <Tactile onPress={() => setShowSettings(true)} hitSlop={8}>
             <View
               style={{

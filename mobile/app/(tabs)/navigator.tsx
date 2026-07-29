@@ -9,7 +9,7 @@ import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Btn, Loading, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
+import { Btn, HeaderSearch, Loading, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { t, type DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import type { NavActive, NavDestinations, NavPickDest } from "../../src/types";
@@ -251,6 +251,11 @@ export default function NavigatorTab() {
           </>
         ) : null}
       </ScrollView>
+
+      {/* Always-reachable global search (owner 07-29) — top-right of the tab header. */}
+      <View style={{ position: "absolute", top: insets.top + sp.s2, right: sp.s4 }} pointerEvents="box-none">
+        <HeaderSearch onPress={() => router.push("/search")} />
+      </View>
     </Screen>
   );
 }

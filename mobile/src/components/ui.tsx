@@ -424,6 +424,31 @@ export function SearchPill({
   );
 }
 
+/** Compact search-icon disc for tab headers — the always-reachable global search
+ * affordance (owner 07-29: a search icon in every tab header). Caller wires onPress
+ * to the Explore search route so search is one tap from anywhere. */
+export function HeaderSearch({ onPress }: { onPress: () => void }) {
+  const pal = usePalette();
+  return (
+    <Tactile onPress={onPress} hitSlop={8}>
+      <View
+        accessibilityRole="button"
+        accessibilityLabel="Search"
+        style={{
+          width: 36,
+          height: 36,
+          borderRadius: radius.pill,
+          backgroundColor: pal.surface,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Ionicons name="search" size={18} color={pal.ink} />
+      </View>
+    </Tactile>
+  );
+}
+
 export function Loading() {
   const pal = usePalette();
   return (

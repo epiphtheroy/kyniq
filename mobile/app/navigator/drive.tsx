@@ -366,6 +366,12 @@ export default function NavigatorDriveScreen() {
   const [k, setK] = useState(1); // adaptive map scale (short journey = zoomed in)
   const [viewCenter, setViewCenter] = useState({ cx: 50, cy: 50 }); // pan centre, lane units → background culling
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Reset pref/skipped ONLY on a genuine destination change, never on a reroute
+  // (mark-seen bumps `gen` → refetch, but the user's chosen route/skips must survive).
+  const prefDestRef = useRef<string | null>(null);
+  // True only when `dest` is the synthetic canon fallback (no params, no started
+  // conquest) — we must NOT persist that as a Resume the user never chose (§10-1).
+  const syntheticDestRef = useRef(false);
 
   // Draggable + adaptively-zoomed map layer. PanResponder claims only on a real drag
   // (poster taps pass through); the offset is clamped to the whole explorable world and
@@ -442,7 +448,9 @@ export default function NavigatorDriveScreen() {
     let alive = true;
     (async () => {
       const d = session ? await me.midConquestDirector().catch(() => null) : null;
-      if (alive) setDest({ dir: d ?? DEFAULT_DIR });
+      if (!alive) return;
+      syntheticDestRef.current = !d; // fell back to the canon default → do not persist as Resume
+      setDest({ dir: d ?? DEFAULT_DIR });
     })();
     return () => {
       alive = false;
@@ -468,15 +476,23 @@ export default function NavigatorDriveScreen() {
   useEffect(() => {
     if (!dest) return;
     let alive = true;
-    setData(null);
+    // Keep the current drive on screen during a reroute refetch (mark-seen bumps
+    // `gen`) — blanking `data` to a spinner would flash the whole flagship on every
+    // judgment. Only the initial load (data still null) shows <Loading/>.
     setErr(false);
     api
       .navigator(dest, country)
       .then((d) => {
         if (!alive) return;
         setData(d);
-        setPref(d.defaultPref);
-        setSkipped(new Set());
+        // Apply the server's default route + clear skips ONLY when the destination
+        // itself changed; a reroute must preserve the user's chosen pref and skips.
+        const destKey = dest.lineage ?? dest.dir ?? null;
+        if (prefDestRef.current !== destKey) {
+          setPref(d.defaultPref);
+          setSkipped(new Set());
+          prefDestRef.current = destKey;
+        }
       })
       .catch(() => alive && setErr(true));
     return () => {
@@ -490,7 +506,8 @@ export default function NavigatorDriveScreen() {
   // destination (dest), which the picker/deep-link set. Fire-and-forget: a failed
   // resume write must never block or break the drive.
   useEffect(() => {
-    if (!session || !data || !dest) return;
+    // Never persist the synthetic canon fallback as a Resume the user never chose.
+    if (!session || !data || !dest || syntheticDestRef.current) return;
     const dest_kind = dest.lineage ? "lineage" : "dir";
     const dest_key = dest.lineage ?? dest.dir;
     if (!dest_key) return;
@@ -523,7 +540,10 @@ export default function NavigatorDriveScreen() {
   // the rear (§4.4 — skip is a re-order, never a deletion or a penalty).
   const view = useMemo(() => {
     if (!data) return null;
-    const base = data.routes[pref];
+    // Fall back to the default route if the selected pref key is ever absent, and
+    // bail to <Loading/> rather than crash-blank the flagship on a payload mismatch.
+    const base = data.routes[pref] ?? data.routes[data.defaultPref];
+    if (!base) return null;
     const active = base.stops.filter((s) => !skipped.has(s.slug));
     const rear = base.stops.filter((s) => skipped.has(s.slug));
     const stops = [...active, ...rear];
@@ -661,14 +681,17 @@ export default function NavigatorDriveScreen() {
       </Screen>
     );
 
-  const arrived = data.remaining === 0 || view.stops.length === 0;
+  const arrived = Number(data.remaining ?? 0) === 0 || view.stops.length === 0;
   const head = view.stops[0] ?? null; // the next turn (a NavStop)
   const then = view.stops[1] ?? null;
-  const webUrl = `${METATAKE_BASE}/navigator-preview.html`;
+  // Share the real, live Navigator surface — NOT the noindex Korean paper prototype
+  // (navigator-preview.html). Mirrors web's share target.
+  const webUrl = `${METATAKE_BASE}/room/navigator`;
 
-  // traveled fraction for the meter
-  const trav = data.runtimeTraveled ?? 0;
-  const rem = data.runtimeRemaining ?? 0;
+  // traveled fraction for the meter — coerce, as the BFF may serialize the runtime
+  // SUMs as JSON strings (Postgres numeric); "60"+"120" would poison the ratio.
+  const trav = Number(data.runtimeTraveled ?? 0) || 0;
+  const rem = Number(data.runtimeRemaining ?? 0) || 0;
   const doneFrac = trav + rem > 0 ? trav / (trav + rem) : arrived ? 1 : 0;
 
   // ── overworld poster stops: the nearest few stand at the route's nodes (near→far,
@@ -1478,7 +1501,7 @@ export default function NavigatorDriveScreen() {
               {PREFS.map((p) => {
                 const on = pref === p;
                 const label = p === "fewest" ? t("nav.prefFewest") : p === "fastest" ? t("nav.prefFastest") : t("nav.prefNoTolls");
-                const tolls = data.routes[p].tollCount;
+                const tolls = data.routes[p]?.tollCount ?? 0;
                 return (
                   <Tactile key={p} onPress={() => setPref(p)} style={{ flex: 1 }}>
                     <View
