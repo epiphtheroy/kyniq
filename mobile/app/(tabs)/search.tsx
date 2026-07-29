@@ -104,6 +104,15 @@ export default function SearchScreen() {
         if (seq.current !== id) return;
         // Treat a failed search as zero canon rows — the web footer still works.
       }
+      // Supplement with very-fuzzy / multilingual film matches (1-char, Korean/accented
+      // titles) that search_all's length>=2, no-unaccent, no-title_ko path misses (0116).
+      // Fail-soft (searchFuzzy returns [] on error); dedup by slug, appended after canon.
+      const fuzzy = await api.searchFuzzy(query, 30);
+      if (seq.current !== id) return;
+      if (fuzzy.length) {
+        const have = new Set(kept.map((r) => r.slug));
+        kept = [...kept, ...fuzzy.filter((r) => !have.has(r.slug))];
+      }
       setRows(kept);
       setSearched(true);
 

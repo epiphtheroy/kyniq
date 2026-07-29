@@ -13,15 +13,17 @@
 create extension if not exists unaccent;
 create extension if not exists pg_trgm;
 
--- IMMUTABLE wrapper: bare unaccent() is only STABLE, so it can't be indexed on. The
--- 2-arg form pins the dictionary, which is safe to mark IMMUTABLE.
+-- IMMUTABLE wrapper: the 1-arg public.unaccent(text) is only STABLE, so it can't be
+-- indexed on directly; wrapping it and marking the wrapper IMMUTABLE is the standard,
+-- safe pattern (the default unaccent dictionary is fixed). unaccent lives in `public`
+-- on this project (verified) — mirror how films_basic_search (0094) calls it 1-arg.
 create or replace function public.f_unaccent(text)
 returns text
 language sql
 immutable
 parallel safe
 strict
-as $$ select unaccent('public.unaccent', $1) $$;
+as $$ select public.unaccent($1) $$;
 
 -- Accent-folded trigram GIN indexes. GIN trgm also accelerates LIKE 'x%' (prefix) and
 -- LIKE '%x%' (substring), so 1–2-char prefix/substring queries hit the index too.

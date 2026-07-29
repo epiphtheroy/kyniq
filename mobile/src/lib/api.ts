@@ -293,6 +293,41 @@ export const api = {
     return (data ?? []) as SearchRow[];
   },
 
+  /**
+   * Very-fuzzy, 1-char-capable, MULTILINGUAL film search (film_catalog_search, migration
+   * 0116) — accent-insensitive across title / original_title / title_ko. search_all gates
+   * at length>=2 and ignores title_ko, so this fills what it misses (1 char, Korean/accented
+   * titles). Returned as SearchRow (kind:"film") to merge into the Explore results. Fails
+   * soft to []. */
+  async searchFuzzy(qRaw: string, limit = 30): Promise<SearchRow[]> {
+    const q = qRaw.trim().replace(/\s+/g, " ").slice(0, 200);
+    if (!q) return [];
+    const { data, error } = await supabase.rpc("film_catalog_search", { p_q: q, p_limit: limit });
+    if (error) return [];
+    type FCRow = {
+      slug: string;
+      title: string;
+      original_title: string | null;
+      title_ko: string | null;
+      year: number | null;
+      director: string | null;
+      poster_path: string | null;
+      is_catalog: boolean;
+      score: number;
+    };
+    return ((data ?? []) as FCRow[]).map((r) => ({
+      kind: "film",
+      slug: r.slug,
+      film_slug: r.slug,
+      title: r.title,
+      sub: r.director ?? r.original_title ?? "",
+      poster: r.poster_path,
+      year: r.year,
+      score: r.score,
+      is_catalog: r.is_catalog,
+    }));
+  },
+
   /** Bulk TakeScore for search rows. */
   async takescores(slugs: string[]): Promise<Map<string, number>> {
     if (!slugs.length) return new Map();
