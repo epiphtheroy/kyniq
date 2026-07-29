@@ -146,7 +146,7 @@ export const ko: Record<keyof typeof en, string> = {
   "tonight.deckCleared": "덱을 다 처리했어요 — 필터를 넓혀보세요.",
   "tonight.swipeHint": "오른쪽 스와이프=담기, 왼쪽=패스",
   // v4 — 서재
-  "shelf.title": "서재",
+  "shelf.title": "나",
   "shelf.queueTitle": "오늘 밤 볼 수 있는 것",
   "shelf.queueLine": "찜한 {total}편 중 {avail}편이 내 서비스에 있어요",
   "shelf.deciding": "판단 대기",
@@ -272,6 +272,8 @@ export const ko: Record<keyof typeof en, string> = {
   "nav.leftN": "{n}편 남음",
   "nav.tryKubrick": "큐브릭으로 체험 →",
   "nav.pickEmpty": "아직 진행 중인 여정이 없어요. 영화를 몇 편 기록하거나 가져오면 정전·감독 목적지가 나타납니다.",
+  "nav.searchLists": "감독·리스트 검색",
+  "nav.searchEmpty": "일치하는 여정이 없습니다.",
   "nav.drive": "주행 →",
   "nav.moreDetails": "자세히",
   "nav.familyConquest": "감독 정복",

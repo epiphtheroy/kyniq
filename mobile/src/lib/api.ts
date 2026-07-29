@@ -11,6 +11,8 @@ import type {
   DirectorCard,
   FilmCard,
   NavActive,
+  NavCatalog,
+  NavCatalogEntry,
   NavDest,
   NavDestinations,
   NavigatorPayload,
@@ -145,6 +147,65 @@ export const api = {
       .sort((a, b) => b.pct - a.pct || b.total - a.total)
       .slice(0, 40);
     return { directors, canon };
+  },
+
+  /**
+   * The FULL browsable catalog — every director oeuvre + every lineage/list — for the
+   * Navigator tab's list search (owner 07-29). Unlike navigatorDestinations (personal
+   * in-progress only), this browses the whole vocabulary via anon RPCs (lineage_index +
+   * directors_catalogue_v2) and overlays the viewer's progress by slug. Signed-out still
+   * gets the full catalog with zeroed rings. Loaded lazily (only when the user searches).
+   */
+  async navigatorCatalog(): Promise<NavCatalog> {
+    const NUM = (v: number | string | null | undefined): number =>
+      v == null ? 0 : typeof v === "string" ? parseFloat(v) || 0 : v;
+    const [linRes, dirRes, cov, aut] = await Promise.all([
+      supabase.rpc("lineage_index"),
+      supabase.rpc("directors_catalogue_v2"),
+      me.coverage(0, 3000).catch(() => [] as CoverageRow[]),
+      me.auteurConquest(3000).catch(() => null),
+    ]);
+    const covBySlug = new Map<string, { seen: number; pct: number }>();
+    for (const c of (cov as CoverageRow[])) covBySlug.set(c.slug, { seen: NUM(c.seen), pct: Math.round(NUM(c.pct)) });
+    const autBySlug = new Map<string, { seen: number; pct: number }>();
+    for (const a of ((aut as AuteurConquestRow[] | null) ?? [])) autBySlug.set(a.slug, { seen: NUM(a.seen), pct: Math.round(NUM(a.pct)) });
+
+    type LinRow = { facet: string; slug: string; label: string; parent_label: string | null; country: string | null; film_count: number | string | null };
+    const lineages: NavCatalogEntry[] = ((linRes.data ?? []) as LinRow[])
+      .map((l) => {
+        const c = covBySlug.get(l.slug);
+        return {
+          kind: "lineage" as const,
+          key: l.slug,
+          label: l.label,
+          facet: l.facet,
+          total: NUM(l.film_count),
+          seen: c?.seen ?? 0,
+          pct: c?.pct ?? 0,
+          search: `${l.label} ${l.parent_label ?? ""} ${l.facet ?? ""} ${l.country ?? ""}`.toLowerCase(),
+        };
+      })
+      .filter((l) => !!l.key && l.total >= 2)
+      .sort((a, b) => b.pct - a.pct || b.total - a.total);
+
+    type DirRow = { slug: string; name: string; country: string | null; films: number | string | null };
+    const dirBlob = (dirRes.data ?? {}) as { items?: DirRow[] };
+    const directors: NavCatalogEntry[] = (dirBlob.items ?? [])
+      .map((d) => {
+        const a = autBySlug.get(d.slug);
+        return {
+          kind: "dir" as const,
+          key: d.slug,
+          label: d.name,
+          total: NUM(d.films),
+          seen: a?.seen ?? 0,
+          pct: a?.pct ?? 0,
+          search: `${d.name ?? ""} ${d.country ?? ""}`.toLowerCase(),
+        };
+      })
+      .filter((d) => !!d.key && !!d.label && d.total >= 2)
+      .sort((a, b) => b.pct - a.pct || b.total - a.total);
+    return { directors, lineages };
   },
 
   tonight(

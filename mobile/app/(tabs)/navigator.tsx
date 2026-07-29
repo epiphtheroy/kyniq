@@ -6,14 +6,14 @@
 // /room/navigator's picker: same me_auteur_conquest + me_coverage rows, same gates.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
-import React, { useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
+import React, { useEffect, useMemo, useState } from "react";
+import { ScrollView, TextInput, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Btn, HeaderSearch, Loading, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
+import { Btn, Loading, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { t, type DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
-import type { NavActive, NavDestinations, NavPickDest } from "../../src/types";
-import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
+import type { NavActive, NavCatalog, NavDestinations, NavPickDest } from "../../src/types";
+import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme";
 
 const GOLD = "#8F6A1E";
 const SAMPLER_DIR = "stanley-kubrick";
@@ -133,6 +133,11 @@ export default function NavigatorTab() {
   const [resume, setResume] = useState<NavActive | null>(null);
   const [err, setErr] = useState(false);
   const [gen, setGen] = useState(0);
+  // List search (owner 07-29) — the full catalog is lazy-loaded the first time the
+  // user types, then filtered client-side by tokens (so "cannes" finds the Palme d'Or).
+  const [q, setQ] = useState("");
+  const [catalog, setCatalog] = useState<NavCatalog | null>(null);
+  const [catBusy, setCatBusy] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -163,6 +168,29 @@ export default function NavigatorTab() {
     r.dest_kind === "dir"
       ? router.push({ pathname: "/navigator/drive", params: { dir: r.dest_key } })
       : router.push({ pathname: "/navigator/drive", params: { lineage: r.dest_key, label: r.dest_label ?? r.dest_key } });
+
+  // Lazy-load the browse catalog the first time the user searches (never on tab open —
+  // it's a large payload). Failure falls back to an empty catalog (search shows nothing).
+  useEffect(() => {
+    if (!q.trim() || catalog || catBusy) return;
+    setCatBusy(true);
+    api
+      .navigatorCatalog()
+      .then(setCatalog)
+      .catch(() => setCatalog({ directors: [], lineages: [] }))
+      .finally(() => setCatBusy(false));
+  }, [q, catalog, catBusy]);
+
+  const query = q.trim().toLowerCase();
+  const results = useMemo(() => {
+    if (!query || !catalog) return null;
+    const toks = query.split(/\s+/).filter(Boolean);
+    const match = (e: { search: string }) => toks.every((tk) => e.search.includes(tk));
+    return {
+      directors: catalog.directors.filter(match).slice(0, 30),
+      lineages: catalog.lineages.filter(match).slice(0, 40),
+    };
+  }, [query, catalog]);
 
   if (err)
     return (
@@ -201,61 +229,133 @@ export default function NavigatorTab() {
           </Ui>
         </View>
 
-        {resume ? (
-          <View style={{ marginBottom: sp.s4 }}>
-            <ResumeCard r={resume} onPress={() => openResume(resume)} />
+        {/* List search (owner 07-29) — directors & lists; token filter so "cannes"
+            finds the Palme d'Or. Full catalog lazy-loads on first keystroke. */}
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: sp.s3,
+            borderRadius: radius.pill,
+            backgroundColor: pal.card,
+            paddingHorizontal: sp.s4,
+            paddingVertical: 11,
+            borderWidth: 1,
+            borderColor: pal.hairline,
+          }}
+        >
+          <Ionicons name="search" size={17} color={pal.muted} />
+          <TextInput
+            value={q}
+            onChangeText={setQ}
+            placeholder={t("nav.searchLists")}
+            placeholderTextColor={pal.muted}
+            autoCorrect={false}
+            autoCapitalize="none"
+            returnKeyType="search"
+            style={{ flex: 1, fontFamily: font.ui, fontSize: fs.sm, color: pal.ink, padding: 0 }}
+          />
+          {q.length ? (
+            <Tactile onPress={() => setQ("")} hitSlop={8}>
+              <Ionicons name="close-circle" size={18} color={pal.subtle} />
+            </Tactile>
+          ) : null}
+        </View>
+
+        {query ? (
+          /* ── search results ── */
+          <View style={{ marginTop: sp.s4 }}>
+            {!catalog && catBusy ? (
+              <Loading />
+            ) : results && (results.directors.length > 0 || results.lineages.length > 0) ? (
+              <>
+                {results.directors.length ? (
+                  <>
+                    <Ui size={fs.md} weight="700" style={{ marginBottom: sp.s3 }}>
+                      {t("nav.sectDirectors")}
+                    </Ui>
+                    <View style={{ gap: sp.s2 }}>
+                      {results.directors.map((d) => (
+                        <DestCard key={`dir:${d.key}`} d={d} onPress={() => openDest(d)} />
+                      ))}
+                    </View>
+                  </>
+                ) : null}
+                {results.lineages.length ? (
+                  <>
+                    <Ui size={fs.md} weight="700" style={{ marginTop: sp.s5, marginBottom: sp.s3 }}>
+                      {t("nav.sectCanon")}
+                    </Ui>
+                    <View style={{ gap: sp.s2 }}>
+                      {results.lineages.map((d) => (
+                        <DestCard key={`lin:${d.key}`} d={d} onPress={() => openDest(d)} />
+                      ))}
+                    </View>
+                  </>
+                ) : null}
+              </>
+            ) : (
+              <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s3 }}>
+                {t("nav.searchEmpty")}
+              </Ui>
+            )}
           </View>
-        ) : null}
-
-        {empty ? (
-          <View
-            style={{
-              backgroundColor: pal.surface,
-              borderRadius: radius.md,
-              borderWidth: 1,
-              borderColor: pal.hairline,
-              padding: sp.s4,
-              gap: sp.s4,
-            }}
-          >
-            <Ui size={fs.sm} color={pal.inkSoft}>
-              {t("nav.pickEmpty")}
-            </Ui>
-            <Btn label={t("nav.tryKubrick")} onPress={() => openDir(SAMPLER_DIR)} kind="ghost" />
-          </View>
-        ) : null}
-
-        {dests.directors.length ? (
+        ) : (
+          /* ── personal picker ── */
           <>
-            <Ui size={fs.md} weight="700" style={{ marginTop: sp.s5, marginBottom: sp.s3 }}>
-              {t("nav.sectDirectors")}
-            </Ui>
-            <View style={{ gap: sp.s2 }}>
-              {dests.directors.map((d) => (
-                <DestCard key={`dir:${d.key}`} d={d} onPress={() => openDest(d)} />
-              ))}
-            </View>
-          </>
-        ) : null}
+            {resume ? (
+              <View style={{ marginTop: sp.s4 }}>
+                <ResumeCard r={resume} onPress={() => openResume(resume)} />
+              </View>
+            ) : null}
 
-        {dests.canon.length ? (
-          <>
-            <Ui size={fs.md} weight="700" style={{ marginTop: sp.s5, marginBottom: sp.s3 }}>
-              {t("nav.sectCanon")}
-            </Ui>
-            <View style={{ gap: sp.s2 }}>
-              {dests.canon.map((d) => (
-                <DestCard key={`lin:${d.key}`} d={d} onPress={() => openDest(d)} />
-              ))}
-            </View>
+            {empty ? (
+              <View
+                style={{
+                  marginTop: sp.s4,
+                  backgroundColor: pal.surface,
+                  borderRadius: radius.md,
+                  borderWidth: 1,
+                  borderColor: pal.hairline,
+                  padding: sp.s4,
+                  gap: sp.s4,
+                }}
+              >
+                <Ui size={fs.sm} color={pal.inkSoft}>
+                  {t("nav.pickEmpty")}
+                </Ui>
+                <Btn label={t("nav.tryKubrick")} onPress={() => openDir(SAMPLER_DIR)} kind="ghost" />
+              </View>
+            ) : null}
+
+            {dests.directors.length ? (
+              <>
+                <Ui size={fs.md} weight="700" style={{ marginTop: sp.s5, marginBottom: sp.s3 }}>
+                  {t("nav.sectDirectors")}
+                </Ui>
+                <View style={{ gap: sp.s2 }}>
+                  {dests.directors.map((d) => (
+                    <DestCard key={`dir:${d.key}`} d={d} onPress={() => openDest(d)} />
+                  ))}
+                </View>
+              </>
+            ) : null}
+
+            {dests.canon.length ? (
+              <>
+                <Ui size={fs.md} weight="700" style={{ marginTop: sp.s5, marginBottom: sp.s3 }}>
+                  {t("nav.sectCanon")}
+                </Ui>
+                <View style={{ gap: sp.s2 }}>
+                  {dests.canon.map((d) => (
+                    <DestCard key={`lin:${d.key}`} d={d} onPress={() => openDest(d)} />
+                  ))}
+                </View>
+              </>
+            ) : null}
           </>
-        ) : null}
+        )}
       </ScrollView>
-
-      {/* Always-reachable global search (owner 07-29) — top-right of the tab header. */}
-      <View style={{ position: "absolute", top: insets.top + sp.s2, right: sp.s4 }} pointerEvents="box-none">
-        <HeaderSearch onPress={() => router.push("/search")} />
-      </View>
     </Screen>
   );
 }

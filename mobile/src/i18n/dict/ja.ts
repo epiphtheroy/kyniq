@@ -145,7 +145,7 @@ export const ja: Record<keyof typeof en, string> = {
   "tonight.deckCleared": "デッキを処理し切りました — フィルターを緩めてみてください。",
   "tonight.swipeHint": "右スワイプで保存、左スワイプでパス",
   // v4 — 本棚
-  "shelf.title": "本棚",
+  "shelf.title": "マイ",
   "shelf.queueTitle": "今夜観られる作品",
   "shelf.queueLine": "保存した{total}本のうち{avail}本があなたのサービスにあります",
   "shelf.deciding": "判断待ち",
@@ -271,6 +271,8 @@ export const ja: Record<keyof typeof en, string> = {
   "nav.leftN": "残り{n}本",
   "nav.tryKubrick": "キューブリックで体験 →",
   "nav.pickEmpty": "まだ進行中の旅がありません。映画を数本記録またはインポートすると、カノン・監督の目的地が現れます。",
+  "nav.searchLists": "監督・リストを検索",
+  "nav.searchEmpty": "一致する旅がありません。",
   "nav.drive": "運転 →",
   "nav.moreDetails": "詳細",
   "nav.familyConquest": "監督制覇",

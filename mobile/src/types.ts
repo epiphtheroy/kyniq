@@ -391,6 +391,12 @@ export type NavPickDest = {
 /** Picker payload — the two families the app lists as onward destinations. */
 export type NavDestinations = { directors: NavPickDest[]; canon: NavPickDest[] };
 
+/** A browsable catalog entry — ALL directors + ALL lineages/lists (not just the
+ * viewer's in-progress ones), each a NavPickDest plus a lowercased `search` string
+ * (label + parent + facet + country) for the Navigator tab's list search (owner 07-29). */
+export type NavCatalogEntry = NavPickDest & { search: string };
+export type NavCatalog = { directors: NavCatalogEntry[]; lineages: NavCatalogEntry[] };
+
 /** A drive destination descriptor passed to api.navigator(). */
 export type NavDest = { dir?: string; lineage?: string; label?: string };
 

@@ -160,7 +160,7 @@ export const en = {
   "tonight.deckCleared": "Deck cleared — loosen a filter for more.",
   "tonight.swipeHint": "Swipe right to keep, left to pass",
   // v4 — shelf
-  "shelf.title": "Shelf",
+  "shelf.title": "You",
   "shelf.queueTitle": "Watchable tonight",
   "shelf.queueLine": "{avail} of {total} watchlisted films are on your services",
   "shelf.deciding": "Deciding",
@@ -286,6 +286,8 @@ export const en = {
   "nav.leftN": "{n} left",
   "nav.tryKubrick": "Try Kubrick →",
   "nav.pickEmpty": "No journeys in progress yet. Log or import a few films and canon & director destinations appear.",
+  "nav.searchLists": "Search directors & lists",
+  "nav.searchEmpty": "No journeys match.",
   "nav.drive": "Drive →",
   "nav.moreDetails": "Details",
   "nav.familyConquest": "Director conquest",

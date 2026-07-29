@@ -145,7 +145,7 @@ export const es: Record<keyof typeof en, string> = {
   "tonight.deckCleared": "Mazo despejado — afloja un filtro para ver más.",
   "tonight.swipeHint": "Desliza a la derecha para guardar, a la izquierda para pasar",
   // v4 — estantería
-  "shelf.title": "Estantería",
+  "shelf.title": "Tú",
   "shelf.queueTitle": "Para ver esta noche",
   "shelf.queueLine": "{avail} de {total} películas guardadas están en tus servicios",
   "shelf.deciding": "Por decidir",
@@ -271,6 +271,8 @@ export const es: Record<keyof typeof en, string> = {
   "nav.leftN": "{n} restantes",
   "nav.tryKubrick": "Prueba Kubrick →",
   "nav.pickEmpty": "Aún no hay viajes en curso. Registra o importa algunas películas y aparecerán destinos de cánones y directores.",
+  "nav.searchLists": "Buscar directores y listas",
+  "nav.searchEmpty": "No hay trayectos que coincidan.",
   "nav.drive": "Conducir →",
   "nav.moreDetails": "Detalles",
   "nav.familyConquest": "Conquista de director",
