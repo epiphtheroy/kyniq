@@ -172,6 +172,8 @@ export const ko: Record<keyof typeof en, string> = {
   "explore.genres": "장르",
   "explore.decades": "연대",
   "explore.forYou": "당신을 위한 아홉 편",
+  "explore.collections": "컬렉션",
+  "explore.collectionsSub": "정전·상훈·국가별 시네마 — 골라서 달려보세요",
   "explore.forYouSub": "본 영화에서 딜한 한 손",
   "explore.dealAgain": "다시 딜하기",
   "axis.stable": "Stable",

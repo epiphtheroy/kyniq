@@ -186,6 +186,8 @@ export const en = {
   "explore.genres": "Genres",
   "explore.decades": "Decades",
   "explore.forYou": "For you — nine films",
+  "explore.collections": "Collections",
+  "explore.collectionsSub": "Canons, prizes, national cinemas — pick one and drive it",
   "explore.forYouSub": "A hand dealt from what you've seen",
   "explore.dealAgain": "Deal again",
   "axis.stable": "Stable",

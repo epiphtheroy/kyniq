@@ -171,6 +171,8 @@ export const ja: Record<keyof typeof en, string> = {
   "explore.genres": "ジャンル",
   "explore.decades": "年代",
   "explore.forYou": "あなたへの九本",
+  "explore.collections": "コレクション",
+  "explore.collectionsSub": "カノン・賞・各国の映画 — 選んで走ろう",
   "explore.forYouSub": "観た映画から配られた一手",
   "explore.dealAgain": "配り直す",
   "axis.stable": "Stable",

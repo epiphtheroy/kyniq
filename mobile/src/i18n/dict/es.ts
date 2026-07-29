@@ -171,6 +171,8 @@ export const es: Record<keyof typeof en, string> = {
   "explore.genres": "Géneros",
   "explore.decades": "Décadas",
   "explore.forYou": "Para ti — nueve películas",
+  "explore.collections": "Colecciones",
+  "explore.collectionsSub": "Cánones, premios, cines nacionales — elige uno y recórrelo",
   "explore.forYouSub": "Una mano repartida desde lo que has visto",
   "explore.dealAgain": "Repartir de nuevo",
   "axis.stable": "Stable",

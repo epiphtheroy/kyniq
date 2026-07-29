@@ -36,7 +36,7 @@ import { AXES, dealNine, type Axis } from "../../src/lib/deal";
 import { useFilms } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme";
-import type { OdyMapLite, OdyStationLite, SearchRow, TmdbFallbackRow, TonightRow } from "../../src/types";
+import type { NavCatalogEntry, OdyMapLite, OdyStationLite, SearchRow, TmdbFallbackRow, TonightRow } from "../../src/types";
 
 const DEBOUNCE_MS = 250;
 
@@ -102,6 +102,21 @@ export default function SearchScreen() {
     return s;
   }, [ledger]);
   const dealt = useMemo(() => (ody ? dealNine(ody, seenSet, dealSeed) : null), [ody, seenSet, dealSeed]);
+
+  // Collections rail (owner 07-29): the lineage lists, curated + facet-tinted, each
+  // driving straight into the native Navigator. Lazy on first browse; fail-soft to [].
+  const [lists, setLists] = useState<NavCatalogEntry[] | null>(null);
+  useEffect(() => {
+    if (!showBrowseNow || lists) return;
+    let alive = true;
+    api
+      .lineageCatalog()
+      .then((all) => alive && setLists(curateRail(all)))
+      .catch(() => alive && setLists([]));
+    return () => {
+      alive = false;
+    };
+  }, [showBrowseNow, lists]);
 
   const openReader = (path: string, title: string) =>
     router.push({ pathname: "/read", params: { path, title } });
@@ -294,6 +309,26 @@ export default function SearchScreen() {
           />
         ))}
       </View>
+      {!selActive ? (
+        /* ── Collections — curated lineage lists, straight into the native drive ── */
+        <View style={{ paddingTop: sp.s5 }}>
+          <SectionTitle sub={t("explore.collectionsSub")}>{t("explore.collections")}</SectionTitle>
+          {lists === null ? (
+            <View style={{ paddingVertical: sp.s4 }}>
+              <ActivityIndicator color={brand.accent} />
+            </View>
+          ) : lists.length ? (
+            <FlatList
+              horizontal
+              data={lists}
+              keyExtractor={(l) => l.key}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
+              renderItem={({ item }) => <CollectionCard l={item} />}
+            />
+          ) : null}
+        </View>
+      ) : null}
       {selActive ? (
         <View
           style={{
@@ -551,6 +586,112 @@ export default function SearchScreen() {
 }
 
 // ---------------------------------------------------------------------------
+
+/** Curate the Collections rail: journeys already in progress lead, then the biggest
+ * list per facet round-robin (canon → critics → festival → award → national → rest)
+ * so the rail reads varied and inviting, capped at 14 cards. */
+function curateRail(all: NavCatalogEntry[]): NavCatalogEntry[] {
+  const inProgress = all
+    .filter((l) => l.pct > 0 && l.pct < 100)
+    .sort((a, b) => b.pct - a.pct)
+    .slice(0, 4);
+  const taken = new Set(inProgress.map((l) => l.key));
+  const byFacet = new Map<string, NavCatalogEntry[]>();
+  for (const l of all) {
+    if (taken.has(l.key)) continue;
+    const f = l.facet ?? "list";
+    const arr = byFacet.get(f) ?? [];
+    arr.push(l);
+    byFacet.set(f, arr);
+  }
+  for (const arr of byFacet.values()) arr.sort((a, b) => b.total - a.total);
+  const order = ["canon", "critics", "festival", "award", "national"].filter((f) => byFacet.has(f));
+  for (const f of byFacet.keys()) if (!order.includes(f)) order.push(f);
+  const out = [...inProgress];
+  let added = true;
+  while (out.length < 14 && added) {
+    added = false;
+    for (const f of order) {
+      const next = byFacet.get(f)?.shift();
+      if (next) {
+        out.push(next);
+        added = true;
+        if (out.length >= 14) break;
+      }
+    }
+  }
+  return out;
+}
+
+/** Facet → tint + label for the Collections rail (mirrors the Navigator's facet map). */
+const FACET_TINT: Record<string, string> = {
+  canon: "#8F6A1E",
+  critics: "#0d9488",
+  festival: "#7c3aed",
+  award: "#E3120B",
+  national: "#2563eb",
+};
+const FACET_LABEL: Record<string, DictKey> = {
+  canon: "nav.facetCanon",
+  critics: "nav.facetCritics",
+  festival: "nav.facetFestival",
+  award: "nav.facetAward",
+  national: "nav.facetNational",
+};
+
+/** One collection — facet-tinted card that drives that list in the native Navigator. */
+function CollectionCard({ l }: { l: NavCatalogEntry }) {
+  const router = useRouter();
+  const pal = usePalette();
+  const tint = FACET_TINT[l.facet ?? ""] ?? brand.accent;
+  const facetLabel = FACET_LABEL[l.facet ?? ""] ? t(FACET_LABEL[l.facet ?? ""]) : t("nav.facetList");
+  return (
+    <Tactile
+      onPress={() => router.push({ pathname: "/navigator/drive", params: { lineage: l.key, label: l.label } })}
+    >
+      <View
+        style={[
+          {
+            width: 208,
+            backgroundColor: pal.card,
+            borderRadius: radius.md,
+            borderWidth: StyleSheet.hairlineWidth,
+            borderColor: pal.hairline,
+            padding: sp.s3,
+            paddingLeft: sp.s3 + 6,
+            overflow: "hidden",
+          },
+          shadow.card,
+        ]}
+      >
+        <View style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 3, backgroundColor: tint }} />
+        <Ui size={fs.xs - 1} weight="700" color={tint} style={{ letterSpacing: 0.6 }}>
+          {facetLabel.toUpperCase()}
+        </Ui>
+        <Serif size={fs.md} bold numberOfLines={2} style={{ marginTop: 3, minHeight: 42 }}>
+          {l.label}
+        </Serif>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 6 }}>
+          <Ui size={fs.xs} color={pal.muted} style={{ flex: 1 }}>
+            {t("nav.filmsN", { n: l.total })}
+          </Ui>
+          {l.pct > 0 ? (
+            <Ui size={fs.xs} weight="700" color={tint}>
+              {l.pct}%
+            </Ui>
+          ) : (
+            <Ionicons name="arrow-forward" size={13} color={pal.subtle} />
+          )}
+        </View>
+        {l.pct > 0 ? (
+          <View style={{ height: 4, borderRadius: radius.pill, backgroundColor: pal.surface, overflow: "hidden", marginTop: 6 }}>
+            <View style={{ width: `${Math.min(100, l.pct)}%`, height: "100%", backgroundColor: tint }} />
+          </View>
+        ) : null}
+      </View>
+    </Tactile>
+  );
+}
 
 /** Axis → i18n copy for the deal section (explicit map keeps DictKey typing). */
 const AXIS_COPY: Record<Axis, { title: DictKey; sub: DictKey }> = {

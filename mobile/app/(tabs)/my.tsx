@@ -41,6 +41,7 @@ import { ALL_EDITIONS } from "../../src/editions";
 import type { UILocale } from "../../src/editions";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
+import { signInWithGoogle } from "../../src/lib/auth";
 import * as considering from "../../src/lib/considering";
 import type { ConsideringItem } from "../../src/lib/considering";
 import { registerPush } from "../../src/lib/push";
@@ -1350,9 +1351,17 @@ function SignedOut({
           ) : null}
         </>
       ) : null}
-      <Ui size={fs.sm} color={pal.subtle} style={{ textAlign: "center" }}>
-        {t("auth.continueGoogle")} · {t("common.soon")}
-      </Ui>
+      {/* Real Google sign-in (owner 07-29: a new install must sign in with Google
+          naturally) — same shared flow as onboarding; was a static "Soon" line. */}
+      <Btn
+        kind="ghost"
+        label={t("auth.continueGoogle")}
+        onPress={() =>
+          void signInWithGoogle().then((out) => {
+            if (out === "error") setErr(true); // cancel stays silent
+          })
+        }
+      />
 
       <Tactile onPress={onSkip} style={{ alignSelf: "center", paddingVertical: sp.s1 }}>
         <Ui size={fs.sm} weight="500" color={pal.muted} style={{ textDecorationLine: "underline" }}>

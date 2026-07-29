@@ -27,6 +27,7 @@ import { Serif,
 import { ALL_EDITIONS } from "../src/editions";
 import { t } from "../src/i18n";
 import { api, me } from "../src/lib/api";
+import { signInWithGoogle } from "../src/lib/auth";
 import { noteJudged } from "../src/lib/considering";
 import { supabase } from "../src/lib/supabase";
 import { useFilms } from "../src/state/films";
@@ -525,33 +526,9 @@ function StepAccount({ onDone }: { onDone: () => void }) {
   // Cancel stays silent; real failures surface the friendly notice (§13-17
   // spirit: never pretend it worked).
   const signInGoogle = async () => {
-    try {
-      const redirectTo = Linking.createURL("auth-callback");
-      const { data, error: e } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: { redirectTo, skipBrowserRedirect: true },
-      });
-      if (e || !data?.url) throw e ?? new Error("no oauth url");
-      const res = await WebBrowser.openAuthSessionAsync(data.url, redirectTo);
-      if (res.type !== "success" || !res.url) return; // user closed the sheet
-      const back = new URL(res.url);
-      const authCode = back.searchParams.get("code");
-      if (authCode) {
-        const { error: ex } = await supabase.auth.exchangeCodeForSession(authCode);
-        if (ex) throw ex;
-      } else {
-        // implicit flow — tokens ride the URL fragment
-        const frag = new URLSearchParams((back.hash || "").replace(/^#/, ""));
-        const access_token = frag.get("access_token");
-        const refresh_token = frag.get("refresh_token");
-        if (!access_token || !refresh_token) throw new Error("no tokens in callback");
-        const { error: es } = await supabase.auth.setSession({ access_token, refresh_token });
-        if (es) throw es;
-      }
-      onDone();
-    } catch {
-      setGoogleErr(true);
-    }
+    const out = await signInWithGoogle();
+    if (out === "ok") onDone();
+    else if (out === "error") setGoogleErr(true); // cancel stays silent
   };
 
   // Same Apple intent as the signed-out block in (tabs)/my.tsx.

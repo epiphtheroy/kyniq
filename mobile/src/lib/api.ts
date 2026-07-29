@@ -150,6 +150,38 @@ export const api = {
   },
 
   /**
+   * Lineage lists only, with the viewer's progress overlaid — the light payload behind
+   * Explore's Collections rail (owner 07-29: lists must be browsable and inviting).
+   * Same rows/mapping as navigatorCatalog's lineage leg, without the heavy directors blob.
+   */
+  async lineageCatalog(): Promise<NavCatalogEntry[]> {
+    const NUM = (v: number | string | null | undefined): number =>
+      v == null ? 0 : typeof v === "string" ? parseFloat(v) || 0 : v;
+    const [linRes, cov] = await Promise.all([
+      supabase.rpc("lineage_index"),
+      me.coverage(0, 3000).catch(() => [] as CoverageRow[]),
+    ]);
+    const covBySlug = new Map<string, { seen: number; pct: number }>();
+    for (const c of (cov as CoverageRow[])) covBySlug.set(c.slug, { seen: NUM(c.seen), pct: Math.round(NUM(c.pct)) });
+    type LinRow = { facet: string; slug: string; label: string; parent_label: string | null; country: string | null; film_count: number | string | null };
+    return ((linRes.data ?? []) as LinRow[])
+      .map((l) => {
+        const c = covBySlug.get(l.slug);
+        return {
+          kind: "lineage" as const,
+          key: l.slug,
+          label: l.label,
+          facet: l.facet,
+          total: NUM(l.film_count),
+          seen: c?.seen ?? 0,
+          pct: c?.pct ?? 0,
+          search: `${l.label} ${l.parent_label ?? ""} ${l.facet ?? ""} ${l.country ?? ""}`.toLowerCase(),
+        };
+      })
+      .filter((l) => !!l.key && l.total >= 5);
+  },
+
+  /**
    * The FULL browsable catalog — every director oeuvre + every lineage/list — for the
    * Navigator tab's list search (owner 07-29). Unlike navigatorDestinations (personal
    * in-progress only), this browses the whole vocabulary via anon RPCs (lineage_index +

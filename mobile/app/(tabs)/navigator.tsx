@@ -26,10 +26,21 @@ const FACET_KEY: Record<string, DictKey> = {
   national: "nav.facetNational",
 };
 
-/** One destination card — label, family/facet · progress, and a thin progress bar. */
+/** Facet → tint (same palette as Explore's Collections rail — one visual language). */
+const FACET_TINT: Record<string, string> = {
+  canon: GOLD,
+  critics: "#0d9488",
+  festival: "#7c3aed",
+  award: "#E3120B",
+  national: "#2563eb",
+};
+
+/** One destination card — facet-tinted rail + kicker, serif label, tinted progress.
+ * Redesigned 07-29 (owner: the lists must look inviting — "선택하고 싶게"). */
 function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
   const pal = usePalette();
-  const sub =
+  const tint = d.kind === "dir" ? brand.accent : FACET_TINT[d.facet ?? ""] ?? GOLD;
+  const kicker =
     d.kind === "dir" ? t("nav.familyConquest") : d.facet && FACET_KEY[d.facet] ? t(FACET_KEY[d.facet]) : t("nav.facetList");
   const pct = Math.max(0, Math.min(100, d.pct));
   return (
@@ -46,23 +57,29 @@ function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
             borderColor: pal.hairline,
             paddingVertical: sp.s3,
             paddingHorizontal: sp.s3,
+            paddingLeft: sp.s3 + 6,
+            overflow: "hidden",
           },
           shadow.card,
         ]}
       >
+        <View style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 3, backgroundColor: tint }} />
         <View style={{ flex: 1, minWidth: 0 }}>
-          <Serif size={fs.md} bold numberOfLines={1}>
+          <Ui size={fs.xs - 1} weight="700" color={tint} numberOfLines={1} style={{ letterSpacing: 0.6 }}>
+            {kicker.toUpperCase()}
+          </Ui>
+          <Serif size={fs.md} bold numberOfLines={1} style={{ marginTop: 2 }}>
             {d.label}
           </Serif>
-          <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 1 }}>
-            {sub} · {t("nav.filmsN", { n: d.total })} · {t("nav.leftN", { n: Math.max(0, d.total - d.seen) })}
+          <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 2 }}>
+            {t("nav.filmsN", { n: d.total })} · {t("nav.leftN", { n: Math.max(0, d.total - d.seen) })}
           </Ui>
-          <View style={{ height: 6, borderRadius: 99, backgroundColor: pal.surface, overflow: "hidden", marginTop: 8 }}>
-            <View style={{ width: `${pct}%`, height: "100%", backgroundColor: GOLD }} />
+          <View style={{ height: 5, borderRadius: radius.pill, backgroundColor: pal.surface, overflow: "hidden", marginTop: 8 }}>
+            <View style={{ width: `${pct}%`, height: "100%", backgroundColor: tint }} />
           </View>
         </View>
         <View style={{ alignItems: "flex-end", gap: 2 }}>
-          <Ui size={fs.lg} weight="700" color={brand.accent}>
+          <Ui size={fs.lg} weight="700" color={tint}>
             {pct}%
           </Ui>
           <Ui size={fs.xs - 1} weight="700" color={pal.subtle}>
