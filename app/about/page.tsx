@@ -180,7 +180,23 @@ export default function AboutPage() {
         As of July 2026: nearly 7,000 films in the index, 6,704 of them scored; close to 2,000 close-read;
         more than 70,000 readings; hundreds of theorists cited by name.
       </p>
-      <p className="ui muted" style={{ fontSize: 13 }}>
+      {/* Data sources. Consolidated here on 2026-07-31 so the app can stop
+          scattering source lines across its settings screens and point at one
+          stated place — but TMDB's and JustWatch's terms both REQUIRE
+          attribution, so this section is not optional decoration. The film
+          "where to watch" surface still carries the JustWatch line inline,
+          which is the surface those terms attach to. */}
+      <div className="seclbl" style={{ marginTop: 26 }}>Data sources</div>
+      <p className="ui muted" style={{ fontSize: 13, lineHeight: 1.7, margin: "8px 0 0" }}>
+        Film metadata and images come from <a href="https://www.themoviedb.org" className="accent" style={{ textDecoration: "none" }} rel="noopener">TMDB</a>.
+        This product uses the TMDB API but is not endorsed or certified by TMDB.
+        <br />
+        Streaming availability is powered by <a href="https://www.justwatch.com" className="accent" style={{ textDecoration: "none" }} rel="noopener">JustWatch</a>.
+        <br />
+        TakeScore, Invitations and every reading on this site are Metatake&rsquo;s own editorial work.
+      </p>
+
+      <p className="ui muted" style={{ fontSize: 13, marginTop: 18 }}>
         Corrections, questions, press:{" "}
         <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
           wonwoo@metatake.net
