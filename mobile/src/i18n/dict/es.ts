@@ -251,7 +251,8 @@ export const es: Record<keyof typeof en, string> = {
   "connect.unmatchedHint": "No pudimos emparejarlos automáticamente — restos honestos, nada oculto. Toca uno para buscar.",
   "connect.entry.title": "Trae tu vida de cine",
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · Watcha — tu historial, importado en minutos.",
-  "connect.entry.onboarding": "¿Ya usas Letterboxd o Watcha? Importa todo en su lugar.",
+  "connect.entry.onboarding": "Trae tu historial de una vez",
+  "connect.entry.onboardingSub": "Letterboxd, IMDb o Netflix — importa la exportación entera en lugar de tocar pósters.",
   "connect.empty.signedOut": "Inicia sesión primero — lo importado va a tu propio registro.",
   // OAuth connectors (Trakt / TMDB / Simkl)
   "connect.oauth.pitch": "Inicia sesión una vez — traemos tus puntuaciones y películas vistas automáticamente.",

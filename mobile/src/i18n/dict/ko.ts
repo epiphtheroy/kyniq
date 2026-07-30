@@ -252,7 +252,8 @@ export const ko: Record<keyof typeof en, string> = {
   "connect.unmatchedHint": "자동으로 못 맞춘 작품들이에요 — 숨기지 않고 보여드려요. 탭하면 검색으로 찾을 수 있어요.",
   "connect.entry.title": "내 영화 기록 가져오기",
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · 왓챠 — 몇 분이면 기록이 통째로 옮겨져요.",
-  "connect.entry.onboarding": "이미 Letterboxd나 왓챠를 쓰세요? 통째로 가져오는 게 빨라요.",
+  "connect.entry.onboarding": "기록을 한 번에 가져오기",
+  "connect.entry.onboardingSub": "Letterboxd·IMDb·Netflix 내보내기 파일을 통째로 — 포스터를 하나씩 누를 필요 없이.",
   "connect.empty.signedOut": "먼저 로그인하세요 — 가져온 기록은 내 원장에 쌓입니다.",
   // OAuth connectors (Trakt / TMDB / Simkl)
   "connect.oauth.pitch": "한 번만 로그인하면 평점과 본 영화를 자동으로 가져옵니다.",

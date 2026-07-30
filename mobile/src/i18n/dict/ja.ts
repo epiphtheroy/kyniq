@@ -251,7 +251,8 @@ export const ja: Record<keyof typeof en, string> = {
   "connect.unmatchedHint": "自動で照合できなかった作品です — 隠さずお見せします。タップで検索できます。",
   "connect.entry.title": "映画の記録を持ってくる",
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · Watcha — 数分で履歴まるごと。",
-  "connect.entry.onboarding": "LetterboxdやWatchaをお使いですか？まるごと取り込む方が早いです。",
+  "connect.entry.onboarding": "履歴をまとめて取り込む",
+  "connect.entry.onboardingSub": "Letterboxd・IMDb・Netflix — 書き出しファイルをまるごと取り込めます。",
   "connect.empty.signedOut": "まずログインを — 取り込んだ記録はあなた自身の台帳に入ります。",
   // OAuth connectors (Trakt / TMDB / Simkl)
   "connect.oauth.pitch": "一度ログインするだけ — 評価と鑑賞済みの映画を自動で取り込みます。",

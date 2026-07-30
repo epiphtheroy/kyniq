@@ -816,28 +816,51 @@ function StepTaste({ onDone }: { onDone: () => void }) {
             </Ui>
           </View>
 
-          {/* Connect shortcut (HANDOFF-커넥트 §2.1) — importing beats tapping 24
-              posters. Pushed on top of this modal, so the step resumes on return;
-              the manual grid below stays the fallback. */}
+          {/* Connect shortcut (HANDOFF-커넥트 §2.1). Owner 07-30: this is the
+              answer to "pick the films you've seen" for anyone who already has a
+              history somewhere, so it says WHICH services by name and reads as a
+              real alternative, not a footnote. Only the file importers are named
+              — the OAuth connectors (TMDB/Trakt/Simkl) are still coming-soon and
+              must not be advertised as a way in. */}
           <Tactile
+            feedback="tap"
             onPress={() => router.push(CONNECT_HREF)}
             style={{ marginHorizontal: sp.s5, marginTop: sp.s5 }}
           >
             <View
               style={{
-                backgroundColor: pal.surface,
+                backgroundColor: pal.card,
                 borderRadius: radius.md,
+                borderWidth: 1,
+                borderColor: brand.accent,
                 paddingHorizontal: sp.s4,
-                paddingVertical: sp.s3,
+                paddingVertical: sp.s3 + 2,
                 flexDirection: "row",
                 alignItems: "center",
                 gap: sp.s3,
               }}
             >
-              <Ui size={fs.sm} weight="500" style={{ flex: 1 }}>
-                {t("connect.entry.onboarding")}
-              </Ui>
-              <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+              <View
+                style={{
+                  width: 34,
+                  height: 34,
+                  borderRadius: radius.pill,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: `${brand.accent}1F`,
+                }}
+              >
+                <Ionicons name="download-outline" size={18} color={brand.accent} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Ui size={fs.md} weight="600">
+                  {t("connect.entry.onboarding")}
+                </Ui>
+                <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 1 }}>
+                  {t("connect.entry.onboardingSub")}
+                </Ui>
+              </View>
+              <Ionicons name="chevron-forward" size={16} color={brand.accent} />
             </View>
           </Tactile>
 

@@ -266,7 +266,8 @@ export const en = {
   "connect.unmatchedHint": "We couldn't match these automatically — clean, honest leftovers. Tap one to search.",
   "connect.entry.title": "Bring your film life",
   "connect.entry.sub": "Letterboxd · IMDb · Netflix · Watcha — your history, imported in minutes.",
-  "connect.entry.onboarding": "Already on Letterboxd or Watcha? Import everything instead.",
+  "connect.entry.onboarding": "Bring your history in one go",
+  "connect.entry.onboardingSub": "Letterboxd, IMDb or Netflix — import the whole export instead of tapping posters.",
   "connect.empty.signedOut": "Sign in first — imports write to your own ledger.",
   // OAuth connectors (Trakt / TMDB / Simkl)
   "connect.oauth.pitch": "Sign in once — we pull your ratings and watched films automatically.",
