@@ -47,6 +47,7 @@ export const en = {
   // attribution (invariant §13-8)
   "attribution.justwatch": "Streaming data powered by JustWatch",
   "attribution.tmdb": "Film metadata and images from TMDB",
+  "my.credits": "Credits & data sources",
   // director card
   "director.whereToStart": "Where to Start",
   "director.theSelection": "The Selection",
@@ -109,6 +110,14 @@ export const en = {
   "auth.continueApple": "Continue with Apple",
   "auth.continueGoogle": "Continue with Google",
   "auth.continueEmail": "Continue with email instead",
+  "auth.password": "Password ({n}+ characters)",
+  "auth.emailCodeInstead": "Email me a code instead",
+  "auth.backToOptions": "Back to all sign-in options",
+  "auth.confirmSent": "Check {email} to confirm your address, then sign in.",
+  "auth.errWrongPassword": "That email and password don't match. Check them, or use a code.",
+  "auth.errAlreadyRegistered": "That address already has an account — sign in with its password, or use a code.",
+  "auth.errUnconfirmed": "Confirm your email address first — check your inbox.",
+  "auth.errGeneric": "That didn't work. Try again, or use another sign-in option.",
   "auth.appleError": "Apple sign-in didn't complete — try again, or use email.",
   "action.watchNow": "Watch now",
   "auth.codeSent": "We emailed a {n}-digit code to {email}",

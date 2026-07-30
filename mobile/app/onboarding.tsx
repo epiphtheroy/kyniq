@@ -10,7 +10,14 @@ import * as Linking from "expo-linking";
 import { type Href, useLocalSearchParams, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useMemo, useState } from "react";
-import { Platform, ScrollView, TextInput, View, useWindowDimensions } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  TextInput,
+  View,
+  useWindowDimensions,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import { Serif,
@@ -25,6 +32,7 @@ import { Serif,
   Wordmark,
 } from "../src/components/ui";
 import { ALL_EDITIONS } from "../src/editions";
+import SignInPanel from "../src/components/SignInPanel";
 import { SkeletonScreen } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api, me } from "../src/lib/api";
@@ -513,260 +521,40 @@ function SocialRow({
 
 function StepAccount({ onDone }: { onDone: () => void }) {
   const pal = usePalette();
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
-  const [sent, setSent] = useState(false);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [emailFocus, setEmailFocus] = useState(false);
-  // The email field only unfolds when asked for — it is the fallback now.
-  const [emailOpen, setEmailOpen] = useState(false);
-  const [codeFocus, setCodeFocus] = useState(false);
-  const [appleErr, setAppleErr] = useState(false);
-  const [googleErr, setGoogleErr] = useState(false);
-
-  const fieldStyle = (focused: boolean) =>
-    ({
-      borderWidth: 1,
-      borderColor: focused ? brand.accent : pal.hairline2,
-      borderRadius: radius.xs,
-      paddingVertical: sp.s3,
-      paddingHorizontal: sp.s4,
-      fontFamily: font.ui,
-      fontSize: fs.base,
-      color: pal.ink,
-    }) as const;
-
-  const sendCode = async () => {
-    const addr = email.trim();
-    if (busy || !addr.includes("@")) return;
-    setBusy(true);
-    setError(null);
-    const { error: e } = await supabase.auth.signInWithOtp({
-      email: addr,
-      options: { shouldCreateUser: true },
-    });
-    setBusy(false);
-    if (e) setError(t("error.network"));
-    else setSent(true);
-  };
-
-  const verifyWith = async (raw: string) => {
-    const token = raw.trim();
-    if (busy || token.length < OTP_MIN) return;
-    setBusy(true);
-    setError(null);
-    const { error: e } = await supabase.auth.verifyOtp({
-      email: email.trim(),
-      token,
-      type: "email",
-    });
-    setBusy(false);
-    if (e) setError(t("auth.codeError"));
-    else onDone();
-  };
-  const verify = () => verifyWith(code);
-
-  // Google — OAuth through the system browser (expo-web-browser), tokens
-  // handed back on the deep link. In Expo Go the redirect is exp://<lan-ip>,
-  // in dev/store builds metatake://auth-callback — BOTH must be whitelisted in
-  // the Supabase Auth console (owner TODO, with the Google provider itself).
-  // Cancel stays silent; real failures surface the friendly notice (§13-17
-  // spirit: never pretend it worked).
-  const signInGoogle = async () => {
-    const out = await signInWithGoogle();
-    if (out === "ok") onDone();
-    else if (out === "error") setGoogleErr(true); // cancel stays silent
-  };
-
-  // Same Apple intent as the signed-out block in (tabs)/my.tsx.
-  const signInApple = async () => {
-    try {
-      const credential = await AppleAuthentication.signInAsync({
-        requestedScopes: [
-          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-          AppleAuthentication.AppleAuthenticationScope.EMAIL,
-        ],
-      });
-      if (!credential.identityToken) throw new Error("no identity token");
-      const { error: e } = await supabase.auth.signInWithIdToken({
-        provider: "apple",
-        token: credential.identityToken,
-      });
-      if (e) throw e;
-      onDone();
-    } catch (e) {
-      // User-cancelled sheets stay silent; real failures surface the config hint.
-      if ((e as { code?: string }).code !== "ERR_REQUEST_CANCELED") setAppleErr(true);
-    }
-  };
-
   return (
-    <ScrollView
-      contentContainerStyle={{ paddingHorizontal: sp.s5, paddingTop: sp.s5, paddingBottom: 120 }}
-      keyboardShouldPersistTaps="handled"
+    /* KeyboardAvoidingView + the scroll padding below: tapping into email used
+       to open the keyboard right over the field (owner 2026-07-31 — the input
+       was invisible under the keys). The panel sits high enough to stay clear,
+       and the view lifts if it doesn't. */
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+      style={{ flex: 1 }}
+      keyboardVerticalOffset={100}
     >
-      {/* 1. Welcome heading */}
-      <Ui size={fs.x2} weight="600">
-        {t("auth.welcome")}
-      </Ui>
-      <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s2 }}>
-        {t("auth.welcomeBody")}
-      </Ui>
-
-      <View style={{ marginTop: sp.s5, gap: sp.s3 }}>
-        {!sent ? (
-          <>
-            {/* Owner 07-30: one tap should be the way in. Apple and Google lead;
-                the emailed code is the fallback for people who want neither, not
-                the default path. Apple sits above Google on iOS per the platform's
-                own convention. */}
-            {Platform.OS === "ios" ? (
-              <SocialRow
-                icon="logo-apple"
-                label={t("auth.continueApple")}
-                onPress={() => void signInApple()}
-              />
-            ) : null}
-            {appleErr ? (
-              <Ui size={fs.xs + 1} color={pal.muted}>
-                {t("auth.appleError")}
-              </Ui>
-            ) : null}
-            <SocialRow
-              icon="logo-google"
-              label={t("auth.continueGoogle")}
-              onPress={() => void signInGoogle()}
-            />
-            {googleErr ? (
-              <Ui size={fs.xs + 1} color={pal.muted}>
-                {t("auth.googleError")}
-              </Ui>
-            ) : null}
-
-            {/* or-divider */}
-            <View
-              style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginVertical: sp.s2 }}
-            >
-              <Hairline style={{ flex: 1 }} />
-              <Ui size={fs.xs} color={pal.muted}>
-                {t("auth.or")}
-              </Ui>
-              <Hairline style={{ flex: 1 }} />
-            </View>
-
-            {/* Email — kept, demoted. The gradient no longer sits here: it is
-                reserved for the affirmative action, and that is now the tap
-                above. */}
-            {emailOpen ? (
-              <>
-                <TextInput
-                  value={email}
-                  onChangeText={setEmail}
-                  placeholder={t("auth.email")}
-                  placeholderTextColor={pal.subtle}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  keyboardType="email-address"
-                  autoFocus
-                  editable={!busy}
-                  onFocus={() => setEmailFocus(true)}
-                  onBlur={() => setEmailFocus(false)}
-                  style={fieldStyle(emailFocus)}
-                />
-                <Btn kind="ghost" label={t("auth.continue")} onPress={() => void sendCode()} />
-              </>
-            ) : (
-              <Tactile feedback="tap" onPress={() => setEmailOpen(true)} hitSlop={8}>
-                <View style={{ alignItems: "center", paddingVertical: sp.s3 }}>
-                  <Ui size={fs.sm} weight="600" color={pal.inkSoft}>
-                    {t("auth.continueEmail")}
-                  </Ui>
-                </View>
-              </Tactile>
-            )}
-          </>
-        ) : (
-          <>
-            {/* Code entry substep */}
-            <Ui size={fs.sm} color={pal.muted}>
-              {t("auth.codeSent", { email: email.trim(), n: OTP_LEN })}
+      <ScrollView
+        contentContainerStyle={{ paddingHorizontal: sp.s5, paddingTop: sp.s5, paddingBottom: 360 }}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="interactive"
+      >
+        <Ui size={fs.x2} weight="600">
+          {t("auth.welcome")}
+        </Ui>
+        <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s2, marginBottom: sp.s5 }}>
+          {t("auth.welcomeBody")}
+        </Ui>
+        <SignInPanel onDone={onDone} />
+        <Tactile feedback="tap" onPress={onDone} hitSlop={8}>
+          <View style={{ alignItems: "center", paddingVertical: sp.s4 }}>
+            <Ui size={fs.sm} color={pal.muted} style={{ textDecorationLine: "underline" }}>
+              {t("action.skip")}
             </Ui>
-            <TextInput
-              value={code}
-              onChangeText={(v) => {
-                const digits = v.replace(/[^0-9]/g, "").slice(0, OTP_LEN);
-                setCode(digits);
-                // Complete code → verify without making them hunt for the button.
-                if (digits.length === OTP_LEN) void verifyWith(digits);
-              }}
-              placeholder={t("auth.codePlaceholder", { n: OTP_LEN })}
-              placeholderTextColor={pal.subtle}
-              keyboardType="number-pad"
-              textContentType="oneTimeCode"
-              autoComplete="one-time-code"
-              maxLength={OTP_LEN}
-              editable={!busy}
-              onFocus={() => setCodeFocus(true)}
-              onBlur={() => setCodeFocus(false)}
-              style={[
-                fieldStyle(codeFocus),
-                { letterSpacing: 6, textAlign: "center", fontSize: fs.lg },
-              ]}
-            />
-            <GradientBtn label={t("auth.verify")} onPress={() => void verify()} />
-            <Tactile onPress={() => (busy ? undefined : void sendCode())} hitSlop={6}>
-              <Ui
-                size={fs.sm}
-                color={pal.muted}
-                style={{ textAlign: "center", textDecorationLine: "underline" }}
-              >
-                {t("auth.resend")}
-              </Ui>
-            </Tactile>
-            {/* Mistyped address escape — without this a typo dead-ends the
-                whole OTP flow (Resend only re-sends to the same address). */}
-            <Tactile
-              onPress={() => {
-                setSent(false);
-                setCode("");
-                setError(null);
-              }}
-              hitSlop={6}
-            >
-              <Ui
-                size={fs.sm}
-                color={pal.muted}
-                style={{ textAlign: "center", textDecorationLine: "underline" }}
-              >
-                {t("auth.changeEmail")}
-              </Ui>
-            </Tactile>
-          </>
-        )}
-        {error ? (
-          <Ui size={fs.sm} color={brand.tsRisk}>
-            {error}
-          </Ui>
-        ) : null}
-
-        {/* 6. Skip — quiet underlined text link */}
-        <Tactile onPress={onDone} hitSlop={6} style={{ marginTop: sp.s2 }}>
-          <Ui
-            size={fs.sm}
-            weight="500"
-            color={pal.muted}
-            style={{ textAlign: "center", textDecorationLine: "underline" }}
-          >
-            {t("action.skip")}
-          </Ui>
+          </View>
         </Tactile>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
-/* -------------------------------------------- taste calibration (④, v4) */
 
 const TASTE_COLS = 3;
 const TASTE_COUNT = 24;

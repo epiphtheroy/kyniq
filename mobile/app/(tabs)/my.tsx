@@ -39,6 +39,7 @@ import { Serif,
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS } from "../../src/editions";
 import { Appear, Pop, ProgressBar } from "../../src/components/motion";
+import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { signInWithGoogle } from "../../src/lib/auth";
@@ -668,15 +669,23 @@ export default function ShelfScreen() {
           </>
         )}
 
-        {/* Attribution (invariant §13-8 — availability data shows above) */}
-        <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
-          <Ui size={fs.xs} color={pal.subtle}>
-            {t("attribution.justwatch")}
-          </Ui>
-          <Ui size={fs.xs} color={pal.subtle}>
-            {t("attribution.tmdb")}
-          </Ui>
-        </View>
+        {/* Source lines consolidated into Credits & data sources (owner 07-31).
+            The queue shows availability, so the JustWatch line is still carried
+            on the film's Where-to-watch surface where its terms attach. */}
+        <Tactile
+          feedback="tap"
+          onPress={() =>
+            router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } })
+          }
+          style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6 }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+            <Ui size={fs.xs} color={pal.subtle}>
+              {t("my.credits")}
+            </Ui>
+            <Ionicons name="chevron-forward" size={12} color={pal.subtle} />
+          </View>
+        </Tactile>
       </ScrollView>
 
       {/* Floating undo — every judgment is reversible (§13-15) */}
@@ -999,22 +1008,29 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
           ) : authOpen ? (
             <>
               <SectionTitle>{t("my.account")}</SectionTitle>
-              <SignedOut
-                scheme={scheme === "dark" ? "dark" : "light"}
-                onSkip={() => setAuthOpen(false)}
-              />
+              <SignedOut onSkip={() => setAuthOpen(false)} />
             </>
           ) : null}
 
-          {/* Attribution (invariant §13-8) */}
-          <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
-            <Ui size={fs.xs} color={pal.subtle}>
-              {t("attribution.justwatch")}
-            </Ui>
-            <Ui size={fs.xs} color={pal.subtle}>
-              {t("attribution.tmdb")}
-            </Ui>
-          </View>
+          {/* Owner 07-31: the raw source lines are gone from the settings foot —
+              they read as clutter there. They are NOT optional, though: TMDB and
+              JustWatch both require attribution, so they now live in one stated
+              place (Credits & data sources) plus the Where-to-watch surface,
+              which is the one JustWatch's terms actually attach to. */}
+          <Tactile
+            feedback="tap"
+            onPress={() =>
+              router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } })
+            }
+            style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6 }}
+          >
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+              <Ui size={fs.xs} color={pal.subtle}>
+                {t("my.credits")}
+              </Ui>
+              <Ionicons name="chevron-forward" size={12} color={pal.subtle} />
+            </View>
+          </Tactile>
         </ScrollView>
       </View>
     </Modal>
@@ -1155,88 +1171,13 @@ function SignedIn() {
 
 // ---- Signed-out account block: email + 8-digit code, Apple ----------------
 
-function SignedOut({
-  scheme,
-  onSkip,
-}: {
-  scheme: "light" | "dark" | null | undefined;
-  onSkip: () => void;
-}) {
+/** Sign-in inside the settings sheet. Renders the ONE shared panel — this was a
+ *  second hand-maintained copy and had drifted: it still asked for a 6-digit
+ *  code when the server sends 8, showed an untranslated developer string, and
+ *  reported every auth failure as "couldn't reach Metatake", which is what the
+ *  owner hit on 2026-07-31. */
+function SignedOut({ onSkip }: { onSkip: () => void }) {
   const pal = usePalette();
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
-  const [stage, setStage] = useState<"email" | "code">("email");
-  const [busy, setBusy] = useState(false);
-  const [err, setErr] = useState(false);
-  const [appleErr, setAppleErr] = useState(false);
-
-  const inputStyle = {
-    backgroundColor: pal.card,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: pal.hairline2,
-    borderRadius: radius.sm,
-    color: pal.ink,
-    fontFamily: font.ui,
-    fontSize: fs.base,
-    paddingHorizontal: sp.s4,
-    paddingVertical: sp.s3,
-  } as const;
-
-  const sendCode = async () => {
-    if (busy || !email.includes("@")) return;
-    setBusy(true);
-    setErr(false);
-    try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email: email.trim(),
-        options: { shouldCreateUser: true },
-      });
-      if (error) throw error;
-      setStage("code");
-    } catch {
-      setErr(true);
-    }
-    setBusy(false);
-  };
-
-  const verifyCode = async () => {
-    if (busy || code.trim().length < 6) return;
-    setBusy(true);
-    setErr(false);
-    try {
-      const { error } = await supabase.auth.verifyOtp({
-        email: email.trim(),
-        token: code.trim(),
-        type: "email",
-      });
-      if (error) throw error;
-      // session propagates via onAuthStateChange (FilmsProvider reloads the ledger)
-    } catch {
-      setErr(true);
-    }
-    setBusy(false);
-  };
-
-  const signInApple = async () => {
-    try {
-      const credential = await AppleAuthentication.signInAsync({
-        requestedScopes: [
-          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-          AppleAuthentication.AppleAuthenticationScope.EMAIL,
-        ],
-      });
-      if (!credential.identityToken) throw new Error("no identity token");
-      const { error } = await supabase.auth.signInWithIdToken({
-        provider: "apple",
-        token: credential.identityToken,
-      });
-      if (error) throw error;
-    } catch (e) {
-      // User-cancelled sheets stay silent; real failures surface the config hint.
-      if ((e as { code?: string }).code !== "ERR_REQUEST_CANCELED") setAppleErr(true);
-    }
-  };
-
   return (
     <View
       style={{
@@ -1250,89 +1191,7 @@ function SignedOut({
       <Ui size={fs.lg} weight="600">
         {t("auth.title")}
       </Ui>
-      <TextInput
-        value={email}
-        onChangeText={setEmail}
-        placeholder={t("auth.email")}
-        placeholderTextColor={pal.subtle}
-        autoCapitalize="none"
-        autoCorrect={false}
-        keyboardType="email-address"
-        autoComplete="email"
-        style={inputStyle}
-      />
-      {stage === "code" ? (
-        <>
-          <Ui size={fs.xs + 1} color={pal.muted}>
-            Enter the 6-digit code we emailed you {/* TODO(i18n) */}
-          </Ui>
-          <TextInput
-            value={code}
-            onChangeText={setCode}
-            placeholder="000000"
-            placeholderTextColor={pal.subtle}
-            keyboardType="number-pad"
-            maxLength={6}
-            textContentType="oneTimeCode"
-            style={inputStyle}
-          />
-          <GradientBtn label={t("my.signIn")} onPress={() => void verifyCode()} />
-        </>
-      ) : (
-        <GradientBtn label={t("auth.continue")} onPress={() => void sendCode()} />
-      )}
-      {err ? (
-        <Ui size={fs.xs + 1} color={pal.muted}>
-          {t("error.network")}
-        </Ui>
-      ) : null}
-
-      {/* or */}
-      <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginVertical: sp.s1 }}>
-        <Hairline style={{ flex: 1 }} />
-        <Ui size={fs.xs} color={pal.muted}>
-          {t("auth.or")}
-        </Ui>
-        <Hairline style={{ flex: 1 }} />
-      </View>
-
-      {Platform.OS === "ios" ? (
-        <>
-          <AppleAuthentication.AppleAuthenticationButton
-            buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-            buttonStyle={
-              scheme === "dark"
-                ? AppleAuthentication.AppleAuthenticationButtonStyle.WHITE
-                : AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
-            }
-            cornerRadius={radius.xs}
-            style={{ height: 48 }}
-            onPress={() => void signInApple()}
-          />
-          {appleErr ? (
-            <Ui size={fs.xs + 1} color={pal.muted}>
-              Apple sign-in not configured yet {/* TODO(owner): enable Apple provider in Supabase Auth */}
-            </Ui>
-          ) : null}
-        </>
-      ) : null}
-      {/* Real Google sign-in (owner 07-29: a new install must sign in with Google
-          naturally) — same shared flow as onboarding; was a static "Soon" line. */}
-      <Btn
-        kind="ghost"
-        label={t("auth.continueGoogle")}
-        onPress={() =>
-          void signInWithGoogle().then((out) => {
-            if (out === "error") setErr(true); // cancel stays silent
-          })
-        }
-      />
-
-      <Tactile onPress={onSkip} style={{ alignSelf: "center", paddingVertical: sp.s1 }}>
-        <Ui size={fs.sm} weight="500" color={pal.muted} style={{ textDecorationLine: "underline" }}>
-          {t("action.skip")}
-        </Ui>
-      </Tactile>
+      <SignInPanel onDone={onSkip} />
     </View>
   );
 }
