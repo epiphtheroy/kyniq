@@ -93,6 +93,15 @@ function mergedPresetArgs(presets: string[]): PresetArgs {
 // applied, which surfaces the WORST films on asc — hence the whitelist.
 const SORTS = new Set(["u", "newest", "oldest", "alpha"]);
 
+/** Fan-out guards. Each selected country costs one ranking query, and the merged
+ *  set is paginated in memory — so both the number of countries and how deep we
+ *  pull per country are bounded. A country filter is a browsing tool; nobody
+ *  scrolls past a few hundred films, and the DB must not pay as if they might. */
+const ORIGIN_MAX = 5;
+const ORIGIN_DEPTH = 300;
+/** PostgREST truncates row-returning RPCs at 1000, so bulk lookups go in chunks. */
+const TS_CHUNK = 500;
+
 /** First sentence of an invitation, capped for a lobby card. */
 function firstSentence(prose: string): string {
   const text = prose.trim().replace(/\s+/g, " ");
@@ -113,6 +122,16 @@ export async function GET(req: Request) {
     .map((s) => parseInt(s.trim(), 10))
     .filter(Number.isFinite)
     .slice(0, 50);
+  // Production-country filter (owner 07-30). MULTI-SELECT, so it fans out: the
+  // shared cinecodex_ranked takes a single p_country, and adding p_countries
+  // would mean altering the RPC that the website's what-to-watch and the
+  // screener also run. One call per country, merged here, keeps that RPC
+  // untouched and the change revertible.
+  const origins = (url.searchParams.get("countries") || "")
+    .split(",")
+    .map((s) => s.trim().toLowerCase())
+    .filter((s) => /^[a-z]{2}$/.test(s))
+    .slice(0, ORIGIN_MAX);
   const genres = (url.searchParams.get("genres") || "")
     .split(",")
     .map((s) => s.trim())
@@ -158,7 +177,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const { data, error } = await db.rpc("cinecodex_ranked", {
+    const rpcArgs = {
       p_sort: sort,
       p_dir: dir,
       p_providers: providers.length ? providers : null,
@@ -173,10 +192,7 @@ export async function GET(req: Request) {
       p_ts_max: tsMax ?? null,
       p_max_votes: pa.maxVotes ?? null,
       p_sub: pa.sub ?? {},
-      p_limit: limit,
-      p_offset: offset,
-    });
-    if (error) throw error;
+    };
 
     type Row = {
       slug: string;
@@ -186,7 +202,71 @@ export async function GET(req: Request) {
       director: string | null;
       director_slug?: string | null;
     };
-    const page = (data as { total: number; rows: Row[] } | null) ?? { total: 0, rows: [] };
+    type Page = { total: number; rows: Row[] };
+
+    let page: Page;
+    if (origins.length) {
+      // One ranking query per country, then merge. Each pulls the same bounded
+      // depth from rank 0 — paging into the merged order, not into each list.
+      const results = await Promise.all(
+        origins.map((cc) =>
+          db.rpc("cinecodex_ranked", {
+            ...rpcArgs,
+            p_country: cc,
+            p_limit: ORIGIN_DEPTH,
+            p_offset: 0,
+          }),
+        ),
+      );
+      const merged = new Map<string, Row>();
+      let reachedDepth = false;
+      for (const r of results) {
+        if (r.error) throw r.error;
+        const pg = (r.data as Page | null) ?? { total: 0, rows: [] };
+        if (pg.rows.length >= ORIGIN_DEPTH) reachedDepth = true;
+        for (const row of pg.rows) if (!merged.has(row.slug)) merged.set(row.slug, row);
+      }
+      const all = [...merged.values()];
+      // Re-rank the union. The RPC returns no score column, so "u" is ordered by
+      // TakeScore — the axis the chip actually names — and the other axes sort on
+      // the fields they are about. Ties keep the first country's order.
+      if (sort === "newest" || sort === "oldest") {
+        const sign = sort === "newest" ? -1 : 1;
+        all.sort((a, b) => sign * ((a.year ?? 0) - (b.year ?? 0)));
+      } else if (sort === "alpha") {
+        all.sort((a, b) => a.title.localeCompare(b.title));
+      } else {
+        // takescore_for_slugs is a row-returning RPC, so PostgREST truncates it
+        // at 1000 — and the union can exceed that. Chunk it: an untruncated
+        // lookup, or films past row 1000 would score -1 and sink, which reads
+        // exactly like "the ranking is broken".
+        const rank = new Map<string, number>();
+        for (let i = 0; i < all.length; i += TS_CHUNK) {
+          const chunk = all.slice(i, i + TS_CHUNK).map((r) => r.slug);
+          const { data: tsAll } = await db.rpc("takescore_for_slugs", { p_slugs: chunk });
+          for (const r of (tsAll ?? []) as { slug: string; ts: number }[]) rank.set(r.slug, r.ts);
+        }
+        all.sort((a, b) => (rank.get(b.slug) ?? -1) - (rank.get(a.slug) ?? -1));
+      }
+      if (dir === "asc" && sort === "u") all.reverse();
+      // `total` is the merged size, not the sum of per-country totals: it is what
+      // the client can actually page through, so the deck ends where it ends
+      // instead of promising rows that the depth cap will never hand over.
+      page = { total: all.length, rows: all.slice(offset, offset + limit) };
+      if (reachedDepth) {
+        console.warn(
+          `[app_tonight] origin fan-out hit the ${ORIGIN_DEPTH}-row depth cap for ${origins.join(",")}`,
+        );
+      }
+    } else {
+      const { data, error } = await db.rpc("cinecodex_ranked", {
+        ...rpcArgs,
+        p_limit: limit,
+        p_offset: offset,
+      });
+      if (error) throw error;
+      page = (data as Page | null) ?? { total: 0, rows: [] };
+    }
 
     // "90 in 90 min" (app-defined, HANDOFF §5.2/§12-9): runtime is not a
     // cinecodex_ranked argument, so post-filter the returned page on
@@ -282,6 +362,9 @@ export async function GET(req: Request) {
         v: 2,
         country,
         preset: presets.length ? presets.join(",") : null,
+        // Echoed so the app can tell a server that understands the filter from
+        // one that silently ignored it (the chip stays hidden until this exists).
+        countries: origins,
         sort,
         dir,
         total: page.total,
