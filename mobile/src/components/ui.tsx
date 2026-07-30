@@ -353,16 +353,21 @@ export function Chip({
   active = false,
   onPress,
   icon,
+  accessibilityLabel,
 }: {
   label: string;
   active?: boolean;
   onPress?: () => void;
   icon?: React.ComponentProps<typeof Ionicons>["name"];
+  /** Spell the chip out when the label alone can't (e.g. a bare country flag). */
+  accessibilityLabel?: string;
 }) {
   const pal = usePalette();
   return (
     <Tactile onPress={onPress}>
       <View
+        accessibilityRole="button"
+        accessibilityLabel={accessibilityLabel ?? label}
         style={{
           flexDirection: "row",
           alignItems: "center",

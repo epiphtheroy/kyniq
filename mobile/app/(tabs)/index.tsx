@@ -38,6 +38,7 @@ import {
   UndoPill,
   Wordmark,
 } from "../../src/components/ui";
+import { DEFAULT_EDITION, EDITIONS } from "../../src/editions";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
@@ -356,6 +357,7 @@ export default function TonightScreen() {
   if (ready && !onboarded) return <Redirect href="/onboarding" />;
   if (!ready) return <Loading />;
 
+  const edition = EDITIONS[country] ?? DEFAULT_EDITION;
 
   // Header — pill search, title row, then the situation preset chips (§5.2).
   const header = (
@@ -370,25 +372,42 @@ export default function TonightScreen() {
       }}
     >
       {/* ONE-line masthead (owner 07-29: the controls were burying the deck — compact
-          hard so 2–3 more film rows show). Wordmark + search disc + services chip;
-          every filter lives in the single combined row below. */}
-      <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, paddingHorizontal: sp.s4 }}>
-        <View style={{ flex: 1, minWidth: 0 }}>
-          <Wordmark />
+          hard so 2–3 more film rows show). Wordmark + search disc + the two halves of
+          "what can I watch": country and services (owner 07-30 — 국적과 서비스 모두).
+          Every mood/sort filter lives in the single combined row below. */}
+      <View style={{ flexDirection: "row", alignItems: "center", gap: 6, paddingHorizontal: sp.s4 }}>
+        <View style={{ flex: 1, minWidth: 0, overflow: "hidden" }}>
+          {/* Two chips + the search disc now share this row, so the wordmark steps down
+              on SE-class widths rather than letting anything clip. */}
+          <Wordmark size={width < 390 ? fs.base : fs.lg} />
         </View>
         <HeaderSearch onPress={() => router.push("/search")} />
-        <Chip
-          label={
-            providerIds.length
-              ? t("tonight.myServices", { n: providerIds.length })
-              : t("tonight.pickServices")
-          }
-          icon="tv-outline"
-          active={providerIds.length > 0}
-          onPress={() =>
-            router.push({ pathname: "/onboarding", params: { step: "services" } })
-          }
-        />
+        {/* Country = a quiet flag pill: auto-detected, rarely changed, and the flag reads
+            in every locale (a code + label would push the services chip off narrow
+            phones). flexShrink 0 so the wordmark, not the controls, absorbs tight rows. */}
+        <View style={{ flexShrink: 0 }}>
+          <Chip
+            label={edition.flag}
+            accessibilityLabel={`${t("my.country")}: ${edition.label}`}
+            onPress={() =>
+              router.push({ pathname: "/onboarding", params: { step: "country" } })
+            }
+          />
+        </View>
+        <View style={{ flexShrink: 0 }}>
+          <Chip
+            label={
+              providerIds.length
+                ? t("tonight.myServices", { n: providerIds.length })
+                : t("tonight.pickServices")
+            }
+            icon="tv-outline"
+            active={providerIds.length > 0}
+            onPress={() =>
+              router.push({ pathname: "/onboarding", params: { step: "services" } })
+            }
+          />
+        </View>
       </View>
       {/* ONE combined filter row — the app's navigational heart (owner 07-29): moods
           MULTI-SELECT and compose over "on my services", ranked by TakeScore by
