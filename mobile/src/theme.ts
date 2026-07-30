@@ -154,8 +154,10 @@ export const motion = {
 
 /** Skeleton fill + the sheen that sweeps across it, per scheme. */
 export const shimmerTint = {
-  light: { base: "#EFEFEF", sheen: "rgba(255,255,255,0.95)" },
-  dark: { base: "#242424", sheen: "rgba(255,255,255,0.07)" },
+  // `lava` is the warm trailing edge of the sweep — the brand colour shows for a
+  // moment as the highlight passes, so loading reads as Metatake loading.
+  light: { base: "#EFEFEF", sheen: "rgba(255,255,255,0.95)", lava: "rgba(255,56,92,0.16)" },
+  dark: { base: "#242424", sheen: "rgba(255,255,255,0.08)", lava: "rgba(255,56,92,0.14)" },
 } as const;
 
 // Availability tier → dot color

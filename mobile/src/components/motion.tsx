@@ -13,10 +13,19 @@
 import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useEffect, useRef, useState } from "react";
-import { Platform, View, useColorScheme, type StyleProp, type ViewStyle } from "react-native";
+import {
+  Dimensions,
+  Platform,
+  View,
+  useColorScheme,
+  type StyleProp,
+  type View as RNView,
+  type ViewStyle,
+} from "react-native";
 import Animated, {
   Easing,
   interpolate,
+  makeMutable,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
@@ -53,6 +62,28 @@ export const haptic = {
 };
 
 // ---------------------------------------------------------------------------
+// The page sweep.
+//
+// Owner 07-30: while a list of films is loading, one gradient should travel
+// ACROSS THE WHOLE PAGE rather than each tile twinkling on its own clock. So
+// every skeleton shares ONE driver and positions its band by where it actually
+// sits on screen — the highlight passes over the page like a light, crossing
+// each poster in turn. It is also cheaper: one animation for the whole screen
+// instead of one per tile.
+const sweep = makeMutable(0);
+let sweepRunning = false;
+
+function startSweep() {
+  if (sweepRunning) return;
+  sweepRunning = true;
+  sweep.value = withRepeat(
+    withTiming(1, { duration: motion.shimmer * 1.6, easing: Easing.inOut(Easing.ease) }),
+    -1,
+    false,
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Shimmer + skeletons — the "반짝이기" that replaces spinners.
 
 /**
@@ -73,24 +104,33 @@ export function Shimmer({
 }) {
   const scheme = useColorScheme();
   const tint = scheme === "dark" ? shimmerTint.dark : shimmerTint.light;
-  const [measured, setMeasured] = useState(width ?? 0);
-  const p = useSharedValue(0);
+  const ref = useRef<RNView | null>(null);
+  const [box, setBox] = useState({ w: width ?? 0, x: 0 });
+  const screenW = Dimensions.get("window").width;
+  // The band is wide enough to feel like one light crossing the page, not a
+  // stripe inside each tile.
+  const bandW = Math.round(screenW * 0.55);
 
   useEffect(() => {
-    p.value = withRepeat(
-      withTiming(1, { duration: motion.shimmer, easing: Easing.inOut(Easing.ease) }),
-      -1,
-      false,
-    );
-  }, [p]);
+    startSweep();
+  }, []);
 
   const band = useAnimatedStyle(() => ({
-    transform: [{ translateX: interpolate(p.value, [0, 1], [-measured, measured]) }],
+    // Absolute screen position of the highlight, converted to this tile's
+    // local space — that is what makes the sweep continuous across tiles.
+    transform: [
+      { translateX: interpolate(sweep.value, [0, 1], [-bandW, screenW + bandW]) - box.x },
+    ],
   }));
 
   return (
     <View
-      onLayout={width == null ? (e) => setMeasured(e.nativeEvent.layout.width) : undefined}
+      ref={ref}
+      onLayout={() => {
+        ref.current?.measureInWindow((x, _y, w) => {
+          setBox((b) => (b.x === x && b.w === (width ?? w) ? b : { x, w: width ?? w }));
+        });
+      }}
       style={[
         {
           width: width ?? "100%",
@@ -102,16 +142,15 @@ export function Shimmer({
         style,
       ]}
     >
-      {measured > 0 ? (
-        <Animated.View style={[{ width: measured, height }, band]}>
-          <LinearGradient
-            colors={["transparent", tint.sheen, "transparent"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={{ flex: 1 }}
-          />
-        </Animated.View>
-      ) : null}
+      <Animated.View style={[{ position: "absolute", top: 0, bottom: 0, width: bandW }, band]}>
+        <LinearGradient
+          colors={["transparent", tint.sheen, tint.lava, "transparent"]}
+          locations={[0, 0.42, 0.6, 1]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={{ flex: 1 }}
+        />
+      </Animated.View>
     </View>
   );
 }

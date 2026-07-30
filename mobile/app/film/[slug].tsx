@@ -133,7 +133,7 @@ export default function FilmScreen() {
   const pal = usePalette();
   const { width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
-  const { country, locale } = usePrefs();
+  const { country, locale, providerIds } = usePrefs();
   const {
     session,
     ledger,
@@ -149,6 +149,7 @@ export default function FilmScreen() {
 
   const [card, setCard] = useState<FilmCardT | null>(null);
   const [tow, setTow] = useState<TowComment | null>(null);
+  const [leadOpen, setLeadOpen] = useState(false);
   const [err, setErr] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
   const [reasons, setReasons] = useState<string[]>([]);
@@ -363,6 +364,9 @@ export default function FilmScreen() {
   // missing field (e.g. lead_fallback is EN-only; a ko/es/ja edition or shape-drifted
   // server can omit it) would otherwise throw during render and blank the whole screen.
   const lead = card.invitation ?? (card.lead_fallback?.length ? card.lead_fallback.join(" ") : null);
+  // Only clamp when there is genuinely a wall of it — a "Read on" under two
+  // lines is noise, not an affordance.
+  const leadLong = (lead?.length ?? 0) > 260;
   const availability = card.availability ?? [];
   const lineage = card.lineage ?? [];
   const locCount = card.locations?.count ?? 0;
@@ -375,6 +379,18 @@ export default function FilmScreen() {
     Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${pin.lat},${pin.lng}`).catch(() => {});
   };
   const availKinds = [...new Set(availability.map((a) => a.kind))];
+  // Owner 07-30: answer "can I watch this on what I already pay for?" first.
+  // The viewer's own services float to the top and are marked; everything else
+  // keeps the subscription-before-rental order underneath.
+  const mineSet = new Set(providerIds);
+  const KIND_RANK: Record<string, number> = { flatrate: 0, library: 1, free: 2, ads: 3, rent: 4, buy: 5 };
+  const availSorted = [...availability].sort((a, b) => {
+    const am = mineSet.has(a.pid) ? 0 : 1;
+    const bm = mineSet.has(b.pid) ? 0 : 1;
+    if (am !== bm) return am - bm;
+    return (KIND_RANK[a.kind] ?? 9) - (KIND_RANK[b.kind] ?? 9);
+  });
+  const onMine = availSorted.filter((a) => mineSet.has(a.pid));
   const hasRank = card.rank != null && card.rank_total != null;
   const topDims = card.dims?.length ? [...card.dims].sort((a, b) => b.val - a.val).slice(0, 3) : [];
   const myVerdict =
@@ -558,9 +574,27 @@ export default function FilmScreen() {
             <>
               <SectionTitle>{t("film.invitation")}</SectionTitle>
               <View style={{ paddingHorizontal: sp.s4 }}>
-                <Serif size={fs.base} style={{ lineHeight: fs.base * 1.6 }}>
+                <Serif
+                  size={fs.base}
+                  style={{ lineHeight: fs.base * 1.6 }}
+                  numberOfLines={leadLong && !leadOpen ? 4 : undefined}
+                >
                   {lead}
                 </Serif>
+                {leadLong ? (
+                  <Tactile feedback="tap" onPress={() => setLeadOpen((v) => !v)} hitSlop={8}>
+                    <View style={{ flexDirection: "row", alignItems: "center", gap: 4, paddingTop: sp.s2 }}>
+                      <Ui size={fs.sm} weight="600" color={brand.accent}>
+                        {t(leadOpen ? "film.showLess" : "film.readOn")}
+                      </Ui>
+                      <Ionicons
+                        name={leadOpen ? "chevron-up" : "chevron-down"}
+                        size={14}
+                        color={brand.accent}
+                      />
+                    </View>
+                  </Tactile>
+                ) : null}
               </View>
             </>
           ) : null}
@@ -692,37 +726,114 @@ export default function FilmScreen() {
             </View>
           ) : null}
 
-          {/* Where to watch — grouped rows, native display only (no web link). */}
           <SectionTitle sub={country}>{t("film.whereToWatch")}</SectionTitle>
           {availability.length ? (
             <>
-              <Group>
-                {availability.slice(0, 8).map((a, i) => (
-                  <View key={`${a.pid}-${a.kind}`}>
-                    {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: sp.s3,
-                        paddingHorizontal: sp.s4,
-                        paddingVertical: 12,
-                      }}
-                    >
-                      <View
-                        style={{ width: 8, height: 8, borderRadius: radius.pill, backgroundColor: tierColor(a.kind) }}
-                      />
-                      {a.logo ? <PosterImg path={a.logo} width={24} height={24} size="w92" rounded={6} /> : null}
-                      <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
-                        {a.name}
-                      </Ui>
-                      <Ui size={fs.xs} color={pal.muted}>
-                        {KIND_LABEL[a.kind] ? t(KIND_LABEL[a.kind] as Parameters<typeof t>[0]) : a.kind}
-                      </Ui>
-                    </View>
+              {/* The headline answer, before the full list. */}
+              {onMine.length ? (
+                <Appear style={{ marginHorizontal: sp.s4, marginBottom: sp.s3 }}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: sp.s3,
+                      backgroundColor: `${brand.success}14`,
+                      borderRadius: radius.md,
+                      borderWidth: 1,
+                      borderColor: `${brand.success}55`,
+                      paddingHorizontal: sp.s4,
+                      paddingVertical: sp.s3,
+                    }}
+                  >
+                    <Ionicons name="checkmark-circle" size={20} color={brand.success} />
+                    <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
+                      {t("film.onYourServices", { names: onMine.map((a) => a.name).join(", ") })}
+                    </Ui>
                   </View>
-                ))}
+                </Appear>
+              ) : providerIds.length ? (
+                <View style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s2 }}>
+                  <Ui size={fs.sm} color={pal.muted}>
+                    {t("film.notOnYourServices")}
+                  </Ui>
+                </View>
+              ) : null}
+              <Group>
+                {availSorted.slice(0, 8).map((a, i) => {
+                  const mine = mineSet.has(a.pid);
+                  return (
+                    <View key={`${a.pid}-${a.kind}`}>
+                      {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: sp.s3,
+                          paddingHorizontal: sp.s4,
+                          paddingVertical: 12,
+                          backgroundColor: mine ? `${brand.success}0F` : "transparent",
+                        }}
+                      >
+                        <View
+                          style={{ width: 8, height: 8, borderRadius: radius.pill, backgroundColor: tierColor(a.kind) }}
+                        />
+                        {a.logo ? <PosterImg path={a.logo} width={24} height={24} size="w92" rounded={6} /> : null}
+                        <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
+                          {a.name}
+                        </Ui>
+                        {mine ? (
+                          <View
+                            style={{
+                              borderRadius: radius.pill,
+                              paddingHorizontal: 8,
+                              paddingVertical: 2,
+                              backgroundColor: brand.success,
+                            }}
+                          >
+                            <Ui size={fs.xs} weight="700" color="#FFFFFF">
+                              {t("film.yourService")}
+                            </Ui>
+                          </View>
+                        ) : null}
+                        <Ui size={fs.xs} color={pal.muted}>
+                          {KIND_LABEL[a.kind] ? t(KIND_LABEL[a.kind] as Parameters<typeof t>[0]) : a.kind}
+                        </Ui>
+                      </View>
+                    </View>
+                  );
+                })}
               </Group>
+              {/* The full picture lives on the web (prices, every tier, every
+                  provider) — bring it in through the reader (owner 07-30). */}
+              <Tactile
+                feedback="tap"
+                onPress={() =>
+                  router.push({
+                    pathname: "/read",
+                    params: { path: `/whereto/${card.slug}`, title: card.title },
+                  })
+                }
+                style={{ marginHorizontal: sp.s4, marginTop: sp.s3 }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: sp.s2,
+                    borderRadius: radius.md,
+                    borderWidth: StyleSheet.hairlineWidth,
+                    borderColor: pal.hairline2,
+                    paddingHorizontal: sp.s4,
+                    paddingVertical: sp.s3,
+                  }}
+                >
+                  <Ionicons name="open-outline" size={16} color={brand.accent} />
+                  <Ui size={fs.sm} weight="600" color={brand.accent} style={{ flex: 1 }}>
+                    {t("film.allWaysToWatch")}
+                  </Ui>
+                  <Ionicons name="chevron-forward" size={15} color={pal.subtle} />
+                </View>
+              </Tactile>
               <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s2 }}>
                 {t("attribution.justwatch")}
               </Ui>
@@ -899,6 +1010,44 @@ export default function FilmScreen() {
               </Group>
             </>
           ) : null}
+
+          {/* The web page carries far more on every film — essays, readings,
+              reception, the whole apparatus. The app brief is the decision; this
+              is the door to the rest of it (owner 07-30). */}
+          <Tactile
+            feedback="tap"
+            onPress={() =>
+              router.push({
+                pathname: "/read",
+                params: { path: `/film/${card.slug}`, title: card.title },
+              })
+            }
+            style={{ marginHorizontal: sp.s4, marginTop: sp.s5 }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: sp.s3,
+                borderRadius: radius.md,
+                backgroundColor: pal.surface,
+                borderWidth: StyleSheet.hairlineWidth,
+                borderColor: pal.hairline2,
+                paddingHorizontal: sp.s4,
+                paddingVertical: sp.s4,
+              }}
+            >
+              <View style={{ flex: 1 }}>
+                <Ui size={fs.md} weight="600">
+                  {t("film.fullPage")}
+                </Ui>
+                <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+                  {t("film.fullPageSub")}
+                </Ui>
+              </View>
+              <Ionicons name="arrow-forward" size={17} color={brand.accent} />
+            </View>
+          </Tactile>
 
           <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
             {t("attribution.tmdb")}

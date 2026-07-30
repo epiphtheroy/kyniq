@@ -54,19 +54,29 @@ type DeckRow = TonightRow & { reason?: string | null };
 type DeckPreset = Exclude<PresetKey, "services">;
 type UndoItem = { token: JudgmentUndo; row: DeckRow; index: number; kind: JudgeKind };
 
-type SortKey = "ts" | "new" | "old" | "alpha";
+type SortKey = "ts" | "ts100" | "ts500" | "ts1000" | "new" | "old" | "alpha";
 type EraKey = "all" | "1980" | "2000" | "2010" | "2020";
 
 /** v11 tokens bake direction in — never send sort=year (an unknown token falls
  *  back to "u" with the sign flipped, which surfaces the WORST films first). */
 const SORT_TOKEN: Record<SortKey, string> = {
   ts: "u",
+  ts100: "u",
+  ts500: "u",
+  ts1000: "u",
   new: "newest",
   old: "oldest",
   alpha: "alpha",
 };
+/** Top-N is the TakeScore order stopped after N films (owner 07-30). It bounds
+ *  the deck rather than reordering it, so it reads against whatever filters are
+ *  live: "the top 100 on my services since 2000". */
+const RANK_CAP: Partial<Record<SortKey, number>> = { ts100: 100, ts500: 500, ts1000: 1000 };
 const SORT_COPY: Record<SortKey, DictKey> = {
   ts: "sort.takescore",
+  ts100: "sort.top100",
+  ts500: "sort.top500",
+  ts1000: "sort.top1000",
   new: "sort.newest",
   old: "sort.oldest",
   alpha: "sort.alpha",
@@ -152,6 +162,7 @@ export default function TonightScreen() {
   const presetParam = [...presets].filter((p) => p !== "bold").sort().join(",");
   // v11 tokens bake direction into "newest"/"oldest" — never send sort=year.
   const sortArgs = { sort: SORT_TOKEN[sortKey] };
+  const rankCap = RANK_CAP[sortKey] ?? null;
   // Era floor (owner 07-30: pre-2000 films were permanently squatting the top).
   const yearMin = ERA_YEAR[eraKey];
   const [judged, setJudged] = useState(0);
@@ -255,7 +266,7 @@ export default function TonightScreen() {
       .finally(() => {
         loadingMore.current = false;
       });
-  }, [bold, presetParam, sortArgs.sort, yearMin, status, refreshing, fetched, total, country, servicesOn, providerIds]);
+  }, [bold, presetParam, sortArgs.sort, rankCap, yearMin, status, refreshing, fetched, total, country, servicesOn, providerIds]);
 
   // Reason chips (session only) — one server-supplied reason per matching card.
   // Bold rows carry their own reason from the λ=0.6 pull (§13-17: no fabrication).
@@ -350,7 +361,7 @@ export default function TonightScreen() {
 
   // visible + the hide-seen pagination effect MUST run before the early returns below —
   // React hooks can never be called conditionally. visible depends only on rows/ledger/prefs.
-  const visible = rows.filter((r) => {
+  const visible = (rankCap ? rows.slice(0, rankCap) : rows).filter((r) => {
     const e = ledger.get(r.slug);
     if (e?.dismissed) return false; // always hide passed films
     if (hideSeenEff && session && e?.seen) return false;
@@ -495,7 +506,7 @@ export default function TonightScreen() {
         selected={sortKey}
         onClose={() => setPicker(null)}
         onSelect={(k) => setSortKey(k as SortKey)}
-        options={(["ts", "new", "old", "alpha"] as SortKey[]).map((k) => ({
+        options={(["ts", "ts100", "ts500", "ts1000", "new", "old", "alpha"] as SortKey[]).map((k) => ({
           key: k,
           label: t(SORT_COPY[k]),
         }))}
@@ -615,7 +626,7 @@ export default function TonightScreen() {
       </Screen>
     );
 
-  const canLoadMore = !bold && fetched < total;
+  const canLoadMore = !bold && fetched < total && (rankCap == null || fetched < rankCap);
 
   return (
     <Screen>
