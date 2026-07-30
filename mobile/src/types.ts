@@ -9,6 +9,16 @@ export type Availability = {
   cc: string;
 };
 
+/** Metatake TV — the film's own program, plus the lists it rides in. */
+export type TvProgram = {
+  slug: string;
+  title: string;
+  dek: string | null;
+  segments: number | null;
+  duration_ms: number | null;
+  lists: { slug: string; title: string; kind: string | null }[];
+};
+
 export type LineageRow = {
   facet: string;
   list_slug: string;
@@ -57,6 +67,8 @@ export type FilmCard = {
     intro: string | null;
     facts: LifeFact[];
   } | null;
+  /** Absent on servers that predate the TV shelf; the app hides it then. */
+  tv?: TvProgram | null;
   // v4 judgment signals (PAYLOAD_V 2 — additive; an older server simply omits them)
   rank?: number | null;
   rank_total?: number | null;

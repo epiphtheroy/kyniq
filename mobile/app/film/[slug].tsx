@@ -40,7 +40,7 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
-import { Appear, Shimmer, SkeletonText } from "../../src/components/motion";
+import { Appear, Pulse, Shimmer, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
@@ -1008,6 +1008,130 @@ export default function FilmScreen() {
                   <Ionicons name="chevron-forward" size={14} color={pal.subtle} style={{ alignSelf: "center" }} />
                 </Tactile>
               </Group>
+            </>
+          ) : null}
+
+          {/* Metatake TV (owner 07-30) — the film's own programme, and the lists
+              it rides in. The programme is rendered by the web player, so it
+              opens in the reader: an inline WebView here would mean a whole web
+              page living inside this scroll view, fighting it for gestures. */}
+          {card.tv ? (
+            <>
+              <SectionTitle sub={card.tv.dek ?? undefined}>{t("film.tvTitle")}</SectionTitle>
+              <Tactile
+                feedback="press"
+                onPress={() =>
+                  router.push({
+                    pathname: "/read",
+                    params: { path: `/tv/${card.tv?.slug}`, title: card.tv?.title ?? card.title },
+                  })
+                }
+                style={{ marginHorizontal: sp.s4 }}
+              >
+                <View
+                  style={[
+                    {
+                      borderRadius: radius.md,
+                      overflow: "hidden",
+                      backgroundColor: "#000",
+                    },
+                    shadow.card,
+                  ]}
+                >
+                  {/* A still from the film as the programme's plate, with the
+                      play affordance over it — the grammar the hero already uses. */}
+                  <PosterImg
+                    path={card.backdrop_path ?? card.poster_path}
+                    width={width - sp.s4 * 2}
+                    height={Math.round((width - sp.s4 * 2) * 0.5)}
+                    size="w780"
+                    rounded={0}
+                    style={{ opacity: 0.62 }}
+                  />
+                  <LinearGradient
+                    pointerEvents="none"
+                    colors={["rgba(0,0,0,0.05)", "rgba(0,0,0,0.72)"]}
+                    style={{ position: "absolute", left: 0, right: 0, bottom: 0, top: 0 }}
+                  />
+                  <View
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Pulse>
+                      <View
+                        style={{
+                          width: 54,
+                          height: 54,
+                          borderRadius: radius.pill,
+                          backgroundColor: brand.accent,
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Ionicons name="play" size={25} color="#FFFFFF" style={{ marginLeft: 3 }} />
+                      </View>
+                    </Pulse>
+                  </View>
+                  <View style={{ position: "absolute", left: sp.s4, right: sp.s4, bottom: sp.s3 }}>
+                    <Serif size={fs.md} bold color="#FFFFFF" numberOfLines={2}>
+                      {card.tv.title}
+                    </Serif>
+                    <Ui size={fs.xs} color="rgba(255,255,255,0.82)" style={{ marginTop: 2 }}>
+                      {card.tv.segments != null && card.tv.duration_ms != null
+                        ? t("film.tvMeta", {
+                            n: card.tv.segments,
+                            min: Math.max(1, Math.round(card.tv.duration_ms / 60000)),
+                          })
+                        : t("film.tvWatch")}
+                    </Ui>
+                  </View>
+                </View>
+              </Tactile>
+              {card.tv.lists.length ? (
+                <View style={{ marginTop: sp.s3 }}>
+                  <Ui
+                    size={fs.xs}
+                    weight="700"
+                    color={pal.muted}
+                    style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s2, letterSpacing: 0.6 }}
+                  >
+                    {t("film.tvLists").toUpperCase()}
+                  </Ui>
+                  <Group>
+                    {card.tv.lists.map((l, i) => (
+                      <View key={l.slug}>
+                        {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
+                        <Tactile
+                          feedback="tap"
+                          onPress={() =>
+                            router.push({
+                              pathname: "/read",
+                              params: { path: `/tv/list/${l.slug}`, title: l.title },
+                            })
+                          }
+                          style={{
+                            flexDirection: "row",
+                            alignItems: "center",
+                            gap: sp.s3,
+                            paddingHorizontal: sp.s4,
+                            paddingVertical: 12,
+                          }}
+                        >
+                          <Ionicons name="tv-outline" size={15} color={brand.accent} />
+                          <Ui size={fs.sm} weight="500" numberOfLines={1} style={{ flex: 1 }}>
+                            {l.title}
+                          </Ui>
+                          <Ionicons name="chevron-forward" size={14} color={pal.subtle} />
+                        </Tactile>
+                      </View>
+                    ))}
+                  </Group>
+                </View>
+              ) : null}
             </>
           ) : null}
 
