@@ -1153,7 +1153,7 @@ function SignedIn() {
   );
 }
 
-// ---- Signed-out account block: email + 6-digit code, Apple ----------------
+// ---- Signed-out account block: email + 8-digit code, Apple ----------------
 
 function SignedOut({
   scheme,
