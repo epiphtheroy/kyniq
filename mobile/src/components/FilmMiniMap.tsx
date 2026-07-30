@@ -1,8 +1,12 @@
 // Embedded per-film locations map.
-//   iOS (Expo Go AND store builds) → react-native-maps = Apple Maps, no key,
-//                                    no CDN, native pinch/zoom. Confirmed in the
-//                                    build-14 binary via expo autolinking.
-//   Android                        → MapLibre GL JS inside react-native-webview
+//   iOS (Expo Go AND store builds) → react-native-maps. GOOGLE Maps when the
+//                                    Maps SDK key is in the binary (build 15+),
+//                                    Apple Maps otherwise — both native, no CDN,
+//                                    native pinch/zoom.
+//   Android                        → MapLibre GL JS inside react-native-webview.
+//                                    The key now in the config would let this be
+//                                    native Google too; left alone until the
+//                                    Android launch actually tests it.
 //   MapLibre GL Native             → BENCHED: hard-crashes the iOS store build
 //                                    (TestFlight build 8, 2026-07-20). Do not revive.
 // Owner 07-30: the map used to be a dead picture that outlinked to the Maps app —
@@ -18,6 +22,16 @@ import { brand, radius } from "../theme";
 import type { GeoPin } from "../types";
 
 const IN_EXPO_GO = Constants.executionEnvironment === "storeClient";
+/**
+ * Owner asked for Google Maps in-app. react-native-maps can render Google on
+ * iOS, but only if the Maps SDK key was baked into the binary (see
+ * app.config.js). Read it back at runtime: with a key we ask for Google, and
+ * without one we stay on Apple Maps rather than render a blank Google view —
+ * a missing key must not look like a broken map.
+ */
+const MAPS_KEY_PRESENT = !!(
+  Constants.expoConfig as unknown as { ios?: { config?: { googleMapsApiKey?: string } } }
+)?.ios?.config?.googleMapsApiKey;
 const MAP_STYLE = "https://demotiles.maplibre.org/style.json";
 const MAPLIBRE_JS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js";
 const MAPLIBRE_CSS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css";
@@ -48,7 +62,7 @@ function AppleMini({ pins, height, onPress, interactive = false }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const Maps = require("react-native-maps") as typeof import("react-native-maps");
   const MapView = Maps.default;
-  const { Marker } = Maps;
+  const { Marker, PROVIDER_GOOGLE } = Maps;
   const b = bounds(pins);
   const latDelta = Math.min(120, Math.max(0.08, (b.maxLat - b.minLat) * 1.7));
   const lngDelta = Math.min(120, Math.max(0.08, (b.maxLng - b.minLng) * 1.7));
@@ -56,6 +70,7 @@ function AppleMini({ pins, height, onPress, interactive = false }: Props) {
     <View style={{ height, borderRadius: radius.md, overflow: "hidden" }}>
       <MapView
         style={{ flex: 1 }}
+        provider={MAPS_KEY_PRESENT ? PROVIDER_GOOGLE : undefined}
         initialRegion={{
           latitude: (b.minLat + b.maxLat) / 2,
           longitude: (b.minLng + b.maxLng) / 2,
