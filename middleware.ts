@@ -42,6 +42,39 @@ const forbidden = () =>
     headers: { "content-type": "text/plain", "x-mt-bot": "blocked" },
   });
 
+// ── Search throttle ──────────────────────────────────────────────────────────
+// /search?q=… server-renders the full hybrid search (lexical + an embedding hop
+// + search_semantic). On 2026-07-30 search_all and search_semantic were the two
+// largest consumers of database time — 4.6k seconds between them, ~3-4s per
+// call — and the database fell over twice.
+//
+// /api/search has had an IP throttle all along; the PAGE never did, so anything
+// ignoring robots.txt (where /search?* is already disallowed) could run
+// unlimited hybrid searches. This closes that door in front of the render.
+//
+// Deliberately per-instance and approximate: middleware has no shared store, and
+// a coarse ceiling that costs nothing beats a precise one that needs a round
+// trip. Bare /search (no query) is untouched — it renders no search at all.
+const searchHits = new Map<string, number[]>();
+const SEARCH_WINDOW_MS = 60_000;
+const SEARCH_MAX_PER_MIN = 20; // a person types a handful of searches a minute
+const SEARCH_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
+
+function searchThrottled(ip: string): boolean {
+  const now = Date.now();
+  if (!searchHits.has(ip) && searchHits.size >= SEARCH_KEYS_MAX) {
+    for (const [k, arr] of searchHits) {
+      if (!arr.length || now - arr[arr.length - 1] > SEARCH_WINDOW_MS) searchHits.delete(k);
+      if (searchHits.size < SEARCH_KEYS_MAX) break;
+    }
+    if (searchHits.size >= SEARCH_KEYS_MAX) searchHits.clear(); // rotating IPs — reset
+  }
+  const arr = (searchHits.get(ip) ?? []).filter((t) => now - t < SEARCH_WINDOW_MS);
+  arr.push(now);
+  searchHits.set(ip, arr);
+  return arr.length > SEARCH_MAX_PER_MIN;
+}
+
 // ── Crawler observation (visit-back handshake) ───────────────────────────────
 // Record identifiable crawlers that visit us, with their UA + self-declared URL,
 // so the visit-back worker (lib/bots/handshake) can leave metatake.net in their
@@ -98,6 +131,20 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
       }
     }
     return NextResponse.next({ request: { headers: request.headers } });
+  }
+
+  // Throttle the expensive search render before anything else pays for it.
+  if (pathname === "/search" && request.nextUrl.searchParams.get("q")) {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      "anon";
+    if (searchThrottled(ip)) {
+      return new NextResponse("Too many searches — try again in a minute.", {
+        status: 429,
+        headers: { "content-type": "text/plain", "retry-after": "60", "x-mt-throttle": "search" },
+      });
+    }
   }
 
   // Bot gate on content routes (not /api — the beacon self-filters bots, and
