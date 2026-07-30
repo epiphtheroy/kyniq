@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import {
   Modal,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -565,13 +566,17 @@ export function PickerSheet({
   selected,
   onSelect,
   onClose,
+  multiple = false,
 }: {
   visible: boolean;
   title: string;
   options: PickerOption[];
-  selected: string;
+  /** A key for single-select, the chosen keys for multi. */
+  selected: string | string[];
   onSelect: (key: string) => void;
   onClose: () => void;
+  /** Keep the sheet open and toggle keys, instead of picking one and closing. */
+  multiple?: boolean;
 }) {
   const pal = usePalette();
   const insets = useSafeAreaInsets();
@@ -590,19 +595,26 @@ export function PickerSheet({
         <View style={{ alignItems: "center", paddingBottom: sp.s3 }}>
           <View style={{ width: 36, height: 4, borderRadius: radius.pill, backgroundColor: pal.hairline2 }} />
         </View>
-        <Ui size={fs.xs} weight="700" color={pal.muted} style={{ paddingHorizontal: sp.s4, letterSpacing: 0.6 }}>
-          {title.toUpperCase()}
-        </Ui>
-        <View style={{ paddingTop: sp.s2 }}>
+        <View style={{ flexDirection: "row", alignItems: "center", paddingHorizontal: sp.s4 }}>
+          <Ui size={fs.xs} weight="700" color={pal.muted} style={{ flex: 1, letterSpacing: 0.6 }}>
+            {title.toUpperCase()}
+          </Ui>
+          {multiple ? (
+            <Tactile onPress={onClose} hitSlop={10} feedback="tap">
+              <Ionicons name="close" size={20} color={pal.ink} />
+            </Tactile>
+          ) : null}
+        </View>
+        <ScrollView style={{ maxHeight: 420 }} contentContainerStyle={{ paddingTop: sp.s2 }}>
           {options.map((o, i) => {
-            const on = o.key === selected;
+            const on = Array.isArray(selected) ? selected.includes(o.key) : o.key === selected;
             return (
               <Appear key={o.key} index={i}>
                 <Tactile
                   feedback="select"
                   onPress={() => {
                     onSelect(o.key);
-                    onClose();
+                    if (!multiple) onClose();
                   }}
                 >
                   <View
@@ -630,7 +642,7 @@ export function PickerSheet({
               </Appear>
             );
           })}
-        </View>
+        </ScrollView>
       </View>
     </Modal>
   );

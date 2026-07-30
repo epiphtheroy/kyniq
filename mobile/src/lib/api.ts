@@ -262,6 +262,8 @@ export const api = {
       preset?: string; // comma-list — chips compose (multi-select)
       sort?: string; // u | year | title (cinecodex_ranked v11 axes)
       dir?: "asc" | "desc";
+      /** Production countries (ISO2, lowercase). Multi-select; the BFF fans out. */
+      countries?: string[];
     },
   ): Promise<TonightPayload> {
     const q = new URLSearchParams({ country });
@@ -273,8 +275,22 @@ export const api = {
     if (opts?.preset) q.set("preset", opts.preset);
     if (opts?.sort) q.set("sort", opts.sort);
     if (opts?.dir) q.set("dir", opts.dir);
+    if (opts?.countries?.length) q.set("countries", opts.countries.join(","));
     if (opts?.offset) q.set("offset", String(opts.offset));
     return getJSON(`/api/v1/app/tonight?${q.toString()}`);
+  },
+
+  /** Production countries with film counts, already ordered by count desc.
+   *  Returns [] on an older server — the caller hides the filter in that case. */
+  async filmCountries(): Promise<{ code: string; count: number }[]> {
+    try {
+      const out = await getJSON<{ countries?: { code: string; count: number }[] }>(
+        `/api/v1/app/countries`,
+      );
+      return out.countries ?? [];
+    } catch {
+      return [];
+    }
   },
 
   services(country: string): Promise<{ services: Service[] }> {

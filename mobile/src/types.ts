@@ -137,6 +137,9 @@ export type TonightPayload = {
   country: string;
   total: number;
   rows: TonightRow[];
+  /** Echo of the applied production-country filter. Absent on servers that
+   *  predate it — which is how the app knows not to offer the chip. */
+  countries?: string[];
 };
 
 export type Service = {

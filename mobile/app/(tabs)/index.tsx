@@ -90,6 +90,24 @@ const ERA_YEAR: Record<EraKey, number | null> = {
   "2020": 2020,
 };
 
+/** The BFF fans out one ranking query per country, so the app holds the same
+ *  ceiling it does — asking for more would just be silently truncated. */
+const ORIGIN_MAX = 5;
+
+/** ISO2 → the reader's own language for the name, with the raw code as the
+ *  floor. No hand-kept country table to drift out of date. */
+const REGION_NAMES =
+  typeof Intl !== "undefined" && "DisplayNames" in Intl
+    ? new Intl.DisplayNames(["en"], { type: "region" })
+    : null;
+function countryName(code: string): string {
+  try {
+    return REGION_NAMES?.of(code.toUpperCase()) ?? code.toUpperCase();
+  } catch {
+    return code.toUpperCase();
+  }
+}
+
 const UNDO_MS = 4000;
 const NOTICE_MS = 3500;
 
@@ -155,7 +173,13 @@ export default function TonightScreen() {
   const [presets, setPresets] = useState<ReadonlySet<DeckPreset>>(new Set());
   const [sortKey, setSortKey] = useState<SortKey>("ts");
   const [eraKey, setEraKey] = useState<EraKey>("all");
-  const [picker, setPicker] = useState<null | "sort" | "era">(null);
+  const [picker, setPicker] = useState<null | "sort" | "era" | "origin">(null);
+  // Production-country filter (owner 07-30): multi-select, ordered by how many
+  // films each country actually has. The catalogue is fetched once; an empty
+  // list (older server / failure) simply hides the chip rather than offering a
+  // filter the server would ignore.
+  const [origins, setOrigins] = useState<ReadonlySet<string>>(new Set());
+  const [originCatalog, setOriginCatalog] = useState<{ code: string; count: number }[]>([]);
   // Taste is the source swap (me_recommend_wwi), now an explicit opt-in the app
   // remembers (owner 07-30) rather than a chip that resets every launch.
   const bold = taste;
@@ -165,6 +189,8 @@ export default function TonightScreen() {
   const rankCap = RANK_CAP[sortKey] ?? null;
   // Era floor (owner 07-30: pre-2000 films were permanently squatting the top).
   const yearMin = ERA_YEAR[eraKey];
+  const originList = [...origins].sort();
+  const originParam = originList.join(",");
   const [judged, setJudged] = useState(0);
   const [undoItem, setUndoItem] = useState<UndoItem | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -203,11 +229,23 @@ export default function TonightScreen() {
     }
     const p = await api.tonight(country, servicesOn ? providerIds : [], {
       ...(yearMin ? { yearMin } : {}),
+      ...(originList.length ? { countries: originList } : {}),
       ...(presetParam ? { preset: presetParam } : {}),
       ...sortArgs,
     });
     return { rows: p.rows, total: p.total };
-  }, [bold, presetParam, sortArgs.sort, yearMin, country, servicesOn, providerIds]);
+  }, [bold, presetParam, sortArgs.sort, yearMin, originParam, country, servicesOn, providerIds]);
+
+  useEffect(() => {
+    let alive = true;
+    api
+      .filmCountries()
+      .then((list) => alive && setOriginCatalog(list))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   // Initial load (and reload on country/services/preset change or retry).
   useEffect(() => {
@@ -250,6 +288,8 @@ export default function TonightScreen() {
     api
       .tonight(country, servicesOn ? providerIds : [], {
         ...(yearMin ? { yearMin } : {}),
+        ...(originList.length ? { countries: originList } : {}),
+      ...(originList.length ? { countries: originList } : {}),
         offset: fetched,
         ...(presetParam ? { preset: presetParam } : {}),
         ...sortArgs,
@@ -266,7 +306,7 @@ export default function TonightScreen() {
       .finally(() => {
         loadingMore.current = false;
       });
-  }, [bold, presetParam, sortArgs.sort, rankCap, yearMin, status, refreshing, fetched, total, country, servicesOn, providerIds]);
+  }, [bold, presetParam, sortArgs.sort, rankCap, yearMin, originParam, status, refreshing, fetched, total, country, servicesOn, providerIds]);
 
   // Reason chips (session only) — one server-supplied reason per matching card.
   // Bold rows carry their own reason from the λ=0.6 pull (§13-17: no fabrication).
@@ -480,6 +520,21 @@ export default function TonightScreen() {
             }}
           />
         ) : null}
+        {originCatalog.length ? (
+          <PickerChip
+            label={t("origin.label")}
+            value={
+              origins.size === 0
+                ? t("origin.any")
+                : origins.size === 1
+                  ? countryName(originList[0])
+                  : t("origin.nSelected", { n: origins.size })
+            }
+            icon="earth-outline"
+            active={origins.size > 0}
+            onPress={() => setPicker("origin")}
+          />
+        ) : null}
         {/* Mood presets filter the shared engine, so they're meaningless while the
             personal source is driving — hidden rather than shown-but-dead. */}
         {!bold ? (
@@ -509,6 +564,26 @@ export default function TonightScreen() {
         options={(["ts", "ts100", "ts500", "ts1000", "new", "old", "alpha"] as SortKey[]).map((k) => ({
           key: k,
           label: t(SORT_COPY[k]),
+        }))}
+      />
+      <PickerSheet
+        visible={picker === "origin"}
+        title={t("origin.label")}
+        multiple
+        selected={originList}
+        onClose={() => setPicker(null)}
+        onSelect={(k) =>
+          setOrigins((prev) => {
+            const next = new Set(prev);
+            if (next.has(k)) next.delete(k);
+            else if (next.size < ORIGIN_MAX) next.add(k);
+            return next;
+          })
+        }
+        options={originCatalog.slice(0, 40).map((c) => ({
+          key: c.code,
+          label: countryName(c.code),
+          hint: t("origin.filmsN", { n: c.count }),
         }))}
       />
       <PickerSheet
