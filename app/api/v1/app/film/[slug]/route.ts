@@ -57,7 +57,7 @@ export async function GET(req: Request, { params }: Params) {
       8,
     ).catch(() => [] as string[]);
 
-    const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes] = await Promise.all([
+    const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes, tvRes] = await Promise.all([
       db.rpc("takescore_for_slugs", { p_slugs: [slug] }),
       db.from("figures").select("id").eq("film_id", film.id).eq("status", "approved"),
       db.rpc("film_availability", {
@@ -75,7 +75,25 @@ export async function GET(req: Request, { params }: Params) {
         .eq("film_id", film.id)
         .order("score", { ascending: false })
         .limit(8),
+      // Metatake TV (owner 07-30): the film's own program. tv_* carries no RLS
+      // policy for anon, so the app cannot read it directly — it comes through
+      // here, on the service-role client, like every other aggregate.
+      db
+        .from("tv_programs")
+        .select("slug, title, dek, seg_count, duration_ms")
+        .eq("film_id", film.id)
+        .eq("status", "published")
+        .limit(1),
     ]);
+
+    type TvProgramRow = {
+      slug: string;
+      title: string | null;
+      dek: string | null;
+      seg_count: number | null;
+      duration_ms: number | null;
+    };
+    const tvProgram = ((tvRes.data ?? []) as TvProgramRow[])[0] ?? null;
 
     const ts =
       ((tsRes.data ?? []) as { slug: string; ts: number }[]).find((r) => r.slug === slug)?.ts ??
@@ -264,6 +282,41 @@ export async function GET(req: Request, { params }: Params) {
       kindred = rows.length ? rows : null;
     }
 
+    // The lists this film's program rides in. Two hops (items → playlists) and
+    // fail-soft: TV is a bonus shelf, never a reason for the brief to 500.
+    let tvLists: { slug: string; title: string; kind: string | null }[] = [];
+    if (tvProgram) {
+      try {
+        const { data: progIdRow } = await db
+          .from("tv_programs")
+          .select("id")
+          .eq("slug", tvProgram.slug)
+          .limit(1);
+        const progId = ((progIdRow ?? []) as { id: string }[])[0]?.id ?? null;
+        if (progId) {
+          const { data: items } = await db
+            .from("tv_playlist_items")
+            .select("playlist_id")
+            .eq("program_id", progId)
+            .limit(12);
+          const ids = [...new Set(((items ?? []) as { playlist_id: string }[]).map((i) => i.playlist_id))];
+          if (ids.length) {
+            const { data: pls } = await db
+              .from("tv_playlists")
+              .select("slug, title, kind, n_films")
+              .in("id", ids)
+              .order("n_films", { ascending: false })
+              .limit(4);
+            tvLists = ((pls ?? []) as { slug: string; title: string; kind: string | null }[]).map(
+              (pl) => ({ slug: pl.slug, title: pl.title, kind: pl.kind }),
+            );
+          }
+        }
+      } catch {
+        /* the shelf simply comes back without its lists */
+      }
+    }
+
     return NextResponse.json(
       {
         v: 2,
@@ -295,6 +348,18 @@ export async function GET(req: Request, { params }: Params) {
         // Additive (PAYLOAD v2-compatible): clients that don't know `images`
         // ignore it; the app renders the hero pager + figures only when present.
         images: await imagesP.then((a) => (a.length ? a : null)),
+        // Additive: older clients ignore `tv`; the app renders the shelf only
+        // when a published program exists for this film.
+        tv: tvProgram
+          ? {
+              slug: tvProgram.slug,
+              title: tvProgram.title ?? film.title,
+              dek: tvProgram.dek ?? null,
+              segments: tvProgram.seg_count ?? null,
+              duration_ms: tvProgram.duration_ms ?? null,
+              lists: tvLists,
+            }
+          : null,
       },
       { headers: { ...API_CORS, "cache-control": CACHE } },
     );
