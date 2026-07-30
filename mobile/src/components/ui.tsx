@@ -6,6 +6,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useEffect, useState } from "react";
 import {
+  Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -16,6 +17,7 @@ import {
   type ViewStyle,
   type ImageStyle,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -154,11 +156,14 @@ export function Hairline({ style }: { style?: StyleProp<ViewStyle> }) {
   return <View style={[{ height: StyleSheet.hairlineWidth, backgroundColor: pal.hairline }, style]} />;
 }
 
-/** Section header — big friendly sans semibold (benchmark listing sections). */
+/** Section header — big friendly sans semibold (benchmark listing sections).
+ *  Owner 07-30 density pass: the leading gap came down a step (32→24). Five
+ *  sections a screen, so this is ~40pt of content handed back per scroll, and
+ *  the sections still breathe. */
 export function SectionTitle({ children, sub }: { children: React.ReactNode; sub?: string }) {
   const pal = usePalette();
   return (
-    <View style={{ marginTop: sp.s6, marginBottom: sp.s3, paddingHorizontal: sp.s4 }}>
+    <View style={{ marginTop: sp.s5, marginBottom: sp.s3, paddingHorizontal: sp.s4 }}>
       <Ui size={fs.xl} weight="600">
         {children}
       </Ui>
@@ -495,6 +500,139 @@ export function Chip({
         <Animated.View style={[{ position: "absolute", inset: 0 }, activeLayer]}>{inner(true)}</Animated.View>
       </Animated.View>
     </Tactile>
+  );
+}
+
+/**
+ * A chip that names its current choice and opens a sheet of options — one pill
+ * where a row of mutually-exclusive chips used to be. Sort and era together now
+ * cost two chips instead of eight, and the current setting is always readable
+ * instead of being inferred from which pill happens to be filled.
+ */
+export function PickerChip({
+  label,
+  value,
+  icon,
+  onPress,
+  active = false,
+}: {
+  /** What it controls ("Sort"), shown only when nothing is chosen. */
+  label: string;
+  /** The current choice ("TakeScore") — this is what people read. */
+  value: string;
+  icon?: React.ComponentProps<typeof Ionicons>["name"];
+  onPress: () => void;
+  /** True when the choice is off the default, so it reads as an applied filter. */
+  active?: boolean;
+}) {
+  const pal = usePalette();
+  return (
+    <Tactile onPress={onPress} feedback="select">
+      <View
+        accessibilityRole="button"
+        accessibilityLabel={`${label}: ${value}`}
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 5,
+          borderRadius: radius.pill,
+          paddingLeft: 12,
+          paddingRight: 9,
+          paddingVertical: 8,
+          backgroundColor: active ? pal.ink : pal.card,
+          borderWidth: active ? 0 : StyleSheet.hairlineWidth,
+          borderColor: pal.hairline2,
+        }}
+      >
+        {icon ? <Ionicons name={icon} size={14} color={active ? pal.bg : pal.muted} /> : null}
+        <Ui size={fs.sm} weight="600" color={active ? pal.bg : pal.ink}>
+          {value}
+        </Ui>
+        <Ionicons name="chevron-down" size={13} color={active ? pal.bg : pal.muted} />
+      </View>
+    </Tactile>
+  );
+}
+
+/** One option inside a PickerSheet. */
+export type PickerOption = { key: string; label: string; hint?: string };
+
+/** The sheet a PickerChip opens — options, a tick on the live one, tap to pick. */
+export function PickerSheet({
+  visible,
+  title,
+  options,
+  selected,
+  onSelect,
+  onClose,
+}: {
+  visible: boolean;
+  title: string;
+  options: PickerOption[];
+  selected: string;
+  onSelect: (key: string) => void;
+  onClose: () => void;
+}) {
+  const pal = usePalette();
+  const insets = useSafeAreaInsets();
+  return (
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+      <Pressable style={{ flex: 1, backgroundColor: pal.scrim }} onPress={onClose} />
+      <View
+        style={{
+          backgroundColor: pal.bg,
+          borderTopLeftRadius: radius.lg,
+          borderTopRightRadius: radius.lg,
+          paddingBottom: insets.bottom + sp.s4,
+          paddingTop: sp.s3,
+        }}
+      >
+        <View style={{ alignItems: "center", paddingBottom: sp.s3 }}>
+          <View style={{ width: 36, height: 4, borderRadius: radius.pill, backgroundColor: pal.hairline2 }} />
+        </View>
+        <Ui size={fs.xs} weight="700" color={pal.muted} style={{ paddingHorizontal: sp.s4, letterSpacing: 0.6 }}>
+          {title.toUpperCase()}
+        </Ui>
+        <View style={{ paddingTop: sp.s2 }}>
+          {options.map((o, i) => {
+            const on = o.key === selected;
+            return (
+              <Appear key={o.key} index={i}>
+                <Tactile
+                  feedback="select"
+                  onPress={() => {
+                    onSelect(o.key);
+                    onClose();
+                  }}
+                >
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: sp.s3,
+                      paddingHorizontal: sp.s4,
+                      paddingVertical: sp.s3 + 2,
+                    }}
+                  >
+                    <View style={{ flex: 1 }}>
+                      <Ui size={fs.md} weight={on ? "600" : "400"}>
+                        {o.label}
+                      </Ui>
+                      {o.hint ? (
+                        <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 1 }}>
+                          {o.hint}
+                        </Ui>
+                      ) : null}
+                    </View>
+                    {on ? <Ionicons name="checkmark" size={19} color={brand.accent} /> : null}
+                  </View>
+                </Tactile>
+              </Appear>
+            );
+          })}
+        </View>
+      </View>
+    </Modal>
   );
 }
 

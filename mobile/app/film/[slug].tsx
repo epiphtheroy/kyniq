@@ -808,12 +808,28 @@ export default function FilmScreen() {
             <>
               <SectionTitle sub={`${locCount}`}>{t("film.locations")}</SectionTitle>
               {locPins.length ? (
-                <View style={{ marginHorizontal: sp.s4, marginBottom: sp.s3 }}>
+                /* Owner 07-30: this was a still picture that outlinked on tap —
+                   slow, and unzoomable. On iOS it is now a live map you pinch in
+                   place; Google Maps stays one tap away for turn-by-turn. */
+                <View style={{ marginHorizontal: sp.s4, marginBottom: sp.s3, gap: sp.s2 }}>
                   <FilmMiniMap
                     pins={locPins}
-                    height={Math.round((width - sp.s4 * 2) * 0.56)}
+                    height={Math.round((width - sp.s4 * 2) * 0.72)}
+                    interactive
                     onPress={() => openPinInMaps(locPins[0])}
                   />
+                  <Tactile
+                    feedback="tap"
+                    onPress={() => openPinInMaps(locPins[0])}
+                    style={{ alignSelf: "flex-start" }}
+                  >
+                    <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
+                      <Ionicons name="navigate-outline" size={13} color={brand.accent} />
+                      <Ui size={fs.xs} weight="600" color={brand.accent}>
+                        {t("film.openInMaps")}
+                      </Ui>
+                    </View>
+                  </Tactile>
                 </View>
               ) : null}
               <Group>

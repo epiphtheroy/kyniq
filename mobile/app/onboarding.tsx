@@ -41,6 +41,14 @@ import type { Service, TonightRow } from "../src/types";
 // refreshes on the next `expo start` — the cast keeps tsc green until then.
 const CONNECT_HREF = "/connect" as Href;
 
+// Email OTP length. MUST match Supabase auth `mailer_otp_length` (read 2026-07-30:
+// 8). The app used to hard-cap the field at 6, so the last two digits of every
+// emailed code were untypeable and email signup could not complete. One constant
+// now drives the field, the copy and the auto-submit; verify still accepts a
+// shorter code so a server-side change to 6 degrades instead of breaking.
+const OTP_LEN = 8;
+const OTP_MIN = 6;
+
 // Account rides RIGHT AFTER the welcome pitch (owner 07-29: a new install should sign
 // up — Google, naturally — the moment the app opens), then the value setup follows.
 const STEPS = ["welcome", "account", "country", "services", "taste"] as const;
@@ -325,7 +333,7 @@ function StepCountry({ onNext }: { onNext: () => void }) {
               <Tactile
                 key={ed.code}
                 disabled={!ed.live}
-                onPress={() => set({ country: ed.country, locale: ed.locale })}
+                onPress={() => set({ country: ed.country })}
               >
                 <View
                   style={{
@@ -545,9 +553,9 @@ function StepAccount({ onDone }: { onDone: () => void }) {
     else setSent(true);
   };
 
-  const verify = async () => {
-    const token = code.trim();
-    if (busy || token.length < 6) return;
+  const verifyWith = async (raw: string) => {
+    const token = raw.trim();
+    if (busy || token.length < OTP_MIN) return;
     setBusy(true);
     setError(null);
     const { error: e } = await supabase.auth.verifyOtp({
@@ -559,6 +567,7 @@ function StepAccount({ onDone }: { onDone: () => void }) {
     if (e) setError(t("auth.codeError"));
     else onDone();
   };
+  const verify = () => verifyWith(code);
 
   // Google — OAuth through the system browser (expo-web-browser), tokens
   // handed back on the deep link. In Expo Go the redirect is exp://<lan-ip>,
@@ -666,21 +675,28 @@ function StepAccount({ onDone }: { onDone: () => void }) {
           <>
             {/* Code entry substep */}
             <Ui size={fs.sm} color={pal.muted}>
-              {t("auth.codeSent", { email: email.trim() })}
+              {t("auth.codeSent", { email: email.trim(), n: OTP_LEN })}
             </Ui>
             <TextInput
               value={code}
-              onChangeText={setCode}
-              placeholder={t("auth.codePlaceholder")}
+              onChangeText={(v) => {
+                const digits = v.replace(/[^0-9]/g, "").slice(0, OTP_LEN);
+                setCode(digits);
+                // Complete code → verify without making them hunt for the button.
+                if (digits.length === OTP_LEN) void verifyWith(digits);
+              }}
+              placeholder={t("auth.codePlaceholder", { n: OTP_LEN })}
               placeholderTextColor={pal.subtle}
               keyboardType="number-pad"
-              maxLength={6}
+              textContentType="oneTimeCode"
+              autoComplete="one-time-code"
+              maxLength={OTP_LEN}
               editable={!busy}
               onFocus={() => setCodeFocus(true)}
               onBlur={() => setCodeFocus(false)}
               style={[
                 fieldStyle(codeFocus),
-                { letterSpacing: 8, textAlign: "center", fontSize: fs.lg },
+                { letterSpacing: 6, textAlign: "center", fontSize: fs.lg },
               ]}
             />
             <GradientBtn label={t("auth.verify")} onPress={() => void verify()} />

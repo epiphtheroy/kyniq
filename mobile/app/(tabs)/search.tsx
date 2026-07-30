@@ -10,6 +10,7 @@ import { type Href, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   FlatList,
+  ScrollView,
   StyleSheet,
   TextInput,
   View,
@@ -148,17 +149,28 @@ export default function SearchScreen() {
   // Collections rail (owner 07-29): the lineage lists, curated + facet-tinted, each
   // driving straight into the native Navigator. Lazy on first browse; fail-soft to [].
   const [lists, setLists] = useState<NavCatalogEntry[] | null>(null);
+  // How many lists exist in total (owner 07-30: say that there are hundreds).
+  // Free — lineageCatalog already returns them all; the rail just curates 14.
+  const [allLists, setAllLists] = useState<NavCatalogEntry[]>([]);
+  const [exampleIdx, setExampleIdx] = useState(0);
+  const listTotal = allLists.length;
   useEffect(() => {
-    if (!showBrowseNow || lists) return;
+    // Browse shows the rail; typing needs the catalog too, since the search
+    // below reaches lists and the examples advertise exactly that.
+    if ((!showBrowseNow && q.trim().length === 0) || lists) return;
     let alive = true;
     api
       .lineageCatalog()
-      .then((all) => alive && setLists(curateRail(all)))
+      .then((all) => {
+        if (!alive) return;
+        setAllLists(all);
+        setLists(curateRail(all));
+      })
       .catch(() => alive && setLists([]));
     return () => {
       alive = false;
     };
-  }, [showBrowseNow, lists]);
+  }, [showBrowseNow, lists, q]);
 
   const openReader = (path: string, title: string) =>
     router.push({ pathname: "/read", params: { path, title } });
@@ -303,6 +315,28 @@ export default function SearchScreen() {
       return { ...prev, decades };
     });
 
+  // Peeking examples (owner 07-30): real list names cycled through the empty
+  // field, so people learn the search reaches LISTS, not just films. Real labels
+  // rather than invented ones — nothing here can advertise a dead query.
+  const examples = useMemo(
+    () => (lists ?? []).map((l) => l.label).filter((l) => l.length <= 34).slice(0, 6),
+    [lists],
+  );
+
+  /** Lists matching the query — every token must appear somewhere in the entry's
+   *  searchable blob, the same rule the Navigator's list search uses. */
+  const listHits = useMemo(() => {
+    const query = q.trim().toLowerCase();
+    if (query.length < 2 || !allLists.length) return [];
+    const tokens = query.split(/\s+/).filter(Boolean);
+    return allLists.filter((l) => tokens.every((tk) => l.search.includes(tk))).slice(0, 6);
+  }, [q, allLists]);
+  useEffect(() => {
+    if (q.trim().length > 0 || examples.length < 2) return;
+    const id = setInterval(() => setExampleIdx((i) => (i + 1) % examples.length), 2800);
+    return () => clearInterval(id);
+  }, [q, examples.length]);
+
   const showEmpty = searched && !loading && rows.length === 0;
   const showBrowse = q.trim().length === 0;
 
@@ -312,19 +346,15 @@ export default function SearchScreen() {
       <Ui size={fs.xs} weight="600" color={pal.muted} style={{ paddingHorizontal: sp.s4 }}>
         {t("explore.genres")}
       </Ui>
-      <View
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: sp.s2,
-          paddingHorizontal: sp.s4,
-          paddingTop: sp.s2,
-        }}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ gap: sp.s2, paddingHorizontal: sp.s4, paddingTop: sp.s2 }}
       >
         {GENRES.map((g) => (
           <Chip key={g} label={g} active={sel.genres.has(g)} onPress={() => pickGenre(g)} />
         ))}
-      </View>
+      </ScrollView>
       <Ui
         size={fs.xs}
         weight="600"
@@ -333,14 +363,10 @@ export default function SearchScreen() {
       >
         {t("explore.decades")}
       </Ui>
-      <View
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: sp.s2,
-          paddingHorizontal: sp.s4,
-          paddingTop: sp.s2,
-        }}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ gap: sp.s2, paddingHorizontal: sp.s4, paddingTop: sp.s2 }}
       >
         {DECADES.map((d) => (
           <Chip
@@ -350,11 +376,13 @@ export default function SearchScreen() {
             onPress={() => pickDecade(d)}
           />
         ))}
-      </View>
+      </ScrollView>
       {!selActive ? (
         /* ── Collections — curated lineage lists, straight into the native drive ── */
         <View style={{ paddingTop: sp.s5 }}>
-          <SectionTitle sub={t("explore.collectionsSub")}>{t("explore.collections")}</SectionTitle>
+          <SectionTitle sub={listTotal > 0 ? t("explore.listsCount", { n: listTotal }) : t("explore.collectionsSub")}>
+            {t("explore.collections")}
+          </SectionTitle>
           {lists === null ? (
             <View style={{ paddingVertical: sp.s2 }}>
               <SkeletonRail count={3} width={150} height={96} />
@@ -458,23 +486,35 @@ export default function SearchScreen() {
           ]}
         >
           <Ionicons name="search" size={18} color={pal.ink} />
-          <TextInput
-            value={q}
-            onChangeText={setQ}
-            placeholder={t("search.placeholder")}
-            placeholderTextColor={pal.subtle}
-            autoCorrect={false}
-            autoCapitalize="none"
-            returnKeyType="search"
-            selectionColor={brand.accent}
-            style={{
-              flex: 1,
-              fontFamily: font.uiMed,
-              fontSize: fs.md,
-              color: pal.ink,
-              paddingVertical: 13,
-            }}
-          />
+          <View style={{ flex: 1 }}>
+            <TextInput
+              value={q}
+              onChangeText={setQ}
+              placeholder={examples.length ? "" : t("search.placeholder")}
+              placeholderTextColor={pal.subtle}
+              autoCorrect={false}
+              autoCapitalize="none"
+              returnKeyType="search"
+              selectionColor={brand.accent}
+              style={{
+                fontFamily: font.uiMed,
+                fontSize: fs.md,
+                color: pal.ink,
+                paddingVertical: 13,
+              }}
+            />
+            {/* The peeking hint rides OVER the empty field — a real placeholder
+                can't animate, and tapping through keeps the field focusable. */}
+            {q.length === 0 && examples.length ? (
+              <View pointerEvents="none" style={{ position: "absolute", inset: 0, justifyContent: "center" }}>
+                <Appear key={exampleIdx} from="bottom" distance={9}>
+                  <Ui size={fs.md} weight="500" color={pal.subtle} numberOfLines={1}>
+                    {t("search.tryExample", { q: examples[exampleIdx] ?? "" })}
+                  </Ui>
+                </Appear>
+              </View>
+            ) : null}
+          </View>
           {loading ? <Dots size={5} /> : null}
         </View>
       </View>
@@ -485,7 +525,34 @@ export default function SearchScreen() {
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
         contentContainerStyle={{ paddingTop: sp.s3, paddingBottom: 120 }}
-        ListHeaderComponent={browseHeader}
+        ListHeaderComponent={
+          browseHeader ?? (listHits.length ? (
+            /* Search reaches LISTS too (owner 07-30) — the peeking examples name
+               real collections, so the query for one has to land somewhere. */
+            <View style={{ paddingBottom: sp.s3 }}>
+              <Ui
+                size={fs.xs}
+                weight="700"
+                color={pal.muted}
+                style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s2, letterSpacing: 0.6 }}
+              >
+                {t("explore.collections").toUpperCase()}
+              </Ui>
+              <FlatList
+                horizontal
+                data={listHits}
+                keyExtractor={(l) => l.key}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
+                renderItem={({ item, index }) => (
+                  <Appear index={index} from="right">
+                    <CollectionCard l={item} />
+                  </Appear>
+                )}
+              />
+            </View>
+          ) : null)
+        }
         renderItem={({ item, index }) =>
           item.kind === "film" ? (
             // sub is null-year-safe on purpose: search_all's `sub` is already the

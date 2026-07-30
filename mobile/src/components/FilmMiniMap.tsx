@@ -1,12 +1,16 @@
-// Embedded per-film locations map — native renderers, same runtime split as the
-// Locations tab (app/(tabs)/map.tsx):
-//   Expo Go + iOS      → react-native-maps (Apple Maps, no key)
-//   Expo Go + Android  → MapLibre GL JS inside react-native-webview (no key)
-//   dev/store builds   → MapLibre GL Native; WebView fallback if absent
-// Shows ONLY this film's pins, fitted; non-interactive — a tap opens the full
-// Map tab with the film focused. Requires stay lazy: importing a module absent
-// from the running binary would red-screen the film card. If nothing can draw,
-// render nothing (the pin-name rows below the map still work).
+// Embedded per-film locations map.
+//   iOS (Expo Go AND store builds) → react-native-maps = Apple Maps, no key,
+//                                    no CDN, native pinch/zoom. Confirmed in the
+//                                    build-14 binary via expo autolinking.
+//   Android                        → MapLibre GL JS inside react-native-webview
+//   MapLibre GL Native             → BENCHED: hard-crashes the iOS store build
+//                                    (TestFlight build 8, 2026-07-20). Do not revive.
+// Owner 07-30: the map used to be a dead picture that outlinked to the Maps app —
+// slow, and you could not zoom. On iOS it is now a real map you can pinch, pan and
+// tap; the outlink survives as an explicit button for turn-by-turn.
+// Requires stay lazy: importing a module absent from the running binary would
+// red-screen the film card. If nothing can draw, render nothing (the pin-name
+// rows below the map still work).
 import Constants from "expo-constants";
 import React from "react";
 import { Platform, Pressable, View } from "react-native";
@@ -18,7 +22,15 @@ const MAP_STYLE = "https://demotiles.maplibre.org/style.json";
 const MAPLIBRE_JS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js";
 const MAPLIBRE_CSS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css";
 
-type Props = { pins: GeoPin[]; height: number; onPress: () => void };
+type Props = {
+  pins: GeoPin[];
+  height: number;
+  /** Tapping the map surface. Ignored when the map is interactive — pinching a
+   *  map that navigates away on touch is the worst of both. */
+  onPress: () => void;
+  /** Let the user pan/zoom in place (iOS native renderer only). */
+  interactive?: boolean;
+};
 
 function bounds(pins: GeoPin[]) {
   let minLat = 90, maxLat = -90, minLng = 180, maxLng = -180;
@@ -32,7 +44,7 @@ function bounds(pins: GeoPin[]) {
 }
 
 /** Apple Maps mini (react-native-maps ships inside Expo Go on iOS). */
-function AppleMini({ pins, height, onPress }: Props) {
+function AppleMini({ pins, height, onPress, interactive = false }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const Maps = require("react-native-maps") as typeof import("react-native-maps");
   const MapView = Maps.default;
@@ -50,25 +62,30 @@ function AppleMini({ pins, height, onPress }: Props) {
           latitudeDelta: latDelta,
           longitudeDelta: lngDelta,
         }}
-        scrollEnabled={false}
-        zoomEnabled={false}
+        scrollEnabled={interactive}
+        zoomEnabled={interactive}
         rotateEnabled={false}
         pitchEnabled={false}
         toolbarEnabled={false}
+        showsPointsOfInterest={false}
       >
         {pins.slice(0, 60).map((p) => (
           <Marker
             key={String(p.id)}
             coordinate={{ latitude: p.lat, longitude: p.lng }}
             pinColor={brand.accent}
+            title={p.name}
+            description={p.country ?? undefined}
           />
         ))}
       </MapView>
-      <Pressable
-        onPress={onPress}
-        style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
-        accessibilityRole="button"
-      />
+      {interactive ? null : (
+        <Pressable
+          onPress={onPress}
+          style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
+          accessibilityRole="button"
+        />
+      )}
     </View>
   );
 }
@@ -181,21 +198,30 @@ export default function FilmMiniMap(props: Props) {
   // render, so a try around `return <Child/>` would never catch its require).
   let Impl: React.ComponentType<Props> | null = null;
   try {
-    if (IN_EXPO_GO && Platform.OS === "ios") {
+    if (Platform.OS === "ios") {
+      // Apple Maps: in the binary (autolinked), draws instantly, costs nothing,
+      // and pinch-zooms natively. The WebView path pulled maplibre-gl off unpkg
+      // and raster tiles off ArcGIS on every open — that was the slowness.
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       require("react-native-maps");
       Impl = AppleMini;
     } else {
-      // Store builds AND Expo Go Android: MapLibre GL JS in a WebView.
-      // NativeMini (MapLibre GL Native) hard-crashes the iOS store build on
-      // device (confirmed TestFlight build 8, 2026-07-20) — benched until the
-      // upstream v11/new-arch crash is resolved.
+      // Android: MapLibre GL JS in a WebView (Google Maps there would need a
+      // Cloud key). NativeMini (MapLibre GL Native) stays benched — it
+      // hard-crashes the iOS store build (confirmed TestFlight build 8).
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       require("react-native-webview");
       Impl = WebViewMini;
     }
   } catch {
-    Impl = null; // no renderer in this binary — the pin-name rows still stand
+    try {
+      // Fall back rather than lose the map if the native module is missing.
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require("react-native-webview");
+      Impl = WebViewMini;
+    } catch {
+      Impl = null; // no renderer in this binary — the pin-name rows still stand
+    }
   }
   if (!Impl) return null;
   return <Impl {...props} />;

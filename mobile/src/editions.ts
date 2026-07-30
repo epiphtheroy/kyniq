@@ -27,6 +27,16 @@ export const ALL_EDITIONS: Edition[] = Object.values(EDITIONS);
 
 export const DEFAULT_EDITION = EDITIONS.US;
 
+/**
+ * The app's UI language. Owner directive (2026-07-30): **the app is English** —
+ * signup and every other screen. Country stays a separate axis, so a Korean
+ * viewer still gets Korean availability and a KR-scoped Tonight, just in English
+ * chrome. The four dictionaries stay in the bundle (they cost ~30KB and the web
+ * projection still needs the vocabulary), so re-enabling a language later is
+ * this one constant plus the picker in You.
+ */
+export const UI_LOCALE: UILocale = "en";
+
 /** Best edition for a device region; unknown regions fall back to US (EN content). */
 export function editionForCountry(cc: string | null | undefined): Edition {
   if (!cc) return DEFAULT_EDITION;

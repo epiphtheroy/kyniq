@@ -38,7 +38,6 @@ import { Serif,
 } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS } from "../../src/editions";
-import type { UILocale } from "../../src/editions";
 import { Appear, Pop, ProgressBar } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
@@ -65,15 +64,6 @@ import type {
   CoverageRow,
   WatchlistScoredRow,
 } from "../../src/types";
-
-// Locale autonyms — shown in their own language on purpose. // TODO(i18n)
-const LOCALE_LABEL: Record<UILocale, string> = {
-  en: "English",
-  ko: "한국어",
-  es: "Español",
-  ja: "日本語",
-};
-const LOCALE_CYCLE: UILocale[] = ["en", "ko", "es", "ja"];
 
 // Connect hub route (HANDOFF-커넥트 §2.1). Cast: the /connect screen lands in
 // this same wave from another lane, and the generated typed-routes file only
@@ -845,11 +835,6 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
   };
 
   const edition = ALL_EDITIONS.find((e) => e.country === prefs.country);
-  const cycleLocale = () => {
-    const i = LOCALE_CYCLE.indexOf(prefs.locale);
-    prefs.set({ locale: LOCALE_CYCLE[(i + 1) % LOCALE_CYCLE.length] });
-  };
-
   // The modal floats above the navigator — close it before pushing a route.
   const goOnboarding = (step: "country" | "services") => {
     onClose();
@@ -969,13 +954,6 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
               label={t("my.country")}
               value={edition ? `${edition.flag} ${edition.label}` : prefs.country}
               onPress={() => goOnboarding("country")}
-            />
-            <Hairline style={{ marginLeft: ROW_INSET }} />
-            <SettingRow
-              icon="language-outline"
-              label={t("my.language")}
-              value={LOCALE_LABEL[prefs.locale]}
-              onPress={cycleLocale}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />
             <SettingRow

@@ -2,7 +2,7 @@
 // when signed in (push worker join key). Locale changes re-render via context.
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { DEFAULT_EDITION, editionForCountry, type UILocale } from "../editions";
+import { DEFAULT_EDITION, UI_LOCALE, editionForCountry, type UILocale } from "../editions";
 import { deviceRegion, setLocale } from "../i18n";
 import { api } from "../lib/api";
 import { supabase } from "../lib/supabase";
@@ -16,6 +16,9 @@ export type Prefs = {
   onboarded: boolean;
   hideSeen: boolean;
   pushEnabled: boolean;
+  /** Opt-in taste weighting on Tonight (owner 07-30). Local only — the server
+   *  ranking is unchanged; this swaps the deck source to the personal one. */
+  taste: boolean;
 };
 
 type PrefsCtx = Prefs & {
@@ -25,11 +28,12 @@ type PrefsCtx = Prefs & {
 
 const defaults: Prefs = {
   country: DEFAULT_EDITION.country,
-  locale: DEFAULT_EDITION.locale,
+  locale: UI_LOCALE,
   providerIds: [],
   onboarded: false,
   hideSeen: false,
   pushEnabled: false,
+  taste: false,
 };
 
 const Ctx = createContext<PrefsCtx>({ ...defaults, ready: false, set: () => {} });
@@ -43,14 +47,16 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
       try {
         const raw = await AsyncStorage.getItem(KEY);
         if (raw) {
-          const saved = { ...defaults, ...(JSON.parse(raw) as Partial<Prefs>) };
+          // Force the UI language regardless of what an older build stored —
+          // devices that already ran the KR edition must come back in English.
+          const saved = { ...defaults, ...(JSON.parse(raw) as Partial<Prefs>), locale: UI_LOCALE };
           setLocale(saved.locale);
           setPrefs(saved);
         } else {
-          // First run: detect the storefront country, map to a live edition.
+          // First run: detect the storefront country (availability scope only).
           const ed = editionForCountry(deviceRegion());
-          setLocale(ed.locale);
-          setPrefs({ ...defaults, country: ed.country, locale: ed.locale });
+          setLocale(UI_LOCALE);
+          setPrefs({ ...defaults, country: ed.country, locale: UI_LOCALE });
         }
       } catch {
         // fall through with defaults
