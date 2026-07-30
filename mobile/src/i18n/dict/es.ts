@@ -96,6 +96,8 @@ export const es: Record<keyof typeof en, string> = {
   "auth.continue": "Continuar",
   "auth.continueApple": "Continuar con Apple",
   "auth.continueGoogle": "Continuar con Google",
+  "auth.continueEmail": "Continuar con correo",
+  "auth.appleError": "El inicio con Apple no se completó — inténtalo de nuevo o usa el correo.",
   "action.watchNow": "Ver ahora",
   "auth.codeSent": "Enviamos un código de {n} dígitos a {email}",
   "auth.codePlaceholder": "Código de {n} dígitos",

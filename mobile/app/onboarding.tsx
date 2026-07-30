@@ -523,6 +523,8 @@ function StepAccount({ onDone }: { onDone: () => void }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [emailFocus, setEmailFocus] = useState(false);
+  // The email field only unfolds when asked for — it is the fallback now.
+  const [emailOpen, setEmailOpen] = useState(false);
   const [codeFocus, setCodeFocus] = useState(false);
   const [appleErr, setAppleErr] = useState(false);
   const [googleErr, setGoogleErr] = useState(false);
@@ -619,35 +621,10 @@ function StepAccount({ onDone }: { onDone: () => void }) {
       <View style={{ marginTop: sp.s5, gap: sp.s3 }}>
         {!sent ? (
           <>
-            {/* 2. Email field */}
-            <TextInput
-              value={email}
-              onChangeText={setEmail}
-              placeholder={t("auth.email")}
-              placeholderTextColor={pal.subtle}
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              editable={!busy}
-              onFocus={() => setEmailFocus(true)}
-              onBlur={() => setEmailFocus(false)}
-              style={fieldStyle(emailFocus)}
-            />
-            {/* 3. Continue → OTP */}
-            <GradientBtn label={t("auth.continue")} onPress={() => void sendCode()} />
-
-            {/* 4. or-divider */}
-            <View
-              style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginVertical: sp.s2 }}
-            >
-              <Hairline style={{ flex: 1 }} />
-              <Ui size={fs.xs} color={pal.muted}>
-                {t("auth.or")}
-              </Ui>
-              <Hairline style={{ flex: 1 }} />
-            </View>
-
-            {/* 5. Social rows — Apple first (iOS only), then Google */}
+            {/* Owner 07-30: one tap should be the way in. Apple and Google lead;
+                the emailed code is the fallback for people who want neither, not
+                the default path. Apple sits above Google on iOS per the platform's
+                own convention. */}
             {Platform.OS === "ios" ? (
               <SocialRow
                 icon="logo-apple"
@@ -657,7 +634,7 @@ function StepAccount({ onDone }: { onDone: () => void }) {
             ) : null}
             {appleErr ? (
               <Ui size={fs.xs + 1} color={pal.muted}>
-                Apple sign-in not configured yet {/* TODO(owner): enable Apple provider in Supabase Auth */}
+                {t("auth.appleError")}
               </Ui>
             ) : null}
             <SocialRow
@@ -670,6 +647,48 @@ function StepAccount({ onDone }: { onDone: () => void }) {
                 {t("auth.googleError")}
               </Ui>
             ) : null}
+
+            {/* or-divider */}
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginVertical: sp.s2 }}
+            >
+              <Hairline style={{ flex: 1 }} />
+              <Ui size={fs.xs} color={pal.muted}>
+                {t("auth.or")}
+              </Ui>
+              <Hairline style={{ flex: 1 }} />
+            </View>
+
+            {/* Email — kept, demoted. The gradient no longer sits here: it is
+                reserved for the affirmative action, and that is now the tap
+                above. */}
+            {emailOpen ? (
+              <>
+                <TextInput
+                  value={email}
+                  onChangeText={setEmail}
+                  placeholder={t("auth.email")}
+                  placeholderTextColor={pal.subtle}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  keyboardType="email-address"
+                  autoFocus
+                  editable={!busy}
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
+                  style={fieldStyle(emailFocus)}
+                />
+                <Btn kind="ghost" label={t("auth.continue")} onPress={() => void sendCode()} />
+              </>
+            ) : (
+              <Tactile feedback="tap" onPress={() => setEmailOpen(true)} hitSlop={8}>
+                <View style={{ alignItems: "center", paddingVertical: sp.s3 }}>
+                  <Ui size={fs.sm} weight="600" color={pal.inkSoft}>
+                    {t("auth.continueEmail")}
+                  </Ui>
+                </View>
+              </Tactile>
+            )}
           </>
         ) : (
           <>

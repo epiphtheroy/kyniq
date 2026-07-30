@@ -97,6 +97,8 @@ export const ko: Record<keyof typeof en, string> = {
   "auth.continue": "계속",
   "auth.continueApple": "Apple로 계속하기",
   "auth.continueGoogle": "Google로 계속하기",
+  "auth.continueEmail": "이메일로 계속하기",
+  "auth.appleError": "Apple 로그인이 완료되지 않았습니다 — 다시 시도하거나 이메일을 이용하세요.",
   "action.watchNow": "지금 보기",
   "auth.codeSent": "{email}로 {n}자리 코드를 보냈습니다",
   "auth.codePlaceholder": "{n}자리 코드",

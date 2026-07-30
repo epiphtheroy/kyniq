@@ -96,6 +96,8 @@ export const ja: Record<keyof typeof en, string> = {
   "auth.continue": "続ける",
   "auth.continueApple": "Appleで続ける",
   "auth.continueGoogle": "Googleで続ける",
+  "auth.continueEmail": "メールで続ける",
+  "auth.appleError": "Apple サインインが完了しませんでした — もう一度お試しか、メールをご利用ください。",
   "action.watchNow": "今すぐ観る",
   "auth.codeSent": "{email}に{n}桁のコードを送りました",
   "auth.codePlaceholder": "{n}桁のコード",

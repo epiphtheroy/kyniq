@@ -108,6 +108,8 @@ export const en = {
   "auth.continue": "Continue",
   "auth.continueApple": "Continue with Apple",
   "auth.continueGoogle": "Continue with Google",
+  "auth.continueEmail": "Continue with email instead",
+  "auth.appleError": "Apple sign-in didn't complete — try again, or use email.",
   "action.watchNow": "Watch now",
   "auth.codeSent": "We emailed a {n}-digit code to {email}",
   "auth.codePlaceholder": "{n}-digit code",
