@@ -18,7 +18,11 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 15;
 
-const CACHE = "public, s-maxage=300, stale-while-revalidate=3600";
+// One hour at the edge, a day of stale-while-revalidate. The brief is anonymous
+// and its inputs move on the order of days (availability daily at worst) — and
+// every MISS pays cinecodex_card, the database's single heaviest temp-file
+// writer (0118 tunes it, the edge should still absorb repeats).
+const CACHE = "public, s-maxage=3600, stale-while-revalidate=86400";
 
 export async function OPTIONS() {
   return new NextResponse(null, { status: 204, headers: API_CORS });

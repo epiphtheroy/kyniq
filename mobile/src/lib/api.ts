@@ -39,6 +39,58 @@ const HEADERS: Record<string, string> = {
   accept: "application/json",
 };
 
+// ---------------------------------------------------------------------------
+// Read cache: stale-while-revalidate for anonymous GETs (owner 2026-07-31,
+// "users fast, server unloaded"). Every screen used to re-fetch on every visit —
+// back-navigation paid a full network+DB round trip for a film brief that
+// hadn't changed. Now a GET hit inside TTL returns instantly from memory; a hit
+// inside the SWR window returns the stale copy AND refreshes in the background;
+// only a cold miss blocks on the network. Memory-only on purpose: it dies with
+// the process, so there is no persistence to invalidate, and mutations keep
+// their own paths (POSTs and authed calls never come through here).
+type CacheEntry = { at: number; data: unknown };
+const readCache = new Map<string, CacheEntry>();
+const READ_TTL_MS = 5 * 60_000; // fresh: serve from memory, no request at all
+const READ_SWR_MS = 60 * 60_000; // stale: serve instantly, refresh behind
+const READ_CACHE_MAX = 120; // ~120 payloads ≈ a few MB ceiling on a phone
+
+function cacheGet(key: string): { data: unknown; stale: boolean } | null {
+  const e = readCache.get(key);
+  if (!e) return null;
+  const age = Date.now() - e.at;
+  if (age > READ_SWR_MS) {
+    readCache.delete(key);
+    return null;
+  }
+  return { data: e.data, stale: age > READ_TTL_MS };
+}
+
+function cacheSet(key: string, data: unknown) {
+  if (readCache.size >= READ_CACHE_MAX) {
+    // Drop the oldest entry — insertion order is close enough to LRU here.
+    const first = readCache.keys().next().value;
+    if (first !== undefined) readCache.delete(first);
+  }
+  readCache.set(key, { at: Date.now(), data });
+}
+
+/** Cached anonymous GET with stale-while-revalidate; non-GETs must not use this. */
+async function getJSONCached<T>(path: string, timeoutMs = 15000): Promise<T> {
+  const hit = cacheGet(path);
+  if (hit && !hit.stale) return hit.data as T;
+  if (hit && hit.stale) {
+    // Serve instantly; refresh in the background. A failed refresh keeps the
+    // stale copy — stale beats a spinner, and the next visit tries again.
+    void getJSON<T>(path, undefined, timeoutMs)
+      .then((fresh) => cacheSet(path, fresh))
+      .catch(() => {});
+    return hit.data as T;
+  }
+  const fresh = await getJSON<T>(path, undefined, timeoutMs);
+  cacheSet(path, fresh);
+  return fresh;
+}
+
 async function getJSON<T>(path: string, init?: RequestInit, timeoutMs = 15000): Promise<T> {
   // Bound every request: a stalled mobile connection must reject (→ the screen's
   // error+retry path), not hang a spinner forever with no way back. Long-running
@@ -64,11 +116,11 @@ const enc = encodeURIComponent;
 
 export const api = {
   film(slug: string, country: string, locale: string): Promise<FilmCard> {
-    return getJSON(`/api/v1/app/film/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`);
+    return getJSONCached(`/api/v1/app/film/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`);
   },
 
   director(slug: string, country: string): Promise<DirectorCard> {
-    return getJSON(`/api/v1/app/director/${enc(slug)}?country=${enc(country)}`);
+    return getJSONCached(`/api/v1/app/director/${enc(slug)}?country=${enc(country)}`);
   },
 
   /**
@@ -277,14 +329,14 @@ export const api = {
     if (opts?.dir) q.set("dir", opts.dir);
     if (opts?.countries?.length) q.set("countries", opts.countries.join(","));
     if (opts?.offset) q.set("offset", String(opts.offset));
-    return getJSON(`/api/v1/app/tonight?${q.toString()}`);
+    return getJSONCached(`/api/v1/app/tonight?${q.toString()}`);
   },
 
   /** Production countries with film counts, already ordered by count desc.
    *  Returns [] on an older server — the caller hides the filter in that case. */
   async filmCountries(): Promise<{ code: string; count: number }[]> {
     try {
-      const out = await getJSON<{ countries?: { code: string; count: number }[] }>(
+      const out = await getJSONCached<{ countries?: { code: string; count: number }[] }>(
         `/api/v1/app/countries`,
       );
       return out.countries ?? [];
@@ -294,7 +346,7 @@ export const api = {
   },
 
   services(country: string): Promise<{ services: Service[] }> {
-    return getJSON(`/api/v1/app/services?country=${enc(country)}`);
+    return getJSONCached(`/api/v1/app/services?country=${enc(country)}`);
   },
 
   /** Mint a logged-in web URL for the in-app reader (invariant §13-12). */
