@@ -9,7 +9,8 @@ import { useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
 import { ScrollView, TextInput, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Btn, Loading, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
+import { Btn, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
+import { Appear, ProgressBar, Pulse, SkeletonRows, SkeletonScreen, useCountUp } from "../../src/components/motion";
 import { t, type DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import type { NavActive, NavCatalog, NavDestinations, NavPickDest } from "../../src/types";
@@ -43,8 +44,9 @@ function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
   const kicker =
     d.kind === "dir" ? t("nav.familyConquest") : d.facet && FACET_KEY[d.facet] ? t(FACET_KEY[d.facet]) : t("nav.facetList");
   const pct = Math.max(0, Math.min(100, d.pct));
+  const shownPct = useCountUp(pct, 800);
   return (
-    <Tactile onPress={onPress}>
+    <Tactile onPress={onPress} feedback="tap">
       <View
         style={[
           {
@@ -74,13 +76,13 @@ function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
           <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 2 }}>
             {t("nav.filmsN", { n: d.total })} · {t("nav.leftN", { n: Math.max(0, d.total - d.seen) })}
           </Ui>
-          <View style={{ height: 5, borderRadius: radius.pill, backgroundColor: pal.surface, overflow: "hidden", marginTop: 8 }}>
-            <View style={{ width: `${pct}%`, height: "100%", backgroundColor: tint }} />
+          <View style={{ marginTop: 8 }}>
+            <ProgressBar value={pct / 100} tint={tint} height={5} track={pal.surface} />
           </View>
         </View>
         <View style={{ alignItems: "flex-end", gap: 2 }}>
           <Ui size={fs.lg} weight="700" color={tint}>
-            {pct}%
+            {shownPct}%
           </Ui>
           <Ui size={fs.xs - 1} weight="700" color={pal.subtle}>
             {t("nav.drive")}
@@ -96,7 +98,7 @@ function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
 function ResumeCard({ r, onPress }: { r: NavActive; onPress: () => void }) {
   const pal = usePalette();
   return (
-    <Tactile onPress={onPress}>
+    <Tactile onPress={onPress} feedback="press">
       <View
         style={[
           {
@@ -113,18 +115,20 @@ function ResumeCard({ r, onPress }: { r: NavActive; onPress: () => void }) {
           shadow.card,
         ]}
       >
-        <View
-          style={{
-            width: 34,
-            height: 34,
-            borderRadius: radius.pill,
-            backgroundColor: brand.accent,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Ionicons name="play" size={17} color="#fff" />
-        </View>
+        <Pulse>
+          <View
+            style={{
+              width: 34,
+              height: 34,
+              borderRadius: radius.pill,
+              backgroundColor: brand.accent,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Ionicons name="play" size={17} color="#fff" />
+          </View>
+        </Pulse>
         <View style={{ flex: 1, minWidth: 0 }}>
           <Ui size={fs.xs} weight="700" color={brand.accent} style={{ letterSpacing: 0.4 }}>
             {t("nav.resumeKicker").toUpperCase()}
@@ -225,7 +229,9 @@ export default function NavigatorTab() {
   if (!dests)
     return (
       <Screen>
-        <Loading />
+        <View style={{ paddingTop: insets.top + sp.s6 }}>
+          <SkeletonScreen kind="rows" count={6} />
+        </View>
       </Screen>
     );
 
@@ -295,7 +301,7 @@ export default function NavigatorTab() {
                   <Btn label={t("action.retry")} onPress={() => setCatErr(false)} kind="ghost" />
                 </View>
               ) : (
-                <Loading />
+                <SkeletonRows count={4} />
               )
             ) : results && (results.directors.length > 0 || results.lineages.length > 0) ? (
               <>
@@ -305,8 +311,10 @@ export default function NavigatorTab() {
                       {t("nav.sectDirectors")}
                     </Ui>
                     <View style={{ gap: sp.s2 }}>
-                      {results.directors.map((d) => (
-                        <DestCard key={`dir:${d.key}`} d={d} onPress={() => openDest(d)} />
+                      {results.directors.map((d, i) => (
+                        <Appear key={`dir:${d.key}`} index={i}>
+                          <DestCard d={d} onPress={() => openDest(d)} />
+                        </Appear>
                       ))}
                     </View>
                   </>
@@ -317,8 +325,10 @@ export default function NavigatorTab() {
                       {t("nav.sectCanon")}
                     </Ui>
                     <View style={{ gap: sp.s2 }}>
-                      {results.lineages.map((d) => (
-                        <DestCard key={`lin:${d.key}`} d={d} onPress={() => openDest(d)} />
+                      {results.lineages.map((d, i) => (
+                        <Appear key={`lin:${d.key}`} index={i}>
+                          <DestCard d={d} onPress={() => openDest(d)} />
+                        </Appear>
                       ))}
                     </View>
                   </>
@@ -364,8 +374,10 @@ export default function NavigatorTab() {
                   {t("nav.sectDirectors")}
                 </Ui>
                 <View style={{ gap: sp.s2 }}>
-                  {dests.directors.map((d) => (
-                    <DestCard key={`dir:${d.key}`} d={d} onPress={() => openDest(d)} />
+                  {dests.directors.map((d, i) => (
+                    <Appear key={`dir:${d.key}`} index={i}>
+                      <DestCard d={d} onPress={() => openDest(d)} />
+                    </Appear>
                   ))}
                 </View>
               </>
@@ -377,8 +389,10 @@ export default function NavigatorTab() {
                   {t("nav.sectCanon")}
                 </Ui>
                 <View style={{ gap: sp.s2 }}>
-                  {dests.canon.map((d) => (
-                    <DestCard key={`lin:${d.key}`} d={d} onPress={() => openDest(d)} />
+                  {dests.canon.map((d, i) => (
+                    <Appear key={`lin:${d.key}`} index={i}>
+                      <DestCard d={d} onPress={() => openDest(d)} />
+                    </Appear>
                   ))}
                 </View>
               </>

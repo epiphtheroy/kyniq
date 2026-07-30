@@ -9,7 +9,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { type Href, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
-  ActivityIndicator,
   FlatList,
   StyleSheet,
   TextInput,
@@ -29,6 +28,7 @@ import {
   TSBadge,
   Ui,
 } from "../../src/components/ui";
+import { Appear, Dots, SkeletonRail, SkeletonRows } from "../../src/components/motion";
 import { t, type DictKey } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
@@ -356,8 +356,8 @@ export default function SearchScreen() {
         <View style={{ paddingTop: sp.s5 }}>
           <SectionTitle sub={t("explore.collectionsSub")}>{t("explore.collections")}</SectionTitle>
           {lists === null ? (
-            <View style={{ paddingVertical: sp.s4 }}>
-              <ActivityIndicator color={brand.accent} />
+            <View style={{ paddingVertical: sp.s2 }}>
+              <SkeletonRail count={3} width={150} height={96} />
             </View>
           ) : lists.length ? (
             <FlatList
@@ -366,7 +366,11 @@ export default function SearchScreen() {
               keyExtractor={(l) => l.key}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
-              renderItem={({ item }) => <CollectionCard l={item} />}
+              renderItem={({ item, index }) => (
+                <Appear index={index} from="right">
+                  <CollectionCard l={item} />
+                </Appear>
+              )}
             />
           ) : null}
         </View>
@@ -398,22 +402,23 @@ export default function SearchScreen() {
         </View>
       ) : null}
       {browseLoading ? (
-        <View style={{ paddingVertical: sp.s5 }}>
-          <ActivityIndicator color={brand.accent} />
+        <View style={{ paddingTop: sp.s3 }}>
+          <SkeletonRows count={5} />
         </View>
       ) : selActive ? (
         browseRows.length ? (
           <View style={{ paddingTop: sp.s3 }}>
-            {browseRows.map((r) => (
-              <FilmResultRow
-                key={r.slug}
-                slug={r.slug}
-                title={r.title}
-                sub={[r.year, r.director].filter(Boolean).join(" · ")}
-                poster={r.poster_path}
-                ts={r.ts}
-                tiers={r.tiers}
-              />
+            {browseRows.map((r, i) => (
+              <Appear key={r.slug} index={i}>
+                <FilmResultRow
+                  slug={r.slug}
+                  title={r.title}
+                  sub={[r.year, r.director].filter(Boolean).join(" · ")}
+                  poster={r.poster_path}
+                  ts={r.ts}
+                  tiers={r.tiers}
+                />
+              </Appear>
             ))}
           </View>
         ) : (
@@ -470,7 +475,7 @@ export default function SearchScreen() {
               paddingVertical: 13,
             }}
           />
-          {loading ? <ActivityIndicator size="small" color={brand.accent} /> : null}
+          {loading ? <Dots size={5} /> : null}
         </View>
       </View>
 
@@ -481,21 +486,25 @@ export default function SearchScreen() {
         keyboardDismissMode="on-drag"
         contentContainerStyle={{ paddingTop: sp.s3, paddingBottom: 120 }}
         ListHeaderComponent={browseHeader}
-        renderItem={({ item }) =>
+        renderItem={({ item, index }) =>
           item.kind === "film" ? (
             // sub is null-year-safe on purpose: search_all's `sub` is already the
             // full subtitle ("1994 · Wong Kar-wai"); the RPC's subtitle stays the
             // single source for search rows (year alone is the fallback).
-            <FilmResultRow
-              slug={item.slug}
-              title={item.title}
-              sub={item.sub || String(item.year ?? "")}
-              poster={item.poster}
-              ts={tsMap.get(item.slug) ?? null}
-              tiers={tierMap.get(item.slug)}
-            />
+            <Appear index={index}>
+              <FilmResultRow
+                slug={item.slug}
+                title={item.title}
+                sub={item.sub || String(item.year ?? "")}
+                poster={item.poster}
+                ts={tsMap.get(item.slug) ?? null}
+                tiers={tierMap.get(item.slug)}
+              />
+            </Appear>
           ) : (
-            <DirectorRow row={item} />
+            <Appear index={index}>
+              <DirectorRow row={item} />
+            </Appear>
           )
         }
         ListEmptyComponent={
@@ -568,8 +577,10 @@ export default function SearchScreen() {
                             paddingTop: sp.s2,
                           }}
                         >
-                          {films.map((f) => (
-                            <DealCard key={f.s} f={f} w={(width - sp.s4 * 2 - sp.s3 * 2) / 3} ts={dealTs.get(f.s) ?? null} />
+                          {films.map((f, i) => (
+                            <Appear key={f.s} index={i}>
+                              <DealCard f={f} w={(width - sp.s4 * 2 - sp.s3 * 2) / 3} ts={dealTs.get(f.s) ?? null} />
+                            </Appear>
                           ))}
                         </View>
                       </View>
@@ -605,8 +616,9 @@ export default function SearchScreen() {
                   </Tactile>
                 </>
               ) : (
-                <View style={{ paddingVertical: sp.s5 }}>
-                  <ActivityIndicator color={brand.accent} />
+                <View style={{ paddingVertical: sp.s4, gap: sp.s4 }}>
+                  <SkeletonRail count={3} width={(width - sp.s4 * 2 - sp.s3 * 2) / 3} height={160} />
+                  <SkeletonRail count={3} width={(width - sp.s4 * 2 - sp.s3 * 2) / 3} height={160} />
                 </View>
               )}
 

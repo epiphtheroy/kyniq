@@ -7,14 +7,15 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { ActivityIndicator, Share, StyleSheet, View } from "react-native";
+import { Share, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
 import { Btn, Hairline, Screen, Tactile, Ui } from "../src/components/ui";
 import { METATAKE_BASE } from "../src/config";
+import { SkeletonText } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api } from "../src/lib/api";
-import { brand, fs, radius, sp, usePalette } from "../src/theme";
+import { fs, radius, sp, usePalette } from "../src/theme";
 
 /** Exact hub patterns that must open natively (webview contract §2-③). */
 const FILM_HUB_RE = /^\/film\/([^/?#]+)\/?$/;
@@ -229,15 +230,23 @@ export default function ReadScreen() {
             decelerationRate="normal"
           />
         ) : null}
-        {(!uri || webLoading) ? (
+        {!uri || webLoading ? (
+          /* An article's shape while the page arrives — a spinner over a white
+             void reads as broken; this reads as loading. */
           <View
             pointerEvents="none"
             style={[
               StyleSheet.absoluteFill,
-              { alignItems: "center", justifyContent: "center" },
+              { backgroundColor: pal.bg, paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: sp.s3 },
             ]}
           >
-            <ActivityIndicator color={brand.accent} />
+            <SkeletonText w={0.45} size={12} />
+            <SkeletonText w={0.85} size={26} />
+            <View style={{ paddingTop: sp.s3, gap: sp.s2 }}>
+              {[1, 0.96, 0.99, 0.6, 0.92, 0.97, 0.5].map((w, i) => (
+                <SkeletonText key={i} w={w} size={14} />
+              ))}
+            </View>
           </View>
         ) : null}
       </View>

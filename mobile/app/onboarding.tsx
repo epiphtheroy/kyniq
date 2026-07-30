@@ -12,12 +12,12 @@ import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useMemo, useState } from "react";
 import { Platform, ScrollView, TextInput, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import { Serif,
   Btn,
   Chip,
   GradientBtn,
   Hairline,
-  Loading,
   PosterImg,
   Screen,
   Tactile,
@@ -25,6 +25,7 @@ import { Serif,
   Wordmark,
 } from "../src/components/ui";
 import { ALL_EDITIONS } from "../src/editions";
+import { SkeletonScreen } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api, me } from "../src/lib/api";
 import { signInWithGoogle } from "../src/lib/auth";
@@ -32,7 +33,7 @@ import { noteJudged } from "../src/lib/considering";
 import { supabase } from "../src/lib/supabase";
 import { useFilms } from "../src/state/films";
 import { usePrefs } from "../src/state/prefs";
-import { brand, font, fs, gradient, radius, sp, usePalette } from "../src/theme";
+import { brand, font, fs, gradient, motion, radius, sp, usePalette } from "../src/theme";
 import type { Service, TonightRow } from "../src/types";
 
 // Connect hub route (HANDOFF-커넥트 §2.1). Cast: the /connect screen lands in
@@ -44,6 +45,36 @@ const CONNECT_HREF = "/connect" as Href;
 // up — Google, naturally — the moment the app opens), then the value setup follows.
 const STEPS = ["welcome", "account", "country", "services", "taste"] as const;
 type Step = (typeof STEPS)[number];
+
+/** One completed segment of the step track — the Lava fill sweeps across it. */
+function StepFill() {
+  const pal = usePalette();
+  const p = useSharedValue(0);
+  useEffect(() => {
+    p.value = withSpring(1, motion.gentle);
+  }, [p]);
+  const anim = useAnimatedStyle(() => ({ width: `${p.value * 100}%` }));
+  return (
+    <View
+      style={{
+        flex: 1,
+        height: 4,
+        borderRadius: radius.pill,
+        backgroundColor: pal.hairline,
+        overflow: "hidden",
+      }}
+    >
+      <Animated.View style={[{ height: 4 }, anim]}>
+        <LinearGradient
+          colors={gradient}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={{ flex: 1 }}
+        />
+      </Animated.View>
+    </View>
+  );
+}
 
 function isStep(s: string | undefined): s is Step {
   return s === "country" || s === "services" || s === "account";
@@ -156,13 +187,7 @@ export default function OnboardingScreen() {
         >
           {STEPS.map((s, i) =>
             i <= stepIndex ? (
-              <LinearGradient
-                key={s}
-                colors={gradient}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-                style={{ flex: 1, height: 4, borderRadius: radius.pill }}
-              />
+              <StepFill key={s} />
             ) : (
               <View
                 key={s}
@@ -386,7 +411,7 @@ function StepServices({ onNext }: { onNext: () => void }) {
         <Btn label={t("action.retry")} onPress={() => setGen((n) => n + 1)} />
       </View>
     );
-  if (!services) return <Loading />;
+  if (!services) return <SkeletonScreen kind="rows" count={5} />;
 
   return (
     <View style={{ flex: 1 }}>
@@ -763,7 +788,7 @@ function StepTaste({ onDone }: { onDone: () => void }) {
           <Btn label={t("action.retry")} onPress={() => setGen((n) => n + 1)} />
         </View>
       ) : !rows ? (
-        <Loading />
+        <SkeletonScreen kind="rail" count={3} />
       ) : (
         <ScrollView contentContainerStyle={{ paddingBottom: 160 }}>
           <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>

@@ -8,7 +8,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Redirect, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
-  ActivityIndicator,
   Animated,
   FlatList,
   PanResponder,
@@ -39,6 +38,7 @@ import {
   Wordmark,
 } from "../../src/components/ui";
 import { DEFAULT_EDITION, EDITIONS } from "../../src/editions";
+import { Appear, Dots, Pop, SkeletonScreen, Sparkle, haptic } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
@@ -581,7 +581,7 @@ export default function TonightScreen() {
     return (
       <Screen>
         <View style={{ paddingHorizontal: sp.s4 }}>{header}</View>
-        <Loading />
+        <SkeletonScreen kind="split" />
         {floaters}
       </Screen>
     );
@@ -596,13 +596,15 @@ export default function TonightScreen() {
         data={visible}
         keyExtractor={(item) => item.slug}
         ListHeaderComponent={header}
-        renderItem={({ item }) => (
-          <LobbyCard
-            row={item}
-            screenW={width}
-            reason={item.reason ?? reasonBySlug.get(item.slug) ?? null}
-            onJudge={judge}
-          />
+        renderItem={({ item, index }) => (
+          <Appear index={index}>
+            <LobbyCard
+              row={item}
+              screenW={width}
+              reason={item.reason ?? reasonBySlug.get(item.slug) ?? null}
+              onJudge={judge}
+            />
+          </Appear>
         )}
         contentContainerStyle={{
           paddingHorizontal: sp.s4,
@@ -621,8 +623,8 @@ export default function TonightScreen() {
         onEndReachedThreshold={0.6}
         ListFooterComponent={
           canLoadMore ? (
-            <View style={{ paddingVertical: sp.s5 }}>
-              <ActivityIndicator color={brand.accent} />
+            <View style={{ paddingVertical: sp.s5, alignItems: "center" }}>
+              <Dots />
             </View>
           ) : null
         }
@@ -647,32 +649,41 @@ function JudgeDot({
   label,
   onPress,
   tint,
+  celebrate = false,
 }: {
   icon: React.ComponentProps<typeof Ionicons>["name"];
   label: string;
   onPress: () => void;
   tint?: string;
+  /** Burst on the transition into the "on" state (the heart, the tick). */
+  celebrate?: boolean;
 }) {
   const pal = usePalette();
   return (
-    <Tactile onPress={onPress} hitSlop={6}>
-      <View
-        accessibilityRole="button"
-        accessibilityLabel={label}
-        style={{
-          width: 40,
-          height: 40,
-          borderRadius: radius.pill,
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: pal.card,
-          borderWidth: StyleSheet.hairlineWidth,
-          borderColor: pal.hairline2,
-        }}
-      >
-        <Ionicons name={icon} size={18} color={tint ?? pal.ink} />
-      </View>
-    </Tactile>
+    <View>
+      {celebrate ? <Sparkle trigger={!!tint} color={tint ?? pal.ink} radius={26} /> : null}
+      <Tactile onPress={onPress} hitSlop={6} feedback="press">
+        {/* Re-keyed on the glyph so the verb lands with a spring, not a swap. */}
+        <Pop key={`${icon}-${tint ?? ""}`}>
+          <View
+            accessibilityRole="button"
+            accessibilityLabel={label}
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: radius.pill,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: pal.card,
+              borderWidth: StyleSheet.hairlineWidth,
+              borderColor: tint ?? pal.hairline2,
+            }}
+          >
+            <Ionicons name={icon} size={18} color={tint ?? pal.ink} />
+          </View>
+        </Pop>
+      </Tactile>
+    </View>
   );
 }
 
@@ -724,6 +735,8 @@ function LobbyCard({
     (dir: 1 | -1, kind: JudgeKind) => {
       if (leaving.current) return;
       leaving.current = true;
+      // A swiped judgment gets the same buzz a tapped one does.
+      haptic.press();
       Animated.timing(pan, {
         toValue: dir * screenWRef.current * 1.2,
         duration: 200,
@@ -846,6 +859,7 @@ function LobbyCard({
                 tint={inWatchlist ? brand.accent : undefined}
                 label={t("judge.want")}
                 onPress={() => act("want")}
+                celebrate
               />
               <JudgeDot icon="close" label={t("judge.pass")} onPress={() => act("pass")} />
               <JudgeDot
@@ -853,6 +867,7 @@ function LobbyCard({
                 tint={seen ? brand.teal : undefined}
                 label={t("judge.seenIt")}
                 onPress={() => act("seen")}
+                celebrate
               />
             </View>
           </View>

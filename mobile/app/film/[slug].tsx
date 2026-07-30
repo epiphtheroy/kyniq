@@ -22,7 +22,6 @@ import {
   Btn,
   Hairline,
   JudgeBar,
-  Loading,
   PosterImg,
   ReasonChip,
   Screen,
@@ -35,13 +34,20 @@ import {
   VcrBars,
 } from "../../src/components/ui";
 import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
+import { Appear, Shimmer, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
 import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, fs, radius, shadow, sp, tierColor, usePalette } from "../../src/theme";
+import { brand, fs, motion, radius, shadow, sp, tierColor, usePalette } from "../../src/theme";
 import type { FilmCard as FilmCardT, TowComment } from "../../src/types";
 
 const KIND_LABEL: Record<string, string> = {
@@ -51,6 +57,23 @@ const KIND_LABEL: Record<string, string> = {
   rent: "kind.rent",
   buy: "kind.buy",
 };
+
+/** Hero pager dot — the current page stretches into a pill (owner 07-30 polish). */
+function PagerDot({ on }: { on: boolean }) {
+  const p = useSharedValue(on ? 1 : 0);
+  useEffect(() => {
+    p.value = withSpring(on ? 1 : 0, motion.snappy);
+  }, [on, p]);
+  const anim = useAnimatedStyle(() => ({
+    width: interpolate(p.value, [0, 1], [6, 18]),
+    opacity: interpolate(p.value, [0, 1], [0.45, 1]),
+  }));
+  return (
+    <Animated.View
+      style={[{ height: 6, borderRadius: 3, backgroundColor: "#FFFFFF" }, anim]}
+    />
+  );
+}
 
 /** Floating glass disc over the hero (benchmark listing-header buttons). */
 function IconDisc({
@@ -319,7 +342,18 @@ export default function FilmScreen() {
     return (
       <Screen>
         <Stack.Screen options={{ headerShown: false }} />
-        <Loading />
+        {/* The brief's own silhouette: hero plate, then masthead + strip lines. */}
+        <Shimmer width={width} height={Math.round(width * 0.72)} rounded={0} />
+        <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s5, gap: sp.s3 }}>
+          <SkeletonText w={0.7} size={26} />
+          <SkeletonText w={0.35} size={13} />
+          <SkeletonText w={0.5} size={13} />
+          <View style={{ paddingTop: sp.s4, gap: sp.s2 }}>
+            <SkeletonText w={1} size={15} />
+            <SkeletonText w={0.96} size={15} />
+            <SkeletonText w={0.6} size={15} />
+          </View>
+        </View>
       </Screen>
     );
   }
@@ -425,15 +459,7 @@ export default function FilmScreen() {
               }}
             >
               {heroPages.map((_, i) => (
-                <View
-                  key={i}
-                  style={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: 3,
-                    backgroundColor: i === heroIdx ? "#FFFFFF" : "rgba(255,255,255,0.45)",
-                  }}
-                />
+                <PagerDot key={i} on={i === heroIdx} />
               ))}
             </View>
           ) : null}
@@ -542,7 +568,7 @@ export default function FilmScreen() {
           {/* to.W — the curator's letter (owner 07-29: every curated film carries it).
               Addressee/signature are fixed brand strings (contract — never localized). */}
           {tow?.rationale ? (
-            <View
+            <Appear
               style={{
                 marginHorizontal: sp.s4,
                 marginTop: sp.s5,
@@ -568,7 +594,7 @@ export default function FilmScreen() {
                   from. Metatake AI Editorial
                 </Ui>
               </View>
-            </View>
+            </Appear>
           ) : null}
 
           {/* For You — signed-in, server-supplied evidence only; whole section

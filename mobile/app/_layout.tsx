@@ -83,14 +83,31 @@ function RootLayoutNav() {
               headerTitleStyle: { fontFamily: font.uiSemi, fontSize: 15 },
               headerStyle: { backgroundColor: pal.bg },
               contentStyle: { backgroundColor: pal.bg },
+              // Motion: push from the right at iOS's own pace, and let the
+              // swipe-back gesture work everywhere (it reads as "cheap to look").
+              animation: "slide_from_right",
+              animationDuration: 280,
+              gestureEnabled: true,
             }}
           >
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: "fade" }} />
             <Stack.Screen name="navigator/drive" options={{ headerShown: false }} />
             <Stack.Screen name="film/[slug]" options={{ title: "" }} />
             <Stack.Screen name="director/[slug]" options={{ title: "" }} />
-            <Stack.Screen name="read" options={{ presentation: "modal", headerShown: false }} />
-            <Stack.Screen name="onboarding" options={{ presentation: "fullScreenModal", headerShown: false }} />
+            <Stack.Screen
+              name="read"
+              options={{ presentation: "modal", headerShown: false, animation: "slide_from_bottom" }}
+            />
+            <Stack.Screen
+              name="onboarding"
+              options={{
+                presentation: "fullScreenModal",
+                headerShown: false,
+                animation: "slide_from_bottom",
+                // Editing one step from a chip should feel like a sheet, not a push.
+                gestureEnabled: false,
+              }}
+            />
           </Stack>
           <StatusBar style="auto" />
         </FilmsProvider>

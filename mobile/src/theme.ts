@@ -124,10 +124,38 @@ export const shadow = {
   },
 } as const;
 
-// Motion constants — springy, tactile (press scale, tab bounce)
+// Motion constants — springy, tactile (press scale, tab bounce).
+// One vocabulary for the whole app so nothing animates "off key": three springs,
+// three durations, and the entrance rhythm lists share (see components/motion.tsx).
 export const motion = {
   pressScale: 0.96,
   spring: { damping: 16, stiffness: 220, mass: 0.6 },
+  /** Settles without overshoot — sheets, progress, layout shifts. */
+  gentle: { damping: 20, stiffness: 150, mass: 0.9 },
+  /** Quick and decisive — chips, toggles, tab icons. */
+  snappy: { damping: 18, stiffness: 320, mass: 0.5 },
+  /** Overshoots on purpose — hearts, confirmations, badge pops. */
+  bouncy: { damping: 9, stiffness: 300, mass: 0.6 },
+  fast: 150,
+  base: 260,
+  slow: 420,
+  /** One shimmer sweep across a skeleton. */
+  shimmer: 1300,
+  /** One specular sweep across a primary CTA, and the rest between sweeps. */
+  sheen: 900,
+  sheenRest: 3200,
+  /** Entrance rhythm: cards rise `rise` px, each `stagger` ms after the last,
+   *  and only the first `staggerCap` stagger — anything scrolled to later
+   *  animates immediately so long lists never feel like they lag behind. */
+  stagger: 45,
+  staggerCap: 7,
+  rise: 14,
+} as const;
+
+/** Skeleton fill + the sheen that sweeps across it, per scheme. */
+export const shimmerTint = {
+  light: { base: "#EFEFEF", sheen: "rgba(255,255,255,0.95)" },
+  dark: { base: "#242424", sheen: "rgba(255,255,255,0.07)" },
 } as const;
 
 // Availability tier → dot color

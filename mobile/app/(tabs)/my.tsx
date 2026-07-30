@@ -39,6 +39,7 @@ import { Serif,
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS } from "../../src/editions";
 import type { UILocale } from "../../src/editions";
+import { Appear, Pop, ProgressBar } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { signInWithGoogle } from "../../src/lib/auth";
@@ -483,16 +484,16 @@ export default function ShelfScreen() {
 
             {/* ── Zone 2 · Deciding + Verdicts ───────────────────────────── */}
             {deciding.length ? (
-              <>
+              <Appear index={1}>
                 <SectionTitle sub={t("shelf.decidingHint")}>{t("shelf.deciding")}</SectionTitle>
                 <ScrollView
                   horizontal
                   showsHorizontalScrollIndicator={false}
                   contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
                 >
-                  {deciding.map((d) => (
+                  {deciding.map((d, di) => (
+                    <Appear key={d.slug} index={di} from="right">
                     <Tactile
-                      key={d.slug}
                       onPress={() =>
                         router.push({ pathname: "/film/[slug]", params: { slug: d.slug } })
                       }
@@ -511,19 +512,21 @@ export default function ShelfScreen() {
                         </Ui>
                       </View>
                     </Tactile>
+                    </Appear>
                   ))}
                 </ScrollView>
-              </>
+              </Appear>
             ) : null}
 
             {rated.length ? (
-              <>
+              <Appear index={2}>
                 <SectionTitle>{t("shelf.verdicts")}</SectionTitle>
                 <View style={[surfaceCard, { padding: sp.s4, gap: sp.s3 }]}>
                   <View style={{ flexDirection: "row", flexWrap: "wrap", gap: sp.s4 }}>
-                    {VERDICTS.map((v) => (
-                      <View
+                    {VERDICTS.map((v, vi) => (
+                      <Pop
                         key={v}
+                        delay={vi * 60}
                         style={{ flexDirection: "row", alignItems: "center", gap: 6 }}
                       >
                         <View
@@ -540,7 +543,7 @@ export default function ShelfScreen() {
                         <Ui size={fs.sm} color={pal.muted}>
                           {t(verdictKey(v))}
                         </Ui>
-                      </View>
+                      </Pop>
                     ))}
                   </View>
                   <Ui size={fs.xs + 1} color={pal.muted}>
@@ -591,12 +594,12 @@ export default function ShelfScreen() {
                     );
                   })}
                 </View>
-              </>
+              </Appear>
             ) : null}
 
             {/* ── Zone 3 · Journey ───────────────────────────────────────── */}
             {topCoverage.length || blindspot ? (
-              <>
+              <Appear index={3}>
                 <SectionTitle>{t("shelf.journey")}</SectionTitle>
                 {topCoverage.length ? (
                   <View style={surfaceCard}>
@@ -620,23 +623,7 @@ export default function ShelfScreen() {
                                   {`${c.seen}/${c.total}`}
                                 </Ui>
                               </View>
-                              <View
-                                style={{
-                                  height: 4,
-                                  borderRadius: radius.pill,
-                                  backgroundColor: pal.hairline,
-                                  overflow: "hidden",
-                                }}
-                              >
-                                <View
-                                  style={{
-                                    width: `${pct}%`,
-                                    height: 4,
-                                    borderRadius: radius.pill,
-                                    backgroundColor: brand.teal,
-                                  }}
-                                />
-                              </View>
+                              <ProgressBar value={pct / 100} tint={brand.teal} height={4} />
                             </View>
                           </Tactile>
                         </React.Fragment>
@@ -683,7 +670,7 @@ export default function ShelfScreen() {
                     <Ionicons name="arrow-forward" size={14} color={brand.accent} />
                   </View>
                 </Tactile>
-              </>
+              </Appear>
             ) : null}
 
             {/* Connect entry, compact — discovery stays reachable on a full shelf */}
