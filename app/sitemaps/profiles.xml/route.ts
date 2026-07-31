@@ -1,7 +1,7 @@
-import { profileEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, profileEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await profileEntries()));
+  return xmlResponse(urlset(await cachedEntries("profiles", profileEntries)));
 }

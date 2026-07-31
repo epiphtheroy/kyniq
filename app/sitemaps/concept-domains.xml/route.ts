@@ -1,7 +1,7 @@
-import { conceptDomainEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, conceptDomainEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await conceptDomainEntries()));
+  return xmlResponse(urlset(await cachedEntries("concept-domains", conceptDomainEntries)));
 }

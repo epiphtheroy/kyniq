@@ -4,8 +4,10 @@
 # 방식: 임시 worktree/머지/체크아웃 없이, staging을 main으로 직접(fast-forward) 푸시한다.
 #       (worktree 체크아웃 `git reset --hard`가 드물게 교착되던 문제 회피 — 서버측 ref 갱신만.)
 set -euo pipefail
-REPO="/Users/jerryje/Documents/MetaTake"
-cd "$REPO"
+# 작업 저장소. ~/Documents/MetaTake는 iCloud 안의 옛 백업본이고, evict되면
+# 아래 git 명령이 set -e에 걸려 릴리즈 버튼이 그 자리에서 죽는다. (07-31 교체)
+REPO="/Users/jerryje/Developer/MetaTake"
+cd "$REPO" || { echo "❌ 저장소를 찾을 수 없습니다: $REPO"; read -p "엔터를 누르면 닫힙니다." _; exit 1; }
 
 echo "── Metatake release ──────────────────────────────"
 git fetch origin staging main

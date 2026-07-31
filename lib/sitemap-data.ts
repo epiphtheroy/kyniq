@@ -21,7 +21,7 @@ import {
 import { filmIndexRoster } from "@/lib/filmGate";
 import { directorIndexBar } from "@/lib/directorGate";
 import odysseyMap from "@/public/odyssey/map.v1.json";
-import { allLocationCities, loadLocationsEligibility } from "@/lib/locations";
+import { allLocationCities, cachedLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
 
 // SEO consolidation gate (HANDOFF §2.6): the set of slugs whose MAIN page is
@@ -1035,7 +1035,7 @@ export async function catalogEntries(): Promise<SitemapEntry[]> {
  */
 export async function filmLocationsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  const { films } = await loadLocationsEligibility();
+  const { films } = await cachedLocationsEligibility();
   return films
     .slice(0, INDEX_COHORT_FILM_LOCATIONS)
     .map((f) => ({ url: `${siteUrl}/film/locations/${f.slug}` }));
@@ -1048,7 +1048,7 @@ export async function filmLocationsEntries(): Promise<SitemapEntry[]> {
  */
 export async function locationHubEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  const { countries, directors } = await loadLocationsEligibility();
+  const { countries, directors } = await cachedLocationsEligibility();
   return [
     ...[...countries].sort((a, b) => a.slug.localeCompare(b.slug)).map((c) => ({ url: `${siteUrl}/locations/${c.slug}` })),
     ...directors.map((d) => ({ url: `${siteUrl}/director/${d.slug}/locations` })),
@@ -1166,18 +1166,37 @@ export function sitemapindex(urls: string[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</sitemapindex>\n`;
 }
 
+/**
+ * Every sitemap's rows go through here, and the reason is a real outage.
+ *
+ * These routes were `dynamic = "force-static"` until 2026-07-31, which
+ * prerenders them during `next build` — so every deploy ran ~40 sitemap queries
+ * against the production database, and a slow database killed the build outright
+ * (director-honors.xml timed out 3× → "Export encountered an error"). Making
+ * them render on request fixed that, and I claimed the CDN would absorb the
+ * repeats at "one query an hour per sitemap".
+ *
+ * That was wrong, and it took the database down within the hour. Vercel's edge
+ * cache is PER REGION, and Googlebot crawls from many regions at once, so the
+ * misses multiply by however many edges the crawl touches. Measured after the
+ * change: atlas_eligibility_json — one uncached RPC inside two sitemap builders
+ * — ran 1,147 times in 100 minutes at 1.5s each. 1,731 seconds of database time
+ * from sitemaps alone, on an instance that has far less to give.
+ *
+ * unstable_cache is the fix because it is NOT the CDN: it is Next's Data Cache,
+ * shared across every region and every lambda instance. One hour, one query,
+ * globally — which is what the CDN was never going to give us. The CDN header on
+ * xmlResponse still absorbs the repeat requests in front of it.
+ *
+ * Build cost stays zero: force-dynamic means none of this runs during `next
+ * build`. Both problems, not one at the expense of the other.
+ */
+export function cachedEntries<T>(key: string, build: () => Promise<T>): Promise<T> {
+  return unstable_cache(build, ["sitemap", key], { revalidate: 3600 })();
+}
+
 export function xmlResponse(xml: string): Response {
-  // Cached at the edge, not baked at build time.
-  //
-  // These routes used to be `dynamic = "force-static"`, which prerenders them
-  // during `next build` — so every deploy had to run ~40 sitemap queries against
-  // the production database, and on 2026-07-31 a slow database killed the build
-  // outright (director-honors.xml timed out 3× → "Export encountered an error").
-  // That is a deadlock: the deploy that FIXES database load cannot ship while
-  // the database is loaded.
-  //
-  // Now they render on request and the CDN absorbs the repeats. A crawler fleet
-  // still costs one query an hour per sitemap, and a deploy costs none.
+  // Edge cache in front of cachedEntries() — see its comment for why both.
   return new Response(xml, {
     headers: {
       "Content-Type": "application/xml",

@@ -1,7 +1,7 @@
-import { directorNextEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, directorNextEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await directorNextEntries()));
+  return xmlResponse(urlset(await cachedEntries("director-next", directorNextEntries)));
 }

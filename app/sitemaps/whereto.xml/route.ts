@@ -1,7 +1,7 @@
-import { whereToEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, whereToEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await whereToEntries()));
+  return xmlResponse(urlset(await cachedEntries("whereto", whereToEntries)));
 }

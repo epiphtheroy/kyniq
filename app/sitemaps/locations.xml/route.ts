@@ -1,7 +1,7 @@
-import { filmLocationsEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, filmLocationsEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await filmLocationsEntries()));
+  return xmlResponse(urlset(await cachedEntries("locations", filmLocationsEntries)));
 }
