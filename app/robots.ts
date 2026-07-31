@@ -34,6 +34,22 @@ export default function robots(): MetadataRoute.Robots {
     "YouBot",              // You.com
   ];
 
+  // Crawlers that cost us real database time and send back nothing. Measured
+  // 2026-08-01 over mt_crawler_visits (07-11→07-31) against referred visitors in
+  // mt_events: each of these walked the catalogue and referred ZERO visitors.
+  // Enforced for real in middleware.ts BAD_UA (403) — robots.txt only asks.
+  // NOT listed (they earn their crawl): Googlebot, bingbot, DuckDuckBot,
+  // Baiduspider, NaverBot, Yandex, OAI-SearchBot, PerplexityBot, and
+  // facebookexternalhit (Meta's link-PREVIEW fetcher — distinct from
+  // meta-webindexer; blocking it would break shared-link cards).
+  const LOAD_PARASITES = [
+    "meta-webindexer",       // 9,844 hits — the largest crawler on the site, walking /credits/*
+    "SleepBot",              // 1,097
+    "SERankingBacklinksBot", // 142 — SEO backlink harvester
+    "AwarioBot",             // 112 — social listening
+    "AgenstryBot",           // 39
+  ];
+
   // Paths no crawler should index: admin, APIs, the infinite internal-search
   // query space (/search itself — the landing — stays crawlable), and the
   // legacy AI chat shell. Repeated per group because robots.txt groups are
@@ -57,6 +73,9 @@ export default function robots(): MetadataRoute.Robots {
 
       // AI training / bulk-scraping bots — blocked.
       { userAgent: TRAINING_BOTS, disallow: "/" },
+
+      // High-cost, zero-return crawlers — blocked.
+      { userAgent: LOAD_PARASITES, disallow: "/" },
     ],
     sitemap: [`${siteUrl}/sitemap.xml`, `${siteUrl}/news-sitemap.xml`],
   };

@@ -11,8 +11,17 @@ const GOOD_BOT =
 // Scrapers / AI-training / SEO-harvest bots — the same set our Vercel WAF rule
 // and app/robots.ts disallow. Enforced here too so it holds even if the WAF
 // rule is edited. (Citation bots above are matched first and exempted.)
+//
+// 2026-08-01: added the five heaviest crawlers that return nothing. Measured over
+// mt_crawler_visits 07-11→07-31 (hits, and referred visitors over the last 11 days
+// from mt_events): meta-webindexer 9,844/0 — the single largest crawler on the site,
+// walking /credits/* — SleepBot 1,097/0, SERankingBacklinksBot 142/0, AwarioBot 112/0,
+// AgenstryBot 39/0. Kept: bingbot (32 visitors), DuckDuckBot (46), Googlebot,
+// OAI-SearchBot, PerplexityBot, Baiduspider, NaverBot, and facebookexternalhit —
+// that last one is Meta's LINK-PREVIEW fetcher (69.171.x), a different UA from
+// meta-webindexer, and blocking it would break shared-link cards.
 const BAD_UA =
-  /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Meta-ExternalAgent|FacebookBot|Amazonbot|Diffbot|Omgilibot|ImagesiftBot|PetalBot|cohere-ai|Timpibot|YouBot|MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|DataForSeo|serpstatbot/i;
+  /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Meta-ExternalAgent|meta-webindexer|FacebookBot|Amazonbot|Diffbot|Omgilibot|ImagesiftBot|PetalBot|cohere-ai|Timpibot|YouBot|MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|DataForSeo|serpstatbot|SERanking|SleepBot|AwarioBot|AgenstryBot/i;
 
 // Module-scoped blocklist cache — refreshed at most once/60s per warm isolate.
 let blCache: { at: number; prefixes: Set<string> } | null = null;
