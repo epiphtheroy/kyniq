@@ -35,10 +35,20 @@ to SAVE judgments (watchlist / seen / ratings) and to enable notifications.
 4. Tap the judgment bar (want / seen). This is the one action that prompts
    sign-in.
 
-**Reviewer account:** no demo credentials are needed — the reviewer can create
-an account in-app with any email address they control: enter the email, receive
-an 8-digit one-time code, type it in. (Sign in with Apple is also offered on
-iOS.) Account deletion is available in-app under the You tab → account section
+**Reviewer account** — ready to use, no email round-trip required:
+
+```
+Username:  appstore.review@metatake.net
+Password:  Review-IEsheX0CHD47
+```
+
+Tap "Continue with email", enter the two values above, tap Continue. The account
+already exists, so this signs straight in.
+
+Three other ways in are offered, all real, none required for review: Sign in with
+Apple, Google, and an emailed 8-digit one-time code ("Email me a code instead").
+
+Account deletion is available in-app under the You tab → account section
 (Guideline 5.1.1(v)).
 
 ## Why the app requests location (when-in-use)

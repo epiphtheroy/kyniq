@@ -125,20 +125,36 @@ Metatake는 무료다. 광고 없음, 서드파티 트래커 없음. 둘러보�
 | Marketing URL | `https://metatake.net/app` |
 | Privacy Policy URL | `https://metatake.net/privacy` |
 | Copyright | `© 2026 Metatake` |
-| Build | **15** (1.0.0) |
+| Build | **17** (1.0.0) — 이미 attach되어 있다 |
 
-## 스크린샷 — iPhone 6.9" 슬롯에 6장 드래그
+## 심사 로그인 (App Review Information)
 
-1320×2868. 순서 그대로:
+로그인 필요 = **예**. 심사자가 계정·비밀번호를 요구했고, 계정은 실제로 있다:
 
 ```
-mobile/store/shots/01-welcome.png
-mobile/store/shots/02-tonight-deck.png
-mobile/store/shots/03-judgment-brief.png
-mobile/store/shots/04-locations-map.png
-mobile/store/shots/05-director-card.png
-mobile/store/shots/06-explore.png
+appstore.review@metatake.net
+Review-IEsheX0CHD47
 ```
+
+## 스크린샷 — 옛 6장을 지우고 새 6장을 올린다
+
+**⚠️ ASC에 지금 올라가 있는 6장은 은퇴한 Map·Shelf 탭이 찍힌 옛 판본이다. 먼저
+삭제할 것.** 지금 앱은 Tonight·Explore·Navigator·You 네 탭이고, 없는 탭을 찾는
+심사자는 반려를 낸다.
+
+iPhone 6.9" 슬롯에 1290×2796. 순서 그대로:
+
+```
+mobile/store/shots-69/01-tonight.png          Tonight 덱 + 정렬/국가/서비스 칩
+mobile/store/shots-69/02-brief.png            TakeScore 링 + An Invitation + to.W
+mobile/store/shots-69/03-where-to-watch.png   내 서비스 시청처 + Lineage
+mobile/store/shots-69/04-locations.png        실제 구글 지도 + 촬영지
+mobile/store/shots-69/05-metatake-tv.png      Metatake TV 18챕터
+mobile/store/shots-69/06-explore.png          114 lists + For you
+```
+
+6.5"(1284×2778) 슬롯을 따로 요구하면 같은 6장이 `mobile/store/shots-65/`에 있다.
+옛 판본은 `mobile/store/shots-retired/` 로 옮겨뒀다 — **올리지 말 것.**
 
 ## 연령 등급 — `store/listing-en.md` §Age rating 표 그대로
 

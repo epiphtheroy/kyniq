@@ -1,31 +1,46 @@
 # HANDOFF — App Store Connect 1.0 제출 (실행 지시서)
 
-이 파일 하나만 읽고 끝까지 실행할 수 있게 썼다. 작성 시점 2026-07-30, 사실은 전부
-실측(ASC API 읽기 / ipa 열어보기 / 라이브 엔드포인트 호출)으로 확인했다.
+이 파일 하나만 읽고 끝까지 실행할 수 있게 썼다. 사실은 전부 실측(ASC API 읽기 /
+ipa 열어보기 / 라이브 엔드포인트 호출)으로 확인했다.
+최초 작성 2026-07-30 · **최종 실측 2026-07-31 22:5x KST**
 
 절대경로 기준: `/Users/jerryje/Developer/MetaTake`
 
 ---
 
-## 0. 지금 상태 (ASC API로 실측)
+## 0. 지금 상태 (2026-07-31 ASC API로 실측)
 
 ```
 앱          Metatake · ASC app id 6792487455 · bundle net.metatake.app
 Apple Team  AYDX65J9H4
-버전 1.0    appStoreState = PREPARE_FOR_SUBMISSION
-en-US       description EMPTY · keywords EMPTY · promotionalText 없음 · 스크린샷 0장
-빌드        attached NONE
-앱 정보     subtitle 없음 · privacyPolicyUrl MISSING
+버전 1.0    appStoreState = PREPARE_FOR_SUBMISSION   ← 제출 안 됨
+en-US       description 1,923자 ✅ · keywords ✅ · 스크린샷 6장 (⚠️ 구버전, §3 참조)
+빌드        17 attached ✅
+앱 정보     subtitle "Judge films before you watch" ✅ · 카테고리 Entertainment/Reference ✅
+            privacyPolicyUrl ❌ MISSING
 ```
 
-즉 **리스팅이 완전히 비어 있다.** 채워야 할 것이 전부다.
+**아직 비어서 제출 버튼이 안 눌리는 것 — 이게 남은 전부다:**
+
+| 항목 | 넣을 값 |
+|---|---|
+| 개인정보처리방침 URL | `https://metatake.net/privacy` (200 확인함) |
+| 연령 등급 설문 | §6.1 |
+| 가격 | 무료 |
+| 출시 국가 | 전체 |
+| 심사 연락처 | 오너 이름·전화·이메일 |
+| 데모 계정 + **비밀번호** | §5.7 |
+| 스크린샷 교체 | §3 — 현재 올라간 6장은 은퇴한 탭을 보여준다 |
+
+ASC API 키는 **읽기 + 빌드 업로드 전용**이라 리스팅 필드 PATCH가 403이다.
+위 항목은 전부 웹 콘솔에서 손으로 넣어야 한다.
 
 ## 1. 반드시 지킬 3가지
 
-1. **빌드는 16을 선택한다. 15가 아니다.**
+1. **빌드는 17을 선택한다.**
    빌드 15에는 서버용 Google Maps 키(애플리케이션 제한 없는 키)가 박혀 나갔다.
-   빌드 16이 번들ID 제한된 앱 전용 키를 담은 정본이다. ipa Info.plist에서 확인함
-   (15 = GMSApiKey …9SM4 / 16 = …lsgc).
+   16부터 번들ID 제한된 앱 전용 키가 들어갔고(ipa Info.plist 확인: 15 = GMSApiKey
+   …9SM4 / 16 = …lsgc), **17이 현재 정본**이며 이미 ASC에 attach되어 있다.
 2. **"심사 제출"(Submit for Review) 버튼은 누르지 않는다.** 오너가 누른다.
 3. **로그인·비밀번호·2단계 인증은 대신 하지 않는다.** 오너가 직접 로그인한 뒤
    시작한다. Apple ID는 `wonwoo@metatake.net`.
@@ -48,17 +63,41 @@ this request"**. 이 ASC 키는 **읽기 + 빌드 업로드 전용**이다. 따�
 | **심사 노트** (App Review Information → 메모) | `/Users/jerryje/Developer/MetaTake/mobile/store/REVIEW-NOTES.md` |
 | **App Privacy 답변 근거** | `/Users/jerryje/Developer/MetaTake/mobile/store/PRIVACY-LABELS.md` |
 | 연령 등급 문항별 답 | `/Users/jerryje/Developer/MetaTake/mobile/store/listing-en.md` 의 `### Age rating` 표 |
-| 스크린샷 6장 (1320×2868 = 6.9″) | `/Users/jerryje/Developer/MetaTake/mobile/store/shots/` |
+| **스크린샷 6장 (6.9″ = 1290×2796)** | `/Users/jerryje/Developer/MetaTake/mobile/store/shots-69/` |
+| 같은 6장 (6.5″ = 1284×2778) | `/Users/jerryje/Developer/MetaTake/mobile/store/shots-65/` |
 
 스크린샷 파일명 (이 순서로 업로드):
 ```
-/Users/jerryje/Developer/MetaTake/mobile/store/shots/01-welcome.png
-/Users/jerryje/Developer/MetaTake/mobile/store/shots/02-tonight-deck.png
-/Users/jerryje/Developer/MetaTake/mobile/store/shots/03-judgment-brief.png
-/Users/jerryje/Developer/MetaTake/mobile/store/shots/04-locations-map.png
-/Users/jerryje/Developer/MetaTake/mobile/store/shots/05-director-card.png
-/Users/jerryje/Developer/MetaTake/mobile/store/shots/06-explore.png
+/Users/jerryje/Developer/MetaTake/mobile/store/shots-69/01-tonight.png
+/Users/jerryje/Developer/MetaTake/mobile/store/shots-69/02-brief.png
+/Users/jerryje/Developer/MetaTake/mobile/store/shots-69/03-where-to-watch.png
+/Users/jerryje/Developer/MetaTake/mobile/store/shots-69/04-locations.png
+/Users/jerryje/Developer/MetaTake/mobile/store/shots-69/05-metatake-tv.png
+/Users/jerryje/Developer/MetaTake/mobile/store/shots-69/06-explore.png
 ```
+
+각 장이 보여주는 것 (심사자가 앱에서 그대로 찾을 수 있어야 하므로 실제 화면·실제
+데이터다):
+
+| # | 화면 | 담긴 것 |
+|---|---|---|
+| 01 | Tonight | TakeScore 정렬 · 연도 · On my services 칩 · 국가/서비스 선택 · 판정 덱 |
+| 02 | 영화 브리프 | TakeScore 73 링 · #63 of 6978 · An Invitation · to.W 큐레이터 코멘트 |
+| 03 | Where to watch | 내 서비스 기준 시청처 · JustWatch 표기 · Lineage(정전 순위) |
+| 04 | Locations | 실제 구글 지도 + 핀 · Open in Google Maps · 촬영지 목록 |
+| 05 | Metatake TV | 18챕터 영상 · Also playing in · The full page on Metatake |
+| 06 | Explore | "114 lists — canons, prizes, festivals, national cinemas" · For you |
+
+⚠️ **`shots-retired/`의 옛 6장은 절대 올리지 않는다.** 은퇴한 Map·Shelf 탭이 찍혀
+있어서 지금 앱과 다르다. 심사자가 Map 탭을 찾다가 못 찾으면 "스크린샷이 앱을
+정확히 반영하지 않음"으로 반려된다. 지금 ASC에 올라가 있는 6장이 바로 그 옛 판본이니
+**반드시 교체**해야 한다.
+
+ℹ️ 이 6장은 앱 번들을 그대로 react-native-web으로 렌더해 정확히 1290×2796으로 캡처한
+것이다(코드·데이터 모두 실물). 다만 **Navigator 드라이브의 오버월드 지도는 이 렌더러
+에서 그려지지 않아 뺐다** — 빈 지도를 올리는 건 옛 스크린샷과 같은 종류의 거짓이기
+때문이다. 서비스의 제1기능이므로, 오너가 아이폰에서 `/navigator` 한 장을 찍어 넣으면
+7번째 장으로 추가하는 것이 가장 좋다.
 
 ⚠️ `REVIEW-NOTES.md`는 2026-07-30에 고쳤다(커밋 000e4088). 그 전 판본에는 심사자를
 없는 화면으로 보내는 오류 4개가 있었다: 코드가 6자리(실제 8자리)·retired된 Map 탭·
@@ -126,17 +165,26 @@ movies,streaming,watchlist,critic,scores,reviews,cinephile,arthouse,locations,to
 | 저작권 | `© 2026 Metatake` |
 
 ### 5.5 스크린샷
-**iPhone 6.9" 디스플레이** 슬롯에 §3의 6장을 순서대로. 다른 크기 슬롯은 비워도 된다
-(Apple이 축소해 쓴다).
+**기존 6장을 먼저 지운다** (은퇴한 탭이 찍힌 옛 판본이다 — §3 경고).
+그다음 **iPhone 6.9" 디스플레이** 슬롯에 `shots-69/`의 6장을 파일명 순서대로 올린다.
+다른 크기 슬롯은 비워도 된다(Apple이 축소해 쓴다). ASC가 6.5″를 따로 요구하면
+`shots-65/`의 같은 6장을 쓴다.
 
 ### 5.6 빌드
-"빌드" 섹션 → 빌드 추가 → **16** 선택. (Apple 처리 전이면 목록에 안 보인다; 몇 분 대기.)
+"빌드" 섹션 → **17**이 이미 붙어 있다. 그대로 둔다.
 수출 규정 질문은 뜨지 않는 게 정상 — `ITSAppUsesNonExemptEncryption=false`가 빌드에 있다.
 
 ### 5.7 앱 심사 정보
-- **로그인 필요: 아니요** (계정 없이 대부분 둘러볼 수 있다)
+- **로그인 필요: 예** — 심사자가 계정·비밀번호를 요구했다. 2026-07-31 빌드부터
+  이메일+비밀번호 로그인이 들어갔고, 이 계정은 실제로 만들어져 있다:
+  ```
+  사용자 이름   appstore.review@metatake.net
+  비밀번호      Review-IEsheX0CHD47
+  ```
+  (계정 없이도 Tonight·Explore·영화 브리프는 전부 볼 수 있다. 계정은 찜·본 영화
+  기록을 확인할 때만 필요하다 — 그 문장을 메모에 남겨두면 심사가 빨라진다.)
 - **메모**: `REVIEW-NOTES.md` 전문을 붙여넣는다
-- 연락처: 오너 이름·전화·이메일
+- 연락처: 오너 이름·전화·이메일 (지금 **전부 비어 있다**)
 
 ---
 
@@ -250,12 +298,24 @@ const g=async u=>(await fetch('https://api.appstoreconnect.apple.com'+u,{headers
   }
   const bld=await g('/v1/appStoreVersions/'+v.id+'/build');
   console.log('build:', bld.data? bld.data.attributes.version : 'NONE');
+  // 제출을 막고 있는 것들 — 비어 있으면 제출 버튼이 안 눌린다
+  const rd=await g('/v1/appStoreVersions/'+v.id+'/appStoreReviewDetail');
+  const a=rd.data?rd.data.attributes:{};
+  console.log('demo:', a.demoAccountName||'(없음)', '/', a.demoAccountPassword?'비번있음':'비번없음');
+  console.log('contact:', [a.contactFirstName,a.contactLastName,a.contactEmail,a.contactPhone].join('|'));
+  const ai=await g('/v1/apps/6792487455/appInfos');
+  const full=await g('/v1/appInfos/'+ai.data[0].id);
+  console.log('ageRating:', full.data.attributes.appStoreAgeRating||'미설정');
+  const ail=await g('/v1/appInfos/'+ai.data[0].id+'/appInfoLocalizations');
+  console.log('privacyUrl:', ail.data[0].attributes.privacyPolicyUrl||'미설정');
 })();
 "
 ```
 
-**합격 기준**: `desc` 1900+ · `kw true` · `shots 6` · `build 16` ·
-앱 정보의 subtitle/privacyPolicyUrl 채워짐. 그 뒤 오너가 심사 제출을 누르면
-state가 `PREPARE_FOR_SUBMISSION` → `WAITING_FOR_REVIEW`로 바뀐다.
+**합격 기준**: `desc` 1900+ · `kw true` · `shots 6`(새 6장으로 교체된 것) ·
+`build 17` · `demo 비번있음` · `contact` 4칸 다 참 · `ageRating` 값 있음 ·
+`privacyUrl` 값 있음. 여기에 가격(무료)·출시 국가까지 저장되면 제출 버튼이 열린다.
+그 뒤 오너가 심사 제출을 누르면 state가 `PREPARE_FOR_SUBMISSION` →
+`WAITING_FOR_REVIEW`로 바뀐다.
 
 ---
