@@ -1167,5 +1167,21 @@ export function sitemapindex(urls: string[]): string {
 }
 
 export function xmlResponse(xml: string): Response {
-  return new Response(xml, { headers: { "Content-Type": "application/xml" } });
+  // Cached at the edge, not baked at build time.
+  //
+  // These routes used to be `dynamic = "force-static"`, which prerenders them
+  // during `next build` — so every deploy had to run ~40 sitemap queries against
+  // the production database, and on 2026-07-31 a slow database killed the build
+  // outright (director-honors.xml timed out 3× → "Export encountered an error").
+  // That is a deadlock: the deploy that FIXES database load cannot ship while
+  // the database is loaded.
+  //
+  // Now they render on request and the CDN absorbs the repeats. A crawler fleet
+  // still costs one query an hour per sitemap, and a deploy costs none.
+  return new Response(xml, {
+    headers: {
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+    },
+  });
 }

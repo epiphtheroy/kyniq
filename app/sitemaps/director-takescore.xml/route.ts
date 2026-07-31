@@ -1,7 +1,6 @@
 import { directorTakescoreEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
-export const revalidate = 3600;
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
   return xmlResponse(urlset(await directorTakescoreEntries()));
