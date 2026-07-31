@@ -207,11 +207,42 @@ export async function loadLocationsEligibility(): Promise<LocationsEligibility> 
   return { films: d.films ?? [], directors: d.directors ?? [], countries: d.countries ?? [] };
 }
 
-/** Eligibility roster, shared through the Data Cache — every locations page
- * needs it to avoid linking to a gated (404) sibling, so it must not cost one
- * RPC per page render. */
+/**
+ * Eligibility roster — every locations page and two sitemaps need it, so it must
+ * not cost one RPC per render.
+ *
+ * It was already wrapped in unstable_cache, and that was NOT holding. Measured
+ * on production 2026-07-31: six forced renders of location-hubs.xml raised
+ * atlas_eligibility_json's call count by three. A 1-hour cache that answers
+ * every other request is not a cache, and this RPC costs ~1.5s a call — it was
+ * the largest single consumer in the database on the night the app went down.
+ *
+ * So the Data Cache is now a second line, not the only one. This module-scope
+ * memo is the first: within a lambda instance, the first caller starts the RPC
+ * and everyone else — pages and sitemaps alike — awaits the same promise. Worst
+ * case is one call per warm instance per hour instead of one per render, and
+ * that bound does not depend on any cache layer behaving the way its docs
+ * suggest, which is the assumption that failed twice tonight.
+ *
+ * The in-flight promise is shared before it resolves, so a burst of concurrent
+ * renders on a cold instance collapses to one query rather than stampeding. A
+ * rejection is not memoised: it clears the slot so the next caller retries
+ * instead of inheriting an hour of failure.
+ */
+const ELIGIBILITY_TTL_MS = 60 * 60 * 1000;
+let eligibilityMemo: { at: number; value: Promise<LocationsEligibility> } | null = null;
+
 export function cachedLocationsEligibility(): Promise<LocationsEligibility> {
-  return unstable_cache(loadLocationsEligibility, ["locations-eligibility"], { revalidate: 3600 })();
+  const now = Date.now();
+  if (eligibilityMemo && now - eligibilityMemo.at < ELIGIBILITY_TTL_MS) return eligibilityMemo.value;
+  const value = unstable_cache(loadLocationsEligibility, ["locations-eligibility"], {
+    revalidate: 3600,
+  })().catch((e) => {
+    eligibilityMemo = null; // never hold a failure for an hour
+    throw e;
+  });
+  eligibilityMemo = { at: now, value };
+  return value;
 }
 
 export type LocationsMeta = { updated: string; pins: number; films: number };
