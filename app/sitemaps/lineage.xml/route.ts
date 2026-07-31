@@ -1,7 +1,7 @@
-import { lineageEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, lineageEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await lineageEntries()));
+  return xmlResponse(urlset(await cachedEntries("lineage", lineageEntries)));
 }

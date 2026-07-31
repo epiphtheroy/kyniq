@@ -1,7 +1,7 @@
-import { creditsEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, creditsEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await creditsEntries()));
+  return xmlResponse(urlset(await cachedEntries("credits", creditsEntries)));
 }

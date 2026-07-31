@@ -1,7 +1,7 @@
-import { directorMisreadingsEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, directorMisreadingsEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await directorMisreadingsEntries()));
+  return xmlResponse(urlset(await cachedEntries("director-misreadings", directorMisreadingsEntries)));
 }

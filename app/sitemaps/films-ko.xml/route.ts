@@ -1,7 +1,7 @@
-import { filmsKoEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, filmsKoEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await filmsKoEntries()));
+  return xmlResponse(urlset(await cachedEntries("films-ko", filmsKoEntries)));
 }

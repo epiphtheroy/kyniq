@@ -1,7 +1,7 @@
-import { moviesLikeEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { cachedEntries, moviesLikeEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const dynamic = "force-dynamic"; // not prerendered — see xmlResponse()
 
 export async function GET() {
-  return xmlResponse(urlset(await moviesLikeEntries()));
+  return xmlResponse(urlset(await cachedEntries("movies-like", moviesLikeEntries)));
 }
