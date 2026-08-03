@@ -23,7 +23,7 @@ from pathlib import Path
 from urllib.parse import quote, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from pipeline.common import (HOURLY, anthropic_call, http, ledger_append,  # noqa: E402
+from pipeline.common import (CLI_BACKEND, HOURLY, anthropic_call, http, ledger_append,  # noqa: E402
                              load_env, log, now_utc, parse_json_block, sb_get, sb_insert, slugify)
 from pipeline.datapack import build_pack  # noqa: E402
 
@@ -493,8 +493,14 @@ def main() -> None:
         log("HOLD file present — publishing stopped by editor")
         ledger_append(f"{stamp} · PASS · HOLD file present")
         return
-    if not env.get("ANTHROPIC_API_KEY") or not env.get("SUPABASE_SERVICE_ROLE_KEY"):
-        log("missing ANTHROPIC_API_KEY / SUPABASE_SERVICE_ROLE_KEY in .env.local")
+    # ANTHROPIC_API_KEY is only required on the "api" backend; the default "cli"
+    # backend spends Claude Code subscription tokens and needs no key at all.
+    if not env.get("SUPABASE_SERVICE_ROLE_KEY"):
+        log("missing SUPABASE_SERVICE_ROLE_KEY in .env.local")
+        return
+    if (env.get("HOURLY_LLM_BACKEND") or CLI_BACKEND).strip().lower() != CLI_BACKEND \
+            and not env.get("ANTHROPIC_API_KEY"):
+        log("HOURLY_LLM_BACKEND=api but ANTHROPIC_API_KEY is missing in .env.local")
         return
 
     # unattended operation: refresh the entity cache when it goes stale

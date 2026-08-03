@@ -8,7 +8,10 @@ via cron/launchd.
 from __future__ import annotations
 
 import json
+import os
 import re
+import shutil
+import subprocess
 import time
 import unicodedata
 import urllib.error
@@ -43,6 +46,10 @@ def load_env() -> dict:
         "NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY", "SUPABASE_SERVICE_ROLE_KEY",
         "ANTHROPIC_API_KEY", "NEXT_PUBLIC_SITE_URL", "REVALIDATION_SECRET",
         "BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHANNEL",
+        # CRM 총괄비서 클라우드 실행(예: GitHub Actions)에서 Gmail OAuth 자격증명 반입
+        "GMAIL_CLIENT_ID", "GMAIL_CLIENT_SECRET", "GMAIL_REFRESH_TOKEN",
+        # LLM 백엔드 선택: "cli"(기본, Claude Code 구독 토큰) | "api"(종량제 API 키)
+        "HOURLY_LLM_BACKEND", "CLAUDE_BIN",
     }})
     return env
 
@@ -117,10 +124,82 @@ def sb_update(env: dict, table: str, filt: str, patch: dict) -> tuple[bool, str]
 
 # ── Anthropic Messages API ───────────────────────────────────────────────────
 
+# Where LLM calls are billed. "cli" routes every call through the local
+# `claude -p` headless CLI, which authenticates with the owner's Claude Code
+# subscription (OAuth) — so the tokens come out of the flat-rate plan and the
+# pay-per-use ANTHROPIC_API_KEY is never touched. "api" restores the old
+# direct Messages API path. Owner directive 2026-08-03: default to "cli".
+#
+# ⚠️ Two things to know about the CLI path:
+#   1. Every call carries Claude Code's own system prompt + tool schemas
+#      (~17.6k cache-creation tokens even with --system-prompt replacing the
+#      default). That is far more tokens per call than the raw API path used;
+#      it is only cheaper because those tokens bill to the flat plan.
+#   2. The plan's allowance is SHARED with the owner's interactive sessions.
+#      If "extra usage" is enabled on the account, exhausting the allowance
+#      silently resumes per-token billing — turn it off for a hard stop.
+CLI_BACKEND = "cli"
+_CLI_CWD = Path.home() / ".metatake-hourly-cli"  # neutral cwd: no repo CLAUDE.md/settings pulled in
+_CLI_BLOCKED = ["Bash", "Edit", "Write", "NotebookEdit", "Task", "Read", "Glob", "Grep"]
+
+
+def _claude_cli_call(*, model: str, system: str, user: str,
+                     web_search: bool, timeout: int) -> str | None:
+    """One headless `claude -p` call. Returns the reply text, or None.
+
+    Billing note: this spends Claude Code subscription tokens, not API credit.
+    """
+    exe = os.environ.get("CLAUDE_BIN") or shutil.which("claude") or str(Path.home() / ".local/bin/claude")
+    if not Path(exe).exists() and not shutil.which(exe):
+        log(f"claude CLI not found ({exe}) — set CLAUDE_BIN or HOURLY_LLM_BACKEND=api")
+        return None
+    _CLI_CWD.mkdir(parents=True, exist_ok=True)
+
+    blocked = list(_CLI_BLOCKED) + ([] if web_search else ["WebSearch", "WebFetch"])
+    cmd = [exe, "-p", "--output-format", "json", "--model", model,
+           "--system-prompt", system,
+           "--exclude-dynamic-system-prompt-sections",
+           "--disallowed-tools", *blocked]
+    if web_search:
+        # Listing a tool as allowed pre-approves it, so the detached watcher
+        # never blocks on an interactive permission prompt.
+        cmd += ["--allowed-tools", "WebSearch", "WebFetch"]
+
+    try:
+        p = subprocess.run(cmd, input=user, capture_output=True, text=True,
+                           timeout=timeout, cwd=str(_CLI_CWD))
+    except subprocess.TimeoutExpired:
+        log(f"claude cli {model} -> timeout after {timeout}s")
+        return None
+    if p.returncode != 0:
+        log(f"claude cli {model} -> exit {p.returncode}: {(p.stderr or '')[:200]}")
+        return None
+    try:
+        d = json.loads(p.stdout)
+    except Exception:
+        log(f"claude cli {model} -> unparseable output: {(p.stdout or '')[:200]}")
+        return None
+    if d.get("is_error"):
+        log(f"claude cli {model} -> error: {str(d.get('result'))[:200]}")
+        return None
+    _log_usage(model, d.get("usage") or {}, billed=False)
+    return d.get("result") or None
+
+
 def anthropic_call(env: dict, *, model: str, system: str, user: str,
                    max_tokens: int = 4096, web_search: bool = False,
                    timeout: int = 600) -> str | None:
-    """One Messages API call; returns concatenated text blocks or None."""
+    """One model call; returns the reply text or None.
+
+    Routed by HOURLY_LLM_BACKEND: "cli" (default — subscription tokens via the
+    local Claude Code CLI) or "api" (pay-per-use Messages API).
+    """
+    if (env.get("HOURLY_LLM_BACKEND") or CLI_BACKEND).strip().lower() == CLI_BACKEND:
+        return _claude_cli_call(model=model, system=system, user=user,
+                                web_search=web_search, timeout=timeout)
+    if not env.get("ANTHROPIC_API_KEY"):
+        log("HOURLY_LLM_BACKEND=api but ANTHROPIC_API_KEY is missing")
+        return None
     payload: dict = {
         "model": model,
         "max_tokens": max_tokens,
@@ -152,9 +231,15 @@ _PRICES = {"claude-fable-5": (10.0, 50.0, 1.0), "claude-opus-4-8": (5.0, 25.0, 0
 _SEARCH_PRICE = 0.01  # $10 per 1,000 web searches
 
 
-def _log_usage(model: str, u: dict) -> None:
-    """Append real API usage + computed cost to poller/usage.jsonl — the
-    owner is pay-per-use; every call must be accountable."""
+def _log_usage(model: str, u: dict, *, billed: bool = True) -> None:
+    """Append usage + computed cost to poller/usage.jsonl — every call must be
+    accountable.
+
+    `billed=False` marks a call that ran through the Claude Code CLI: the cost
+    figure is the API-equivalent value, but it was drawn from the flat-rate
+    subscription, not charged to ANTHROPIC_API_KEY. Sum only `billed=true`
+    rows to reconcile against an Anthropic invoice.
+    """
     try:
         inp = u.get("input_tokens", 0)
         out = u.get("output_tokens", 0)
@@ -165,10 +250,12 @@ def _log_usage(model: str, u: dict) -> None:
         cost = (inp * p_in + cw * p_in * 1.25 + cr * p_cr + out * p_out) / 1e6 + searches * _SEARCH_PRICE
         rec = {"at": now_utc(), "model": model, "in": inp, "out": out,
                "cache_read": cr, "cache_write": cw, "searches": searches,
-               "cost_usd": round(cost, 4)}
+               "cost_usd": round(cost, 4), "billed": billed,
+               "backend": "api" if billed else "cli"}
         with open(HOURLY / "poller" / "usage.jsonl", "a") as f:
             f.write(json.dumps(rec) + "\n")
-        log(f"usage {model}: in={inp} out={out} cache_r={cr} searches={searches} → ${cost:.3f}")
+        tag = "" if billed else " (subscription — not billed to API key)"
+        log(f"usage {model}: in={inp} out={out} cache_r={cr} cache_w={cw} searches={searches} → ${cost:.3f}{tag}")
     except Exception:
         pass
 

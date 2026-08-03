@@ -4,9 +4,18 @@
 # Terminal-context shell, because launchd/cron jobs are TCC-blocked from
 # reading ~/Documents (observed 2026-07-09: "Operation not permitted" every
 # hour). Survives as a background process; restart after reboot:
-#   nohup /Users/jerryje/Documents/MetaTake/hourly/now-playing-watch.sh >/dev/null 2>&1 &
+#   nohup /Users/jerryje/Developer/MetaTake/hourly/now-playing-watch.sh >/dev/null 2>&1 &
+#
+# 2026-08-03: repointed from ~/Documents/MetaTake to ~/Developer/MetaTake. The
+# repo moved on 07-29 and this hardcoded path is why publishing stopped that
+# day (last piece: 07-29 09:01 UTC). ~/Developer is NOT a TCC-protected
+# location, so launchd would work here too — kept as a watcher because that is
+# the proven path.
 set -u
-DIR="/Users/jerryje/Documents/MetaTake/hourly"
+DIR="/Users/jerryje/Developer/MetaTake/hourly"
+# The pipeline shells out to `claude -p` (subscription tokens, not the API
+# key), so the CLI must be resolvable even under a minimal nohup environment.
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 LOG="$DIR/poller/cron.log"
 PIDFILE="$DIR/.watch.pid"
 cd "$DIR" || exit 1
