@@ -30,6 +30,7 @@ import {
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { supabase } from "../../src/lib/supabase";
+import { trueSizeOf } from "../../src/lib/lineage";
 import { useLocalTitles } from "../../src/lib/titles";
 import { useFilms } from "../../src/state/films";
 import { brand, fs, radius, sp, usePalette } from "../../src/theme";
@@ -122,6 +123,7 @@ export default function ListScreen() {
   };
 
   const shownLabel = (typeof label === "string" && label.length ? label : slug) ?? "";
+  const trueSize = trueSizeOf(slug);
 
   const header = (
     <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3, paddingBottom: sp.s4, gap: sp.s3 }}>
@@ -140,6 +142,14 @@ export default function ListScreen() {
               .join(" · ")
           : ""}
       </Ui>
+      {/* Where the published list is longer than what we hold, say so — the same
+          disclosure /lineage/[slug] publishes. A canon named for its length must
+          never look broken because our ingest is behind (owner 08-03). */}
+      {rows && trueSize && allCount < trueSize ? (
+        <Ui size={fs.xs} color={pal.subtle} style={{ lineHeight: fs.xs * 1.5 }}>
+          {t("list.matchedOf", { matched: allCount, all: trueSize.toLocaleString() })}
+        </Ui>
+      ) : null}
       <View style={{ gap: sp.s2 }}>
         <GradientBtn
           icon="add"

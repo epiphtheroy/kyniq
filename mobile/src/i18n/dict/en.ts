@@ -245,6 +245,7 @@ export const en = {
   "list.seenOf": "{total} films · {seen} seen",
   "list.onMetatake": "{shown} of {all} on Metatake",
   "list.seenN": "{n} seen",
+  "list.matchedOf": "{matched} of {all} on the published list are matched to a film page — this canon is still being ingested.",
   // The journey panel — what this app is FOR, shown only while the ledger is
   // still empty, with the door to a history you already have somewhere else.
   "you.journeyTitle": "Toward a thousand films that move you",

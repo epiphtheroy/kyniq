@@ -225,6 +225,7 @@ export const es: Record<keyof typeof en, string> = {
   "list.seenOf": "{total} películas · {seen} vistas",
   "list.onMetatake": "{shown} de {all} en Metatake",
   "list.seenN": "{n} vistas",
+  "list.matchedOf": "{matched} de las {all} de la lista publicada están enlazadas a una ficha — este canon aún se está incorporando.",
   "you.journeyTitle": "Hacia mil películas que te conmuevan",
   "you.journeyBody":
     "Una vida viendo cine debería dejar más de mil películas que te conmovieron de verdad. Metatake guarda ese registro — empiézalo con las que ya has visto.",

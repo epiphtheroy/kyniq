@@ -35,6 +35,7 @@ import { t, type DictKey } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { useLocalTitles } from "../../src/lib/titles";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
+import { listSizeLabel } from "../../src/lib/lineage";
 import { AXES, dealNine, type Axis } from "../../src/lib/deal";
 import { useFilms } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
@@ -828,8 +829,10 @@ function CollectionCard({ l }: { l: NavCatalogEntry }) {
           {l.label}
         </Serif>
         <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 6 }}>
+          {/* Never the bare membership count where the published size is known —
+              "1001 Movies · 159 films" reads as a broken list (owner 08-03). */}
           <Ui size={fs.xs} color={pal.muted} style={{ flex: 1 }}>
-            {t("nav.filmsN", { n: l.total })}
+            {t("nav.filmsN", { n: listSizeLabel(l.key, l.total).text })}
           </Ui>
           {l.pct > 0 ? (
             <Ui size={fs.xs} weight="700" color={tint}>

@@ -226,6 +226,7 @@ export const ko: Record<keyof typeof en, string> = {
   "list.seenOf": "{total}편 · {seen}편 봄",
   "list.onMetatake": "{all}편 중 {shown}편이 메타테이크에 있습니다",
   "list.seenN": "{n}편 봄",
+  "list.matchedOf": "발표된 목록 {all}편 중 {matched}편이 영화 페이지에 연결돼 있습니다 — 이 정전은 아직 수집 중입니다.",
   "you.journeyTitle": "마음을 움직인 영화 천 편을 향해",
   "you.journeyBody":
     "한 사람의 영화 인생은 깊이 감동한 영화 천 편 이상을 남겨야 합니다. 메타테이크가 그 기록을 지킵니다 — 이미 본 영화부터 시작하세요.",

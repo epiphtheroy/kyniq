@@ -225,6 +225,7 @@ export const ja: Record<keyof typeof en, string> = {
   "list.seenOf": "{total} 本 · {seen} 本鑑賞",
   "list.onMetatake": "{all} 本中 {shown} 本が Metatake に",
   "list.seenN": "{n} 本鑑賞",
+  "list.matchedOf": "公表リスト {all} 本のうち {matched} 本が作品ページに紐づいています — この正典はまだ取り込み中です。",
   "you.journeyTitle": "心を動かす映画、千本へ",
   "you.journeyBody":
     "映画を観る一生は、深く心を動かされた千本以上を残すべきです。Metatake がその記録を預かります — すでに観た作品から始めましょう。",
