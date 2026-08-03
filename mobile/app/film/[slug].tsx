@@ -45,6 +45,7 @@ import { Appear, Pulse, Shimmer, SkeletonText } from "../../src/components/motio
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
+import { bandWord, verdictShort } from "../../src/lib/takescore";
 import { useLocalTitle } from "../../src/lib/titles";
 import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
@@ -109,7 +110,6 @@ function IconDisc({
   );
 }
 
-/** Grouped surface container — the benchmark's section card. */
 /**
  * The score, said out loud (owner 08-03).
  *
@@ -133,10 +133,12 @@ function ScorePanel({
   onFull: () => void;
 }) {
   const pal = usePalette();
-  const axes: { val: number; color: string; label: string; sub: string }[] = [
-    { val: vcr.v, color: brand.tsGreen, label: t("film.scoreValue"), sub: t("film.scoreValueSub") },
-    { val: vcr.c, color: brand.tsCost, label: t("film.scoreCost"), sub: t("film.scoreCostSub") },
-    { val: vcr.r, color: brand.tsRisk, label: t("film.scoreRisk"), sub: t("film.scoreRiskSub") },
+  // Each axis carries the site's own band word for THIS film's number (owner
+  // 08-03) — "84" means nothing on its own, "Exceptional — canon-grade" does.
+  const axes: { val: number; color: string; label: string; sub: string; band: string }[] = [
+    { val: vcr.v, color: brand.tsGreen, label: t("film.scoreValue"), sub: t("film.scoreValueSub"), band: bandWord("value", vcr.v) },
+    { val: vcr.c, color: brand.tsCost, label: t("film.scoreCost"), sub: t("film.scoreCostSub"), band: bandWord("cost", vcr.c) },
+    { val: vcr.r, color: brand.tsRisk, label: t("film.scoreRisk"), sub: t("film.scoreRiskSub"), band: bandWord("risk", vcr.r) },
   ];
   const max = Math.max(1, ...axes.map((a) => Math.max(0, a.val)));
   return (
@@ -150,11 +152,18 @@ function ScorePanel({
         gap: sp.s3,
       }}
     >
+      <Ui size={fs.sm} weight="600" style={{ lineHeight: fs.sm * 1.45 }}>
+        {verdictShort(vcr.v, vcr.r)}
+      </Ui>
+      <Hairline />
       {axes.map((a) => (
         <View key={a.label} style={{ gap: 4 }}>
           <View style={{ flexDirection: "row", alignItems: "baseline", gap: sp.s2 }}>
-            <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
+            <Ui size={fs.sm} weight="600">
               {a.label}
+            </Ui>
+            <Ui size={fs.xs} color={a.color} weight="600" numberOfLines={1} style={{ flex: 1 }}>
+              {a.band}
             </Ui>
             <Ui size={fs.sm} weight="700" color={a.color}>
               {Math.round(a.val)}
@@ -199,6 +208,7 @@ function ScorePanel({
   );
 }
 
+/** Grouped surface container — the benchmark's section card. */
 function Group({ children }: { children: React.ReactNode }) {
   const pal = usePalette();
   return (
