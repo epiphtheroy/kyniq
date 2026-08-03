@@ -110,6 +110,95 @@ function IconDisc({
 }
 
 /** Grouped surface container — the benchmark's section card. */
+/**
+ * The score, said out loud (owner 08-03).
+ *
+ * Every screen in the app prints a TakeScore and none of them explains it. The
+ * three bars in the strip above have been there since v4 with no legend at all.
+ * This opens in place under them and uses the site's own words — Earned value /
+ * Entry cost / Risk, and the formula that combines them — rather than inventing
+ * a second vocabulary for the app. Nothing is fetched: V, C and R already
+ * arrived with the brief.
+ */
+function ScorePanel({
+  ts,
+  vcr,
+  honors,
+  onFull,
+}: {
+  ts: number | null;
+  vcr: { v: number; c: number; r: number };
+  /** How many canons/awards this film sits in — the evidence is the Lineage section. */
+  honors: number;
+  onFull: () => void;
+}) {
+  const pal = usePalette();
+  const axes: { val: number; color: string; label: string; sub: string }[] = [
+    { val: vcr.v, color: brand.tsGreen, label: t("film.scoreValue"), sub: t("film.scoreValueSub") },
+    { val: vcr.c, color: brand.tsCost, label: t("film.scoreCost"), sub: t("film.scoreCostSub") },
+    { val: vcr.r, color: brand.tsRisk, label: t("film.scoreRisk"), sub: t("film.scoreRiskSub") },
+  ];
+  const max = Math.max(1, ...axes.map((a) => Math.max(0, a.val)));
+  return (
+    <Appear
+      style={{
+        marginHorizontal: sp.s4,
+        marginTop: sp.s3,
+        backgroundColor: pal.surface,
+        borderRadius: radius.md,
+        padding: sp.s4,
+        gap: sp.s3,
+      }}
+    >
+      {axes.map((a) => (
+        <View key={a.label} style={{ gap: 4 }}>
+          <View style={{ flexDirection: "row", alignItems: "baseline", gap: sp.s2 }}>
+            <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
+              {a.label}
+            </Ui>
+            <Ui size={fs.sm} weight="700" color={a.color}>
+              {Math.round(a.val)}
+            </Ui>
+          </View>
+          <View
+            style={{ height: 4, borderRadius: 2, backgroundColor: pal.hairline, overflow: "hidden" }}
+          >
+            <View
+              style={{
+                width: `${Math.round((Math.max(0, a.val) / max) * 100)}%`,
+                height: 4,
+                borderRadius: 2,
+                backgroundColor: a.color,
+              }}
+            />
+          </View>
+          <Ui size={fs.xs} color={pal.muted}>
+            {a.sub}
+          </Ui>
+        </View>
+      ))}
+
+      <Hairline />
+      <Ui size={fs.xs} color={pal.inkSoft} style={{ lineHeight: fs.xs * 1.55 }}>
+        {ts != null ? t("film.scoreFormulaN", { ts }) : t("film.scoreFormula")}
+      </Ui>
+      {honors > 0 ? (
+        <Ui size={fs.xs} color={pal.muted}>
+          {t("film.scoreHonors", { n: honors })}
+        </Ui>
+      ) : null}
+      <Tactile onPress={onFull} feedback="tap" style={{ alignSelf: "flex-start" }}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
+          <Ui size={fs.xs} weight="600" color={brand.accent}>
+            {t("film.scoreFull")}
+          </Ui>
+          <Ionicons name="chevron-forward" size={12} color={brand.accent} />
+        </View>
+      </Tactile>
+    </Appear>
+  );
+}
+
 function Group({ children }: { children: React.ReactNode }) {
   const pal = usePalette();
   return (
@@ -157,6 +246,9 @@ export default function FilmScreen() {
   const [reasons, setReasons] = useState<string[]>([]);
   const [toast, setToast] = useState<Toast | null>(null);
   const [showAllLineage, setShowAllLineage] = useState(false);
+  /** The score, explained in place. Closed by default — the number is the
+   *  headline, the reasoning is for whoever asks (owner 08-03). */
+  const [scoreOpen, setScoreOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -555,13 +647,20 @@ export default function FilmScreen() {
                 </Tactile>
               ) : null}
             </View>
-            {card.ts != null ? <TSDonut val={card.ts} size={64} label="TakeScore" /> : null}
+            {card.ts != null ? (
+              <Tactile onPress={() => setScoreOpen((o) => !o)} hitSlop={8} feedback="tap">
+                <TSDonut val={card.ts} size={64} label="TakeScore" />
+              </Tactile>
+            ) : null}
           </View>
 
           {/* VerdictStrip — rank + V/C/R + runtime + availability dots (§5.1).
               Each fragment renders only when its data exists (§13-17). */}
           {hasRank || card.vcr || card.runtime || availKinds.length ? (
-            <View
+            <Tactile
+              onPress={card.vcr ? () => setScoreOpen((o) => !o) : undefined}
+              disabled={!card.vcr}
+              feedback="tap"
               style={{
                 flexDirection: "row",
                 alignItems: "center",
@@ -582,7 +681,30 @@ export default function FilmScreen() {
                 </Ui>
               ) : null}
               {availKinds.length ? <AvailabilityDots tiers={availKinds} /> : null}
-            </View>
+              {/* The app has painted these three bars since v4 without ever
+                  saying what they are (owner 08-03). This is the door. */}
+              {card.vcr ? (
+                <Ionicons
+                  name={scoreOpen ? "chevron-up" : "help-circle-outline"}
+                  size={14}
+                  color={pal.subtle}
+                />
+              ) : null}
+            </Tactile>
+          ) : null}
+
+          {scoreOpen && card.vcr ? (
+            <ScorePanel
+              ts={card.ts}
+              vcr={card.vcr}
+              honors={lineage.length}
+              onFull={() =>
+                router.push({
+                  pathname: "/read",
+                  params: { path: `/takescore/film/${card.slug}`, title: t("film.scoreTitle") },
+                })
+              }
+            />
           ) : null}
 
           {/* An Invitation */}
