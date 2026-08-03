@@ -99,7 +99,14 @@ export default function MapExpoGoScreen() {
     );
   }, [mapReady, filmSlug, pins]);
 
-  const shown = useMemo(() => (pins ?? []).slice(0, MAX_MARKERS), [pins]);
+  // The world artifact carries all 17,337 pins in name order, so a plain slice
+  // would be an alphabetical accident. Without clustering the cap has to fall
+  // somewhere — let it fall on the best-scored films.
+  const shown = useMemo(() => {
+    const all = pins ?? [];
+    if (all.length <= MAX_MARKERS) return all;
+    return [...all].sort((a, b) => (b.ts ?? -1) - (a.ts ?? -1)).slice(0, MAX_MARKERS);
+  }, [pins]);
 
   const filmTitle = filmSlug ? (pins?.find((p) => p.filmTitle)?.filmTitle ?? filmSlug) : null;
 
@@ -288,6 +295,10 @@ export default function MapExpoGoScreen() {
         </View>
         {filmSlug ? (
           <Chip label={t("map.showAll")} icon="close" onPress={() => router.setParams({ film: "" })} />
+        ) : router.canGoBack() ? (
+          /* The map is a pushed screen with no header and no tab of its own —
+             without this there is no way out of the world view. */
+          <Chip label={t("action.back")} icon="arrow-back" onPress={() => router.back()} />
         ) : null}
         <View pointerEvents="none" style={{ flex: 1 }} />
         <View

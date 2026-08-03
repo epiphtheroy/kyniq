@@ -17,14 +17,15 @@ import { WebView, type WebViewMessageEvent } from "react-native-webview";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Btn, Chip, GradientBtn, Loading, Screen, Tactile, Ui } from "../components/ui";
 import { t } from "../i18n";
-import { boundsOf, loadFilmPins, loadGlobalPins, toFeatureCollection, type Pin } from "../lib/pins";
+import { GEO_ARTIFACT_URL, boundsOf, loadFilmPins, toFeatureCollection, type Pin } from "../lib/pins";
 import { brand, fs, radius, shadow, sp, usePalette } from "../theme";
 
 const MAPLIBRE_JS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js";
 const MAPLIBRE_CSS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css";
 const TAB_CLEARANCE = 104;
 
-let globalPinCache: Pin[] | null = null;
+/** The page starts empty and fills itself from the artifact (world view). */
+const EMPTY_FC = { type: "FeatureCollection" as const, features: [] as unknown[] };
 
 type Selected = {
   name: string;
@@ -35,14 +36,15 @@ type Selected = {
 };
 
 /**
- * The page that runs inside the WebView. Pins and bounds are baked into the HTML
- * (no network call from the page itself), and it talks back over exactly one
- * channel: ReactNativeWebView.postMessage with {type:"pin"|"clear"|"ready"}.
+ * The page that runs inside the WebView. Film-focus pins are baked into the HTML;
+ * the world view fetches the precompiled artifact itself (see ARTIFACT below).
+ * It talks back over exactly one channel: ReactNativeWebView.postMessage with
+ * {type:"pin"|"clear"|"open"|"pins"|"pinsError"|"ready"}.
  * onMessage re-validates every field — the page's payload is never trusted as-is.
  * Verified 2026-07-17: real tiles + clusters, and a pin tap posts
  * {name, country, film_slug, film_title} back to the card.
  */
-function buildHtml(fc: string, boundsJson: string, accent: string): string {
+function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: string | null): string {
   return `<!doctype html>
 <html>
 <head>
@@ -79,6 +81,13 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
 <script>
   var PINS = ${fc};
   var BOUNDS = ${boundsJson};
+  // World view: the page fetches its own pins from the precompiled artifact
+  // (worker/locations-build.py). Two reasons it happens HERE and not in React
+  // Native: 17,337 pins is a ~2.5 MB string that would have to cross the bridge
+  // on every open, and the WebView's own HTTP cache keeps the file between
+  // sessions for free. The basemap draws while it lands, so the map is on screen
+  // immediately and the pins arrive on top of it.
+  var ARTIFACT = ${artifactUrl ? JSON.stringify(artifactUrl) : "null"};
   var post = function (msg) {
     if (window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(msg));
   };
@@ -172,6 +181,31 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
     for (var id2 in onScreen) { if (!next[id2]) onScreen[id2].remove(); }
     onScreen = next;
   }
+  // Artifact → GeoJSON. Mirrors src/lib/pins.ts toFeatureCollection so both
+  // renderers hand MapLibre the same properties.
+  function expand(a) {
+    var feats = [];
+    for (var i = 0; i < a.points.length; i++) {
+      var p = a.points[i];
+      var f = a.films[p[4]];
+      if (!f) continue;
+      feats.push({
+        type: "Feature",
+        id: i,
+        geometry: { type: "Point", coordinates: [p[3], p[2]] },
+        properties: {
+          pid: String(i),
+          name: p[0],
+          country: p[1] >= 0 ? a.countries[p[1]] : null,
+          film_slug: f[0],
+          film_title: f[1],
+          poster: f[2] ? "https://image.tmdb.org/t/p/w154" + f[2] : null,
+          ts: f[3],
+        },
+      });
+    }
+    return { type: "FeatureCollection", features: feats };
+  }
   map.on("load", function () {
     map.addSource("pins", { type: "geojson", data: PINS, cluster: true, clusterRadius: 46 });
     map.addLayer({
@@ -205,6 +239,15 @@ function buildHtml(fc: string, boundsJson: string, accent: string): string {
       if (!hits.length) { popup.remove(); post({ type: "clear" }); }
     });
     post({ type: "ready" });
+    if (ARTIFACT) {
+      fetch(ARTIFACT)
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (a) {
+          var src = map.getSource("pins");
+          if (src) { src.setData(expand(a)); post({ type: "pins", n: a.pins || 0 }); }
+        })
+        .catch(function () { post({ type: "pinsError" }); });
+    }
   });
   window.__flyTo = function (lng, lat, zoom) { map.easeTo({ center: [lng, lat], zoom: zoom }); };
   // Handles for the app (Near me) and for automated verification.
@@ -228,27 +271,25 @@ export default function MapWebViewScreen() {
   const [tries, setTries] = useState(0);
   const [selected, setSelected] = useState<Selected | null>(null);
   const [locDenied, setLocDenied] = useState(false);
+  /** How many pins the page loaded — the world count comes back over the bridge. */
+  const [pinCount, setPinCount] = useState<number | null>(null);
 
+  // Film focus needs its pins in JS (to fit the camera to them), and there are
+  // only ever a handful. The world does NOT: the page fetches the artifact
+  // itself, so nothing here blocks the map from appearing.
   useEffect(() => {
     let alive = true;
     setErr(false);
     setSelected(null);
-    if (filmSlug) {
-      setPins(null);
-      loadFilmPins(filmSlug)
-        .then((p) => alive && setPins(p))
-        .catch(() => alive && setErr(true));
-    } else if (globalPinCache) {
-      setPins(globalPinCache);
-    } else {
-      setPins(null);
-      loadGlobalPins()
-        .then((p) => {
-          globalPinCache = p;
-          if (alive) setPins(p);
-        })
-        .catch(() => alive && setErr(true));
+    setPinCount(null);
+    if (!filmSlug) {
+      setPins([]);
+      return;
     }
+    setPins(null);
+    loadFilmPins(filmSlug)
+      .then((p) => alive && setPins(p))
+      .catch(() => alive && setErr(true));
     return () => {
       alive = false;
     };
@@ -258,11 +299,13 @@ export default function MapWebViewScreen() {
     if (!pins) return null;
     const bounds = filmSlug ? boundsOf(pins) : null;
     return buildHtml(
-      JSON.stringify(toFeatureCollection(pins)),
+      JSON.stringify(filmSlug ? toFeatureCollection(pins) : EMPTY_FC),
       bounds ? JSON.stringify(bounds) : "null",
       brand.gradB,
+      filmSlug ? null : GEO_ARTIFACT_URL,
     );
-  }, [pins, filmSlug]);
+    // `tries` remounts the page on retry — the artifact fetch lives inside it.
+  }, [pins, filmSlug, tries]);
 
   const onMessage = useCallback((e: WebViewMessageEvent) => {
     try {
@@ -270,7 +313,17 @@ export default function MapWebViewScreen() {
         | { type: "pin"; props: Record<string, unknown> }
         | { type: "clear" }
         | { type: "open"; slug?: unknown }
+        | { type: "pins"; n?: unknown }
+        | { type: "pinsError" }
         | { type: "ready" };
+      if (msg.type === "pins") {
+        setPinCount(typeof msg.n === "number" ? msg.n : 0);
+        return;
+      }
+      if (msg.type === "pinsError") {
+        setErr(true);
+        return;
+      }
       if (msg.type === "open") {
         // Bubble "open film" tap — slug re-validated before navigating.
         const slug = typeof msg.slug === "string" && /^[a-z0-9-]{1,120}$/.test(msg.slug) ? msg.slug : null;
@@ -367,9 +420,14 @@ export default function MapWebViewScreen() {
             {t("map.title")}
           </Ui>
           <Ui size={fs.xs} color={pal.muted}>
-            {filmSlug ? (pins[0]?.filmTitle ?? "") : t("map.pins", { n: pins.length })}
+            {filmSlug ? (pins[0]?.filmTitle ?? "") : pinCount == null ? t("loading") : t("map.pins", { n: pinCount })}
           </Ui>
         </View>
+        {!filmSlug && router.canGoBack() ? (
+          /* Opened from Explore or a film: the map is a pushed screen with no
+             header and no tab of its own, so this is the ONLY way out. */
+          <Chip label={t("action.back")} icon="arrow-back" onPress={() => router.back()} />
+        ) : null}
         {filmSlug ? (
           <>
             {/* Back to the film brief that opened this focused map (owner

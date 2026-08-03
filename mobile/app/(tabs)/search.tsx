@@ -46,6 +46,8 @@ const DEBOUNCE_MS = 250;
 
 // Connect hub route (same Href cast as the You tab).
 const CONNECT_HREF = "/connect" as Href;
+// The filming-locations map: a pushed screen, deliberately not a tab (owner 08-03).
+const MAP_HREF = "/map" as Href;
 
 // Browse chips are MULTI-SELECT (owner directive 2026-07-18): genres AND
 // (p_genres is an array) with a decade span; a second tap clears that chip.
@@ -418,6 +420,54 @@ export default function SearchScreen() {
           ) : null}
         </View>
       ) : null}
+      {!selActive ? (
+        /* The one thing a phone can do that a desktop cannot: you can be
+           standing next to the place (owner 08-03). */
+        <Tactile
+          feedback="tap"
+          onPress={() => router.push(MAP_HREF)}
+          style={{ marginHorizontal: sp.s4, marginTop: sp.s5 }}
+        >
+          <View
+            style={[
+              {
+                flexDirection: "row",
+                alignItems: "center",
+                gap: sp.s3,
+                backgroundColor: pal.card,
+                borderRadius: radius.md,
+                borderWidth: StyleSheet.hairlineWidth,
+                borderColor: pal.hairline,
+                paddingHorizontal: sp.s4,
+                paddingVertical: sp.s3 + 2,
+              },
+              shadow.card,
+            ]}
+          >
+            <View
+              style={{
+                width: 34,
+                height: 34,
+                borderRadius: radius.pill,
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: `${brand.accent}1F`,
+              }}
+            >
+              <Ionicons name="location" size={17} color={brand.accent} />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Ui size={fs.md} weight="600">
+                {t("explore.locations")}
+              </Ui>
+              <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 1 }}>
+                {t("explore.locationsSub")}
+              </Ui>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+          </View>
+        </Tactile>
+      ) : null}
       {selActive ? (
         <View
           style={{
@@ -481,9 +531,29 @@ export default function SearchScreen() {
     <Screen style={{ paddingTop: Math.max(insets.top, sp.s6) }}>
       {/* Title + the pill search bar as the real input — fixed above the list */}
       <View style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s2 }}>
-        <Ui size={fs.x2} weight="600">
-          {t("tab.explore")}
-        </Ui>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
+            {t("tab.explore")}
+          </Ui>
+          {/* Browsing geographically is still browsing (owner 08-03). The map is
+              a pushed screen, not a fifth tab — this is its permanent address. */}
+          <Tactile onPress={() => router.push(MAP_HREF)} hitSlop={8} feedback="tap">
+            <View
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: radius.pill,
+                backgroundColor: pal.card,
+                alignItems: "center",
+                justifyContent: "center",
+                borderWidth: StyleSheet.hairlineWidth,
+                borderColor: pal.hairline,
+              }}
+            >
+              <Ionicons name="map-outline" size={18} color={pal.ink} />
+            </View>
+          </Tactile>
+        </View>
         <View
           style={[
             {
