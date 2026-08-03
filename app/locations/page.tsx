@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
-import { cachedLocationsEligibility, cachedLocationsMeta } from "@/lib/locations";
+import { softLocationsEligibility, cachedLocationsMeta } from "@/lib/locations";
 import { filmingLocationsDataset } from "@/lib/datasets";
 
 // The map loads client-side from /api/geo (the play layer); the country grid
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function LocationsPage() {
-  const [{ countries }, meta] = await Promise.all([cachedLocationsEligibility(), cachedLocationsMeta()]);
+  const [{ countries }, meta] = await Promise.all([softLocationsEligibility(), cachedLocationsMeta()]);
   // First-party dataset declaration — this atlas is compiled by Metatake, not
   // syndicated; Dataset markup states that formally. Now carries license +
   // distribution[] + DOI (shared builder, lib/datasets.ts) so it is visible to

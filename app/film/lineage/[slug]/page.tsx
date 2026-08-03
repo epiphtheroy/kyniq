@@ -12,7 +12,7 @@ import "@/app/curious/curious.css";
 import { pageRobots } from "@/lib/seo";
 import { filmMainIndexable } from "@/lib/filmGate";
 import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
-import { cachedLocationsEligibility } from "@/lib/locations";
+import { softLocationsEligibility } from "@/lib/locations";
 import {
   FILM_HONORS_MIN,
   cachedLineageMeta,
@@ -56,17 +56,26 @@ type FilmRow = {
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const { data: film } = await supabase
+  // Read `error` on both calls. A swallowed timeout makes `data` null / `rows` empty,
+  // which the gates below cannot tell apart from "no such film" / "not enough honors"
+  // — so the page 404s and ISR holds that 404 for 24h (revalidate = 86400 above).
+  // Throwing keeps the failure out of the Data Cache and returns a 5xx, which
+  // Google retries instead of treating as a removal.
+  const { data: film, error: filmErr } = await supabase
     .from("films")
     .select("id, title, slug, year, director, director_slug, poster_path, visible, release_date, imdb_id, tmdb_id, wikidata_id")
     .eq("slug", slug)
     .maybeSingle();
+  if (filmErr) throw new Error(`films(${slug}): ${filmErr.message}`);
   if (!film) return null;
-  const { data: rows } = await supabase.rpc("film_lineage_for", { p_film_id: (film as FilmRow).id });
+  const { data: rows, error: lineageErr } = await supabase.rpc("film_lineage_for", { p_film_id: (film as FilmRow).id });
+  if (lineageErr) throw new Error(`film_lineage_for(${slug}): ${lineageErr.message}`);
   const lineage = ((rows ?? []) as FilmLineageRow[]);
   if (lineage.length < FILM_HONORS_MIN) return null;
   const listMeta = await loadLineageListMeta([...new Set(lineage.map((l) => l.list_slug))]);
-  const locElig = await cachedLocationsEligibility();
+  // Decorative: feeds only hasLocationsPage (a sibling link). This page's own
+  // existence is decided by lineage data above, so don't couple it to the atlas RPC.
+  const locElig = await softLocationsEligibility();
   return {
     film: film as FilmRow,
     lineage,

@@ -11,7 +11,7 @@ import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
-  cachedLocationsEligibility,
+  softLocationsEligibility,
   cachedLocationsMeta,
   cachedCountryGeo,
   cityMemberPins,
@@ -66,7 +66,7 @@ async function loadUncached(countrySlug: string, citySlug: string) {
     .sort((a, b) => b.films.size - a.films.size)
     .slice(0, 12)
     .map((m) => ({ name: m.name, films: m.films.size }));
-  const elig = await cachedLocationsEligibility();
+  const elig = await softLocationsEligibility();
   return {
     city, pins, films, returnedTo,
     eligibleFilmSlugs: elig.films.map((f) => f.slug),

@@ -11,6 +11,11 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
+// Last roster that loaded cleanly, kept for the lifetime of the lambda instance.
+// The signal set moves on the order of days, so a stale roster is a far better
+// answer than a wrong one — see filmMainIndexable's error path.
+let lastGoodRoster: Record<string, FilmIndexSignals> | null = null;
+
 async function loadIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
   const { data, error } = await db().rpc("film_index_signals_json");
   if (error) throw new Error(`film_index_signals_json: ${error.message}`);
@@ -21,9 +26,15 @@ async function loadIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
 }
 
 /** Cached signal roster (all films), keyed by slug. Sitemap builders read this
- *  directly; pages go through filmMainIndexable(). Revalidates hourly. */
-export function filmIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
-  return unstable_cache(loadIndexRoster, ["film-index-signals-1"], { revalidate: 3600 })();
+ *  directly; pages go through filmMainIndexable(). Revalidates hourly.
+ *
+ *  lastGoodRoster is recorded HERE, outside the unstable_cache callback: on a
+ *  Data Cache hit the callback never runs, so assigning it inside loadIndexRoster
+ *  left the safety net unarmed on any instance that had only ever served hits. */
+export async function filmIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
+  const roster = await unstable_cache(loadIndexRoster, ["film-index-signals-1"], { revalidate: 3600 })();
+  lastGoodRoster = roster;
+  return roster;
 }
 
 /**
@@ -34,8 +45,14 @@ export function filmIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
  * is always Tier-1 (there are zero visible+unanalyzed films; visible ⇔ ≥3 approved
  * figures via the DB trigger), so it is indexable regardless of the roster — this
  * keeps a transient RPC error from de-indexing a live film's established subpages.
- * Everything else consults the cached roster and fails CLOSED (noindex, follow) on
- * any error, so a flaky RPC never accidentally indexes a thin Tier-2 page.
+ *
+ * ERROR POLICY (changed 2026-08-03). This used to `catch { return false }` — a
+ * flaky RPC therefore stamped `noindex` into the ISR HTML of every caller without
+ * a visible hint (Tier-2 mains, film lineage, film reception, film Q&A pages),
+ * and that baked-in directive outlives the outage that caused it. An error is not
+ * evidence that a page should leave the index. So: serve the last roster that
+ * loaded cleanly; if there has never been one, rethrow and let the request 5xx.
+ * Google retries a 5xx and keeps the URL; it acts on a noindex immediately.
  */
 export async function filmMainIndexable(
   slug: string,
@@ -43,11 +60,13 @@ export async function filmMainIndexable(
 ): Promise<boolean> {
   if (slug.startsWith("tmdb-")) return false;
   if (hint?.visible) return SITE_INDEXABLE; // visible ⟹ Tier-1: never RPC-dependent
+  let roster: Record<string, FilmIndexSignals>;
   try {
-    const roster = await filmIndexRoster();
-    const sig = roster[slug];
-    return sig ? filmIndexBar(sig) : false;
-  } catch {
-    return false; // fail closed: unknown → noindex (follow)
+    roster = await filmIndexRoster();
+  } catch (e) {
+    if (!lastGoodRoster) throw e; // no safe answer exists — 5xx beats a wrong robots tag
+    roster = lastGoodRoster;
   }
+  const sig = roster[slug];
+  return sig ? filmIndexBar(sig) : false;
 }
