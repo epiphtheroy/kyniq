@@ -16,6 +16,12 @@ cached forever.
 Same contract as worker/odyssey-build.py: a fixed, versioned artifact —
 same inputs produce the same file, and personalisation stays a client overlay.
 
+⚠️ THE VERSION IS THE CACHE KEY. vercel.json serves /geo/* as
+`immutable, max-age=31536000`, so overwriting pins.v1.json in place ships a file
+that already-installed apps will not re-fetch for a year. When the locations
+data changes materially (the factory adds films), write pins.v2.json and bump
+GEO_ARTIFACT_URL in mobile/src/lib/pins.ts in the same change.
+
 Shape (arrays, not objects — the field names would be half the payload):
   {
     "v": 1, "built": "YYYY-MM-DD", "pins": 17337,
