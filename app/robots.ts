@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 
 /**
- * robots.txt — posture (2026-06): be discoverable, but opt OUT of AI training.
+ * robots.txt — posture (2026-06, revised 2026-08-03): be discoverable, but opt
+ * OUT of pure model-training scrapes.
  *  • Search index bots (Googlebot, Bingbot, …) — allowed via the default rule (we
  *    NEED search traffic; AdSense needs us crawlable).
  *  • AI answer / retrieval bots — allowed (they cite us and drive traffic).
@@ -9,18 +10,30 @@ import type { MetadataRoute } from "next";
  *    into model training sets). robots.txt is advisory: reputable crawlers obey it;
  *    it does not stop bad actors or human copy-paste.
  *  Note: blocking training bots does NOT affect Google/Bing search rankings.
+ *
+ * 2026-08-03 — Google-Extended and Applebot-Extended REMOVED from the block list
+ * (owner's call). They are the two tokens where "training" and "answering" are the
+ * same switch, so blocking them bought nothing and cost the AI surface:
+ *  • Google-Extended gates Gemini and Vertex AI grounding ONLY. Google documents
+ *    that it does not affect Googlebot crawling or Search ranking, so it was never
+ *    protecting rank — it was only keeping us out of Gemini's answers.
+ *  • Applebot-Extended gates Apple Intelligence. Applebot is this site's LARGEST
+ *    legitimate crawler by a wide margin (8,690 hits over the measured window,
+ *    ~380/day), i.e. the widest AI answer surface currently reading us at all.
+ * The rest of the list is unchanged: GPTBot, ClaudeBot, CCBot and friends are
+ * training-only and blocking them costs no citation traffic.
  */
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
 
   // AI/data crawlers that exist to harvest content for model training or resale.
+  // NOT here on purpose (see the docblock): Google-Extended and Applebot-Extended,
+  // which also gate Gemini and Apple Intelligence ANSWERS, not just training.
   const TRAINING_BOTS = [
     "GPTBot",              // OpenAI training
     "ClaudeBot",           // Anthropic training
     "anthropic-ai",        // Anthropic (legacy)
-    "Google-Extended",     // Google AI training / Gemini grounding (NOT Googlebot search)
     "CCBot",               // Common Crawl (feeds many models)
-    "Applebot-Extended",   // Apple AI training
     "Bytespider",          // ByteDance / TikTok (aggressive scraper)
     "Meta-ExternalAgent",  // Meta AI training
     "FacebookBot",         // Meta
