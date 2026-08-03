@@ -9,7 +9,7 @@ The film hero reel already orders clips before the trailer, so these surface fir
 Resumable: by default skips films that already have >= --max clip-like videos.
 DRY by default (no writes); writes a preview to worker/film-clips-dry.md.
 
-Env (repo-root .env.local): NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, YOUTUBE_API_KEY
+Env (repo-root .env.local): NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, YOUTUBE_SERVER_API_KEY
 Usage:
   python3 film-clips.py                       # DRY: sample 8 visible films, no writes
   python3 film-clips.py --limit 8             # DRY on N films
@@ -29,7 +29,14 @@ def load_env(p):
             k, _, v = line.partition("="); os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 load_env(os.path.join(ROOT, ".env.local"))
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
-YT = os.environ.get("YOUTUBE_API_KEY") or os.environ.get("YOUTUBE_DATA_API_KEY")
+# YOUTUBE_SERVER_API_KEY first: this runs server-side and sends no HTTP referer,
+# so a key restricted to "Websites (HTTP referrers)" is rejected with
+# 403 "Requests from referer <empty> are blocked". Both older keys carry that
+# restriction — which is why this worker had never written a single row. The
+# server key is unrestricted by application but limited to YouTube Data API v3.
+YT = (os.environ.get("YOUTUBE_SERVER_API_KEY")
+      or os.environ.get("YOUTUBE_API_KEY")
+      or os.environ.get("YOUTUBE_DATA_API_KEY"))
 
 args = sys.argv[1:]
 PERSIST = "--persist" in args
@@ -41,7 +48,7 @@ LIMIT = int(args[args.index("--limit") + 1]) if "--limit" in args else (8 if not
 if not (URL and KEY):
     sys.exit("Missing NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env.local")
 if not YT:
-    sys.exit("Missing YOUTUBE_API_KEY (or YOUTUBE_DATA_API_KEY) in .env.local — required for clip search.")
+    sys.exit("Missing YOUTUBE_SERVER_API_KEY (or YOUTUBE_API_KEY / YOUTUBE_DATA_API_KEY) in .env.local — required for clip search.")
 
 # ── filters / scoring (mirrors the existing curator) ───────────────
 TRAILERISH = re.compile(r"\btrailer\b|\bteaser\b", re.I)
