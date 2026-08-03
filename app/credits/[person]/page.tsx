@@ -25,7 +25,17 @@ import "../credits.css";
  * the repertory company they keep, and where their work lives in the catalog.
  * Slug format: {kebab-name}-{tmdbId} (id suffix is authoritative).
  */
-export const revalidate = 86400;
+// A person's biography and filmography move on the order of years, and this page
+// is swept URL-by-URL by a rotating residential-proxy crawler — measured
+// 2026-08-03: 27,895 req/day, 25.7% of all function volume, every sampled /24
+// distinct and on a different continent, so no rate limit, blocklist, UA rule or
+// robots directive can reach it. What CAN reach it is not doing the work twice:
+// the TMDB fetches below live in the Data Cache, which outlives deploys, so a
+// 30-day window means the second sweep of the same person costs nothing.
+// The route's own HTML is held a week — long enough to absorb a sweep, short
+// enough that a correction still lands in days.
+export const revalidate = 604800; // 7 days
+const TMDB_TTL = 2592000; // 30 days — see above
 export async function generateStaticParams() { return []; }
 
 const KEY_CRAFTS: CraftKey[] = ["writer", "dp", "editor", "composer", "pd"];
@@ -51,9 +61,9 @@ function parseId(slug: string): number | null {
 // fallback) lives in lib/nativeName.
 
 // null means TMDB genuinely has no such person (404) — the caller turns that into
-// notFound(). Everything else throws: this page caches for 86400s, so folding a
-// rate-limit or a missing env var into "no such person" would remove a live URL
-// from the index for a day because of someone else's bad afternoon.
+// notFound(). Everything else throws: this route caches for a week now, so folding
+// a rate-limit or a missing env var into "no such person" would strand a live URL
+// as a 404 for seven days because of someone else's bad afternoon.
 async function tmdbPerson(id: number): Promise<TmdbPerson | null> {
   const token = process.env.TMDB_READ_TOKEN;
   if (!token) throw new Error("TMDB_READ_TOKEN is not set");
@@ -61,7 +71,7 @@ async function tmdbPerson(id: number): Promise<TmdbPerson | null> {
   const qs = v4 ? "" : `&api_key=${token}`;
   const r = await fetch(
     `https://api.themoviedb.org/3/person/${id}?append_to_response=movie_credits,external_ids${qs}`,
-    { headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" }, next: { revalidate: 86400 } },
+    { headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" }, next: { revalidate: TMDB_TTL } },
   );
   if (r.status === 404) return null;
   if (!r.ok) throw new Error(`TMDB person/${id}: HTTP ${r.status}`);
@@ -178,7 +188,7 @@ const tmdbApi: Api = async (path, params) => {
   if (!v4) u.searchParams.set("api_key", token);
   const r = await fetch(u, {
     headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" },
-    next: { revalidate: 86400 },
+    next: { revalidate: TMDB_TTL },
   });
   if (!r.ok) throw new Error(`tmdb ${r.status}`);
   return r.json();
