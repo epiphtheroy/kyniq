@@ -56,8 +56,45 @@ SPOILER = ["ending explained", "ending scene", "death scene", "dies", "final sce
            "twist ending", "shocking ending", "who killed", "full movie", "all deaths",
            "reaction", "first time watching", "reacting to", "explained", "recap", "review",
            "behind the scenes", "bloopers", "interview", "press", "spoiler"]
+
+# Titles that are technically "scenes" but are not what a film page should show:
+# titillation cuts, compilations, and fan re-edits. Observed on 2026-08-03 —
+# "Thelma(2017) Lesbian movie/kiss scene" scored 0.7 purely on the word "scene".
+JUNK_PHRASES = ["kiss scene", "kissing scene", "sex scene", "love scene", "hot scene",
+                "bed scene", "shower scene", "romantic scene", "seduction",
+                "best moments", "best scenes", "all scenes", "every scene", "funniest",
+                "top 10", "top 5", "compilation", "fan edit", "fan made", "fanmade",
+                "whatsapp status", "full hd movie", "watch online", "movie in hindi",
+                # Commentary about a film is not a clip from it. Both observed in
+                # the first --persist run: a "How to Shoot a Film Scene" essay and
+                # a viewer's own "all time fave scenes" cut.
+                "video essay", "how to shoot", "analysis", "breakdown", "deconstruct",
+                "cinematography of", "favorite scenes", "fave scenes", "my all time",
+                "parallels"]
+# Single words too risky as substrings ("edit" sits inside "edition"/"editor"),
+# so they need word boundaries. Deliberately NOT here: "hot" and "uncut" — they
+# would swallow every clip from Hot Fuzz and Uncut Gems. The salacious sense is
+# already caught by the phrase list above.
+JUNK_WORDS = re.compile(r"\b(?:edit|edits|amv|tribute|slowed|reverb|shorts|tiktok|"
+                        r"status|nude|nudity)\b", re.I)
+# Channels that repost other people's clips or farm engagement. Matched as
+# substrings on the channel name, so each entry must be distinctive — a bare
+# "fan" would also hit "Fandango".
+JUNK_CHANNELS = ["kissing", "kiss mood", "romance", "hot scenes", "status", "shorts",
+                 "edits", "fan edit", "fanmade", "tribute", "movie world", "cinema world"]
+
 CLIP_CHANNELS = ["movieclips", "binge society", "rotten tomatoes clips", "screen bites",
-                 "movieclips classic trailers"]  # note: classic trailers excluded by TRAILERISH on title
+                 "movieclips classic trailers",  # classic trailers excluded by TRAILERISH on title
+                 "joblo movie clips", "scene city"]
+# Distributors and arthouse labels post their own clips; prefer them over a
+# re-upload of the same file by an aggregator (observed: Bleecker Street's
+# "Hard Truths | Official Clip" mirrored by "HeadsUp Trailers").
+DISTRIBUTORS = ["mubi", "a24", "criterion", "neon", "bleecker street", "focus features",
+                "searchlight", "studiocanal", "ifc films", "sony pictures classics",
+                "janus films", "kino lorber", "magnolia pictures", "curzon", "park circus",
+                "lionsgate", "1091 pictures", "altitude", "vertigo releasing"]
+
+MIN_SCORE = 0.6  # base 0.5 + at least one positive signal; junk channels fall below
 
 def norm(s): return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
 
@@ -70,13 +107,49 @@ def title_matches(film_title, vid_title):
     hit = sum(1 for w in words if w in vt)
     return hit >= max(1, len(words) // 2)
 
+PAREN_YEAR = re.compile(r"\((\d{4})\)")
+
+
+def year_conflicts(film_title, film_year, vid_title):
+    """True when the video announces a release year that is not this film's.
+
+    Remakes share a title, so title matching alone put "The Color Purple (2023)"
+    on the 1985 film's page (observed 2026-08-03). Only parenthesised years count
+    as a release-year claim — a bare 4-digit run is usually part of the title
+    itself (Blade Runner 2049, 1917, 2001: A Space Odyssey), and reading those as
+    years would reject every legitimate clip for those films.
+    """
+    if not film_year:
+        return False
+    claimed = {int(y) for y in PAREN_YEAR.findall(vid_title or "")}
+    claimed -= {int(y) for y in re.findall(r"\d{4}", film_title or "")}
+    if not claimed:
+        return False
+    return not any(abs(y - int(film_year)) <= 1 for y in claimed)
+
+
 def score_clip(title, channel):
     t = title.lower(); ch = (channel or "").lower(); s = 0.5
     if any(c in ch for c in CLIP_CHANNELS): s += 0.3
+    if any(c in ch for c in DISTRIBUTORS): s += 0.3
     if "scene" in t or "clip" in t: s += 0.2
     if "official" in t and ("clip" in t or "scene" in t): s += 0.1
     if len(title) < 10: s -= 0.2
+    # A repost farm cancels out the "scene"/"clip" bonus and drops below MIN_SCORE,
+    # so junk cannot ride in on the one word it shares with a real clip.
+    if any(c in ch for c in JUNK_CHANNELS): s -= 0.4
     return max(0.0, min(1.0, s))
+
+
+def dedupe_title(title):
+    """Collapse a title to its identity so re-uploads of one clip cluster together.
+
+    Two hits with the same normalised title are the same clip in practice —
+    either a duplicate upload or an aggregator mirroring a distributor's file.
+    Keeping the higher-scored one means the official channel wins.
+    """
+    return re.sub(r"\b(hd|4k|1080p|720p|official|now streaming|movie|film)\b", " ",
+                  norm(title)).strip()
 
 def iso_to_sec(iso):
     m = re.match(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso or "")
@@ -150,8 +223,13 @@ def pick_clips(film):
             if TRAILERISH.search(v["title"]): continue
             low = v["title"].lower()
             if any(k in low for k in SPOILER): continue
+            if any(k in low for k in JUNK_PHRASES): continue
+            if JUNK_WORDS.search(v["title"]): continue
             if not title_matches(title, v["title"]): continue
-            seen.add(v["id"]); v["score"] = score_clip(v["title"], v["channel"]); cand.append(v)
+            if year_conflicts(title, year, v["title"]): continue
+            score = score_clip(v["title"], v["channel"])
+            if score < MIN_SCORE: continue
+            seen.add(v["id"]); v["score"] = score; cand.append(v)
         if len(cand) >= MAX * 2: break  # enough; save quota
     # verify embeddable + sane duration
     det = yt_details([v["id"] for v in cand])
@@ -161,8 +239,15 @@ def pick_clips(film):
         if not d.get("embeddable"): continue
         if not (15 <= d["sec"] <= 600): continue
         good.append(v)
+    # Sort BEFORE collapsing duplicates so the best copy of a re-uploaded clip
+    # is the one that survives.
     good.sort(key=lambda v: v["score"], reverse=True)
-    return good[:MAX], None
+    out, titles = [], set()
+    for v in good:
+        key = dedupe_title(v["title"])
+        if key in titles: continue
+        titles.add(key); out.append(v)
+    return out[:MAX], None
 
 # ── films ──────────────────────────────────────────────────────────
 scope = "&visible=eq.true" if SCOPE == "visible" else ""
