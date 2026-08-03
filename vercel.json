@@ -3,6 +3,22 @@
   "regions": [
     "hnd1"
   ],
+  "headers": [
+    {
+      "//": "Versioned map artifacts (worker/locations-build.py). The version is in the filename, so a fetched copy is never stale — cache it forever and the app's world map costs one request, once.",
+      "source": "/geo/(.*)",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "access-control-allow-origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
   "crons": [
     {
       "path": "/api/metrics/insights",
@@ -19,6 +35,10 @@
     {
       "path": "/api/push/availability-cron",
       "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/gsc/cron",
+      "schedule": "0 10 * * *"
     }
   ]
 }
