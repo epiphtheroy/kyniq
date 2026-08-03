@@ -16,6 +16,7 @@ import {
 } from "../credits-logic";
 import { resolveNative } from "@/lib/nativeName";
 import { pageRobots } from "@/lib/seo";
+import { hasCrewPage } from "@/lib/crewRoster";
 import "../credits.css";
 
 /**
@@ -199,6 +200,13 @@ interface Props { params: Promise<{ person: string }> }
 async function load(personSlug: string) {
   const id = parseId(personSlug);
   if (!id) return null;
+  // The gate, BEFORE the network call. Only the 1,072 people in lib/crew_index.json
+  // have a page here — everyone else is a TMDB id someone appended to a URL, and
+  // answering for them made this route's address space unbounded. Off-roster ids
+  // now cost one Set lookup instead of a live TMDB request. See lib/crewRoster.ts
+  // for why nothing is lost: those URLs are in no sitemap and Google has never
+  // crawled them. Every internal link to them was removed in the same commit.
+  if (!hasCrewPage(id)) return null;
   const p = await tmdbPerson(id);
   if (!p) return null;
   const crafts = craftCredits(p);
@@ -478,7 +486,7 @@ export default async function CrewPersonPage({ params }: Props) {
             if (c.grp === "director" && dirSlugByName.has(c.name)) {
               return <>{role}<Link href={`/director/${dirSlugByName.get(c.name)}`}><b>{c.name}</b></Link></>;
             }
-            if (KEY_GRPS.includes(c.grp)) return <>{role}<Link href={`/credits/${personSlug(c.name, c.id)}`}><b>{c.name}</b></Link></>;
+            if (KEY_GRPS.includes(c.grp) && hasCrewPage(c.id)) return <>{role}<Link href={`/credits/${personSlug(c.name, c.id)}`}><b>{c.name}</b></Link></>;
             return <>{role}<b>{c.name}</b></>;
           };
           const spanTxt = (y0: number, y1: number) => (y0 && y1 && y0 !== y1 ? `between ${y0} and ${y1}` : y0 ? `in ${y0}` : "");

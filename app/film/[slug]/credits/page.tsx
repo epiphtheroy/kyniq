@@ -14,6 +14,7 @@ import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { filmCreditsData, ordinal, ROLE_NOUN, type Relation, type SharedFilm } from "@/lib/film-credits-data";
 import { pageRobots } from "@/lib/seo";
 import { filmMainIndexable } from "@/lib/filmGate";
+import { hasCrewPage } from "@/lib/crewRoster";
 import { type CraftKey, personSlug } from "@/app/credits/credits-logic";
 import "@/app/curious/curious.css";
 import "../read.css";
@@ -138,7 +139,7 @@ export default async function FilmCreditsPage({ params }: Props) {
     return <>{s ? <Link href={`/film/${s}`}>{f.title}</Link> : <i>{f.title}</i>}{f.year ? ` (${f.year})` : ""}</>;
   };
   const PersonT = ({ r }: { r: Relation }) =>
-    r.roleKey === "actor"
+    r.roleKey === "actor" || !hasCrewPage(r.personId)
       ? <b>{r.name}</b>
       : <Link href={`/credits/${personSlug(r.name, r.personId)}`}><b>{r.name}</b></Link>;
   const DirT = () =>
@@ -241,7 +242,9 @@ export default async function FilmCreditsPage({ params }: Props) {
             ))}
             {crew.filter((g) => !relations.some((r) => r.roleKey === g.craft && r.shared.length > 0)).map((g) => (
               <li key={g.craft} style={{ margin: "0 0 8px" }}>
-                The {ROLE_NOUN[g.craft]} credit on {film.title} belongs to {list(g.people.map((p) => <Link key={p.id} href={`/credits/${personSlug(p.name, p.id)}`}><b>{p.name}</b></Link>))} — no shared history with the director on file.
+                The {ROLE_NOUN[g.craft]} credit on {film.title} belongs to {list(g.people.map((p) => hasCrewPage(p.id)
+                  ? <Link key={p.id} href={`/credits/${personSlug(p.name, p.id)}`}><b>{p.name}</b></Link>
+                  : <b key={p.id}>{p.name}</b>))} — no shared history with the director on file.
               </li>
             ))}
           </ul>

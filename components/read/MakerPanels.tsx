@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CRAFT_VERBED, ordinal, type FilmCreditsPayload } from "@/lib/film-credits-data";
+import { hasCrewPage } from "@/lib/crewRoster";
 import { personSlug } from "@/app/credits/credits-logic";
 import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
@@ -40,7 +41,10 @@ export default function MakerPanels({ payload, locale = DEFAULT_LOCALE }: { payl
           </a>
         );
       })() : null}
-      {relations.filter((r) => r.roleKey !== "actor").map((r) => {
+      {/* Every panel is a link whose whole promise is "Open the file →", so a maker
+          without a page gets no panel rather than a dead one. They are still named
+          in the credits prose on /film/[slug]/credits — see lib/crewRoster.ts. */}
+      {relations.filter((r) => r.roleKey !== "actor" && hasCrewPage(r.personId)).map((r) => {
         const verbed = CRAFT_VERBED[r.roleKey] ?? "made";
         const verbedL = t(locale, verbed);
         const roleL = t(locale, r.role);

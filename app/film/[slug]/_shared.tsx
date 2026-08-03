@@ -51,6 +51,7 @@ import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
+import { hasCrewPage } from "@/lib/crewRoster";
 import { filmMainIndexable } from "@/lib/filmGate";
 import { displayTs } from "@/lib/cinecodex_dims";
 import { verdictShort } from "@/lib/takescore_prose";
@@ -1188,7 +1189,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                         {c.people.map((pp, i) => (
                           <span key={pp.id}>
                             {i > 0 ? ", " : ""}
-                            <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                            {hasCrewPage(pp.id)
+                              ? <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                              : <span className="rcp-h">{pp.name}</span>}
                           </span>
                         ))}
                       </span>
@@ -2026,7 +2029,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                       {c.people.map((pp, i) => (
                         <span key={pp.id}>
                           {i > 0 ? ", " : ""}
-                          <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                          {hasCrewPage(pp.id)
+                            ? <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                            : <span className="rcp-h">{pp.name}</span>}
                         </span>
                       ))}
                     </span>
