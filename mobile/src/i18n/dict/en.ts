@@ -158,7 +158,8 @@ export const en = {
   // tonight/map/director extras
   "tonight.emptyFiltered": "Nothing left to show tonight.",
   "map.pins": "{n} pins",
-  "map.showAll": "Show all",
+  "map.showAll": "All films",
+  "map.onlyThisFilm": "Show only this film's locations",
   "map.backToFilm": "Back to film",
   "map.noFilmPins": "No mapped locations for this film yet.",
   "map.openFilm": "Open film",

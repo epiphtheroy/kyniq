@@ -326,12 +326,37 @@ export default function MapExpoGoScreen() {
                   <Ionicons name="close" size={16} color={pal.inkSoft} />
                 </View>
               </Tactile>
-              <Ui size={fs.md} weight="600" numberOfLines={2} style={{ paddingRight: sp.s6 }}>
-                {selected.name}
-              </Ui>
-              <Ui size={fs.sm} color={pal.muted} numberOfLines={1}>
-                {[selected.country, selected.filmTitle ?? filmTitle].filter(Boolean).join(" · ")}
-              </Ui>
+              {/* Owner 08-03: the poster comes with the pin — a place means more
+                  next to the film that was shot there — and the address stops
+                  shouting: the film leads, the location is the caption. */}
+              <View style={{ flexDirection: "row", gap: sp.s3, paddingRight: sp.s6 }}>
+                {selected.posterPath ? (
+                  <Image
+                    source={{ uri: `https://image.tmdb.org/t/p/w154${selected.posterPath}` }}
+                    style={{ width: 50, height: 75, borderRadius: 6, backgroundColor: pal.surface }}
+                  />
+                ) : null}
+                <View style={{ flex: 1, gap: 3 }}>
+                  {selected.filmTitle ?? filmTitle ? (
+                    <Ui size={fs.md} weight="600" numberOfLines={2}>
+                      {selected.filmTitle ?? filmTitle}
+                    </Ui>
+                  ) : null}
+                  <Ui size={fs.xs} color={pal.inkSoft} numberOfLines={2} style={{ lineHeight: fs.xs * 1.4 }}>
+                    {selected.name}
+                  </Ui>
+                  {selected.country ? (
+                    <Ui size={fs.xs} color={pal.subtle} numberOfLines={1}>
+                      {selected.country}
+                    </Ui>
+                  ) : null}
+                  {selected.ts != null ? (
+                    <Ui size={fs.xs} weight="700" color={brand.accent}>
+                      {t("nav.ts", { n: Math.round(selected.ts) })}
+                    </Ui>
+                  ) : null}
+                </View>
+              </View>
               {openSlug ? (
                 <GradientBtn
                   label={t("map.openFilm")}
@@ -339,6 +364,18 @@ export default function MapExpoGoScreen() {
                     router.push({ pathname: "/film/[slug]", params: { slug: openSlug } })
                   }
                   style={{ marginTop: sp.s2 }}
+                />
+              ) : null}
+              {/* ── 4. the two directions, said plainly (owner 08-03) ── */}
+              {!filmSlug && selected.filmSlug ? (
+                <Btn
+                  kind="ghost"
+                  label={t("map.onlyThisFilm")}
+                  onPress={() => {
+                    const slug = selected.filmSlug as string;
+                    setSelected(null);
+                    router.setParams({ film: slug });
+                  }}
                 />
               ) : null}
             </View>
@@ -360,34 +397,28 @@ export default function MapExpoGoScreen() {
           gap: sp.s2,
         }}
       >
-        <View
-          style={[
-            {
-              flexDirection: "row",
-              alignItems: "center",
-              gap: sp.s2,
-              flexShrink: 1,
-              backgroundColor: pal.chrome,
-              borderRadius: radius.pill,
-              paddingVertical: 10,
-              paddingHorizontal: 16,
-            },
-            shadow.card,
-          ]}
-        >
-          <Ui size={fs.md} weight="600">
-            {t("map.title")}
-          </Ui>
-          {filmSlug ? (
-            <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ flexShrink: 1, maxWidth: 140 }}>
+        {/* Owner 08-03: the "Locations" pill said nothing the screen didn't
+            already say, and wrapped to two lines doing it. The world view now
+            carries no title at all; film focus keeps a slim pill because WHICH
+            film you are looking at is the one thing the map cannot show. */}
+        {filmSlug ? (
+          <View
+            style={[
+              {
+                flexShrink: 1,
+                backgroundColor: pal.chrome,
+                borderRadius: radius.pill,
+                paddingVertical: 8,
+                paddingHorizontal: 14,
+              },
+              shadow.card,
+            ]}
+          >
+            <Ui size={fs.sm} weight="600" numberOfLines={1}>
               {filmTitle}
             </Ui>
-          ) : pins ? (
-            <Ui size={fs.xs} color={pal.muted}>
-              {t("map.pins", { n: pins.length })}
-            </Ui>
-          ) : null}
-        </View>
+          </View>
+        ) : null}
         {filmSlug ? (
           <Chip label={t("map.showAll")} icon="close" onPress={() => router.setParams({ film: "" })} />
         ) : router.canGoBack() ? (
