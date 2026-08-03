@@ -5,7 +5,7 @@ import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 import "./tow-card.css";
 
 // to.W — the curator's letter, addressed "to. WY. Heo" and sent "from. Metatake
-// AI Editorial", directed by W. Yoon. A single-film note on where a film stands
+// AI Editorial", to a framework by W. Yoon. A single-film note on where a film stands
 // in the Metatake index, assembled (LLM-0) from curation.v_film_comment via the
 // tow_comment RPC. Shared across the TakeScore film page and the film page's
 // TakeScore section.
@@ -92,7 +92,7 @@ export default function TowCard({
       <div className="towc-signrow">
         <div>
           <div className="towc-sign">from. Metatake AI Editorial</div>
-          <div className="towc-recd">{t(locale, "directed by W. Yoon")}</div>
+          <div className="towc-recd">{t(locale, "to a framework by W. Yoon")}</div>
         </div>
         <Link href="/editor" className="towc-ava" title={t(locale, "Wonwoo Yoon — Metatake editor")} aria-label={t(locale, "Wonwoo Yoon, Metatake editor — view profile")}>w</Link>
       </div>

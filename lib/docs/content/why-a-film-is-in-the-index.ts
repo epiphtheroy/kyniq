@@ -1,7 +1,7 @@
 const body = `
 # Why a film is in the index
 
-Every film Metatake catalogues carries a short letter — addressed *To WY. Heo*, sent from *Metatake AI Editorial* and directed by *W. Yoon* — saying plainly why it earned a place in the index. This page explains what goes into that letter, how the verdict is decided, and why we keep it apart from the [TakeScore](/takescore) number it sits beside.
+Every film Metatake catalogues carries a short letter — addressed *To WY. Heo*, sent from *Metatake AI Editorial* to a framework by *W. Yoon* — saying plainly why it earned a place in the index. This page explains what goes into that letter, how the verdict is decided, and why we keep it apart from the [TakeScore](/takescore) number it sits beside.
 
 The letter is **assembled by rule, not written by an AI** — and that sentence is worth reading exactly. Each film is filed on a handful of plain axes; one of them is the value [TakeScore](/takescore) measures for it, which Metatake AI computes against a version-locked rubric. Those filings are then stitched into English by a fixed template. Same filings in, same sentence out. No language model writes the letter: it is a readout of the filing, not an opinion generated on the spot.
 

@@ -238,15 +238,15 @@ export const KO: Record<string, string> = {
     "{title}의 배경이거나, 촬영지이거나, 극 중 언급되는 실제 장소들 — Metatake 촬영지 지도에 좌표로 표시했다.",
 
   // Tier-1 render body — why-watch, misreadings, tropes, curious, connected, counterpoints
-  "A spoiler-free brief on what {title} offers — the director's vision, its craft and ideas, its space and its place in film history. Written by Metatake AI, to a framework directed by":
-    "{title}가 무엇을 주는지 스포일러 없이 정리한 브리핑 — 감독의 비전, 그 기법과 관념, 공간, 그리고 영화사에서의 자리. Metatake AI가 집필했다 — 프레임워크 감독:",
+  "A spoiler-free brief on what {title} offers — the director's vision, its craft and ideas, its space and its place in film history. Written by Metatake AI, to a framework by":
+    "{title}가 무엇을 주는지 스포일러 없이 정리한 브리핑 — 감독의 비전, 그 기법과 관념, 공간, 그리고 영화사에서의 자리. Metatake AI가 집필했다 — 프레임워크 설계:",
   " — not aggregated from reviews.": " · 리뷰를 모은 것이 아니다.",
-  "Written by Metatake AI · directed by": "집필 Metatake AI · 감독",
+  "Written by Metatake AI · to a framework by": "집필 Metatake AI · 프레임워크 설계",
   "{n} original critical readings of {title}, filed across 14":
     "{title}에 대한 독창적 비평 리딩 {n}편, 14개 프레임워크에 걸쳐",
   frameworks: "프레임워크",
-  "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Written by Metatake AI, to a framework directed by":
-    "— 각각 논지를 가진 하나의 주장이며, 요약이 아니라 의도된 과잉 독해다. Metatake AI 집필 — 프레임워크 감독:",
+  "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Written by Metatake AI, to a framework by":
+    "— 각각 논지를 가진 하나의 주장이며, 요약이 아니라 의도된 과잉 독해다. Metatake AI 집필 — 프레임워크 설계:",
   "Also readable as one piece:": "한 편으로도 읽을 수 있다:",
   "the full misreadings article →": "전체 오독 기사 →",
   are: "인가",
@@ -461,9 +461,10 @@ export const KO: Record<string, string> = {
   // to.W sign row, second line. The sender line above it ("from. Metatake AI
   // Editorial") is brand vocabulary and stays English by design (§0 hard rule).
   // "감독" alone would collide with this site's own nav vocabulary — Directors:
-  // "감독" — and read as "W. Yoon directed a film". The object disambiguates it:
-  // he directs the METHOD, which is exactly what D2 credits him for.
-  "directed by W. Yoon": "방법론 감독 W. Yoon",
+  // Was "방법론 감독". Dropped 2026-08-03 with the English: on a film site "감독"
+  // is already spoken for, and the page shows "{name} 감독" for the actual
+  // director a few lines away. "설계" says what he did without the collision.
+  "to a framework by W. Yoon": "프레임워크 설계 W. Yoon",
   "Wonwoo Yoon — Metatake editor": "Wonwoo Yoon — Metatake 편집자",
   "Wonwoo Yoon, Metatake editor — view profile": "Wonwoo Yoon, Metatake 편집자 — 프로필 보기",
   "A curator's note on {title}'s place in the Metatake index — drawn from the catalog's curation records, and kept separate from the TakeScore appraisal above.": "Metatake 인덱스에서 {title}의 위치에 관한 큐레이터의 노트 — 카탈로그의 큐레이션 기록에서 뽑았으며, 위의 TakeScore 감정과는 별개다.",
@@ -509,7 +510,7 @@ export const KO: Record<string, string> = {
   "editorial desk led by ": "편집 데스크 총괄 ",
   "how this is made": "제작 방식 안내",
   "Drafted by": "작성:",
-  "directed by": "설계·감독:",
+  "to a framework by": "프레임워크 설계:",
   ", who answers for it": " · 최종 책임",
   "updated": "업데이트",
   "{n} wins": "{n}회 수상",

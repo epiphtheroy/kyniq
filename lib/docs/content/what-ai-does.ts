@@ -39,7 +39,7 @@ The rule we keep repeating to ourselves is short enough to fit on a line: **the 
 
 A page that carries a reading carries a credit naming how the reading was made — and the credit follows the layer that made it. Not one line repeated everywhere: the site is not made one way, and a single stamp across all of it would be its own kind of lie. A catalog record assembled out of dates and credits gets no authorship credit at all, because nobody and nothing authored it.
 
-Where a language model drafted the prose — the readings, the desk essays, the letters — it reads **Written by Metatake AI · designed & directed by [Wonwoo Yoon](/editor), who answers for it**.
+Where a language model drafted the prose — the readings, the desk essays, the letters — it reads **Written by Metatake AI · designed by [Wonwoo Yoon](/editor), who answers for it**.
 
 Where the sentences on the page were assembled by rule rather than written — the sentence layer, the catalogue records, the availability reports — it reads **Composed by the Metatake method — no language model · designed & supervised by Wonwoo Yoon**. The claim is about the assembly, and it is exact: a rule wrote the sentence you are reading. It is not a claim that no model touched anything upstream, and where such a layer quotes a written line it marks it as a quotation rather than passing it off as assembly.
 

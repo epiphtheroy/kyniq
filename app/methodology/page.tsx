@@ -53,7 +53,7 @@ export default async function MethodologyPage() {
       </p>
 
       <p className="ui muted" style={{ fontSize: 12.5, margin: "12px 0 0" }}>
-        Written by Metatake AI · designed &amp; directed by{" "}
+        Written by Metatake AI · designed by{" "}
         <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>{" "}
         ·{" "}
         <Link href="/methodology/editorial-responsibility" className="accent" style={{ textDecoration: "none" }}>

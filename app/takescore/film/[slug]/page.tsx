@@ -268,7 +268,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         </section>
 
         {/* ── to.W — the curator's letter (addressed to. WY. Heo, sent from.
-               Metatake AI Editorial, directed by W. Yoon).
+               Metatake AI Editorial, to a framework by W. Yoon).
                Shared card; renders for every catalogued film, optional ones too. ── */}
         <TowCard tow={tow} filmTitle={card.title} />
 

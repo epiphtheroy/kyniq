@@ -39,7 +39,7 @@ export default function Byline({
       className="ui muted"
       style={{ fontSize: 12.5, margin: "6px 0 0", letterSpacing: 0.1 }}
     >
-      {t(locale, "Drafted by")} Metatake AI · {t(locale, "directed by")}{" "}
+      {t(locale, "Drafted by")} Metatake AI · {t(locale, "to a framework by")}{" "}
       <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>
         Wonwoo Yoon
       </Link>

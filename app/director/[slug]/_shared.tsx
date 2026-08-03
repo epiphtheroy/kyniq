@@ -792,7 +792,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
             <div className="dr-tow-signrow">
               <div>
                 <div className="dr-tow-sign">from. Metatake AI Editorial</div>
-                <div className="dr-tow-recd">{t(locale, "directed by W. Yoon")}</div>
+                <div className="dr-tow-recd">{t(locale, "to a framework by W. Yoon")}</div>
               </div>
               <Link href="/editor" className="dr-tow-ava" title={t(locale, "Wonwoo Yoon — Metatake editor")} aria-label={t(locale, "Wonwoo Yoon, Metatake editor — view profile")}>w</Link>
             </div>
