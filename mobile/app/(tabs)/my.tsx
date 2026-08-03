@@ -53,7 +53,7 @@ import {
 import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS, langLabel } from "../../src/editions";
-import { Appear } from "../../src/components/motion";
+import { Appear, ProgressBar, Shimmer } from "../../src/components/motion";
 import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
 import type { DictKey } from "../../src/i18n";
@@ -78,6 +78,12 @@ const CONNECT_HREF = "/connect" as Href;
 
 // Hairline inset for grouped settings rows: 16 padding + 32 icon disc + 12 gap.
 const ROW_INSET = 60;
+
+// The journey the whole service exists for (owner 08-03): a life of watching
+// that leaves behind more than a thousand films that moved you. The ledger
+// counts toward it, so the number on You is never just a number.
+const JOURNEY_GOAL = 1000;
+const JOURNEY_GOAL_LABEL = "1,000";
 
 // ---------------------------------------------------------------------------
 // The four faces of the ledger, and how each one sorts.
@@ -489,9 +495,17 @@ export default function YouScreen() {
         </Tactile>
       </View>
 
-      {/* One quiet line of counts, then the edition/import row the owner asked to
-          keep in the open (07-29) — compressed to chips so the grid starts high. */}
-      <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, marginTop: 2 }}>
+      {/* What the service is for, and the big door in. Owner 08-03: import must
+          be unmissable here, and the screen must say — in English, on the very
+          first load — which journey the ledger below is a record of. */}
+      <JourneyCard
+        seen={loaded ? faces.watched.length : null}
+        onImport={() => router.push(CONNECT_HREF)}
+      />
+
+      {/* One quiet line of counts, then the edition row the owner asked to keep
+          in the open (07-29) — chips, so the grid still starts high. */}
+      <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, marginTop: sp.s4 }}>
         {t("you.stats", {
           seen: faces.watched.length,
           queue: faces.queue.length,
@@ -516,11 +530,6 @@ export default function YouScreen() {
           icon="language-outline"
           label={langLabel(prefs.contentLang)}
           onPress={() => router.push({ pathname: "/onboarding", params: { step: "language" } })}
-        />
-        <MetaChip
-          icon="download-outline"
-          label={t("you.import")}
-          onPress={() => router.push(CONNECT_HREF)}
         />
       </View>
 
@@ -635,25 +644,18 @@ export default function YouScreen() {
             </View>
           </Tactile>
         </View>
-        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s8, alignItems: "center", gap: sp.s4 }}>
-          <Ui size={fs.base} color={pal.inkSoft} style={{ textAlign: "center" }}>
+        {/* Signed out is exactly when "what is this for?" has to be answered —
+            same panel, same door, no ledger behind it yet. */}
+        <JourneyCard seen={null} onImport={() => router.push(CONNECT_HREF)} />
+        <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s5, gap: sp.s3 }}>
+          <Ui size={fs.sm} color={pal.muted} style={{ textAlign: "center" }}>
             {t("shelf.signedOut")}
           </Ui>
           <Btn
+            kind="ghost"
             label={t("my.signIn")}
             onPress={() => router.push({ pathname: "/onboarding", params: { step: "account" } })}
-            style={{ alignSelf: "stretch" }}
           />
-          <Tactile onPress={() => router.push(CONNECT_HREF)} hitSlop={6}>
-            <Ui
-              size={fs.sm}
-              weight="500"
-              color={pal.muted}
-              style={{ textAlign: "center", textDecorationLine: "underline" }}
-            >
-              {t("connect.entry.title")}
-            </Ui>
-          </Tactile>
         </View>
         <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
       </View>
@@ -668,6 +670,9 @@ export default function YouScreen() {
         keyExtractor={(c) => c.slug}
         numColumns={3}
         ListHeaderComponent={header}
+        // First load paints the shape of the grid rather than a blank shelf —
+        // the journey panel above is already saying what the wait is for.
+        ListEmptyComponent={loaded ? null : <GridSkeleton width={cellW} gap={GAP} />}
         columnWrapperStyle={{ paddingHorizontal: sp.s4, gap: GAP }}
         contentContainerStyle={{ paddingBottom: 120 }}
         initialNumToRender={18}
@@ -704,6 +709,98 @@ export default function YouScreen() {
 }
 
 // ---------------------------------------------------------------------------
+
+/**
+ * The journey panel — the one place the app states, in the open, what it is FOR,
+ * and the big door into it (owner 08-03).
+ *
+ * Two jobs in one card, deliberately: the copy answers "what is this service?"
+ * on the very first load, before any row of the ledger has arrived; and the
+ * import CTA — which used to be a 5mm chip nobody found — is now the largest
+ * touch target on the screen. It does not disappear once you have a ledger:
+ * the count becomes progress toward the thousand, which is the whole point.
+ *
+ * `seen` is null while the ledger is still loading and when signed out — both
+ * are states where a progress bar would be a lie, so the invitation shows
+ * instead.
+ */
+function JourneyCard({ seen, onImport }: { seen: number | null; onImport: () => void }) {
+  const pal = usePalette();
+  return (
+    <Appear
+      style={{
+        marginHorizontal: sp.s4,
+        marginTop: sp.s4,
+        backgroundColor: pal.surface,
+        borderRadius: radius.lg,
+        padding: sp.s5,
+        gap: sp.s3,
+      }}
+    >
+      <Serif size={fs.xl} style={{ lineHeight: fs.xl * 1.24 }}>
+        {t("you.journeyTitle")}
+      </Serif>
+      <Ui size={fs.sm} color={pal.inkSoft} style={{ lineHeight: fs.sm * 1.6 }}>
+        {t("you.journeyBody")}
+      </Ui>
+
+      {seen ? (
+        <View style={{ gap: 7, marginTop: sp.s1 }}>
+          <View style={{ flexDirection: "row", alignItems: "baseline", gap: 5 }}>
+            <Ui size={fs.x2} weight="700">
+              {seen.toLocaleString()}
+            </Ui>
+            <Ui size={fs.sm} weight="600" color={pal.muted}>
+              {t("you.journeyOf", { goal: JOURNEY_GOAL_LABEL })}
+            </Ui>
+            <Ui size={fs.xs} color={pal.muted} style={{ flex: 1, textAlign: "right" }}>
+              {t("you.journeyLogged")}
+            </Ui>
+          </View>
+          <ProgressBar value={seen / JOURNEY_GOAL} tint={brand.accent} height={6} />
+        </View>
+      ) : (
+        <Ui size={fs.sm} color={pal.muted} style={{ lineHeight: fs.sm * 1.55 }}>
+          {t("you.journeyStart")}
+        </Ui>
+      )}
+
+      <GradientBtn
+        icon="download-outline"
+        label={t("you.journeyCta")}
+        onPress={onImport}
+        style={{ marginTop: sp.s2 }}
+      />
+      <Ui size={fs.xs} color={pal.muted} style={{ textAlign: "center" }}>
+        {t("you.journeyCtaSub")}
+      </Ui>
+    </Appear>
+  );
+}
+
+/** First-load poster grid — the wait reads as the ledger arriving. */
+function GridSkeleton({ width, gap }: { width: number; gap: number }) {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        flexWrap: "wrap",
+        paddingHorizontal: sp.s4,
+        columnGap: gap,
+        rowGap: sp.s3,
+      }}
+    >
+      {Array.from({ length: 9 }, (_, i) => (
+        <View key={i} style={{ width }}>
+          <Shimmer width={width} height={Math.round(width * 1.5)} rounded={radius.sm} />
+          <View style={{ marginTop: 6 }}>
+            <Shimmer width={Math.round(width * 0.78)} height={10} rounded={4} />
+          </View>
+        </View>
+      ))}
+    </View>
+  );
+}
 
 /** Tiny status/shortcut chip for the edition row. */
 function MetaChip({
@@ -1077,25 +1174,48 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
             </>
           ) : null}
 
-          {/* Owner 07-31: the raw source lines are gone from the settings foot —
-              they read as clutter there. They are NOT optional, though: TMDB and
-              JustWatch both require attribution, so they now live in one stated
-              place (Credits & data sources) plus the Where-to-watch surface,
-              which is the one JustWatch's terms actually attach to. */}
-          <Tactile
-            feedback="tap"
-            onPress={() =>
-              router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } })
-            }
-            style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6 }}
+          {/* TMDB and JustWatch both REQUIRE attribution, so this door can never
+              go away — but as a 11pt subtle-grey line it was invisible, which is
+              the same as not being there (owner 08-03). It is now a normal
+              grouped row like every other setting: real label, what's behind it,
+              chevron. */}
+          <View
+            style={{
+              marginTop: sp.s6,
+              marginHorizontal: sp.s4,
+              backgroundColor: pal.surface,
+              borderRadius: radius.md,
+              overflow: "hidden",
+            }}
           >
-            <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-              <Ui size={fs.xs} color={pal.subtle}>
-                {t("my.credits")}
-              </Ui>
-              <Ionicons name="chevron-forward" size={12} color={pal.subtle} />
-            </View>
-          </Tactile>
+            <Tactile
+              feedback="tap"
+              onPress={() =>
+                router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } })
+              }
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: sp.s3,
+                  paddingHorizontal: sp.s4,
+                  paddingVertical: sp.s3,
+                }}
+              >
+                <IconDisc name="information-circle-outline" />
+                <View style={{ flex: 1 }}>
+                  <Ui size={fs.md} weight="500">
+                    {t("my.credits")}
+                  </Ui>
+                  <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+                    {t("my.creditsSub")}
+                  </Ui>
+                </View>
+                <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+              </View>
+            </Tactile>
+          </View>
         </ScrollView>
       </View>
     </Modal>
@@ -1221,15 +1341,9 @@ function SignedIn() {
           {t("error.network")}
         </Ui>
       ) : null}
-      {/* Dedication (owner directive 2026-07-20) */}
-      <Serif
-        size={fs.sm}
-        italic
-        color={pal.subtle}
-        style={{ textAlign: "center", marginTop: sp.s4 }}
-      >
-        to. W.H. Heo
-      </Serif>
+      {/* The dedication that used to close this block is gone (owner 08-03,
+          reversing 07-20). to. WY. Heo lives on where it means something — the
+          curator's letter on every film page — not in the settings foot. */}
     </View>
   );
 }

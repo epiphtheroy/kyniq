@@ -48,6 +48,7 @@ export const en = {
   "attribution.justwatch": "Streaming data powered by JustWatch",
   "attribution.tmdb": "Film metadata and images from TMDB",
   "my.credits": "Credits & data sources",
+  "my.creditsSub": "TMDB · JustWatch · Wikidata — where the data comes from",
   // director card
   "director.whereToStart": "Where to Start",
   "director.theSelection": "The Selection",
@@ -230,6 +231,16 @@ export const en = {
   "you.verdictLine": "{find} finds · {aligned} aligned · {letdown} letdowns",
   "you.import": "Import",
   "you.restore": "Restore",
+  // The journey panel — what this app is FOR, stated in the open at the top of
+  // You, with the door to a history you already have somewhere else.
+  "you.journeyTitle": "Toward a thousand films that move you",
+  "you.journeyBody":
+    "That is what Metatake is for. A life of watching should leave behind more than a thousand films that moved you deeply — we keep that ledger for you, and help you choose the next one.",
+  "you.journeyOf": "of {goal}",
+  "you.journeyLogged": "films in your ledger",
+  "you.journeyStart": "Your ledger starts the moment you bring in what you've already seen.",
+  "you.journeyCta": "Import your film history",
+  "you.journeyCtaSub": "Letterboxd · IMDb · Netflix · Watcha — years of watching, in minutes.",
   "age.fresh": "Fresh",
   "age.aging": "Aging",
   "age.stale": "Stale",
