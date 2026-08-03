@@ -4,9 +4,10 @@
  * If the key is absent, Connect OAuth is treated as not-configured (the routes
  * env-gate to 503, same posture as the Google provider). */
 import { createCipheriv, createDecipheriv, randomBytes } from "node:crypto";
+import { cred } from "./env";
 
 function key(): Buffer | null {
-  const raw = process.env.CONNECT_TOKEN_KEY;
+  const raw = cred("CONNECT_TOKEN_KEY");
   if (!raw) return null;
   // accept hex (64 chars) or base64
   const buf = /^[0-9a-fA-F]{64}$/.test(raw) ? Buffer.from(raw, "hex") : Buffer.from(raw, "base64");

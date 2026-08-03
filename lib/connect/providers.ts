@@ -9,6 +9,7 @@
  *   SIMKL_CLIENT_ID / SIMKL_CLIENT_SECRET    (simkl.com/settings/developer)
  */
 import type { CommitRow } from "@/lib/import/commit-core";
+import { cred } from "./env";
 
 export type ProviderId = "trakt" | "tmdb" | "simkl";
 
@@ -56,11 +57,11 @@ type TraktMovie = { title?: string; year?: number | null; ids?: TraktIds };
 
 const trakt: Provider = {
   id: "trakt",
-  configured: () => !!(process.env.TRAKT_CLIENT_ID && process.env.TRAKT_CLIENT_SECRET),
+  configured: () => !!(cred("TRAKT_CLIENT_ID") && cred("TRAKT_CLIENT_SECRET")),
   async beginAuth(redirectUri, state) {
     const q = new URLSearchParams({
       response_type: "code",
-      client_id: process.env.TRAKT_CLIENT_ID!,
+      client_id: cred("TRAKT_CLIENT_ID")!,
       redirect_uri: redirectUri,
       state,
     });
@@ -72,8 +73,8 @@ const trakt: Provider = {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         code,
-        client_id: process.env.TRAKT_CLIENT_ID,
-        client_secret: process.env.TRAKT_CLIENT_SECRET,
+        client_id: cred("TRAKT_CLIENT_ID"),
+        client_secret: cred("TRAKT_CLIENT_SECRET"),
         redirect_uri: redirectUri,
         grant_type: "authorization_code",
       }),
@@ -96,8 +97,8 @@ const trakt: Provider = {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         refresh_token: t.refreshToken,
-        client_id: process.env.TRAKT_CLIENT_ID,
-        client_secret: process.env.TRAKT_CLIENT_SECRET,
+        client_id: cred("TRAKT_CLIENT_ID"),
+        client_secret: cred("TRAKT_CLIENT_SECRET"),
         redirect_uri: redirectUri,
         grant_type: "refresh_token",
       }),
@@ -116,7 +117,7 @@ const trakt: Provider = {
     const headers = {
       "content-type": "application/json",
       "trakt-api-version": "2",
-      "trakt-api-key": process.env.TRAKT_CLIENT_ID!,
+      "trakt-api-key": cred("TRAKT_CLIENT_ID")!,
       authorization: `Bearer ${t.accessToken}`,
     };
     const [watchedRes, ratingsRes] = await Promise.all([
@@ -163,11 +164,11 @@ const trakt: Provider = {
 
 const tmdb: Provider = {
   id: "tmdb",
-  configured: () => !!process.env.TMDB_READ_TOKEN,
+  configured: () => !!cred("TMDB_READ_TOKEN"),
   async beginAuth(redirectUri) {
     const r = await fetch("https://api.themoviedb.org/4/auth/request_token", {
       method: "POST",
-      headers: { authorization: `Bearer ${process.env.TMDB_READ_TOKEN}`, "content-type": "application/json" },
+      headers: { authorization: `Bearer ${cred("TMDB_READ_TOKEN")}`, "content-type": "application/json" },
       body: JSON.stringify({ redirect_to: redirectUri }),
     });
     if (!r.ok) throw new Error(`tmdb request_token ${r.status}`);
@@ -178,7 +179,7 @@ const tmdb: Provider = {
   async completeAuth({ carry }) {
     const r = await fetch("https://api.themoviedb.org/4/auth/access_token", {
       method: "POST",
-      headers: { authorization: `Bearer ${process.env.TMDB_READ_TOKEN}`, "content-type": "application/json" },
+      headers: { authorization: `Bearer ${cred("TMDB_READ_TOKEN")}`, "content-type": "application/json" },
       body: JSON.stringify({ request_token: carry }),
     });
     if (!r.ok) throw new Error(`tmdb access_token ${r.status}`);
@@ -249,11 +250,11 @@ type SimklMovie = { title?: string; year?: number | null; ids?: SimklIds };
 
 const simkl: Provider = {
   id: "simkl",
-  configured: () => !!(process.env.SIMKL_CLIENT_ID && process.env.SIMKL_CLIENT_SECRET),
+  configured: () => !!(cred("SIMKL_CLIENT_ID") && cred("SIMKL_CLIENT_SECRET")),
   async beginAuth(redirectUri, state) {
     const q = new URLSearchParams({
       response_type: "code",
-      client_id: process.env.SIMKL_CLIENT_ID!,
+      client_id: cred("SIMKL_CLIENT_ID")!,
       redirect_uri: redirectUri,
       state,
     });
@@ -265,8 +266,8 @@ const simkl: Provider = {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         code,
-        client_id: process.env.SIMKL_CLIENT_ID,
-        client_secret: process.env.SIMKL_CLIENT_SECRET,
+        client_id: cred("SIMKL_CLIENT_ID"),
+        client_secret: cred("SIMKL_CLIENT_SECRET"),
         redirect_uri: redirectUri,
         grant_type: "authorization_code",
       }),
@@ -282,7 +283,7 @@ const simkl: Provider = {
     const headers = {
       "content-type": "application/json",
       authorization: `Bearer ${t.accessToken}`,
-      "simkl-api-key": process.env.SIMKL_CLIENT_ID!,
+      "simkl-api-key": cred("SIMKL_CLIENT_ID")!,
     };
     // Covenant (§6-6): check activities first; only pull if movies changed, and
     // pass date_from for incremental sync — else the client_id gets suspended.
