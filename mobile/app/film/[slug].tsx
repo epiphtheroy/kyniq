@@ -383,9 +383,13 @@ export default function FilmScreen() {
   const lineage = card.lineage ?? [];
   const locCount = card.locations?.count ?? 0;
   const locPins = card.locations?.pins ?? [];
-  // Open a filming location in the device's native maps app (Google Maps if installed,
-  // else Apple Maps/Safari) — no CDN, no API key, no freeze. Replaces the old in-app
-  // WebView map tab which hung on slow tile/CDN loads and trapped the back button.
+  // Our own map, focused on this film (owner 08-03). Tapping a location used to
+  // throw you out of the app into Google Maps — a place with none of our pins,
+  // no other films, and no way back. The Locations tab route survives exactly for
+  // this (href:null in the tab layout) and already knows ?film=<slug>.
+  const openOurMap = () => router.push({ pathname: "/map", params: { film: card.slug } });
+  // The outlink survives as one explicitly LABELLED button, for turn-by-turn —
+  // never as what happens when you tap a place name.
   const openPinInMaps = (pin?: { lat: number; lng: number }) => {
     if (!pin) return;
     Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${pin.lat},${pin.lng}`).catch(() => {});
@@ -935,12 +939,41 @@ export default function FilmScreen() {
                    slow, and unzoomable. On iOS it is now a live map you pinch in
                    place; Google Maps stays one tap away for turn-by-turn. */
                 <View style={{ marginHorizontal: sp.s4, marginBottom: sp.s3, gap: sp.s2 }}>
-                  <FilmMiniMap
-                    pins={locPins}
-                    height={Math.round((width - sp.s4 * 2) * 0.72)}
-                    interactive
-                    onPress={() => openPinInMaps(locPins[0])}
-                  />
+                  <View>
+                    <FilmMiniMap
+                      pins={locPins}
+                      height={Math.round((width - sp.s4 * 2) * 0.72)}
+                      interactive
+                      onPress={openOurMap}
+                    />
+                    {/* Full-screen the same pins (owner 08-03: "지도 크게 보기").
+                        Floats over the map so the map keeps all of its own area. */}
+                    <Tactile
+                      feedback="tap"
+                      onPress={openOurMap}
+                      style={{ position: "absolute", top: sp.s2, right: sp.s2 }}
+                      hitSlop={8}
+                    >
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: 5,
+                          borderRadius: radius.pill,
+                          paddingHorizontal: 10,
+                          paddingVertical: 6,
+                          backgroundColor: pal.chrome,
+                          borderWidth: StyleSheet.hairlineWidth,
+                          borderColor: pal.hairline2,
+                        }}
+                      >
+                        <Ionicons name="expand-outline" size={13} color={pal.ink} />
+                        <Ui size={fs.xs} weight="600">
+                          {t("film.expandMap")}
+                        </Ui>
+                      </View>
+                    </Tactile>
+                  </View>
                   <Tactile
                     feedback="tap"
                     onPress={() => openPinInMaps(locPins[0])}
@@ -960,7 +993,7 @@ export default function FilmScreen() {
                   <View key={String(p.id)}>
                     {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
                     <Tactile
-                      onPress={() => openPinInMaps(p)}
+                      onPress={openOurMap}
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
@@ -979,6 +1012,28 @@ export default function FilmScreen() {
                     </Tactile>
                   </View>
                 ))}
+                {/* Only three names fit here; the rest are on the map. */}
+                {locCount > 3 ? (
+                  <>
+                    <Hairline style={{ marginLeft: sp.s4 }} />
+                    <Tactile
+                      onPress={openOurMap}
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: sp.s2,
+                        paddingHorizontal: sp.s4,
+                        paddingVertical: 11,
+                      }}
+                    >
+                      <Ionicons name="map-outline" size={15} color={brand.accent} />
+                      <Ui size={fs.sm} weight="600" color={brand.accent} style={{ flex: 1 }}>
+                        {t("film.allLocations", { n: locCount })}
+                      </Ui>
+                      <Ionicons name="chevron-forward" size={14} color={brand.accent} />
+                    </Tactile>
+                  </>
+                ) : null}
               </Group>
             </>
           ) : null}

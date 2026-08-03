@@ -53,7 +53,7 @@ import {
 import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS, langLabel } from "../../src/editions";
-import { Appear, ProgressBar, Shimmer } from "../../src/components/motion";
+import { Appear, Shimmer } from "../../src/components/motion";
 import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
 import type { DictKey } from "../../src/i18n";
@@ -78,12 +78,6 @@ const CONNECT_HREF = "/connect" as Href;
 
 // Hairline inset for grouped settings rows: 16 padding + 32 icon disc + 12 gap.
 const ROW_INSET = 60;
-
-// The journey the whole service exists for (owner 08-03): a life of watching
-// that leaves behind more than a thousand films that moved you. The ledger
-// counts toward it, so the number on You is never just a number.
-const JOURNEY_GOAL = 1000;
-const JOURNEY_GOAL_LABEL = "1,000";
 
 // ---------------------------------------------------------------------------
 // The four faces of the ledger, and how each one sorts.
@@ -462,6 +456,9 @@ export default function YouScreen() {
           : "you.empty.passed";
 
   const loaded = collection !== null;
+  // "Has this person brought their films in yet?" — any row on any face counts.
+  const ledgerEmpty =
+    faces.watched.length === 0 && faces.queue.length === 0 && faces.passed.length === 0;
 
   const header = (
     <View>
@@ -495,13 +492,11 @@ export default function YouScreen() {
         </Tactile>
       </View>
 
-      {/* What the service is for, and the big door in. Owner 08-03: import must
-          be unmissable here, and the screen must say — in English, on the very
-          first load — which journey the ledger below is a record of. */}
-      <JourneyCard
-        seen={loaded ? faces.watched.length : null}
-        onImport={() => router.push(CONNECT_HREF)}
-      />
+      {/* What the service is for, and the big door in — for people who have not
+          brought their films in yet. Owner 08-03: once a ledger exists this panel
+          has done its job and must get out of the way (import stays reachable as
+          the chip below). */}
+      {loaded && ledgerEmpty ? <JourneyCard onImport={() => router.push(CONNECT_HREF)} /> : null}
 
       {/* One quiet line of counts, then the edition row the owner asked to keep
           in the open (07-29) — chips, so the grid still starts high. */}
@@ -531,6 +526,15 @@ export default function YouScreen() {
           label={langLabel(prefs.contentLang)}
           onPress={() => router.push({ pathname: "/onboarding", params: { step: "language" } })}
         />
+        {/* The door back to Connect once the journey panel has retired — a second
+            import (another service, a fresh export) has to stay reachable. */}
+        {ledgerEmpty ? null : (
+          <MetaChip
+            icon="download-outline"
+            label={t("you.import")}
+            onPress={() => router.push(CONNECT_HREF)}
+          />
+        )}
       </View>
 
       {/* Faces */}
@@ -646,7 +650,7 @@ export default function YouScreen() {
         </View>
         {/* Signed out is exactly when "what is this for?" has to be answered —
             same panel, same door, no ledger behind it yet. */}
-        <JourneyCard seen={null} onImport={() => router.push(CONNECT_HREF)} />
+        <JourneyCard onImport={() => router.push(CONNECT_HREF)} />
         <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s5, gap: sp.s3 }}>
           <Ui size={fs.sm} color={pal.muted} style={{ textAlign: "center" }}>
             {t("shelf.signedOut")}
@@ -711,65 +715,40 @@ export default function YouScreen() {
 // ---------------------------------------------------------------------------
 
 /**
- * The journey panel — the one place the app states, in the open, what it is FOR,
- * and the big door into it (owner 08-03).
+ * The journey panel — what this app is FOR, stated in the open, and the big door
+ * into it (owner 08-03).
  *
- * Two jobs in one card, deliberately: the copy answers "what is this service?"
- * on the very first load, before any row of the ledger has arrived; and the
- * import CTA — which used to be a 5mm chip nobody found — is now the largest
- * touch target on the screen. It does not disappear once you have a ledger:
- * the count becomes progress toward the thousand, which is the whole point.
- *
- * `seen` is null while the ledger is still loading and when signed out — both
- * are states where a progress bar would be a lie, so the invitation shows
- * instead.
+ * Shown ONLY to someone whose ledger is still empty: this is the page for people
+ * who have not brought their films in yet, and it is meant to disappear the
+ * moment they have. So there is no progress bar and no ledger figure here —
+ * nothing to count yet — just the journey, the door, and which services fit
+ * through it.
  */
-function JourneyCard({ seen, onImport }: { seen: number | null; onImport: () => void }) {
+function JourneyCard({ onImport }: { onImport: () => void }) {
   const pal = usePalette();
   return (
     <Appear
       style={{
         marginHorizontal: sp.s4,
-        marginTop: sp.s4,
+        marginTop: sp.s3,
         backgroundColor: pal.surface,
         borderRadius: radius.lg,
-        padding: sp.s5,
-        gap: sp.s3,
+        paddingHorizontal: sp.s4,
+        paddingVertical: sp.s4,
+        gap: sp.s2 + 2,
       }}
     >
-      <Serif size={fs.xl} style={{ lineHeight: fs.xl * 1.24 }}>
+      <Serif size={fs.lg + 1} style={{ lineHeight: (fs.lg + 1) * 1.22 }}>
         {t("you.journeyTitle")}
       </Serif>
-      <Ui size={fs.sm} color={pal.inkSoft} style={{ lineHeight: fs.sm * 1.6 }}>
+      <Ui size={fs.sm} color={pal.inkSoft} style={{ lineHeight: fs.sm * 1.5 }}>
         {t("you.journeyBody")}
       </Ui>
-
-      {seen ? (
-        <View style={{ gap: 7, marginTop: sp.s1 }}>
-          <View style={{ flexDirection: "row", alignItems: "baseline", gap: 5 }}>
-            <Ui size={fs.x2} weight="700">
-              {seen.toLocaleString()}
-            </Ui>
-            <Ui size={fs.sm} weight="600" color={pal.muted}>
-              {t("you.journeyOf", { goal: JOURNEY_GOAL_LABEL })}
-            </Ui>
-            <Ui size={fs.xs} color={pal.muted} style={{ flex: 1, textAlign: "right" }}>
-              {t("you.journeyLogged")}
-            </Ui>
-          </View>
-          <ProgressBar value={seen / JOURNEY_GOAL} tint={brand.accent} height={6} />
-        </View>
-      ) : (
-        <Ui size={fs.sm} color={pal.muted} style={{ lineHeight: fs.sm * 1.55 }}>
-          {t("you.journeyStart")}
-        </Ui>
-      )}
-
       <GradientBtn
         icon="download-outline"
         label={t("you.journeyCta")}
         onPress={onImport}
-        style={{ marginTop: sp.s2 }}
+        style={{ marginTop: 2 }}
       />
       <Ui size={fs.xs} color={pal.muted} style={{ textAlign: "center" }}>
         {t("you.journeyCtaSub")}
@@ -1241,6 +1220,12 @@ function IconDisc({ name }: { name: React.ComponentProps<typeof Ionicons>["name"
   );
 }
 
+/**
+ * One grouped settings row. The value sits UNDER the label, not beside it
+ * (owner 08-03): "Where do you watch?" next to "🇰🇷 South Korea · 0" did not fit
+ * a phone's width and wrapped into three ragged lines. Stacked, it can't — and
+ * it matches the Notifications row right above it.
+ */
 function SettingRow({
   icon,
   label,
@@ -1265,12 +1250,14 @@ function SettingRow({
         }}
       >
         <IconDisc name={icon} />
-        <Ui size={fs.md} weight="500" style={{ flex: 1 }}>
-          {label}
-        </Ui>
-        <Ui size={fs.sm} color={pal.muted}>
-          {value}
-        </Ui>
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="500" numberOfLines={1}>
+            {label}
+          </Ui>
+          <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 2 }}>
+            {value}
+          </Ui>
+        </View>
         <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
       </View>
     </Tactile>

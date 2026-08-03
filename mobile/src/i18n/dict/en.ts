@@ -34,6 +34,8 @@ export const en = {
   "film.lineage": "Lineage",
   "film.locations": "Locations",
   "film.openInMaps": "Open in Google Maps",
+  "film.expandMap": "Larger map",
+  "film.allLocations": "See all {n} locations on the map",
   "film.theLife": "The Life",
   "film.notStreaming": "Not streaming in {country} right now",
   "film.notStreamingHint": "Add it to your watchlist — we'll notify you when it arrives.",
@@ -231,14 +233,11 @@ export const en = {
   "you.verdictLine": "{find} finds · {aligned} aligned · {letdown} letdowns",
   "you.import": "Import",
   "you.restore": "Restore",
-  // The journey panel — what this app is FOR, stated in the open at the top of
-  // You, with the door to a history you already have somewhere else.
+  // The journey panel — what this app is FOR, shown only while the ledger is
+  // still empty, with the door to a history you already have somewhere else.
   "you.journeyTitle": "Toward a thousand films that move you",
   "you.journeyBody":
-    "That is what Metatake is for. A life of watching should leave behind more than a thousand films that moved you deeply — we keep that ledger for you, and help you choose the next one.",
-  "you.journeyOf": "of {goal}",
-  "you.journeyLogged": "films in your ledger",
-  "you.journeyStart": "Your ledger starts the moment you bring in what you've already seen.",
+    "A life of watching should leave behind more than a thousand films that moved you deeply. Metatake keeps that ledger — start it with the ones you've already seen.",
   "you.journeyCta": "Import your film history",
   "you.journeyCtaSub": "Letterboxd · IMDb · Netflix · Watcha — years of watching, in minutes.",
   "age.fresh": "Fresh",
