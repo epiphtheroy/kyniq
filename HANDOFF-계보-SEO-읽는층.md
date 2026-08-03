@@ -62,7 +62,8 @@ lineage 인제스트 파이프라인(수집)은 별도 세션 소관. 이 층은
 ## 4. 남은 카드 (미착수)
 
 - **lineage_editions 노출**(4,735 연도별 에디션 — "Cannes 2019" 같은 쿼리; 씬 리스크 검토 후 별도 결정).
-- **플래그십 정전 꼬리 수복**(SEO_LINEAGE_SPEC §4b): TSPDT +6, NFR +11 미매칭 타이틀의 수동 대조(제목/연도 변형이 원인) — 매칭되면 N-of-M 노트가 자동 소멸. 1001 Movies(159/1001)는 인제스트 지속 사안.
+- **플래그십 정전 꼬리 수복**(SEO_LINEAGE_SPEC §4b): TSPDT +6, NFR +11 미매칭 타이틀의 수동 대조(제목/연도 변형이 원인) — 매칭되면 N-of-M 노트가 자동 소멸.
+- **1001 Movies 재수확**(2026-08-03 진단, 오너 승인 백로그): 159/1001의 원인은 매칭 실패가 **아니라 수집 중단**. `handoff/mappings/film_lineage.csv`의 `1001-movies` 행이 **160개뿐이고 1941년(Citizen Kane·Sergeant York)에서 끊겨** 있다 — `source=wikipedia-enum`, 미러 사이트 페이지네이션 한도(`handoff/00_MASTER_HANDOFF.md` §9.2). 완전판은 listchallenges 36페이지 재열거. ⚠️`lineage-ingest.py --apply`는 **film_lineage를 통째로 교체**하므로 1,000개 리스트가 함께 재작성되고 `compute_film_scores` 재계산이 따라온다 — 단독 실행 금지, 별도 세션에서 계획. **리스트를 숨기거나 지우지 말 것**: 멤버십 159행이 prestige를 먹이고 있어(삭제 시 159편 평균 −11.2·최대 −21.4, 35편은 prestige 0) 지우면 점수가 더 부정확해지고, `KNOWN_TRUE_SIZE` 덕에 웹은 이미 "159 of 1001"로 정직하게 공개 중이다(오너 결정 08-03: 유지).
 - **리스트 멤버 Movie sameAs**(ItemList 내 필름별 wikidata/tmdb) — 필름 조인 추가 필요, 소규모.
 - lineage_sources 테이블 채우기(현재 빈 테이블; 코드 맵으로 충분하나 데이터 사업 관점에선 테이블 정본화가 나음 — 원우 결정).
 - /lineage 인덱스의 ItemList가 /movements 허브를 가리키는 구조(의도된 하이브리드) — 리스트 그리드의 서버 렌더 강화는 차후.
