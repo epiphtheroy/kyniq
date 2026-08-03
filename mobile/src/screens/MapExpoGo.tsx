@@ -4,21 +4,28 @@
 // MapNative (the canon): floating title pill chrome, "Near me" chip, bottom
 // card on pin tap.
 // No provider prop on purpose — the iOS default is Apple Maps (no key needed).
-// react-native-maps has no clustering, so markers are capped at 500.
+//
+// Owner 08-03 ("the map is still slow to load"): this is now the iOS renderer in
+// STORE builds too, not just Expo Go. The WebView path had to boot WKWebView,
+// pull ~250 KB of maplibre off a CDN, parse it, then index 17,337 points before
+// anything appeared. Apple Maps is in the binary and draws in a blink, so the
+// map is on screen first and the pins land on top of it — nothing here waits for
+// the artifact. react-native-maps has no clustering, so markers are filtered to
+// the visible region and capped.
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as Location from "expo-location";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Linking, View } from "react-native";
+import { FlatList, Image, Linking, View } from "react-native";
 import MapView, { Marker, type MarkerPressEvent, type Region } from "react-native-maps";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Btn, Chip, GradientBtn, Loading, Screen, Tactile, Ui } from "../components/ui";
+import { Btn, Chip, GradientBtn, Screen, Tactile, Ui } from "../components/ui";
 import { t } from "../i18n";
 import { boundsOf, loadFilmPins, loadGlobalPins, type Pin } from "../lib/pins";
 import { brand, fs, radius, shadow, sp, usePalette } from "../theme";
 
 const WORLD_REGION: Region = { latitude: 22, longitude: 10, latitudeDelta: 120, longitudeDelta: 120 };
-const MAX_MARKERS = 500; // no clustering in react-native-maps — cap for render perf
+const MAX_MARKERS = 300; // no clustering in react-native-maps — cap per viewport
 
 // Content floated over the map must clear the absolute blurred tab bar.
 const TAB_CLEARANCE = 104;
@@ -41,6 +48,7 @@ export default function MapExpoGoScreen() {
   const [selected, setSelected] = useState<Pin | null>(null);
   const [locDenied, setLocDenied] = useState(false);
   const [mapReady, setMapReady] = useState(false);
+  const [region, setRegion] = useState<Region>(WORLD_REGION);
 
   useEffect(() => {
     let alive = true;
@@ -48,7 +56,6 @@ export default function MapExpoGoScreen() {
     setSelected(null);
     if (filmSlug) {
       setPins(null);
-      setMapReady(false); // map unmounts under <Loading/> — a fresh one fires onMapReady again
       loadFilmPins(filmSlug)
         .then((p) => alive && setPins(p))
         .catch(() => alive && setErr(true));
@@ -56,7 +63,6 @@ export default function MapExpoGoScreen() {
       setPins(globalPinCache);
     } else {
       setPins(null);
-      setMapReady(false);
       loadGlobalPins()
         .then((p) => {
           globalPinCache = p;
@@ -99,14 +105,40 @@ export default function MapExpoGoScreen() {
     );
   }, [mapReady, filmSlug, pins]);
 
-  // The world artifact carries all 17,337 pins in name order, so a plain slice
-  // would be an alphabetical accident. Without clustering the cap has to fall
-  // somewhere — let it fall on the best-scored films.
+  // react-native-maps has no clustering, and the world artifact holds 17,337
+  // pins, so the markers that exist are the ones you can actually see: filter to
+  // the visible region first, and only then let the cap fall on the best-scored
+  // films. Scanning 17k coordinates is ~1 ms and happens on region change, not
+  // per frame.
   const shown = useMemo(() => {
     const all = pins ?? [];
-    if (all.length <= MAX_MARKERS) return all;
-    return [...all].sort((a, b) => (b.ts ?? -1) - (a.ts ?? -1)).slice(0, MAX_MARKERS);
-  }, [pins]);
+    if (!all.length) return all;
+    const latPad = region.latitudeDelta / 2;
+    const lngPad = region.longitudeDelta / 2;
+    const wholeWorld = region.longitudeDelta >= 180;
+    const visible = all.filter((p) => {
+      if (Math.abs(p.lat - region.latitude) > latPad) return false;
+      if (wholeWorld) return true;
+      return Math.abs(p.lng - region.longitude) <= lngPad;
+    });
+    const pool = visible.length ? visible : all;
+    if (pool.length <= MAX_MARKERS) return pool;
+    return [...pool].sort((a, b) => (b.ts ?? -1) - (a.ts ?? -1)).slice(0, MAX_MARKERS);
+  }, [pins, region]);
+
+  // Walking the map (owner 08-03): every film on screen, best-scored first.
+  // Derived from `shown`, so it is already region-filtered — one pin per film.
+  const inView = useMemo(() => {
+    const seen = new Set<string>();
+    const out: Pin[] = [];
+    for (const p of shown) {
+      if (!p.filmSlug || seen.has(p.filmSlug)) continue;
+      seen.add(p.filmSlug);
+      out.push(p);
+    }
+    out.sort((a, b) => (b.ts ?? -1) - (a.ts ?? -1));
+    return out.slice(0, 40);
+  }, [shown]);
 
   const filmTitle = filmSlug ? (pins?.find((p) => p.filmTitle)?.filmTitle ?? filmSlug) : null;
 
@@ -136,8 +168,6 @@ export default function MapExpoGoScreen() {
           <Ui color={pal.muted}>{t("error.network")}</Ui>
           <Btn label={t("action.retry")} onPress={() => setTries((n) => n + 1)} />
         </View>
-      ) : !pins ? (
-        <Loading />
       ) : (
         <View style={{ flex: 1 }}>
           <MapView
@@ -146,6 +176,7 @@ export default function MapExpoGoScreen() {
             initialRegion={WORLD_REGION}
             pitchEnabled={false}
             onMapReady={() => setMapReady(true)}
+            onRegionChangeComplete={setRegion}
             onPress={() => setSelected(null)}
           >
             {shown.map((p) => (
@@ -162,8 +193,72 @@ export default function MapExpoGoScreen() {
             ))}
           </MapView>
 
+          {/* Walk the map: tap a card and the camera flies to that film's pin
+              and selects it. Selecting swaps this strip for the detail card, so
+              the two never fight for the same corner. */}
+          {!selected && !filmSlug && inView.length ? (
+            <View style={{ position: "absolute", left: 0, right: 0, bottom: TAB_CLEARANCE }}>
+              <FlatList
+                horizontal
+                data={inView}
+                keyExtractor={(p) => p.id}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2 }}
+                renderItem={({ item }) => (
+                  <Tactile
+                    feedback="tap"
+                    onPress={() => {
+                      mapRef.current?.animateToRegion(
+                        {
+                          latitude: item.lat,
+                          longitude: item.lng,
+                          latitudeDelta: 0.4,
+                          longitudeDelta: 0.4,
+                        },
+                        600,
+                      );
+                      setSelected(item);
+                    }}
+                  >
+                    <View
+                      style={[
+                        {
+                          width: 132,
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: sp.s2,
+                          backgroundColor: pal.card,
+                          borderRadius: radius.md,
+                          padding: 6,
+                        },
+                        shadow.card,
+                      ]}
+                    >
+                      {item.posterPath ? (
+                        <Image
+                          source={{ uri: `https://image.tmdb.org/t/p/w154${item.posterPath}` }}
+                          style={{ width: 30, height: 45, borderRadius: 5, backgroundColor: pal.surface }}
+                        />
+                      ) : null}
+                      <View style={{ flex: 1 }}>
+                        <Ui size={fs.xs} weight="600" numberOfLines={2}>
+                          {item.filmTitle ?? item.name}
+                        </Ui>
+                        {item.ts != null ? (
+                          <Ui size={fs.xs - 1} weight="700" color={brand.accent} style={{ marginTop: 2 }}>
+                            {t("nav.ts", { n: Math.round(item.ts) })}
+                          </Ui>
+                        ) : null}
+                      </View>
+                    </View>
+                  </Tactile>
+                )}
+              />
+            </View>
+          ) : null}
+
           {/* Film focus with zero mapped pins */}
-          {filmSlug && !pins.length ? (
+          {filmSlug && pins && !pins.length ? (
             <View
               style={[
                 {
