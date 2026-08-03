@@ -233,6 +233,18 @@ export const en = {
   "you.verdictLine": "{find} finds · {aligned} aligned · {letdown} letdowns",
   "you.import": "Import",
   "you.restore": "Restore",
+  "you.tab.lists": "Lists",
+  "you.empty.lists": "No saved lists yet — star a collection in Explore and it lands here.",
+  // Saved lists: keeping the LIST and adding its films are two different acts.
+  "list.save": "Save list",
+  "list.saved": "Saved",
+  "list.addAll": "Add all to watchlist",
+  "list.addingAll": "Adding…",
+  "list.addedN": "{n} added to your watchlist",
+  "list.drive": "Drive it",
+  "list.seenOf": "{total} films · {seen} seen",
+  "list.onMetatake": "{shown} of {all} on Metatake",
+  "list.seenN": "{n} seen",
   // The journey panel — what this app is FOR, shown only while the ledger is
   // still empty, with the door to a history you already have somewhere else.
   "you.journeyTitle": "Toward a thousand films that move you",

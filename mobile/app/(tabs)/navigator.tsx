@@ -11,6 +11,7 @@ import { ScrollView, TextInput, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Btn, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { Appear, ProgressBar, Pulse, SkeletonRows, SkeletonScreen, useCountUp } from "../../src/components/motion";
+import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import type { NavActive, NavCatalog, NavDestinations, NavPickDest } from "../../src/types";
@@ -88,6 +89,9 @@ function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
             {t("nav.drive")}
           </Ui>
         </View>
+        {/* Lists can be kept, not just driven (owner 08-03). Director conquests
+            are not lists, so they get no star. */}
+        {d.kind === "lineage" ? <SaveListBtn slug={d.key} /> : null}
       </View>
     </Tactile>
   );

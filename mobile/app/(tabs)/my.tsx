@@ -53,7 +53,7 @@ import {
 import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS, langLabel } from "../../src/editions";
-import { Appear, Shimmer } from "../../src/components/motion";
+import { Appear, ProgressBar, Shimmer } from "../../src/components/motion";
 import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
 import type { DictKey } from "../../src/i18n";
@@ -70,8 +70,14 @@ import {
 } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
+import { loadSaves, useSaves } from "../../src/state/saves";
 import { brand, fs, gradient, radius, sp, usePalette } from "../../src/theme";
-import type { CollectionRow, PassedRow, WatchlistScoredRow } from "../../src/types";
+import type {
+  CollectionRow,
+  NavCatalogEntry,
+  PassedRow,
+  WatchlistScoredRow,
+} from "../../src/types";
 
 // Connect hub route (HANDOFF-커넥트 §2.1).
 const CONNECT_HREF = "/connect" as Href;
@@ -80,9 +86,10 @@ const CONNECT_HREF = "/connect" as Href;
 const ROW_INSET = 60;
 
 // ---------------------------------------------------------------------------
-// The four faces of the ledger, and how each one sorts.
+// The faces of the ledger, and how each one sorts. Four are films; the fifth is
+// the lists you kept (owner 08-03) — same shelf, different unit.
 
-type Face = "watched" | "queue" | "rated" | "passed";
+type Face = "watched" | "queue" | "rated" | "passed" | "lists";
 type SortKey = "recent" | "rating" | "ts" | "gap" | "year" | "title" | "services";
 
 const FACES: { key: Face; label: DictKey }[] = [
@@ -90,6 +97,7 @@ const FACES: { key: Face; label: DictKey }[] = [
   { key: "queue", label: "you.tab.queue" },
   { key: "rated", label: "you.tab.rated" },
   { key: "passed", label: "you.tab.passed" },
+  { key: "lists", label: "you.tab.lists" },
 ];
 
 /** Sort switches per face — first entry is that face's default. */
@@ -98,6 +106,8 @@ const SORTS: Record<Face, SortKey[]> = {
   queue: ["recent", "services", "ts", "year", "title"],
   rated: ["rating", "recent", "ts", "gap", "year", "title"],
   passed: ["recent", "ts", "year", "title"],
+  // Lists carry their own order (coverage first); no switches.
+  lists: [],
 };
 
 function sortLabel(key: SortKey, face: Face): DictKey {
@@ -196,6 +206,15 @@ export default function YouScreen() {
   const [tiers, setTiers] = useState<Map<string, string[]>>(new Map());
   const [mine, setMine] = useState<Set<string>>(new Set());
 
+  // Saved lists (owner 08-03) — the fifth face. The stars themselves come from
+  // the saves store (instant, shared with Explore); the labels and coverage come
+  // from the same catalog Explore's Collections rail uses, fetched only once the
+  // Lists face is actually opened.
+  const { refs: savedRefsOf, rev: savesRev } = useSaves();
+  const savedLists = useMemo(() => savedRefsOf("lineage"), [savedRefsOf, savesRev]);
+  const [catalog, setCatalog] = useState<NavCatalogEntry[] | null>(null);
+  const [catalogErr, setCatalogErr] = useState(false);
+
   const [undoTok, setUndoTok] = useState<JudgmentUndo | null>(null);
   const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const listRef = useRef<FlatList<Cell>>(null);
@@ -293,7 +312,8 @@ export default function YouScreen() {
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await Promise.all([reload(), fetchAll()]);
+    // Lists are refreshed too — a list starred on metatake.net shows up here.
+    await Promise.all([reload(), fetchAll(), loadSaves(true)]);
     setRefreshing(false);
   };
 
@@ -366,9 +386,46 @@ export default function YouScreen() {
   }, [collection, queue, passed, ledger, tsMap, tiers, mine]);
 
   const rows = useMemo(
-    () => sortCells(faces[face], sortKey, flipped),
+    () => (face === "lists" ? [] : sortCells(faces[face], sortKey, flipped)),
     [faces, face, sortKey, flipped],
   );
+
+  // Only pay for the catalog when someone opens Lists, and only once.
+  useEffect(() => {
+    if (face !== "lists" || catalog || catalogErr) return;
+    let alive2 = true;
+    api
+      .lineageCatalog()
+      .then((c) => {
+        if (alive2) setCatalog(c);
+      })
+      .catch(() => {
+        if (alive2) setCatalogErr(true);
+      });
+    return () => {
+      alive2 = false;
+    };
+  }, [face, catalog, catalogErr]);
+
+  /** Saved lists, richest first — the ones you're furthest into lead. */
+  const listRows = useMemo(() => {
+    if (!savedLists.length) return [];
+    const by = new Map((catalog ?? []).map((c) => [c.key, c]));
+    return savedLists
+      .map(
+        (key) =>
+          by.get(key) ?? {
+            kind: "lineage" as const,
+            key,
+            label: key,
+            total: 0,
+            seen: 0,
+            pct: 0,
+            search: "",
+          },
+      )
+      .sort((a, b) => b.pct - a.pct || b.total - a.total || a.label.localeCompare(b.label));
+  }, [savedLists, catalog]);
 
   // Localized titles for exactly what this face is about to paint (migration
   // 0121). English short-circuits to a no-op.
@@ -388,7 +445,8 @@ export default function YouScreen() {
   const pickFace = (next: Face) => {
     if (next === face) return;
     setFace(next);
-    setSortKey(SORTS[next][0]);
+    // Lists carry no sort switches — leave the film faces' key alone.
+    if (SORTS[next].length) setSortKey(SORTS[next][0]);
     setFlipped(false);
     listRef.current?.scrollToOffset({ offset: 0, animated: false });
   };
@@ -453,7 +511,9 @@ export default function YouScreen() {
         ? "you.empty.queue"
         : face === "rated"
           ? "you.empty.rated"
-          : "you.empty.passed";
+          : face === "lists"
+            ? "you.empty.lists"
+            : "you.empty.passed";
 
   const loaded = collection !== null;
   // "Has this person brought their films in yet?" — any row on any face counts.
@@ -567,7 +627,7 @@ export default function YouScreen() {
                   color={on ? pal.bg : pal.subtle}
                   style={{ opacity: on ? 0.7 : 1 }}
                 >
-                  {String(faces[f.key].length)}
+                  {String(f.key === "lists" ? savedLists.length : faces[f.key].length)}
                 </Ui>
               </View>
             </Tactile>
@@ -583,7 +643,7 @@ export default function YouScreen() {
           paddingHorizontal: sp.s4,
           gap: sp.s4,
           alignItems: "center",
-          paddingBottom: sp.s3,
+          paddingBottom: SORTS[face].length ? sp.s3 : 0,
         }}
       >
         {SORTS[face].map((k) => {
@@ -611,7 +671,7 @@ export default function YouScreen() {
 
       <Hairline style={{ marginHorizontal: sp.s4, marginBottom: sp.s3 }} />
 
-      {loaded && rows.length === 0 ? (
+      {(face === "lists" ? savedLists.length === 0 : loaded && rows.length === 0) ? (
         <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s5 }}>
           {t(emptyKey)}
         </Ui>
@@ -666,9 +726,41 @@ export default function YouScreen() {
     );
   }
 
+  if (face === "lists") {
+    return (
+      <View style={{ flex: 1, backgroundColor: pal.bg }}>
+        <FlatList
+          key="lists"
+          data={listRows}
+          keyExtractor={(l) => l.key}
+          ListHeaderComponent={header}
+          contentContainerStyle={{ paddingBottom: 120 }}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
+          }
+          renderItem={({ item, index }) => (
+            <Appear index={index}>
+              <SavedListRow
+                entry={item}
+                onPress={() =>
+                  router.push({
+                    pathname: "/list/[slug]",
+                    params: { slug: item.key, label: item.label },
+                  })
+                }
+              />
+            </Appear>
+          )}
+        />
+        <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
+      </View>
+    );
+  }
+
   return (
     <View style={{ flex: 1, backgroundColor: pal.bg }}>
       <FlatList
+        key="grid"
         ref={listRef}
         data={rows}
         keyExtractor={(c) => c.slug}
@@ -778,6 +870,57 @@ function GridSkeleton({ width, gap }: { width: number; gap: number }) {
         </View>
       ))}
     </View>
+  );
+}
+
+/**
+ * One kept list. Coverage is the whole point of keeping it, so the row leads
+ * with how far into it you are; the label falls back to the slug until the
+ * catalog lands (a saved list must never render as a blank row).
+ */
+function SavedListRow({ entry, onPress }: { entry: NavCatalogEntry; onPress: () => void }) {
+  const pal = usePalette();
+  const pct = Math.max(0, Math.min(100, entry.pct));
+  return (
+    <Tactile
+      onPress={onPress}
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        gap: sp.s3,
+        paddingHorizontal: sp.s4,
+        paddingVertical: sp.s3,
+      }}
+    >
+      <View
+        style={{
+          width: 34,
+          height: 34,
+          borderRadius: radius.pill,
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: `${brand.accent}1F`,
+        }}
+      >
+        <Ionicons name="star" size={15} color={brand.accent} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Ui size={fs.md} weight="500" numberOfLines={1}>
+          {entry.label}
+        </Ui>
+        <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 2 }}>
+          {entry.total
+            ? t("list.seenOf", { total: entry.total, seen: entry.seen })
+            : t("list.saved")}
+        </Ui>
+        {entry.total ? (
+          <View style={{ marginTop: 6 }}>
+            <ProgressBar value={pct / 100} tint={brand.accent} height={4} track={pal.surface} />
+          </View>
+        ) : null}
+      </View>
+      <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+    </Tactile>
   );
 }
 

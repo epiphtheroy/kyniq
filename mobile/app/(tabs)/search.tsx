@@ -30,6 +30,7 @@ import {
   Ui,
 } from "../../src/components/ui";
 import { Appear, Dots, SkeletonRail, SkeletonRows } from "../../src/components/motion";
+import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { useLocalTitles } from "../../src/lib/titles";
@@ -834,9 +835,10 @@ function CollectionCard({ l }: { l: NavCatalogEntry }) {
             <Ui size={fs.xs} weight="700" color={tint}>
               {l.pct}%
             </Ui>
-          ) : (
-            <Ionicons name="arrow-forward" size={13} color={pal.subtle} />
-          )}
+          ) : null}
+          {/* Keep the list itself (owner 08-03) — the star never touches the
+              film ledger; that is the list screen's "Add all" button. */}
+          <SaveListBtn slug={l.key} />
         </View>
         {l.pct > 0 ? (
           <View style={{ height: 4, borderRadius: radius.pill, backgroundColor: pal.surface, overflow: "hidden", marginTop: 6 }}>
