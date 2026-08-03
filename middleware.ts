@@ -51,38 +51,61 @@ const forbidden = () =>
     headers: { "content-type": "text/plain", "x-mt-bot": "blocked" },
   });
 
-// ── Search throttle ──────────────────────────────────────────────────────────
-// /search?q=… server-renders the full hybrid search (lexical + an embedding hop
-// + search_semantic). On 2026-07-30 search_all and search_semantic were the two
-// largest consumers of database time — 4.6k seconds between them, ~3-4s per
-// call — and the database fell over twice.
+// ── Expensive-route throttle ─────────────────────────────────────────────────
+// Two routes cost far more than everything else, and both are swept URL-by-URL
+// by crawlers, which is the one access pattern ISR cannot help with: every URL
+// is a first visit, so every request is a cache MISS that pays full price.
+// Measured 2026-08-03 over a 24h window:
 //
-// /api/search has had an IP throttle all along; the PAGE never did, so anything
-// ignoring robots.txt (where /search?* is already disallowed) could run
-// unlimited hybrid searches. This closes that door in front of the render.
+//   /search           18,954 req/day, 17.5% of all function volume. Its two RPCs
+//                     (search_all + search_semantic) burned 5,059s of database
+//                     time in one 6h window — ~1,870× the entire MCP server, and
+//                     ~11% of a 2-core instance running continuously.
+//   /credits/[person] 27,895 req/day, 25.7% of function volume. Has NO local
+//                     table: every uncached request calls the TMDB API live, and
+//                     the slug's trailing id is the only input, so the URL space
+//                     is effectively unbounded.
 //
-// Deliberately per-instance and approximate: middleware has no shared store, and
-// a coarse ceiling that costs nothing beats a precise one that needs a round
-// trip. Bare /search (no query) is untouched — it renders no search at all.
-const searchHits = new Map<string, number[]>();
-const SEARCH_WINDOW_MS = 60_000;
+// KEYED ON THE /24, NOT THE IP. The previous per-IP key never fired once (zero
+// 429s across 22,800 /search requests a day) because a crawler spread over a
+// subnet looks like many distinct visitors. A /24 is the same unit the bot
+// blocklist already works in, and with 13-33 real visitors a day the odds of two
+// humans sharing one /24 inside a minute are negligible.
+//
+// Per-isolate and approximate by design: middleware has no shared store, and a
+// coarse ceiling that costs nothing beats a precise one that needs a round trip.
+// Note this means concurrent deployments each keep their own counters.
+//
+// 429 + Retry-After is deliberate. Every major crawler answers it by slowing
+// down, and unlike a 404 or a noindex it never removes a URL from the index —
+// the same principle as the fail-closed work in lib/filmGate.ts.
+const hitLog = new Map<string, number[]>();
+const THROTTLE_WINDOW_MS = 60_000;
 const SEARCH_MAX_PER_MIN = 20; // a person types a handful of searches a minute
-const SEARCH_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
+const CREDITS_MAX_PER_MIN = 30; // a person opens a few crew pages; a sweep opens hundreds
+const THROTTLE_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
 
-function searchThrottled(ip: string): boolean {
+function throttled(bucket: string, key: string, max: number): boolean {
   const now = Date.now();
-  if (!searchHits.has(ip) && searchHits.size >= SEARCH_KEYS_MAX) {
-    for (const [k, arr] of searchHits) {
-      if (!arr.length || now - arr[arr.length - 1] > SEARCH_WINDOW_MS) searchHits.delete(k);
-      if (searchHits.size < SEARCH_KEYS_MAX) break;
+  const k = `${bucket}:${key}`;
+  if (!hitLog.has(k) && hitLog.size >= THROTTLE_KEYS_MAX) {
+    for (const [existing, arr] of hitLog) {
+      if (!arr.length || now - arr[arr.length - 1] > THROTTLE_WINDOW_MS) hitLog.delete(existing);
+      if (hitLog.size < THROTTLE_KEYS_MAX) break;
     }
-    if (searchHits.size >= SEARCH_KEYS_MAX) searchHits.clear(); // rotating IPs — reset
+    if (hitLog.size >= THROTTLE_KEYS_MAX) hitLog.clear(); // rotating IPs — reset
   }
-  const arr = (searchHits.get(ip) ?? []).filter((t) => now - t < SEARCH_WINDOW_MS);
+  const arr = (hitLog.get(k) ?? []).filter((t) => now - t < THROTTLE_WINDOW_MS);
   arr.push(now);
-  searchHits.set(ip, arr);
-  return arr.length > SEARCH_MAX_PER_MIN;
+  hitLog.set(k, arr);
+  return arr.length > max;
 }
+
+const tooMany = (what: string) =>
+  new NextResponse(`Too many requests — try again in a minute.`, {
+    status: 429,
+    headers: { "content-type": "text/plain", "retry-after": "60", "x-mt-throttle": what },
+  });
 
 // ── Crawler observation (visit-back handshake) ───────────────────────────────
 // Record identifiable crawlers that visit us, with their UA + self-declared URL,
@@ -142,17 +165,18 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     return NextResponse.next({ request: { headers: request.headers } });
   }
 
-  // Throttle the expensive search render before anything else pays for it.
-  if (pathname === "/search" && request.nextUrl.searchParams.get("q")) {
-    const ip =
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      request.headers.get("x-real-ip") ||
-      "anon";
-    if (searchThrottled(ip)) {
-      return new NextResponse("Too many searches — try again in a minute.", {
-        status: 429,
-        headers: { "content-type": "text/plain", "retry-after": "60", "x-mt-throttle": "search" },
-      });
+  // Throttle the two expensive route families before anything else pays for them.
+  // Bare /search (no query) is left alone — it renders no search at all — and so
+  // is the /credits index, which is one cached page rather than a per-person fetch.
+  {
+    const wantsSearch = pathname === "/search" && !!request.nextUrl.searchParams.get("q");
+    const wantsPerson = pathname.startsWith("/credits/");
+    if (wantsSearch || wantsPerson) {
+      const prefix =
+        ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")) ??
+        "anon";
+      if (wantsSearch && throttled("search", prefix, SEARCH_MAX_PER_MIN)) return tooMany("search");
+      if (wantsPerson && throttled("credits", prefix, CREDITS_MAX_PER_MIN)) return tooMany("credits");
     }
   }
 

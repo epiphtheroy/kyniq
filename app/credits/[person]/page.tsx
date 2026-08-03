@@ -50,16 +50,21 @@ function parseId(slug: string): number | null {
 // Native-name resolution (TMDB alias by expected script → Wikidata label
 // fallback) lives in lib/nativeName.
 
+// null means TMDB genuinely has no such person (404) — the caller turns that into
+// notFound(). Everything else throws: this page caches for 86400s, so folding a
+// rate-limit or a missing env var into "no such person" would remove a live URL
+// from the index for a day because of someone else's bad afternoon.
 async function tmdbPerson(id: number): Promise<TmdbPerson | null> {
   const token = process.env.TMDB_READ_TOKEN;
-  if (!token) return null;
+  if (!token) throw new Error("TMDB_READ_TOKEN is not set");
   const v4 = token.length > 40;
   const qs = v4 ? "" : `&api_key=${token}`;
   const r = await fetch(
     `https://api.themoviedb.org/3/person/${id}?append_to_response=movie_credits,external_ids${qs}`,
     { headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" }, next: { revalidate: 86400 } },
   );
-  if (!r.ok) return null;
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error(`TMDB person/${id}: HTTP ${r.status}`);
   return (await r.json()) as TmdbPerson;
 }
 
