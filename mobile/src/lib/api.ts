@@ -25,10 +25,21 @@ import type {
   TmdbFallbackRow,
   TonightPayload,
   TowComment,
+  PassedRow,
   WatchlistScoredRow,
   WwiRow,
 } from "../types";
 import { supabase } from "./supabase";
+
+/** Raw shape of the passed-films join before the embedded film row is flattened. */
+type RawPassedRow = {
+  rating: number | null;
+  added_at: string | null;
+  film:
+    | { slug: string; title: string; year: number | null; poster_path: string | null; director: string | null }
+    | { slug: string; title: string; year: number | null; poster_path: string | null; director: string | null }[]
+    | null;
+};
 
 // `accept` only — every header here must stay CORS-safelisted. A custom header
 // (x-metatake-app) turns each GET into a preflighted request, and the public API's
@@ -404,40 +415,83 @@ export const api = {
   },
 
   /**
-   * Very-fuzzy, 1-char-capable, MULTILINGUAL film search (film_catalog_search, migration
-   * 0116) — accent-insensitive across title / original_title / title_ko. search_all gates
-   * at length>=2 and ignores title_ko, so this fills what it misses (1 char, Korean/accented
-   * titles). Returned as SearchRow (kind:"film") to merge into the Explore results. Fails
-   * soft to []. */
-  async searchFuzzy(qRaw: string, limit = 30): Promise<SearchRow[]> {
+   * Very-fuzzy, 1-char-capable, MULTILINGUAL film search (film_search_i18n,
+   * migration 0121) — accent-insensitive, and it MATCHES ACROSS EVERY PROJECTED
+   * LANGUAGE regardless of which one the viewer reads in. Typing 화양연화 finds
+   * In the Mood for Love while the app is in English; the row then renders in
+   * `lang` when that title exists, English otherwise.
+   *
+   * search_all gates at length>=2 and only knows English, so this is what the
+   * Explore field actually calls. Fails soft to [].
+   */
+  async searchFuzzy(qRaw: string, limit = 30, lang = "en"): Promise<SearchRow[]> {
     const q = qRaw.trim().replace(/\s+/g, " ").slice(0, 200);
     if (!q) return [];
-    const { data, error } = await supabase.rpc("film_catalog_search", { p_q: q, p_limit: limit });
+    const { data, error } = await supabase.rpc("film_search_i18n", {
+      p_q: q,
+      p_limit: limit,
+      p_lang: lang,
+    });
     if (error) return [];
     type FCRow = {
       slug: string;
       title: string;
+      title_loc: string | null;
       original_title: string | null;
-      title_ko: string | null;
       year: number | null;
       director: string | null;
       poster_path: string | null;
       is_catalog: boolean;
       score: number;
     };
-    return ((data ?? []) as FCRow[]).map((r) => ({
-      kind: "film",
-      slug: r.slug,
-      film_slug: r.slug,
-      title: r.title,
-      // Year FIRST in the subtitle (owner 07-29: every film row must show year + TS)
-      // — mirrors search_all's "1994 · Wong Kar-wai" format.
-      sub: [r.year, r.director ?? r.original_title].filter(Boolean).join(" · "),
-      poster: r.poster_path,
-      year: r.year,
-      score: r.score,
-      is_catalog: r.is_catalog,
-    }));
+    return ((data ?? []) as FCRow[]).map((r) => {
+      const shown = r.title_loc || r.title;
+      return {
+        kind: "film",
+        slug: r.slug,
+        film_slug: r.slug,
+        title: shown,
+        // Year FIRST in the subtitle (owner 07-29: every film row must show year + TS)
+        // — mirrors search_all's "1994 · Wong Kar-wai" format. When the row is
+        // showing a translated title, carry the English one alongside so the
+        // viewer can still tell which film this is.
+        sub: [r.year, r.director ?? r.original_title, shown !== r.title ? r.title : null]
+          .filter(Boolean)
+          .join(" · "),
+        poster: r.poster_path,
+        year: r.year,
+        score: r.score,
+        is_catalog: r.is_catalog,
+      };
+    });
+  },
+
+  /**
+   * Bulk localized-title decoration (film_titles_for_slugs, migration 0121) —
+   * the same door takescore_for_slugs is for scores.
+   *
+   * Every list RPC in the app (me_collection, tonight, navigator, watchlist)
+   * returns the English title and only the English title. Rather than teach a
+   * dozen RPCs about language, a screen batches the slugs it is about to render
+   * through this one call and overlays the result. English callers short-circuit
+   * without a round trip; a language with no coverage for those films comes back
+   * empty and the English titles simply stand.
+   */
+  async localTitles(slugs: string[], lang: string): Promise<Map<string, string>> {
+    const out = new Map<string, string>();
+    if (!slugs.length || !lang || lang === "en") return out;
+    const uniq = [...new Set(slugs)];
+    for (let i = 0; i < uniq.length; i += 400) {
+      const { data, error } = await supabase.rpc("film_titles_for_slugs", {
+        p_slugs: uniq.slice(i, i + 400),
+        p_lang: lang,
+      });
+      if (error || !data) break;
+      for (const r of data as { slug: string; title: string }[]) {
+        if (r?.slug && r?.title) out.set(r.slug, r.title);
+      }
+    }
+    return out;
   },
 
   /**
@@ -590,6 +644,38 @@ export const me = {
       if (error || !data) break;
       out.push(...(data as CollectionRow[]));
       if ((data as unknown[]).length < 1000) break;
+    }
+    return out;
+  },
+
+  /**
+   * Passed films (dismissed=true) — the fourth face of the ledger, which had no
+   * surface at all before the You rebuild: a pass was only reversible from the
+   * film page. There is no me_* RPC for it, so this reads the own rows directly
+   * (RLS-scoped, the same door state/films.tsx uses) and joins the poster fields.
+   * TakeScore is NOT in this shape — callers decorate with api.takescores().
+   */
+  async passed(userId: string, limit = 600): Promise<PassedRow[]> {
+    const { data, error } = await supabase
+      .from("user_movies")
+      .select("rating, added_at, film:films!inner(slug,title,year,poster_path,director)")
+      .eq("user_id", userId)
+      .eq("dismissed", true)
+      .limit(limit);
+    if (error || !data) return [];
+    const out: PassedRow[] = [];
+    for (const row of data as unknown as RawPassedRow[]) {
+      const f = Array.isArray(row.film) ? row.film[0] : row.film;
+      if (!f?.slug) continue;
+      out.push({
+        slug: f.slug,
+        title: f.title,
+        year: f.year,
+        poster_path: f.poster_path,
+        director: f.director,
+        rating: row.rating,
+        added_at: row.added_at,
+      });
     }
     return out;
   },

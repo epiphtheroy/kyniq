@@ -1,6 +1,18 @@
-// Onboarding — 3+1-step fullScreenModal (HANDOFF §4.2): country → services →
-// account → taste calibration (④ v4 — shown only when a session exists, fully
-// skippable). Also re-entered from settings/screens via ?step=country|services|account.
+// Onboarding — 3+1-step fullScreenModal (HANDOFF §4.2): account → EDITION
+// (country+services, one page) → taste calibration (④ v4 — shown only when a
+// session exists, fully skippable). Re-entered from settings via ?step=…, and
+// the retired ?step=country / ?step=services both land on the merged page so
+// older deep links keep working.
+//
+// Owner 2026-08-03: country and services were two consecutive pages asking one
+// question — "where do you watch?" — and the second one's answer depends
+// entirely on the first. They are now ONE page: change the country and the
+// service grid reloads under it, with services that don't exist there dropped.
+// A pairing can be SAVED and swapped with one tap (home vs. travelling).
+//
+// `?step=language` is the third axis and deliberately NOT part of the funnel:
+// content language is independent of country (migration 0121) and English is a
+// fine default, so it is reachable from settings but never asked at signup.
 // Lava restyle: the whole screen reads as a SHEET (grab handle, compact header,
 // gradient progress track); account step follows the benchmark login sheet order.
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -31,7 +43,7 @@ import { Serif,
   Ui,
   Wordmark,
 } from "../src/components/ui";
-import { ALL_EDITIONS } from "../src/editions";
+import { ALL_EDITIONS, CONTENT_LANGS, type ContentLang } from "../src/editions";
 import SignInPanel from "../src/components/SignInPanel";
 import { SkeletonScreen } from "../src/components/motion";
 import { t } from "../src/i18n";
@@ -40,7 +52,7 @@ import { signInWithGoogle } from "../src/lib/auth";
 import { noteJudged } from "../src/lib/considering";
 import { supabase } from "../src/lib/supabase";
 import { useFilms } from "../src/state/films";
-import { usePrefs } from "../src/state/prefs";
+import { usePrefs, type EditionPreset } from "../src/state/prefs";
 import { brand, font, fs, gradient, motion, radius, sp, usePalette } from "../src/theme";
 import type { Service, TonightRow } from "../src/types";
 
@@ -59,8 +71,12 @@ const OTP_MIN = 6;
 
 // Account rides RIGHT AFTER the welcome pitch (owner 07-29: a new install should sign
 // up — Google, naturally — the moment the app opens), then the value setup follows.
-const STEPS = ["welcome", "account", "country", "services", "taste"] as const;
+const STEPS = ["welcome", "account", "edition", "taste"] as const;
 type Step = (typeof STEPS)[number];
+
+/** Steps reachable by deep link that are NOT part of the funnel progress track. */
+type SideStep = "language";
+type AnyStep = Step | SideStep;
 
 /** One completed segment of the step track — the Lava fill sweeps across it. */
 function StepFill() {
@@ -92,8 +108,19 @@ function StepFill() {
   );
 }
 
-function isStep(s: string | undefined): s is Step {
-  return s === "country" || s === "services" || s === "account";
+/** Retired step names. Settings rows, older OTA builds and saved links still
+ *  use them, so they resolve to the page that replaced them rather than 404. */
+type LegacyStep = "country" | "services";
+
+function isStep(s: string | undefined): s is AnyStep | LegacyStep {
+  return (
+    s === "edition" || s === "country" || s === "services" || s === "account" || s === "language"
+  );
+}
+
+function normalizeStep(s: string | undefined): AnyStep | null {
+  if (!isStep(s)) return null;
+  return s === "country" || s === "services" ? "edition" : s;
 }
 
 export default function OnboardingScreen() {
@@ -106,13 +133,14 @@ export default function OnboardingScreen() {
   // First launch opens on the value pitch; deep links and re-entry skip it.
   // An already-onboarded re-entry with no explicit step is almost always a
   // sign-in intent (every "Sign in" button routes here) — land on the form.
-  const [step, setStep] = useState<Step>(() =>
-    isStep(params.step) ? params.step : onboarded ? "account" : "welcome",
+  const [step, setStep] = useState<AnyStep>(
+    () => normalizeStep(params.step) ?? (onboarded ? "account" : "welcome"),
   );
 
-  // Entered from settings to edit ONE step (country/services): Continue
-  // returns to the caller instead of walking the rest of the funnel.
-  const editOne = isStep(params.step) && params.step !== "account";
+  // Entered from settings to edit ONE step: Continue returns to the caller
+  // instead of walking the rest of the funnel.
+  const entry = normalizeStep(params.step);
+  const editOne = entry !== null && entry !== "account";
 
   const finish = () => {
     set({ onboarded: true });
@@ -133,24 +161,26 @@ export default function OnboardingScreen() {
       return;
     }
     // First run: signed-in OR skipped, the value setup continues either way.
-    setStep("country");
+    setStep("edition");
   };
 
   // Last setup step — taste calibration needs a session (me_mark_seen writes).
-  const servicesDone = async () => {
+  const editionDone = async () => {
     const { data } = await supabase.auth.getSession();
     if (data.session) setStep("taste");
     else finish();
   };
 
-  const stepIndex = STEPS.indexOf(step);
+  // `language` is a side entrance, not a funnel step — it must not light up the
+  // progress track (indexOf returns -1, which fills nothing).
+  const stepIndex = STEPS.indexOf(step as Step);
   const headerTitle =
     step === "welcome"
       ? t("welcome.title")
-      : step === "country"
-        ? t("onboarding.countryTitle")
-        : step === "services"
-          ? t("onboarding.servicesTitle")
+      : step === "edition"
+        ? t("onboarding.editionTitle")
+        : step === "language"
+          ? t("onboarding.languageTitle")
           : step === "taste"
             ? t("onboarding.tasteTitle")
             : t("auth.title");
@@ -220,12 +250,10 @@ export default function OnboardingScreen() {
       </View>
 
       {step === "welcome" ? <StepWelcome onNext={() => setStep("account")} /> : null}
-      {step === "country" ? (
-        <StepCountry onNext={() => (editOne ? finish() : setStep("services"))} />
+      {step === "edition" ? (
+        <StepEdition onNext={() => (editOne ? finish() : void editionDone())} />
       ) : null}
-      {step === "services" ? (
-        <StepServices onNext={() => (editOne ? finish() : void servicesDone())} />
-      ) : null}
+      {step === "language" ? <StepLanguage onNext={finish} /> : null}
       {step === "account" ? <StepAccount onDone={() => void accountDone()} /> : null}
       {step === "taste" ? <StepTaste onDone={finish} /> : null}
     </Screen>
@@ -313,67 +341,7 @@ function StepWelcome({ onNext }: { onNext: () => void }) {
   );
 }
 
-/* ---------------------------------------------------------------- country */
-
-function StepCountry({ onNext }: { onNext: () => void }) {
-  const pal = usePalette();
-  const { country, set } = usePrefs();
-  return (
-    <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
-        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
-          <Ui size={fs.x2} weight="600">
-            {t("onboarding.countryTitle")}
-          </Ui>
-          <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s2 }}>
-            {t("onboarding.countryBody")}
-          </Ui>
-        </View>
-
-        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5, gap: sp.s3 }}>
-          {ALL_EDITIONS.map((ed) => {
-            const selected = country === ed.country;
-            return (
-              <Tactile
-                key={ed.code}
-                disabled={!ed.live}
-                onPress={() => set({ country: ed.country })}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: sp.s3,
-                    backgroundColor: pal.surface,
-                    borderRadius: radius.md,
-                    padding: sp.s4,
-                    borderWidth: 2,
-                    borderColor: selected ? brand.accent : "transparent",
-                    opacity: ed.live ? 1 : 0.4,
-                  }}
-                >
-                  <Ui size={28}>{ed.flag}</Ui>
-                  <Ui size={fs.base} weight="600" style={{ flex: 1 }}>
-                    {ed.label}
-                  </Ui>
-                  <Ui size={fs.xs + 1} color={pal.muted}>
-                    {ed.country}
-                  </Ui>
-                  {!ed.live ? <Chip label={t("common.soon")} /> : null}
-                </View>
-              </Tactile>
-            );
-          })}
-        </View>
-      </ScrollView>
-      <BottomBar>
-        <GradientBtn label={t("action.continue")} onPress={onNext} />
-      </BottomBar>
-    </View>
-  );
-}
-
-/* --------------------------------------------------------------- services */
+/* ------------------------------------------- edition (country + services) */
 
 const GROUPS = [
   { label: "subscription", key: "kind.flatrate" },
@@ -381,13 +349,31 @@ const GROUPS = [
   { label: "rent", key: "kind.rent" },
 ] as const;
 
-function StepServices({ onNext }: { onNext: () => void }) {
+/**
+ * ONE page for "where do you watch?" — the country and the services that exist
+ * in it (owner 2026-08-03). They were two consecutive screens, but the second
+ * one's entire content is a function of the first: pick Korea after picking the
+ * US and you were looking at a Korean service grid on a page you had already
+ * passed. Now the country row sits on top, the grid reloads under it, and any
+ * service you had selected that does not exist in the new country is dropped —
+ * silently, because keeping an invisible selection is how a watchlist ends up
+ * filtered by a service the viewer cannot see.
+ *
+ * Saved pairings ("저장해서 선택할 수 있게") ride above both as chips: home vs.
+ * travelling, or two households sharing one account, one tap apart.
+ */
+function StepEdition({ onNext }: { onNext: () => void }) {
   const pal = usePalette();
-  const { country, providerIds, set } = usePrefs();
+  const { country, providerIds, presets, set } = usePrefs();
+
   const [services, setServices] = useState<Service[] | null>(null);
   const [err, setErr] = useState(false);
   const [gen, setGen] = useState(0);
   const [sel, setSel] = useState<Set<number>>(() => new Set(providerIds));
+  const [naming, setNaming] = useState(false);
+  const [draftName, setDraftName] = useState("");
+  const [picking, setPicking] = useState(false);
+  const here = ALL_EDITIONS.find((e) => e.country === country);
 
   useEffect(() => {
     let alive = true;
@@ -395,7 +381,18 @@ function StepServices({ onNext }: { onNext: () => void }) {
     setErr(false);
     api
       .services(country)
-      .then((o) => alive && setServices(o.services))
+      .then((o) => {
+        if (!alive) return;
+        setServices(o.services);
+        // Prune selections the new country doesn't carry. A provider id is
+        // global (TMDB's), so an unpruned set silently narrows every "on my
+        // services" filter to nothing after a country switch.
+        const live = new Set(o.services.map((x) => x.provider_id));
+        setSel((prev) => {
+          const next = new Set([...prev].filter((id) => live.has(id)));
+          return next.size === prev.size ? prev : next;
+        });
+      })
       .catch(() => alive && setErr(true));
     return () => {
       alive = false;
@@ -416,58 +413,276 @@ function StepServices({ onNext }: { onNext: () => void }) {
       return next;
     });
 
-  if (err)
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center", gap: sp.s4 }}>
-        <Ui color={pal.muted}>{t("error.network")}</Ui>
-        <Btn label={t("action.retry")} onPress={() => setGen((n) => n + 1)} />
-      </View>
+  const applyPreset = (p: EditionPreset) => {
+    setSel(new Set(p.providerIds));
+    set({ country: p.country, providerIds: p.providerIds });
+  };
+
+  const savePreset = () => {
+    const ed = ALL_EDITIONS.find((e) => e.country === country);
+    const label = draftName.trim() || `${ed?.flag ?? ""} ${ed?.label ?? country}`.trim();
+    const next: EditionPreset = {
+      id: `${country}-${[...sel].sort().join(".")}`,
+      label,
+      country,
+      providerIds: [...sel],
+    };
+    // Same country+services twice is the same preset — replace, don't stack.
+    set({ presets: [next, ...presets.filter((p) => p.id !== next.id)].slice(0, 8) });
+    setNaming(false);
+    setDraftName("");
+  };
+
+  const removePreset = (id: string) =>
+    set({ presets: presets.filter((p) => p.id !== id) });
+
+  const dirty =
+    !presets.some(
+      (p) => p.country === country && p.providerIds.length === sel.size &&
+        p.providerIds.every((id) => sel.has(id)),
     );
-  if (!services) return <SkeletonScreen kind="rows" count={5} />;
 
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 140 }} keyboardShouldPersistTaps="handled">
         <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
           <Ui size={fs.x2} weight="600">
-            {t("onboarding.servicesTitle")}
+            {t("onboarding.editionTitle")}
           </Ui>
           <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s2 }}>
-            {t("onboarding.servicesBody")}
+            {t("onboarding.editionBody")}
           </Ui>
         </View>
 
-        {GROUPS.map((g) =>
-          grouped[g.label].length ? (
-            <View key={g.label}>
-              <Ui
-                size={fs.md}
-                weight="600"
-                style={{ paddingHorizontal: sp.s5, marginTop: sp.s5, marginBottom: sp.s3 }}
-              >
-                {t(g.key)}
+        {/* Saved pairings */}
+        {presets.length ? (
+          <View style={{ marginTop: sp.s5 }}>
+            <Ui size={fs.xs} weight="600" color={pal.muted} style={{ paddingHorizontal: sp.s5 }}>
+              {t("onboarding.savedSetups").toUpperCase()}
+            </Ui>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ paddingHorizontal: sp.s5, gap: sp.s2, paddingTop: sp.s2 }}
+            >
+              {presets.map((p) => {
+                const on = p.country === country && p.providerIds.length === sel.size &&
+                  p.providerIds.every((id) => sel.has(id));
+                return (
+                  <Tactile key={p.id} onPress={() => applyPreset(p)} feedback="select">
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: 6,
+                        borderRadius: radius.pill,
+                        paddingLeft: 12,
+                        paddingRight: 6,
+                        paddingVertical: 7,
+                        backgroundColor: on ? pal.ink : pal.surface,
+                      }}
+                    >
+                      <Ui size={fs.sm} weight="600" color={on ? pal.bg : pal.inkSoft}>
+                        {p.label}
+                      </Ui>
+                      <Ui size={fs.xs} color={on ? pal.bg : pal.subtle}>
+                        {p.providerIds.length}
+                      </Ui>
+                      <Tactile onPress={() => removePreset(p.id)} hitSlop={10}>
+                        <Ionicons name="close" size={13} color={on ? pal.bg : pal.subtle} />
+                      </Tactile>
+                    </View>
+                  </Tactile>
+                );
+              })}
+            </ScrollView>
+          </View>
+        ) : null}
+
+        {/* Country */}
+        <Ui
+          size={fs.xs}
+          weight="600"
+          color={pal.muted}
+          style={{ paddingHorizontal: sp.s5, marginTop: sp.s5 }}
+        >
+          {t("onboarding.countryTitle").toUpperCase()}
+        </Ui>
+        {/* Owner 08-03: seventeen countries in a horizontal rail was ~6 screens of
+            sideways scrolling to reach one you can already name. The country is
+            picked once and then rarely touched, so it collapses to a single line
+            and opens as a WRAPPED grid — every country visible at once, no
+            scrolling in either direction. */}
+        {!picking ? (
+          <Tactile
+            onPress={() => setPicking(true)}
+            feedback="tap"
+            style={{ marginHorizontal: sp.s5, marginTop: sp.s2 }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: sp.s3,
+                borderRadius: radius.md,
+                backgroundColor: pal.surface,
+                paddingHorizontal: sp.s4,
+                paddingVertical: sp.s3 + 1,
+              }}
+            >
+              <Ui size={fs.lg}>{here?.flag ?? "🌐"}</Ui>
+              <Ui size={fs.md} weight="600" style={{ flex: 1 }}>
+                {here?.label ?? country}
               </Ui>
-              <View
-                style={{
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                  gap: sp.s2,
-                  paddingHorizontal: sp.s5,
-                }}
-              >
-                {grouped[g.label].map((s) => (
-                  <Chip
-                    key={s.provider_id}
-                    label={s.provider_name}
-                    active={sel.has(s.provider_id)}
-                    onPress={() => toggle(s.provider_id)}
-                  />
-                ))}
-              </View>
+              <Ui size={fs.sm} weight="600" color={brand.accent}>
+                {t("onboarding.changeCountry")}
+              </Ui>
+              <Ionicons name="chevron-down" size={15} color={brand.accent} />
             </View>
-          ) : null,
+          </Tactile>
+        ) : (
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: sp.s2,
+              paddingHorizontal: sp.s5,
+              paddingTop: sp.s2,
+            }}
+          >
+            {ALL_EDITIONS.map((ed) => {
+              const on = country === ed.country;
+              return (
+                <Tactile
+                  key={ed.code}
+                  onPress={() => {
+                    set({ country: ed.country });
+                    setPicking(false);
+                  }}
+                  feedback="select"
+                >
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: 6,
+                      borderRadius: radius.pill,
+                      paddingHorizontal: 12,
+                      paddingVertical: 8,
+                      backgroundColor: on ? pal.ink : pal.surface,
+                    }}
+                  >
+                    <Ui size={fs.sm}>{ed.flag}</Ui>
+                    <Ui size={fs.sm} weight="600" color={on ? pal.bg : pal.inkSoft}>
+                      {ed.label}
+                    </Ui>
+                  </View>
+                </Tactile>
+              );
+            })}
+          </View>
         )}
+
+        {/* Services in that country */}
+        {err ? (
+          <View style={{ alignItems: "center", gap: sp.s3, paddingTop: sp.s6 }}>
+            <Ui color={pal.muted}>{t("error.network")}</Ui>
+            <Btn label={t("action.retry")} onPress={() => setGen((n) => n + 1)} />
+          </View>
+        ) : !services ? (
+          <View style={{ paddingTop: sp.s5 }}>
+            <SkeletonScreen kind="rows" count={4} />
+          </View>
+        ) : (
+          <>
+            <Ui
+              size={fs.xs}
+              weight="600"
+              color={pal.muted}
+              style={{ paddingHorizontal: sp.s5, marginTop: sp.s6 }}
+            >
+              {t("onboarding.servicesTitle").toUpperCase()}
+            </Ui>
+            {!services.length ? (
+              <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s5, paddingTop: sp.s2 }}>
+                {t("onboarding.servicesNone")}
+              </Ui>
+            ) : null}
+            {GROUPS.map((g) =>
+              grouped[g.label].length ? (
+                <View key={g.label}>
+                  <Ui
+                    size={fs.sm}
+                    weight="600"
+                    color={pal.inkSoft}
+                    style={{ paddingHorizontal: sp.s5, marginTop: sp.s4, marginBottom: sp.s2 }}
+                  >
+                    {t(g.key)}
+                  </Ui>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      flexWrap: "wrap",
+                      gap: sp.s2,
+                      paddingHorizontal: sp.s5,
+                    }}
+                  >
+                    {grouped[g.label].map((s) => (
+                      <Chip
+                        key={s.provider_id}
+                        label={s.provider_name}
+                        active={sel.has(s.provider_id)}
+                        onPress={() => toggle(s.provider_id)}
+                      />
+                    ))}
+                  </View>
+                </View>
+              ) : null,
+            )}
+          </>
+        )}
+
+        {/* Save this pairing */}
+        {services && sel.size && dirty ? (
+          <View style={{ paddingHorizontal: sp.s5, marginTop: sp.s6, gap: sp.s2 }}>
+            {naming ? (
+              <>
+                <TextInput
+                  value={draftName}
+                  onChangeText={setDraftName}
+                  placeholder={t("onboarding.setupNamePlaceholder")}
+                  placeholderTextColor={pal.subtle}
+                  autoFocus
+                  maxLength={24}
+                  onSubmitEditing={savePreset}
+                  style={{
+                    backgroundColor: pal.card,
+                    borderWidth: 1,
+                    borderColor: pal.hairline2,
+                    borderRadius: radius.sm,
+                    color: pal.ink,
+                    fontFamily: font.ui,
+                    fontSize: fs.base,
+                    paddingHorizontal: sp.s4,
+                    paddingVertical: sp.s3,
+                  }}
+                />
+                <Btn label={t("action.save")} onPress={savePreset} />
+              </>
+            ) : (
+              <Tactile onPress={() => setNaming(true)} hitSlop={6} feedback="tap">
+                <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+                  <Ionicons name="bookmark-outline" size={14} color={brand.accent} />
+                  <Ui size={fs.sm} weight="600" color={brand.accent}>
+                    {t("onboarding.saveSetup")}
+                  </Ui>
+                </View>
+              </Tactile>
+            )}
+          </View>
+        ) : null}
       </ScrollView>
+
       <BottomBar>
         <GradientBtn
           label={t("action.continue")}
@@ -476,6 +691,84 @@ function StepServices({ onNext }: { onNext: () => void }) {
             onNext();
           }}
         />
+      </BottomBar>
+    </View>
+  );
+}
+
+/* --------------------------------------------------------------- language */
+
+/**
+ * Content language — the THIRD axis (owner 2026-08-03), and deliberately not
+ * tied to the country above it: someone in the US watching on US services may
+ * still want films named in Korean.
+ *
+ * What it changes: the film's own release title, everywhere it is shown, and
+ * what search can match. What it does NOT change: the app's own words. The
+ * service is for viewers in English-speaking markets — they need to recognise
+ * the film, not to read the buttons in another language (editions.ts UI_LOCALE).
+ *
+ * Titles come from TMDB's official release titles (migration 0121), never a
+ * machine translation. Where a film has none, English stands.
+ */
+function StepLanguage({ onNext }: { onNext: () => void }) {
+  const pal = usePalette();
+  const { contentLang, set } = usePrefs();
+  return (
+    <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 140 }}>
+        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
+          <Ui size={fs.x2} weight="600">
+            {t("onboarding.languageTitle")}
+          </Ui>
+          <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s2 }}>
+            {t("onboarding.languageBody")}
+          </Ui>
+        </View>
+
+        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5, gap: sp.s2 }}>
+          {CONTENT_LANGS.map((l) => {
+            const on = contentLang === l.code;
+            return (
+              <Tactile
+                key={l.code}
+                onPress={() => set({ contentLang: l.code as ContentLang })}
+                feedback="select"
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: sp.s3,
+                    backgroundColor: pal.surface,
+                    borderRadius: radius.md,
+                    paddingHorizontal: sp.s4,
+                    paddingVertical: sp.s3 + 2,
+                    borderWidth: 2,
+                    borderColor: on ? brand.accent : "transparent",
+                  }}
+                >
+                  <Ui size={fs.md} weight="600" style={{ flex: 1 }}>
+                    {l.label}
+                  </Ui>
+                  {l.label !== l.english ? (
+                    <Ui size={fs.sm} color={pal.muted}>
+                      {l.english}
+                    </Ui>
+                  ) : null}
+                  {on ? <Ionicons name="checkmark-circle" size={19} color={brand.accent} /> : null}
+                </View>
+              </Tactile>
+            );
+          })}
+        </View>
+
+        <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s5, paddingTop: sp.s4 }}>
+          {t("onboarding.languageNote")}
+        </Ui>
+      </ScrollView>
+      <BottomBar>
+        <GradientBtn label={t("action.continue")} onPress={onNext} />
       </BottomBar>
     </View>
   );

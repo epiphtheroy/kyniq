@@ -1,30 +1,43 @@
-// SHELF tab (HANDOFF v4 §5.6) — the judgment portfolio, 3 zones:
-//   ① Queue — watchlist × my-services availability (AgeBadge commitment decay)
-//   ② Deciding + Verdicts — the Considering pile (§5.0-D2) + Find/Aligned/Letdown recap
-//   ③ Journey — lineage conquest (me_coverage) + one blindspot (me_blindspots) → /room webview
-// ALL settings (edition switcher, services, notifications, account, in-app
-// deletion — Apple 5.1.1(v)) live behind the top-right gear in a full-screen
-// modal. Data path: me_* RPCs via app JWT (§7) + film_availability decoration.
+// YOU tab — the film ledger (owner 2026-08-03 rebuild).
+//
+// What this screen is now: MY films, and nothing else. Tonight, Explore and the
+// Navigator all recommend; You used to recommend too (a queue headline, a
+// "Deciding" rail, a blindspot nudge), which made it the fourth copy of the same
+// idea. It is now the only surface that answers "what have I actually watched,
+// what did I promise to watch, and what did I think of it?"
+//
+// Shape: four faces of the SAME ledger row (public.user_movies) as tabs —
+//   Watched (seen) · Watchlist (watchlist) · Rated (seen ∧ rating) · Passed (dismissed)
+// then a strip of very small sort switches (tap the active one to flip
+// direction), then a three-up poster grid where every cell carries the two
+// numbers that matter side by side: the TakeScore and MY stars.
+//
+// Data: me_collection / me_watchlist_scored are existing RPCs; Passed has no RPC
+// so api.passed() reads the own rows. TakeScore = round(V − R): me_collection
+// already returns it as `u`, the other two get it from takescore_for_slugs.
+// Rating/seen/watchlist are read through the ledger (optimistic) so a judgment
+// made anywhere in the app is visible here before any refetch.
+//
+// ALL settings (edition, services, notifications, account, in-app deletion —
+// Apple 5.1.1(v)) still live behind the top-right gear.
 import Ionicons from "@expo/vector-icons/Ionicons";
-import * as AppleAuthentication from "expo-apple-authentication";
 import { LinearGradient } from "expo-linear-gradient";
 import { type Href, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Alert,
+  FlatList,
   Modal,
   Platform,
   RefreshControl,
   ScrollView,
   StyleSheet,
   Switch,
-  TextInput,
   View,
-  useColorScheme,
+  useWindowDimensions,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Serif,
-  AgeBadge,
+import {
   AvailabilityDots,
   Btn,
   GradientBtn,
@@ -32,74 +45,160 @@ import { Serif,
   HeaderSearch,
   PosterImg,
   SectionTitle,
+  Serif,
   Tactile,
   Ui,
   UndoPill,
 } from "../../src/components/ui";
+import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE } from "../../src/config";
-import { ALL_EDITIONS } from "../../src/editions";
-import { Appear, Pop, ProgressBar } from "../../src/components/motion";
+import { ALL_EDITIONS, langLabel } from "../../src/editions";
+import { Appear } from "../../src/components/motion";
 import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
+import type { DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
-import { signInWithGoogle } from "../../src/lib/auth";
-import * as considering from "../../src/lib/considering";
-import type { ConsideringItem } from "../../src/lib/considering";
 import { registerPush } from "../../src/lib/push";
+import { useLocalTitles } from "../../src/lib/titles";
 import { supabase } from "../../src/lib/supabase";
 import {
   type Age,
   ageColor,
-  ageKey,
   ageOf,
   verdictColor,
-  verdictKey,
   verdictOf,
 } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, font, fs, gradient, radius, sp, usePalette } from "../../src/theme";
-import type {
-  BlindspotRow,
-  CollectionRow,
-  CoverageRow,
-  WatchlistScoredRow,
-} from "../../src/types";
+import { brand, fs, gradient, radius, sp, usePalette } from "../../src/theme";
+import type { CollectionRow, PassedRow, WatchlistScoredRow } from "../../src/types";
 
-// Connect hub route (HANDOFF-커넥트 §2.1). Cast: the /connect screen lands in
-// this same wave from another lane, and the generated typed-routes file only
-// refreshes on the next `expo start` — the cast keeps tsc green until then.
+// Connect hub route (HANDOFF-커넥트 §2.1).
 const CONNECT_HREF = "/connect" as Href;
 
 // Hairline inset for grouped settings rows: 16 padding + 32 icon disc + 12 gap.
 const ROW_INSET = 60;
-// Hairline inset for queue rows: 16 padding + 48 poster + 12 gap.
-const QUEUE_INSET = 76;
 
-const VERDICTS = ["find", "aligned", "letdown"] as const;
+// ---------------------------------------------------------------------------
+// The four faces of the ledger, and how each one sorts.
 
-export default function ShelfScreen() {
+type Face = "watched" | "queue" | "rated" | "passed";
+type SortKey = "recent" | "rating" | "ts" | "gap" | "year" | "title" | "services";
+
+const FACES: { key: Face; label: DictKey }[] = [
+  { key: "watched", label: "you.tab.watched" },
+  { key: "queue", label: "you.tab.queue" },
+  { key: "rated", label: "you.tab.rated" },
+  { key: "passed", label: "you.tab.passed" },
+];
+
+/** Sort switches per face — first entry is that face's default. */
+const SORTS: Record<Face, SortKey[]> = {
+  watched: ["recent", "rating", "ts", "gap", "year", "title"],
+  queue: ["recent", "services", "ts", "year", "title"],
+  rated: ["rating", "recent", "ts", "gap", "year", "title"],
+  passed: ["recent", "ts", "year", "title"],
+};
+
+function sortLabel(key: SortKey, face: Face): DictKey {
+  // On the watchlist "recent" means when you promised, not when you watched —
+  // and flipping it is the "how long has this been waiting?" question.
+  if (key === "recent") return face === "queue" ? "you.sort.added" : "you.sort.recent";
+  return (`you.sort.${key}` as DictKey);
+}
+
+/** One grid tile — the shape every face is normalized into. */
+type Cell = {
+  slug: string;
+  title: string;
+  year: number | null;
+  posterPath: string | null;
+  /** TakeScore (V − R), the shared axis. */
+  ts: number | null;
+  /** MY rating, ledger-corrected. */
+  rating: number | null;
+  /** Canon Standing — turns a rating into a Find/Aligned/Letdown verdict. */
+  standing: number | null;
+  /** Sort timestamp: watched_at for seen rows, added_at for the rest. */
+  at: number;
+  /** Watchlist only: availability. */
+  tiers: string[];
+  onMine: boolean;
+  age: Age | null;
+};
+
+function sortValue(c: Cell, k: SortKey): number | string {
+  switch (k) {
+    case "recent":
+      return c.at;
+    case "rating":
+      return c.rating ?? -1;
+    case "ts":
+      return c.ts ?? -1;
+    case "gap":
+      // The /room gap: how far MY verdict sits from the canon's. High = a find.
+      return c.rating != null && c.standing != null ? c.rating * 20 - c.standing : -9999;
+    case "year":
+      return c.year ?? -1;
+    case "services":
+      return c.onMine ? 1 : 0;
+    case "title":
+      return c.title.toLocaleLowerCase();
+  }
+}
+
+function sortCells(cells: Cell[], key: SortKey, flipped: boolean): Cell[] {
+  const out = [...cells];
+  out.sort((a, b) => {
+    const av = sortValue(a, key);
+    const bv = sortValue(b, key);
+    // Text sorts A→Z by default; every number sorts high-first. Either way the
+    // default direction is the one you'd have asked for.
+    let r =
+      typeof av === "string" || typeof bv === "string"
+        ? String(av).localeCompare(String(bv))
+        : (bv as number) - (av as number);
+    if (flipped) r = -r;
+    // Deterministic tail, so equal values never shuffle between renders.
+    if (r === 0) r = b.at - a.at || a.slug.localeCompare(b.slug);
+    return r;
+  });
+  return out;
+}
+
+/** Which way the caret points for the current key + flip. */
+function caret(key: SortKey, flipped: boolean): string {
+  const down = key === "title" ? flipped : !flipped;
+  return down ? "↓" : "↑";
+}
+
+// ---------------------------------------------------------------------------
+
+export default function YouScreen() {
   const pal = usePalette();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const prefs = usePrefs();
-  const { session, ledger, entry, dismiss, undo, reload } = useFilms();
+  const { width } = useWindowDimensions();
+  const { session, ledger, undismiss, undo, reload } = useFilms();
+  const { promptRate } = useRate();
 
   const [showSettings, setShowSettings] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [face, setFace] = useState<Face>("watched");
+  const [sortKey, setSortKey] = useState<SortKey>("recent");
+  const [flipped, setFlipped] = useState(false);
 
-  // Zone data — all me_* JWT reads, reset on sign-out.
+  const [collection, setCollection] = useState<CollectionRow[] | null>(null);
   const [queue, setQueue] = useState<WatchlistScoredRow[] | null>(null);
+  const [passed, setPassed] = useState<PassedRow[] | null>(null);
+  const [tsMap, setTsMap] = useState<Map<string, number>>(new Map());
   const [tiers, setTiers] = useState<Map<string, string[]>>(new Map());
   const [mine, setMine] = useState<Set<string>>(new Set());
-  const [availReady, setAvailReady] = useState(false);
-  const [deciding, setDeciding] = useState<ConsideringItem[]>([]);
-  const [collection, setCollection] = useState<CollectionRow[] | null>(null);
-  const [coverage, setCoverage] = useState<CoverageRow[]>([]);
-  const [blindspot, setBlindspot] = useState<BlindspotRow | null>(null);
 
   const [undoTok, setUndoTok] = useState<JudgmentUndo | null>(null);
   const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const listRef = useRef<FlatList<Cell>>(null);
 
   const alive = useRef(true);
   useEffect(
@@ -113,44 +212,55 @@ export default function ShelfScreen() {
   const providersKey = prefs.providerIds.join(",");
 
   const fetchAll = useCallback(async () => {
-    if (!session?.user) {
+    const uid = session?.user?.id;
+    if (!uid) {
+      setCollection(null);
       setQueue(null);
+      setPassed(null);
+      setTsMap(new Map());
       setTiers(new Map());
       setMine(new Set());
-      setAvailReady(false);
-      setCollection(null);
-      setCoverage([]);
-      setBlindspot(null);
       return;
     }
-    const [rows, coll, cov, blind] = await Promise.all([
-      me.watchlistScored().catch(() => [] as WatchlistScoredRow[]),
+    const [coll, q, ps] = await Promise.all([
       me.collection().catch(() => [] as CollectionRow[]),
-      me.coverage(5, 40).catch(() => [] as CoverageRow[]),
-      me.blindspots(1).catch(() => [] as BlindspotRow[]),
+      me.watchlistScored().catch(() => [] as WatchlistScoredRow[]),
+      me.passed(uid).catch(() => [] as PassedRow[]),
     ]);
     if (!alive.current) return;
-    setQueue(rows);
     setCollection(coll);
-    setCoverage(cov);
-    setBlindspot(blind[0] ?? null);
+    setQueue(q);
+    setPassed(ps);
 
-    // Availability decoration: dots (all providers) + my-services match set.
-    const slugs = rows.map((r) => r.slug).slice(0, 60);
-    setAvailReady(false);
-    if (!slugs.length) {
-      setTiers(new Map());
-      setMine(new Set());
-      setAvailReady(true);
+    // me_collection already carries the TakeScore as `u`; only the other two
+    // faces need the bulk score RPC (the standard bulk door, HANDOFF §13).
+    const needTs = [...new Set([...q.map((r) => r.slug), ...ps.map((r) => r.slug)])];
+    if (needTs.length) {
+      const merged = new Map<string, number>();
+      for (let i = 0; i < needTs.length; i += 400) {
+        const part = await api.takescores(needTs.slice(i, i + 400)).catch(() => new Map());
+        for (const [k, v] of part) merged.set(k, v);
+      }
+      if (alive.current) setTsMap(merged);
+    } else if (alive.current) {
+      setTsMap(new Map());
+    }
+
+    // Availability decorates the watchlist face only.
+    const qSlugs = q.map((r) => r.slug).slice(0, 120);
+    if (!qSlugs.length) {
+      if (alive.current) {
+        setTiers(new Map());
+        setMine(new Set());
+      }
       return;
     }
     try {
-      const tiersMap = await api.availability(slugs, prefs.country);
+      const tiersMap = await api.availability(qSlugs, prefs.country);
       let mineSet: Set<string>;
       if (prefs.providerIds.length) {
-        // Same anon RPC api.availability wraps, filtered to MY provider ids.
         const { data, error } = await supabase.rpc("film_availability", {
-          p_slugs: slugs,
+          p_slugs: qSlugs,
           p_countries: [prefs.country],
           p_providers: prefs.providerIds,
           p_include_us_library: false,
@@ -163,20 +273,16 @@ export default function ShelfScreen() {
         );
       } else {
         // No declared services — degrade to "available anywhere" (Tonight's rule).
-        mineSet = new Set(
-          [...tiersMap.entries()].filter(([, v]) => v.length > 0).map(([k]) => k),
-        );
+        mineSet = new Set([...tiersMap.entries()].filter(([, v]) => v.length > 0).map(([k]) => k));
       }
       if (!alive.current) return;
       setTiers(tiersMap);
       setMine(mineSet);
-      setAvailReady(true);
     } catch {
-      // Availability unknown → omit the headline instead of showing a fake 0 (§13-17).
+      // Availability unknown → show nothing rather than a fake "not available".
       if (!alive.current) return;
       setTiers(new Map());
       setMine(new Set());
-      setAvailReady(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session?.user?.id, prefs.country, providersKey]);
@@ -185,91 +291,118 @@ export default function ShelfScreen() {
     void fetchAll();
   }, [fetchAll]);
 
-  // Deciding pile — local ring buffer minus anything the ledger has settled.
-  useEffect(() => {
-    let on = true;
-    if (!session?.user) {
-      setDeciding([]);
-      return;
-    }
-    considering
-      .pile((slug) => {
-        const e = entry(slug);
-        return e.seen || e.watchlist || e.dismissed;
-      })
-      .then((items) => on && setDeciding(items));
-    return () => {
-      on = false;
-    };
-  }, [session?.user?.id, ledger, entry]);
-
   const onRefresh = async () => {
     setRefreshing(true);
     await Promise.all([reload(), fetchAll()]);
     setRefreshing(false);
   };
 
-  // ---- Zone 1 derived rows --------------------------------------------------
-  const { mainRows, staleRows, qTotal, qAvail } = useMemo(() => {
-    const rows = (queue ?? []).filter((r) => {
+  // ---- Ledger-corrected faces ----------------------------------------------
+  // The ledger holds every user_movies row, so it — not the fetched snapshot —
+  // decides membership and rating. A judgment made on any screen shows up here
+  // immediately, and a stale snapshot can never resurrect a film you just passed.
+  const faces = useMemo(() => {
+    const watched: Cell[] = [];
+    for (const r of collection ?? []) {
       const e = ledger.get(r.slug);
-      return !e || (e.watchlist && !e.dismissed); // ledger (optimistic) wins
-    });
-    const main: WatchlistScoredRow[] = [];
-    const stale: WatchlistScoredRow[] = [];
-    for (const r of rows) (ageOf(r.added_at) === "stale" ? stale : main).push(r);
-    const at = (r: WatchlistScoredRow) => Date.parse(r.added_at ?? "") || 0;
-    main.sort((a, b) => {
-      const am = mine.has(a.slug) ? 1 : 0;
-      const bm = mine.has(b.slug) ? 1 : 0;
-      if (am !== bm) return bm - am; // available on my services first
-      return at(b) - at(a); // then newest commitment first
-    });
-    stale.sort((a, b) => at(a) - at(b)); // oldest promises first
-    return {
-      mainRows: main,
-      staleRows: stale,
-      qTotal: rows.length,
-      qAvail: rows.filter((r) => mine.has(r.slug)).length,
-    };
-  }, [queue, ledger, mine]);
-
-  // ---- Zone 2 derived (verdict recap) ---------------------------------------
-  const rated = useMemo(() => {
-    const rs = (collection ?? []).filter((r) => r.rating != null);
-    rs.sort((a, b) => (Date.parse(b.added_at ?? "") || 0) - (Date.parse(a.added_at ?? "") || 0));
-    return rs;
-  }, [collection]);
-
-  const verdictStats = useMemo(() => {
-    const counts = { find: 0, aligned: 0, letdown: 0 };
-    let findsThisMonth = 0;
-    const now = new Date();
-    for (const r of rated) {
-      const v = verdictOf(r.rating, r.prestige);
-      if (!v) continue;
-      counts[v] += 1;
-      if (v === "find" && r.added_at) {
-        const d = new Date(r.added_at);
-        if (d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()) {
-          findsThisMonth += 1;
-        }
-      }
+      if (e && !e.seen) continue;
+      watched.push({
+        slug: r.slug,
+        title: r.title,
+        year: r.year,
+        posterPath: r.poster_path,
+        ts: r.u,
+        rating: e ? e.rating : r.rating,
+        standing: r.prestige,
+        at: Date.parse(r.added_at ?? "") || 0,
+        tiers: [],
+        onMine: false,
+        age: null,
+      });
     }
-    return { counts, findsThisMonth };
-  }, [rated]);
+    const q: Cell[] = [];
+    for (const r of queue ?? []) {
+      const e = ledger.get(r.slug);
+      if (e && (!e.watchlist || e.dismissed)) continue;
+      const derived = r.v != null && r.r != null ? Math.round(r.v - r.r) : null;
+      q.push({
+        slug: r.slug,
+        title: r.title,
+        year: r.year,
+        posterPath: r.poster_path,
+        ts: tsMap.get(r.slug) ?? derived,
+        rating: e ? e.rating : r.rating,
+        standing: null,
+        at: Date.parse(r.added_at ?? "") || 0,
+        tiers: tiers.get(r.slug) ?? [],
+        onMine: mine.has(r.slug),
+        age: ageOf(r.added_at),
+      });
+    }
+    const ps: Cell[] = [];
+    for (const r of passed ?? []) {
+      const e = ledger.get(r.slug);
+      if (e && !e.dismissed) continue;
+      ps.push({
+        slug: r.slug,
+        title: r.title,
+        year: r.year,
+        posterPath: r.poster_path,
+        ts: tsMap.get(r.slug) ?? null,
+        rating: e ? e.rating : r.rating,
+        standing: null,
+        at: Date.parse(r.added_at ?? "") || 0,
+        tiers: [],
+        onMine: false,
+        age: null,
+      });
+    }
+    return {
+      watched,
+      queue: q,
+      rated: watched.filter((c) => c.rating != null),
+      passed: ps,
+    };
+  }, [collection, queue, passed, ledger, tsMap, tiers, mine]);
 
-  // ---- Zone 3 derived --------------------------------------------------------
-  const topCoverage = useMemo(
-    () => [...coverage].sort((a, b) => (b.aw ?? 0) - (a.aw ?? 0)).slice(0, 3),
-    [coverage],
+  const rows = useMemo(
+    () => sortCells(faces[face], sortKey, flipped),
+    [faces, face, sortKey, flipped],
   );
 
-  // The Journey zone drives a specific canon NATIVELY (owner 07-29: reduce web
-  // handoffs) — coverage rows + blindspots are lineages, so open the turn-by-turn
-  // Navigator drive for that exact list instead of one generic web /room/coverage page.
-  const driveLineage = (slug: string, label: string) =>
-    router.push({ pathname: "/navigator/drive", params: { lineage: slug, label } });
+  // Localized titles for exactly what this face is about to paint (migration
+  // 0121). English short-circuits to a no-op.
+  const titleOf = useLocalTitles(useMemo(() => rows.map((r) => r.slug), [rows]));
+
+  // Verdict recap — the /room vocabulary, kept as one line on the Rated face
+  // instead of the zone it used to own.
+  const verdictCounts = useMemo(() => {
+    const n = { find: 0, aligned: 0, letdown: 0 };
+    for (const c of faces.rated) {
+      const v = verdictOf(c.rating, c.standing);
+      if (v) n[v] += 1;
+    }
+    return n;
+  }, [faces.rated]);
+
+  const pickFace = (next: Face) => {
+    if (next === face) return;
+    setFace(next);
+    setSortKey(SORTS[next][0]);
+    setFlipped(false);
+    listRef.current?.scrollToOffset({ offset: 0, animated: false });
+  };
+
+  const pickSort = (key: SortKey) => {
+    // Tapping the live switch flips it — that is the whole direction control,
+    // and it keeps the strip to one row of very small labels.
+    if (key === sortKey) setFlipped((f) => !f);
+    else {
+      setSortKey(key);
+      setFlipped(false);
+    }
+    listRef.current?.scrollToOffset({ offset: 0, animated: false });
+  };
 
   const showUndo = (tok: JudgmentUndo) => {
     if (undoTimer.current) clearTimeout(undoTimer.current);
@@ -277,11 +410,10 @@ export default function ShelfScreen() {
     undoTimer.current = setTimeout(() => setUndoTok(null), 6000);
   };
 
-  const onPass = async (slug: string) => {
-    const tok = await dismiss(slug);
+  const onRestore = async (slug: string) => {
+    const tok = await undismiss(slug);
     if (tok) {
       showUndo(tok);
-      void considering.noteJudged(slug);
       me.invalidateRecommend();
     }
   };
@@ -296,23 +428,187 @@ export default function ShelfScreen() {
     }
   };
 
-  const surfaceCard = {
-    marginHorizontal: sp.s4,
-    backgroundColor: pal.surface,
-    borderRadius: radius.md,
-    overflow: "hidden" as const,
+  const onRateCell = (c: Cell) => {
+    promptRate({
+      slug: c.slug,
+      title: c.title,
+      year: c.year,
+      posterPath: c.posterPath,
+      standing: c.standing,
+      // A film rated from the watchlist becomes seen — refetch so it moves faces.
+      onDone: (v) => {
+        if (v != null) void fetchAll();
+      },
+    });
   };
 
-  return (
-    <View style={{ flex: 1, backgroundColor: pal.bg }}>
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{ paddingBottom: 120 }}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
-        }
+  // ---- Grid geometry --------------------------------------------------------
+  const GAP = 10;
+  const cellW = Math.floor((width - sp.s4 * 2 - GAP * 2) / 3);
+
+  const emptyKey: DictKey =
+    face === "watched"
+      ? "you.empty.watched"
+      : face === "queue"
+        ? "you.empty.queue"
+        : face === "rated"
+          ? "you.empty.rated"
+          : "you.empty.passed";
+
+  const loaded = collection !== null;
+
+  const header = (
+    <View>
+      {/* Masthead */}
+      <View
+        style={{
+          paddingTop: insets.top + sp.s3,
+          paddingHorizontal: sp.s4,
+          flexDirection: "row",
+          alignItems: "center",
+        }}
       >
-        {/* Masthead — title + settings gear */}
+        <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
+          {t("shelf.title")}
+        </Ui>
+        <HeaderSearch onPress={() => router.push("/search")} />
+        <View style={{ width: sp.s2 }} />
+        <Tactile onPress={() => setShowSettings(true)} hitSlop={8}>
+          <View
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: radius.pill,
+              backgroundColor: pal.surface,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Ionicons name="settings-outline" size={18} color={pal.ink} />
+          </View>
+        </Tactile>
+      </View>
+
+      {/* One quiet line of counts, then the edition/import row the owner asked to
+          keep in the open (07-29) — compressed to chips so the grid starts high. */}
+      <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, marginTop: 2 }}>
+        {t("you.stats", {
+          seen: faces.watched.length,
+          queue: faces.queue.length,
+          rated: faces.rated.length,
+        })}
+      </Ui>
+      <View
+        style={{
+          flexDirection: "row",
+          gap: sp.s2,
+          paddingHorizontal: sp.s4,
+          marginTop: sp.s3,
+        }}
+      >
+        {/* Country and services are one question and now one chip (owner 08-03). */}
+        <MetaChip
+          icon="globe-outline"
+          label={`${prefs.country} · ${prefs.providerIds.length}`}
+          onPress={() => router.push({ pathname: "/onboarding", params: { step: "edition" } })}
+        />
+        <MetaChip
+          icon="language-outline"
+          label={langLabel(prefs.contentLang)}
+          onPress={() => router.push({ pathname: "/onboarding", params: { step: "language" } })}
+        />
+        <MetaChip
+          icon="download-outline"
+          label={t("you.import")}
+          onPress={() => router.push(CONNECT_HREF)}
+        />
+      </View>
+
+      {/* Faces */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2, paddingVertical: sp.s3 }}
+      >
+        {FACES.map((f) => {
+          const on = f.key === face;
+          return (
+            <Tactile key={f.key} onPress={() => pickFace(f.key)} feedback="select">
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 5,
+                  borderRadius: radius.pill,
+                  paddingHorizontal: 13,
+                  paddingVertical: 7,
+                  backgroundColor: on ? pal.ink : pal.surface,
+                }}
+              >
+                <Ui size={fs.sm} weight="600" color={on ? pal.bg : pal.inkSoft}>
+                  {t(f.label)}
+                </Ui>
+                <Ui
+                  size={fs.xs}
+                  weight="600"
+                  color={on ? pal.bg : pal.subtle}
+                  style={{ opacity: on ? 0.7 : 1 }}
+                >
+                  {String(faces[f.key].length)}
+                </Ui>
+              </View>
+            </Tactile>
+          );
+        })}
+      </ScrollView>
+
+      {/* Sort switches — deliberately tiny; tap the live one to flip direction */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: sp.s4,
+          gap: sp.s4,
+          alignItems: "center",
+          paddingBottom: sp.s3,
+        }}
+      >
+        {SORTS[face].map((k) => {
+          const on = k === sortKey;
+          return (
+            <Tactile key={k} onPress={() => pickSort(k)} hitSlop={8} feedback="select">
+              <Ui
+                size={fs.xs}
+                weight={on ? "700" : "500"}
+                color={on ? brand.accent : pal.subtle}
+              >
+                {t(sortLabel(k, face))}
+                {on ? ` ${caret(k, flipped)}` : ""}
+              </Ui>
+            </Tactile>
+          );
+        })}
+      </ScrollView>
+
+      {face === "rated" && faces.rated.length ? (
+        <Ui size={fs.xs} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s3 }}>
+          {t("you.verdictLine", verdictCounts)}
+        </Ui>
+      ) : null}
+
+      <Hairline style={{ marginHorizontal: sp.s4, marginBottom: sp.s3 }} />
+
+      {loaded && rows.length === 0 ? (
+        <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s5 }}>
+          {t(emptyKey)}
+        </Ui>
+      ) : null}
+    </View>
+  );
+
+  if (!session) {
+    return (
+      <View style={{ flex: 1, backgroundColor: pal.bg }}>
         <View
           style={{
             paddingTop: insets.top + sp.s3,
@@ -324,8 +620,6 @@ export default function ShelfScreen() {
           <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
             {t("shelf.title")}
           </Ui>
-          <HeaderSearch onPress={() => router.push("/search")} />
-          <View style={{ width: sp.s2 }} />
           <Tactile onPress={() => setShowSettings(true)} hitSlop={8}>
             <View
               style={{
@@ -341,364 +635,69 @@ export default function ShelfScreen() {
             </View>
           </Tactile>
         </View>
-
-        {!session ? (
-          /* Signed out — the portfolio needs an account. Gear stays reachable. */
-          <View
-            style={{
-              paddingHorizontal: sp.s5,
-              paddingTop: sp.s8,
-              alignItems: "center",
-              gap: sp.s4,
-            }}
-          >
-            <Ui size={fs.base} color={pal.inkSoft} style={{ textAlign: "center" }}>
-              {t("shelf.signedOut")}
+        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s8, alignItems: "center", gap: sp.s4 }}>
+          <Ui size={fs.base} color={pal.inkSoft} style={{ textAlign: "center" }}>
+            {t("shelf.signedOut")}
+          </Ui>
+          <Btn
+            label={t("my.signIn")}
+            onPress={() => router.push({ pathname: "/onboarding", params: { step: "account" } })}
+            style={{ alignSelf: "stretch" }}
+          />
+          <Tactile onPress={() => router.push(CONNECT_HREF)} hitSlop={6}>
+            <Ui
+              size={fs.sm}
+              weight="500"
+              color={pal.muted}
+              style={{ textAlign: "center", textDecorationLine: "underline" }}
+            >
+              {t("connect.entry.title")}
             </Ui>
-            <Btn
-              label={t("my.signIn")}
-              onPress={() => router.push({ pathname: "/onboarding", params: { step: "account" } })}
-              style={{ alignSelf: "stretch" }}
-            />
-            {/* Quiet secondary path — imports need auth anyway; the hub explains */}
-            <Tactile onPress={() => router.push(CONNECT_HREF)} hitSlop={6}>
-              <Ui
-                size={fs.sm}
-                weight="500"
-                color={pal.muted}
-                style={{ textAlign: "center", textDecorationLine: "underline" }}
-              >
-                {t("connect.entry.title")}
-              </Ui>
-            </Tactile>
-          </View>
-        ) : (
-          <>
-            {/* My edition — services + country surfaced at the TOP of You (owner 07-29:
-                not hidden behind the gear). Each row taps straight into its editor. */}
-            <View
-              style={{
-                marginHorizontal: sp.s4,
-                marginTop: sp.s3,
-                backgroundColor: pal.card,
-                borderRadius: radius.md,
-                borderWidth: 1,
-                borderColor: pal.hairline,
-                overflow: "hidden",
-              }}
-            >
-              <Tactile onPress={() => router.push({ pathname: "/onboarding", params: { step: "services" } })}>
-                <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, paddingHorizontal: sp.s4, paddingVertical: 13 }}>
-                  <Ionicons name="tv-outline" size={19} color={brand.accent} />
-                  <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
-                    {t("my.services")}
-                  </Ui>
-                  <Ui size={fs.sm} color={pal.muted}>
-                    {prefs.providerIds.length}
-                  </Ui>
-                  <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
-                </View>
-              </Tactile>
-              <Hairline style={{ marginLeft: sp.s4 }} />
-              <Tactile onPress={() => router.push({ pathname: "/onboarding", params: { step: "country" } })}>
-                <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, paddingHorizontal: sp.s4, paddingVertical: 13 }}>
-                  <Ionicons name="globe-outline" size={19} color={brand.accent} />
-                  <Ui size={fs.sm} weight="600" style={{ flex: 1 }}>
-                    {t("my.country")}
-                  </Ui>
-                  <Ui size={fs.sm} color={pal.muted}>
-                    {prefs.country}
-                  </Ui>
-                  <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
-                </View>
-              </Tactile>
-            </View>
+          </Tactile>
+        </View>
+        <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
+      </View>
+    );
+  }
 
-            {/* Connect entry — the empty shelf is the primary discovery moment
-                (HANDOFF-커넥트 §2.1: Shelf body card, not the gear sheet) */}
-            {queue !== null && qTotal === 0 ? <ConnectEntryCard /> : null}
-
-            {/* ── Zone 1 · Queue ─────────────────────────────────────────── */}
-            <SectionTitle
-              sub={
-                availReady && qTotal > 0
-                  ? t("shelf.queueLine", { avail: qAvail, total: qTotal })
-                  : undefined
-              }
-            >
-              {t("shelf.queueTitle")}
-            </SectionTitle>
-            {queue !== null && qTotal === 0 ? (
-              <Ui
-                size={fs.sm}
-                color={pal.muted}
-                style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s2 }}
-              >
-                {t("shelf.emptyQueue")}
-              </Ui>
-            ) : null}
-            {mainRows.length ? (
-              <View style={surfaceCard}>
-                {mainRows.map((r, i) => (
-                  <React.Fragment key={r.slug}>
-                    {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
-                    <QueueRow row={r} tiers={tiers.get(r.slug) ?? []} age={ageOf(r.added_at)} />
-                  </React.Fragment>
-                ))}
-              </View>
-            ) : null}
-            {staleRows.length ? (
-              <>
-                <Ui
-                  size={fs.sm}
-                  weight="500"
-                  color={pal.muted}
-                  style={{ paddingHorizontal: sp.s4, marginTop: sp.s4, marginBottom: sp.s2 }}
-                >
-                  {t("shelf.staleNudge")}
-                </Ui>
-                <View style={surfaceCard}>
-                  {staleRows.map((r, i) => (
-                    <React.Fragment key={r.slug}>
-                      {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
-                      <QueueRow
-                        row={r}
-                        tiers={tiers.get(r.slug) ?? []}
-                        age="stale"
-                        onPass={(slug) => void onPass(slug)}
-                      />
-                    </React.Fragment>
-                  ))}
-                </View>
-              </>
-            ) : null}
-
-            {/* ── Zone 2 · Deciding + Verdicts ───────────────────────────── */}
-            {deciding.length ? (
-              <Appear index={1}>
-                <SectionTitle sub={t("shelf.decidingHint")}>{t("shelf.deciding")}</SectionTitle>
-                <ScrollView
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                  contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
-                >
-                  {deciding.map((d, di) => (
-                    <Appear key={d.slug} index={di} from="right">
-                    <Tactile
-                      onPress={() =>
-                        router.push({ pathname: "/film/[slug]", params: { slug: d.slug } })
-                      }
-                      style={{ width: 96 }}
-                    >
-                      <View>
-                        <PosterImg
-                          path={d.poster_path}
-                          width={96}
-                          height={144}
-                          size="w185"
-                          rounded={radius.sm}
-                        />
-                        <Ui size={fs.xs} numberOfLines={1} style={{ marginTop: 4 }}>
-                          {d.title}
-                        </Ui>
-                      </View>
-                    </Tactile>
-                    </Appear>
-                  ))}
-                </ScrollView>
-              </Appear>
-            ) : null}
-
-            {rated.length ? (
-              <Appear index={2}>
-                <SectionTitle>{t("shelf.verdicts")}</SectionTitle>
-                <View style={[surfaceCard, { padding: sp.s4, gap: sp.s3 }]}>
-                  <View style={{ flexDirection: "row", flexWrap: "wrap", gap: sp.s4 }}>
-                    {VERDICTS.map((v, vi) => (
-                      <Pop
-                        key={v}
-                        delay={vi * 60}
-                        style={{ flexDirection: "row", alignItems: "center", gap: 6 }}
-                      >
-                        <View
-                          style={{
-                            width: 8,
-                            height: 8,
-                            borderRadius: radius.pill,
-                            backgroundColor: verdictColor(v),
-                          }}
-                        />
-                        <Ui size={fs.sm} weight="600">
-                          {String(verdictStats.counts[v])}
-                        </Ui>
-                        <Ui size={fs.sm} color={pal.muted}>
-                          {t(verdictKey(v))}
-                        </Ui>
-                      </Pop>
-                    ))}
-                  </View>
-                  <Ui size={fs.xs + 1} color={pal.muted}>
-                    {t("shelf.findsMonth", { n: verdictStats.findsThisMonth })}
-                  </Ui>
-                </View>
-                <View style={[surfaceCard, { marginTop: sp.s3 }]}>
-                  {rated.slice(0, 6).map((r, i) => {
-                    const v = verdictOf(r.rating, r.prestige);
-                    return (
-                      <React.Fragment key={r.slug}>
-                        {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
-                        <Tactile
-                          onPress={() =>
-                            router.push({ pathname: "/film/[slug]", params: { slug: r.slug } })
-                          }
-                        >
-                          <View
-                            style={{
-                              flexDirection: "row",
-                              alignItems: "center",
-                              gap: sp.s3,
-                              paddingHorizontal: sp.s4,
-                              paddingVertical: sp.s3,
-                            }}
-                          >
-                            <PosterImg
-                              path={r.poster_path}
-                              width={48}
-                              height={72}
-                              size="w92"
-                              rounded={radius.sm}
-                            />
-                            <View style={{ flex: 1 }}>
-                              <Ui size={fs.md} weight="500" numberOfLines={1}>
-                                {r.title}
-                              </Ui>
-                              {r.year != null ? (
-                                <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 1 }}>
-                                  {String(r.year)}
-                                </Ui>
-                              ) : null}
-                            </View>
-                            {v ? <AgeBadge label={t(verdictKey(v))} color={verdictColor(v)} /> : null}
-                          </View>
-                        </Tactile>
-                      </React.Fragment>
-                    );
-                  })}
-                </View>
-              </Appear>
-            ) : null}
-
-            {/* ── Zone 3 · Journey ───────────────────────────────────────── */}
-            {topCoverage.length || blindspot ? (
-              <Appear index={3}>
-                <SectionTitle>{t("shelf.journey")}</SectionTitle>
-                {topCoverage.length ? (
-                  <View style={surfaceCard}>
-                    {topCoverage.map((c, i) => {
-                      const pct = Math.min(
-                        100,
-                        Math.round((c.total > 0 ? c.seen / c.total : 0) * 100),
-                      );
-                      return (
-                        <React.Fragment key={c.list_id}>
-                          {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-                          <Tactile onPress={() => driveLineage(c.slug, c.label)}>
-                            <View
-                              style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s3, gap: 6 }}
-                            >
-                              <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3 }}>
-                                <Ui size={fs.sm} weight="500" numberOfLines={1} style={{ flex: 1 }}>
-                                  {c.label}
-                                </Ui>
-                                <Ui size={fs.sm} color={pal.muted}>
-                                  {`${c.seen}/${c.total}`}
-                                </Ui>
-                              </View>
-                              <ProgressBar value={pct / 100} tint={brand.teal} height={4} />
-                            </View>
-                          </Tactile>
-                        </React.Fragment>
-                      );
-                    })}
-                  </View>
-                ) : null}
-                {blindspot ? (
-                  <Tactile
-                    onPress={() => driveLineage(blindspot.slug, blindspot.label)}
-                    style={{ marginHorizontal: sp.s4, marginTop: sp.s3 }}
-                  >
-                    <View
-                      style={{
-                        backgroundColor: pal.surface,
-                        borderRadius: radius.md,
-                        padding: sp.s4,
-                        gap: 4,
-                      }}
-                    >
-                      <Ui size={fs.xs} weight="600" color={pal.muted}>
-                        {t("shelf.blindspot")}
-                      </Ui>
-                      <Ui size={fs.md} weight="600" numberOfLines={2}>
-                        {blindspot.label}
-                      </Ui>
-                      {blindspot.gap_reason ? (
-                        <Ui size={fs.sm} color={pal.inkSoft}>
-                          {blindspot.gap_reason}
-                        </Ui>
-                      ) : null}
-                    </View>
-                  </Tactile>
-                ) : null}
-                <Tactile
-                  onPress={() => router.push("/navigator")}
-                  hitSlop={6}
-                  style={{ alignSelf: "flex-start", paddingHorizontal: sp.s4, paddingVertical: sp.s3 }}
-                >
-                  <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
-                    <Ui size={fs.sm} weight="500" color={brand.accent}>
-                      {t("shelf.openRoom")}
-                    </Ui>
-                    <Ionicons name="arrow-forward" size={14} color={brand.accent} />
-                  </View>
-                </Tactile>
-              </Appear>
-            ) : null}
-
-            {/* Connect entry, compact — discovery stays reachable on a full shelf */}
-            {qTotal > 0 ? <ConnectEntryCard compact /> : null}
-          </>
+  return (
+    <View style={{ flex: 1, backgroundColor: pal.bg }}>
+      <FlatList
+        ref={listRef}
+        data={rows}
+        keyExtractor={(c) => c.slug}
+        numColumns={3}
+        ListHeaderComponent={header}
+        columnWrapperStyle={{ paddingHorizontal: sp.s4, gap: GAP }}
+        contentContainerStyle={{ paddingBottom: 120 }}
+        initialNumToRender={18}
+        windowSize={9}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
+        }
+        renderItem={({ item, index }) => (
+          <GridCell
+            cell={item}
+            shownTitle={titleOf(item.slug, item.title)}
+            face={face}
+            width={cellW}
+            index={index}
+            onOpen={() => router.push({ pathname: "/film/[slug]", params: { slug: item.slug } })}
+            onRate={() => onRateCell(item)}
+            onRestore={() => void onRestore(item.slug)}
+          />
         )}
+      />
 
-        {/* Source lines consolidated into Credits & data sources (owner 07-31).
-            The queue shows availability, so the JustWatch line is still carried
-            on the film's Where-to-watch surface where its terms attach. */}
-        <Tactile
-          feedback="tap"
-          onPress={() =>
-            router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } })
-          }
-          style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6 }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-            <Ui size={fs.xs} color={pal.subtle}>
-              {t("my.credits")}
-            </Ui>
-            <Ionicons name="chevron-forward" size={12} color={pal.subtle} />
-          </View>
-        </Tactile>
-      </ScrollView>
-
-      {/* Floating undo — every judgment is reversible (§13-15) */}
       {undoTok ? (
         <View
           pointerEvents="box-none"
           style={{ position: "absolute", left: 0, right: 0, bottom: insets.bottom + 96 }}
         >
-          <UndoPill label={t("judge.passed")} actionLabel={t("judge.undo")} onUndo={onUndo} />
+          <UndoPill label={t("judge.restore")} actionLabel={t("judge.undo")} onUndo={onUndo} />
         </View>
       ) : null}
 
-      {/* Settings — everything the old My screen held, verbatim, behind the gear */}
       <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
     </View>
   );
@@ -706,104 +705,168 @@ export default function ShelfScreen() {
 
 // ---------------------------------------------------------------------------
 
-/** "Bring your film life" — Shelf entry to the Connect hub (HANDOFF-커넥트 §2.1).
-    Prominent card on an empty shelf; compact row under Journey otherwise. */
-function ConnectEntryCard({ compact }: { compact?: boolean }) {
+/** Tiny status/shortcut chip for the edition row. */
+function MetaChip({
+  icon,
+  label,
+  onPress,
+}: {
+  icon: React.ComponentProps<typeof Ionicons>["name"];
+  label: string;
+  onPress: () => void;
+}) {
   const pal = usePalette();
-  const router = useRouter();
   return (
-    <Tactile
-      onPress={() => router.push(CONNECT_HREF)}
-      style={{ marginHorizontal: sp.s4, marginTop: compact ? sp.s5 : sp.s4 }}
-    >
+    <Tactile onPress={onPress} feedback="tap">
       <View
         style={{
-          backgroundColor: pal.surface,
-          borderRadius: radius.md,
-          paddingHorizontal: sp.s4,
-          paddingVertical: compact ? sp.s3 : sp.s4,
           flexDirection: "row",
           alignItems: "center",
-          gap: sp.s3,
+          gap: 5,
+          borderRadius: radius.pill,
+          paddingHorizontal: 10,
+          paddingVertical: 5,
+          borderWidth: StyleSheet.hairlineWidth,
+          borderColor: pal.hairline2,
         }}
       >
-        <View style={{ flex: 1 }}>
-          <Ui size={fs.md} weight="600" numberOfLines={1}>
-            {t("connect.entry.title")}
-          </Ui>
-          <Ui
-            size={compact ? fs.xs + 1 : fs.sm}
-            color={pal.muted}
-            numberOfLines={compact ? 1 : 2}
-            style={{ marginTop: 2 }}
-          >
-            {t("connect.entry.sub")}
-          </Ui>
-        </View>
-        <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+        <Ionicons name={icon} size={12} color={pal.muted} />
+        <Ui size={fs.xs} weight="600" color={pal.inkSoft}>
+          {label}
+        </Ui>
       </View>
     </Tactile>
   );
 }
 
-/** Queue row — poster, title/year, decay badge, availability dots, optional ✕ pass. */
-function QueueRow({
-  row,
-  tiers,
-  age,
-  onPass,
+/**
+ * One poster in the grid: the film, then the two numbers side by side —
+ * TakeScore (the canon's) and my stars (mine). Tapping the stars rates it
+ * without leaving the grid; the poster opens the brief.
+ */
+function GridCell({
+  cell,
+  shownTitle,
+  face,
+  width,
+  index,
+  onOpen,
+  onRate,
+  onRestore,
 }: {
-  row: WatchlistScoredRow;
-  tiers: string[];
-  age: Age | null;
-  onPass?: (slug: string) => void;
+  cell: Cell;
+  /** Title in the viewer's content language; falls back to cell.title. */
+  shownTitle: string;
+  face: Face;
+  width: number;
+  index: number;
+  onOpen: () => void;
+  onRate: () => void;
+  onRestore: () => void;
 }) {
   const pal = usePalette();
-  const router = useRouter();
+  const verdict = face === "rated" ? verdictOf(cell.rating, cell.standing) : null;
+  // One corner slot, whatever this face has to say about the film: on the
+  // watchlist it's commitment decay, on Rated it's how far my call sat from
+  // the canon's.
+  const corner = verdict
+    ? verdictColor(verdict)
+    : face === "queue" && cell.age && cell.age !== "fresh"
+      ? ageColor(cell.age)
+      : null;
+
   return (
-    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: row.slug } })}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: sp.s3,
-          paddingHorizontal: sp.s4,
-          paddingVertical: sp.s3,
-        }}
-      >
-        <PosterImg path={row.poster_path} width={48} height={72} size="w92" rounded={radius.sm} />
-        <View style={{ flex: 1 }}>
-          <Ui size={fs.md} weight="500" numberOfLines={1}>
-            {row.title}
+    <Appear index={index} distance={10}>
+      <Tactile onPress={onOpen} style={{ width, marginBottom: sp.s3 }}>
+        <View>
+          <View>
+            <PosterImg
+              path={cell.posterPath}
+              width={width}
+              height={Math.round(width * 1.5)}
+              size="w342"
+              rounded={radius.sm}
+            />
+            {corner ? (
+              <View
+                style={{
+                  position: "absolute",
+                  top: 6,
+                  left: 6,
+                  width: 8,
+                  height: 8,
+                  borderRadius: radius.pill,
+                  backgroundColor: corner,
+                  borderWidth: 1,
+                  borderColor: "rgba(0,0,0,0.25)",
+                }}
+              />
+            ) : null}
+            {/* Availability rides ON the poster so the line underneath is always
+                the same two things: the canon's number and mine. */}
+            {face === "queue" && cell.tiers.length ? (
+              <View
+                style={{
+                  position: "absolute",
+                  left: 5,
+                  bottom: 5,
+                  borderRadius: radius.pill,
+                  paddingHorizontal: 5,
+                  paddingVertical: 3,
+                  backgroundColor: pal.chrome,
+                }}
+              >
+                <AvailabilityDots tiers={cell.tiers} />
+              </View>
+            ) : null}
+          </View>
+
+          {/* The two numbers, side by side (owner 08-03) */}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 5,
+              minHeight: 18,
+            }}
+          >
+            {cell.ts != null ? (
+              <Ui size={fs.sm} weight="700" color={brand.tsGreen}>
+                {String(cell.ts)}
+              </Ui>
+            ) : (
+              <Ui size={fs.sm} weight="700" color={pal.hairline2}>
+                –
+              </Ui>
+            )}
+            {face === "passed" ? (
+              <Tactile
+                onPress={onRestore}
+                hitSlop={12}
+                feedback="tap"
+                style={{ paddingLeft: 10, paddingVertical: 2 }}
+              >
+                <Ionicons name="arrow-undo-outline" size={15} color={pal.muted} />
+              </Tactile>
+            ) : (
+              <Tactile
+                onPress={onRate}
+                hitSlop={12}
+                feedback="tap"
+                style={{ paddingLeft: 10, paddingVertical: 2 }}
+              >
+                <MiniStars value={cell.rating} size={10} />
+              </Tactile>
+            )}
+          </View>
+
+          <Ui size={fs.xs} numberOfLines={2} color={pal.inkSoft} style={{ marginTop: 1, height: 32 }}>
+            {shownTitle}
           </Ui>
-          {row.year != null ? (
-            <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 1 }}>
-              {String(row.year)}
-            </Ui>
-          ) : null}
         </View>
-        {/* Fresh stays quiet — only decay (aging/stale) earns a badge */}
-        {age && age !== "fresh" ? <AgeBadge label={t(ageKey(age))} color={ageColor(age)} /> : null}
-        {tiers.length ? <AvailabilityDots tiers={tiers} /> : null}
-        {onPass ? (
-          <Tactile onPress={() => onPass(row.slug)} hitSlop={8}>
-            <View
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: radius.pill,
-                borderWidth: StyleSheet.hairlineWidth,
-                borderColor: pal.hairline2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Ionicons name="close" size={16} color={pal.ink} />
-            </View>
-          </Tactile>
-        ) : null}
-      </View>
-    </Tactile>
+      </Tactile>
+    </Appear>
   );
 }
 
@@ -814,7 +877,6 @@ function QueueRow({
 
 function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
   const pal = usePalette();
-  const scheme = useColorScheme();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const prefs = usePrefs();
@@ -845,7 +907,7 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
 
   const edition = ALL_EDITIONS.find((e) => e.country === prefs.country);
   // The modal floats above the navigator — close it before pushing a route.
-  const goOnboarding = (step: "country" | "services") => {
+  const goOnboarding = (step: "edition" | "language") => {
     onClose();
     router.push({ pathname: "/onboarding", params: { step } });
   };
@@ -958,18 +1020,21 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
               overflow: "hidden",
             }}
           >
+            {/* One row, one question: where you watch. The page behind it holds
+                the country AND the services that exist in it. */}
             <SettingRow
               icon="globe-outline"
-              label={t("my.country")}
-              value={edition ? `${edition.flag} ${edition.label}` : prefs.country}
-              onPress={() => goOnboarding("country")}
+              label={t("onboarding.editionTitle")}
+              value={`${edition ? `${edition.flag} ${edition.label}` : prefs.country} · ${prefs.providerIds.length}`}
+              onPress={() => goOnboarding("edition")}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />
+            {/* The third axis — unrelated to the row above it, by design. */}
             <SettingRow
-              icon="tv-outline"
-              label={t("my.services")}
-              value={String(prefs.providerIds.length)}
-              onPress={() => goOnboarding("services")}
+              icon="language-outline"
+              label={t("you.language")}
+              value={langLabel(prefs.contentLang)}
+              onPress={() => goOnboarding("language")}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />
             <View
@@ -1169,7 +1234,7 @@ function SignedIn() {
   );
 }
 
-// ---- Signed-out account block: email + 8-digit code, Apple ----------------
+// ---- Signed-out account block: email + code, Apple ------------------------
 
 /** Sign-in inside the settings sheet. Renders the ONE shared panel — this was a
  *  second hand-maintained copy and had drifted: it still asked for a 6-digit

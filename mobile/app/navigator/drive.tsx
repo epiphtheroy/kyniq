@@ -25,6 +25,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Animated, LayoutChangeEvent, PanResponder, Share, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Svg, { Ellipse, Path, Rect } from "react-native-svg";
+import { useRate } from "../../src/components/RateSheet";
 import { Btn, Loading, PosterImg, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { t } from "../../src/i18n";
@@ -350,6 +351,7 @@ export default function NavigatorDriveScreen() {
   const { width: winW } = useWindowDimensions();
   const { country } = usePrefs();
   const { session, markSeen } = useFilms();
+  const { promptRate } = useRate();
 
   const [dest, setDest] = useState<NavDest | null>(() => {
     if (params.lineage) return { lineage: params.lineage, label: params.label };
@@ -639,18 +641,26 @@ export default function NavigatorDriveScreen() {
   };
 
   const onMarkSeen = useCallback(
-    async (slug: string) => {
+    async (stop: { slug: string; title: string; year: number | null; poster_path: string | null }) => {
       if (!session) {
         router.push({ pathname: "/onboarding", params: { step: "account" } });
         return;
       }
-      const token = await markSeen(slug);
+      const token = await markSeen(stop.slug);
       if (token) {
         showToast(t("nav.rerouting"));
         setGen((g) => g + 1); // reroute: refetch → chevron advances
+        // Same promise as everywhere else: marking it seen asks for the stars.
+        promptRate({
+          slug: stop.slug,
+          title: stop.title,
+          year: stop.year,
+          posterPath: stop.poster_path,
+          standing: null,
+        });
       }
     },
-    [session, markSeen, router, showToast],
+    [session, markSeen, router, showToast, promptRate],
   );
 
   const onSkip = useCallback((slug: string) => {
@@ -1534,7 +1544,7 @@ export default function NavigatorDriveScreen() {
             {/* actions: mark seen (advance) · skip this turn */}
             {!arrived && head ? (
               <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s2 }}>
-                <Tactile onPress={() => onMarkSeen(head.slug)} style={{ flex: 1 }}>
+                <Tactile onPress={() => onMarkSeen(head)} style={{ flex: 1 }}>
                   <View
                     style={{
                       flexDirection: "row",

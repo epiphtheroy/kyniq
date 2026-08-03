@@ -738,44 +738,9 @@ export function Screen({ children, style }: { children: React.ReactNode; style?:
 // token, never brand red; my-rating stars never sit inside the TakeScore group
 // (never-blend, §13-18).
 
-/** Half-star rating input, 0.5–5 — fires on tap; left half = .5, right half = full. */
-export function StarRow({
-  value,
-  onChange,
-  size = 30,
-}: {
-  value: number | null;
-  onChange: (v: number) => void;
-  size?: number;
-}) {
-  const pal = usePalette();
-  const v = value ?? 0;
-  const set = (next: number) => {
-    haptic.select();
-    onChange(next);
-  };
-  return (
-    <View style={{ flexDirection: "row", gap: 4 }}>
-      {[1, 2, 3, 4, 5].map((i) => {
-        const name =
-          v >= i ? "star" : v >= i - 0.5 ? "star-half" : ("star-outline" as const);
-        const lit = v >= i - 0.5;
-        return (
-          <View key={i} style={{ width: size, height: size }}>
-            {/* Re-keyed on `name` so each star springs in as it lights up. */}
-            <Pop key={name} delay={lit ? (i - 1) * 30 : 0}>
-              <Ionicons name={name} size={size} color={lit ? brand.accent : pal.subtle} />
-            </Pop>
-            <View style={{ position: "absolute", inset: 0, flexDirection: "row" }}>
-              <Pressable style={{ flex: 1 }} hitSlop={4} onPress={() => set(i - 0.5)} />
-              <Pressable style={{ flex: 1 }} hitSlop={4} onPress={() => set(i)} />
-            </View>
-          </View>
-        );
-      })}
-    </View>
-  );
-}
+// Rating input moved out of this file: it is now the drag-to-rate track inside
+// the one shared sheet (components/RateSheet.tsx — StarRate / MiniStars), so a
+// rating is never two different widgets depending on which screen you're on.
 
 /** V/C/R micro-bars — TakeScore-semantic colors, grouped apart from user signals. */
 export function VcrBars({

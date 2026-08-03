@@ -2,16 +2,39 @@
 // when signed in (push worker join key). Locale changes re-render via context.
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { DEFAULT_EDITION, UI_LOCALE, editionForCountry, type UILocale } from "../editions";
+import {
+  DEFAULT_CONTENT_LANG,
+  DEFAULT_EDITION,
+  UI_LOCALE,
+  editionForCountry,
+  isContentLang,
+  type ContentLang,
+  type UILocale,
+} from "../editions";
 import { deviceRegion, setLocale } from "../i18n";
 import { api } from "../lib/api";
 import { supabase } from "../lib/supabase";
 
 const KEY = "mt.prefs.v1";
 
+/** A saved country + services pairing (owner 08-03: "저장해서 선택할 수 있게").
+ *  One tap swaps both — home vs. travelling, or two households on one account. */
+export type EditionPreset = {
+  id: string;
+  label: string;
+  country: string;
+  providerIds: number[];
+};
+
 export type Prefs = {
   country: string;
   locale: UILocale;
+  /** What language films are NAMED in. Independent of `country` and of the UI,
+   *  which stays English (editions.ts UI_LOCALE). Drives the TMDB title
+   *  projection and the multilingual search RPC (migration 0121). */
+  contentLang: ContentLang;
+  /** Saved country+services pairings, most recently used first. */
+  presets: EditionPreset[];
   providerIds: number[];
   onboarded: boolean;
   hideSeen: boolean;
@@ -29,6 +52,8 @@ type PrefsCtx = Prefs & {
 const defaults: Prefs = {
   country: DEFAULT_EDITION.country,
   locale: UI_LOCALE,
+  contentLang: DEFAULT_CONTENT_LANG,
+  presets: [],
   providerIds: [],
   onboarded: false,
   hideSeen: false,
@@ -49,7 +74,16 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
         if (raw) {
           // Force the UI language regardless of what an older build stored —
           // devices that already ran the KR edition must come back in English.
-          const saved = { ...defaults, ...(JSON.parse(raw) as Partial<Prefs>), locale: UI_LOCALE };
+          const parsed = JSON.parse(raw) as Partial<Prefs>;
+          const saved = {
+            ...defaults,
+            ...parsed,
+            locale: UI_LOCALE,
+            // An unknown code would be handed to the RPC as a column suffix that
+            // does not exist — fall back rather than trust storage.
+            contentLang: isContentLang(parsed.contentLang) ? parsed.contentLang : DEFAULT_CONTENT_LANG,
+            presets: Array.isArray(parsed.presets) ? parsed.presets : [],
+          };
           setLocale(saved.locale);
           setPrefs(saved);
         } else {

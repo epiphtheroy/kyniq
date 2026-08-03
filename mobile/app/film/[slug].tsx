@@ -6,8 +6,9 @@
 // v4: VerdictStrip (rank + V/C/R + runtime + dots), For You (server-supplied
 // evidence only — §13-17), What to Expect (13-dim chips), JudgeBar pinned
 // bottom with instant undo on every transition (§13-15), Considering ring
-// buffer input (D2). My-rating stars stay visually apart from the TakeScore
-// group (never-blend, §13-18).
+// buffer input (D2). Rating happens in the ONE shared sheet (components/
+// RateSheet.tsx), which "Seen it" opens by itself; the stars stay visually
+// apart from the TakeScore group (never-blend, §13-18).
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
@@ -27,12 +28,12 @@ import {
   Screen,
   SectionTitle,
   Serif,
-  StarRow,
   Tactile,
   Ui,
   UndoPill,
   VcrBars,
 } from "../../src/components/ui";
+import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import Animated, {
   interpolate,
@@ -44,6 +45,7 @@ import { Appear, Pulse, Shimmer, SkeletonText } from "../../src/components/motio
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
+import { useLocalTitle } from "../../src/lib/titles";
 import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
@@ -143,9 +145,9 @@ export default function FilmScreen() {
     dismiss,
     undismiss,
     markSeen,
-    rate,
     undo,
   } = useFilms();
+  const { promptRate } = useRate();
 
   const [card, setCard] = useState<FilmCardT | null>(null);
   const [tow, setTow] = useState<TowComment | null>(null);
@@ -154,7 +156,6 @@ export default function FilmScreen() {
   const [heroIdx, setHeroIdx] = useState(0);
   const [reasons, setReasons] = useState<string[]>([]);
   const [toast, setToast] = useState<Toast | null>(null);
-  const [showRating, setShowRating] = useState(false);
   const [showAllLineage, setShowAllLineage] = useState(false);
   const [busy, setBusy] = useState(false);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -166,7 +167,6 @@ export default function FilmScreen() {
     setHeroIdx(0);
     setReasons([]);
     setToast(null);
-    setShowRating(false);
     setShowAllLineage(false);
     api
       .film(String(slug), country, locale)
@@ -215,6 +215,10 @@ export default function FilmScreen() {
   );
 
   const entry = card ? ledger.get(card.slug) : undefined;
+  // The film's own release title in the viewer's content language (migration
+  // 0121); English whenever TMDB has none. Used everywhere the name is SHOWN —
+  // the ledger and every URL keep the English slug/title.
+  const shownTitle = useLocalTitle(card?.slug, card?.title ?? "");
   const webUrl = `${METATAKE_BASE}/film/${slug}`;
 
   // Hero pager pages: server backdrops (images[0..3]) + the poster as the
@@ -288,13 +292,29 @@ export default function FilmScreen() {
     }
   }, [card, busy, guard, entry?.dismissed, undismiss, dismiss, flash, afterJudgment]);
 
+  /** Open the one rating sheet for this film (pre-filled from the ledger). */
+  const askRating = useCallback(() => {
+    if (!card) return;
+    promptRate({
+      slug: card.slug,
+      title: shownTitle,
+      year: card.year,
+      posterPath: card.poster_path,
+      standing: card.standing,
+      onDone: (v) => {
+        if (v != null) afterJudgment(card.slug);
+      },
+    });
+  }, [card, promptRate, afterJudgment]);
+
   const onSeen = useCallback(async () => {
     if (!card || busy) return;
     if (entry?.seen) {
-      // Already seen: toggle the rating row; undoing seen goes through the
-      // UndoPill token from markSeen — never a confirm dialog (§13-15).
+      // Already seen — go straight back to the stars. Undoing "seen" lives in
+      // the sheet ("Not seen after all") and in the UndoPill token markSeen
+      // returned; never a confirm dialog (§13-15).
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      setShowRating((s) => !s);
+      askRating();
       return;
     }
     if (!guard()) return;
@@ -303,19 +323,11 @@ export default function FilmScreen() {
     setBusy(false);
     if (token) {
       flash(t("judge.seenMarked"), token);
-      setShowRating(true);
+      // The whole point: marking it seen ASKS for the rating, immediately.
+      askRating();
       afterJudgment(card.slug);
     }
-  }, [card, busy, guard, entry?.seen, markSeen, flash, afterJudgment]);
-
-  const onRate = useCallback(
-    async (v: number) => {
-      if (!card || !guard()) return;
-      const token = await rate(card.slug, v);
-      if (token) afterJudgment(card.slug);
-    },
-    [card, guard, rate, afterJudgment],
-  );
+  }, [card, busy, guard, entry?.seen, markSeen, flash, afterJudgment, askRating]);
 
   const onUndoPress = useCallback(() => {
     const tk = toast?.token;
@@ -515,7 +527,7 @@ export default function FilmScreen() {
           <View style={{ paddingHorizontal: sp.s4, flexDirection: "row", gap: sp.s4 }}>
             <View style={{ flex: 1 }}>
               <Serif size={fs.x2} bold>
-                {card.title}
+                {shownTitle}
               </Serif>
               <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 4 }}>
                 {[card.year, ...(card.genres ?? []).slice(0, 2)].filter(Boolean).join(" · ")}
@@ -1216,32 +1228,48 @@ export default function FilmScreen() {
           )
         ) : null}
 
-        {showRating && entry?.seen ? (
-          <View
-            style={[
-              {
-                borderRadius: radius.md,
-                backgroundColor: pal.card,
-                borderWidth: StyleSheet.hairlineWidth,
-                borderColor: pal.hairline,
-                padding: sp.s4,
-                gap: sp.s3,
-              },
-              shadow.card,
-            ]}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-              <Ui size={fs.sm} weight="600">
+        {/* Once seen, the rating is a standing line rather than a panel that has
+            to be toggled open — one tap reopens the sheet to change it. */}
+        {entry?.seen ? (
+          <Tactile onPress={askRating} feedback="tap">
+            <View
+              style={[
+                {
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: sp.s3,
+                  borderRadius: radius.pill,
+                  backgroundColor: pal.card,
+                  borderWidth: StyleSheet.hairlineWidth,
+                  borderColor: pal.hairline,
+                  paddingHorizontal: sp.s4,
+                  paddingVertical: 9,
+                },
+                shadow.card,
+              ]}
+            >
+              <Ui size={fs.xs} weight="600" color={pal.muted}>
                 {t("judge.yourRating")}
               </Ui>
+              <MiniStars value={entry?.rating ?? null} size={13} />
+              {entry?.rating != null ? (
+                <Ui size={fs.sm} weight="700" color={brand.accent}>
+                  {entry.rating % 1 === 0 ? `${entry.rating}.0` : String(entry.rating)}
+                </Ui>
+              ) : (
+                <Ui size={fs.xs} weight="600" color={brand.accent}>
+                  {t("rate.rate")}
+                </Ui>
+              )}
+              <View style={{ flex: 1 }} />
               {myVerdict ? (
                 <View
                   style={{
                     borderRadius: radius.pill,
                     borderWidth: 1,
                     borderColor: verdictColor(myVerdict),
-                    paddingHorizontal: 10,
-                    paddingVertical: 3,
+                    paddingHorizontal: 9,
+                    paddingVertical: 2,
                   }}
                 >
                   <Ui size={fs.xs} weight="600" color={verdictColor(myVerdict)}>
@@ -1250,8 +1278,7 @@ export default function FilmScreen() {
                 </View>
               ) : null}
             </View>
-            <StarRow value={entry?.rating ?? null} onChange={(v) => void onRate(v)} />
-          </View>
+          </Tactile>
         ) : null}
 
         <JudgeBar

@@ -24,6 +24,89 @@
 | 07-20 오전 | **외부 테스터 개통**: API 403 → 오너 로그인 브라우저로 Friends 외부그룹+빌드9+테스트정보+wonjah@gmail.com 초대. 빌드9 `WAITING_FOR_REVIEW` |
 | 07-20 오전 | **이메일 로그인 완성**: Supabase 템플릿(가입확인+매직링크)을 `{{ .Token }}` 6자리 코드로 교체(Management API — ⚠️UA 없으면 Cloudflare 1010 403) |
 
+### §−1.1 별점 모먼트 + You 재건 (오너 지시 2026-08-03) — AS-BUILT
+
+오너 지시 2건: ①"seen it을 누르면 자동으로 별점이 나오고, 스킵도 자연스럽고, 별점을 주면 더 이상 어떤 액션 없이 반영되는 모션이 중요하다(게임처럼 반응도)" ②"You 페이지가 앞쪽 탭들과 거의 같은 추천 기능이라 본질적으로 반복이다 — 본 영화/찜한 영화/별점 준 영화가 전략적으로 소팅되어야 하고, 세로 포스터 3열 아래 테이크 점수와 내 별점을 함께, 상단 탭, 소팅 버튼은 글씨가 아주 작게."
+
+**① 별점 = 앱 전체에 하나뿐인 시트** — 신규 `mobile/src/components/RateSheet.tsx`(`RateProvider`는 `app/_layout.tsx`의 `FilmsProvider` 안에 마운트, `useRate().promptRate({slug,title,year,posterPath,standing,onDone})`).
+- 입력은 **드래그 트랙**: 별 5개가 균등 셀 5개이고 값은 손가락 위치 그대로(반개 단위). 반쪽 히트박스를 겨냥할 필요가 없어졌다. 반 칸마다 `haptic.select()`, 켜지는 별마다 스프링.
+- **드래그 중엔 프리뷰만**, 손을 떼면 그때 `rate_film` 1회 — 드래그 한 번에 RPC 10번 나가는 것 방지.
+- 확인 버튼 없음: 저장 → `Sparkle` 버스트(별 수만큼 커짐)+카드 킥+숫자 스프링+Find/Aligned/Letdown 칩+"Saved" → **1.3초 뒤 스스로 닫힘**. 닫히기 전에 다시 매기면 타이머가 리셋된다.
+- 스킵 = 스크림 탭 / 아래로 스와이프 / Skip. 영화는 seen인 채로 남는다. 시트 안 "Not seen after all"이 **seen 취소의 유일한 상시 경로**(그전엔 UndoPill 토큰이 만료되면 되돌릴 방법이 없었다).
+- 호출부 4곳 전부 배선: `film/[slug]`(Seen it 탭 → 즉시 시트, 이미 seen이면 재오픈) · `(tabs)/index` 판단 덱 · `navigator/drive` mark-seen · You 그리드 별 탭. `ui.tsx`의 옛 `StarRow`는 **삭제**(위젯 2종 금지).
+
+**② You = 원장 그리드** — `app/(tabs)/my.tsx` 전면 재작성. 큐 헤드라인·Deciding 레일·Journey/blindspot(=Navigator 탭이 이미 가진 것)을 걷어내고 **같은 `user_movies` 행의 네 얼굴**을 탭으로: Watched(seen) · Watchlist · Rated(seen∧rating) · Passed(dismissed).
+- 카운트 붙은 탭 → **아주 작은(fs.xs) 소팅 스위치 한 줄**, 활성 스위치를 다시 누르면 방향 반전(캐럿 ↓/↑). 축: 최근·내 별점·TakeScore·**발굴(gap=rating×20−prestige)**·연도·제목, 찜 탭은 담은 순/내 서비스.
+- 3열 포스터 그리드, 셀마다 **TakeScore(초록) + 내 별점(별)** 한 줄 + 제목 2줄. 별 탭 = 시트 즉시 오픈. 코너 점 1개 = 찜이면 시효(Aging/Stale), Rated면 회고 색. 가용성 점은 포스터 위 오버레이로 내려 밑줄은 항상 "저쪽 숫자·내 숫자" 둘만.
+- 데이터: **마이그 0** — TakeScore=`round(V−R)`이고 `me_collection`이 이미 `u`로 돌려준다. 찜/패스만 `takescore_for_slugs`. **Passed는 RPC가 없어** `api.passed(uid)`가 own-row를 직접 읽는다(RLS 스코프, `state/films.tsx`와 같은 문). 소속·별점은 **원장(ledger)이 결정** — 어느 화면에서 내린 판단이든 재조회 없이 즉시 반영되고, 낡은 스냅샷이 방금 패스한 영화를 되살릴 수 없다.
+- 국가/서비스/Import는 오너 07-29 지시대로 **상단 노출 유지**(작은 칩 한 줄로 압축). 설정 전량은 기어 모달 그대로.
+- i18n 34키×4개 사전. 사라진 `shelf.*` 11키는 4개 사전에서 함께 제거.
+
+검증: mobile `tsc --noEmit` 0 · Expo web에서 그리드 3면(watched/queue/passed)+시트 전 구간 실행 확인(탭→4.5→버스트→Find→Saved→자동 닫힘). **⚠️ JS 전용 변경이라 네이티브 빌드 불필요 — `eas update --channel production`으로 나간다**(앱 2회 재실행이 적용 조건).
+
+### §−1.2 설정 병합 + 콘텐츠 언어 축 (오너 지시 2026-08-03) — AS-BUILT
+
+오너 지시: ①"마이서비스와 국적 선택이 분리되어 있는데 하나로 합치자. 국가를 선택하면 해당 국적 서비스가 나오도록. 이 리스트는 저장해서 선택할 수 있게" ②"국가와 무관하게 **언어**를 선택할 수 있게. 언어를 선택하면 TMDB에서 불러오는 영화 제목이 해당 언어로. 검색에도 걸려야 한다(영어 서비스인데 '화양연화' 치면 In the Mood for Love가 나와야 하고, 한국어를 골랐으면 한국어로 나와야). 영어·스페인어·일본어·중국어·인도어·프랑스어 정도."
+
+**⭐ 축이 셋으로 분리됐다** (`mobile/src/editions.ts`). 이전엔 "에디션" 하나가 ①가용성 국가 ②콘텐츠 언어 ③UI 사전을 한 덩어리로 묶고 있었다 — 그래서 국가 목록이 4개였고 그중 2개가 회색이었다(그 언어가 안 나왔으니 그 나라를 열 수 없었다). 이제:
+- `EDITIONS` = **어디서 보나**. `film_provider_index`만 건드린다. 언어와 무관해졌으므로 **17개국으로 확장**(실측 커버리지 순: US 4,818편/198서비스 · CA 4,178 · FR 4,113 · GB 3,863…). `live` 게이트 폐기.
+- `CONTENT_LANGS` = **영화 이름을 무슨 언어로**. en·ko·es·ja·zh·fr·hi.
+- `UI_LOCALE` = **앱 자신의 말**. 영어 고정. **오너 재확인(08-03): "영어권에 있는 사람들을 위한 서비스라 완전히 해당 자국어일 필요는 없다"** — 언어 선택은 영화를 *알아보게* 하는 것이지 버튼을 번역하는 게 아니다.
+
+**① 설정 = 한 페이지** (`app/onboarding.tsx`): `country`/`services` 두 스텝 → `edition` 한 스텝. 위에 국가 칩, 아래 그 나라 서비스 그리드. 국가를 바꾸면 그리드가 다시 로드되고 **그 나라에 없는 선택은 조용히 제거**(provider_id는 전역이라 안 지우면 "내 서비스" 필터가 조용히 공집합이 된다). 저장 프리셋(`prefs.presets`, 최대 8개)은 칩 한 줄 — 집/출장, 한 계정 두 가구. ⚠️`?step=country`·`?step=services` 딥링크는 `normalizeStep()`이 `edition`으로 흡수(구 OTA·설정행·저장된 링크 보호).
+
+**② 언어 = 별도 입구** `?step=language`. 진행 트랙에 없음(가입 때 묻지 않는다, 영어가 기본).
+
+**③ 데이터(마이그 0121, 프로덕션 적용 완료)**: 0105(ko)의 `_<loc>` 컬럼 패턴을 그 파일 지시대로 복제 — es·ja·zh·fr·hi × (title/overview/fetched_at) + 트라이그램 GIN 인덱스 5개. **신규 RPC 2개**:
+- `film_search_i18n(p_q, p_limit, p_lang)` — **매칭은 항상 전 언어**(질의 언어 무관), **표시는 p_lang**(영어 폴백). ⚠️`film_catalog_search`의 오버로드가 아니라 **새 이름**: PostgREST 오버로드 모호성은 이 저장소가 이미 당한 함정이고, 구 OTA 앱이 계속 2인자 버전을 호출한다.
+- `film_titles_for_slugs(p_slugs, p_lang) → json` — `takescore_for_slugs`와 같은 벌크 데코 문. **RPC 12개에 언어를 가르치는 대신** 화면이 그릴 슬러그를 한 번에 넘겨 덮어쓴다(`mobile/src/lib/titles.ts`의 `useLocalTitles`). 영어는 요청 자체가 없다.
+- 백필: `worker/tmdb-i18n-backfill.py`가 이미 언어 범용이었다 — zh/hi 2줄 추가 + **`--jobs N` 병렬화**(순차는 편당 왕복 2초라 7천편에 4시간, 12방향으로 ~3.4배). `I18N_THROTTLE` env 오버라이드도 추가(DB 포화 인시던트 이력 때문).
+
+🚨**표시 함정(실측으로 잡음)**: 검색은 canon 엔진(`search_all`, 영어만 안다)이 먼저 찾은 행이 dedup에서 이긴다 → RPC만 고치면 **한국어로 매칭은 되는데 영어 제목이 찍힌다**. 그래서 제목은 **렌더 시점에** `useLocalTitles`로 덮는다. 같은 이유로 You 그리드·Tonight 덱·필름 상세 전부 렌더 시점 덮어쓰기다.
+
+⚠️**감독명은 못 한다**: TMDB는 인물 이름을 언어별로 주지 않는다(`name` 로마자 + `also_known_as` 표기 목록뿐). 웹 `lib/nativeName.ts`가 하는 "출생지가 한국이면 한글 별칭" 수준 — 홍상수→홍상수, Wong Kar-wai→王家衛는 되지만 **Michael Haneke→미카엘 하네케는 데이터가 없다**(그 별칭들은 시장별 음차라 신뢰 불가라고 그 파일 주석이 경고). 영화 제목은 공식 개봉 제목이라 전부 된다.
+
+검증: tsc 0 · 프로덕션 스모크 `film_search_i18n('화양연화',3,'ko')` → `in-the-mood-for-love-2000 / title_loc=화양연화` · 웹 프리뷰에서 병합 페이지(국가 전환→서비스 재로드→프리셋 저장)·언어 7종·한국어 검색이 한글 제목으로 표시됨 확인. **OTA 발행 완료**(iOS `019fc614-a80b-799d-bfd2-97950089879e`, u.expo.dev 응답 일치). 백필은 실행 중 — 없는 언어는 영어로 폴백하므로 데이터가 채워질수록 앱 변경 없이 좋아진다.
+
+### §−1.3 감독 다국어 검색 = 별칭 색인 (오너 질문 2026-08-03) — AS-BUILT
+
+오너: "감독명은 `also_known_as`를 활용하는 방법이 없을까요? **검색기 뒷단에서만** 작동되는 방식 등."
+
+**⚠️ §−1.2의 '감독명 불가'는 표시에 한한 얘기였다. 검색은 이미 되고 있었다** — `search_all('하네케')` → Michael Haneke는 오늘 이전부터 작동했다. `search_aliases`(0053: kind·slug·alias·lang·source, unique(kind,slug,alias), 트라이그램 GIN)가 정확히 그 "뒷단 전용" 구조이고, `search_all`이 films·directors 양쪽에서 조인한다. 다만 **출처가 Wikidata뿐이고 한국어뿐**이었다(감독 711/871).
+
+**왜 표시엔 못 쓰고 검색엔 쓰나 — 요구가 정반대다.** 실측: `adam-elliot ← 애덤 엘리엇 | 아담 엘리엇 | 아담 엘리어트 | 애덤 엘리어트`. 표시는 이 넷 중 하나를 골라야 하고 그건 *주장*이라 틀리면 틀린 이름을 화면에 박는다. 검색은 고를 필요가 없다 — **넷 다 넣으면 된다.** 무엇을 치든 같은 감독에 도달하면 맞는 결과고, 어느 표기가 공식인지는 아무도 묻지 않는다. **검색=재현율, 표시=정확성.** 그래서 표시는 `lib/nativeName.ts`의 엄격한 규칙(출생지가 그 문자권일 때만) 그대로 두고 두 경로를 절대 섞지 않는다.
+
+**확장 2갈래** (`worker/ko-aliases.py` 확장 — 파일명·기본동작 유지, 영화공장 S54가 참조):
+- `--tmdb-aka` → TMDB `also_known_as` 871명, `source='tmdb-aka'`, **`lang='und'`**(TMDB가 언어 태그를 안 준다 — 거짓 태그를 원장에 넣느니 '미상'이 정직하다. 검색은 언어가 아니라 문자열로 매칭하므로 필요도 없다). 얻는 것: 모국어 표기(王家衞)+다국어 음차(왕 가위·ウォン・カーワァイ)+**로마자 변형**(Kar Wai Wong — 어순/하이픈 실수를 잡는다)+Wikidata가 놓친 160명.
+- `--lang <x> --only directors` → Wikidata 라벨/별칭 ja·zh·es·fr·hi. **영화는 건너뛴다**: 0121이 `films.title_<loc>`를 TMDB 공식 제목으로 채웠으므로 Wikidata 영화 라벨은 이제 중복.
+
+**가드레일**(`clean()`): ①정본명과 **접어서 같으면 버림**(fold=소문자+발음부호제거+비영숫자제거 → "Wong Kar Wai"=="Wong Kar-Wai"; 트라이그램이 이미 닿으므로 손실 0) ②**너무 짧으면 버림** — 라틴 3자·비라틴 2자 미만(`李` 하나가 들어가면 카탈로그 절반이 걸린다) ③`source` 유지 → 나쁜 배치는 `delete where source='tmdb-aka'` 한 줄 ④단방향: 이 테이블은 매칭 전용, 렌더는 언제나 `films.title`/`title_<loc>`/`directors.name`.
+
+**마이그 0122**: `film_search_i18n`이 `search_aliases`를 몰랐다(0121은 제목 컬럼만 봤다) → 조인 추가, 별칭 히트는 제목 히트의 0.97(search_all의 가중치와 동일). ⚠️기존 `idx_search_aliases_alias_trgm`은 **원본 컬럼** 인덱스라 `f_unaccent(lower(alias))` 술어를 못 탄다 → 접은 표현식 인덱스 추가.
+
+검증(프로덕션 실측): `黒澤明`→Akira Kurosawa · `ヒチコック`→Alfred Hitchcock · `阿涅斯·瓦尔达`→Agnès Varda · `왕가위`→Wong Kar-Wai · `키아로스타미`→Abbas Kiarostami · `film_search_i18n('기생충',3,'ko')`→Parasite/기생충(별칭 경유) · 영어 회귀 정상. **앱 변경 0 — 서버 RPC만 좋아졌으므로 OTA 불필요.**
+
+### §−1.4 🚨 TMDB 원제 폴백 오염 + 번체 검색 (2026-08-03) — 함정 2건
+
+**🚨 함정 A — TMDB는 번역이 없으면 404가 아니라 "원제"로 폴백한다.**
+
+실측: `GET /movie/843?language=hi-IN` → `title="花樣年華"`. 힌디어 번역이 없으니 원제를 되돌려준다. `tmdb-i18n-backfill.py`의 가드는 **`!= 영어제목` 하나뿐**이라 이걸 통과시켰고, **번체 중국어가 `title_hi`에 저장됐다.**
+
+피해(08-03 실측): `title_hi` 3,568개 중 **데바나가리는 409개(11%)** · 한자 602 · 한글 306 · 가나 271. `title_es` CJK 430 · `title_fr` CJK 300 · `title_ja` 한글 177 · **`title_ko` 한자전용 103(= 웨이브1 ko부터 있던 기존 버그)** · `title_zh` 한/일 58.
+
+- **뿌리 수정**: 가드에 `loc_title == d['original_title'] AND original_language != LOC → 거부` 추가. 원어가 그 언어인 영화는 기존 `original_language==LOC` 분기가 여전히 채운다.
+- **청소**: `--repair` — 영화당 **한 번만** 원제를 받아(언어 무관이라 ×N이 아님) 그걸 그대로 베낀 `title_<loc>`/`overview_<loc>`를 NULL로 되돌린다. 표본 25편 중 **9편(36%)** 오염.
+- ⚠️**문자 기반 검사로는 못 잡는다**: `1900-1976 → title_es = "Novecento"`(이탈리아어 원제가 스페인어 칸에). 둘 다 라틴 문자다. **원제 대조가 유일하게 옳은 판별법.**
+
+**🚨 함정 B — 일시적 소켓 오류 하나가 워커 풀 전체를 죽인다.**
+
+`urllib.error.URLError: [Errno 54] Connection reset by peer`가 `ThreadPoolExecutor.map`을 뚫고 나와 **7천 콜 실행 전체를 종료**시켰다. 프랑스어 제목 백필(2,000편에서 사망)과 1차 수리 패스(2,000편에서 사망) 둘 다 이 원인. `http()`는 HTTPError만 삼키고 소켓 오류는 안 삼킨다. → `tmdb()`에 **재시도 3회(백오프)+429 백오프** 추가, 워커 함수에 try/except.
+⚠️**러너 스크립트에서 출력을 `grep`으로 거르지 말 것** — 프랑스어가 왜 죽었는지 3시간 몰랐던 이유가 트레이스백이 grep에 걸려 사라졌기 때문이다.
+
+**번체(繁體) 검색** — `title_zh`는 간체(TMDB zh-CN)이고 번체는 다른 문자열(花樣年華 ≠ 花样年华)이다. 이 카탈로그는 왕가위·허우샤오시엔·에드워드 양 등 대만·홍콩 작품 비중이 커서 무시할 수 없다. **컬럼을 새로 만들지 않았다** — 표시는 어차피 간체 하나면 되고 컬럼은 불필요한 표시 결정을 함의한다. 대신 `search_aliases`에 넣는다(`--zh-hant`, source `tmdb-zh-hant`, lang `zh-Hant`): TMDB `/translations`에서 `iso_639_1='zh' AND iso_3166_1 IN ('TW','HK')`를 뽑아 **간체 저장값과 접어서 같으면 버린다**(悲情城市·一一처럼 양 문자 동일한 작품이 많다). 0122가 이미 별칭을 조인하므로 **마이그레이션 불필요**. 대만·홍콩 제목이 서로 다르면 둘 다 색인된다(`28天毀滅倒數` | `28 日後`).
+
+**시놉시스(overview) 용도 — 오너 질문**: **앱은 한 글자도 안 쓴다**(`mobile/` 전체 `overview` 참조 0건, 앱 BFF가 아예 안 보냄). 그 자리는 An Invitation이 차지한다. 쓰이는 곳은 웹 2곳뿐 — ①`_shared.tsx` 메타 설명(검색결과 두 줄) ②**`lib/i18n/seo.ts`의 색인 게이트**(`title_<loc>` AND `overview_<loc>` 둘 다 있어야 그 언어 페이지를 색인). 즉 `overview_<loc>`는 **다국어 웹 페이지를 여는 날의 전제조건**이고 지금은 잠들어 있는 자산. 추가 비용 0(제목과 같은 응답에 실려 온다).
+
 **핵심 자산/경로:**
 - 서명: `~/Downloads/AuthKey_65Y5238S83.p8`(ASC API 키, Issuer `c8e610f8-b12a-47e9-ade5-b193a2e84d01`) · `~/Downloads/distribution.cer` · 프로파일은 `mobile/credentials/`(git 제외). ascAppId `6792487455`.
 - eas.json: `build.production.ios.credentialsSource="local"`(**ios 블록에만** — 전역이면 안드로이드 빌드 파괴), submit에 ascApiKey 3필드 명시.

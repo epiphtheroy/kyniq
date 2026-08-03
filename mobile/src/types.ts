@@ -254,6 +254,17 @@ export type CollectionRow = {
   facets: string[] | null;
 };
 
+/** Passed films — flattened own-row read (api.passed); no RPC exists for these. */
+export type PassedRow = {
+  slug: string;
+  title: string;
+  year: number | null;
+  poster_path: string | null;
+  director: string | null;
+  rating: number | null;
+  added_at: string | null;
+};
+
 /** me_coverage(p_min_total, p_limit) — lineage conquest rows. */
 export type CoverageRow = {
   list_id: string;

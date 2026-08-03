@@ -39,11 +39,13 @@ import {
   UndoPill,
   Wordmark,
 } from "../../src/components/ui";
+import { useRate } from "../../src/components/RateSheet";
 import { DEFAULT_EDITION, EDITIONS } from "../../src/editions";
 import { Appear, Dots, Pop, SkeletonScreen, Sparkle, haptic } from "../../src/components/motion";
 import { t, type DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
+import { useLocalTitles } from "../../src/lib/titles";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -154,6 +156,7 @@ export default function TonightScreen() {
   const { width } = useWindowDimensions();
   const { country, providerIds, onboarded, hideSeen, taste, ready, set } = usePrefs();
   const { session, ledger, setWatchlist, dismiss, markSeen, undo } = useFilms();
+  const { promptRate } = useRate();
 
   const [rows, setRows] = useState<DeckRow[]>([]);
   const [total, setTotal] = useState(0);
@@ -367,8 +370,20 @@ export default function TonightScreen() {
       void noteJudged(row.slug);
       me.invalidateRecommend();
       showUndo({ token, row, index, kind });
+      // "Seen it" asks for the stars right away — the deck's whole point is that
+      // a judgment lands complete, and a rating with no follow-up tap is what
+      // makes the next Tonight deck smarter (§5.0).
+      if (kind === "seen") {
+        promptRate({
+          slug: row.slug,
+          title: row.title,  // resolved by the sheet's own lookup if translated
+          year: row.year,
+          posterPath: row.poster_path,
+          standing: null,
+        });
+      }
     },
-    [session, router, setWatchlist, dismiss, markSeen, showNotice, showUndo],
+    [session, router, setWatchlist, dismiss, markSeen, showNotice, showUndo, promptRate],
   );
 
   const onUndo = useCallback(async () => {
@@ -407,6 +422,10 @@ export default function TonightScreen() {
     if (hideSeenEff && session && e?.seen) return false;
     return true;
   });
+  // Localized release titles for the cards actually on screen (migration 0121).
+  // English is a no-op, so the deck costs nothing extra in the default edition.
+  const deckTitleOf = useLocalTitles(visible.map((r) => r.slug));
+
   // Hide-seen can filter the whole fetched page to empty while the deeper catalog is
   // still unpulled; RN never fires onEndReached on an empty list, so pull the next page
   // here to avoid a premature "Deck cleared". loadMore self-guards against over-fetching.
@@ -715,6 +734,7 @@ export default function TonightScreen() {
           <Appear index={index}>
             <LobbyCard
               row={item}
+              shownTitle={deckTitleOf(item.slug, item.title)}
               screenW={width}
               reason={item.reason ?? reasonBySlug.get(item.slug) ?? null}
               onJudge={judge}
@@ -809,12 +829,15 @@ function JudgeDot({
  * v4 adds the three quiet verbs + horizontal swipe (right = want, left = pass). */
 function LobbyCard({
   row,
+  shownTitle,
   screenW,
   reason,
   onJudge,
   featured = false,
 }: {
   row: DeckRow;
+  /** Release title in the viewer's content language; English fallback. */
+  shownTitle: string;
   screenW: number;
   reason: string | null;
   onJudge: (row: DeckRow, kind: JudgeKind) => void;
@@ -968,7 +991,7 @@ function LobbyCard({
           <View style={{ flex: 1, padding: sp.s3, justifyContent: "space-between", gap: sp.s1 }}>
             <View>
               <Ui size={fs.md} weight="600" numberOfLines={2}>
-                {row.title}
+                {shownTitle}
               </Ui>
               <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 2 }}>
                 <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ flexShrink: 1 }}>

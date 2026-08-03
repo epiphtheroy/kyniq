@@ -40,18 +40,34 @@ TMDB=os.environ.get("TMDB_READ_TOKEN")
 if not (URL and KEY and TMDB): print("Missing env (SUPABASE url/service key + TMDB_READ_TOKEN)"); sys.exit(1)
 
 # Mirrors lib/i18n/locales.ts. 'en' is the source language — never a backfill target.
-LOCALE_TMDB={"ko":"ko-KR","ja":"ja-JP","fr":"fr-FR","es":"es-ES"}
+# Wave 2 (0120, owner 2026-08-03): zh + hi joined the projection so the app's
+# content-language axis covers en·ko·es·ja·zh·fr·hi.
+LOCALE_TMDB={"ko":"ko-KR","ja":"ja-JP","fr":"fr-FR","es":"es-ES","zh":"zh-CN","hi":"hi-IN"}
 # Re-fetch a row this old (TMDB adds localized titles over time; a NULL today is
 # not NULL forever). Matches the work order's 90-day cursor.
 STALE_DAYS=90
 # TMDB tolerates ~40 req/s; we run at half that. One call per film.
-THROTTLE=0.05
+# Override with I18N_THROTTLE when the DB is already under load — a wave-2 style
+# multi-language run is ~35k PATCHes, and an unthrottled backfill is exactly what
+# saturated the database once before (HANDOFF-DB성능-인시던트.md).
+THROTTLE=float(os.environ.get("I18N_THROTTLE","0.05"))
 
 args=sys.argv[1:]
 PERSIST="--persist" in args
 if "--dry" in args: PERSIST=False   # explicit dry wins; DRY is already the default
 LIMIT=int(args[args.index("--limit")+1]) if "--limit" in args else 100000
 MISSING="--missing" in args
+# --repair: one language-agnostic pass that NULLs any title_<loc>/overview_<loc>
+# already poisoned by the pre-fix fallback bug. Cheap by design — the original
+# title is the same for every locale, so this costs ONE call per film total, not
+# one per film per language.
+REPAIR="--repair" in args
+# --jobs N: run N films concurrently. The loop is latency-bound, not rate-bound —
+# one TMDB read plus one PATCH is ~2s of round trip per film, so a 7k-film cohort
+# takes ~4 HOURS sequentially. Default stays 1 (byte-identical to the old
+# behaviour); the wave-2 multi-language run uses 8, which is still well under
+# TMDB's ceiling and gentle on the DB (only films with something new are written).
+JOBS=max(1, int(args[args.index("--jobs")+1])) if "--jobs" in args else 1
 # --refill: re-fetch every film that still LACKS a localized title, regardless of
 # when it was last fetched. The default cohort skips rows fetched <90d ago, so
 # after a full run the ~5k title-NULL rows would never be retried; --refill + the
@@ -61,9 +77,9 @@ REFILL="--refill" in args
 FILMS=[a for i,x in enumerate(args) if x=="--films" and i+1<len(args) for a in args[i+1].split(",") if a]
 FILMS+=[args[i+1] for i,a in enumerate(args) if a=="--film" and i+1<len(args)]
 LOC=args[args.index("--locale")+1] if "--locale" in args else None
-if LOC not in LOCALE_TMDB:
+if not REPAIR and LOC not in LOCALE_TMDB:
     print(f"--locale is required and must be one of: {', '.join(LOCALE_TMDB)}  (got: {LOC!r})"); sys.exit(2)
-LANG=LOCALE_TMDB[LOC]
+LANG=LOCALE_TMDB.get(LOC or "ko", "ko-KR")
 T_COL=f"title_{LOC}"; O_COL=f"overview_{LOC}"; F_COL=f"{LOC}_fetched_at"
 
 def http(method,url,headers=None,body=None,timeout=60):
@@ -77,16 +93,34 @@ def sb(method,path,body=None,prefer=None):
     h={"apikey":KEY,"Authorization":f"Bearer {KEY}"}
     if prefer: h["Prefer"]=prefer
     return http(method,f"{URL}/rest/v1/{path}",h,body)
-def tmdb(path):
+def tmdb(path, tries=3):
+    """One TMDB read, retried on transient transport failures.
+
+    Without this a single `[Errno 54] Connection reset by peer` — routine over a
+    7,000-call run — propagates out of the worker pool and kills the ENTIRE pass
+    (that is how the French title backfill and the first repair run both died on
+    2026-08-03). http() already swallows HTTP errors; this covers the socket.
+    """
     base="https://api.themoviedb.org/3"
     if len(TMDB)>40:  # v4 read access token
         url=base+path; headers={"Authorization":f"Bearer {TMDB}","accept":"application/json"}
     else:             # v3 api key
         sep="&" if "?" in path else "?"; url=f"{base}{path}{sep}api_key={TMDB}"; headers={"accept":"application/json"}
-    st,tx=http("GET",url,headers)
-    if st!=200: print(f"    ! tmdb {st} {path[:60]}"); return None
-    try: return json.loads(tx)
-    except Exception: return None
+    for a in range(tries):
+        try:
+            st,tx=http("GET",url,headers)
+        except Exception as e:
+            if a==tries-1:
+                print(f"    ! tmdb net {type(e).__name__} {path[:50]}")
+                return None
+            time.sleep(1.5*(a+1)); continue
+        if st==429:                       # rate limited — back off and retry
+            time.sleep(2*(a+1)); continue
+        if st!=200:
+            print(f"    ! tmdb {st} {path[:60]}"); return None
+        try: return json.loads(tx)
+        except Exception: return None
+    return None
 def fetch_all(path):
     """PostgREST caps every response at 1000 rows — page through it."""
     rows=[]; off=0
@@ -113,19 +147,29 @@ def cohort():
     q+="&order=slug"
     return fetch_all(q)[:LIMIT]
 
-def main():
-    films=cohort()
-    print(f"[i18n:{LOC}] {len(films)} films (lang={LANG}){'' if PERSIST else '  [DRY — fetch+print, no DB writes]'}")
-    if not films: print("  nothing to do"); return
+def process(f):
+    """One film. Returns a stats dict; safe to run concurrently (no shared state
+    beyond the HTTP helpers, which are stateless)."""
     n=t_hit=o_hit=t_same=miss=skipped=0
-    for f in films:
+    if True:
         # append_to_response=translations → one call carries both the primary
         # localized fields AND the full translations list (no extra request).
         d=tmdb(f"/movie/{f['tmdb_id']}?language={LANG}&append_to_response=translations")
         if d is None:
-            miss+=1; time.sleep(THROTTLE); continue
+            time.sleep(THROTTLE)
+            return {"miss":1}
         en=(f["title"] or "").strip()
         loc_title=(d.get("title") or "").strip()
+        # TMDB does not 404 a missing translation — it FALLS BACK, and not to
+        # English: ?language=hi-IN on a Hong Kong film returns 花樣年華, the
+        # ORIGINAL title. The old guard only rejected an English echo, so those
+        # fallbacks were stored as if they were Hindi (2026-08-03: 602 Han / 306
+        # Hangul / 271 Kana strings sitting in title_hi). Reject the original
+        # title too — when the film's original language genuinely IS this locale,
+        # the explicit original_language branch below still fills it.
+        orig=(d.get("original_title") or "").strip()
+        if loc_title and orig and loc_title==orig and (d.get("original_language") or "")!=LOC:
+            loc_title=""
         # The primary title/overview echo English when TMDB has no *primary*
         # localized value set — even for films that DO carry an explicit
         # translation (화양연화, 기생충). So resolve in order: primary field →
@@ -136,8 +180,14 @@ def main():
         overview=(d.get("overview") or "").strip() or None
         src="lang" if title else None
         if not title or not overview:
-            for tr in (d.get("translations") or {}).get("translations", []):
-                if tr.get("iso_639_1")!=LOC: continue
+            # One iso_639_1 can carry several regional translations — 'zh' has CN
+            # (Simplified) alongside TW/HK (Traditional). Take the region we asked
+            # TMDB for when it is there, else the first entry for the language.
+            region=LANG.split("-")[1] if "-" in LANG else None
+            cands=[tr for tr in (d.get("translations") or {}).get("translations", [])
+                   if tr.get("iso_639_1")==LOC]
+            cands.sort(key=lambda tr: 0 if region and tr.get("iso_3166_1")==region else 1)
+            for tr in cands:
                 data=tr.get("data") or {}
                 cand=(data.get("title") or "").strip()
                 if not title and cand and cand!=en: title=cand; src="trans"
@@ -167,8 +217,78 @@ def main():
                 if st>=300: print(f"    ! write {st} {tx[:120]}")
                 else: n+=1
         time.sleep(THROTTLE)
-    print(f"[i18n:{LOC}] {len(films)} seen · localized title {t_hit} · title==EN (stored NULL) {t_same} · "
-          f"overview {o_hit} · TMDB miss {miss}")
-    print(f"[i18n:{LOC}] {'PERSIST done: '+str(n)+' rows written, '+str(skipped)+' no-op skips.' if PERSIST else 'DRY done — re-run with --persist to write.'}")
+    return {"n":n,"t_hit":t_hit,"o_hit":o_hit,"t_same":t_same,"miss":miss,"skipped":skipped}
+
+def repair():
+    """Undo the original-title fallback poisoning across every projected locale.
+
+    The bug wrote TMDB's fallback (the film's ORIGINAL title) into title_<loc>
+    whenever that locale had no translation. Detect it by fetching the original
+    title once per film and NULLing every locale column that merely echoes it —
+    except the locale that genuinely IS the film's original language, where the
+    original title is the right answer.
+    """
+    locs=list(LOCALE_TMDB)
+    cols=",".join(f"title_{l},overview_{l}" for l in locs)
+    films=fetch_all(f"films?select=id,slug,tmdb_id,title,{cols}&tmdb_id=not.is.null&order=slug")[:LIMIT]
+    print(f"[repair] {len(films)} films × {len(locs)} locales (jobs={JOBS})"
+          f"{'' if PERSIST else '  [DRY]'}", flush=True)
+
+    def one(f):
+        try:
+            d=tmdb(f"/movie/{f['tmdb_id']}")
+        except Exception:
+            return 0
+        if d is None: return 0
+        orig=(d.get("original_title") or "").strip()
+        olang=(d.get("original_language") or "")
+        if not orig: return 0
+        upd={}
+        for l in locs:
+            if l==olang: continue          # the original title IS this locale's title
+            cur=(f.get(f"title_{l}") or "").strip()
+            if cur and cur==orig:
+                upd[f"title_{l}"]=None
+                upd[f"overview_{l}"]=None  # the overview came from the same bad response
+        if not upd: return 0
+        print(f"   · {f['slug']}: clearing {', '.join(k for k in upd if k.startswith('title'))} (orig={orig[:24]})")
+        if PERSIST:
+            st,tx=sb("PATCH",f"films?id=eq.{f['id']}",upd,prefer="return=minimal")
+            if st>=300: print(f"    ! write {st} {tx[:100]}"); return 0
+        return 1
+
+    n=0
+    if JOBS==1:
+        for f in films: n+=one(f)
+    else:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=JOBS) as ex:
+            for i,r in enumerate(ex.map(one, films)):
+                n+=r
+                if (i+1)%1000==0: print(f"  … {i+1}/{len(films)}  repaired {n}", flush=True)
+    print(f"[repair] {'' if PERSIST else 'DRY '}done: {n} films cleaned")
+
+
+def main():
+    if REPAIR:
+        repair(); return
+    films=cohort()
+    print(f"[i18n:{LOC}] {len(films)} films (lang={LANG}, jobs={JOBS})"
+          f"{'' if PERSIST else '  [DRY — fetch+print, no DB writes]'}", flush=True)
+    if not films: print("  nothing to do"); return
+    tot={"n":0,"t_hit":0,"o_hit":0,"t_same":0,"miss":0,"skipped":0}
+    def add(r):
+        for k,v in (r or {}).items(): tot[k]=tot.get(k,0)+v
+    if JOBS==1:
+        for f in films: add(process(f))
+    else:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=JOBS) as ex:
+            for i,r in enumerate(ex.map(process, films)):
+                add(r)
+                if (i+1)%500==0: print(f"    … {i+1}/{len(films)}", flush=True)
+    print(f"[i18n:{LOC}] {len(films)} seen · localized title {tot['t_hit']} · title==EN (stored NULL) {tot['t_same']} · "
+          f"overview {tot['o_hit']} · TMDB miss {tot['miss']}")
+    print(f"[i18n:{LOC}] {'PERSIST done: '+str(tot['n'])+' rows written, '+str(tot['skipped'])+' no-op skips.' if PERSIST else 'DRY done — re-run with --persist to write.'}")
 
 if __name__=="__main__": main()

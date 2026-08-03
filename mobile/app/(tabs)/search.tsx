@@ -32,6 +32,7 @@ import {
 import { Appear, Dots, SkeletonRail, SkeletonRows } from "../../src/components/motion";
 import { t, type DictKey } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { useLocalTitles } from "../../src/lib/titles";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
 import { AXES, dealNine, type Axis } from "../../src/lib/deal";
 import { useFilms } from "../../src/state/films";
@@ -105,9 +106,19 @@ export default function SearchScreen() {
     for (const [slug, e] of ledger) if (e.seen) s.add(slug);
     return s;
   }, [ledger]);
+  // Localized titles at RENDER, not just from the search RPC: a row the canon
+  // engine (search_all) found first wins the dedup, and search_all only knows
+  // English — so matching in Korean would still print the English name. The
+  // overlay covers every row whichever engine produced it.
+  const titleOf = useLocalTitles(
+    useMemo(
+      () => [...rows.filter((r) => r.kind === "film").map((r) => r.slug), ...browseRows.map((r) => r.slug)],
+      [rows, browseRows],
+    ),
+  );
   // /journey parity (owner 07-29): same avail artifact the web deck filters with —
   // when the viewer picked services, the hand is dealt from what they can watch.
-  const { providerIds } = usePrefs();
+  const { providerIds, contentLang } = usePrefs();
   const [availCountry, setAvailCountry] = useState<Record<string, unknown[]> | null>(null);
   useEffect(() => {
     if (!showBrowseNow || availCountry) return;
@@ -206,7 +217,7 @@ export default function SearchScreen() {
       // Supplement with very-fuzzy / multilingual film matches (1-char, Korean/accented
       // titles) that search_all's length>=2, no-unaccent, no-title_ko path misses (0116).
       // Fail-soft (searchFuzzy returns [] on error); dedup by slug, appended after canon.
-      const fuzzy = await api.searchFuzzy(query, 30);
+      const fuzzy = await api.searchFuzzy(query, 30, contentLang);
       if (seq.current !== id) return;
       if (fuzzy.length) {
         const have = new Set(kept.map((r) => r.slug));
@@ -252,7 +263,9 @@ export default function SearchScreen() {
       void run();
     }, DEBOUNCE_MS);
     return () => clearTimeout(timer);
-  }, [q, country]);
+    // contentLang re-runs the search: the RPC both matches and RENDERS by
+    // language, so switching it must redraw the results, not just future ones.
+  }, [q, country, contentLang]);
 
   // Browse fetch — same tonight BFF, all providers (empty array). Selections
   // compose; they survive a typed query (the block hides until it clears).
@@ -440,7 +453,7 @@ export default function SearchScreen() {
               <Appear key={r.slug} index={i}>
                 <FilmResultRow
                   slug={r.slug}
-                  title={r.title}
+                  title={titleOf(r.slug, r.title)}
                   sub={[r.year, r.director].filter(Boolean).join(" · ")}
                   poster={r.poster_path}
                   ts={r.ts}
@@ -561,7 +574,7 @@ export default function SearchScreen() {
             <Appear index={index}>
               <FilmResultRow
                 slug={item.slug}
-                title={item.title}
+                title={titleOf(item.slug, item.title)}
                 sub={item.sub || String(item.year ?? "")}
                 poster={item.poster}
                 ts={tsMap.get(item.slug) ?? null}
