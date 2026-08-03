@@ -23,27 +23,63 @@ const GOOD_BOT =
 const BAD_UA =
   /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Meta-ExternalAgent|meta-webindexer|FacebookBot|Amazonbot|Diffbot|Omgilibot|ImagesiftBot|PetalBot|cohere-ai|Timpibot|YouBot|MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|DataForSeo|serpstatbot|SERanking|SleepBot|AwarioBot|AgenstryBot/i;
 
-// Module-scoped blocklist cache — refreshed at most once/60s per warm isolate.
+// Module-scoped blocklist cache.
+//
+// The docblock on /api/bots/blocklist says this is "hit at most ~once/minute/
+// region". Measured 2026-08-03 it ran ~5x/minute — 2,167 bot_blocklist_json
+// executions in 405 minutes, ~7,700 DB round-trips a day — for a table holding
+// TWO rows, ONE of them live. That made it a bigger line on the bill than every
+// AI surface combined, all of it self-inflicted. Three compounding causes:
+//
+//   1. No in-flight dedup. Every concurrent request on a cold or expired isolate
+//      passed the staleness check before any of their fetches returned, so a
+//      burst fired a fetch each. Now they share one promise, the same shape
+//      cachedLocationsEligibility() uses after 566d712b.
+//   2. A 60s TTL for a list that changes on the order of a day (newest entry:
+//      2026-08-02). Five minutes is still far faster than the durable /24 blocks
+//      this feeds are meant to react on, and cuts refresh attempts 5x.
+//   3. Every warm isolate keeps its own copy, and production has been serving
+//      several deployments at once, so per-isolate cost multiplies. Nothing here
+//      fixes that; it is why the other two matter.
+//
+// Failures are never memoised as a result: the previous list is kept and
+// re-stamped, so a broken endpoint degrades to "block nothing" rather than
+// hammering, and never blocks a real visitor by accident.
+const BL_TTL_MS = 300_000;
 let blCache: { at: number; prefixes: Set<string> } | null = null;
+let blInFlight: Promise<Set<string>> | null = null;
+
+async function fetchBlocklist(origin: string): Promise<Set<string>> {
+  // Hard 1.5s cap: a hanging blocklist fetch must never stall page renders
+  // (Vercel kills middleware at 25s → sitewide sporadic 504s).
+  const r = await fetch(`${origin}/api/bots/blocklist`, {
+    headers: { "x-mw": "1" },
+    signal: AbortSignal.timeout(1500),
+  });
+  const j = (await r.json()) as { prefixes?: string[] };
+  return new Set(j.prefixes ?? []);
+}
+
 async function blockedPrefix(prefix: string, origin: string): Promise<boolean> {
   const now = Date.now();
-  if (!blCache || now - blCache.at > 60_000) {
-    try {
-      // Hard 1.5s cap: a hanging blocklist fetch must never stall page renders
-      // (Vercel kills middleware at 25s → sitewide sporadic 504s). Abort → the
-      // catch below fails open with the prior list, honoring the design intent.
-      const r = await fetch(`${origin}/api/bots/blocklist`, {
-        headers: { "x-mw": "1" },
-        signal: AbortSignal.timeout(1500),
-      });
-      const j = (await r.json()) as { prefixes?: string[] };
-      blCache = { at: now, prefixes: new Set(j.prefixes ?? []) };
-    } catch {
-      // fail-open: keep any prior list, don't hammer on error
-      blCache = { at: now, prefixes: blCache?.prefixes ?? new Set() };
-    }
+  let prefixes = blCache && now - blCache.at <= BL_TTL_MS ? blCache.prefixes : null;
+  if (!prefixes) {
+    const inflight = (blInFlight ??= fetchBlocklist(origin)
+      .then((p) => {
+        blCache = { at: Date.now(), prefixes: p };
+        return p;
+      })
+      .catch(() => {
+        const kept = blCache?.prefixes ?? new Set<string>();
+        blCache = { at: Date.now(), prefixes: kept }; // fail open, don't hammer
+        return kept;
+      })
+      .finally(() => {
+        blInFlight = null;
+      }));
+    prefixes = await inflight;
   }
-  return blCache.prefixes.has(prefix);
+  return prefixes.has(prefix);
 }
 const forbidden = () =>
   new NextResponse("Forbidden", {
