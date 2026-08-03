@@ -198,12 +198,19 @@ export async function loadFilmGeo(slug: string): Promise<GeoPin[]> {
 }
 
 export async function loadDirectorGeo(slug: string): Promise<GeoPin[]> {
-  const { data } = await db().rpc("director_geo", { p_slug: slug });
+  // Same rule as loadFilmGeo: the caller gates the page on pin/film counts, so a
+  // swallowed error returns [] and 404s a live director page for the 24h that
+  // route caches. Errors must never decide whether a URL exists.
+  const { data, error } = await db().rpc("director_geo", { p_slug: slug });
+  if (error) throw new Error(`director_geo(${slug}): ${error.message}`);
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 
 export async function loadLocationsCountry(slug: string): Promise<LocationCountry | null> {
-  const { data } = await db().rpc("atlas_country_json", { p_slug: slug });
+  // null must mean "no such country", not "the database blinked" — the country hub
+  // 404s on null and holds it for 24h.
+  const { data, error } = await db().rpc("atlas_country_json", { p_slug: slug });
+  if (error) throw new Error(`atlas_country_json(${slug}): ${error.message}`);
   const c = data as LocationCountry | null;
   return c && c.country ? c : null;
 }
@@ -357,7 +364,10 @@ export function cityMemberPins<T extends GeoPin>(pins: T[], city: LocationCity):
 }
 
 export async function loadCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
-  const { data } = await db().rpc("country_geo", { p_slug: countrySlugValue });
+  // Empty pins drop the city hubs below their own gate, so a swallowed error here
+  // 404s a whole tier of live pages.
+  const { data, error } = await db().rpc("country_geo", { p_slug: countrySlugValue });
+  if (error) throw new Error(`country_geo(${countrySlugValue}): ${error.message}`);
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 

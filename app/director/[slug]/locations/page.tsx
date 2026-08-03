@@ -43,8 +43,11 @@ function db() {
 type FilmGroup = { slug: string; title: string; year: number | null; pins: GeoPin[] };
 
 async function loadUncached(slug: string) {
-  const { data: filmRows } = await db()
+  // `error` must be read: on a timeout `filmRows` is null, `rows` is empty, and
+  // `!director` 404s a live director page for the 24h this route caches.
+  const { data: filmRows, error } = await db()
     .from("films").select("director, slug, poster_path").eq("director_slug", slug).eq("visible", true).limit(200);
+  if (error) throw new Error(`films(director=${slug}): ${error.message}`);
   const rows = (filmRows ?? []) as { director: string | null; slug: string; poster_path: string | null }[];
   const director = rows[0]?.director;
   if (!director) return null;

@@ -212,22 +212,6 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")) ??
         "anon";
 
-      // TEMPORARY (2026-08-03) — remove once the ceiling is calibrated.
-      // The clients sweeping these two routes are invisible to every instrument we
-      // have: mt_crawler_visits only records UAs carrying "+http://" or a known bot
-      // name (they carry neither — zero /credits and zero /search samples in 24h),
-      // robots.txt already disallows /search?* and they ignore it, and BAD_UA can't
-      // match a browser string. So the ceiling above is set blind: at a measured
-      // 12-15 req/min site-wide it cannot fire, and lowering it without knowing how
-      // the traffic splits across /24s would risk real visitors for nothing.
-      // A 10% sample of just these two routes, to stdout, answers "how concentrated
-      // is it" in an hour with no table, no migration and no extra request. Read it
-      // back with the Vercel runtime-log search for "mt-sample". No path is logged.
-      if (Math.random() < 0.1) {
-        const ua = (request.headers.get("user-agent") ?? "none").slice(0, 60);
-        console.log(`mt-sample ${wantsSearch ? "search" : "credits"} ${prefix} ${ua}`);
-      }
-
       if (wantsSearch && throttled("search", prefix, SEARCH_MAX_PER_MIN)) return tooMany("search");
       if (wantsPerson && throttled("credits", prefix, CREDITS_MAX_PER_MIN)) return tooMany("credits");
     }
