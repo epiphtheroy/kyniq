@@ -11,7 +11,7 @@
 import * as Location from "expo-location";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Image, Linking, View } from "react-native";
+import { FlatList, Image, Linking, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { WebView, type WebViewMessageEvent } from "react-native-webview";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -26,6 +26,9 @@ const TAB_CLEARANCE = 104;
 
 /** The page starts empty and fills itself from the artifact (world view). */
 const EMPTY_FC = { type: "FeatureCollection" as const, features: [] as unknown[] };
+
+/** One film in view — the unit the bottom strip walks through. */
+type MapFilm = { slug: string; title: string; poster: string | null; ts: number | null };
 
 type Selected = {
   name: string;
@@ -162,10 +165,24 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
     });
     return wrap;
   }
+  // Poster markers are DOM nodes, and DOM nodes are the expensive thing on a map.
+  // This used to run on every "render" event over the whole source; at 2,000 pins
+  // that was survivable and at 17,337 it made the wide view crawl (owner 08-03).
+  // Now: never below POSTER_ZOOM (where a poster is a smudge anyway — the GPU dot
+  // layer carries those zooms), never more than MAX_MARKERS of them, and only on
+  // moveend/idle instead of per frame.
+  var POSTER_ZOOM = 8.5;
+  var MAX_MARKERS = 80;
+  function clearMarkers() {
+    for (var id in onScreen) onScreen[id].remove();
+    onScreen = {};
+  }
   function updateMarkers() {
+    if (map.getZoom() < POSTER_ZOOM) { if (selWrap) selWrap = null; clearMarkers(); return; }
     var next = {};
     var feats = map.querySourceFeatures("pins");
-    for (var i = 0; i < feats.length; i++) {
+    var n = 0;
+    for (var i = 0; i < feats.length && n < MAX_MARKERS; i++) {
       var f = feats[i];
       if (f.properties.cluster) continue;
       var id = f.properties.pid;
@@ -176,10 +193,29 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
           .setLngLat(f.geometry.coordinates);
       }
       next[id] = m;
+      n++;
       if (!onScreen[id]) m.addTo(map);
     }
     for (var id2 in onScreen) { if (!next[id2]) onScreen[id2].remove(); }
     onScreen = next;
+  }
+  // Films currently in view — the bottom strip the app uses to walk the map.
+  var ALL = [];
+  function reportFilms() {
+    if (!ALL.length) return;
+    var b = map.getBounds();
+    var w = b.getWest(), e = b.getEast(), s2 = b.getSouth(), n2 = b.getNorth();
+    var seen = {}, out = [];
+    for (var i = 0; i < ALL.length; i++) {
+      var p = ALL[i];
+      if (p.lat < s2 || p.lat > n2) continue;
+      if (w <= e ? (p.lng < w || p.lng > e) : (p.lng < w && p.lng > e)) continue;
+      if (seen[p.slug]) continue;
+      seen[p.slug] = 1;
+      out.push(p);
+    }
+    out.sort(function (x, y) { return (y.ts == null ? -1 : y.ts) - (x.ts == null ? -1 : x.ts); });
+    post({ type: "films", films: out.slice(0, 40) });
   }
   // Artifact → GeoJSON. Mirrors src/lib/pins.ts toFeatureCollection so both
   // renderers hand MapLibre the same properties.
@@ -207,7 +243,9 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
     return { type: "FeatureCollection", features: feats };
   }
   map.on("load", function () {
-    map.addSource("pins", { type: "geojson", data: PINS, cluster: true, clusterRadius: 46 });
+    map.addSource("pins", {
+      type: "geojson", data: PINS, cluster: true, clusterRadius: 60, clusterMaxZoom: 12,
+    });
     map.addLayer({
       id: "clusters", type: "circle", source: "pins", filter: ["has", "point_count"],
       paint: { "circle-color": "${accent}", "circle-opacity": 0.92,
@@ -220,8 +258,24 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
                 "text-font": ["Noto Sans Regular"], "text-allow-overlap": true },
       paint: { "text-color": "#FFFFFF" },
     });
-    map.on("render", updateMarkers);
-    map.on("sourcedata", function (e) { if (e.sourceId === "pins" && e.isSourceLoaded) updateMarkers(); });
+    // Everything that is not a cluster is a GPU circle — free at any zoom, and
+    // the only thing drawn when the whole world is on screen.
+    map.addLayer({
+      id: "dots", type: "circle", source: "pins", filter: ["!", ["has", "point_count"]],
+      paint: { "circle-color": "${accent}", "circle-radius": 4.5,
+               "circle-stroke-width": 1.5, "circle-stroke-color": "#FFFFFF" },
+    });
+    map.on("moveend", function () { updateMarkers(); reportFilms(); });
+    map.on("idle", updateMarkers);
+    map.on("sourcedata", function (e) {
+      if (e.sourceId === "pins" && e.isSourceLoaded) { updateMarkers(); reportFilms(); }
+    });
+    // A dot is tappable even when it never became a poster (below POSTER_ZOOM).
+    map.on("click", "dots", function (e) {
+      var f = e.features && e.features[0];
+      if (!f) return;
+      select(null, f.properties, f.geometry.coordinates);
+    });
     if (BOUNDS) {
       map.fitBounds([[BOUNDS.minLng, BOUNDS.minLat], [BOUNDS.maxLng, BOUNDS.maxLat]],
                     { padding: 56, maxZoom: 11, duration: 0 });
@@ -235,7 +289,11 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
       });
     });
     map.on("click", function (e) {
-      var hits = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
+      // "dots" must be in this list: the layer handler above opens the callout
+      // and THIS handler runs for the same tap, so without it every dot tap
+      // opened and closed the bubble in the same frame. DOM markers are immune
+      // (their listener stops propagation); a GPU layer has no such shield.
+      var hits = map.queryRenderedFeatures(e.point, { layers: ["clusters", "dots"] });
       if (!hits.length) { popup.remove(); post({ type: "clear" }); }
     });
     post({ type: "ready" });
@@ -244,12 +302,41 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then(function (a) {
           var src = map.getSource("pins");
-          if (src) { src.setData(expand(a)); post({ type: "pins", n: a.pins || 0 }); }
+          if (!src) return;
+          src.setData(expand(a));
+          for (var i = 0; i < a.points.length; i++) {
+            var p = a.points[i], f = a.films[p[4]];
+            if (!f) continue;
+            ALL.push({ slug: f[0], title: f[1],
+                       poster: f[2] ? "https://image.tmdb.org/t/p/w154" + f[2] : null,
+                       ts: f[3], lat: p[2], lng: p[3] });
+          }
+          post({ type: "pins", n: a.pins || 0 });
+          reportFilms();
         })
         .catch(function () { post({ type: "pinsError" }); });
     }
   });
   window.__flyTo = function (lng, lat, zoom) { map.easeTo({ center: [lng, lat], zoom: zoom }); };
+  // Walk to a film from the app's bottom strip: fly there, then open its callout.
+  window.__showFilm = function (slug) {
+    for (var i = 0; i < ALL.length; i++) {
+      if (ALL[i].slug !== slug) continue;
+      var p = ALL[i];
+      map.easeTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 10.5) });
+      map.once("moveend", function () {
+        var hits = map.querySourceFeatures("pins");
+        for (var j = 0; j < hits.length; j++) {
+          var h = hits[j];
+          if (!h.properties.cluster && h.properties.film_slug === slug) {
+            select(null, h.properties, h.geometry.coordinates);
+            return;
+          }
+        }
+      });
+      return;
+    }
+  };
   // Handles for the app (Near me) and for automated verification.
   window.__map = map;
   window.__pinsFC = PINS;
@@ -273,6 +360,8 @@ export default function MapWebViewScreen() {
   const [locDenied, setLocDenied] = useState(false);
   /** How many pins the page loaded — the world count comes back over the bridge. */
   const [pinCount, setPinCount] = useState<number | null>(null);
+  /** Films inside the current viewport, best-scored first — the bottom strip. */
+  const [inView, setInView] = useState<MapFilm[]>([]);
 
   // Film focus needs its pins in JS (to fit the camera to them), and there are
   // only ever a handful. The world does NOT: the page fetches the artifact
@@ -314,6 +403,7 @@ export default function MapWebViewScreen() {
         | { type: "clear" }
         | { type: "open"; slug?: unknown }
         | { type: "pins"; n?: unknown }
+        | { type: "films"; films?: unknown }
         | { type: "pinsError" }
         | { type: "ready" };
       if (msg.type === "pins") {
@@ -322,6 +412,25 @@ export default function MapWebViewScreen() {
       }
       if (msg.type === "pinsError") {
         setErr(true);
+        return;
+      }
+      if (msg.type === "films") {
+        // Never trusted as-is: the page's payload is re-validated field by field.
+        const raw = Array.isArray(msg.films) ? msg.films : [];
+        const out: MapFilm[] = [];
+        for (const r of raw as Record<string, unknown>[]) {
+          if (typeof r?.slug !== "string" || !/^[a-z0-9-]{1,120}$/.test(r.slug)) continue;
+          out.push({
+            slug: r.slug,
+            title: typeof r.title === "string" ? r.title : r.slug,
+            poster:
+              typeof r.poster === "string" && r.poster.startsWith("https://image.tmdb.org/")
+                ? r.poster
+                : null,
+            ts: typeof r.ts === "number" ? r.ts : null,
+          });
+        }
+        setInView(out);
         return;
       }
       if (msg.type === "open") {
@@ -465,6 +574,63 @@ export default function MapWebViewScreen() {
       ) : null}
 
       {/* Bottom card */}
+      {/* Walk the map (owner 08-03): every film in view, best-scored first. Tap
+          one and the map flies to it and opens its callout — selecting swaps
+          this strip for the detail card, so the two never fight for the bottom. */}
+      {!selected && inView.length ? (
+        <View style={{ position: "absolute", left: 0, right: 0, bottom: TAB_CLEARANCE }}>
+          <FlatList
+            horizontal
+            data={inView}
+            keyExtractor={(f) => f.slug}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2 }}
+            renderItem={({ item }) => (
+              <Tactile
+                feedback="tap"
+                onPress={() =>
+                  webRef.current?.injectJavaScript(
+                    `window.__showFilm && window.__showFilm(${JSON.stringify(item.slug)}); true;`,
+                  )
+                }
+              >
+                <View
+                  style={[
+                    {
+                      width: 132,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: sp.s2,
+                      backgroundColor: pal.card,
+                      borderRadius: radius.md,
+                      padding: 6,
+                    },
+                    shadow.card,
+                  ]}
+                >
+                  {item.poster ? (
+                    <Image
+                      source={{ uri: item.poster }}
+                      style={{ width: 30, height: 45, borderRadius: 5, backgroundColor: pal.surface }}
+                    />
+                  ) : null}
+                  <View style={{ flex: 1 }}>
+                    <Ui size={fs.xs} weight="600" numberOfLines={2}>
+                      {item.title}
+                    </Ui>
+                    {item.ts != null ? (
+                      <Ui size={fs.xs - 1} weight="700" color={brand.accent} style={{ marginTop: 2 }}>
+                        {t("nav.ts", { n: Math.round(item.ts) })}
+                      </Ui>
+                    ) : null}
+                  </View>
+                </View>
+              </Tactile>
+            )}
+          />
+        </View>
+      ) : null}
+
       {selected ? (
         <View
           style={[
