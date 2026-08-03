@@ -5,7 +5,6 @@
   ],
   "headers": [
     {
-      "//": "Versioned map artifacts (worker/locations-build.py). The version is in the filename, so a fetched copy is never stale — cache it forever and the app's world map costs one request, once.",
       "source": "/geo/(.*)",
       "headers": [
         {
