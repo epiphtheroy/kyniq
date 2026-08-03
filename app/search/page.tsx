@@ -445,7 +445,16 @@ const loadOmniPayload = (term: string): Promise<OmniPayload> =>
       .filter((t) => t.toLowerCase() !== term.toLowerCase()))].slice(0, 8);
 
     return { hits, semantic: result.semantic, took: result.took, card, cardKey, strip, related };
-  }, ["omni-payload-1", term.toLowerCase()], { revalidate: 600 })();
+    // 600s was tuned for a person retyping a query. The actual caller is a
+    // rotating-residential-proxy sweep (measured 2026-08-03: 18,954 req/day,
+    // 17.5% of function volume, every sampled /24 distinct and on a different
+    // continent — so nothing can be blocked, only made cheap). Terms DO repeat:
+    // in one 6h12m window /search took ~4,900 requests while search_all logged
+    // 2,613 calls, i.e. the cache already absorbed ~47%. It was expiring between
+    // passes. An hour raises that without pretending the corpus is frozen — new
+    // films and /now pieces still surface the same day, and the nav typeahead
+    // keeps its own 10-minute in-process cache in lib/search.ts.
+  }, ["omni-payload-1", term.toLowerCase()], { revalidate: 3600 })();
 
 async function OmniBody({ term, verticalKey }: { term: string; verticalKey: string }) {
   const p = await loadOmniPayload(term);
