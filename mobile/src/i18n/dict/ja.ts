@@ -387,6 +387,7 @@ export const ja: Record<keyof typeof en, string> = {
   "nav.destination": "目的地",
   "nav.arrived": "到着しました",
   "nav.arrivedSub": "{label} 制覇 · {n}本",
+  "nav.toll1": "レンタル1本",
   "nav.tollN": "レンタル{n}本",
   "nav.rerouting": "ルートを再検索します",
   "nav.empty": "ログインして映画を観るとルートが描かれます。",
@@ -421,4 +422,13 @@ export const ja: Record<keyof typeof en, string> = {
   "nav.durMin": "{m}分",
   "nav.offmap": "地図外 {n}本 · 系譜で配置",
   "nav.recenter": "再センタリング",
+  // The Navigator — アクセシビリティラベル、地図ズーム、残りルート一覧、共有
+  "nav.close": "閉じる",
+  "nav.back": "戻る",
+  "nav.share": "この旅を共有",
+  "nav.zoomIn": "拡大",
+  "nav.zoomOut": "縮小",
+  "nav.stepsHead": "残りのルート",
+  "nav.shareArrived": "🏁 {label} 制覇 — 映画{n}本、Metatakeナビゲーターで走破。",
+  "nav.shareDrive": "🧭 {label}への道 — 残り映画{n}本、Metatakeナビゲーター。",
 };

@@ -388,6 +388,7 @@ export const ko: Record<keyof typeof en, string> = {
   "nav.destination": "목적지",
   "nav.arrived": "도착했습니다",
   "nav.arrivedSub": "{label} 완주 · {n}편",
+  "nav.toll1": "대여 1편",
   "nav.tollN": "대여 {n}편",
   "nav.rerouting": "경로를 재탐색합니다",
   "nav.empty": "로그인하고 영화를 보면 경로가 그려져요.",
@@ -422,4 +423,13 @@ export const ko: Record<keyof typeof en, string> = {
   "nav.durMin": "{m}분",
   "nav.offmap": "지도 밖 {n}편 · 계보로 배치",
   "nav.recenter": "다시 중앙으로",
+  // The Navigator — 접근성 라벨, 지도 확대, 남은 경로 목록, 공유
+  "nav.close": "닫기",
+  "nav.back": "뒤로",
+  "nav.share": "이 여정 공유",
+  "nav.zoomIn": "확대",
+  "nav.zoomOut": "축소",
+  "nav.stepsHead": "남은 경로",
+  "nav.shareArrived": "🏁 {label} 완주 — 영화 {n}편, Metatake 내비게이터로 완성했어요.",
+  "nav.shareDrive": "🧭 {label}로 가는 길 — 남은 영화 {n}편, Metatake 내비게이터.",
 };

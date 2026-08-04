@@ -24,7 +24,7 @@ import { glyphs } from "../../src/platform/tokens";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Animated, LayoutChangeEvent, PanResponder, Share, View, useWindowDimensions } from "react-native";
+import { Animated, LayoutChangeEvent, PanResponder, ScrollView, Share, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Svg, { Ellipse, Path, Rect } from "react-native-svg";
 import { useRate } from "../../src/components/RateSheet";
@@ -319,14 +319,18 @@ function availDot(a: NavAvailability): string {
 function Disc({
   icon,
   onPress,
+  label,
 }: {
   icon: React.ComponentProps<typeof Ionicons>["name"];
   onPress: () => void;
+  label: string;
 }) {
   const pal = usePalette();
   return (
     <Tactile onPress={onPress} hitSlop={8}>
       <View
+        accessibilityRole="button"
+        accessibilityLabel={label}
         style={[
           {
             width: 36,
@@ -432,10 +436,12 @@ export default function NavigatorDriveScreen() {
       }),
     [pan, pushCenter],
   );
-  // ◎ recenter — snap the map back to its adaptive default frame.
+  // ◎ recenter — snap the map back to its adaptive default frame (pan AND zoom, like web fit()).
   const recenter = useCallback(() => {
     const d = defaultRef.current;
     panBase.current = { x: d.tx, y: d.ty };
+    frameRef.current = { ...frameRef.current, k: d.k };
+    setK(d.k);
     Animated.spring(pan, {
       toValue: { x: d.tx, y: d.ty },
       useNativeDriver: false,
@@ -446,6 +452,21 @@ export default function NavigatorDriveScreen() {
     cellRef.current = { qx: 9999, qy: 9999 };
     pushCenter(d.tx, d.ty);
   }, [pan, pushCenter]);
+
+  // ＋ / － zoom — change the map scale k around the box centre with the SAME clamp the web
+  // uses (0.55–3) and repaint (mirrors web's zoom()). The +/- buttons sit beside ◎. We read
+  // the live scale from frameRef.current (always defined — never a null deref), commit the new
+  // k, then refresh the cull centre so the background re-culls at the new magnification.
+  const zoomBy = useCallback(
+    (f: number) => {
+      const kk = clamp(frameRef.current.k * f, 0.55, 3);
+      frameRef.current = { ...frameRef.current, k: kk };
+      setK(kk);
+      cellRef.current = { qx: 9999, qy: 9999 };
+      pushCenter(panBase.current.x, panBase.current.y);
+    },
+    [pushCenter],
+  );
 
   // Resolve the destination when opened without params (deep link): the director the
   // user is mid-conquest on, else the canon default (§3 v1). With params the picker
@@ -698,7 +719,7 @@ export default function NavigatorDriveScreen() {
         </Ui>
         <Btn label={t("action.retry")} onPress={() => setGen((g) => g + 1)} style={{ alignSelf: "stretch" }} />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon={glyphs.back} onPress={back} />
+          <Disc icon={glyphs.back} onPress={back} label={t("nav.back")} />
         </View>
       </Screen>
     );
@@ -708,7 +729,7 @@ export default function NavigatorDriveScreen() {
         <Stack.Screen options={{ headerShown: false }} />
         <Loading />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon={glyphs.back} onPress={back} />
+          <Disc icon={glyphs.back} onPress={back} label={t("nav.back")} />
         </View>
       </Screen>
     );
@@ -716,9 +737,15 @@ export default function NavigatorDriveScreen() {
   const arrived = Number(data.remaining ?? 0) === 0 || view.stops.length === 0;
   const head = view.stops[0] ?? null; // the next turn (a NavStop)
   const then = view.stops[1] ?? null;
-  // Share the real, live Navigator surface — NOT the noindex Korean paper prototype
-  // (navigator-preview.html). Mirrors web's share target.
-  const webUrl = `${METATAKE_BASE}/room/navigator`;
+  // Share the real, live Navigator surface with a journey line — NOT the noindex Korean
+  // paper prototype (navigator-preview.html). Mirrors web's share (components/room/
+  // NavigatorDrive.tsx §share): a "🏁 Finished …" / "🧭 On the road to …" line + the
+  // product page at METATAKE_BASE + /room/navigator.
+  const shareMsg =
+    (arrived
+      ? t("nav.shareArrived", { label: data.label, n: data.total })
+      : t("nav.shareDrive", { label: data.label, n: data.remaining })) +
+    ` ${METATAKE_BASE}/room/navigator`;
 
   // traveled fraction for the meter — coerce, as the BFF may serialize the runtime
   // SUMs as JSON strings (Postgres numeric); "60"+"120" would poison the ratio.
@@ -1051,6 +1078,8 @@ export default function NavigatorDriveScreen() {
                       >
                         <Tactile onPress={() => setPick(rp.stop)}>
                           <View
+                            accessibilityRole="button"
+                            accessibilityLabel={rp.stop.title}
                             style={{
                               borderRadius: 6,
                               overflow: "hidden",
@@ -1268,6 +1297,8 @@ export default function NavigatorDriveScreen() {
                     ) : null}
                     <Tactile onPress={() => setPick(stop)}>
                       <View
+                        accessibilityRole="button"
+                        accessibilityLabel={stop.title}
                         style={{
                           borderRadius: 6,
                           overflow: "hidden",
@@ -1298,7 +1329,11 @@ export default function NavigatorDriveScreen() {
                 >
                   <Ionicons name="flag" size={16} color={GOLD} style={{ marginBottom: 1 }} />
                   <Tactile onPress={() => setPick(finalStop)}>
-                    <View style={{ borderRadius: 5, overflow: "hidden", borderWidth: 2, borderColor: GOLD, ...shadow.card }}>
+                    <View
+                      accessibilityRole="button"
+                      accessibilityLabel={finalStop.title}
+                      style={{ borderRadius: 5, overflow: "hidden", borderWidth: 2, borderColor: GOLD, ...shadow.card }}
+                    >
                       <PosterImg path={finalStop.poster_path} width={30} height={45} size="w185" rounded={3} />
                     </View>
                   </Tactile>
@@ -1350,26 +1385,60 @@ export default function NavigatorDriveScreen() {
               )}
             </Animated.View>
 
-            {/* ◎ recenter — outside the transformed layer (hidden while a card is open) */}
+            {/* map controls — zoom ＋/－ over ◎ recenter (outside the transformed layer;
+                hidden while a card is open). Mirrors web's .mapctl (Zoom in / out / Reset). */}
             {!pick ? (
-              <Tactile onPress={recenter} hitSlop={6} style={{ position: "absolute", right: sp.s3, bottom: sp.s4 }}>
+              <View style={{ position: "absolute", right: sp.s3, bottom: sp.s4, alignItems: "center", gap: sp.s2 }}>
                 <View
-                  accessibilityLabel={t("nav.recenter")}
                   style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: radius.pill,
+                    borderRadius: radius.md,
                     backgroundColor: pal.card,
                     borderWidth: 1,
                     borderColor: pal.hairline,
-                    alignItems: "center",
-                    justifyContent: "center",
+                    overflow: "hidden",
                     ...shadow.card,
                   }}
                 >
-                  <Ionicons name="locate" size={20} color={pal.ink} />
+                  <Tactile onPress={() => zoomBy(1.25)} hitSlop={6}>
+                    <View
+                      accessibilityRole="button"
+                      accessibilityLabel={t("nav.zoomIn")}
+                      style={{ width: 40, height: 38, alignItems: "center", justifyContent: "center" }}
+                    >
+                      <Ionicons name="add" size={22} color={pal.ink} />
+                    </View>
+                  </Tactile>
+                  <View style={{ height: 1, backgroundColor: pal.hairline }} />
+                  <Tactile onPress={() => zoomBy(0.8)} hitSlop={6}>
+                    <View
+                      accessibilityRole="button"
+                      accessibilityLabel={t("nav.zoomOut")}
+                      style={{ width: 40, height: 38, alignItems: "center", justifyContent: "center" }}
+                    >
+                      <Ionicons name="remove" size={22} color={pal.ink} />
+                    </View>
+                  </Tactile>
                 </View>
-              </Tactile>
+                <Tactile onPress={recenter} hitSlop={6}>
+                  <View
+                    accessibilityRole="button"
+                    accessibilityLabel={t("nav.recenter")}
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: radius.pill,
+                      backgroundColor: pal.card,
+                      borderWidth: 1,
+                      borderColor: pal.hairline,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      ...shadow.card,
+                    }}
+                  >
+                    <Ionicons name="locate" size={20} color={pal.ink} />
+                  </View>
+                </Tactile>
+              </View>
             ) : null}
 
             {/* note when some route films aren't charted on the odyssey plane */}
@@ -1455,7 +1524,9 @@ export default function NavigatorDriveScreen() {
                   </View>
                 </Tactile>
                 <Tactile onPress={() => setPick(null)} hitSlop={8} style={{ position: "absolute", top: 4, right: 6 }}>
-                  <Ionicons name="close" size={16} color={pal.subtle} />
+                  <View accessibilityRole="button" accessibilityLabel={t("nav.close")}>
+                    <Ionicons name="close" size={16} color={pal.subtle} />
+                  </View>
                 </Tactile>
               </View>
             ) : null}
@@ -1551,7 +1622,7 @@ export default function NavigatorDriveScreen() {
                       </Ui>
                       {p === "no_tolls" && tolls > 0 ? (
                         <Ui size={fs.xs - 2} weight="600" color={on ? "rgba(255,255,255,0.75)" : GOLD}>
-                          {t("nav.tollN", { n: tolls })}
+                          {t(tolls === 1 ? "nav.toll1" : "nav.tollN", { n: tolls })}
                         </Ui>
                       ) : null}
                     </View>
@@ -1605,6 +1676,63 @@ export default function NavigatorDriveScreen() {
                 </Tactile>
               </View>
             ) : null}
+
+            {/* remaining route — every film left, in drive order (the Google-Maps "steps"
+                overview). A horizontal poster strip: index badge · title · runtime · a
+                ▶/rent marker; each taps into /film/[slug]. Mirrors web's .steps block. */}
+            {view.stops.length > 0 ? (
+              <View style={{ marginTop: sp.s4 }}>
+                <Ui size={fs.xs - 2} weight="700" color={pal.subtle} style={{ marginBottom: sp.s2 }}>
+                  {`${t("nav.stepsHead")} · ${t("nav.filmsN", { n: view.stops.length })}`.toUpperCase()}
+                </Ui>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: sp.s3, paddingRight: sp.s3 }}>
+                  {view.stops.map((s, i) => {
+                    const isNow = i === 0;
+                    const mark = s.toll ? t("nav.rent") : s.availability === "sub" ? "▶" : null;
+                    return (
+                      <Tactile key={s.slug} onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: s.slug } })}>
+                        <View accessibilityRole="button" accessibilityLabel={s.title} style={{ width: 74, alignItems: "center" }}>
+                          <View
+                            style={{
+                              borderRadius: 6,
+                              overflow: "hidden",
+                              borderWidth: isNow ? 2 : 1,
+                              borderColor: isNow ? brand.accent : pal.hairline,
+                            }}
+                          >
+                            <PosterImg path={s.poster_path} width={74} height={111} size="w185" rounded={5} />
+                            <View
+                              style={{
+                                position: "absolute",
+                                top: 3,
+                                left: 3,
+                                minWidth: 17,
+                                height: 17,
+                                paddingHorizontal: 4,
+                                borderRadius: radius.pill,
+                                backgroundColor: isNow ? brand.accent : "rgba(0,0,0,0.6)",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <Ui size={fs.xs - 2} weight="700" color="#fff">
+                                {i + 1}
+                              </Ui>
+                            </View>
+                          </View>
+                          <Ui size={fs.xs - 1} weight="600" numberOfLines={1} style={{ marginTop: 4, maxWidth: 74, textAlign: "center" }}>
+                            {s.title}
+                          </Ui>
+                          <Ui size={fs.xs - 2} color={pal.muted} numberOfLines={1} style={{ maxWidth: 74, textAlign: "center" }}>
+                            {[fmtDur(s.runtime), mark].filter(Boolean).join(" · ")}
+                          </Ui>
+                        </View>
+                      </Tactile>
+                    );
+                  })}
+                </ScrollView>
+              </View>
+            ) : null}
           </>
         ) : null}
       </View>
@@ -1622,7 +1750,7 @@ export default function NavigatorDriveScreen() {
         }}
         pointerEvents="box-none"
       >
-        <Disc icon={glyphs.back} onPress={back} />
+        <Disc icon={glyphs.back} onPress={back} label={t("nav.back")} />
         <View
           style={[
             { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: pal.chrome, borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 7 },
@@ -1634,7 +1762,7 @@ export default function NavigatorDriveScreen() {
             {data.label}
           </Ui>
         </View>
-        <Disc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
+        <Disc icon={glyphs.share} onPress={() => Share.share({ message: shareMsg })} label={t("nav.share")} />
       </View>
 
       {/* reroute toast */}

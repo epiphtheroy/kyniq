@@ -387,6 +387,7 @@ export const es: Record<keyof typeof en, string> = {
   "nav.destination": "Destino",
   "nav.arrived": "Has llegado",
   "nav.arrivedSub": "{label} completado · {n} películas",
+  "nav.toll1": "1 de alquiler",
   "nav.tollN": "{n} de alquiler",
   "nav.rerouting": "Recalculando…",
   "nav.empty": "Inicia sesión y empieza a ver para trazar una ruta.",
@@ -421,4 +422,13 @@ export const es: Record<keyof typeof en, string> = {
   "nav.durMin": "{m}m",
   "nav.offmap": "{n} fuera del mapa · por linaje",
   "nav.recenter": "Recentrar",
+  // The Navigator — etiquetas de accesibilidad, zoom del mapa, ruta restante y compartir
+  "nav.close": "Cerrar",
+  "nav.back": "Atrás",
+  "nav.share": "Compartir este viaje",
+  "nav.zoomIn": "Acercar",
+  "nav.zoomOut": "Alejar",
+  "nav.stepsHead": "Ruta restante",
+  "nav.shareArrived": "🏁 {label} completado — {n} películas, trazado con Metatake Navigator.",
+  "nav.shareDrive": "🧭 Rumbo a {label} — quedan {n} películas en Metatake Navigator.",
 };
