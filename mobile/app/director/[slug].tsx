@@ -6,6 +6,7 @@
 // header, elevated where-to-start hero card, poster carousel for the
 // selection, grouped surface containers for the life.
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { glyphs } from "../../src/platform/tokens";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
 import { FlatList, Image, ScrollView, Share, View, useWindowDimensions } from "react-native";
@@ -136,7 +137,7 @@ export default function DirectorScreen() {
           style={{ alignSelf: "stretch" }}
         />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+          <Disc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
         </View>
       </Screen>
     );
@@ -157,7 +158,7 @@ export default function DirectorScreen() {
           <SkeletonRows count={3} />
         </View>
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+          <Disc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
         </View>
       </Screen>
     );
@@ -428,8 +429,8 @@ export default function DirectorScreen() {
         }}
         pointerEvents="box-none"
       >
-        <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
-        <Disc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+        <Disc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+        <Disc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
       </View>
     </Screen>
   );

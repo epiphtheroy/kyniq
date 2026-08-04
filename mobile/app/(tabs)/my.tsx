@@ -28,7 +28,6 @@ import {
   Alert,
   FlatList,
   Modal,
-  Platform,
   RefreshControl,
   ScrollView,
   StyleSheet,
@@ -56,6 +55,7 @@ import { ALL_EDITIONS, langLabel } from "../../src/editions";
 import { Appear, ProgressBar, Shimmer } from "../../src/components/motion";
 import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
+import { isWeb } from "../../src/platform/env";
 import type { DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { registerPush } from "../../src/lib/push";
@@ -1439,7 +1439,7 @@ function SignedIn() {
     // the authorization header the public API's CORS deliberately blocks — so the
     // browser delegates account management to the website. Native does it in-app
     // (Apple 5.1.1(v)).
-    if (Platform.OS === "web") {
+    if (isWeb) {
       window.open(`${METATAKE_BASE}/settings`, "_blank", "noopener");
       return;
     }

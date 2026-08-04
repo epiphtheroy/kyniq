@@ -12,6 +12,26 @@ Expo (React Native) client for the pre-watch decision loop. Plan of record:
 still owner-side). Read that before changing anything — the two-layer rule
 (native decision layer / webview reading layer) and the 12 invariants live there.
 
+## Two platforms, one codebase — read this before editing
+
+This app ships to iOS **and** Android from this directory, and the rules that keep
+them from drifting apart are enforced by CI, not by convention:
+
+- **`src/platform/` is the only place `Platform.OS` may appear.** Everything else
+  is platform-blind. `node scripts/check-platform.mjs` fails the build otherwise.
+- **`src/platform/capabilities.ts` is the divergence ledger** — every place the two
+  platforms differ has an entry, with the reason and how to check it on a device.
+  An unlisted divergence is a bug.
+- Architecture, the open work queue, and a list of things that *look* like bugs but
+  have already been checked and are fine: **`../HANDOFF-안드로이드-패리티-아키텍처.md`**
+- Running the app on an Android emulator (installed on this machine):
+  **`RUNBOOK-android.md`**
+
+```bash
+npx tsc --noEmit && node scripts/check-platform.mjs   # both must pass
+npx expo export --platform android --output-dir /tmp/x   # the Android graph resolves
+```
+
 ## Where the data comes from
 
 The app is a client; every screen reads the existing production backend.

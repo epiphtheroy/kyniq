@@ -20,25 +20,33 @@
 // ⚠️ The key ships inside the app binary and can be extracted, so it is
 // restricted in Cloud Console to bundle id net.metatake.app + Maps SDK for iOS
 // (verified: the same key is refused for Geocoding from a server IP).
-// Android would need its OWN key — one key cannot hold both an iOS and an
-// Android restriction — plus the Play app-signing SHA-1, not just the upload
-// key's. Not needed while Android renders maps through the WebView path.
-const MAPS_KEY = process.env.GOOGLE_MAPS_IOS_KEY || "";
+//
+// One key CANNOT hold both an iOS and an Android restriction, so the iOS key
+// must never reach the Android manifest — an iOS-restricted key there yields a
+// grey "authorization failure" map, which is strictly worse than no key at all
+// (no key = react-native-maps is simply never selected on Android).
+//
+// Until 2026-08-03 this file spread MAPS_KEY into android.config.googleMaps too,
+// contradicting the paragraph above: `eas.json` sets `environment: production`
+// so the secret is present at Android build time as well, and the AAB's
+// AndroidManifest got com.google.android.geo.API_KEY = a key Google refuses for
+// that package. Android renders maps through the WebView (MapLibre GL JS, no key
+// required, and it is the RICHER map: Esri satellite + clustering + poster pins,
+// versus Apple Maps' plain basemap with no clustering). So Android needs no key,
+// and adding one would trade those features away. See
+// HANDOFF-안드로이드-패리티-아키텍처.md §4.
+//
+// Rule: this file emits a platform's config block ONLY from that platform's own
+// env var. A second key, if Android ever needs one, gets its own name.
+const IOS_MAPS_KEY = process.env.GOOGLE_MAPS_IOS_KEY || "";
 
 module.exports = ({ config }) => {
-  if (!MAPS_KEY) return config;
+  if (!IOS_MAPS_KEY) return config;
   return {
     ...config,
     ios: {
       ...config.ios,
-      config: { ...(config.ios?.config ?? {}), googleMapsApiKey: MAPS_KEY },
-    },
-    android: {
-      ...config.android,
-      config: {
-        ...(config.android?.config ?? {}),
-        googleMaps: { ...(config.android?.config?.googleMaps ?? {}), apiKey: MAPS_KEY },
-      },
+      config: { ...(config.ios?.config ?? {}), googleMapsApiKey: IOS_MAPS_KEY },
     },
   };
 };

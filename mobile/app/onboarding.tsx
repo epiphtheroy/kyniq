@@ -23,14 +23,14 @@ import { type Href, useLocalSearchParams, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useMemo, useState } from "react";
 import {
-  KeyboardAvoidingView,
-  Platform,
   ScrollView,
   TextInput,
   View,
   useWindowDimensions,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useAndroidBack } from "../src/platform/back";
+import { KeyboardLift, formScrollProps } from "../src/platform/keyboard";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import { Serif,
   Btn,
@@ -141,6 +141,19 @@ export default function OnboardingScreen() {
   // instead of walking the rest of the funnel.
   const entry = normalizeStep(params.step);
   const editOne = entry !== null && entry !== "account";
+
+  // Android's hardware back walks the funnel BACKWARDS instead of destroying it.
+  // The four steps live in this one route's state, so without this the system
+  // back pops the whole route and drops a first-run user into the tabs halfway
+  // through setup. iOS has no hardware back, which is why the flow was only ever
+  // linear there and the gap went unnoticed.
+  useAndroidBack(() => {
+    if (editOne) return false; // single-step edit from settings: let back close it
+    const i = STEPS.indexOf(step as Step);
+    if (i <= 0) return false; // welcome, or a side entrance (language): fall through
+    setStep(STEPS[i - 1]);
+    return true;
+  });
 
   const finish = () => {
     set({ onboarded: true });
@@ -819,15 +832,10 @@ function StepAccount({ onDone }: { onDone: () => void }) {
        to open the keyboard right over the field (owner 2026-07-31 — the input
        was invisible under the keys). The panel sits high enough to stay clear,
        and the view lifts if it doesn't. */
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
-      style={{ flex: 1 }}
-      keyboardVerticalOffset={100}
-    >
+    <KeyboardLift offset={100}>
       <ScrollView
         contentContainerStyle={{ paddingHorizontal: sp.s5, paddingTop: sp.s5, paddingBottom: 360 }}
-        keyboardShouldPersistTaps="handled"
-        keyboardDismissMode="interactive"
+        {...formScrollProps}
       >
         <Ui size={fs.x2} weight="600">
           {t("auth.welcome")}
@@ -844,7 +852,7 @@ function StepAccount({ onDone }: { onDone: () => void }) {
           </View>
         </Tactile>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </KeyboardLift>
   );
 }
 

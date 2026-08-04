@@ -4,12 +4,14 @@
 // (/film/meaning/*, /film/lineage/*, /reception, …) stay inside the reader.
 // Session is carried via SSO handoff (§13-12).
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { glyphs } from "../src/platform/tokens";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Share, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
+import { useAndroidBack } from "../src/platform/back";
 import { Btn, Hairline, Screen, Tactile, Ui } from "../src/components/ui";
 import { METATAKE_BASE } from "../src/config";
 import { SkeletonText } from "../src/components/motion";
@@ -80,6 +82,18 @@ export default function ReadScreen() {
   const [uri, setUri] = useState<string | null>(null);
   const [webLoading, setWebLoading] = useState(true);
   const [webKey, setWebKey] = useState(0);
+
+  // The reader is a browser, so Android's back must mean "back a page" before it
+  // means "leave the reader" — otherwise following two links inside an essay and
+  // pressing back throws the whole screen away. iOS gets the same behaviour from
+  // allowsBackForwardNavigationGestures, which is an edge swipe and iOS-only.
+  const webRef = useRef<WebView>(null);
+  const canGoBackRef = useRef(false);
+  useAndroidBack(() => {
+    if (!canGoBackRef.current) return false; // no history left: let the screen close
+    webRef.current?.goBack();
+    return true;
+  });
 
   useEffect(() => {
     let alive = true;
@@ -190,7 +204,7 @@ export default function ReadScreen() {
               gap: sp.s2,
             }}
           >
-            <HeaderDisc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+            <HeaderDisc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
             <HeaderDisc icon="open-outline" onPress={() => WebBrowser.openBrowserAsync(webUrl)} />
           </View>
         </View>
@@ -201,8 +215,12 @@ export default function ReadScreen() {
       <View style={{ flex: 1, backgroundColor: pal.bg }}>
         {uri ? (
           <WebView
+            ref={webRef}
             key={webKey}
             source={{ uri }}
+            onNavigationStateChange={(nav) => {
+              canGoBackRef.current = nav.canGoBack;
+            }}
             style={{ flex: 1, backgroundColor: pal.bg }}
             onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
             onLoadEnd={() => setWebLoading(false)}

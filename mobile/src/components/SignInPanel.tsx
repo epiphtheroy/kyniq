@@ -11,9 +11,10 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as AppleAuthentication from "expo-apple-authentication";
 import React, { useState } from "react";
-import { Platform, StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import { t } from "../i18n";
 import { signInWithGoogle } from "../lib/auth";
+import { hasAuthProvider } from "../platform/auth-providers";
 import { supabase } from "../lib/supabase";
 import { brand, font, fs, radius, sp, usePalette } from "../theme";
 import { Btn, GradientBtn, Hairline, Tactile, Ui } from "./ui";
@@ -195,7 +196,7 @@ export default function SignInPanel({ onDone }: { onDone: () => void }) {
     <View style={{ gap: sp.s3 }}>
       {mode === "choose" ? (
         <>
-          {Platform.OS === "ios" ? (
+          {hasAuthProvider("apple") ? (
             <Social icon="logo-apple" label={t("auth.continueApple")} onPress={signInApple} />
           ) : null}
           <Social icon="logo-google" label={t("auth.continueGoogle")} onPress={signInGoogle} />

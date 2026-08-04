@@ -53,8 +53,25 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<script>
+  /* The failure channel, installed BEFORE anything can fail.
+     Until 2026-08-03 the page could only report trouble from inside
+     map.on("load"), which by definition cannot run when the engine itself is
+     missing — so a dead map showed a bare #0b1020 rectangle and a title stuck on
+     "Loading…" forever, with no error and no retry. Reproduced on Android.
+     Everything below posts a reason instead. */
+  var post = function (m) {
+    if (window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(m));
+  };
+  window.onerror = function (msg, src, line) {
+    post({ type: "fatal", reason: String(msg) + (line ? " @" + line : "") });
+    return false;
+  };
+  window.__engineFailed = function () { post({ type: "fatal", reason: "engine-fetch-failed" }); };
+  post({ type: "boot" });
+</script>
 <link href="${MAPLIBRE_CSS}" rel="stylesheet" />
-<script src="${MAPLIBRE_JS}"></script>
+<script src="${MAPLIBRE_JS}" onerror="window.__engineFailed()"></script>
 <style>
   html,body,#map{margin:0;padding:0;height:100%;width:100%;background:#0b1020}
   .maplibregl-ctrl-attrib{font:10px/1.5 -apple-system,system-ui,sans-serif}
@@ -97,6 +114,13 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
   // Satellite basemap (owner directive 2026-07-20) — Esri World Imagery raster
   // + place-label reference overlay; both key-free with attribution. Glyphs
   // endpoint is required for the cluster-count text layer.
+  // The engine can be absent for reasons the script tag's onerror never sees
+  // (a 200 that returns HTML, a proxy, a partial body). Say so rather than
+  // throwing a bare ReferenceError into the void.
+  if (typeof maplibregl === "undefined") {
+    post({ type: "fatal", reason: "engine-missing" });
+    throw new Error("maplibre-gl unavailable");
+  }
   var map = new maplibregl.Map({
     container: "map",
     style: {
@@ -137,13 +161,40 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
   // Tap → enlarge the thumbnail + speech-bubble callout with the key text
   // (film title · place), dismissable via its ✕ (owner directive 2026-07-20).
   window.__openFilm = function (slug) { post({ type: "open", slug: slug }); };
+  // The callout's "open this film" row carries its slug in a data attribute and
+  // is handled by ONE delegated listener, rather than by an inline onclick built
+  // out of nested quotes.
+  //
+  // It used to be an inline onclick, and that broke the entire map. This whole
+  // page lives inside a TypeScript template literal, so a backslash written to
+  // escape a quote for the BROWSER is eaten by TypeScript first. The emitted
+  // page ended up calling __openFilm with two empty strings where the slug
+  // should have been, which is a syntax error — and a syntax error anywhere in
+  // this script means NONE of it runs. No map, no pins, no ready message: just
+  // the bare background and a title stuck on loading, with nothing anywhere
+  // saying why. Found 2026-08-03 on Android, by the error channel added above.
+  //
+  // Escaping quotes through two languages is a trap that gets re-entered — the
+  // first draft of THIS comment fell into it again by quoting the broken line
+  // with backticks, which closed the template literal. A data attribute has no
+  // quotes to escape, so the shape is the fix, not more careful escaping.
+  document.addEventListener("click", function (ev) {
+    var t = ev.target;
+    while (t && t !== document.body) {
+      if (t.className === "mtp-go" && t.getAttribute("data-slug")) {
+        window.__openFilm(t.getAttribute("data-slug"));
+        return;
+      }
+      t = t.parentNode;
+    }
+  });
   function select(wrap, props, lnglat) {
     if (selWrap) selWrap.classList.remove("sel");
     selWrap = wrap;
     if (wrap) wrap.classList.add("sel");
     var tsBadge = props.ts != null ? '<span class="mtp-s">TS ' + Math.round(props.ts) + "</span>" : "";
     var openLink = props.film_slug
-      ? '<div class="mtp-go" onclick="window.__openFilm(\'' + esc(props.film_slug) + '\')">🎬 ' + esc(props.film_title || props.film_slug) + " ›</div>"
+      ? '<div class="mtp-go" data-slug="' + esc(props.film_slug) + '">🎬 ' + esc(props.film_title || props.film_slug) + " ›</div>"
       : "";
     var html = (props.film_title ? '<div class="mtp-t">' + esc(props.film_title) + tsBadge + "</div>" : "")
       + '<div class="mtp-n">' + esc(props.name) + (props.country ? " · " + esc(props.country) : "") + "</div>"
@@ -242,6 +293,19 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
     }
     return { type: "FeatureCollection", features: feats };
   }
+  // maplibre measures its container once, at construction, and never watches it
+  // again. On iOS that is invisible — the window is a fixed size for the life of
+  // the app. Android windows are not: split-screen, foldables, desktop modes and
+  // plain rotation all resize the view under a live map, and without this the
+  // canvas keeps its first size and leaves a dead band of background where the
+  // map should be. Reproduced 2026-08-03 simply by changing the emulator's
+  // display size — which is exactly what a user does by unfolding a phone.
+  (function () {
+    var el = document.getElementById("map");
+    var resize = function () { map.resize(); };
+    if (window.ResizeObserver) new ResizeObserver(resize).observe(el);
+    else window.addEventListener("resize", resize);
+  })();
   map.on("load", function () {
     map.addSource("pins", {
       type: "geojson", data: PINS, cluster: true, clusterRadius: 60, clusterMaxZoom: 12,
@@ -355,6 +419,10 @@ export default function MapWebViewScreen() {
 
   const [pins, setPins] = useState<Pin[] | null>(null);
   const [err, setErr] = useState(false);
+  /** Why the map could not draw. Null while it is merely still loading. */
+  const [fatal, setFatal] = useState<string | null>(null);
+  /** Set once the page reports the map is alive; stops the watchdog. */
+  const [ready, setReady] = useState(false);
   const [tries, setTries] = useState(0);
   const [selected, setSelected] = useState<Selected | null>(null);
   const [locDenied, setLocDenied] = useState(false);
@@ -369,6 +437,8 @@ export default function MapWebViewScreen() {
   useEffect(() => {
     let alive = true;
     setErr(false);
+    setFatal(null);
+    setReady(false);
     setSelected(null);
     setPinCount(null);
     if (!filmSlug) {
@@ -405,7 +475,17 @@ export default function MapWebViewScreen() {
         | { type: "pins"; n?: unknown }
         | { type: "films"; films?: unknown }
         | { type: "pinsError" }
+        | { type: "boot" }
+        | { type: "fatal"; reason?: unknown }
         | { type: "ready" };
+      if (msg.type === "fatal") {
+        setFatal(typeof msg.reason === "string" ? msg.reason : "unknown");
+        return;
+      }
+      if (msg.type === "ready") {
+        setReady(true);
+        return;
+      }
       if (msg.type === "pins") {
         setPinCount(typeof msg.n === "number" ? msg.n : 0);
         return;
@@ -458,6 +538,17 @@ export default function MapWebViewScreen() {
     }
   }, []);
 
+  // The watchdog. Some failures are silent by nature — WebGL unavailable on a
+  // software renderer, a CDN that accepts the connection and then stalls, a
+  // proxy that never answers. In every one of those the page neither errors nor
+  // becomes ready, and the old screen sat on "Loading…" indefinitely. If the map
+  // has not reported itself alive by now, say so and offer the retry.
+  useEffect(() => {
+    if (!html || ready || fatal) return;
+    const timer = setTimeout(() => setFatal("timeout"), 15000);
+    return () => clearTimeout(timer);
+  }, [html, ready, fatal, tries]);
+
   const nearMe = useCallback(async () => {
     try {
       const perm = await Location.requestForegroundPermissionsAsync();
@@ -474,10 +565,23 @@ export default function MapWebViewScreen() {
     }
   }, []);
 
-  if (err) {
+  if (err || fatal) {
     return (
       <Screen style={{ alignItems: "center", justifyContent: "center", gap: sp.s4, padding: sp.s5 }}>
-        <Ui color={pal.muted}>{t("error.network")}</Ui>
+        <Ui color={pal.muted} style={{ textAlign: "center" }}>
+          {t("error.network")}
+        </Ui>
+        {/* The reason, verbatim and unlocalised. A map that cannot draw is a bug
+            report waiting to be filed, and "engine-fetch-failed" vs "timeout" vs
+            "webview renderer stopped" is the difference between a fix and a
+            guess. It is deliberately not an i18n key: these are diagnostics, not
+            copy, and inventing four translations of "engine-missing" would make
+            them worse. */}
+        {fatal ? (
+          <Ui size={fs.xs} color={pal.subtle} style={{ textAlign: "center" }}>
+            {fatal}
+          </Ui>
+        ) : null}
         <Btn label={t("action.retry")} style={{ alignSelf: "stretch" }} onPress={() => setTries((n) => n + 1)} />
       </Screen>
     );
@@ -495,6 +599,16 @@ export default function MapWebViewScreen() {
         javaScriptEnabled
         domStorageEnabled
         setSupportMultipleWindows={false}
+        // Three failures the page itself can never report, because they kill or
+        // precede the page: the load failing, an HTTP error serving it, and
+        // Android's WebView renderer process being killed under memory pressure
+        // (which leaves a permanently blank view until it is remounted).
+        onError={(e) => setFatal(`webview: ${e.nativeEvent.description || "load failed"}`)}
+        onHttpError={(e) => setFatal(`webview http ${e.nativeEvent.statusCode}`)}
+        onRenderProcessGone={() => {
+          setFatal("webview renderer stopped");
+          setReady(false);
+        }}
         // The page is ours and offline-authored; block navigation away from it.
         onShouldStartLoadWithRequest={(r) => r.url === "about:blank" || r.url.startsWith("data:")}
       />

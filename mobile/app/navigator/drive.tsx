@@ -19,6 +19,7 @@
 // Position is ledger-derived server-side (invariant §10-1); marking the next film seen
 // advances the chevron ("rerouting").
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { glyphs } from "../../src/platform/tokens";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -679,7 +680,7 @@ export default function NavigatorDriveScreen() {
         </Ui>
         <Btn label={t("action.retry")} onPress={() => setGen((g) => g + 1)} style={{ alignSelf: "stretch" }} />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} />
+          <Disc icon={glyphs.back} onPress={back} />
         </View>
       </Screen>
     );
@@ -689,7 +690,7 @@ export default function NavigatorDriveScreen() {
         <Stack.Screen options={{ headerShown: false }} />
         <Loading />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} />
+          <Disc icon={glyphs.back} onPress={back} />
         </View>
       </Screen>
     );
@@ -1603,7 +1604,7 @@ export default function NavigatorDriveScreen() {
         }}
         pointerEvents="box-none"
       >
-        <Disc icon="chevron-back" onPress={back} />
+        <Disc icon={glyphs.back} onPress={back} />
         <View
           style={[
             { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: pal.chrome, borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 7 },
@@ -1615,7 +1616,7 @@ export default function NavigatorDriveScreen() {
             {data.label}
           </Ui>
         </View>
-        <Disc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+        <Disc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
       </View>
 
       {/* reroute toast */}

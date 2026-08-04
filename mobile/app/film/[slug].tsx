@@ -10,6 +10,7 @@
 // RateSheet.tsx), which "Seen it" opens by itself; the stars stay visually
 // apart from the TakeScore group (never-blend, §13-18).
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { glyphs } from "../../src/platform/tokens";
 import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
@@ -608,9 +609,9 @@ export default function FilmScreen() {
             justifyContent: "space-between",
           }}
         >
-          <IconDisc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+          <IconDisc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
           <View style={{ flexDirection: "row", gap: sp.s2 }}>
-            <IconDisc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+            <IconDisc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
             <IconDisc
               icon={entry?.watchlist ? "heart" : "heart-outline"}
               color={entry?.watchlist ? brand.accent : pal.ink}

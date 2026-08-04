@@ -170,7 +170,11 @@ export function StarRate({
       const next = Math.min(5, Math.max(0.5, Math.ceil(raw * 2) / 2));
       if (next !== last.current) {
         last.current = next;
-        haptic.select();
+        // step(), not select(): this fires from a moving finger and can cross ten
+        // half-star notches in under 300ms. iOS renders ten crisp ticks; an
+        // Android LRA motor turns the same sequence into one continuous rattle,
+        // so the seam throttles it there and leaves iOS untouched.
+        haptic.step();
         onChange(next);
       }
     },
@@ -370,7 +374,14 @@ function RateSheet({
   const verdict = saved != null ? verdictOf(saved, target.standing ?? null) : null;
 
   return (
-    <Modal visible transparent animationType="none" onRequestClose={() => dismiss(saved)} statusBarTranslucent>
+    <Modal
+      visible
+      transparent
+      animationType="none"
+      onRequestClose={() => dismiss(saved)}
+      statusBarTranslucent
+      navigationBarTranslucent
+    >
       <View style={{ flex: 1, justifyContent: "flex-end" }}>
         <Animated.View style={[{ position: "absolute", inset: 0, backgroundColor: pal.scrim }, scrim]}>
           <Pressable style={{ flex: 1 }} onPress={() => dismiss(saved)} />

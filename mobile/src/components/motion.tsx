@@ -10,12 +10,10 @@
 //   - Loading shows the SHAPE of what's coming (skeletons), never a bare spinner.
 //   - Entrance staggers are capped, so a 400-row list is as snappy as a 7-row one.
 //   - Haptics are advisory: web has no API and a failed buzz must never throw.
-import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Dimensions,
-  Platform,
   View,
   useColorScheme,
   type StyleProp,
@@ -41,25 +39,13 @@ import { brand, motion, radius, shimmerTint, sp, usePalette } from "../theme";
 const lava = { a: brand.gradA, b: brand.gradB, c: brand.gradC } as const;
 
 // ---------------------------------------------------------------------------
-// Haptics — one vocabulary, safe everywhere.
-
-function buzz(run: () => Promise<unknown>) {
-  if (Platform.OS === "web") return;
-  void run().catch(() => {});
-}
-
-export const haptic = {
-  /** A tap landed on something that changed state. */
-  tap: () => buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)),
-  /** A heavier commitment — judging a film, starting a route. */
-  press: () => buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)),
-  /** Moving through a set of options (chips, steps, stars). */
-  select: () => buzz(() => Haptics.selectionAsync()),
-  /** It worked. */
-  success: () => buzz(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)),
-  /** It didn't. */
-  warn: () => buzz(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning)),
-};
+// Haptics.
+//
+// The vocabulary moved to ../platform/haptics on 2026-08-03: WHEN a buzz may
+// fire is a platform question (Android's motor cannot articulate a fast drag),
+// and that does not belong in a presentation module. Re-exported here so the
+// ~12 existing call sites keep their import path.
+export { haptic } from "../platform/haptics";
 
 // ---------------------------------------------------------------------------
 // The page sweep.

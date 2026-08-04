@@ -3,7 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
 import React, { useEffect } from "react";
-import { Platform, StyleSheet, View, useColorScheme } from "react-native";
+import { StyleSheet, View, useColorScheme } from "react-native";
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -13,6 +13,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { haptic } from "../../src/components/motion";
+import { chromeBlurIntensity, chromeMode } from "../../src/platform/tokens";
 import { t } from "../../src/i18n";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, font, motion, radius, usePalette } from "../../src/theme";
@@ -88,17 +89,23 @@ export default function TabLayout() {
           position: "absolute",
           borderTopWidth: StyleSheet.hairlineWidth,
           borderTopColor: pal.hairline,
-          backgroundColor: Platform.OS === "android" ? pal.chrome : "transparent",
+          // `pal.chrome` is a 72%-opaque tint meant to sit ON TOP of a blur. Where
+          // there is no blur it is not a fallback, it is a hole: the bar stays
+          // absolutely positioned so posters scroll underneath and show straight
+          // through. So the platform that cannot blur gets an OPAQUE fill.
+          backgroundColor: chromeMode === "solid" ? pal.bg : "transparent",
           elevation: 0,
         },
-        tabBarBackground: () =>
-          Platform.OS === "android" ? null : (
-            <BlurView
-              intensity={56}
-              tint={scheme === "dark" ? "dark" : "light"}
-              style={[StyleSheet.absoluteFill, { backgroundColor: pal.chrome }]}
-            />
-          ),
+        tabBarBackground:
+          chromeMode === "solid"
+            ? undefined
+            : () => (
+                <BlurView
+                  intensity={chromeBlurIntensity}
+                  tint={scheme === "dark" ? "dark" : "light"}
+                  style={[StyleSheet.absoluteFill, { backgroundColor: pal.chrome }]}
+                />
+              ),
         sceneStyle: { backgroundColor: pal.bg },
       }}
     >

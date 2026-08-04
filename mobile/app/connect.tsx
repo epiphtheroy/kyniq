@@ -10,6 +10,7 @@
 // them the file picker. Export pages open in REAL Safari (canon §2.4 —
 // SFSafariViewController can't drive the download manager).
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { glyphs } from "../src/platform/tokens";
 import * as Clipboard from "expo-clipboard";
 import * as DocumentPicker from "expo-document-picker";
 import * as Haptics from "expo-haptics";
@@ -196,7 +197,7 @@ function BackDisc({ onPress }: { onPress: () => void }) {
           shadow.card,
         ]}
       >
-        <Ionicons name="chevron-back" size={18} color={pal.ink} />
+        <Ionicons name={glyphs.back} size={18} color={pal.ink} />
       </View>
     </Tactile>
   );
@@ -1156,6 +1157,8 @@ export default function ConnectScreen() {
         visible={sheetConnector != null}
         transparent
         animationType="slide"
+        statusBarTranslucent
+        navigationBarTranslucent
         onRequestClose={() => {
           setSheet(null);
           setPasteEmpty(false);

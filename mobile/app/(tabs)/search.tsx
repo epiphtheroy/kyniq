@@ -208,21 +208,24 @@ export default function SearchScreen() {
     setLoading(true);
 
     const run = async () => {
-      // 1) Canon search (film + director only; other kinds are web-only).
-      let kept: SearchRow[] = [];
-      try {
-        const all = await api.search(query);
-        if (seq.current !== id) return;
-        kept = all.filter((r) => r.kind === "film" || r.kind === "director");
-      } catch {
-        if (seq.current !== id) return;
-        // Treat a failed search as zero canon rows — the web footer still works.
-      }
-      // Supplement with very-fuzzy / multilingual film matches (1-char, Korean/accented
-      // titles) that search_all's length>=2, no-unaccent, no-title_ko path misses (0116).
-      // Fail-soft (searchFuzzy returns [] on error); dedup by slug, appended after canon.
-      const fuzzy = await api.searchFuzzy(query, 30, contentLang);
+      // 1) Canon search (film + director only; other kinds are web-only),
+      //    supplemented with very-fuzzy / multilingual film matches (1-char,
+      //    Korean/accented titles) that search_all's length>=2, no-unaccent,
+      //    no-title_ko path misses (0116).
+      //
+      //    These two ran in SERIES until 2026-08-04, so every settled keystroke
+      //    paid the SUM of two slow round-trips — measured in production,
+      //    search_all averages 2,152 ms and film_search_i18n 1,815 ms, i.e. ~4 s
+      //    before a single row appeared. Neither reads the other's output (the
+      //    dedup below is pure post-processing), so the cost should be the
+      //    slower of the two, not the total. Both fail soft to [] — a dead leg
+      //    must not take the other one down with it.
+      const [canon, fuzzy] = await Promise.all([
+        api.search(query).catch(() => [] as SearchRow[]),
+        api.searchFuzzy(query, 30, contentLang).catch(() => [] as SearchRow[]),
+      ]);
       if (seq.current !== id) return;
+      let kept: SearchRow[] = canon.filter((r) => r.kind === "film" || r.kind === "director");
       if (fuzzy.length) {
         const have = new Set(kept.map((r) => r.slug));
         kept = [...kept, ...fuzzy.filter((r) => !have.has(r.slug))];

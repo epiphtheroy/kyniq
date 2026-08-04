@@ -30,8 +30,13 @@ import Animated, {
 import { TMDB_IMG } from "../config";
 import { brand, font, fs, gradient, motion, radius, shadow, sp, tierColor, usePalette } from "../theme";
 import { Appear, Dots, Pop, Sheen, Sparkle, haptic } from "./motion";
+import { glyphs, pressFeedback } from "../platform/tokens";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+/** Ripple tint. Neutral rather than Lava: the ripple appears under content of
+ *  every colour, and a branded ripple under a red CTA reads as a smear. */
+const rippleTint = "rgba(0,0,0,0.10)";
 
 /** Which haptic a tappable fires. "none" for pure navigation. */
 export type Feedback = "none" | "tap" | "select" | "press";
@@ -71,6 +76,15 @@ export function Tactile({
             }
           : undefined
       }
+      // A 0.96 spring is legible on a chip and nearly invisible on a full-width
+      // row, which is most of this app. iOS accepts that — it has no other press
+      // affordance and users are used to it. Android does not: a tappable with
+      // no ripple reads as inert, so a dense list feels like it is ignoring you.
+      // Both platforms keep the spring; Android adds the ripple its users expect.
+      // The system click is suppressed because this app has its own haptic
+      // vocabulary and the two together read as a double response.
+      android_ripple={pressFeedback.ripple ? { color: rippleTint, foreground: true } : undefined}
+      android_disableSound={pressFeedback.suppressSystemSound}
       disabled={disabled}
       hitSlop={hitSlop}
       onPressIn={() => {
@@ -581,7 +595,20 @@ export function PickerSheet({
   const pal = usePalette();
   const insets = useSafeAreaInsets();
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible={visible}
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+      // Android: a Modal is its OWN window and does not inherit the activity's
+      // edge-to-edge flags. Without these two the window is inset below the
+      // status bar and above the nav bar, so a full-screen scrim stops short of
+      // both and the sheet looks like it is floating in a letterbox. RateSheet
+      // already set statusBarTranslucent; this one did not, which is exactly the
+      // asymmetry a shared contract exists to prevent.
+      statusBarTranslucent
+      navigationBarTranslucent
+    >
       <Pressable style={{ flex: 1, backgroundColor: pal.scrim }} onPress={onClose} />
       <View
         style={{
