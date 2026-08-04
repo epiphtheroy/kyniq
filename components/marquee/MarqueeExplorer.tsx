@@ -47,15 +47,17 @@ type Cfg = {
   country: string; providers: number[]; vpn: boolean; vpnCountries: string[]; usLib: boolean;
   hideSeen: boolean; genres: string[]; sinceYear: number | null; toYear: number | null;
   sortKey: SortKey; sortDir: "asc" | "desc";
-  /** Production country (ISO2, lowercase — `curation.film.country_code`). "" = any. */
-  madeIn: string;
+  /** Production countries (ISO2, lowercase — `curation.film.country_code`).
+   *  Empty = anywhere. Was a single string before migration 0132 taught the
+   *  ranking RPC an array; applyCfg still accepts that shape. */
+  madeIn: string[];
   /** Stop the ranking after N films. null = the whole list. */
   cap: number | null;
 };
 const DEFAULT_CFG: Cfg = {
   country: "KR", providers: [], vpn: false, vpnCountries: [], usLib: false,
   hideSeen: false, genres: [], sinceYear: 2000, toYear: null, sortKey: "ts", sortDir: "desc",
-  madeIn: "", cap: null,
+  madeIn: [], cap: null,
 };
 const SORTS: { key: SortKey; label: string }[] = [
   { key: "ts", label: "TakeScore" }, { key: "year", label: "Year" }, { key: "alpha", label: "Title A–Z" },
@@ -107,10 +109,10 @@ export default function MarqueeExplorer({
   const [toYear, setToYear] = useState<number | null>(null);
   const [sortKey, setSortKey] = useState<SortKey>("ts");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
-  const [madeIn, setMadeIn] = useState("");
+  const [madeIn, setMadeIn] = useState<string[]>([]);
   const [cap, setCap] = useState<number | null>(null);
-  /** Production countries with their film counts, biggest first (RPC order). */
-  const [origins, setOrigins] = useState<{ code: string; n: number }[]>([]);
+  /** Every production country with its film count, biggest first (RPC order). */
+  const [originCatalog, setOriginCatalog] = useState<{ code: string; n: number }[]>([]);
 
   const [countries, setCountries] = useState<Country[]>(initialCountries);
   const [services, setServices] = useState<Service[]>([]);
@@ -125,11 +127,13 @@ export default function MarqueeExplorer({
   const [views, setViews] = useState<SavedView[]>([]);
   const [genreOpen, setGenreOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [originOpen, setOriginOpen] = useState(false);
 
   const hydrated = useRef(false);
   const abort = useRef<AbortController | null>(null);
   const genreBox = useRef<HTMLDivElement | null>(null);
   const moreBox = useRef<HTMLDivElement | null>(null);
+  const originBox = useRef<HTMLDivElement | null>(null);
 
   const watchCountries = vpn ? Array.from(new Set([country, ...vpnCountries])) : [country];
   const provActive = providers.length > 0 || usLib;
@@ -163,7 +167,10 @@ export default function MarqueeExplorer({
     if (c.toYear === null || typeof c.toYear === "number") setToYear(c.toYear);
     if (c.sortKey) setSortKey(c.sortKey);
     if (c.sortDir === "asc" || c.sortDir === "desc") setSortDir(c.sortDir);
-    if (typeof c.madeIn === "string") setMadeIn(c.madeIn.toLowerCase());
+    // A saved view written before 0132 carries a single string, not a list.
+    const mi = c.madeIn as unknown;
+    if (Array.isArray(mi)) setMadeIn(mi.map((x) => String(x).toLowerCase()).filter(Boolean));
+    else if (typeof mi === "string") setMadeIn(mi ? [mi.toLowerCase()] : []);
     if (c.cap === null || typeof c.cap === "number") setCap(c.cap);
   }, [setPrefs]);
 
@@ -207,7 +214,7 @@ export default function MarqueeExplorer({
   useEffect(() => {
     let alive = true;
     sb.rpc("cinecodex_countries").then(({ data }) => {
-      if (alive) setOrigins(((data as { code: string; n: number }[] | null) ?? []).filter((c) => c.code));
+      if (alive) setOriginCatalog(((data as { code: string; n: number }[] | null) ?? []).filter((c) => c.code));
     });
     return () => { alive = false; };
   }, []);
@@ -234,10 +241,11 @@ export default function MarqueeExplorer({
     const h = (e: MouseEvent) => {
       if (genreOpen && genreBox.current && !genreBox.current.contains(e.target as Node)) setGenreOpen(false);
       if (moreOpen && moreBox.current && !moreBox.current.contains(e.target as Node)) setMoreOpen(false);
+      if (originOpen && originBox.current && !originBox.current.contains(e.target as Node)) setOriginOpen(false);
     };
     document.addEventListener("mousedown", h);
     return () => document.removeEventListener("mousedown", h);
-  }, [genreOpen, moreOpen]);
+  }, [genreOpen, moreOpen, originOpen]);
 
   const saveView = async () => {
     const name = window.prompt("Name this view (e.g. \"Weeknight KR\")");
@@ -291,7 +299,7 @@ export default function MarqueeExplorer({
         if (genres.length) sp.set("genres", genres.join(","));
         if (sinceYear != null) sp.set("year_min", String(sinceYear));
         if (toYear != null) sp.set("year_max", String(toYear));
-        if (madeIn) sp.set("made_in", madeIn);
+        if (madeIn.length) sp.set("made_in", madeIn.join(","));
         const d = await fetch(`/api/lens/marquee?${sp.toString()}`, { signal: ac.signal }).then((r) => (r.ok ? r.json() : null));
         res = (d as typeof res) ?? { total: 0, rows: [] };
       } else {
@@ -301,7 +309,8 @@ export default function MarqueeExplorer({
           p_watch_country: country, p_watch_countries: watchCountries,
           p_include_us_library: usLib, p_include_rent: rentSelected,
           p_genres: genres.length ? genres : null,
-          p_country: madeIn || null,
+          p_countries: madeIn.length ? madeIn : null, // 0132 — filtered server-side, so total and paging stay exact
+
           p_year_min: sinceYear, p_year_max: toYear,
           p_limit: want, p_offset: off,
         });
@@ -339,7 +348,8 @@ export default function MarqueeExplorer({
   // this project a silent client-side request flood is not a theoretical cost.
   const visible = cap == null ? rows : rows.slice(0, cap);
   const reachable = cap == null ? total : Math.min(total, cap);
-  const madeInLabel = madeIn ? `${flag(madeIn)} ${cname(madeIn)}` : "";
+  const madeInLabel = madeIn.map((cc) => `${flag(cc)} ${cname(cc)}`).join(" · ");
+  const toggleOrigin = (cc: string) => setMadeIn((s) => (s.includes(cc) ? s.filter((x) => x !== cc) : [...s, cc]));
   /** Reset clears this page's filters — never the account-level watch setup. */
   const reset = () => applyCfg({ ...DEFAULT_CFG, country, providers, hideSeen }, { shared: false });
 
@@ -434,17 +444,32 @@ export default function MarqueeExplorer({
           {/* made in — production country. Ordered by how many films each choice
               actually yields (cinecodex_countries), so the list reads as a map of
               the archive rather than an alphabet. */}
-          <select
-            className={`mq-select mq-select--sm${madeIn ? " on" : ""}`}
-            value={madeIn}
-            onChange={(e) => setMadeIn(e.target.value)}
-            aria-label="Made in (production country)"
-          >
-            <option value="">Made in: anywhere</option>
-            {origins.map((o) => (
-              <option key={o.code} value={o.code}>Made in: {flag(o.code)} {cname(o.code)} ({o.n.toLocaleString("en-US")})</option>
-            ))}
-          </select>
+          <div className="mq-pop" ref={originBox}>
+            <button type="button" className={`mq-popbtn${madeIn.length ? " on" : ""}`} onClick={() => setOriginOpen((o) => !o)} aria-expanded={originOpen}>
+              {madeIn.length === 0
+                ? "Made in"
+                : madeIn.length === 1
+                  ? `Made in · ${cname(madeIn[0])}`
+                  : `Made in · ${madeIn.length}`} <span aria-hidden>▾</span>
+            </button>
+            {originOpen ? (
+              <div className="mq-pop-panel" role="dialog" aria-label="Choose production countries">
+                <div className="mq-pop-head">
+                  <span>Made in</span>
+                  {madeIn.length ? <button type="button" className="mq-pop-clear" onClick={() => setMadeIn([])}>Clear</button> : null}
+                </div>
+                {/* Ordered by how many films each choice actually yields, so the
+                    list reads as a map of the archive rather than an alphabet. */}
+                <div className="mq-genres">
+                  {originCatalog.map((o) => (
+                    <button key={o.code} type="button" className={`mq-gchip${madeIn.includes(o.code) ? " on" : ""}`} onClick={() => toggleOrigin(o.code)}>
+                      {flag(o.code)} {cname(o.code)} <i>{o.n.toLocaleString("en-US")}</i>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
 
           {/* year */}
           <div className="mq-year">
@@ -514,7 +539,7 @@ export default function MarqueeExplorer({
             : provActive
               ? <><b>{total.toLocaleString("en-US")}</b> {total === 1 ? "film" : "films"} to watch in {countryLabel}</>
               : <>Top by TakeScore — <b>pick your services</b> to narrow to what you can watch now</>}
-          {madeIn ? <span className="mq-summary-note"> · made in {madeInLabel}</span> : null}
+          {madeIn.length ? <span className="mq-summary-note"> · made in {madeInLabel}</span> : null}
           {vpn && vpnCountries.length ? <span className="mq-summary-note"> · incl. {vpnCountries.join(", ")} (VPN)</span> : null}
         </div>
 
