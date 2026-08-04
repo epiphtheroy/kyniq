@@ -115,7 +115,25 @@ export default function ListScreen() {
     }
     setAdding(true);
     setAddErr(false);
-    const { data, error } = await supabase.rpc("lineage_add_watchlist", { p_slug: slug });
+    // Bound the write, for the same reason getJSON bounds every read: a socket
+    // that dies mid-request does not reject, it just stops. Verified on Android
+    // 08-04 — drop the network while this is in flight and the button sits at
+    // "Adding…" past 80 seconds, still spinning after the network is back. The
+    // error copy below can only speak if something rejects, so without this the
+    // failure the user actually hits is the one they are never told about.
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 25_000);
+    let data: unknown = null;
+    let error: unknown = null;
+    try {
+      ({ data, error } = await supabase
+        .rpc("lineage_add_watchlist", { p_slug: slug })
+        .abortSignal(ctrl.signal));
+    } catch (e) {
+      error = e;
+    } finally {
+      clearTimeout(timer);
+    }
     if (!alive.current) return;
     setAdding(false);
     if (error) {
