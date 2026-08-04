@@ -21,6 +21,7 @@ import PosterActions from "@/components/PosterActions";
 import FilmCardPanel from "@/components/screener/FilmCardPanel";
 import ServicesPicker, { type Service } from "@/components/marquee/ServicesPicker";
 import AccessBadges, { type AvailRow } from "@/components/marquee/AccessBadges";
+import { SkFilmCards } from "@/components/Skeleton";
 import type { ScrRow, Country } from "@/components/screener/ScreenerExplorer";
 import { WTW_GENRES } from "@/lib/wtw_genres";
 import { filmUrl, directorUrl, whereToUrl } from "@/lib/urls";
@@ -383,7 +384,7 @@ export default function MarqueeExplorer({
             <p>Loosen a genre, widen the years, or open <b>Options</b> for US library / other countries.</p>
           </div>
         ) : (
-          <div className="mq-cards" aria-busy={loading}>
+          <div className="mq-cards mo-stagger" aria-busy={loading}>
             {rows.map((f) => {
               const seen = seenSlugs?.has?.(f.slug);
               const ds = f.director_slug ?? (f.director ? slugify(f.director) : null);
@@ -440,6 +441,8 @@ export default function MarqueeExplorer({
           </div>
         )}
 
+        {/* Same rule as the screener: only an append has nothing to show. */}
+        {loading && rows.length > 0 ? <SkFilmCards count={4} label="Loading more films" /> : null}
         {!empty && rows.length < total ? (
           <div className="mq-more">
             <button type="button" onClick={() => void fetchPage(false)} disabled={loading}>

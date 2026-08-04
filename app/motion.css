@@ -1,0 +1,278 @@
+/* ============================================================
+   Metatake — motion vocabulary (web)
+
+   Ported from the app per HANDOFF-앱에서-웹으로-이식.md §1.4, items 1–3.
+   What crosses over is the PRINCIPLE, not the skin: the app's "Lava"
+   look (round corners, soft shadows, pink gradient) stays in the app.
+   Everything here draws with DESIGN-SYSTEM.md v4 — square corners,
+   hairlines, one flat red — and the loading states stay monochrome
+   because §1.3 rule 1 reserves the accent for CTAs and active states.
+
+   Three parts:
+     1. .mo-sk        skeletons under ONE page-crossing sweep
+     2. img fade-in   JS-gated, so a script failure can never hide a poster
+     3. .mo-stagger   list entrance, capped at 7 like the app's Appear()
+
+   Timings mirror mobile/src/theme.ts `motion`:
+     stagger 45ms · staggerCap 7 · rise 14px · base 260ms · shimmer 1300ms
+
+   Loaded from app/layout.tsx AFTER globals.css. Not via @import —
+   a url()/@import landing after Tailwind's inlined import 500s every
+   dev route (see the note at the top of globals.css).
+   ============================================================ */
+
+/* ── 1. Skeletons + the page-crossing sweep ───────────────────────────
+   The app gives every skeleton one shared driver and places each band
+   by the tile's absolute screen position, so a single light crosses the
+   page instead of every tile twinkling on its own — and it costs one
+   animation per screen instead of one per tile.
+
+   On the web no measurement is needed: `background-attachment: fixed`
+   anchors the gradient to the VIEWPORT, so every skeleton already
+   shares one coordinate space. A registered custom property animated
+   on :root is the driver; each skeleton just reads it.
+
+   Degrades in four steps, none of which breaks the page:
+   · no skeleton mounted   → :has() keeps the driver from running at all
+                             (it also keeps the whole-tree inheritance
+                             invalidation off normal pages)
+   · @property unsupported → var() is invalid at computed-value time and
+                             background-position falls back to the static
+                             declaration above it: a flat block, no flash
+   · fixed attachment ignored (older iOS Safari) → each band rides its own
+                             tile — a synchronised shimmer, the same
+                             fallback the app takes when measuring fails
+   · reduced motion        → driver off, blocks stay flat                */
+
+@property --mo-sweep {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@keyframes mo-sweep {
+  from { --mo-sweep: -42vw; }
+  to   { --mo-sweep: 118vw; }
+}
+
+:root:has(.mo-sk),
+:root:has(.ghline),
+:root:has(.ghblock) { animation: mo-sweep 1.3s linear infinite; }
+
+/* /room already ships skeletons of its own (app/room/room.css, where each one
+   pulses its own opacity). Folding them in here gives the site ONE loading
+   rhythm — the point of building a vocabulary — and drops 15 per-element
+   animations for the single shared driver. The `html` prefix outweighs
+   `.room-root .ghline` whichever stylesheet the route loads last. */
+.mo-sk,
+html .room-root .ghline,
+html .room-root .ghblock,
+html .room-root .mod.ghost {
+  animation: none;
+  background-color: var(--surface-2);
+  background-image: linear-gradient(100deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, .92) 46%,
+    rgba(255, 255, 255, 0) 92%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 34vw 100%;
+  background-position: -80vw 0;              /* fallback: band parked off-screen */
+  background-position: var(--mo-sweep) 0;    /* driven by :root */
+  border-radius: 0;                          /* v4 — square corners */
+}
+
+/* Shapes. A skeleton earns its keep by holding the SHAPE of what is
+   coming, so the real content lands without shifting the page. */
+.mo-sk-line   { height: 12px; margin: 10px 0; }
+.mo-sk-line.w40 { width: 40%; }
+.mo-sk-line.w60 { width: 60%; }
+.mo-sk-line.w80 { width: 80%; }
+.mo-sk-poster { aspect-ratio: 2 / 3; width: 100%; }
+
+/* A row is a hairline + a bar inside it, so only the bar takes .mo-sk —
+   the row itself must stay transparent or the sweep paints over nothing. */
+.mo-sk-row { height: 46px; display: flex; align-items: center; border-bottom: 1px solid var(--hairline); }
+.mo-sk-row > .mo-sk-line { margin: 0; }
+
+/* Containers + composed shapes that components/Skeleton.tsx renders. Each one
+   mirrors the geometry of the surface it stands in for, because a skeleton
+   earns its keep by making the real rows land without moving the page. */
+.mo-sk-grid  { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 14px; }
+.mo-sk-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.mo-sk-rows  { display: block; }
+
+.mo-sk-card { display: flex; gap: 14px; padding: 12px; border: 1px solid var(--hairline); }
+.mo-sk-card-mid { flex: 1 1 auto; min-width: 0; }
+.mo-sk-rowitem { display: grid; grid-template-columns: 30px 66px 1fr; align-items: center; gap: 12px; padding: 8px 6px; border-bottom: 1px solid var(--hairline); }
+.mo-sk-tile > .mo-sk-line { margin: 8px 0 0; }
+.mo-sk-tile.round > .mo-sk-poster { aspect-ratio: 1 / 1; border-radius: 50%; }
+
+/* Screen readers get a word; the blocks themselves are decoration. */
+.mo-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ── 2. Image fade-in ─────────────────────────────────────────────────
+   Posters are on every surface of this site, so this is the largest
+   perceived-quality lever we have (§1.4, rank 2).
+
+   Two rules, both gated on `[data-mo="on"]`, which components/MotionRuntime
+   sets on <html> after it has marked everything already decoded. Nothing
+   is hidden unless that component mounted, so a crawler, a blocked bundle
+   or a render error all see plain visible images. §1.3 rule 3: it must
+   not break when it fails — the web already had eight hand-rolled copies
+   of this fade with an unconditional `opacity: 0` and no fallback, which
+   is exactly the accident the app hit.
+
+   Data attributes, not classes: className is a prop React owns, and a
+   re-render would drop the mark from an image that will never fire
+   `load` again. See components/MotionRuntime.
+
+   These rules only ever HIDE. They never force opacity to 1, so hover
+   dimming and StillHero's own cross-fade keep working. Opt out with
+   `data-mo-skip` on the <img>. */
+[data-mo="on"] img:not(.sh-img):not([data-mo-skip]) {
+  transition: opacity 360ms ease;
+}
+[data-mo="on"] img:not(.sh-img):not([data-mo-skip]):not([data-mo-in]) {
+  opacity: 0;
+}
+
+/* ── 3. List entrance, capped at 7 ────────────────────────────────────
+   Rows arrive in reading order instead of as a wall. The cap is the
+   whole trick (§1.2): past the 7th child the delay drops back to zero,
+   so a 400-row index feels as fast as a 7-row one. Matches the app's
+   Appear(): `index < staggerCap ? index * stagger : 0`.
+
+   fill-mode is `backwards`, not `both` — the element holds the `from`
+   state during its delay and then goes back to obeying its own CSS.
+   `both` would pin opacity at 1 forever and kill every hover state.
+
+   Put this on lists that ARRIVE — search results, a filtered page — not
+   on server-rendered lists. A CSS animation fires at load whether or not
+   the list is on screen, so a long index page finishes its entrance
+   somewhere below the fold and the reader never sees it; the app gets
+   this for free because its lists mount as you scroll to them. Making
+   it pay off on a static index needs a scroll-driven timeline, which is
+   a separate decision.                                                 */
+@keyframes mo-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.mo-stagger > * {
+  animation: mo-rise 260ms cubic-bezier(.22, .61, .36, 1) backwards;
+}
+.mo-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.mo-stagger > *:nth-child(2) { animation-delay: 45ms; }
+.mo-stagger > *:nth-child(3) { animation-delay: 90ms; }
+.mo-stagger > *:nth-child(4) { animation-delay: 135ms; }
+.mo-stagger > *:nth-child(5) { animation-delay: 180ms; }
+.mo-stagger > *:nth-child(6) { animation-delay: 225ms; }
+.mo-stagger > *:nth-child(7) { animation-delay: 270ms; }
+.mo-stagger > *:nth-child(n + 8) { animation-delay: 0ms; }
+
+/* ── 4. Bars grow to their value ──────────────────────────────────────
+   §1.4 rank 4. Every meter on the site is a track with an <i> inside it
+   whose width is an inline percentage, so nothing needs to change but
+   the growing: scaleX from 0 to 1 with the width left alone, which the
+   app gets from `withDelay(120, withSpring(value, gentle))`. The point
+   (§1.2) is that the reading lands as "it got that far", not "it was
+   always that much".
+
+   `gentle` settles without overshoot, so this is an ease-out and not a
+   bounce. The implicit `to` keyframe means the bar finishes at its own
+   transform, and `backwards` hands it back to its own CSS afterwards.
+
+   Unlike the entrance in §3 this is safe on server-rendered pages that
+   sit below the fold: an entrance HIDES content that may never be seen,
+   whereas a bar that has already finished growing simply reads as full. */
+@keyframes mo-fill { from { transform: scaleX(0); } }
+
+.mo-fill,
+.mtl-covfill,
+.tsf-bar > i,
+.ccx-bar > i,
+html .room-root .covrow2 .track > i,
+html .room-root .cv-track > i {
+  transform-origin: left center;
+  animation: mo-fill 620ms cubic-bezier(.22, .61, .36, 1) 120ms backwards;
+}
+
+/* ── 5. The score ring draws itself ───────────────────────────────────
+   §1.4 rank 5, on components/ScoreDonut — the TakeScore instrument on
+   the appraisal page, the film-page panel and the screener curtain.
+
+   The arc is already an SVG circle whose fill is `stroke-dashoffset`, so
+   drawing it is one keyframe: start from a fully offset (empty) ring and
+   let the implicit `to` land on the offset the component computed. The
+   donut passes its circumference in as --mo-ring-c; with no value there
+   the animation has nothing to start from and the ring simply appears.
+
+   The count-up that goes with this in the app is NOT here — see the
+   handoff §0.5: the web renders the real figure into the server HTML, so
+   counting up would mean visibly resetting a correct number to zero. */
+@keyframes mo-ring { from { stroke-dashoffset: var(--mo-ring-c); } }
+
+.mo-ring { animation: mo-ring 900ms cubic-bezier(.22, .61, .36, 1) 120ms backwards; }
+
+/* ── 6. CTA sheen ─────────────────────────────────────────────────────
+   §1.4 rank 6 — the lowest-value item, and deliberately the narrowest:
+   one specular pass, then a long rest, on the single primary action of a
+   screen. §1.3 rule 2 budgets exactly three looping animations for the
+   whole product (loading · resume pulse · this), so opt in by hand with
+   `.mo-sheen`; never let it land on two buttons that face each other.
+
+   Timings are the app's: a 900ms sweep inside a 4.1s cycle (sheen 900 +
+   sheenRest 3200). White light only — the accent is what the button is
+   already painted in. */
+@keyframes mo-sheen {
+  0%,
+  100% { transform: translateX(-170%) rotate(18deg); opacity: 0; }
+  3%   { opacity: 1; }
+  20%  { transform: translateX(320%) rotate(18deg); opacity: 1; }
+  23%,
+  99%  { transform: translateX(320%) rotate(18deg); opacity: 0; }
+}
+
+.mo-sheen { position: relative; overflow: hidden; }
+.mo-sheen::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: 0;
+  width: 34%;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .42), transparent);
+  animation: mo-sheen 4.1s ease-in-out infinite;
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────
+   Required on the web far more strictly than in the app (§1.4). Every
+   piece above degrades to its finished state: skeletons stay as flat
+   blocks, images appear at once, lists arrive whole. */
+@media (prefers-reduced-motion: reduce) {
+  :root:has(.mo-sk),
+  :root:has(.ghline),
+  :root:has(.ghblock) { animation: none; }
+
+  .mo-sk,
+  html .room-root .ghline,
+  html .room-root .ghblock,
+  html .room-root .mod.ghost { background-image: none; }
+
+  [data-mo="on"] img:not(.sh-img):not([data-mo-skip]) { transition: none; }
+  [data-mo="on"] img:not(.sh-img):not([data-mo-skip]):not([data-mo-in]) { opacity: 1; }
+
+  .mo-stagger > * { animation: none; }
+
+  .mo-fill,
+  .mtl-covfill,
+  .tsf-bar > i,
+  .ccx-bar > i,
+  html .room-root .covrow2 .track > i,
+  html .room-root .cv-track > i { animation: none; }
+
+  .mo-ring { animation: none; }
+  .mo-sheen::after { animation: none; content: none; }
+}

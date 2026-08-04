@@ -147,6 +147,57 @@ def gsc_rows(token: str, day: str):
         start += 25000
 
 
+# ── GSC daily TOTALS (date dimension) ───────────────────────────────────────
+# The page+query request above cannot return anonymized queries — Google withholds
+# rare/personal query strings entirely — so summing mt_gsc_daily undercounts, badly
+# once the long tail is all that is left. Measured 2026-08-03: 130 impressions over
+# 14 days by the page dimension, 4 by the page+query grid. The date dimension does
+# return the full number, so it gets its own table (mt_gsc_totals, migration 0119).
+def gsc_totals(token: str, day: str):
+    endpoint = (
+        "https://www.googleapis.com/webmasters/v3/sites/"
+        + urllib.parse.quote(PROPERTY, safe="") + "/searchAnalytics/query"
+    )
+    payload = {"startDate": day, "endDate": day, "dimensions": ["date"], "rowLimit": 10}
+    req = urllib.request.Request(
+        endpoint, data=json.dumps(payload).encode(),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            rows = json.load(r).get("rows", [])
+    except urllib.error.HTTPError as e:
+        print(f"  totals {day} HTTP {e.code}: {e.read().decode()[:200]}")
+        return None
+    if not rows:
+        return {"day": day, "clicks": 0, "impressions": 0, "ctr": None, "position": None}
+    row = rows[0]
+    return {
+        "day": day,
+        "clicks": int(row.get("clicks", 0)),
+        "impressions": int(row.get("impressions", 0)),
+        "ctr": row.get("ctr"),
+        "position": row.get("position"),
+    }
+
+
+def upsert_totals(rows):
+    if not rows:
+        return
+    req = urllib.request.Request(
+        f"{URL}/rest/v1/mt_gsc_totals?on_conflict=day",
+        data=json.dumps(rows).encode(),
+        headers={
+            "apikey": KEY, "Authorization": f"Bearer {KEY}",
+            "Content-Type": "application/json",
+            "Prefer": "resolution=merge-duplicates,return=minimal",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as r:
+        r.read()
+
+
 # ── Supabase upsert ────────────────────────────────────────────────────────
 def upsert(rows):
     req = urllib.request.Request(
@@ -184,7 +235,11 @@ for i in range(DAYS):
             batch = []
     if PERSIST and batch:
         upsert(batch)
+    tot = gsc_totals(token, day)
+    if tot and PERSIST:
+        upsert_totals([tot])
     total += n
-    print(f"  {day}: {n} rows{'' if PERSIST else ' (dry)'}")
+    shown = f" | totals clicks={tot['clicks']} impr={tot['impressions']}" if tot else ""
+    print(f"  {day}: {n} rows{'' if PERSIST else ' (dry)'}{shown}")
 
 print(f"done — {total} rows{'' if PERSIST else ' (dry run, nothing written)'}")

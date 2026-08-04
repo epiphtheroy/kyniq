@@ -3,7 +3,7 @@ import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHead } from "@/components/curious/ui";
-import { cachedLocationsEligibility, countryPhrase } from "@/lib/locations";
+import { softLocationsEligibility, countryPhrase } from "@/lib/locations";
 
 /**
  * On Location — the Curious-side index of the filming-location articles
@@ -29,7 +29,7 @@ type Row = { slug: string; title: string; year: number | null; n: number };
 
 const loadIndex = unstable_cache(
   async (): Promise<{ rows: Row[]; countries: { name: string; slug: string; pins: number; films: number }[] }> => {
-    const elig = await cachedLocationsEligibility();
+    const elig = await softLocationsEligibility();
     const bySlug = new Map(elig.films.map((f) => [f.slug, f.n]));
     const supabase = db();
     const rows: Row[] = [];

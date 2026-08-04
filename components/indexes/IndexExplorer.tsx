@@ -19,6 +19,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { SkTiles } from "@/components/Skeleton";
 import { tmdbUrl, type SearchHit } from "@/lib/search-shared";
 
 type Shape = "poster" | "round";
@@ -138,10 +139,15 @@ export default function IndexExplorer({
 
       {searching ? (
         <div className="xplor-results">
-          {!busy && hits.length === 0 ? (
+          {busy && hits.length === 0 ? (
+            // An empty grid used to sit here for the length of the query — the
+            // hint above said "Searching…" and nothing else moved. Tiles in the
+            // shape of the results say what is coming instead.
+            <SkTiles count={12} shape={imgShape} label={`Searching ${searchKind === "film" ? "films" : "directors"}`} />
+          ) : hits.length === 0 ? (
             <p className="xplor-none">No {searchKind === "film" ? "film" : "director"} matches “{q.trim()}”.</p>
           ) : (
-            <div className={`xplor-grid xplor-grid--${imgShape}`}>
+            <div className={`xplor-grid xplor-grid--${imgShape} mo-stagger`}>
               {hits.map((h) => (
                 <Link key={`${h.kind}:${h.slug}`} href={h.href} className="xplor-rcard">
                   <span className={`xplor-thumb xplor-thumb--${imgShape}`}>

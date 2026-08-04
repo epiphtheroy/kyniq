@@ -13,6 +13,7 @@
 // flows, in-place overlays, and WebViews with their own history.
 import { useEffect } from "react";
 import { BackHandler, Platform } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 
 /**
  * Intercept Android's back press while `enabled`.
@@ -22,11 +23,23 @@ import { BackHandler, Platform } from "react-native";
  * what you want for the first step of a flow.
  *
  * No-op on iOS and web, so call sites never branch.
+ *
+ * The subscription is gated on focus, and that is not a refinement — it is the
+ * difference between working and appearing broken. A screen that pushes another
+ * route on top of itself stays MOUNTED (react-freeze is off in this app), so
+ * without the gate its handler is still subscribed while the user is looking at
+ * the screen above. RN dispatches hardwareBackPress newest-first, so the hidden
+ * screen wins every press: on Android, opening Connect from onboarding step 4
+ * ate three back presses in a row while the funnel silently rewound underneath,
+ * and only the fourth reached navigation. Anything registered later — a map
+ * overlay, a drive card — would have taken the press from the visible screen the
+ * same way. Focus, not mount, is what makes a handler the right one to ask.
  */
 export function useAndroidBack(handler: () => boolean, enabled = true): void {
+  const focused = useIsFocused();
   useEffect(() => {
-    if (Platform.OS !== "android" || !enabled) return;
+    if (Platform.OS !== "android" || !enabled || !focused) return;
     const sub = BackHandler.addEventListener("hardwareBackPress", handler);
     return () => sub.remove();
-  }, [handler, enabled]);
+  }, [handler, enabled, focused]);
 }

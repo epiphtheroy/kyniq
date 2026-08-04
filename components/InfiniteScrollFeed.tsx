@@ -262,10 +262,12 @@ export default function InfiniteScrollFeed({
       {loading && (
         <div className="feed-loading">
           {[...Array(3)].map((_, i) => (
+            // .mo-sk joins these to the shared page sweep (app/motion.css);
+            // they were flat grey bars with no shimmer of their own.
             <div key={i} className="feed-skeleton">
-              <div className="feed-skeleton__bar" style={{ width: "30%" }} />
-              <div className="feed-skeleton__bar" style={{ width: "75%" }} />
-              <div className="feed-skeleton__bar" style={{ width: "55%" }} />
+              <div className="feed-skeleton__bar mo-sk" style={{ width: "30%" }} />
+              <div className="feed-skeleton__bar mo-sk" style={{ width: "75%" }} />
+              <div className="feed-skeleton__bar mo-sk" style={{ width: "55%" }} />
             </div>
           ))}
         </div>

@@ -22,6 +22,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { SkLines } from "@/components/Skeleton";
 import type { SearchHit } from "@/lib/search-shared";
 
 type Axis = "concepts" | "theorists" | "traditions";
@@ -114,14 +115,15 @@ export default function TheoryExplorer({
       {searching ? (
         <div className="thx-results">
           {busy && grouped.length === 0 ? (
-            <p className="thx-msg">Searching…</p>
+            // was: a bare "Searching…" line
+            <SkLines count={8} label="Searching concepts, theorists and traditions" />
           ) : grouped.length === 0 ? (
             <p className="thx-msg">No concept, theorist, or tradition matches “{q.trim()}”. <Link href={`/search?q=${encodeURIComponent(q.trim())}`}>Search everything →</Link></p>
           ) : (
             grouped.map((g) => (
               <section key={g.key} className="thx-rgroup">
                 <h2 className="thx-rhead">{g.head} <span>{g.rows.length}</span></h2>
-                <ul className="thx-rlist">
+                <ul className="thx-rlist mo-stagger">
                   {g.rows.map((h) => (
                     <li key={`${h.kind}:${h.slug}`}>
                       <Link href={h.href} className="thx-rrow">

@@ -55,7 +55,7 @@ export default function TermsPage() {
         Content may be reviewed, edited, merged, or hidden by editors and administrators. Content written
         by our AI system is labeled as such on the page and attributed to Metatake AI, and is screened
         before publication by automated checks rather than by human reading. The method it follows is
-        designed and directed by a named human editor, who is accountable for what publishes and who
+        designed by a named human editor, who is accountable for what publishes and who
         corrects or removes it on request.
       </p>
 

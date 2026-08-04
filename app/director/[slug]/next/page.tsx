@@ -263,7 +263,7 @@ export default async function DirectorNextPage({ params }: Props) {
               {n === 1 ? "" : "s"} to explore after <Link href={`/director/${slug}`}>{name}</Link>
               {matched ? <> — {matched} of them already read closely on Metatake</> : null}. Each is here for one
               specific kinship with the work, written out in full — an argued recommendation, not a similarity
-              score. Written by Metatake AI, to a framework directed by <Link href="/editor">Wonwoo Yoon</Link>.
+              score. Written by Metatake AI, to a framework by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
 
             {next.map((r, i) => {
@@ -363,7 +363,7 @@ export default async function DirectorNextPage({ params }: Props) {
           )}
 
           <p style={{ fontSize: 12.5, opacity: 0.78, marginTop: 22 }}>
-            Written by Metatake AI · directed by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
+            Written by Metatake AI · to a framework by <Link href="/editor">Wonwoo Yoon</Link> ·{" "}
             <Link href="/methodology">How we work →</Link>
           </p>
 

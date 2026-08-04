@@ -1,0 +1,51 @@
+name: Mobile
+
+# The mobile app had NO CI at all until 2026-08-03 — the repo's only workflow
+# (ci.yml) typechecks the Next.js app and never enters mobile/.
+#
+# That mattered more than it looked: the app ships to two platforms from one
+# codebase, and nothing verified that the Android half even RESOLVES. The owner
+# has no Android device yet, so these three checks are, for now, the entire
+# safety net. See HANDOFF-안드로이드-패리티-아키텍처.md §6.
+on:
+  push:
+    branches: [staging]
+    paths: ["mobile/**", ".github/workflows/mobile.yml"]
+  pull_request:
+    branches: [main]
+    paths: ["mobile/**", ".github/workflows/mobile.yml"]
+
+defaults:
+  run:
+    working-directory: mobile
+
+jobs:
+  mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - run: npm ci
+
+      # Strict, and it has always passed — keep it a hard zero.
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      # The architecture, as a test: seam containment + divergence ledger +
+      # ratchets on the debts we are paying down.
+      - name: Platform rules
+        run: node scripts/check-platform.mjs
+
+      # The strongest check available without a device: build the Android JS
+      # bundle for real. Metro resolves every module for platform=android, so an
+      # import that exists only on iOS, a missing platform file, or a native
+      # module absent from the Android graph fails HERE rather than on a phone
+      # nobody has yet. iOS is bundled too so the two cannot drift apart.
+      - name: Bundle both platforms
+        run: |
+          npx expo export --platform android --output-dir /tmp/export-android
+          npx expo export --platform ios --output-dir /tmp/export-ios

@@ -27,7 +27,12 @@ alter function public.search_all(text, integer) set work_mem = '32MB';
 
 -- Unified search, semantic leg: six HNSW probes per call.
 alter function public.search_semantic(text, integer) set work_mem = '32MB';
-alter function public.search_semantic(text, integer) set hnsw.ef_search = '24';
+-- NOTE: `SET hnsw.ef_search` at the function level is refused on Supabase
+-- (42501 — the postgres role may not persist that GUC into pg_proc). First
+-- apply attempt rolled the whole file back on it. The ef trim would need the
+-- function body to SET LOCAL it (it is a LANGUAGE sql function today, so that
+-- means a plpgsql wrapper) — deferred; work_mem is the temp-file fix and that
+-- is what this migration is for.
 
 -- Secondary temp writers from the same measurement window.
 alter function public.wtw_services(text, integer) set work_mem = '16MB';

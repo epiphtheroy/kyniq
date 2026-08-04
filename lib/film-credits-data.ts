@@ -29,16 +29,22 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
+// null means TMDB genuinely has no such record (404). EVERYTHING else throws.
+// The caller turns null into notFound(), and this page caches for 24h, so
+// collapsing a rate-limit or a missing env var into "no such film" removes a live
+// URL from Google for a day on someone else's bad afternoon.
 async function tm<T>(path: string): Promise<T | null> {
   const token = process.env.TMDB_READ_TOKEN;
-  if (!token) return null;
+  if (!token) throw new Error("TMDB_READ_TOKEN is not set");
   const v4 = token.length > 40;
   const url = `https://api.themoviedb.org/3${path}${v4 ? "" : `${path.includes("?") ? "&" : "?"}api_key=${token}`}`;
   const r = await fetch(url, {
     headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" },
     next: { revalidate: 86400 },
   }).catch(() => null);
-  if (!r || !r.ok) return null;
+  if (!r) throw new Error(`TMDB ${path}: network failure`);
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error(`TMDB ${path}: HTTP ${r.status}`);
   return (await r.json()) as T;
 }
 
@@ -97,11 +103,12 @@ async function relationWithDirector(
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const { data: film } = await supabase
+  const { data: film, error } = await supabase
     .from("films")
     .select("id, title, slug, year, director, director_slug, tmdb_id, poster_path, backdrop_path, visible")
     .eq("slug", slug)
     .maybeSingle<{ id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; tmdb_id: number | null; poster_path: string | null; backdrop_path: string | null; visible: boolean | null }>();
+  if (error) throw new Error(`films(${slug}): ${error.message}`);
   if (!film || !film.tmdb_id) return null;
 
   const [movie, { data: vidRows }] = await Promise.all([

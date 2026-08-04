@@ -276,7 +276,7 @@ export default async function FilmMeaningPage({ params }: Props) {
               {" "}{groups.length === 1
                 ? <>They sit within {firstFam}.</>
                 : <>They run from {firstFam} to {lastFam}, across {groups.length} framework families.</>}
-              {" "}Written by Metatake AI, to a framework directed by <Link href="/editor">Wonwoo Yoon</Link>.
+              {" "}Written by Metatake AI, to a framework by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
 
             <p style={{ fontSize: "0.92em" }}>

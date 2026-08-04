@@ -50,6 +50,7 @@ import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
+import { hasCrewPage } from "@/lib/crewRoster";
 import { filmMainIndexable } from "@/lib/filmGate";
 import { displayTs } from "@/lib/cinecodex_dims";
 import { verdictShort } from "@/lib/takescore_prose";
@@ -1187,7 +1188,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                         {c.people.map((pp, i) => (
                           <span key={pp.id}>
                             {i > 0 ? ", " : ""}
-                            <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                            {hasCrewPage(pp.id)
+                              ? <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                              : <span className="rcp-h">{pp.name}</span>}
                           </span>
                         ))}
                       </span>
@@ -1537,7 +1540,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                 <p className="df-invite__p" lang={invitationKo && locale!==DEFAULT_LOCALE ? locale : enOrig}>{invitationKo ?? invitation}</p>
                 <div className="df-invite__foot">
                   <div className="df-invite__note">{t(locale, "The readings below do not hold back.")}</div>
-                  <div className="df-invite__by">{t(locale, "Written by Metatake AI · directed by")} <Link href="/editor">Wonwoo Yoon</Link></div>
+                  <div className="df-invite__by">{t(locale, "Written by Metatake AI · to a framework by")} <Link href="/editor">Wonwoo Yoon</Link></div>
                 </div>
               </div>
               {/* PRESERVED: the trailer now plays in the hero, so this duplicate is disabled.
@@ -1570,7 +1573,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {whyWatch.length > 0 ? (
           <section className="df-sec" id="df-whywatch">
             <h2 className="df-h2">{t(locale, "Why watch {title}?", { title: film.title })}</h2>
-            <p className="df-sub">{t(locale, "A spoiler-free brief on what {title} offers — the director's vision, its craft and ideas, its space and its place in film history. Written by Metatake AI, to a framework directed by", { title: film.title })} <Link href="/editor">Wonwoo Yoon</Link>{t(locale, " — not aggregated from reviews.")}</p>
+            <p className="df-sub">{t(locale, "A spoiler-free brief on what {title} offers — the director's vision, its craft and ideas, its space and its place in film history. Written by Metatake AI, to a framework by", { title: film.title })} <Link href="/editor">Wonwoo Yoon</Link>{t(locale, " — not aggregated from reviews.")}</p>
             {(() => {
               const ww = questions.find((q) => q.question_type === "why-watch");
               return ww ? (
@@ -1642,7 +1645,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <h2 className="df-h2">{t(locale, "Strong Misreadings of {title}", { title: film.title })} <EnglishOriginalLabel locale={locale} /></h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "readings", label: "Strong misreadings" }]} variant="section" /> : null}
             <p className="df-sub">
-              {t(locale, "{n} original critical readings of {title}, filed across 14", { n: misreadings.length, title: film.title })} <Link href="/about#strong-misreadings">{t(locale, "frameworks")}</Link> {t(locale, "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Written by Metatake AI, to a framework directed by")} <Link href="/editor">Wonwoo Yoon</Link>. {t(locale, "Also readable as one piece:")} <Link href={`/film/meaning/${film.slug}`}>{t(locale, "the full misreadings article →")}</Link>
+              {t(locale, "{n} original critical readings of {title}, filed across 14", { n: misreadings.length, title: film.title })} <Link href="/about#strong-misreadings">{t(locale, "frameworks")}</Link> {t(locale, "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Written by Metatake AI, to a framework by")} <Link href="/editor">Wonwoo Yoon</Link>. {t(locale, "Also readable as one piece:")} <Link href={`/film/meaning/${film.slug}`}>{t(locale, "the full misreadings article →")}</Link>
             </p>
             {smByFamily.map(({ fam, items }) => (
               <div key={fam.key} className="df-smfam">
@@ -2023,7 +2026,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                       {c.people.map((pp, i) => (
                         <span key={pp.id}>
                           {i > 0 ? ", " : ""}
-                          <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                          {hasCrewPage(pp.id)
+                            ? <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                            : <span className="rcp-h">{pp.name}</span>}
                         </span>
                       ))}
                     </span>

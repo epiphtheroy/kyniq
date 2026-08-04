@@ -1,7 +1,7 @@
 const body = `
 # AI disclosure
 
-People reasonably ask how much of Metatake an AI wrote. The honest answer is that it depends entirely on which layer you are looking at — some parts are AI-drafted and publish as drafted, some are computed by a model, and a good deal of the site touches no language model at all. The system that does the drafting and the computing is called **Metatake AI** (formerly styled Metatake Editorial); the method it works to is designed and directed by [Wonwoo Yoon](/editor), who answers for what publishes. Rather than give one blanket answer, this page maps it out, layer by layer — with the credit each layer carries — so a sceptic can check the claim against the specific thing in front of them.
+People reasonably ask how much of Metatake an AI wrote. The honest answer is that it depends entirely on which layer you are looking at — some parts are AI-drafted and publish as drafted, some are computed by a model, and a good deal of the site touches no language model at all. The system that does the drafting and the computing is called **Metatake AI** (formerly styled Metatake Editorial); the method it works to is designed by [Wonwoo Yoon](/editor), who answers for what publishes. Rather than give one blanket answer, this page maps it out, layer by layer — with the credit each layer carries — so a sceptic can check the claim against the specific thing in front of them.
 
 ## In numbers
 

@@ -38,7 +38,7 @@ function Provenance({ updated }: { updated: string | null }) {
   const date = fmtDate(updated);
   return (
     <p style={{ margin: "10px 0 0", fontSize: 12.5, opacity: 0.62, display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-      <span>Written by Metatake AI · directed by Wonwoo Yoon</span>
+      <span>Written by Metatake AI · to a framework by Wonwoo Yoon</span>
       {date ? <><span aria-hidden>·</span><span>Revised {date}</span></> : null}
       <span aria-hidden>·</span>
       <Link href="/methodology" style={{ textDecoration: "underline" }}>How we read films →</Link>
@@ -601,7 +601,7 @@ export default async function ConceptPage({ params }: Props) {
           ) : null}
 
           <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-            Written by Metatake AI · related films computed · directed by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
+            Written by Metatake AI · related films computed · to a framework by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
           </p>
           <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
         </div>
@@ -926,7 +926,7 @@ export default async function ConceptPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Written by Metatake AI · related films computed · directed by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
+          Written by Metatake AI · related films computed · to a framework by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
         </p>
         <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
       </div>

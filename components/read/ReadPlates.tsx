@@ -2,7 +2,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { DESKS, DESK_KEYS, mdToPlain } from "@/lib/desks";
-import { cachedLocationsEligibility } from "@/lib/locations";
+import { softLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
 import { filmMainIndexable } from "@/lib/filmGate";
 import {
@@ -110,7 +110,9 @@ const loadPlates = (slug: string) =>
           .order("edition_date", { ascending: false }).limit(2),
         // ── surface gates: each mirrors that page's own publication bar ──
         supabase.rpc("takescore_for_slugs", { p_slugs: [slug] }),
-        cachedLocationsEligibility(),
+        // Decorative here: decides ONE footer link (`gates.locations` below) on a
+        // component that renders across ~38,000 URLs. Must not abort them.
+        softLocationsEligibility(),
         cachedLineageEligibility(),
         supabase.from("film_wd_honors").select("id", { count: "exact", head: true }).eq("film_id", film.id),
         supabase.from("film_reception").select("id", { count: "exact", head: true }).eq("film_id", film.id),

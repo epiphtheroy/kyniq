@@ -44,6 +44,19 @@ interface PageDetail {
   referrers: Row[]; countries: Row[]; prevs: Row[]; nexts: Row[]; gsc: Row[]; gsc_queries: Row[];
 }
 
+/** Migration 0120 — the visitor count with automated clients and the owner
+ *  removed. Classified on session shape, not user-agent. Upper bound: a bot
+ *  that loads one page and leaves looks like a one-page human. */
+interface RealVisitors {
+  days: {
+    day: string; visitors: number; pageviews: number; clicks: number;
+    pv_per_visitor: number | null; clicks_per_visitor: number | null;
+    bots: number; bot_pageviews: number;
+    owner_hashes: number; owner_pageviews: number; raw_visitors: number;
+  }[];
+  avg: { days: number; visitors_per_day: number; pv_per_visitor: number; clicks_per_visitor: number } | null;
+}
+
 interface AiReferrals {
   total_visits: number;
   total_visitors: number;
@@ -98,7 +111,7 @@ export default async function MetricsPage({
   await refreshInsightsIfStale(supabase);
   const args = { p_from: from.toISOString(), p_to: to.toISOString(), p_tz: "Asia/Seoul", p_bucket: bucket };
 
-  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes, wrRes] = await Promise.all([
+  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes, wrRes, rvRes] = await Promise.all([
     supabase.rpc("mt_overview_json", args),
     supabase.rpc("mt_live_json"),
     drillPath ? supabase.rpc("mt_page_json", { p_path: drillPath, ...args }) : Promise.resolve({ data: null, error: null }),
@@ -107,6 +120,8 @@ export default async function MetricsPage({
     supabase.rpc("mt_ai_referrals_json", { p_from: from.toISOString(), p_to: to.toISOString() }),
     // North star (전환마스터 §8): fails soft until migration 0111 is applied.
     supabase.rpc("mt_weekly_return_json", { p_weeks: 8 }),
+    // Real visitors (0120): every other count on this page includes bots.
+    supabase.rpc("mt_real_visitors_json", { p_days: 14 }),
   ]);
 
   const ov = (ovRes.data ?? null) as Overview | null;
@@ -116,6 +131,7 @@ export default async function MetricsPage({
   const gsc = (gscRes.data ?? null) as GscOverview | null;
   const ai = (aiRes.data ?? null) as AiReferrals | null;
   const wr = (wrRes.data ?? null) as { week: string; visitors: number; returning: number }[] | null;
+  const rv = (rvRes.data ?? null) as RealVisitors | null;
 
   if (ovRes.error) {
     return <div style={{ color: "#e66767" }}>Failed to load metrics: {ovRes.error.message}</div>;
@@ -179,6 +195,78 @@ export default async function MetricsPage({
           </span>
         )}
         <div style={{ marginLeft: "auto" }}><MetricsOptOut /></div>
+      </div>
+
+      {/* ⭐ Real visitors — first panel on the page on purpose. Every other
+          count here (KPI tiles, Traffic chart, Visitors) includes automated
+          clients: on 08-02 a Google Cloud sweep added 688 events and read as
+          the best day of the month. This is the number to steer by. */}
+      <div style={{
+        background: "linear-gradient(180deg, rgba(96,165,250,0.10), rgba(15,23,42,0))",
+        border: "1px solid rgba(96,165,250,0.35)", borderRadius: 10,
+        padding: "16px 18px", marginBottom: 20,
+      }}>
+        <div style={{ fontSize: 14, fontWeight: 700, color: "#e2e8f0", marginBottom: 3 }}>
+          ⭐ 실제 방문자 <span style={{ fontWeight: 400, color: "#93c5fd" }}>— 봇·나(오너) 제외</span>
+        </div>
+        <div style={{ fontSize: 11.5, color: "#94a3b8", marginBottom: 12 }}>
+          아래 다른 모든 숫자(Visitors·Pageviews·Traffic)는 봇이 포함된 값입니다.
+        </div>
+        {rv && rv.days.length > 0 ? (
+          <>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 10, marginBottom: 14 }}>
+              <Kpi label={`오늘 ${rv.days[0].day} (진행중)`} value={fmt(rv.days[0].visitors)} />
+              {rv.avg && <Kpi label={`하루 평균 (${rv.avg.days}일)`} value={fmt(rv.avg.visitors_per_day)} />}
+              {rv.avg && <Kpi label="페이지 / 방문자" value={String(rv.avg.pv_per_visitor)} />}
+              {rv.avg && <Kpi label="클릭 / 방문자" value={String(rv.avg.clicks_per_visitor)} />}
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ fontSize: 12.5, width: "100%", borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ textAlign: "left", color: "#94a3b8" }}>
+                    <th style={{ paddingRight: 16, fontWeight: 500 }}>날짜</th>
+                    <th style={{ ...num, fontWeight: 500 }}>실방문자</th>
+                    <th style={{ ...num, fontWeight: 500 }}>PV</th>
+                    <th style={{ ...num, fontWeight: 500 }}>클릭</th>
+                    <th style={{ ...num, fontWeight: 500 }}>PV/명</th>
+                    <th style={{ ...num, fontWeight: 500 }}>클릭/명</th>
+                    <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>제외 봇</th>
+                    <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>제외 나</th>
+                    <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>원시</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rv.days.map((r, i) => (
+                    <tr key={r.day} style={i === 0 ? { color: "#93c5fd" } : undefined}>
+                      <td style={{ paddingRight: 16, color: i === 0 ? "#93c5fd" : "#cbd5e1" }}>
+                        {r.day}{i === 0 ? " ·" : ""}
+                      </td>
+                      <td style={num}><b style={{ color: i === 0 ? "#93c5fd" : "#f1f5f9" }}>{fmt(r.visitors)}</b></td>
+                      <td style={num}>{fmt(r.pageviews)}</td>
+                      <td style={num}>{fmt(r.clicks)}</td>
+                      <td style={num}>{r.pv_per_visitor ?? "–"}</td>
+                      <td style={num}>{r.clicks_per_visitor ?? "–"}</td>
+                      <td style={{ ...num, color: "#64748b" }}>{r.bots ? `${fmt(r.bots)} (${fmt(r.bot_pageviews)}pv)` : "–"}</td>
+                      <td style={{ ...num, color: "#64748b" }}>{r.owner_pageviews ? `${fmt(r.owner_pageviews)}pv` : "–"}</td>
+                      <td style={{ ...num, color: "#64748b" }}>{fmt(r.raw_visitors)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.65, marginTop: 12 }}>
+              봇 판정은 UA가 아니라 <b>세션 모양</b>입니다 — 페이지마다 세션이 새로 생기면(세션수 ≈ 방문 페이지수)
+              자동화입니다. 실측 분리선: 봇 2.3~3.6 이벤트/세션, 사람 6.0~17.7. /24 단위로 걸러서
+              한 대역이 방문자 해시를 20개씩 찍어내는 농장도 한 번에 잡습니다.
+              나(오너) 제외는 <code>180.70.243.0/24</code>와 하루 8PV 이상 한국 방문입니다.
+              <b style={{ color: "#94a3b8" }}> 이 수치는 상한선입니다</b> — 한 페이지만 열고 나가는 봇은 한 페이지 읽고 나가는 사람과 구분되지 않습니다.
+            </div>
+          </>
+        ) : (
+          <div style={{ fontSize: 12.5, color: "#64748b", lineHeight: 1.6 }}>
+            아직 데이터 없음 — 마이그레이션 0120 적용 후 나타납니다.
+          </div>
+        )}
       </div>
 
       {/* one-line report feed (rule-based, regenerated every 30 min) */}

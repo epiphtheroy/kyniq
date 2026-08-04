@@ -45,7 +45,11 @@ export default function DecisionHero({ rows }: { rows: ScreenerTop[] }) {
         ) : null}
 
         <div className="dhero-ctas">
-          <Link className="dhero-cta dhero-cta--primary" href="/what-to-watch">Find by your services →</Link>
+          {/* .mo-sheen is opt-in and belongs to ONE button per screen (§1.3 rule 2
+              budgets three looping animations for the whole product). This is the
+              home screen's single positive action; the two beside it stay quiet,
+              and the nav's Sign in is chrome, not the action of the page. */}
+          <Link className="dhero-cta dhero-cta--primary mo-sheen" href="/what-to-watch">Find by your services →</Link>
           <a className="dhero-cta" href="#surprise">Surprise me</a>
           <Link className="dhero-cta dhero-cta--quiet" href="/takescore">Open the Screener</Link>
         </div>

@@ -22,6 +22,7 @@ import { TAKESCORE_PRESETS } from "@/lib/takescore_presets";
 import ScoreBrush, { type Bucket } from "@/components/screener/ScoreBrush";
 import ProviderPicker from "@/components/screener/ProviderPicker";
 import FilmCardPanel from "@/components/screener/FilmCardPanel";
+import { SkFilmRows } from "@/components/Skeleton";
 
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const POSTER = "https://image.tmdb.org/t/p/w154";
@@ -421,7 +422,7 @@ export default function ScreenerExplorer({
       </div>
 
       {/* results grid — click a row to drop its verdict curtain */}
-      <div className="scr-grid">
+      <div className="scr-grid mo-stagger">
         {rows.length === 0 && !loading ? (
           <p className="scr-empty">No films match these filters. <button className="scr-empty-reset" onClick={() => { setTs(null); setDims({}); setMaxVotes(""); setProviders([]); setHideSeen(false); setGenre(""); setCountry(""); }}>Reset filters</button></p>
         ) : rows.map((f) => {
@@ -480,6 +481,10 @@ export default function ScreenerExplorer({
           );
         })}
       </div>
+      {/* The page that is on its way, in the shape it will land in. A filter
+          change keeps the old rows up instead (they are still true until the
+          new ones arrive) — only an append has nothing to show. */}
+      {loading && rows.length > 0 ? <SkFilmRows count={4} label="Loading more films" /> : null}
       {rows.length < total ? (
         <div className="scr-more"><button onClick={() => fetchPage(false)} disabled={loading}>{loading ? "Loading…" : `Load more (${rows.length}/${total.toLocaleString("en-US")})`}</button></div>
       ) : null}

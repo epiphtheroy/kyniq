@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 /** Shared score donut — the ring gauge from the My Room Appraisal, extracted
  *  so the public TakeScore surfaces (film appraisal page, /takescore curtain,
  *  film-page CinecodexPanel) render the same instrument. Pure SVG, server-safe.
@@ -34,7 +36,13 @@ export default function ScoreDonut({
     <div className="sdonut" style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={label ? `${label} ${Math.round(val)} out of 100` : `${Math.round(val)} out of 100`}>
         <circle cx={c} cy={c} r={r} fill="none" stroke={track} strokeWidth={w} />
+        {/* .mo-ring draws the arc from empty to `off` on load (app/motion.css).
+            --mo-ring-c is the full circumference, i.e. where an empty ring
+            sits; the animation's implicit `to` is this element's own offset,
+            so the static value below stays the single source of truth. */}
         <circle
+          className="mo-ring"
+          style={{ "--mo-ring-c": C.toFixed(1) } as CSSProperties}
           cx={c} cy={c} r={r} fill="none" stroke={color} strokeWidth={w} strokeLinecap="round"
           strokeDasharray={C.toFixed(1)} strokeDashoffset={off.toFixed(1)} transform={`rotate(-90 ${c} ${c})`}
         />

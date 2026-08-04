@@ -16,7 +16,7 @@ import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 import {
   FILM_LOCATIONS_MIN,
-  cachedLocationsEligibility,
+  softLocationsEligibility,
   cachedLocationsMeta,
   citiesForCountry,
   cityMemberPins,
@@ -56,11 +56,16 @@ type FilmRow = {
 };
 
 async function loadUncached(slug: string) {
-  const { data: film } = await db()
+  // `error` must be read, not dropped: on a Supabase timeout `data` is null, which
+  // is byte-identical to "no such film" and would 404 a live page for the 24h this
+  // loader is cached (page.tsx revalidate = 86400). Throwing keeps the failure out
+  // of the Data Cache and gives Googlebot a 5xx (retry) instead of a 404 (remove).
+  const { data: film, error } = await db()
     .from("films")
     .select("id, title, slug, year, director, director_slug, poster_path, backdrop_path, visible")
     .eq("slug", slug)
     .maybeSingle();
+  if (error) throw new Error(`films(${slug}): ${error.message}`);
   // film_geo does not filter on visibility, so the read page must.
   if (!film || (film as FilmRow).visible === false) return null;
   const raw = await loadFilmGeo(slug);
@@ -69,7 +74,7 @@ async function loadUncached(slug: string) {
   if (mergeCells(raw).length < FILM_LOCATIONS_MIN) return null;
   const pins = mergePins(raw);
   // Only link to sibling pages that clear their own gates (no 404 links).
-  const elig = await cachedLocationsEligibility();
+  const elig = await softLocationsEligibility();
   const f = film as FilmRow;
   const directorHasLocations = !!f.director_slug && elig.directors.some((d) => d.slug === f.director_slug);
   const hubCountrySlugs = new Set(elig.countries.map((c) => c.slug));

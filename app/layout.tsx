@@ -7,8 +7,13 @@ import LocaleSuggestBanner from "@/components/i18n/LocaleSuggestBanner";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { LensProvider } from "@/components/LensProvider";
+import MotionRuntime from "@/components/MotionRuntime";
 import { pageRobots, ORG_SAME_AS, KNOWS_ABOUT, PERSON_SAME_AS } from "@/lib/seo";
 import "./globals.css";
+// Shared motion vocabulary (skeleton sweep · image fade · list entrance).
+// Imported here rather than @import-ed into globals.css — an @import after
+// Tailwind's inlined one 500s every dev route.
+import "./motion.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
 
@@ -138,6 +143,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* Marks images as they decode so they fade in. Renders nothing; all of
+            its work happens after hydration. See components/MotionRuntime. */}
+        <MotionRuntime />
         {/* Newspaper type: PT Serif ≈ headline/body serif, Inter ≈ chrome sans */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

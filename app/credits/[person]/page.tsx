@@ -16,6 +16,7 @@ import {
 } from "../credits-logic";
 import { resolveNative } from "@/lib/nativeName";
 import { pageRobots } from "@/lib/seo";
+import { hasCrewPage } from "@/lib/crewRoster";
 import "../credits.css";
 
 /**
@@ -25,7 +26,17 @@ import "../credits.css";
  * the repertory company they keep, and where their work lives in the catalog.
  * Slug format: {kebab-name}-{tmdbId} (id suffix is authoritative).
  */
-export const revalidate = 86400;
+// A person's biography and filmography move on the order of years, and this page
+// is swept URL-by-URL by a rotating residential-proxy crawler — measured
+// 2026-08-03: 27,895 req/day, 25.7% of all function volume, every sampled /24
+// distinct and on a different continent, so no rate limit, blocklist, UA rule or
+// robots directive can reach it. What CAN reach it is not doing the work twice:
+// the TMDB fetches below live in the Data Cache, which outlives deploys, so a
+// 30-day window means the second sweep of the same person costs nothing.
+// The route's own HTML is held a week — long enough to absorb a sweep, short
+// enough that a correction still lands in days.
+export const revalidate = 604800; // 7 days
+const TMDB_TTL = 2592000; // 30 days — see above
 export async function generateStaticParams() { return []; }
 
 const KEY_CRAFTS: CraftKey[] = ["writer", "dp", "editor", "composer", "pd"];
@@ -50,16 +61,21 @@ function parseId(slug: string): number | null {
 // Native-name resolution (TMDB alias by expected script → Wikidata label
 // fallback) lives in lib/nativeName.
 
+// null means TMDB genuinely has no such person (404) — the caller turns that into
+// notFound(). Everything else throws: this route caches for a week now, so folding
+// a rate-limit or a missing env var into "no such person" would strand a live URL
+// as a 404 for seven days because of someone else's bad afternoon.
 async function tmdbPerson(id: number): Promise<TmdbPerson | null> {
   const token = process.env.TMDB_READ_TOKEN;
-  if (!token) return null;
+  if (!token) throw new Error("TMDB_READ_TOKEN is not set");
   const v4 = token.length > 40;
   const qs = v4 ? "" : `&api_key=${token}`;
   const r = await fetch(
     `https://api.themoviedb.org/3/person/${id}?append_to_response=movie_credits,external_ids${qs}`,
-    { headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" }, next: { revalidate: 86400 } },
+    { headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" }, next: { revalidate: TMDB_TTL } },
   );
-  if (!r.ok) return null;
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error(`TMDB person/${id}: HTTP ${r.status}`);
   return (await r.json()) as TmdbPerson;
 }
 
@@ -173,7 +189,7 @@ const tmdbApi: Api = async (path, params) => {
   if (!v4) u.searchParams.set("api_key", token);
   const r = await fetch(u, {
     headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" },
-    next: { revalidate: 86400 },
+    next: { revalidate: TMDB_TTL },
   });
   if (!r.ok) throw new Error(`tmdb ${r.status}`);
   return r.json();
@@ -184,6 +200,13 @@ interface Props { params: Promise<{ person: string }> }
 async function load(personSlug: string) {
   const id = parseId(personSlug);
   if (!id) return null;
+  // The gate, BEFORE the network call. Only the 1,072 people in lib/crew_index.json
+  // have a page here — everyone else is a TMDB id someone appended to a URL, and
+  // answering for them made this route's address space unbounded. Off-roster ids
+  // now cost one Set lookup instead of a live TMDB request. See lib/crewRoster.ts
+  // for why nothing is lost: those URLs are in no sitemap and Google has never
+  // crawled them. Every internal link to them was removed in the same commit.
+  if (!hasCrewPage(id)) return null;
   const p = await tmdbPerson(id);
   if (!p) return null;
   const crafts = craftCredits(p);
@@ -463,7 +486,7 @@ export default async function CrewPersonPage({ params }: Props) {
             if (c.grp === "director" && dirSlugByName.has(c.name)) {
               return <>{role}<Link href={`/director/${dirSlugByName.get(c.name)}`}><b>{c.name}</b></Link></>;
             }
-            if (KEY_GRPS.includes(c.grp)) return <>{role}<Link href={`/credits/${personSlug(c.name, c.id)}`}><b>{c.name}</b></Link></>;
+            if (KEY_GRPS.includes(c.grp) && hasCrewPage(c.id)) return <>{role}<Link href={`/credits/${personSlug(c.name, c.id)}`}><b>{c.name}</b></Link></>;
             return <>{role}<b>{c.name}</b></>;
           };
           const spanTxt = (y0: number, y1: number) => (y0 && y1 && y0 !== y1 ? `between ${y0} and ${y1}` : y0 ? `in ${y0}` : "");

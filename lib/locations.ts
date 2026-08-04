@@ -186,23 +186,43 @@ export function countryListPhrase(names: string[], extra = 0): string {
 }
 
 export async function loadFilmGeo(slug: string): Promise<GeoPin[]> {
-  const { data } = await db().rpc("film_geo", { p_slug: slug });
+  // THROW on error, never return []. The caller gates the page on pin count, so a
+  // swallowed RPC timeout here is indistinguishable from "this film has no
+  // locations" and 404s a live page — which ISR then caches for 24h (page.tsx
+  // revalidate = 86400). Googlebot reads that 404 as a removal. A thrown error
+  // is not written to the Data Cache and surfaces as a 5xx, which Google treats
+  // as temporary. Errors must never decide whether a URL exists.
+  const { data, error } = await db().rpc("film_geo", { p_slug: slug });
+  if (error) throw new Error(`film_geo(${slug}): ${error.message}`);
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 
 export async function loadDirectorGeo(slug: string): Promise<GeoPin[]> {
-  const { data } = await db().rpc("director_geo", { p_slug: slug });
+  // Same rule as loadFilmGeo: the caller gates the page on pin/film counts, so a
+  // swallowed error returns [] and 404s a live director page for the 24h that
+  // route caches. Errors must never decide whether a URL exists.
+  const { data, error } = await db().rpc("director_geo", { p_slug: slug });
+  if (error) throw new Error(`director_geo(${slug}): ${error.message}`);
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 
 export async function loadLocationsCountry(slug: string): Promise<LocationCountry | null> {
-  const { data } = await db().rpc("atlas_country_json", { p_slug: slug });
+  // null must mean "no such country", not "the database blinked" — the country hub
+  // 404s on null and holds it for 24h.
+  const { data, error } = await db().rpc("atlas_country_json", { p_slug: slug });
+  if (error) throw new Error(`atlas_country_json(${slug}): ${error.message}`);
   const c = data as LocationCountry | null;
   return c && c.country ? c : null;
 }
 
 export async function loadLocationsEligibility(): Promise<LocationsEligibility> {
-  const { data } = await db().rpc("atlas_eligibility_json");
+  // Same rule as loadFilmGeo: a swallowed error here returns empty rosters, which
+  // silently strips sibling links and — where callers gate on membership — turns a
+  // qualifying page into a non-qualifying one. cachedLocationsEligibility() already
+  // refuses to memoise a rejection, so throwing degrades for one request instead of
+  // an hour.
+  const { data, error } = await db().rpc("atlas_eligibility_json");
+  if (error) throw new Error(`atlas_eligibility_json: ${error.message}`);
   const d = (data ?? {}) as Partial<LocationsEligibility>;
   return { films: d.films ?? [], directors: d.directors ?? [], countries: d.countries ?? [] };
 }
@@ -231,6 +251,24 @@ export async function loadLocationsEligibility(): Promise<LocationsEligibility> 
  */
 const ELIGIBILITY_TTL_MS = 60 * 60 * 1000;
 let eligibilityMemo: { at: number; value: Promise<LocationsEligibility> } | null = null;
+
+/**
+ * Eligibility for call sites where this roster only DECORATES — a footer link, a
+ * hub listing — rather than deciding whether a page exists.
+ *
+ * loadLocationsEligibility() throws now (see its comment), which is right for the
+ * pages that ARE locations pages: better a 5xx Google retries than a 404 it acts
+ * on. But atlas_eligibility_json is the ~1.5s RPC that was the single largest
+ * consumer in the database the night it fell over, and it is reached from
+ * ReadPlates — rendered on ~38,000 URLs across 13 route families, most of which
+ * have nothing to do with locations — and from three PRERENDERED hub pages, where
+ * a throw aborts `next build` and blocks the whole production deploy.
+ *
+ * So: decorative callers degrade, load-bearing callers fail loudly.
+ */
+export function softLocationsEligibility(): Promise<LocationsEligibility> {
+  return cachedLocationsEligibility().catch(() => ({ films: [], directors: [], countries: [] }));
+}
 
 export function cachedLocationsEligibility(): Promise<LocationsEligibility> {
   const now = Date.now();
@@ -326,7 +364,10 @@ export function cityMemberPins<T extends GeoPin>(pins: T[], city: LocationCity):
 }
 
 export async function loadCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
-  const { data } = await db().rpc("country_geo", { p_slug: countrySlugValue });
+  // Empty pins drop the city hubs below their own gate, so a swallowed error here
+  // 404s a whole tier of live pages.
+  const { data, error } = await db().rpc("country_geo", { p_slug: countrySlugValue });
+  if (error) throw new Error(`country_geo(${countrySlugValue}): ${error.message}`);
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 

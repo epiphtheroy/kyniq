@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cachedLocationsEligibility } from "@/lib/locations";
+import { softLocationsEligibility } from "@/lib/locations";
 import { directorLayerEligibility } from "@/lib/sitemap-data";
 import { pageRobots } from "@/lib/seo";
 import DirectorsIndexClient from "@/components/curious/DirectorsIndexClient";
@@ -85,7 +85,7 @@ const loadIndex = unstable_cache(
       ),
       // LOCATIONS — the exact roster locationHubEntries() puts in the sitemap
       // (atlas_eligibility_json → directors), so this can never link a 404.
-      cachedLocationsEligibility(),
+      softLocationsEligibility(),
     ]);
     const layer = await directorLayerEligibility();
     const layerSets = {
