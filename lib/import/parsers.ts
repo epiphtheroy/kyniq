@@ -83,8 +83,7 @@ function parseNetflixCsv(records: Record<string, unknown>[]): ParseResult {
 type LbEntry = Record<string, unknown>;
 const lbKey = (r: LbEntry) => `${String(r["Name"] ?? "").toLowerCase()}|${r["Year"] ?? ""}`;
 
-async function parseLetterboxdZip(buf: Buffer): Promise<ParseResult> {
-  const zip = await JSZip.loadAsync(buf);
+async function parseLetterboxdZip(zip: JSZip): Promise<ParseResult> {
   const read = async (name: string): Promise<LbEntry[]> => {
     const f = zip.file(new RegExp(`(^|/)${name}$`))[0];
     return f ? parseCsv(await f.async("string")) : [];
@@ -132,6 +131,23 @@ async function parseLetterboxdZip(buf: Buffer): Promise<ParseResult> {
       raw: { ...w },
     });
   }
+  // Rated films that appear in neither the diary nor watched.csv. A full export
+  // carries all four files, so this is normally empty — but a ratings-only ZIP
+  // (an older export, or a trimmed one) used to parse to zero rows and report
+  // nothing wrong, which reads as "the import is broken".
+  const seen = new Set([...diaryFilms, ...watched.map(lbKey)]);
+  for (const r of ratings) {
+    const key = lbKey(r);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    push({
+      title: String(r["Name"] ?? "").trim(),
+      year: parseYear(r["Year"]),
+      rating: normalizeRating(r["Rating"], 5),
+      raw: { ...r },
+    });
+  }
+
   for (const w of watchlist) {
     push({
       title: String(w["Name"] ?? "").trim(),
@@ -192,12 +208,34 @@ export function parseWatchaText(text: string): ParseResult {
 
 /* ---------- entry points ---------- */
 
+const XLS_MAGIC = [0xd0, 0xcf, 0x11, 0xe0]; // legacy OLE2 .xls
+
 export async function parseFile(filename: string, buf: Buffer): Promise<ParseResult> {
   const lower = filename.toLowerCase();
-  const isZip = lower.endsWith(".zip") || (buf[0] === 0x50 && buf[1] === 0x4b);
-  if (isZip) return parseLetterboxdZip(buf);
 
-  if (lower.endsWith(".xlsx") || lower.endsWith(".xls")) {
+  // ── Detect from the BYTES first, name second ───────────────────────────────
+  // A picked file does not always arrive with an extension: Android's document
+  // providers hand back a display name that can be "document" or a bare id
+  // (recorded in the parity ledger as "임포트 파일명에 확장자 없으면 CSV 판정
+  // 실패"), and the same happens with a Files copy on iOS or a Mac drag. The old
+  // order — name for xlsx, magic only for zip — meant an extension-less workbook
+  // was read as a Letterboxd archive (both start "PK"), found no diary CSV, and
+  // came back "no films found in that file". Content is the fact; the name is a
+  // hint.
+  const pk = buf[0] === 0x50 && buf[1] === 0x4b;
+  const ole = XLS_MAGIC.every((b, i) => buf[i] === b);
+
+  // An .xlsx IS a zip, so "starts with PK" cannot separate a workbook from a
+  // Letterboxd export. Open it and READ THE ENTRY LIST — a workbook has parts
+  // under xl/, an export has watched.csv and friends. Exact, and it costs one
+  // decompress of a file we were going to decompress anyway.
+  if (pk) {
+    const zip = await JSZip.loadAsync(buf);
+    const isWorkbookZip = zip.file(/^(xl\/|\[Content_Types\]\.xml$)/).length > 0;
+    if (!isWorkbookZip) return parseLetterboxdZip(zip);
+  }
+
+  if (pk || ole || lower.endsWith(".xls") || lower.endsWith(".xlsx")) {
     const wb = XLSX.read(buf, { type: "buffer", cellDates: true });
     const sheet = wb.Sheets[wb.SheetNames[0]];
     const records = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, { defval: "" });
@@ -214,7 +252,13 @@ export async function parseFile(filename: string, buf: Buffer): Promise<ParseRes
     const header = (latin.split(/\r?\n/, 1)[0] ?? "").toLowerCase();
     if (header.includes("const") && header.includes("your rating")) text = latin;
   }
-  return parseText(text, lower.endsWith(".csv") || lower.endsWith(".tsv"));
+  // Same reasoning for the CSV hint, but only where parseText's own heuristic is
+  // blind: it recognises a comma header (3+ fields) and pasted Netflix, and
+  // nothing tab-separated. An extension-less TSV would otherwise be read as prose.
+  // Deliberately NOT loosened for commas — parseText already covers that, and a
+  // prose list with one comma per line is not a table.
+  const first = text.replace(/^\ufeff/, "").split(/\r?\n/, 1)[0] ?? "";
+  return parseText(text, lower.endsWith(".csv") || lower.endsWith(".tsv") || first.includes("\t"));
 }
 
 /** Pasted text or CSV body. Returns rows; caller decides on LLM fallback. */

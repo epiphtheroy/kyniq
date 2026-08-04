@@ -75,15 +75,62 @@ button.iw-tile:hover { border-color: var(--hairline-2); background: var(--surfac
 .iw-tile-actions .iw-linkbtn { font-size: 12px; }
 .iw-tile-actions .iw-linkbtn:disabled { opacity: 0.5; cursor: default; }
 .iw-tile-actions .iw-linkbtn.dim { color: var(--subtle); }
+/* The connector guide — the steps a service actually makes you walk, shown
+   BEFORE anything is demanded of the reader. Same shape as the app's guide
+   sheet (mobile connect.tsx), flattened into the page. */
 .iw-guide {
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--ink-soft);
-  line-height: 1.5;
+  line-height: 1.55;
   border-left: 3px solid var(--accent);
   background: var(--surface-2);
   border-radius: 0 6px 6px 0;
-  padding: 7px 11px;
-  margin: 8px 0 0;
+  padding: 11px 13px;
+  margin: 10px 0 0;
+}
+.iw-guide-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 7px; }
+.iw-guide-head b { font-size: 14px; color: var(--ink); }
+.iw-guide-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.iw-guide-steps li { display: flex; gap: 9px; align-items: baseline; }
+.iw-guide-steps .n {
+  flex: none;
+  width: 18px; height: 18px;
+  border-radius: 999px;
+  background: var(--ink); color: var(--bg);
+  font-size: 11px; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.iw-guide-note { margin: 9px 0 0; font-size: 12.5px; color: var(--muted); }
+.iw-guide-acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 11px; }
+.iw-guide-cta { font-size: 13px; padding: 8px 13px; }
+
+/* Return banner — you came back from the service; this says what to do now. */
+.iw-return {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 10px 13px;
+  margin: 0 0 12px;
+  background: rgba(227, 18, 11, 0.04);
+}
+.iw-return-txt { font-family: var(--font-ui); font-size: 13.5px; color: var(--ink); }
+.iw-return-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.iw-return-cta { font-size: 13px; padding: 7px 12px; }
+.iw-linkbtn.dim { color: var(--subtle); font-weight: 500; text-decoration: none; }
+
+/* Visually hidden, but RENDERED: Safari refuses to open the picker for a
+   programmatic click on a display:none file input, which is why tapping a
+   service tile did nothing on iPhone. */
+.iw-file {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 .iw-tiles-divider {
   display: flex;
@@ -251,3 +298,18 @@ button.iw-tile:hover { border-color: var(--hairline-2); background: var(--surfac
   .iw-step .lbl { font-size: 11px; }
   .iw-tiles { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Session lapsed mid-import. Distinct from a parse error because the fix is a
+   door, not a retry — the old copy blamed the reader's list for a 401. */
+.iw-authlost {
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 10px 13px;
+  margin: 10px 0 0;
+  background: rgba(227, 18, 11, 0.04);
+}
+.iw-authlost a { color: var(--accent-text); font-weight: 600; }

@@ -11,6 +11,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { MatchCandidate, MatchResult, NormalizedRow } from "@/lib/import/types";
 import { createClient } from "@/lib/supabase/client";
+import {
+  ALL_ACCEPT,
+  CONNECTORS,
+  connector,
+  readAwaiting,
+  writeAwaiting,
+  type Connector,
+  type ConnectorId,
+} from "@/lib/import/connectors";
 
 const IMG = "https://image.tmdb.org/t/p/w92";
 const MATCH_BATCH = 25;
@@ -37,24 +46,6 @@ type RowState = NormalizedRow & {
 };
 type Summary = { added: number; updated: number; logged: number; skipped_dupes: number; failed: string[] };
 
-/* Per-source tiles above the drop zone. All six are formats
- * lib/import/parsers.ts reads today — a tile just opens the right input
- * (file picker or paste box) and shows a one-line export guide. */
-const SOURCE_TILES = [
-  { key: "letterboxd", name: "Letterboxd", fmt: "ZIP · CSV", kind: "file" as const,
-    guide: "Letterboxd → Settings → Data → Export your data, then drop the ZIP here." },
-  { key: "imdb", name: "IMDb", fmt: "CSV", kind: "file" as const,
-    guide: "IMDb → Your Ratings → Export, then drop the ratings CSV here." },
-  { key: "netflix", name: "Netflix", fmt: "CSV", kind: "file" as const,
-    guide: "Netflix → Account → Profile → Viewing activity → Download all, then drop the CSV here." },
-  { key: "watcha", name: "Watcha", fmt: "paste", kind: "paste" as const,
-    guide: "Copy your ratings list from Watcha and paste it in the text box below." },
-  { key: "sheet", name: "Excel / CSV", fmt: "any sheet", kind: "file" as const,
-    guide: "Any spreadsheet with a title column (year, rating, date optional) — drop it here." },
-  { key: "text", name: "Free text", fmt: "AI-parsed", kind: "paste" as const,
-    guide: "Paste any list of titles below — format doesn't matter, we decode it." },
-];
-
 /* Process diagram stages, in order. */
 const STAGES = [
   { key: "add", lbl: "Add", sub: "paste or drop" },
@@ -71,6 +62,9 @@ export default function ImportWizard() {
   const [progNote, setProgNote] = useState("");
   const [log, setLog] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+  /** The session lapsed mid-flow. Its own state because its fix is a link, not
+   *  a retry — and the generic copy told people their LIST was wrong. */
+  const [authLost, setAuthLost] = useState(false);
   const [source, setSource] = useState<string>("sheet");
   const [warnings, setWarnings] = useState<string[]>([]);
   const [rows, setRows] = useState<RowState[]>([]);
@@ -79,9 +73,15 @@ export default function ImportWizard() {
   const [overwrite, setOverwrite] = useState(false);
   const [summary, setSummary] = useState<Summary | null>(null);
   const [drag, setDrag] = useState(false);
-  const [guideKey, setGuideKey] = useState<string | null>(null);
+  /** Which connector's guide is open — the tile teaches before it demands. */
+  const [openGuide, setOpenGuide] = useState<ConnectorId | null>(null);
+  /** Narrowed per connector so the picker (and iOS Files) shows the right file. */
+  const [accept, setAccept] = useState(ALL_ACCEPT);
+  /** "You were exporting from IMDb" — survives the trip to another tab. */
+  const [awaiting, setAwaiting] = useState<{ id: ConnectorId; stage: "collect" | "file" } | null>(null);
   const fileRef = useRef<HTMLInputElement | null>(null);
   const textRef = useRef<HTMLTextAreaElement | null>(null);
+  const guideRef = useRef<HTMLDivElement | null>(null);
 
   const busy = phase !== "idle";
   const addLog = (line: string) => setLog((l) => [...l, line]);
@@ -128,10 +128,11 @@ export default function ImportWizard() {
 
   const parseText = async () => {
     if (!text.trim()) return;
-    setPhase("reading"); setProgress(0); setProgNote("Detecting format from your text…"); setError(null); setLog([]);
+    setPhase("reading"); setProgress(0); setProgNote("Detecting format from your text…"); setError(null); setAuthLost(false); setLog([]);
     try {
       const r = await fetch("/api/import/parse", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text }) });
       const d = await r.json();
+      if (r.status === 401) { setAuthLost(true); setPhase("idle"); return; }
       if (!r.ok) { setError(d.error === "no rows" ? "No films recognized — check the format and try again." : "Couldn't read that. Try pasting a plain list of titles."); setPhase("idle"); return; }
       setSource(d.source); setWarnings(d.warnings || []); setFilename(null);
       await runMatch(d.rows, SOURCE_LABEL[d.source] ?? d.source);
@@ -139,11 +140,12 @@ export default function ImportWizard() {
   };
 
   const parseFile = async (f: File) => {
-    setPhase("reading"); setProgress(0); setProgNote(`Reading ${f.name}…`); setError(null); setLog([]);
+    setPhase("reading"); setProgress(0); setProgNote(`Reading ${f.name}…`); setError(null); setAuthLost(false); setLog([]);
     try {
       const fd = new FormData(); fd.append("file", f);
       const r = await fetch("/api/import/parse", { method: "POST", body: fd });
       const d = await r.json();
+      if (r.status === 401) { setAuthLost(true); setPhase("idle"); return; }
       if (!r.ok) { setError(d.error === "no rows" ? "No films found in that file." : `Couldn't read the file: ${d.error || ""}`); setPhase("idle"); return; }
       setSource(d.source); setWarnings(d.warnings || []); setFilename(f.name);
       await runMatch(d.rows, SOURCE_LABEL[d.source] ?? d.source);
@@ -172,6 +174,7 @@ export default function ImportWizard() {
           body: JSON.stringify({ job_id: jobId, source, filename, overwrite, rows: payload.slice(p, p + COMMIT_BATCH) }),
         });
         const d = await r.json();
+        if (r.status === 401) { setAuthLost(true); break; }
         if (!r.ok) { setError("Some films couldn't be saved. Please try again."); break; }
         jobId = d.job_id;
         acc.added += d.added; acc.updated += d.updated; acc.logged += d.logged; acc.skipped_dupes += d.skipped_dupes;
@@ -181,6 +184,63 @@ export default function ImportWizard() {
     }
     setSummary(acc); setPhase("idle"); setProgNote(""); setStep("done");
   };
+
+  /* ------------- connector flow (ported from the app's connect screen) -------------
+   * tile → guide (real steps + the page that starts them) → [collect, for the
+   * services that queue] → choose the file. Never a file dialog for a file the
+   * service has not produced yet.
+   */
+
+  const chooseFile = useCallback((c?: Connector) => {
+    if (c?.accept) setAccept(c.accept);
+    // Set before the click so the picker opens already narrowed. React applies
+    // the attribute synchronously on the DOM node here rather than next paint.
+    if (fileRef.current) {
+      fileRef.current.accept = c?.accept ?? ALL_ACCEPT;
+      fileRef.current.click();
+    }
+  }, []);
+
+  const openGuideFor = useCallback((id: ConnectorId) => {
+    setOpenGuide((cur) => (cur === id ? null : id));
+    const c = connector(id);
+    if (c?.accept) setAccept(c.accept);
+    // The guide sits under the tiles; on a phone that is below the fold.
+    requestAnimationFrame(() => guideRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" }));
+  }, []);
+
+  /** Leaves for the service, and remembers that we did. */
+  const leaveFor = useCallback((c: Connector, target: "export" | "collect") => {
+    const url = target === "collect" ? c.collectUrl : c.exportUrl;
+    if (!url) return;
+    window.open(url, "_blank", "noopener,noreferrer");
+    // IMDb queues the export, so the first hop leaves you waiting to COLLECT,
+    // not waiting to pick — the banner has to say the true next step.
+    const stage: "collect" | "file" = target === "export" && c.collectUrl ? "collect" : "file";
+    if (c.kind === "file") {
+      writeAwaiting({ id: c.id, stage, at: Date.now() });
+      setAwaiting({ id: c.id, stage });
+    }
+  }, []);
+
+  const dismissAwaiting = useCallback(() => { writeAwaiting(null); setAwaiting(null); }, []);
+
+  // Restore the breadcrumb on mount, and again whenever the tab comes back —
+  // the web's version of the app's AppState "active" check.
+  useEffect(() => {
+    const check = () => {
+      const a = readAwaiting();
+      setAwaiting(a ? { id: a.id, stage: a.stage } : null);
+    };
+    check();
+    const onVis = () => { if (document.visibilityState === "visible") check(); };
+    window.addEventListener("focus", check);
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      window.removeEventListener("focus", check);
+      document.removeEventListener("visibilitychange", onVis);
+    };
+  }, []);
 
   const pick = (i: number, c: MatchCandidate | null) =>
     setRows((prev) => prev.map((r) => (r.i === i ? { ...r, match: c, matchStatus: c ? "matched" : r.matchStatus } : r)));
@@ -205,6 +265,16 @@ export default function ImportWizard() {
         );
       })}
     </ol>
+  );
+
+  /** A lapsed session is not a bad file — say so, and hand back the door.
+   *  The rows already on screen survive: signing in opens in a new tab. */
+  const authNotice = () => (
+    <p className="iw-authlost" role="alert">
+      <b>You&apos;re signed out.</b> Imports write to your own library, so this needs a session.{" "}
+      <a href="/login?next=/me/import" target="_blank" rel="noopener noreferrer">Sign in in a new tab ↗</a>{" "}
+      then press the button again — nothing you&apos;ve entered is lost.
+    </p>
   );
 
   const progressPanel = () =>
@@ -325,6 +395,7 @@ export default function ImportWizard() {
           {unmatched.length > 0 && <span className="muted" style={{ fontSize: 13 }}>{unmatched.length} unmatched row{unmatched.length === 1 ? "" : "s"} will be skipped</span>}
           <button type="button" className="btn-ghost" disabled={busy} onClick={() => { setStep("input"); setRows([]); setLog([]); }}>Start over</button>
         </div>
+        {authLost && authNotice()}
         {error && <p style={{ color: "#b91c1c", fontSize: 14 }}>{error}</p>}
       </div>
     );
@@ -348,28 +419,90 @@ export default function ImportWizard() {
 
       {!busy && (
         <>
+          {/* You left for the service; this is what you came back to do. */}
+          {awaiting && (() => {
+            const c = connector(awaiting.id);
+            if (!c) return null;
+            return (
+              <div className="iw-return" role="status">
+                <span className="iw-return-txt">
+                  {awaiting.stage === "collect"
+                    ? <>Waiting on <b>{c.name}</b> to prepare your export.</>
+                    : <>Got your <b>{c.name}</b> file?</>}
+                </span>
+                <span className="iw-return-acts">
+                  {awaiting.stage === "collect" && c.collectUrl && (
+                    <button type="button" className="btn iw-return-cta" onClick={() => leaveFor(c, "collect")}>
+                      {c.collectLabel ?? "Collect it ↗"}
+                    </button>
+                  )}
+                  <button type="button" className="btn iw-return-cta" onClick={() => chooseFile(c)}>Choose the file</button>
+                  <button type="button" className="iw-linkbtn dim" onClick={dismissAwaiting}>Not now</button>
+                </span>
+              </div>
+            );
+          })()}
+
           <div className="iw-sources">
-            <div className="iw-tiles" role="list">
-              {SOURCE_TILES.map((t) => (
+            {/* A group of buttons, not a list: role="listitem" on a <button>
+                replaces the button semantics, which is why aria-expanded had
+                nowhere valid to live. */}
+            <div className="iw-tiles" role="group" aria-label="Where your history comes from">
+              {CONNECTORS.map((c) => (
                 <button
-                  key={t.key}
+                  key={c.id}
                   type="button"
-                  role="listitem"
-                  className={`iw-tile${guideKey === t.key ? " sel" : ""}`}
-                  onClick={() => {
-                    setGuideKey(t.key);
-                    if (t.kind === "file") fileRef.current?.click();
-                    else textRef.current?.focus();
-                  }}
+                  className={`iw-tile${openGuide === c.id ? " sel" : ""}`}
+                  aria-expanded={openGuide === c.id}
+                  onClick={() => openGuideFor(c.id)}
                 >
-                  <span className="t">{t.name}</span>
-                  <span className="f">{t.fmt}</span>
+                  <span className="t">{c.name}</span>
+                  <span className="f">{c.fmt}</span>
                 </button>
               ))}
             </div>
-            {guideKey && (
-              <p className="iw-guide">{SOURCE_TILES.find((t) => t.key === guideKey)?.guide}</p>
-            )}
+
+            {/* The guide, not a file dialog. Every service asks for something
+                different, and one of them (IMDb) cannot hand you the file at
+                all until it has prepared it — so the steps come first and the
+                picker is the LAST button, never the first thing that happens. */}
+            {openGuide && (() => {
+              const c = connector(openGuide);
+              if (!c) return null;
+              return (
+                <div className="iw-guide" ref={guideRef}>
+                  <div className="iw-guide-head">
+                    <b>{c.name}</b>
+                    <button type="button" className="iw-linkbtn dim" onClick={() => setOpenGuide(null)} aria-label="Close the guide">Close</button>
+                  </div>
+                  <ol className="iw-guide-steps">
+                    {c.steps.map((st, i) => <li key={i}><span className="n">{i + 1}</span><span>{st}</span></li>)}
+                  </ol>
+                  {c.note && <p className="iw-guide-note">{c.note}</p>}
+                  <div className="iw-guide-acts">
+                    {c.exportUrl && (
+                      <button type="button" className="btn iw-guide-cta" onClick={() => leaveFor(c, "export")}>
+                        Open {c.name} ↗
+                      </button>
+                    )}
+                    {c.collectUrl && (
+                      <button type="button" className="btn-ghost iw-guide-cta" onClick={() => leaveFor(c, "collect")}>
+                        {c.collectLabel}
+                      </button>
+                    )}
+                    {c.kind === "file" ? (
+                      <button type="button" className="btn-ghost iw-guide-cta" onClick={() => chooseFile(c)}>
+                        I have the file — choose it
+                      </button>
+                    ) : (
+                      <button type="button" className="btn-ghost iw-guide-cta" onClick={() => { textRef.current?.focus(); textRef.current?.scrollIntoView({ block: "center", behavior: "smooth" }); }}>
+                        Paste it below
+                      </button>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
             <ConnectTiles />
           </div>
 
@@ -382,11 +515,24 @@ export default function ImportWizard() {
             <div className="ico">⤓</div>
             <p className="lead">
               Drag a file here, or{" "}
-              <button type="button" className="iw-linkbtn" onClick={() => fileRef.current?.click()}>browse</button>
+              <button type="button" className="iw-linkbtn" onClick={() => chooseFile()}>browse</button>
             </p>
             <p className="sub">Letterboxd export (ZIP), IMDb ratings (CSV), Netflix viewing history (CSV), Excel (.xlsx), or any CSV — Watcha lists paste below</p>
-            <input ref={fileRef} type="file" accept=".zip,.csv,.tsv,.xlsx,.xls,.txt" style={{ display: "none" }}
-              onChange={(e) => { const f = e.target.files?.[0]; if (f) parseFile(f); e.target.value = ""; }} />
+            {/* NOT display:none. Safari (and iOS Safari in particular) will not
+                open the picker for a programmatic .click() on an input that is
+                display:none — the tap reads as a dead button. Visually hidden
+                but rendered works everywhere. */}
+            <input
+              ref={fileRef}
+              type="file"
+              accept={accept}
+              className="iw-file"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) { dismissAwaiting(); parseFile(f); }
+                e.target.value = "";
+              }}
+            />
           </div>
 
           <p style={{ fontSize: 14, margin: "0 0 6px" }}>Or paste any text — a Letterboxd diary, a notes-app list, anything. Format doesn&apos;t matter:</p>
@@ -399,6 +545,7 @@ export default function ImportWizard() {
           <div className="iw-actions">
             <button type="button" className="btn" disabled={!text.trim()} onClick={parseText}>Decode my list →</button>
           </div>
+          {authLost && authNotice()}
           {error && <p style={{ color: "#b91c1c", fontSize: 14 }}>{error}</p>}
 
           <div className="iw-trust">
