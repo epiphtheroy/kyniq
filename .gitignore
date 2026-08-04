@@ -81,3 +81,16 @@ mobile/android/
 # DMARC aggregate reports (Google/others) — keep out of repo
 *!metatake.net!*.zip
 *!metatake.net!*.xml
+
+# Owner's working material — essay drafts, .docx notes, a streaming-services CSV.
+# NOT code, and this repo is PUBLIC. 극상글/ in particular holds the generators for
+# the Strong Misreadings column (Ultra_Creative_Misreading_PROMPT.md and the
+# 압축오독 prompt) — publishing those publishes the method itself, on a repo with
+# none of the robots.txt protection metatake.net gives the same writing.
+#
+# These were committed once by accident (6e2000b4, 2026-07-19, swept into the EAS
+# signing commit by a broad `git add`) and untracked the next day (0fb34f8f).
+# Ignored here so that cannot happen a third time.
+/극상글/
+/병치/
+/세계 영화/
