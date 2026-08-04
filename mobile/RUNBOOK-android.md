@@ -151,6 +151,30 @@ warning toasts before capturing, or capture from a development build.
 pkill -f "expo start"; adb emu kill; adb kill-server
 ```
 
+⚠️ **Closing the emulator window is not shutting it down, and a half-dead one
+blocks the next boot.** Twice on 2026-08-04 the VM stopped answering adb while
+its `qemu-system-aarch64` kept running and kept the AVD lock, so the next
+`emulator -avd` died with the misleading
+
+```
+FATAL | Running multiple emulators with the same AVD is an experimental feature.
+        Please use -read-only flag to enable this feature.
+```
+
+There is no second emulator. Kill the process and clear the stale locks:
+
+```bash
+pkill -f "qemu-system-aarch64 -avd Metatake_Pixel"
+rm -f ~/.android/avd/Metatake_Pixel.avd/hardware-qemu.ini.lock \
+      ~/.android/avd/Metatake_Pixel.avd/multiinstance.lock
+adb kill-server
+```
+
+⚠️ **`timeout` does not exist on this machine.** Wrapping the boot-wait poll in
+`timeout 10 adb shell getprop …` makes every iteration fail with
+`command not found`, so the loop reads empty forever and a perfectly healthy
+emulator looks like it never booted. Call `adb` directly.
+
 ---
 
 ## What the emulator can and cannot tell you
