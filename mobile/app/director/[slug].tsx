@@ -6,6 +6,7 @@
 // header, elevated where-to-start hero card, poster carousel for the
 // selection, grouped surface containers for the life.
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { glyphs } from "../../src/platform/tokens";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
 import { FlatList, Image, ScrollView, Share, View, useWindowDimensions } from "react-native";
@@ -13,7 +14,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FilmRow } from "../../src/components/FilmRow";
 import {
   Btn,
-  Loading,
   PosterImg,
   Screen,
   SectionTitle,
@@ -22,6 +22,7 @@ import {
   Ui,
 } from "../../src/components/ui";
 import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
+import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { usePrefs } from "../../src/state/prefs";
@@ -136,7 +137,7 @@ export default function DirectorScreen() {
           style={{ alignSelf: "stretch" }}
         />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+          <Disc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
         </View>
       </Screen>
     );
@@ -144,9 +145,20 @@ export default function DirectorScreen() {
     return (
       <Screen>
         <Stack.Screen options={{ headerShown: false }} />
-        <Loading />
+        <View style={{ paddingTop: insets.top + sp.s7, paddingHorizontal: sp.s4, gap: sp.s3 }}>
+          <Shimmer width={86} height={86} rounded={999} />
+          <SkeletonText w={0.55} size={26} />
+          <SkeletonText w={0.4} size={13} />
+          <View style={{ paddingTop: sp.s4, gap: sp.s2 }}>
+            <SkeletonText w={1} size={15} />
+            <SkeletonText w={0.9} size={15} />
+          </View>
+        </View>
+        <View style={{ paddingTop: sp.s5, marginHorizontal: -sp.s4 }}>
+          <SkeletonRows count={3} />
+        </View>
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+          <Disc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
         </View>
       </Screen>
     );
@@ -293,16 +305,17 @@ export default function DirectorScreen() {
               {t("director.filmography")}
             </SectionTitle>
             <View>
-              {films.map((f) => (
-                <FilmRow
-                  key={f.slug}
-                  slug={f.slug}
-                  title={f.title}
-                  year={f.year}
-                  poster_path={f.poster_path}
-                  ts={f.ts}
-                  tiers={f.tiers}
-                />
+              {films.map((f, i) => (
+                <Appear key={f.slug} index={i}>
+                  <FilmRow
+                    slug={f.slug}
+                    title={f.title}
+                    year={f.year}
+                    poster_path={f.poster_path}
+                    ts={f.ts}
+                    tiers={f.tiers}
+                  />
+                </Appear>
               ))}
               <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s2 }}>
                 {t("attribution.justwatch")}
@@ -370,10 +383,10 @@ export default function DirectorScreen() {
                   {card.intro}
                 </Ui>
               ) : null}
-              {visibleFacts.map((f) => {
+              {visibleFacts.map((f, fi) => {
                 const host = f.source ? hostOf(f.source) : null;
                 return (
-                  <View key={f.n} style={{ flexDirection: "row", gap: sp.s2 }}>
+                  <Appear key={f.n} index={fi} style={{ flexDirection: "row", gap: sp.s2 }}>
                     <Ui size={fs.sm} weight="600" color={pal.muted}>
                       {f.n}.
                     </Ui>
@@ -385,7 +398,7 @@ export default function DirectorScreen() {
                         </Ui>
                       ) : null}
                     </Ui>
-                  </View>
+                  </Appear>
                 );
               })}
               {facts.length > 8 ? (
@@ -416,8 +429,8 @@ export default function DirectorScreen() {
         }}
         pointerEvents="box-none"
       >
-        <Disc icon="chevron-back" onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
-        <Disc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+        <Disc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
+        <Disc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
       </View>
     </Screen>
   );

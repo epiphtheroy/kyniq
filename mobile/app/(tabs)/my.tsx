@@ -1,111 +1,224 @@
-// SHELF tab (HANDOFF v4 §5.6) — the judgment portfolio, 3 zones:
-//   ① Queue — watchlist × my-services availability (AgeBadge commitment decay)
-//   ② Deciding + Verdicts — the Considering pile (§5.0-D2) + Find/Aligned/Letdown recap
-//   ③ Journey — lineage conquest (me_coverage) + one blindspot (me_blindspots) → /room webview
-// ALL settings (edition switcher, services, notifications, account, in-app
-// deletion — Apple 5.1.1(v)) live behind the top-right gear in a full-screen
-// modal. Data path: me_* RPCs via app JWT (§7) + film_availability decoration.
+// YOU tab — the film ledger (owner 2026-08-03 rebuild).
+//
+// What this screen is now: MY films, and nothing else. Tonight, Explore and the
+// Navigator all recommend; You used to recommend too (a queue headline, a
+// "Deciding" rail, a blindspot nudge), which made it the fourth copy of the same
+// idea. It is now the only surface that answers "what have I actually watched,
+// what did I promise to watch, and what did I think of it?"
+//
+// Shape: four faces of the SAME ledger row (public.user_movies) as tabs —
+//   Watched (seen) · Watchlist (watchlist) · Rated (seen ∧ rating) · Passed (dismissed)
+// then a strip of very small sort switches (tap the active one to flip
+// direction), then a three-up poster grid where every cell carries the two
+// numbers that matter side by side: the TakeScore and MY stars.
+//
+// Data: me_collection / me_watchlist_scored are existing RPCs; Passed has no RPC
+// so api.passed() reads the own rows. TakeScore = round(V − R): me_collection
+// already returns it as `u`, the other two get it from takescore_for_slugs.
+// Rating/seen/watchlist are read through the ledger (optimistic) so a judgment
+// made anywhere in the app is visible here before any refetch.
+//
+// ALL settings (edition, services, notifications, account, in-app deletion —
+// Apple 5.1.1(v)) still live behind the top-right gear.
 import Ionicons from "@expo/vector-icons/Ionicons";
-import * as AppleAuthentication from "expo-apple-authentication";
 import { LinearGradient } from "expo-linear-gradient";
 import { type Href, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Alert,
+  FlatList,
   Modal,
-  Platform,
   RefreshControl,
   ScrollView,
   StyleSheet,
   Switch,
-  TextInput,
   View,
-  useColorScheme,
+  useWindowDimensions,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Serif,
-  AgeBadge,
+import {
   AvailabilityDots,
   Btn,
   GradientBtn,
   Hairline,
+  HeaderSearch,
   PosterImg,
   SectionTitle,
+  Serif,
   Tactile,
   Ui,
   UndoPill,
 } from "../../src/components/ui";
+import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE } from "../../src/config";
-import { ALL_EDITIONS } from "../../src/editions";
-import type { UILocale } from "../../src/editions";
+import { ALL_EDITIONS, langLabel } from "../../src/editions";
+import { Appear, ProgressBar, Shimmer } from "../../src/components/motion";
+import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
+import { isWeb } from "../../src/platform/env";
+import type { DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
-import * as considering from "../../src/lib/considering";
-import type { ConsideringItem } from "../../src/lib/considering";
 import { registerPush } from "../../src/lib/push";
+import { PUSH_CREDENTIALS_CONFIGURED } from "../../src/platform/notifications";
+import { useLocalTitles } from "../../src/lib/titles";
 import { supabase } from "../../src/lib/supabase";
 import {
   type Age,
   ageColor,
-  ageKey,
   ageOf,
   verdictColor,
-  verdictKey,
   verdictOf,
 } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, font, fs, gradient, radius, sp, usePalette } from "../../src/theme";
+import { loadSaves, useSaves } from "../../src/state/saves";
+import { brand, fs, gradient, radius, sp, usePalette } from "../../src/theme";
 import type {
-  BlindspotRow,
   CollectionRow,
-  CoverageRow,
+  NavCatalogEntry,
+  PassedRow,
   WatchlistScoredRow,
 } from "../../src/types";
 
-// Locale autonyms — shown in their own language on purpose. // TODO(i18n)
-const LOCALE_LABEL: Record<UILocale, string> = {
-  en: "English",
-  ko: "한국어",
-  es: "Español",
-  ja: "日本語",
-};
-const LOCALE_CYCLE: UILocale[] = ["en", "ko", "es", "ja"];
-
-// Connect hub route (HANDOFF-커넥트 §2.1). Cast: the /connect screen lands in
-// this same wave from another lane, and the generated typed-routes file only
-// refreshes on the next `expo start` — the cast keeps tsc green until then.
+// Connect hub route (HANDOFF-커넥트 §2.1).
 const CONNECT_HREF = "/connect" as Href;
 
 // Hairline inset for grouped settings rows: 16 padding + 32 icon disc + 12 gap.
 const ROW_INSET = 60;
-// Hairline inset for queue rows: 16 padding + 48 poster + 12 gap.
-const QUEUE_INSET = 76;
 
-const VERDICTS = ["find", "aligned", "letdown"] as const;
+// ---------------------------------------------------------------------------
+// The faces of the ledger, and how each one sorts. Four are films; the fifth is
+// the lists you kept (owner 08-03) — same shelf, different unit.
 
-export default function ShelfScreen() {
+type Face = "watched" | "queue" | "rated" | "passed" | "lists";
+type SortKey = "recent" | "rating" | "ts" | "gap" | "year" | "title" | "services";
+
+const FACES: { key: Face; label: DictKey }[] = [
+  { key: "watched", label: "you.tab.watched" },
+  { key: "queue", label: "you.tab.queue" },
+  { key: "rated", label: "you.tab.rated" },
+  { key: "passed", label: "you.tab.passed" },
+  { key: "lists", label: "you.tab.lists" },
+];
+
+/** Sort switches per face — first entry is that face's default. */
+const SORTS: Record<Face, SortKey[]> = {
+  watched: ["recent", "rating", "ts", "gap", "year", "title"],
+  queue: ["recent", "services", "ts", "year", "title"],
+  rated: ["rating", "recent", "ts", "gap", "year", "title"],
+  passed: ["recent", "ts", "year", "title"],
+  // Lists carry their own order (coverage first); no switches.
+  lists: [],
+};
+
+function sortLabel(key: SortKey, face: Face): DictKey {
+  // On the watchlist "recent" means when you promised, not when you watched —
+  // and flipping it is the "how long has this been waiting?" question.
+  if (key === "recent") return face === "queue" ? "you.sort.added" : "you.sort.recent";
+  return (`you.sort.${key}` as DictKey);
+}
+
+/** One grid tile — the shape every face is normalized into. */
+type Cell = {
+  slug: string;
+  title: string;
+  year: number | null;
+  posterPath: string | null;
+  /** TakeScore (V − R), the shared axis. */
+  ts: number | null;
+  /** MY rating, ledger-corrected. */
+  rating: number | null;
+  /** Canon Standing — turns a rating into a Find/Aligned/Letdown verdict. */
+  standing: number | null;
+  /** Sort timestamp: watched_at for seen rows, added_at for the rest. */
+  at: number;
+  /** Watchlist only: availability. */
+  tiers: string[];
+  onMine: boolean;
+  age: Age | null;
+};
+
+function sortValue(c: Cell, k: SortKey): number | string {
+  switch (k) {
+    case "recent":
+      return c.at;
+    case "rating":
+      return c.rating ?? -1;
+    case "ts":
+      return c.ts ?? -1;
+    case "gap":
+      // The /room gap: how far MY verdict sits from the canon's. High = a find.
+      return c.rating != null && c.standing != null ? c.rating * 20 - c.standing : -9999;
+    case "year":
+      return c.year ?? -1;
+    case "services":
+      return c.onMine ? 1 : 0;
+    case "title":
+      return c.title.toLocaleLowerCase();
+  }
+}
+
+function sortCells(cells: Cell[], key: SortKey, flipped: boolean): Cell[] {
+  const out = [...cells];
+  out.sort((a, b) => {
+    const av = sortValue(a, key);
+    const bv = sortValue(b, key);
+    // Text sorts A→Z by default; every number sorts high-first. Either way the
+    // default direction is the one you'd have asked for.
+    let r =
+      typeof av === "string" || typeof bv === "string"
+        ? String(av).localeCompare(String(bv))
+        : (bv as number) - (av as number);
+    if (flipped) r = -r;
+    // Deterministic tail, so equal values never shuffle between renders.
+    if (r === 0) r = b.at - a.at || a.slug.localeCompare(b.slug);
+    return r;
+  });
+  return out;
+}
+
+/** Which way the caret points for the current key + flip. */
+function caret(key: SortKey, flipped: boolean): string {
+  const down = key === "title" ? flipped : !flipped;
+  return down ? "↓" : "↑";
+}
+
+// ---------------------------------------------------------------------------
+
+export default function YouScreen() {
   const pal = usePalette();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const prefs = usePrefs();
-  const { session, ledger, entry, dismiss, undo, reload } = useFilms();
+  const { width } = useWindowDimensions();
+  const { session, ledger, undismiss, undo, reload } = useFilms();
+  const { promptRate } = useRate();
 
   const [showSettings, setShowSettings] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [face, setFace] = useState<Face>("watched");
+  const [sortKey, setSortKey] = useState<SortKey>("recent");
+  const [flipped, setFlipped] = useState(false);
 
-  // Zone data — all me_* JWT reads, reset on sign-out.
+  const [collection, setCollection] = useState<CollectionRow[] | null>(null);
   const [queue, setQueue] = useState<WatchlistScoredRow[] | null>(null);
+  const [passed, setPassed] = useState<PassedRow[] | null>(null);
+  const [tsMap, setTsMap] = useState<Map<string, number>>(new Map());
   const [tiers, setTiers] = useState<Map<string, string[]>>(new Map());
   const [mine, setMine] = useState<Set<string>>(new Set());
-  const [availReady, setAvailReady] = useState(false);
-  const [deciding, setDeciding] = useState<ConsideringItem[]>([]);
-  const [collection, setCollection] = useState<CollectionRow[] | null>(null);
-  const [coverage, setCoverage] = useState<CoverageRow[]>([]);
-  const [blindspot, setBlindspot] = useState<BlindspotRow | null>(null);
+
+  // Saved lists (owner 08-03) — the fifth face. The stars themselves come from
+  // the saves store (instant, shared with Explore); the labels and coverage come
+  // from the same catalog Explore's Collections rail uses, fetched only once the
+  // Lists face is actually opened.
+  const { refs: savedRefsOf, rev: savesRev } = useSaves();
+  const savedLists = useMemo(() => savedRefsOf("lineage"), [savedRefsOf, savesRev]);
+  const [catalog, setCatalog] = useState<NavCatalogEntry[] | null>(null);
+  const [catalogErr, setCatalogErr] = useState(false);
 
   const [undoTok, setUndoTok] = useState<JudgmentUndo | null>(null);
   const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const listRef = useRef<FlatList<Cell>>(null);
 
   const alive = useRef(true);
   useEffect(
@@ -119,44 +232,55 @@ export default function ShelfScreen() {
   const providersKey = prefs.providerIds.join(",");
 
   const fetchAll = useCallback(async () => {
-    if (!session?.user) {
+    const uid = session?.user?.id;
+    if (!uid) {
+      setCollection(null);
       setQueue(null);
+      setPassed(null);
+      setTsMap(new Map());
       setTiers(new Map());
       setMine(new Set());
-      setAvailReady(false);
-      setCollection(null);
-      setCoverage([]);
-      setBlindspot(null);
       return;
     }
-    const [rows, coll, cov, blind] = await Promise.all([
-      me.watchlistScored().catch(() => [] as WatchlistScoredRow[]),
+    const [coll, q, ps] = await Promise.all([
       me.collection().catch(() => [] as CollectionRow[]),
-      me.coverage(5, 40),
-      me.blindspots(1),
+      me.watchlistScored().catch(() => [] as WatchlistScoredRow[]),
+      me.passed(uid).catch(() => [] as PassedRow[]),
     ]);
     if (!alive.current) return;
-    setQueue(rows);
     setCollection(coll);
-    setCoverage(cov);
-    setBlindspot(blind[0] ?? null);
+    setQueue(q);
+    setPassed(ps);
 
-    // Availability decoration: dots (all providers) + my-services match set.
-    const slugs = rows.map((r) => r.slug).slice(0, 60);
-    setAvailReady(false);
-    if (!slugs.length) {
-      setTiers(new Map());
-      setMine(new Set());
-      setAvailReady(true);
+    // me_collection already carries the TakeScore as `u`; only the other two
+    // faces need the bulk score RPC (the standard bulk door, HANDOFF §13).
+    const needTs = [...new Set([...q.map((r) => r.slug), ...ps.map((r) => r.slug)])];
+    if (needTs.length) {
+      const merged = new Map<string, number>();
+      for (let i = 0; i < needTs.length; i += 400) {
+        const part = await api.takescores(needTs.slice(i, i + 400)).catch(() => new Map());
+        for (const [k, v] of part) merged.set(k, v);
+      }
+      if (alive.current) setTsMap(merged);
+    } else if (alive.current) {
+      setTsMap(new Map());
+    }
+
+    // Availability decorates the watchlist face only.
+    const qSlugs = q.map((r) => r.slug).slice(0, 120);
+    if (!qSlugs.length) {
+      if (alive.current) {
+        setTiers(new Map());
+        setMine(new Set());
+      }
       return;
     }
     try {
-      const tiersMap = await api.availability(slugs, prefs.country);
+      const tiersMap = await api.availability(qSlugs, prefs.country);
       let mineSet: Set<string>;
       if (prefs.providerIds.length) {
-        // Same anon RPC api.availability wraps, filtered to MY provider ids.
         const { data, error } = await supabase.rpc("film_availability", {
-          p_slugs: slugs,
+          p_slugs: qSlugs,
           p_countries: [prefs.country],
           p_providers: prefs.providerIds,
           p_include_us_library: false,
@@ -169,20 +293,16 @@ export default function ShelfScreen() {
         );
       } else {
         // No declared services — degrade to "available anywhere" (Tonight's rule).
-        mineSet = new Set(
-          [...tiersMap.entries()].filter(([, v]) => v.length > 0).map(([k]) => k),
-        );
+        mineSet = new Set([...tiersMap.entries()].filter(([, v]) => v.length > 0).map(([k]) => k));
       }
       if (!alive.current) return;
       setTiers(tiersMap);
       setMine(mineSet);
-      setAvailReady(true);
     } catch {
-      // Availability unknown → omit the headline instead of showing a fake 0 (§13-17).
+      // Availability unknown → show nothing rather than a fake "not available".
       if (!alive.current) return;
       setTiers(new Map());
       setMine(new Set());
-      setAvailReady(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session?.user?.id, prefs.country, providersKey]);
@@ -191,89 +311,157 @@ export default function ShelfScreen() {
     void fetchAll();
   }, [fetchAll]);
 
-  // Deciding pile — local ring buffer minus anything the ledger has settled.
-  useEffect(() => {
-    let on = true;
-    if (!session?.user) {
-      setDeciding([]);
-      return;
-    }
-    considering
-      .pile((slug) => {
-        const e = entry(slug);
-        return e.seen || e.watchlist || e.dismissed;
-      })
-      .then((items) => on && setDeciding(items));
-    return () => {
-      on = false;
-    };
-  }, [session?.user?.id, ledger, entry]);
-
   const onRefresh = async () => {
     setRefreshing(true);
-    await Promise.all([reload(), fetchAll()]);
+    // Lists are refreshed too — a list starred on metatake.net shows up here.
+    await Promise.all([reload(), fetchAll(), loadSaves(true)]);
     setRefreshing(false);
   };
 
-  // ---- Zone 1 derived rows --------------------------------------------------
-  const { mainRows, staleRows, qTotal, qAvail } = useMemo(() => {
-    const rows = (queue ?? []).filter((r) => {
+  // ---- Ledger-corrected faces ----------------------------------------------
+  // The ledger holds every user_movies row, so it — not the fetched snapshot —
+  // decides membership and rating. A judgment made on any screen shows up here
+  // immediately, and a stale snapshot can never resurrect a film you just passed.
+  const faces = useMemo(() => {
+    const watched: Cell[] = [];
+    for (const r of collection ?? []) {
       const e = ledger.get(r.slug);
-      return !e || (e.watchlist && !e.dismissed); // ledger (optimistic) wins
-    });
-    const main: WatchlistScoredRow[] = [];
-    const stale: WatchlistScoredRow[] = [];
-    for (const r of rows) (ageOf(r.added_at) === "stale" ? stale : main).push(r);
-    const at = (r: WatchlistScoredRow) => Date.parse(r.added_at ?? "") || 0;
-    main.sort((a, b) => {
-      const am = mine.has(a.slug) ? 1 : 0;
-      const bm = mine.has(b.slug) ? 1 : 0;
-      if (am !== bm) return bm - am; // available on my services first
-      return at(b) - at(a); // then newest commitment first
-    });
-    stale.sort((a, b) => at(a) - at(b)); // oldest promises first
-    return {
-      mainRows: main,
-      staleRows: stale,
-      qTotal: rows.length,
-      qAvail: rows.filter((r) => mine.has(r.slug)).length,
-    };
-  }, [queue, ledger, mine]);
-
-  // ---- Zone 2 derived (verdict recap) ---------------------------------------
-  const rated = useMemo(() => {
-    const rs = (collection ?? []).filter((r) => r.rating != null);
-    rs.sort((a, b) => (Date.parse(b.added_at ?? "") || 0) - (Date.parse(a.added_at ?? "") || 0));
-    return rs;
-  }, [collection]);
-
-  const verdictStats = useMemo(() => {
-    const counts = { find: 0, aligned: 0, letdown: 0 };
-    let findsThisMonth = 0;
-    const now = new Date();
-    for (const r of rated) {
-      const v = verdictOf(r.rating, r.prestige);
-      if (!v) continue;
-      counts[v] += 1;
-      if (v === "find" && r.added_at) {
-        const d = new Date(r.added_at);
-        if (d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()) {
-          findsThisMonth += 1;
-        }
-      }
+      if (e && !e.seen) continue;
+      watched.push({
+        slug: r.slug,
+        title: r.title,
+        year: r.year,
+        posterPath: r.poster_path,
+        ts: r.u,
+        rating: e ? e.rating : r.rating,
+        standing: r.prestige,
+        at: Date.parse(r.added_at ?? "") || 0,
+        tiers: [],
+        onMine: false,
+        age: null,
+      });
     }
-    return { counts, findsThisMonth };
-  }, [rated]);
+    const q: Cell[] = [];
+    for (const r of queue ?? []) {
+      const e = ledger.get(r.slug);
+      if (e && (!e.watchlist || e.dismissed)) continue;
+      const derived = r.v != null && r.r != null ? Math.round(r.v - r.r) : null;
+      q.push({
+        slug: r.slug,
+        title: r.title,
+        year: r.year,
+        posterPath: r.poster_path,
+        ts: tsMap.get(r.slug) ?? derived,
+        rating: e ? e.rating : r.rating,
+        standing: null,
+        at: Date.parse(r.added_at ?? "") || 0,
+        tiers: tiers.get(r.slug) ?? [],
+        onMine: mine.has(r.slug),
+        age: ageOf(r.added_at),
+      });
+    }
+    const ps: Cell[] = [];
+    for (const r of passed ?? []) {
+      const e = ledger.get(r.slug);
+      if (e && !e.dismissed) continue;
+      ps.push({
+        slug: r.slug,
+        title: r.title,
+        year: r.year,
+        posterPath: r.poster_path,
+        ts: tsMap.get(r.slug) ?? null,
+        rating: e ? e.rating : r.rating,
+        standing: null,
+        at: Date.parse(r.added_at ?? "") || 0,
+        tiers: [],
+        onMine: false,
+        age: null,
+      });
+    }
+    return {
+      watched,
+      queue: q,
+      rated: watched.filter((c) => c.rating != null),
+      passed: ps,
+    };
+  }, [collection, queue, passed, ledger, tsMap, tiers, mine]);
 
-  // ---- Zone 3 derived --------------------------------------------------------
-  const topCoverage = useMemo(
-    () => [...coverage].sort((a, b) => (b.aw ?? 0) - (a.aw ?? 0)).slice(0, 3),
-    [coverage],
+  const rows = useMemo(
+    () => (face === "lists" ? [] : sortCells(faces[face], sortKey, flipped)),
+    [faces, face, sortKey, flipped],
   );
 
-  // Same idiom as the film screen's "Read more" rows — the in-app reader.
-  const openRoom = (title: string) =>
-    router.push({ pathname: "/read", params: { path: "/room/coverage", title } });
+  // Only pay for the catalog when someone opens Lists, and only once.
+  useEffect(() => {
+    if (face !== "lists" || catalog || catalogErr) return;
+    let alive2 = true;
+    api
+      .lineageCatalog()
+      .then((c) => {
+        if (alive2) setCatalog(c);
+      })
+      .catch(() => {
+        if (alive2) setCatalogErr(true);
+      });
+    return () => {
+      alive2 = false;
+    };
+  }, [face, catalog, catalogErr]);
+
+  /** Saved lists, richest first — the ones you're furthest into lead. */
+  const listRows = useMemo(() => {
+    if (!savedLists.length) return [];
+    const by = new Map((catalog ?? []).map((c) => [c.key, c]));
+    return savedLists
+      .map(
+        (key) =>
+          by.get(key) ?? {
+            kind: "lineage" as const,
+            key,
+            label: key,
+            total: 0,
+            seen: 0,
+            pct: 0,
+            search: "",
+          },
+      )
+      .sort((a, b) => b.pct - a.pct || b.total - a.total || a.label.localeCompare(b.label));
+  }, [savedLists, catalog]);
+
+  // Localized titles for exactly what this face is about to paint (migration
+  // 0121). English short-circuits to a no-op.
+  const titleOf = useLocalTitles(useMemo(() => rows.map((r) => r.slug), [rows]));
+
+  // Verdict recap — the /room vocabulary, kept as one line on the Rated face
+  // instead of the zone it used to own.
+  const verdictCounts = useMemo(() => {
+    const n = { find: 0, aligned: 0, letdown: 0 };
+    for (const c of faces.rated) {
+      const v = verdictOf(c.rating, c.standing);
+      if (v) n[v] += 1;
+    }
+    return n;
+  }, [faces.rated]);
+
+  const pickFace = (next: Face) => {
+    if (next === face) return;
+    setFace(next);
+    // Lists carry no sort switches — leave the film faces' key alone.
+    if (SORTS[next].length) setSortKey(SORTS[next][0]);
+    setFlipped(false);
+    listRef.current?.scrollToOffset({ offset: 0, animated: false });
+  };
+
+  const pickSort = (key: SortKey) => {
+    // Tapping the live switch flips it — that is the whole direction control,
+    // and it keeps the strip to one row of very small labels.
+    if (key === sortKey) setFlipped((f) => !f);
+    else {
+      setSortKey(key);
+      setFlipped(false);
+    }
+    listRef.current?.scrollToOffset({ offset: 0, animated: false });
+  };
 
   const showUndo = (tok: JudgmentUndo) => {
     if (undoTimer.current) clearTimeout(undoTimer.current);
@@ -281,11 +469,10 @@ export default function ShelfScreen() {
     undoTimer.current = setTimeout(() => setUndoTok(null), 6000);
   };
 
-  const onPass = async (slug: string) => {
-    const tok = await dismiss(slug);
+  const onRestore = async (slug: string) => {
+    const tok = await undismiss(slug);
     if (tok) {
       showUndo(tok);
-      void considering.noteJudged(slug);
       me.invalidateRecommend();
     }
   };
@@ -300,23 +487,202 @@ export default function ShelfScreen() {
     }
   };
 
-  const surfaceCard = {
-    marginHorizontal: sp.s4,
-    backgroundColor: pal.surface,
-    borderRadius: radius.md,
-    overflow: "hidden" as const,
+  const onRateCell = (c: Cell) => {
+    promptRate({
+      slug: c.slug,
+      title: c.title,
+      year: c.year,
+      posterPath: c.posterPath,
+      standing: c.standing,
+      // A film rated from the watchlist becomes seen — refetch so it moves faces.
+      onDone: (v) => {
+        if (v != null) void fetchAll();
+      },
+    });
   };
 
-  return (
-    <View style={{ flex: 1, backgroundColor: pal.bg }}>
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{ paddingBottom: 120 }}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
-        }
+  // ---- Grid geometry --------------------------------------------------------
+  const GAP = 10;
+  const cellW = Math.floor((width - sp.s4 * 2 - GAP * 2) / 3);
+
+  const emptyKey: DictKey =
+    face === "watched"
+      ? "you.empty.watched"
+      : face === "queue"
+        ? "you.empty.queue"
+        : face === "rated"
+          ? "you.empty.rated"
+          : face === "lists"
+            ? "you.empty.lists"
+            : "you.empty.passed";
+
+  const loaded = collection !== null;
+  // "Has this person brought their films in yet?" — any row on any face counts.
+  const ledgerEmpty =
+    faces.watched.length === 0 && faces.queue.length === 0 && faces.passed.length === 0;
+
+  const header = (
+    <View>
+      {/* Masthead */}
+      <View
+        style={{
+          paddingTop: insets.top + sp.s3,
+          paddingHorizontal: sp.s4,
+          flexDirection: "row",
+          alignItems: "center",
+        }}
       >
-        {/* Masthead — title + settings gear */}
+        <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
+          {t("shelf.title")}
+        </Ui>
+        <HeaderSearch onPress={() => router.push("/search")} />
+        <View style={{ width: sp.s2 }} />
+        <Tactile onPress={() => setShowSettings(true)} hitSlop={8}>
+          <View
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: radius.pill,
+              backgroundColor: pal.surface,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Ionicons name="settings-outline" size={18} color={pal.ink} />
+          </View>
+        </Tactile>
+      </View>
+
+      {/* What the service is for, and the big door in — for people who have not
+          brought their films in yet. Owner 08-03: once a ledger exists this panel
+          has done its job and must get out of the way (import stays reachable as
+          the chip below). */}
+      {loaded && ledgerEmpty ? <JourneyCard onImport={() => router.push(CONNECT_HREF)} /> : null}
+
+      {/* One quiet line of counts, then the edition row the owner asked to keep
+          in the open (07-29) — chips, so the grid still starts high. */}
+      <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, marginTop: sp.s4 }}>
+        {t("you.stats", {
+          seen: faces.watched.length,
+          queue: faces.queue.length,
+          rated: faces.rated.length,
+        })}
+      </Ui>
+      <View
+        style={{
+          flexDirection: "row",
+          gap: sp.s2,
+          paddingHorizontal: sp.s4,
+          marginTop: sp.s3,
+        }}
+      >
+        {/* Country and services are one question and now one chip (owner 08-03). */}
+        <MetaChip
+          icon="globe-outline"
+          label={`${prefs.country} · ${prefs.providerIds.length}`}
+          onPress={() => router.push({ pathname: "/onboarding", params: { step: "edition" } })}
+        />
+        <MetaChip
+          icon="language-outline"
+          label={langLabel(prefs.contentLang)}
+          onPress={() => router.push({ pathname: "/onboarding", params: { step: "language" } })}
+        />
+        {/* The door back to Connect once the journey panel has retired — a second
+            import (another service, a fresh export) has to stay reachable. */}
+        {ledgerEmpty ? null : (
+          <MetaChip
+            icon="download-outline"
+            label={t("you.import")}
+            onPress={() => router.push(CONNECT_HREF)}
+          />
+        )}
+      </View>
+
+      {/* Faces */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2, paddingVertical: sp.s3 }}
+      >
+        {FACES.map((f) => {
+          const on = f.key === face;
+          return (
+            <Tactile key={f.key} onPress={() => pickFace(f.key)} feedback="select">
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 5,
+                  borderRadius: radius.pill,
+                  paddingHorizontal: 13,
+                  paddingVertical: 7,
+                  backgroundColor: on ? pal.ink : pal.surface,
+                }}
+              >
+                <Ui size={fs.sm} weight="600" color={on ? pal.bg : pal.inkSoft}>
+                  {t(f.label)}
+                </Ui>
+                <Ui
+                  size={fs.xs}
+                  weight="600"
+                  color={on ? pal.bg : pal.subtle}
+                  style={{ opacity: on ? 0.7 : 1 }}
+                >
+                  {String(f.key === "lists" ? savedLists.length : faces[f.key].length)}
+                </Ui>
+              </View>
+            </Tactile>
+          );
+        })}
+      </ScrollView>
+
+      {/* Sort switches — deliberately tiny; tap the live one to flip direction */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: sp.s4,
+          gap: sp.s4,
+          alignItems: "center",
+          paddingBottom: SORTS[face].length ? sp.s3 : 0,
+        }}
+      >
+        {SORTS[face].map((k) => {
+          const on = k === sortKey;
+          return (
+            <Tactile key={k} onPress={() => pickSort(k)} hitSlop={8} feedback="select">
+              <Ui
+                size={fs.xs}
+                weight={on ? "700" : "500"}
+                color={on ? brand.accent : pal.subtle}
+              >
+                {t(sortLabel(k, face))}
+                {on ? ` ${caret(k, flipped)}` : ""}
+              </Ui>
+            </Tactile>
+          );
+        })}
+      </ScrollView>
+
+      {face === "rated" && faces.rated.length ? (
+        <Ui size={fs.xs} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s3 }}>
+          {t("you.verdictLine", verdictCounts)}
+        </Ui>
+      ) : null}
+
+      <Hairline style={{ marginHorizontal: sp.s4, marginBottom: sp.s3 }} />
+
+      {(face === "lists" ? savedLists.length === 0 : loaded && rows.length === 0) ? (
+        <Ui size={fs.sm} color={pal.muted} style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s5 }}>
+          {t(emptyKey)}
+        </Ui>
+      ) : null}
+    </View>
+  );
+
+  if (!session) {
+    return (
+      <View style={{ flex: 1, backgroundColor: pal.bg }}>
         <View
           style={{
             paddingTop: insets.top + sp.s3,
@@ -343,330 +709,97 @@ export default function ShelfScreen() {
             </View>
           </Tactile>
         </View>
-
-        {!session ? (
-          /* Signed out — the portfolio needs an account. Gear stays reachable. */
-          <View
-            style={{
-              paddingHorizontal: sp.s5,
-              paddingTop: sp.s8,
-              alignItems: "center",
-              gap: sp.s4,
-            }}
-          >
-            <Ui size={fs.base} color={pal.inkSoft} style={{ textAlign: "center" }}>
-              {t("shelf.signedOut")}
-            </Ui>
-            <Btn
-              label={t("my.signIn")}
-              onPress={() => router.push({ pathname: "/onboarding", params: { step: "account" } })}
-              style={{ alignSelf: "stretch" }}
-            />
-            {/* Quiet secondary path — imports need auth anyway; the hub explains */}
-            <Tactile onPress={() => router.push(CONNECT_HREF)} hitSlop={6}>
-              <Ui
-                size={fs.sm}
-                weight="500"
-                color={pal.muted}
-                style={{ textAlign: "center", textDecorationLine: "underline" }}
-              >
-                {t("connect.entry.title")}
-              </Ui>
-            </Tactile>
-          </View>
-        ) : (
-          <>
-            {/* Connect entry — the empty shelf is the primary discovery moment
-                (HANDOFF-커넥트 §2.1: Shelf body card, not the gear sheet) */}
-            {queue !== null && qTotal === 0 ? <ConnectEntryCard /> : null}
-
-            {/* ── Zone 1 · Queue ─────────────────────────────────────────── */}
-            <SectionTitle
-              sub={
-                availReady && qTotal > 0
-                  ? t("shelf.queueLine", { avail: qAvail, total: qTotal })
-                  : undefined
-              }
-            >
-              {t("shelf.queueTitle")}
-            </SectionTitle>
-            {queue !== null && qTotal === 0 ? (
-              <Ui
-                size={fs.sm}
-                color={pal.muted}
-                style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s2 }}
-              >
-                {t("shelf.emptyQueue")}
-              </Ui>
-            ) : null}
-            {mainRows.length ? (
-              <View style={surfaceCard}>
-                {mainRows.map((r, i) => (
-                  <React.Fragment key={r.slug}>
-                    {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
-                    <QueueRow row={r} tiers={tiers.get(r.slug) ?? []} age={ageOf(r.added_at)} />
-                  </React.Fragment>
-                ))}
-              </View>
-            ) : null}
-            {staleRows.length ? (
-              <>
-                <Ui
-                  size={fs.sm}
-                  weight="500"
-                  color={pal.muted}
-                  style={{ paddingHorizontal: sp.s4, marginTop: sp.s4, marginBottom: sp.s2 }}
-                >
-                  {t("shelf.staleNudge")}
-                </Ui>
-                <View style={surfaceCard}>
-                  {staleRows.map((r, i) => (
-                    <React.Fragment key={r.slug}>
-                      {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
-                      <QueueRow
-                        row={r}
-                        tiers={tiers.get(r.slug) ?? []}
-                        age="stale"
-                        onPass={(slug) => void onPass(slug)}
-                      />
-                    </React.Fragment>
-                  ))}
-                </View>
-              </>
-            ) : null}
-
-            {/* ── Zone 2 · Deciding + Verdicts ───────────────────────────── */}
-            {deciding.length ? (
-              <>
-                <SectionTitle sub={t("shelf.decidingHint")}>{t("shelf.deciding")}</SectionTitle>
-                <ScrollView
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                  contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
-                >
-                  {deciding.map((d) => (
-                    <Tactile
-                      key={d.slug}
-                      onPress={() =>
-                        router.push({ pathname: "/film/[slug]", params: { slug: d.slug } })
-                      }
-                      style={{ width: 96 }}
-                    >
-                      <View>
-                        <PosterImg
-                          path={d.poster_path}
-                          width={96}
-                          height={144}
-                          size="w185"
-                          rounded={radius.sm}
-                        />
-                        <Ui size={fs.xs} numberOfLines={1} style={{ marginTop: 4 }}>
-                          {d.title}
-                        </Ui>
-                      </View>
-                    </Tactile>
-                  ))}
-                </ScrollView>
-              </>
-            ) : null}
-
-            {rated.length ? (
-              <>
-                <SectionTitle>{t("shelf.verdicts")}</SectionTitle>
-                <View style={[surfaceCard, { padding: sp.s4, gap: sp.s3 }]}>
-                  <View style={{ flexDirection: "row", flexWrap: "wrap", gap: sp.s4 }}>
-                    {VERDICTS.map((v) => (
-                      <View
-                        key={v}
-                        style={{ flexDirection: "row", alignItems: "center", gap: 6 }}
-                      >
-                        <View
-                          style={{
-                            width: 8,
-                            height: 8,
-                            borderRadius: radius.pill,
-                            backgroundColor: verdictColor(v),
-                          }}
-                        />
-                        <Ui size={fs.sm} weight="600">
-                          {String(verdictStats.counts[v])}
-                        </Ui>
-                        <Ui size={fs.sm} color={pal.muted}>
-                          {t(verdictKey(v))}
-                        </Ui>
-                      </View>
-                    ))}
-                  </View>
-                  <Ui size={fs.xs + 1} color={pal.muted}>
-                    {t("shelf.findsMonth", { n: verdictStats.findsThisMonth })}
-                  </Ui>
-                </View>
-                <View style={[surfaceCard, { marginTop: sp.s3 }]}>
-                  {rated.slice(0, 6).map((r, i) => {
-                    const v = verdictOf(r.rating, r.prestige);
-                    return (
-                      <React.Fragment key={r.slug}>
-                        {i > 0 ? <Hairline style={{ marginLeft: QUEUE_INSET }} /> : null}
-                        <Tactile
-                          onPress={() =>
-                            router.push({ pathname: "/film/[slug]", params: { slug: r.slug } })
-                          }
-                        >
-                          <View
-                            style={{
-                              flexDirection: "row",
-                              alignItems: "center",
-                              gap: sp.s3,
-                              paddingHorizontal: sp.s4,
-                              paddingVertical: sp.s3,
-                            }}
-                          >
-                            <PosterImg
-                              path={r.poster_path}
-                              width={48}
-                              height={72}
-                              size="w92"
-                              rounded={radius.sm}
-                            />
-                            <View style={{ flex: 1 }}>
-                              <Ui size={fs.md} weight="500" numberOfLines={1}>
-                                {r.title}
-                              </Ui>
-                              {r.year != null ? (
-                                <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 1 }}>
-                                  {String(r.year)}
-                                </Ui>
-                              ) : null}
-                            </View>
-                            {v ? <AgeBadge label={t(verdictKey(v))} color={verdictColor(v)} /> : null}
-                          </View>
-                        </Tactile>
-                      </React.Fragment>
-                    );
-                  })}
-                </View>
-              </>
-            ) : null}
-
-            {/* ── Zone 3 · Journey ───────────────────────────────────────── */}
-            {topCoverage.length || blindspot ? (
-              <>
-                <SectionTitle>{t("shelf.journey")}</SectionTitle>
-                {topCoverage.length ? (
-                  <View style={surfaceCard}>
-                    {topCoverage.map((c, i) => {
-                      const pct = Math.min(
-                        100,
-                        Math.round((c.total > 0 ? c.seen / c.total : 0) * 100),
-                      );
-                      return (
-                        <React.Fragment key={c.list_id}>
-                          {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
-                          <Tactile onPress={() => openRoom(c.label)}>
-                            <View
-                              style={{ paddingHorizontal: sp.s4, paddingVertical: sp.s3, gap: 6 }}
-                            >
-                              <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3 }}>
-                                <Ui size={fs.sm} weight="500" numberOfLines={1} style={{ flex: 1 }}>
-                                  {c.label}
-                                </Ui>
-                                <Ui size={fs.sm} color={pal.muted}>
-                                  {`${c.seen}/${c.total}`}
-                                </Ui>
-                              </View>
-                              <View
-                                style={{
-                                  height: 4,
-                                  borderRadius: radius.pill,
-                                  backgroundColor: pal.hairline,
-                                  overflow: "hidden",
-                                }}
-                              >
-                                <View
-                                  style={{
-                                    width: `${pct}%`,
-                                    height: 4,
-                                    borderRadius: radius.pill,
-                                    backgroundColor: brand.teal,
-                                  }}
-                                />
-                              </View>
-                            </View>
-                          </Tactile>
-                        </React.Fragment>
-                      );
-                    })}
-                  </View>
-                ) : null}
-                {blindspot ? (
-                  <Tactile
-                    onPress={() => openRoom(blindspot.label)}
-                    style={{ marginHorizontal: sp.s4, marginTop: sp.s3 }}
-                  >
-                    <View
-                      style={{
-                        backgroundColor: pal.surface,
-                        borderRadius: radius.md,
-                        padding: sp.s4,
-                        gap: 4,
-                      }}
-                    >
-                      <Ui size={fs.xs} weight="600" color={pal.muted}>
-                        {t("shelf.blindspot")}
-                      </Ui>
-                      <Ui size={fs.md} weight="600" numberOfLines={2}>
-                        {blindspot.label}
-                      </Ui>
-                      {blindspot.gap_reason ? (
-                        <Ui size={fs.sm} color={pal.inkSoft}>
-                          {blindspot.gap_reason}
-                        </Ui>
-                      ) : null}
-                    </View>
-                  </Tactile>
-                ) : null}
-                <Tactile
-                  onPress={() => openRoom(t("shelf.journey"))}
-                  hitSlop={6}
-                  style={{ alignSelf: "flex-start", paddingHorizontal: sp.s4, paddingVertical: sp.s3 }}
-                >
-                  <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
-                    <Ui size={fs.sm} weight="500" color={brand.accent}>
-                      {t("shelf.openRoom")}
-                    </Ui>
-                    <Ionicons name="arrow-forward" size={14} color={brand.accent} />
-                  </View>
-                </Tactile>
-              </>
-            ) : null}
-
-            {/* Connect entry, compact — discovery stays reachable on a full shelf */}
-            {qTotal > 0 ? <ConnectEntryCard compact /> : null}
-          </>
-        )}
-
-        {/* Attribution (invariant §13-8 — availability data shows above) */}
-        <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
-          <Ui size={fs.xs} color={pal.subtle}>
-            {t("attribution.justwatch")}
+        {/* Signed out is exactly when "what is this for?" has to be answered —
+            same panel, same door, no ledger behind it yet. */}
+        <JourneyCard onImport={() => router.push(CONNECT_HREF)} />
+        <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s5, gap: sp.s3 }}>
+          <Ui size={fs.sm} color={pal.muted} style={{ textAlign: "center" }}>
+            {t("shelf.signedOut")}
           </Ui>
-          <Ui size={fs.xs} color={pal.subtle}>
-            {t("attribution.tmdb")}
-          </Ui>
+          <Btn
+            kind="ghost"
+            label={t("my.signIn")}
+            onPress={() => router.push({ pathname: "/onboarding", params: { step: "account" } })}
+          />
         </View>
-      </ScrollView>
+        <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
+      </View>
+    );
+  }
 
-      {/* Floating undo — every judgment is reversible (§13-15) */}
+  if (face === "lists") {
+    return (
+      <View style={{ flex: 1, backgroundColor: pal.bg }}>
+        <FlatList
+          key="lists"
+          data={listRows}
+          keyExtractor={(l) => l.key}
+          ListHeaderComponent={header}
+          contentContainerStyle={{ paddingBottom: 120 }}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
+          }
+          renderItem={({ item, index }) => (
+            <Appear index={index}>
+              <SavedListRow
+                entry={item}
+                onPress={() =>
+                  router.push({
+                    pathname: "/list/[slug]",
+                    params: { slug: item.key, label: item.label },
+                  })
+                }
+              />
+            </Appear>
+          )}
+        />
+        <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
+      </View>
+    );
+  }
+
+  return (
+    <View style={{ flex: 1, backgroundColor: pal.bg }}>
+      <FlatList
+        key="grid"
+        ref={listRef}
+        data={rows}
+        keyExtractor={(c) => c.slug}
+        numColumns={3}
+        ListHeaderComponent={header}
+        // First load paints the shape of the grid rather than a blank shelf —
+        // the journey panel above is already saying what the wait is for.
+        ListEmptyComponent={loaded ? null : <GridSkeleton width={cellW} gap={GAP} />}
+        columnWrapperStyle={{ paddingHorizontal: sp.s4, gap: GAP }}
+        contentContainerStyle={{ paddingBottom: 120 }}
+        initialNumToRender={18}
+        windowSize={9}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={pal.muted} />
+        }
+        renderItem={({ item, index }) => (
+          <GridCell
+            cell={item}
+            shownTitle={titleOf(item.slug, item.title)}
+            face={face}
+            width={cellW}
+            index={index}
+            onOpen={() => router.push({ pathname: "/film/[slug]", params: { slug: item.slug } })}
+            onRate={() => onRateCell(item)}
+            onRestore={() => void onRestore(item.slug)}
+          />
+        )}
+      />
+
       {undoTok ? (
         <View
           pointerEvents="box-none"
           style={{ position: "absolute", left: 0, right: 0, bottom: insets.bottom + 96 }}
         >
-          <UndoPill label={t("judge.passed")} actionLabel={t("judge.undo")} onUndo={onUndo} />
+          <UndoPill label={t("judge.restore")} actionLabel={t("judge.undo")} onUndo={onUndo} />
         </View>
       ) : null}
 
-      {/* Settings — everything the old My screen held, verbatim, behind the gear */}
       <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
     </View>
   );
@@ -674,104 +807,286 @@ export default function ShelfScreen() {
 
 // ---------------------------------------------------------------------------
 
-/** "Bring your film life" — Shelf entry to the Connect hub (HANDOFF-커넥트 §2.1).
-    Prominent card on an empty shelf; compact row under Journey otherwise. */
-function ConnectEntryCard({ compact }: { compact?: boolean }) {
+/**
+ * The journey panel — what this app is FOR, stated in the open, and the big door
+ * into it (owner 08-03).
+ *
+ * Shown ONLY to someone whose ledger is still empty: this is the page for people
+ * who have not brought their films in yet, and it is meant to disappear the
+ * moment they have. So there is no progress bar and no ledger figure here —
+ * nothing to count yet — just the journey, the door, and which services fit
+ * through it.
+ */
+function JourneyCard({ onImport }: { onImport: () => void }) {
   const pal = usePalette();
-  const router = useRouter();
+  return (
+    <Appear
+      style={{
+        marginHorizontal: sp.s4,
+        marginTop: sp.s3,
+        backgroundColor: pal.surface,
+        borderRadius: radius.lg,
+        paddingHorizontal: sp.s4,
+        paddingVertical: sp.s4,
+        gap: sp.s2 + 2,
+      }}
+    >
+      <Serif size={fs.lg + 1} style={{ lineHeight: (fs.lg + 1) * 1.22 }}>
+        {t("you.journeyTitle")}
+      </Serif>
+      <Ui size={fs.sm} color={pal.inkSoft} style={{ lineHeight: fs.sm * 1.5 }}>
+        {t("you.journeyBody")}
+      </Ui>
+      <GradientBtn
+        icon="download-outline"
+        label={t("you.journeyCta")}
+        onPress={onImport}
+        style={{ marginTop: 2 }}
+      />
+      <Ui size={fs.xs} color={pal.muted} style={{ textAlign: "center" }}>
+        {t("you.journeyCtaSub")}
+      </Ui>
+    </Appear>
+  );
+}
+
+/** First-load poster grid — the wait reads as the ledger arriving. */
+function GridSkeleton({ width, gap }: { width: number; gap: number }) {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        flexWrap: "wrap",
+        paddingHorizontal: sp.s4,
+        columnGap: gap,
+        rowGap: sp.s3,
+      }}
+    >
+      {Array.from({ length: 9 }, (_, i) => (
+        <View key={i} style={{ width }}>
+          <Shimmer width={width} height={Math.round(width * 1.5)} rounded={radius.sm} />
+          <View style={{ marginTop: 6 }}>
+            <Shimmer width={Math.round(width * 0.78)} height={10} rounded={4} />
+          </View>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+/**
+ * One kept list. Coverage is the whole point of keeping it, so the row leads
+ * with how far into it you are; the label falls back to the slug until the
+ * catalog lands (a saved list must never render as a blank row).
+ */
+function SavedListRow({ entry, onPress }: { entry: NavCatalogEntry; onPress: () => void }) {
+  const pal = usePalette();
+  const pct = Math.max(0, Math.min(100, entry.pct));
   return (
     <Tactile
-      onPress={() => router.push(CONNECT_HREF)}
-      style={{ marginHorizontal: sp.s4, marginTop: compact ? sp.s5 : sp.s4 }}
+      onPress={onPress}
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        gap: sp.s3,
+        paddingHorizontal: sp.s4,
+        paddingVertical: sp.s3,
+      }}
     >
       <View
         style={{
-          backgroundColor: pal.surface,
-          borderRadius: radius.md,
-          paddingHorizontal: sp.s4,
-          paddingVertical: compact ? sp.s3 : sp.s4,
-          flexDirection: "row",
+          width: 34,
+          height: 34,
+          borderRadius: radius.pill,
           alignItems: "center",
-          gap: sp.s3,
+          justifyContent: "center",
+          backgroundColor: `${brand.accent}1F`,
         }}
       >
-        <View style={{ flex: 1 }}>
-          <Ui size={fs.md} weight="600" numberOfLines={1}>
-            {t("connect.entry.title")}
-          </Ui>
-          <Ui
-            size={compact ? fs.xs + 1 : fs.sm}
-            color={pal.muted}
-            numberOfLines={compact ? 1 : 2}
-            style={{ marginTop: 2 }}
-          >
-            {t("connect.entry.sub")}
-          </Ui>
-        </View>
-        <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+        <Ionicons name="star" size={15} color={brand.accent} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Ui size={fs.md} weight="500" numberOfLines={1}>
+          {entry.label}
+        </Ui>
+        <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 2 }}>
+          {entry.total
+            ? t("list.seenOf", { total: entry.total, seen: entry.seen })
+            : t("list.saved")}
+        </Ui>
+        {entry.total ? (
+          <View style={{ marginTop: 6 }}>
+            <ProgressBar value={pct / 100} tint={brand.accent} height={4} track={pal.surface} />
+          </View>
+        ) : null}
+      </View>
+      <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+    </Tactile>
+  );
+}
+
+/** Tiny status/shortcut chip for the edition row. */
+function MetaChip({
+  icon,
+  label,
+  onPress,
+}: {
+  icon: React.ComponentProps<typeof Ionicons>["name"];
+  label: string;
+  onPress: () => void;
+}) {
+  const pal = usePalette();
+  return (
+    <Tactile onPress={onPress} feedback="tap">
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 5,
+          borderRadius: radius.pill,
+          paddingHorizontal: 10,
+          paddingVertical: 5,
+          borderWidth: StyleSheet.hairlineWidth,
+          borderColor: pal.hairline2,
+        }}
+      >
+        <Ionicons name={icon} size={12} color={pal.muted} />
+        <Ui size={fs.xs} weight="600" color={pal.inkSoft}>
+          {label}
+        </Ui>
       </View>
     </Tactile>
   );
 }
 
-/** Queue row — poster, title/year, decay badge, availability dots, optional ✕ pass. */
-function QueueRow({
-  row,
-  tiers,
-  age,
-  onPass,
+/**
+ * One poster in the grid: the film, then the two numbers side by side —
+ * TakeScore (the canon's) and my stars (mine). Tapping the stars rates it
+ * without leaving the grid; the poster opens the brief.
+ */
+function GridCell({
+  cell,
+  shownTitle,
+  face,
+  width,
+  index,
+  onOpen,
+  onRate,
+  onRestore,
 }: {
-  row: WatchlistScoredRow;
-  tiers: string[];
-  age: Age | null;
-  onPass?: (slug: string) => void;
+  cell: Cell;
+  /** Title in the viewer's content language; falls back to cell.title. */
+  shownTitle: string;
+  face: Face;
+  width: number;
+  index: number;
+  onOpen: () => void;
+  onRate: () => void;
+  onRestore: () => void;
 }) {
   const pal = usePalette();
-  const router = useRouter();
+  const verdict = face === "rated" ? verdictOf(cell.rating, cell.standing) : null;
+  // One corner slot, whatever this face has to say about the film: on the
+  // watchlist it's commitment decay, on Rated it's how far my call sat from
+  // the canon's.
+  const corner = verdict
+    ? verdictColor(verdict)
+    : face === "queue" && cell.age && cell.age !== "fresh"
+      ? ageColor(cell.age)
+      : null;
+
   return (
-    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: row.slug } })}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: sp.s3,
-          paddingHorizontal: sp.s4,
-          paddingVertical: sp.s3,
-        }}
-      >
-        <PosterImg path={row.poster_path} width={48} height={72} size="w92" rounded={radius.sm} />
-        <View style={{ flex: 1 }}>
-          <Ui size={fs.md} weight="500" numberOfLines={1}>
-            {row.title}
+    <Appear index={index} distance={10}>
+      <Tactile onPress={onOpen} style={{ width, marginBottom: sp.s3 }}>
+        <View>
+          <View>
+            <PosterImg
+              path={cell.posterPath}
+              width={width}
+              height={Math.round(width * 1.5)}
+              size="w342"
+              rounded={radius.sm}
+            />
+            {corner ? (
+              <View
+                style={{
+                  position: "absolute",
+                  top: 6,
+                  left: 6,
+                  width: 8,
+                  height: 8,
+                  borderRadius: radius.pill,
+                  backgroundColor: corner,
+                  borderWidth: 1,
+                  borderColor: "rgba(0,0,0,0.25)",
+                }}
+              />
+            ) : null}
+            {/* Availability rides ON the poster so the line underneath is always
+                the same two things: the canon's number and mine. */}
+            {face === "queue" && cell.tiers.length ? (
+              <View
+                style={{
+                  position: "absolute",
+                  left: 5,
+                  bottom: 5,
+                  borderRadius: radius.pill,
+                  paddingHorizontal: 5,
+                  paddingVertical: 3,
+                  backgroundColor: pal.chrome,
+                }}
+              >
+                <AvailabilityDots tiers={cell.tiers} />
+              </View>
+            ) : null}
+          </View>
+
+          {/* The two numbers, side by side (owner 08-03) */}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 5,
+              minHeight: 18,
+            }}
+          >
+            {cell.ts != null ? (
+              <Ui size={fs.sm} weight="700" color={brand.tsGreen}>
+                {String(cell.ts)}
+              </Ui>
+            ) : (
+              <Ui size={fs.sm} weight="700" color={pal.hairline2}>
+                –
+              </Ui>
+            )}
+            {face === "passed" ? (
+              <Tactile
+                onPress={onRestore}
+                hitSlop={12}
+                feedback="tap"
+                style={{ paddingLeft: 10, paddingVertical: 2 }}
+              >
+                <Ionicons name="arrow-undo-outline" size={15} color={pal.muted} />
+              </Tactile>
+            ) : (
+              <Tactile
+                onPress={onRate}
+                hitSlop={12}
+                feedback="tap"
+                style={{ paddingLeft: 10, paddingVertical: 2 }}
+              >
+                <MiniStars value={cell.rating} size={10} />
+              </Tactile>
+            )}
+          </View>
+
+          <Ui size={fs.xs} numberOfLines={2} color={pal.inkSoft} style={{ marginTop: 1, height: 32 }}>
+            {shownTitle}
           </Ui>
-          {row.year != null ? (
-            <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 1 }}>
-              {String(row.year)}
-            </Ui>
-          ) : null}
         </View>
-        {/* Fresh stays quiet — only decay (aging/stale) earns a badge */}
-        {age && age !== "fresh" ? <AgeBadge label={t(ageKey(age))} color={ageColor(age)} /> : null}
-        {tiers.length ? <AvailabilityDots tiers={tiers} /> : null}
-        {onPass ? (
-          <Tactile onPress={() => onPass(row.slug)} hitSlop={8}>
-            <View
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: radius.pill,
-                borderWidth: StyleSheet.hairlineWidth,
-                borderColor: pal.hairline2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Ionicons name="close" size={16} color={pal.ink} />
-            </View>
-          </Tactile>
-        ) : null}
-      </View>
-    </Tactile>
+      </Tactile>
+    </Appear>
   );
 }
 
@@ -782,7 +1097,6 @@ function QueueRow({
 
 function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
   const pal = usePalette();
-  const scheme = useColorScheme();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const prefs = usePrefs();
@@ -800,6 +1114,10 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
   }, [authOpen]);
 
   const onTogglePush = async (on: boolean) => {
+    // Without an FCM credential registerPush() cannot succeed, so the optimistic
+    // write below would be two syncPrefs round trips whose answer we already
+    // know. Refuse the write rather than perform a failure.
+    if (!PUSH_CREDENTIALS_CONFIGURED) return;
     if (!on) {
       prefs.set({ pushEnabled: false });
       return;
@@ -812,13 +1130,8 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
   };
 
   const edition = ALL_EDITIONS.find((e) => e.country === prefs.country);
-  const cycleLocale = () => {
-    const i = LOCALE_CYCLE.indexOf(prefs.locale);
-    prefs.set({ locale: LOCALE_CYCLE[(i + 1) % LOCALE_CYCLE.length] });
-  };
-
   // The modal floats above the navigator — close it before pushing a route.
-  const goOnboarding = (step: "country" | "services") => {
+  const goOnboarding = (step: "edition" | "language") => {
     onClose();
     router.push({ pathname: "/onboarding", params: { step } });
   };
@@ -931,27 +1244,32 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
               overflow: "hidden",
             }}
           >
+            {/* One row, one question: where you watch. The page behind it holds
+                the country AND the services that exist in it. */}
             <SettingRow
               icon="globe-outline"
-              label={t("my.country")}
-              value={edition ? `${edition.flag} ${edition.label}` : prefs.country}
-              onPress={() => goOnboarding("country")}
+              label={t("onboarding.editionTitle")}
+              value={`${edition ? `${edition.flag} ${edition.label}` : prefs.country} · ${prefs.providerIds.length}`}
+              onPress={() => goOnboarding("edition")}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />
+            {/* The third axis — unrelated to the row above it, by design. */}
             <SettingRow
               icon="language-outline"
-              label={t("my.language")}
-              value={LOCALE_LABEL[prefs.locale]}
-              onPress={cycleLocale}
+              label={t("you.language")}
+              value={langLabel(prefs.contentLang)}
+              onPress={() => goOnboarding("language")}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />
-            <SettingRow
-              icon="tv-outline"
-              label={t("my.services")}
-              value={String(prefs.providerIds.length)}
-              onPress={() => goOnboarding("services")}
-            />
-            <Hairline style={{ marginLeft: ROW_INSET }} />
+            {/* @divergence pushDelivery — Android has no FCM credential yet, so
+                registration always fails and the thumb snaps back. Explained and
+                disabled rather than hidden: this is debt with an exit, and a row
+                that simply vanishes on one platform reads as a feature we never
+                had, so nobody ever asks for it back. Stated, it stays a promise
+                the owner is on the hook for. The switch also shows OFF rather
+                than the stored value — pushEnabled can only be false here, and a
+                switch that looked ON would be claiming deliveries that cannot
+                arrive. */}
             <View
               style={{
                 flexDirection: "row",
@@ -963,16 +1281,20 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
             >
               <IconDisc name="notifications-outline" />
               <View style={{ flex: 1 }}>
-                <Ui size={fs.md} weight="500">
+                <Ui
+                  size={fs.md}
+                  weight="500"
+                  color={PUSH_CREDENTIALS_CONFIGURED ? undefined : pal.muted}
+                >
                   {t("my.notifications")}
                 </Ui>
                 <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
-                  {t("my.notifyArrivals")}
+                  {t(PUSH_CREDENTIALS_CONFIGURED ? "my.notifyArrivals" : "my.notifyUnavailable")}
                 </Ui>
               </View>
               <Switch
-                value={prefs.pushEnabled}
-                disabled={pushBusy}
+                value={PUSH_CREDENTIALS_CONFIGURED && prefs.pushEnabled}
+                disabled={pushBusy || !PUSH_CREDENTIALS_CONFIGURED}
                 onValueChange={onTogglePush}
                 trackColor={{ true: brand.accent, false: pal.hairline2 }}
               />
@@ -988,21 +1310,56 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
           ) : authOpen ? (
             <>
               <SectionTitle>{t("my.account")}</SectionTitle>
-              <SignedOut
-                scheme={scheme === "dark" ? "dark" : "light"}
-                onSkip={() => setAuthOpen(false)}
-              />
+              <SignedOut onSkip={() => setAuthOpen(false)} />
             </>
           ) : null}
 
-          {/* Attribution (invariant §13-8) */}
-          <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: 2 }}>
-            <Ui size={fs.xs} color={pal.subtle}>
-              {t("attribution.justwatch")}
-            </Ui>
-            <Ui size={fs.xs} color={pal.subtle}>
-              {t("attribution.tmdb")}
-            </Ui>
+          {/* TMDB and JustWatch both REQUIRE attribution, so this door can never
+              go away — but as a 11pt subtle-grey line it was invisible, which is
+              the same as not being there (owner 08-03). It is now a normal
+              grouped row like every other setting: real label, what's behind it,
+              chevron. */}
+          <View
+            style={{
+              marginTop: sp.s6,
+              marginHorizontal: sp.s4,
+              backgroundColor: pal.surface,
+              borderRadius: radius.md,
+              overflow: "hidden",
+            }}
+          >
+            <Tactile
+              feedback="tap"
+              onPress={() => {
+                // Same rule as goOnboarding: pushed under the sheet the reader is
+                // invisible, so the row reads as dead — and on Android the back
+                // press that undoes the "nothing happened" reveals it instead,
+                // which looks like back navigating forward.
+                onClose();
+                router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } });
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: sp.s3,
+                  paddingHorizontal: sp.s4,
+                  paddingVertical: sp.s3,
+                }}
+              >
+                <IconDisc name="information-circle-outline" />
+                <View style={{ flex: 1 }}>
+                  <Ui size={fs.md} weight="500">
+                    {t("my.credits")}
+                  </Ui>
+                  <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+                    {t("my.creditsSub")}
+                  </Ui>
+                </View>
+                <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
+              </View>
+            </Tactile>
           </View>
         </ScrollView>
       </View>
@@ -1029,6 +1386,12 @@ function IconDisc({ name }: { name: React.ComponentProps<typeof Ionicons>["name"
   );
 }
 
+/**
+ * One grouped settings row. The value sits UNDER the label, not beside it
+ * (owner 08-03): "Where do you watch?" next to "🇰🇷 South Korea · 0" did not fit
+ * a phone's width and wrapped into three ragged lines. Stacked, it can't — and
+ * it matches the Notifications row right above it.
+ */
 function SettingRow({
   icon,
   label,
@@ -1053,12 +1416,14 @@ function SettingRow({
         }}
       >
         <IconDisc name={icon} />
-        <Ui size={fs.md} weight="500" style={{ flex: 1 }}>
-          {label}
-        </Ui>
-        <Ui size={fs.sm} color={pal.muted}>
-          {value}
-        </Ui>
+        <View style={{ flex: 1 }}>
+          <Ui size={fs.md} weight="500" numberOfLines={1}>
+            {label}
+          </Ui>
+          <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 2 }}>
+            {value}
+          </Ui>
+        </View>
         <Ionicons name="chevron-forward" size={16} color={pal.subtle} />
       </View>
     </Tactile>
@@ -1097,7 +1462,7 @@ function SignedIn() {
     // the authorization header the public API's CORS deliberately blocks — so the
     // browser delegates account management to the website. Native does it in-app
     // (Apple 5.1.1(v)).
-    if (Platform.OS === "web") {
+    if (isWeb) {
       window.open(`${METATAKE_BASE}/settings`, "_blank", "noopener");
       return;
     }
@@ -1129,103 +1494,22 @@ function SignedIn() {
           {t("error.network")}
         </Ui>
       ) : null}
-      {/* Dedication (owner directive 2026-07-20) */}
-      <Serif
-        size={fs.sm}
-        italic
-        color={pal.subtle}
-        style={{ textAlign: "center", marginTop: sp.s4 }}
-      >
-        to. W.H. Heo
-      </Serif>
+      {/* The dedication that used to close this block is gone (owner 08-03,
+          reversing 07-20). to. WY. Heo lives on where it means something — the
+          curator's letter on every film page — not in the settings foot. */}
     </View>
   );
 }
 
-// ---- Signed-out account block: email + 6-digit code, Apple ----------------
+// ---- Signed-out account block: email + code, Apple ------------------------
 
-function SignedOut({
-  scheme,
-  onSkip,
-}: {
-  scheme: "light" | "dark" | null | undefined;
-  onSkip: () => void;
-}) {
+/** Sign-in inside the settings sheet. Renders the ONE shared panel — this was a
+ *  second hand-maintained copy and had drifted: it still asked for a 6-digit
+ *  code when the server sends 8, showed an untranslated developer string, and
+ *  reported every auth failure as "couldn't reach Metatake", which is what the
+ *  owner hit on 2026-07-31. */
+function SignedOut({ onSkip }: { onSkip: () => void }) {
   const pal = usePalette();
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
-  const [stage, setStage] = useState<"email" | "code">("email");
-  const [busy, setBusy] = useState(false);
-  const [err, setErr] = useState(false);
-  const [appleErr, setAppleErr] = useState(false);
-
-  const inputStyle = {
-    backgroundColor: pal.card,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: pal.hairline2,
-    borderRadius: radius.sm,
-    color: pal.ink,
-    fontFamily: font.ui,
-    fontSize: fs.base,
-    paddingHorizontal: sp.s4,
-    paddingVertical: sp.s3,
-  } as const;
-
-  const sendCode = async () => {
-    if (busy || !email.includes("@")) return;
-    setBusy(true);
-    setErr(false);
-    try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email: email.trim(),
-        options: { shouldCreateUser: true },
-      });
-      if (error) throw error;
-      setStage("code");
-    } catch {
-      setErr(true);
-    }
-    setBusy(false);
-  };
-
-  const verifyCode = async () => {
-    if (busy || code.trim().length < 6) return;
-    setBusy(true);
-    setErr(false);
-    try {
-      const { error } = await supabase.auth.verifyOtp({
-        email: email.trim(),
-        token: code.trim(),
-        type: "email",
-      });
-      if (error) throw error;
-      // session propagates via onAuthStateChange (FilmsProvider reloads the ledger)
-    } catch {
-      setErr(true);
-    }
-    setBusy(false);
-  };
-
-  const signInApple = async () => {
-    try {
-      const credential = await AppleAuthentication.signInAsync({
-        requestedScopes: [
-          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-          AppleAuthentication.AppleAuthenticationScope.EMAIL,
-        ],
-      });
-      if (!credential.identityToken) throw new Error("no identity token");
-      const { error } = await supabase.auth.signInWithIdToken({
-        provider: "apple",
-        token: credential.identityToken,
-      });
-      if (error) throw error;
-    } catch (e) {
-      // User-cancelled sheets stay silent; real failures surface the config hint.
-      if ((e as { code?: string }).code !== "ERR_REQUEST_CANCELED") setAppleErr(true);
-    }
-  };
-
   return (
     <View
       style={{
@@ -1239,81 +1523,7 @@ function SignedOut({
       <Ui size={fs.lg} weight="600">
         {t("auth.title")}
       </Ui>
-      <TextInput
-        value={email}
-        onChangeText={setEmail}
-        placeholder={t("auth.email")}
-        placeholderTextColor={pal.subtle}
-        autoCapitalize="none"
-        autoCorrect={false}
-        keyboardType="email-address"
-        autoComplete="email"
-        style={inputStyle}
-      />
-      {stage === "code" ? (
-        <>
-          <Ui size={fs.xs + 1} color={pal.muted}>
-            Enter the 6-digit code we emailed you {/* TODO(i18n) */}
-          </Ui>
-          <TextInput
-            value={code}
-            onChangeText={setCode}
-            placeholder="000000"
-            placeholderTextColor={pal.subtle}
-            keyboardType="number-pad"
-            maxLength={6}
-            textContentType="oneTimeCode"
-            style={inputStyle}
-          />
-          <GradientBtn label={t("my.signIn")} onPress={() => void verifyCode()} />
-        </>
-      ) : (
-        <GradientBtn label={t("auth.continue")} onPress={() => void sendCode()} />
-      )}
-      {err ? (
-        <Ui size={fs.xs + 1} color={pal.muted}>
-          {t("error.network")}
-        </Ui>
-      ) : null}
-
-      {/* or */}
-      <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginVertical: sp.s1 }}>
-        <Hairline style={{ flex: 1 }} />
-        <Ui size={fs.xs} color={pal.muted}>
-          {t("auth.or")}
-        </Ui>
-        <Hairline style={{ flex: 1 }} />
-      </View>
-
-      {Platform.OS === "ios" ? (
-        <>
-          <AppleAuthentication.AppleAuthenticationButton
-            buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-            buttonStyle={
-              scheme === "dark"
-                ? AppleAuthentication.AppleAuthenticationButtonStyle.WHITE
-                : AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
-            }
-            cornerRadius={radius.xs}
-            style={{ height: 48 }}
-            onPress={() => void signInApple()}
-          />
-          {appleErr ? (
-            <Ui size={fs.xs + 1} color={pal.muted}>
-              Apple sign-in not configured yet {/* TODO(owner): enable Apple provider in Supabase Auth */}
-            </Ui>
-          ) : null}
-        </>
-      ) : null}
-      <Ui size={fs.sm} color={pal.subtle} style={{ textAlign: "center" }}>
-        {t("auth.continueGoogle")} · {t("common.soon")}
-      </Ui>
-
-      <Tactile onPress={onSkip} style={{ alignSelf: "center", paddingVertical: sp.s1 }}>
-        <Ui size={fs.sm} weight="500" color={pal.muted} style={{ textDecorationLine: "underline" }}>
-          {t("action.skip")}
-        </Ui>
-      </Tactile>
+      <SignInPanel onDone={onSkip} />
     </View>
   );
 }

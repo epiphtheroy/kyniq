@@ -9,6 +9,16 @@ export type Availability = {
   cc: string;
 };
 
+/** Metatake TV — the film's own program, plus the lists it rides in. */
+export type TvProgram = {
+  slug: string;
+  title: string;
+  dek: string | null;
+  segments: number | null;
+  duration_ms: number | null;
+  lists: { slug: string; title: string; kind: string | null }[];
+};
+
 export type LineageRow = {
   facet: string;
   list_slug: string;
@@ -57,6 +67,8 @@ export type FilmCard = {
     intro: string | null;
     facts: LifeFact[];
   } | null;
+  /** Absent on servers that predate the TV shelf; the app hides it then. */
+  tv?: TvProgram | null;
   // v4 judgment signals (PAYLOAD_V 2 — additive; an older server simply omits them)
   rank?: number | null;
   rank_total?: number | null;
@@ -66,6 +78,17 @@ export type FilmCard = {
   standing?: number | null; // canon prestige — the verdict comparator (NOT TakeScore)
   dims?: { key: string; label: string; val: number }[] | null; // 13-dim expectation chips
   kindred?: { slug: string; title: string; year: number | null; shared: number }[] | null;
+};
+
+/** tow_comment RPC — the curator's letter (mirror of web components/read/TowCard.tsx). */
+export type TowComment = {
+  verdict: string;
+  verdict_label: string | null;
+  authority_label: string | null;
+  rationale: string | null;
+  director?: string | null;
+  auteur?: boolean | null;
+  rec_date?: string | null;
 };
 
 export type DirectorFilm = {
@@ -126,6 +149,9 @@ export type TonightPayload = {
   country: string;
   total: number;
   rows: TonightRow[];
+  /** Echo of the applied production-country filter. Absent on servers that
+   *  predate it — which is how the app knows not to offer the chip. */
+  countries?: string[];
 };
 
 export type Service = {
@@ -226,6 +252,17 @@ export type CollectionRow = {
   votes: number | null;
   added_at: string | null;
   facets: string[] | null;
+};
+
+/** Passed films — flattened own-row read (api.passed); no RPC exists for these. */
+export type PassedRow = {
+  slug: string;
+  title: string;
+  year: number | null;
+  poster_path: string | null;
+  director: string | null;
+  rating: number | null;
+  added_at: string | null;
 };
 
 /** me_coverage(p_min_total, p_limit) — lineage conquest rows. */
@@ -351,6 +388,14 @@ export type OdyStationLite = {
   p?: string; // poster_path
   d?: string | null; // director
   ln?: string[]; // line (lineage) memberships
+  // Deal fields (the "For you — nine films" draw, ported from web lib/odyssey/deal.ts).
+  // map.v1.json always carried these; the Lite type simply didn't read them before.
+  t?: string; // title
+  y?: number | null; // year
+  c?: number; // altitude band 1..5 (starter-deal fallback axis)
+  pr?: number; // prestige score (canon weight inside a band)
+  tx?: number; // t-SNE x (taste-distance space)
+  ty?: number; // t-SNE y
 };
 export type OdyLineLite = {
   id: string;
@@ -390,6 +435,12 @@ export type NavPickDest = {
 
 /** Picker payload — the two families the app lists as onward destinations. */
 export type NavDestinations = { directors: NavPickDest[]; canon: NavPickDest[] };
+
+/** A browsable catalog entry — ALL directors + ALL lineages/lists (not just the
+ * viewer's in-progress ones), each a NavPickDest plus a lowercased `search` string
+ * (label + parent + facet + country) for the Navigator tab's list search (owner 07-29). */
+export type NavCatalogEntry = NavPickDest & { search: string };
+export type NavCatalog = { directors: NavCatalogEntry[]; lineages: NavCatalogEntry[] };
 
 /** A drive destination descriptor passed to api.navigator(). */
 export type NavDest = { dir?: string; lineage?: string; label?: string };

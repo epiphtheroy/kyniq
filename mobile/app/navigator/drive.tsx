@@ -19,12 +19,15 @@
 // Position is ledger-derived server-side (invariant §10-1); marking the next film seen
 // advances the chevron ("rerouting").
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useAndroidBack } from "../../src/platform/back";
+import { glyphs } from "../../src/platform/tokens";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Animated, LayoutChangeEvent, PanResponder, ScrollView, Share, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Svg, { Ellipse, Path, Rect } from "react-native-svg";
+import { useRate } from "../../src/components/RateSheet";
 import { Btn, Loading, PosterImg, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { METATAKE_BASE } from "../../src/config";
 import { t } from "../../src/i18n";
@@ -164,7 +167,10 @@ function buildWorld(stations: OdyStationLite[], onRoute: Set<string>, L: number)
   }
   const spanX = maxX - minX || 1;
   const spanY = maxY - minY || 1;
-  const WSPANX = clamp(L * 2.4, 380, 1400); // world width in lane units (≥ ~4 screens)
+  // World width MUST always contain the full route lane [X0..L], else the pan clamp
+  // (derived from these bounds) can't reach the "Now" chevron or the 🏁 destination on
+  // large canon/lineage drives (N≳70). No upper cap — mirror web (field ⊇ lane).
+  const WSPANX = Math.max(L * 1.4, 380); // world width in lane units (always ⊇ lane)
   const WSPANY = 260; // world height in lane units (~2.6 screens tall)
   const WX0 = (X0 + L) / 2 - WSPANX / 2; // centre the world on the lane's middle
   const WY0 = 50 - WSPANY / 2;
@@ -351,6 +357,7 @@ export default function NavigatorDriveScreen() {
   const { width: winW } = useWindowDimensions();
   const { country } = usePrefs();
   const { session, markSeen } = useFilms();
+  const { promptRate } = useRate();
 
   const [dest, setDest] = useState<NavDest | null>(() => {
     if (params.lineage) return { lineage: params.lineage, label: params.label };
@@ -370,6 +377,12 @@ export default function NavigatorDriveScreen() {
   const [k, setK] = useState(1); // adaptive map scale (short journey = zoomed in)
   const [viewCenter, setViewCenter] = useState({ cx: 50, cy: 50 }); // pan centre, lane units → background culling
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Reset pref/skipped ONLY on a genuine destination change, never on a reroute
+  // (mark-seen bumps `gen` → refetch, but the user's chosen route/skips must survive).
+  const prefDestRef = useRef<string | null>(null);
+  // True only when `dest` is the synthetic canon fallback (no params, no started
+  // conquest) — we must NOT persist that as a Resume the user never chose (§10-1).
+  const syntheticDestRef = useRef(false);
 
   // Draggable + adaptively-zoomed map layer. PanResponder claims only on a real drag
   // (poster taps pass through); the offset is clamped to the whole explorable world and
@@ -463,7 +476,9 @@ export default function NavigatorDriveScreen() {
     let alive = true;
     (async () => {
       const d = session ? await me.midConquestDirector().catch(() => null) : null;
-      if (alive) setDest({ dir: d ?? DEFAULT_DIR });
+      if (!alive) return;
+      syntheticDestRef.current = !d; // fell back to the canon default → do not persist as Resume
+      setDest({ dir: d ?? DEFAULT_DIR });
     })();
     return () => {
       alive = false;
@@ -489,15 +504,23 @@ export default function NavigatorDriveScreen() {
   useEffect(() => {
     if (!dest) return;
     let alive = true;
-    setData(null);
+    // Keep the current drive on screen during a reroute refetch (mark-seen bumps
+    // `gen`) — blanking `data` to a spinner would flash the whole flagship on every
+    // judgment. Only the initial load (data still null) shows <Loading/>.
     setErr(false);
     api
       .navigator(dest, country)
       .then((d) => {
         if (!alive) return;
         setData(d);
-        setPref(d.defaultPref);
-        setSkipped(new Set());
+        // Apply the server's default route + clear skips ONLY when the destination
+        // itself changed; a reroute must preserve the user's chosen pref and skips.
+        const destKey = dest.lineage ?? dest.dir ?? null;
+        if (prefDestRef.current !== destKey) {
+          setPref(d.defaultPref);
+          setSkipped(new Set());
+          prefDestRef.current = destKey;
+        }
       })
       .catch(() => alive && setErr(true));
     return () => {
@@ -511,7 +534,8 @@ export default function NavigatorDriveScreen() {
   // destination (dest), which the picker/deep-link set. Fire-and-forget: a failed
   // resume write must never block or break the drive.
   useEffect(() => {
-    if (!session || !data || !dest) return;
+    // Never persist the synthetic canon fallback as a Resume the user never chose.
+    if (!session || !data || !dest || syntheticDestRef.current) return;
     const dest_kind = dest.lineage ? "lineage" : "dir";
     const dest_key = dest.lineage ?? dest.dir;
     if (!dest_key) return;
@@ -544,7 +568,10 @@ export default function NavigatorDriveScreen() {
   // the rear (§4.4 — skip is a re-order, never a deletion or a penalty).
   const view = useMemo(() => {
     if (!data) return null;
-    const base = data.routes[pref];
+    // Fall back to the default route if the selected pref key is ever absent, and
+    // bail to <Loading/> rather than crash-blank the flagship on a payload mismatch.
+    const base = data.routes[pref] ?? data.routes[data.defaultPref];
+    if (!base) return null;
     const active = base.stops.filter((s) => !skipped.has(s.slug));
     const rear = base.stops.filter((s) => skipped.has(s.slug));
     const stops = [...active, ...rear];
@@ -637,18 +664,26 @@ export default function NavigatorDriveScreen() {
   };
 
   const onMarkSeen = useCallback(
-    async (slug: string) => {
+    async (stop: { slug: string; title: string; year: number | null; poster_path: string | null }) => {
       if (!session) {
         router.push({ pathname: "/onboarding", params: { step: "account" } });
         return;
       }
-      const token = await markSeen(slug);
+      const token = await markSeen(stop.slug);
       if (token) {
         showToast(t("nav.rerouting"));
         setGen((g) => g + 1); // reroute: refetch → chevron advances
+        // Same promise as everywhere else: marking it seen asks for the stars.
+        promptRate({
+          slug: stop.slug,
+          title: stop.title,
+          year: stop.year,
+          posterPath: stop.poster_path,
+          standing: null,
+        });
       }
     },
-    [session, markSeen, router, showToast],
+    [session, markSeen, router, showToast, promptRate],
   );
 
   const onSkip = useCallback((slug: string) => {
@@ -656,6 +691,23 @@ export default function NavigatorDriveScreen() {
   }, []);
 
   const back = () => (router.canGoBack() ? router.back() : router.replace("/navigator"));
+
+  // Android's back unwinds this screen's own layers before it leaves the drive.
+  // Nothing on this screen has a server copy: Resume restores only the destination
+  // and the route pref (§10-1), so a press that pops the route silently throws away
+  // the skipped turns, the pan position and whatever card was open. Depth decides the
+  // order — the poster card floats above the sheet, so it dismisses first.
+  useAndroidBack(() => {
+    if (pick) {
+      setPick(null); // the ✕'s dismissal, reached from the system control
+      return true;
+    }
+    if (sheetOpen) {
+      setSheetOpen(false); // expanded → peek, the contract for an Android bottom sheet
+      return true;
+    }
+    return false; // nothing open: back means leave the drive
+  });
 
   // ── loading / error ─────────────────────────────────────────────────────
   if (err)
@@ -667,7 +719,7 @@ export default function NavigatorDriveScreen() {
         </Ui>
         <Btn label={t("action.retry")} onPress={() => setGen((g) => g + 1)} style={{ alignSelf: "stretch" }} />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} label={t("nav.back")} />
+          <Disc icon={glyphs.back} onPress={back} label={t("nav.back")} />
         </View>
       </Screen>
     );
@@ -677,12 +729,12 @@ export default function NavigatorDriveScreen() {
         <Stack.Screen options={{ headerShown: false }} />
         <Loading />
         <View style={{ position: "absolute", top: insets.top + sp.s2, left: sp.s4 }}>
-          <Disc icon="chevron-back" onPress={back} label={t("nav.back")} />
+          <Disc icon={glyphs.back} onPress={back} label={t("nav.back")} />
         </View>
       </Screen>
     );
 
-  const arrived = data.remaining === 0 || view.stops.length === 0;
+  const arrived = Number(data.remaining ?? 0) === 0 || view.stops.length === 0;
   const head = view.stops[0] ?? null; // the next turn (a NavStop)
   const then = view.stops[1] ?? null;
   // Share the real, live Navigator surface with a journey line — NOT the noindex Korean
@@ -695,9 +747,10 @@ export default function NavigatorDriveScreen() {
       : t("nav.shareDrive", { label: data.label, n: data.remaining })) +
     ` ${METATAKE_BASE}/room/navigator`;
 
-  // traveled fraction for the meter
-  const trav = data.runtimeTraveled ?? 0;
-  const rem = data.runtimeRemaining ?? 0;
+  // traveled fraction for the meter — coerce, as the BFF may serialize the runtime
+  // SUMs as JSON strings (Postgres numeric); "60"+"120" would poison the ratio.
+  const trav = Number(data.runtimeTraveled ?? 0) || 0;
+  const rem = Number(data.runtimeRemaining ?? 0) || 0;
   const doneFrac = trav + rem > 0 ? trav / (trav + rem) : arrived ? 1 : 0;
 
   // ── overworld poster stops: the nearest few stand at the route's nodes (near→far,
@@ -1551,7 +1604,7 @@ export default function NavigatorDriveScreen() {
               {PREFS.map((p) => {
                 const on = pref === p;
                 const label = p === "fewest" ? t("nav.prefFewest") : p === "fastest" ? t("nav.prefFastest") : t("nav.prefNoTolls");
-                const tolls = data.routes[p].tollCount;
+                const tolls = data.routes[p]?.tollCount ?? 0;
                 return (
                   <Tactile key={p} onPress={() => setPref(p)} style={{ flex: 1 }}>
                     <View
@@ -1581,7 +1634,7 @@ export default function NavigatorDriveScreen() {
             {/* actions: mark seen (advance) · skip this turn */}
             {!arrived && head ? (
               <View style={{ flexDirection: "row", gap: sp.s2, marginTop: sp.s2 }}>
-                <Tactile onPress={() => onMarkSeen(head.slug)} style={{ flex: 1 }}>
+                <Tactile onPress={() => onMarkSeen(head)} style={{ flex: 1 }}>
                   <View
                     style={{
                       flexDirection: "row",
@@ -1697,7 +1750,7 @@ export default function NavigatorDriveScreen() {
         }}
         pointerEvents="box-none"
       >
-        <Disc icon="chevron-back" onPress={back} label={t("nav.back")} />
+        <Disc icon={glyphs.back} onPress={back} label={t("nav.back")} />
         <View
           style={[
             { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: pal.chrome, borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 7 },
@@ -1709,7 +1762,7 @@ export default function NavigatorDriveScreen() {
             {data.label}
           </Ui>
         </View>
-        <Disc icon="share-outline" onPress={() => Share.share({ message: shareMsg })} label={t("nav.share")} />
+        <Disc icon={glyphs.share} onPress={() => Share.share({ message: shareMsg })} label={t("nav.share")} />
       </View>
 
       {/* reroute toast */}

@@ -14,6 +14,7 @@
 // uses a minimal own-row update — same ledger, different door (§13-15/16).
 import type { Session } from "@supabase/supabase-js";
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { me } from "../lib/api";
 import { supabase } from "../lib/supabase";
 
 export type LedgerEntry = {
@@ -92,7 +93,13 @@ export function FilmsProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session ?? null));
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setSession(s ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => {
+      // Recommendations are memoized per-λ at module scope keyed only by λ — a
+      // sign-in/out swaps the auth.uid() behind them, so drop the cache on any auth
+      // change or account B would see account A's personalized picks.
+      me.invalidateRecommend();
+      setSession(s ?? null);
+    });
     return () => sub.subscription.unsubscribe();
   }, []);
 

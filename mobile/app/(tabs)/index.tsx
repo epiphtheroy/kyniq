@@ -5,11 +5,9 @@
 // Design system v2 "Lava" grammar kept: SearchPill front door, chip rows,
 // rounded image cards with TSBadge + HeartButton overlays.
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { LinearGradient } from "expo-linear-gradient";
 import { Redirect, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
-  ActivityIndicator,
   Animated,
   FlatList,
   PanResponder,
@@ -26,12 +24,14 @@ import {
   Btn,
   Chip,
   GradientBtn,
+  HeaderSearch,
   HeartButton,
   Loading,
+  PickerChip,
+  PickerSheet,
   PosterImg,
   ReasonChip,
   Screen,
-  SearchPill,
   Serif,
   Tactile,
   TSBadge,
@@ -39,20 +39,76 @@ import {
   UndoPill,
   Wordmark,
 } from "../../src/components/ui";
+import { useRate } from "../../src/components/RateSheet";
 import { DEFAULT_EDITION, EDITIONS } from "../../src/editions";
-import { t } from "../../src/i18n";
+import { Appear, Dots, Pop, SkeletonScreen, Sparkle, haptic } from "../../src/components/motion";
+import { t, type DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
+import { useLocalTitles } from "../../src/lib/titles";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
-import { brand, fs, gradient, radius, shadow, sp, usePalette } from "../../src/theme";
+import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
 import type { PresetKey, TonightRow, WwiRow } from "../../src/types";
 
 type JudgeKind = "want" | "pass" | "seen";
 type DeckRow = TonightRow & { reason?: string | null };
 type DeckPreset = Exclude<PresetKey, "services">;
-type PassedItem = { row: DeckRow; index: number };
 type UndoItem = { token: JudgmentUndo; row: DeckRow; index: number; kind: JudgeKind };
+
+type SortKey = "ts" | "ts100" | "ts500" | "ts1000" | "new" | "old" | "alpha";
+type EraKey = "all" | "1980" | "2000" | "2010" | "2020";
+
+/** v11 tokens bake direction in — never send sort=year (an unknown token falls
+ *  back to "u" with the sign flipped, which surfaces the WORST films first). */
+const SORT_TOKEN: Record<SortKey, string> = {
+  ts: "u",
+  ts100: "u",
+  ts500: "u",
+  ts1000: "u",
+  new: "newest",
+  old: "oldest",
+  alpha: "alpha",
+};
+/** Top-N is the TakeScore order stopped after N films (owner 07-30). It bounds
+ *  the deck rather than reordering it, so it reads against whatever filters are
+ *  live: "the top 100 on my services since 2000". */
+const RANK_CAP: Partial<Record<SortKey, number>> = { ts100: 100, ts500: 500, ts1000: 1000 };
+const SORT_COPY: Record<SortKey, DictKey> = {
+  ts: "sort.takescore",
+  ts100: "sort.top100",
+  ts500: "sort.top500",
+  ts1000: "sort.top1000",
+  new: "sort.newest",
+  old: "sort.oldest",
+  alpha: "sort.alpha",
+};
+/** Era floor → server year_min. "all" means no floor. */
+const ERA_YEAR: Record<EraKey, number | null> = {
+  all: null,
+  "1980": 1980,
+  "2000": 2000,
+  "2010": 2010,
+  "2020": 2020,
+};
+
+/** The BFF fans out one ranking query per country, so the app holds the same
+ *  ceiling it does — asking for more would just be silently truncated. */
+const ORIGIN_MAX = 5;
+
+/** ISO2 → the reader's own language for the name, with the raw code as the
+ *  floor. No hand-kept country table to drift out of date. */
+const REGION_NAMES =
+  typeof Intl !== "undefined" && "DisplayNames" in Intl
+    ? new Intl.DisplayNames(["en"], { type: "region" })
+    : null;
+function countryName(code: string): string {
+  try {
+    return REGION_NAMES?.of(code.toUpperCase()) ?? code.toUpperCase();
+  } catch {
+    return code.toUpperCase();
+  }
+}
 
 const UNDO_MS = 4000;
 const NOTICE_MS = 3500;
@@ -98,8 +154,9 @@ export default function TonightScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
-  const { country, providerIds, onboarded, hideSeen, ready, set } = usePrefs();
-  const { session, ledger, setWatchlist, dismiss, undismiss, markSeen, undo } = useFilms();
+  const { country, providerIds, onboarded, hideSeen, taste, ready, set } = usePrefs();
+  const { session, ledger, setWatchlist, dismiss, markSeen, undo } = useFilms();
+  const { promptRate } = useRate();
 
   const [rows, setRows] = useState<DeckRow[]>([]);
   const [total, setTotal] = useState(0);
@@ -117,24 +174,42 @@ export default function TonightScreen() {
   // "bold" is exclusive — it swaps the source (me_recommend_wwi) instead of
   // filtering the shared engine, so it can't intersect with server presets.
   const [presets, setPresets] = useState<ReadonlySet<DeckPreset>>(new Set());
-  const [sortKey, setSortKey] = useState<"ts" | "new" | "old">("ts");
-  const bold = presets.has("bold");
+  const [sortKey, setSortKey] = useState<SortKey>("ts");
+  const [eraKey, setEraKey] = useState<EraKey>("all");
+  const [picker, setPicker] = useState<null | "sort" | "era" | "origin">(null);
+  // Production-country filter (owner 07-30): multi-select, ordered by how many
+  // films each country actually has. The catalogue is fetched once; an empty
+  // list (older server / failure) simply hides the chip rather than offering a
+  // filter the server would ignore.
+  const [origins, setOrigins] = useState<ReadonlySet<string>>(new Set());
+  const [originCatalog, setOriginCatalog] = useState<{ code: string; count: number }[]>([]);
+  // Taste is the source swap (me_recommend_wwi), now an explicit opt-in the app
+  // remembers (owner 07-30) rather than a chip that resets every launch. It dies
+  // with the session HERE, at the derivation, and not at each consumer: the source
+  // is auth-scoped and the chip that turns it back off is signed-in only, so a
+  // signed-out user left in this mode would face a blank deck whose only control
+  // is invisible. The pref itself survives, so signing back in restores the choice.
+  const bold = taste && !!session;
   const presetParam = [...presets].filter((p) => p !== "bold").sort().join(",");
   // v11 tokens bake direction into "newest"/"oldest" — never send sort=year.
-  const sortArgs =
-    sortKey === "new" ? { sort: "newest" } : sortKey === "old" ? { sort: "oldest" } : { sort: "u" };
-  const [passed, setPassed] = useState<PassedItem[]>([]); // this session only
+  const sortArgs = { sort: SORT_TOKEN[sortKey] };
+  const rankCap = RANK_CAP[sortKey] ?? null;
+  // The one gate on paging — the fetch and the footer spinner read the same value.
+  // A Top-N deck slices everything past the cap away before render, so a cap that
+  // stopped only the spinner left the auto-page effect walking the whole catalogue
+  // behind an empty list. On this project a silent client-side request flood is not
+  // a theoretical cost — it has taken the site down before.
+  const moreAvailable = !bold && fetched < total && (rankCap == null || fetched < rankCap);
+  // Era floor (owner 07-30: pre-2000 films were permanently squatting the top).
+  const yearMin = ERA_YEAR[eraKey];
+  const originList = [...origins].sort();
+  const originParam = originList.join(",");
   const [judged, setJudged] = useState(0);
   const [undoItem, setUndoItem] = useState<UndoItem | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [reasonBySlug, setReasonBySlug] = useState<Map<string, string>>(new Map());
   const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const noticeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Hide-seen defaults ON when a session exists (§5.2); toggling still mirrors
-  // the stored pref so other surfaces stay in step.
-  const [seenOverride, setSeenOverride] = useState<boolean | null>(null);
-  const hideSeenEff = seenOverride ?? (session ? true : hideSeen);
 
   const hasProviders = providerIds.length > 0;
   const needsServices = servicesOn && !hasProviders && !bold;
@@ -155,11 +230,24 @@ export default function TonightScreen() {
       return { rows: mapped, total: mapped.length };
     }
     const p = await api.tonight(country, servicesOn ? providerIds : [], {
+      ...(yearMin ? { yearMin } : {}),
+      ...(originList.length ? { countries: originList } : {}),
       ...(presetParam ? { preset: presetParam } : {}),
       ...sortArgs,
     });
     return { rows: p.rows, total: p.total };
-  }, [bold, presetParam, sortArgs.sort, country, servicesOn, providerIds]);
+  }, [bold, presetParam, sortArgs.sort, yearMin, originParam, country, servicesOn, providerIds]);
+
+  useEffect(() => {
+    let alive = true;
+    api
+      .filmCountries()
+      .then((list) => alive && setOriginCatalog(list))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   // Initial load (and reload on country/services/preset change or retry).
   useEffect(() => {
@@ -195,12 +283,15 @@ export default function TonightScreen() {
   }, [fetchDeck, bold]);
 
   const loadMore = useCallback(() => {
-    if (bold) return; // fixed 60-row source, no pagination
+    // bold's fixed 60-row source, the end of the list, or the Top-N cap.
+    if (!moreAvailable) return;
     if (loadingMore.current || status !== "idle" || refreshing) return;
-    if (fetched >= total) return;
     loadingMore.current = true;
     api
       .tonight(country, servicesOn ? providerIds : [], {
+        ...(yearMin ? { yearMin } : {}),
+        ...(originList.length ? { countries: originList } : {}),
+      ...(originList.length ? { countries: originList } : {}),
         offset: fetched,
         ...(presetParam ? { preset: presetParam } : {}),
         ...sortArgs,
@@ -217,7 +308,7 @@ export default function TonightScreen() {
       .finally(() => {
         loadingMore.current = false;
       });
-  }, [bold, presetParam, sortArgs.sort, status, refreshing, fetched, total, country, servicesOn, providerIds]);
+  }, [moreAvailable, presetParam, sortArgs.sort, yearMin, originParam, status, refreshing, fetched, country, servicesOn, providerIds]);
 
   // Reason chips (session only) — one server-supplied reason per matching card.
   // Bold rows carry their own reason from the λ=0.6 pull (§13-17: no fabrication).
@@ -277,12 +368,21 @@ export default function TonightScreen() {
       }
       void noteJudged(row.slug);
       me.invalidateRecommend();
-      if (kind === "pass") {
-        setPassed((prev) => [{ row, index }, ...prev.filter((p) => p.row.slug !== row.slug)]);
-      }
       showUndo({ token, row, index, kind });
+      // "Seen it" asks for the stars right away — the deck's whole point is that
+      // a judgment lands complete, and a rating with no follow-up tap is what
+      // makes the next Tonight deck smarter (§5.0).
+      if (kind === "seen") {
+        promptRate({
+          slug: row.slug,
+          title: row.title,  // resolved by the sheet's own lookup if translated
+          year: row.year,
+          posterPath: row.poster_path,
+          standing: null,
+        });
+      }
     },
-    [session, router, setWatchlist, dismiss, markSeen, showNotice, showUndo],
+    [session, router, setWatchlist, dismiss, markSeen, showNotice, showUndo, promptRate],
   );
 
   const onUndo = useCallback(async () => {
@@ -294,56 +394,48 @@ export default function TonightScreen() {
     setRows((prev) =>
       prev.some((r) => r.slug === item.row.slug) ? prev : insertAt(prev, item.index, item.row),
     );
-    if (item.kind === "pass") setPassed((prev) => prev.filter((p) => p.row.slug !== item.row.slug));
     me.invalidateRecommend();
   }, [undoItem, undo]);
-
-  /** Restore from the session pass strip — undismiss WITHOUT re-adding to the queue. */
-  const restore = useCallback(
-    async (p: PassedItem) => {
-      // If the live undo pill points at this same pass, retire it — otherwise
-      // both the pill and the strip can act on one film and double-fire.
-      setUndoItem((u) => {
-        if (u?.row.slug === p.row.slug) {
-          if (undoTimer.current) clearTimeout(undoTimer.current);
-          return null;
-        }
-        return u;
-      });
-      setPassed((prev) => prev.filter((x) => x.row.slug !== p.row.slug));
-      await undismiss(p.row.slug);
-      setRows((prev) =>
-        prev.some((r) => r.slug === p.row.slug) ? prev : insertAt(prev, p.index, p.row),
-      );
-      me.invalidateRecommend();
-    },
-    [undismiss],
-  );
 
   const togglePreset = useCallback((k: DeckPreset) => {
     setPresets((prev) => {
       const next = new Set(prev);
-      if (k === "bold") {
-        // Source swap — exclusive with the filter chips.
-        return next.has("bold") ? new Set() : new Set<DeckPreset>(["bold"]);
-      }
-      next.delete("bold");
       if (next.has(k)) next.delete(k);
       else next.add(k);
       return next;
     });
   }, []);
 
+  /** Taste opt-in: swaps the deck to the personal ranking, and remembers it. */
+  const toggleTaste = useCallback(() => {
+    const next = !taste;
+    if (next) setPresets(new Set()); // the personal source can't intersect server presets
+    set({ taste: next });
+  }, [taste, set]);
+
+  // visible + the hide-seen pagination effect MUST run before the early returns below —
+  // React hooks can never be called conditionally. visible depends only on rows/ledger/prefs.
+  const visible = (rankCap ? rows.slice(0, rankCap) : rows).filter((r) => {
+    const e = ledger.get(r.slug);
+    if (e?.dismissed) return false; // always hide passed films
+    if (hideSeen && session && e?.seen) return false;
+    return true;
+  });
+  // Localized release titles for the cards actually on screen (migration 0121).
+  // English is a no-op, so the deck costs nothing extra in the default edition.
+  const deckTitleOf = useLocalTitles(visible.map((r) => r.slug));
+
+  // Hide-seen can filter the whole fetched page to empty while the deeper catalog is
+  // still unpulled; RN never fires onEndReached on an empty list, so pull the next page
+  // here to avoid a premature "Deck cleared". loadMore self-guards against over-fetching.
+  useEffect(() => {
+    if (status === "idle" && moreAvailable && visible.length === 0) loadMore();
+  }, [status, moreAvailable, visible.length, loadMore]);
+
   if (ready && !onboarded) return <Redirect href="/onboarding" />;
   if (!ready) return <Loading />;
 
   const edition = EDITIONS[country] ?? DEFAULT_EDITION;
-  const visible = rows.filter((r) => {
-    const e = ledger.get(r.slug);
-    if (e?.dismissed) return false; // always hide passed films
-    if (hideSeenEff && session && e?.seen) return false;
-    return true;
-  });
 
   // Header — pill search, title row, then the situation preset chips (§5.2).
   const header = (
@@ -352,129 +444,177 @@ export default function TonightScreen() {
         paddingTop: insets.top + sp.s3,
         paddingBottom: sp.s3,
         backgroundColor: pal.bg,
+        // Rides inside the padded FlatList as its ListHeader — restore full-bleed so
+        // the chip rows still run edge to edge.
+        marginHorizontal: -sp.s4,
       }}
     >
-      <View style={{ paddingHorizontal: sp.s4, paddingBottom: sp.s3 }}>
-        <Wordmark />
-      </View>
-      <View style={{ paddingHorizontal: sp.s4 }}>
-        <SearchPill
-          placeholder={t("search.placeholder")}
-          onPress={() => router.push("/search")}
-        />
-      </View>
-      {/* The Navigator — the flagship "여정 안내" mode. Visually distinct from the
-          triage deck below so it never reads as another Tonight pick. */}
-      <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s3 }}>
-        <NavigatorEntry onPress={() => router.push("/navigator")} />
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingHorizontal: sp.s4,
-          paddingTop: sp.s4,
-          gap: sp.s2,
-        }}
-      >
-        <Ui size={fs.lg} weight="600" style={{ flex: 1 }} numberOfLines={1}>
-          {t("tonight.title")}
-        </Ui>
-        <Chip
-          label={`${edition.flag} ${country}`}
-          onPress={() =>
-            router.push({ pathname: "/onboarding", params: { step: "country" } })
-          }
-        />
-        {session ? (
+      {/* ONE-line masthead (owner 07-29: the controls were burying the deck — compact
+          hard so 2–3 more film rows show). Wordmark + search disc + the two halves of
+          "what can I watch": country and services (owner 07-30 — 국적과 서비스 모두).
+          Every mood/sort filter lives in the single combined row below. */}
+      <View style={{ flexDirection: "row", alignItems: "center", gap: 6, paddingHorizontal: sp.s4 }}>
+        <View style={{ flex: 1, minWidth: 0, overflow: "hidden" }}>
+          {/* Two chips + the search disc now share this row, so the wordmark steps down
+              on SE-class widths rather than letting anything clip. */}
+          <Wordmark size={width < 390 ? fs.base : fs.lg} />
+        </View>
+        <HeaderSearch onPress={() => router.push("/search")} />
+        {/* Country = a quiet flag pill: auto-detected, rarely changed, and the flag reads
+            in every locale (a code + label would push the services chip off narrow
+            phones). flexShrink 0 so the wordmark, not the controls, absorbs tight rows. */}
+        <View style={{ flexShrink: 0 }}>
           <Chip
-            label={t("tonight.hideSeen")}
-            icon="eye-off-outline"
-            active={hideSeenEff}
-            onPress={() => {
-              const next = !hideSeenEff;
-              setSeenOverride(next);
-              set({ hideSeen: next });
-            }}
+            label={edition.flag}
+            accessibilityLabel={`${t("my.country")}: ${edition.label}`}
+            onPress={() =>
+              router.push({ pathname: "/onboarding", params: { step: "country" } })
+            }
           />
-        ) : null}
+        </View>
+        <View style={{ flexShrink: 0 }}>
+          <Chip
+            label={
+              providerIds.length
+                ? t("tonight.myServices", { n: providerIds.length })
+                : t("tonight.pickServices")
+            }
+            icon="tv-outline"
+            active={providerIds.length > 0}
+            onPress={() =>
+              router.push({ pathname: "/onboarding", params: { step: "services" } })
+            }
+          />
+        </View>
       </View>
+      {/* ONE control row — the app's navigational heart (owner 07-29/07-30).
+          Read left to right it states the query: how it's RANKED, over WHICH
+          YEARS, then the moods that narrow it. Sort and era are pickers rather
+          than eight competing pills: two chips instead of eight, and the live
+          setting is legible instead of inferred from which pill is filled. */}
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        style={{ marginTop: sp.s3 }}
-        contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2 }}
+        style={{ marginTop: sp.s2 }}
+        contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s2, alignItems: "center" }}
       >
+        <PickerChip
+          label={t("sort.label")}
+          value={t(SORT_COPY[sortKey])}
+          icon="swap-vertical"
+          active={sortKey !== "ts"}
+          onPress={() => setPicker("sort")}
+        />
+        <PickerChip
+          label={t("era.label")}
+          value={eraKey === "all" ? t("era.all") : t("era.sinceShort", { y: eraKey })}
+          icon="calendar-outline"
+          active={eraKey !== "all"}
+          onPress={() => setPicker("era")}
+        />
+        <View style={{ width: StyleSheet.hairlineWidth, height: 18, backgroundColor: pal.hairline2 }} />
         <Chip
           label={t("preset.onMyServices")}
           active={servicesOn}
           onPress={() => setServicesOn((v) => !v)}
         />
-        <Chip label={t("preset.safeBet")} active={presets.has("safe")} onPress={() => togglePreset("safe")} />
-        <Chip label={t("preset.hiddenGems")} active={presets.has("gems")} onPress={() => togglePreset("gems")} />
-        <Chip
-          label={t("preset.freshCentury")}
-          active={presets.has("century")}
-          onPress={() => togglePreset("century")}
-        />
-        <Chip label={t("preset.ninety")} active={presets.has("ninety")} onPress={() => togglePreset("ninety")} />
         {session ? (
-          <Chip label={t("preset.boldPick")} active={bold} onPress={() => togglePreset("bold")} />
+          <Chip
+            label={t("taste.chip")}
+            icon="sparkles-outline"
+            active={taste}
+            onPress={toggleTaste}
+          />
+        ) : null}
+        {session ? (
+          // The stored pref IS the state (§5.2). A session-time default layered over
+          // it always won on mount, so the OFF the user chose was unreadable on the
+          // next launch and Tonight drifted from every other reader of the pref.
+          <Chip
+            label={t("tonight.hideSeen")}
+            icon="eye-off-outline"
+            active={hideSeen}
+            onPress={() => set({ hideSeen: !hideSeen })}
+          />
+        ) : null}
+        {originCatalog.length ? (
+          <PickerChip
+            label={t("origin.label")}
+            value={
+              origins.size === 0
+                ? t("origin.any")
+                : origins.size === 1
+                  ? countryName(originList[0])
+                  : t("origin.nSelected", { n: origins.size })
+            }
+            icon="earth-outline"
+            active={origins.size > 0}
+            onPress={() => setPicker("origin")}
+          />
+        ) : null}
+        {/* Mood presets filter the shared engine, so they're meaningless while the
+            personal source is driving — hidden rather than shown-but-dead. */}
+        {!bold ? (
+          <>
+            <Chip label={t("preset.safeBet")} active={presets.has("safe")} onPress={() => togglePreset("safe")} />
+            <Chip label={t("preset.hiddenGems")} active={presets.has("gems")} onPress={() => togglePreset("gems")} />
+            <Chip
+              label={t("preset.freshCentury")}
+              active={presets.has("century")}
+              onPress={() => togglePreset("century")}
+            />
+            <Chip label={t("preset.ninety")} active={presets.has("ninety")} onPress={() => togglePreset("ninety")} />
+          </>
         ) : null}
       </ScrollView>
-      {/* Sort — hidden under Bold pick (that list carries the wwi order). */}
-      {!bold ? (
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: sp.s2,
-            paddingHorizontal: sp.s4,
-            marginTop: sp.s2,
-          }}
-        >
-          <Ionicons name="swap-vertical" size={14} color={pal.muted} />
-          <Chip label={t("sort.takescore")} active={sortKey === "ts"} onPress={() => setSortKey("ts")} />
-          <Chip label={t("sort.newest")} active={sortKey === "new"} onPress={() => setSortKey("new")} />
-          <Chip label={t("sort.oldest")} active={sortKey === "old"} onPress={() => setSortKey("old")} />
-        </View>
-      ) : null}
-      {session && visible.length > 0 ? (
-        <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s2 }}>
-          {t("tonight.swipeHint")}
-        </Ui>
-      ) : null}
-      {passed.length > 0 ? (
-        <View style={{ paddingTop: sp.s3 }}>
-          <Ui size={fs.xs} weight="600" color={pal.muted} style={{ paddingHorizontal: sp.s4 }}>
-            {t("judge.passedSession")}
-          </Ui>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={{ marginTop: sp.s2 }}
-            contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
-          >
-            {passed.map((p) => (
-              <View key={p.row.slug} style={{ alignItems: "center", gap: 2 }}>
-                <PosterImg
-                  path={p.row.poster_path}
-                  width={44}
-                  height={66}
-                  size="w92"
-                  rounded={radius.sm}
-                />
-                <Tactile onPress={() => restore(p)} hitSlop={6}>
-                  <Ui size={fs.xs} weight="600">
-                    {t("judge.restore")}
-                  </Ui>
-                </Tactile>
-              </View>
-            ))}
-          </ScrollView>
-        </View>
-      ) : null}
     </View>
+  );
+
+  const pickers = (
+    <>
+      <PickerSheet
+        visible={picker === "sort"}
+        title={t("sort.label")}
+        selected={sortKey}
+        onClose={() => setPicker(null)}
+        onSelect={(k) => setSortKey(k as SortKey)}
+        options={(["ts", "ts100", "ts500", "ts1000", "new", "old", "alpha"] as SortKey[]).map((k) => ({
+          key: k,
+          label: t(SORT_COPY[k]),
+        }))}
+      />
+      <PickerSheet
+        visible={picker === "origin"}
+        title={t("origin.label")}
+        multiple
+        selected={originList}
+        onClose={() => setPicker(null)}
+        onSelect={(k) =>
+          setOrigins((prev) => {
+            const next = new Set(prev);
+            if (next.has(k)) next.delete(k);
+            else if (next.size < ORIGIN_MAX) next.add(k);
+            return next;
+          })
+        }
+        options={originCatalog.slice(0, 40).map((c) => ({
+          key: c.code,
+          label: countryName(c.code),
+          hint: t("origin.filmsN", { n: c.count }),
+        }))}
+      />
+      <PickerSheet
+        visible={picker === "era"}
+        title={t("era.label")}
+        selected={eraKey}
+        onClose={() => setPicker(null)}
+        onSelect={(k) => setEraKey(k as EraKey)}
+        options={(["all", "1980", "2000", "2010", "2020"] as EraKey[]).map((k) => ({
+          key: k,
+          label: k === "all" ? t("era.all") : t("era.since", { y: k }),
+        }))}
+      />
+    </>
   );
 
   // Floating layer — one undo pill (most recent judgment) + transient notices.
@@ -527,7 +667,7 @@ export default function TonightScreen() {
   if (needsServices)
     return (
       <Screen>
-        {header}
+        <View style={{ paddingHorizontal: sp.s4 }}>{header}</View>
         <View
           style={{
             flex: 1,
@@ -549,13 +689,14 @@ export default function TonightScreen() {
           />
         </View>
         {floaters}
+        {pickers}
       </Screen>
     );
 
   if (status === "error" && rows.length === 0)
     return (
       <Screen>
-        {header}
+        <View style={{ paddingHorizontal: sp.s4 }}>{header}</View>
         <View
           style={{ flex: 1, alignItems: "center", justifyContent: "center", gap: sp.s4 }}
         >
@@ -563,40 +704,46 @@ export default function TonightScreen() {
           <Btn label={t("action.retry")} onPress={() => setGen((g) => g + 1)} />
         </View>
         {floaters}
+        {pickers}
       </Screen>
     );
 
   if (status === "loading" && rows.length === 0)
     return (
       <Screen>
-        {header}
-        <Loading />
+        <View style={{ paddingHorizontal: sp.s4 }}>{header}</View>
+        <SkeletonScreen kind="split" />
         {floaters}
+        {pickers}
       </Screen>
     );
 
-  const canLoadMore = !bold && fetched < total;
-
   return (
     <Screen>
-      {header}
+      {/* Masthead + filters ride INSIDE the list (owner 07-29: chrome must scroll away
+          dynamically — films own the screen once you start browsing). */}
       <FlatList
         data={visible}
         keyExtractor={(item) => item.slug}
-        renderItem={({ item }) => (
-          <LobbyCard
-            row={item}
-            screenW={width}
-            reason={item.reason ?? reasonBySlug.get(item.slug) ?? null}
-            onJudge={judge}
-          />
+        ListHeaderComponent={header}
+        renderItem={({ item, index }) => (
+          <Appear index={index}>
+            <LobbyCard
+              row={item}
+              shownTitle={deckTitleOf(item.slug, item.title)}
+              screenW={width}
+              reason={item.reason ?? reasonBySlug.get(item.slug) ?? null}
+              onJudge={judge}
+              featured={index === 0}
+            />
+          </Appear>
         )}
         contentContainerStyle={{
           paddingHorizontal: sp.s4,
           paddingTop: sp.s3,
           paddingBottom: 120, // clears the absolute blurred tab bar
         }}
-        ItemSeparatorComponent={() => <View style={{ height: sp.s5 }} />}
+        ItemSeparatorComponent={() => <View style={{ height: sp.s3 }} />}
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
@@ -607,9 +754,9 @@ export default function TonightScreen() {
         onEndReached={loadMore}
         onEndReachedThreshold={0.6}
         ListFooterComponent={
-          canLoadMore ? (
-            <View style={{ paddingVertical: sp.s5 }}>
-              <ActivityIndicator color={brand.accent} />
+          moreAvailable ? (
+            <View style={{ paddingVertical: sp.s5, alignItems: "center" }}>
+              <Dots />
             </View>
           ) : null
         }
@@ -622,54 +769,12 @@ export default function TonightScreen() {
         }
       />
       {floaters}
+      {pickers}
     </Screen>
   );
 }
 
 // ---------------------------------------------------------------------------
-
-/** The Navigator entry — the "여정 안내" front door (HANDOFF §6). A gradient
- * compass disc marks it as a distinct mode, not another affirmative CTA card. */
-function NavigatorEntry({ onPress }: { onPress: () => void }) {
-  const pal = usePalette();
-  return (
-    <Tactile onPress={onPress}>
-      <View
-        style={[
-          {
-            flexDirection: "row",
-            alignItems: "center",
-            gap: sp.s3,
-            backgroundColor: pal.card,
-            borderRadius: radius.md,
-            borderWidth: StyleSheet.hairlineWidth,
-            borderColor: pal.hairline,
-            padding: sp.s3,
-          },
-          shadow.card,
-        ]}
-      >
-        <LinearGradient
-          colors={gradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={{ width: 44, height: 44, borderRadius: radius.pill, alignItems: "center", justifyContent: "center" }}
-        >
-          <Ionicons name="navigate" size={22} color="#fff" />
-        </LinearGradient>
-        <View style={{ flex: 1, minWidth: 0 }}>
-          <Ui size={fs.md} weight="700" numberOfLines={1}>
-            {t("nav.title")}
-          </Ui>
-          <Ui size={fs.sm} color={pal.muted} numberOfLines={1}>
-            {t("nav.tagline")}
-          </Ui>
-        </View>
-        <Ionicons name="chevron-forward" size={20} color={pal.subtle} />
-      </View>
-    </Tactile>
-  );
-}
 
 /** Quiet circular judgment button — never gradient (the deck's low-key verbs). */
 function JudgeDot({
@@ -677,32 +782,41 @@ function JudgeDot({
   label,
   onPress,
   tint,
+  celebrate = false,
 }: {
   icon: React.ComponentProps<typeof Ionicons>["name"];
   label: string;
   onPress: () => void;
   tint?: string;
+  /** Burst on the transition into the "on" state (the heart, the tick). */
+  celebrate?: boolean;
 }) {
   const pal = usePalette();
   return (
-    <Tactile onPress={onPress} hitSlop={6}>
-      <View
-        accessibilityRole="button"
-        accessibilityLabel={label}
-        style={{
-          width: 40,
-          height: 40,
-          borderRadius: radius.pill,
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: pal.card,
-          borderWidth: StyleSheet.hairlineWidth,
-          borderColor: pal.hairline2,
-        }}
-      >
-        <Ionicons name={icon} size={18} color={tint ?? pal.ink} />
-      </View>
-    </Tactile>
+    <View>
+      {celebrate ? <Sparkle trigger={!!tint} color={tint ?? pal.ink} radius={26} /> : null}
+      <Tactile onPress={onPress} hitSlop={6} feedback="press">
+        {/* Re-keyed on the glyph so the verb lands with a spring, not a swap. */}
+        <Pop key={`${icon}-${tint ?? ""}`}>
+          <View
+            accessibilityRole="button"
+            accessibilityLabel={label}
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: radius.pill,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: pal.card,
+              borderWidth: StyleSheet.hairlineWidth,
+              borderColor: tint ?? pal.hairline2,
+            }}
+          >
+            <Ionicons name={icon} size={18} color={tint ?? pal.ink} />
+          </View>
+        </Pop>
+      </Tactile>
+    </View>
   );
 }
 
@@ -711,14 +825,20 @@ function JudgeDot({
  * v4 adds the three quiet verbs + horizontal swipe (right = want, left = pass). */
 function LobbyCard({
   row,
+  shownTitle,
   screenW,
   reason,
   onJudge,
+  featured = false,
 }: {
   row: DeckRow;
+  /** Release title in the viewer's content language; English fallback. */
+  shownTitle: string;
   screenW: number;
   reason: string | null;
   onJudge: (row: DeckRow, kind: JudgeKind) => void;
+  /** The card being pitched right now — it wears a live accent ring. */
+  featured?: boolean;
 }) {
   const pal = usePalette();
   const router = useRouter();
@@ -754,6 +874,8 @@ function LobbyCard({
     (dir: 1 | -1, kind: JudgeKind) => {
       if (leaving.current) return;
       leaving.current = true;
+      // A swiped judgment gets the same buzz a tapped one does.
+      haptic.press();
       Animated.timing(pan, {
         toValue: dir * screenWRef.current * 1.2,
         duration: 200,
@@ -809,6 +931,26 @@ function LobbyCard({
     inputRange: [-screenW, 0, screenW],
     outputRange: ["-6deg", "0deg", "6deg"],
   });
+  // Emphasis motion (owner 07-30): the border answers the gesture — it warms to
+  // the Lava accent as you pull right to keep, greys as you pull left to pass,
+  // and the pitched card rests inside a soft accent ring so the eye knows which
+  // film it is being asked about.
+  const swipeSpan = Math.max(1, screenW * 0.3);
+  const borderColor = pan.interpolate({
+    inputRange: [-swipeSpan, 0, swipeSpan],
+    outputRange: ["rgba(138,143,152,0.95)", featured ? `${brand.accent}66` : pal.hairline, brand.accent],
+    extrapolate: "clamp",
+  });
+  const keepOpacity = pan.interpolate({
+    inputRange: [12, swipeSpan],
+    outputRange: [0, 1],
+    extrapolate: "clamp",
+  });
+  const passOpacity = pan.interpolate({
+    inputRange: [-swipeSpan, -12],
+    outputRange: [1, 0],
+    extrapolate: "clamp",
+  });
 
   return (
     <Animated.View
@@ -818,7 +960,7 @@ function LobbyCard({
       <Tactile
         onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: row.slug } })}
       >
-        <View
+        <Animated.View
           style={[
             {
               width: cardW,
@@ -826,8 +968,8 @@ function LobbyCard({
               backgroundColor: pal.card,
               borderRadius: radius.md,
               overflow: "hidden",
-              borderWidth: StyleSheet.hairlineWidth,
-              borderColor: pal.hairline,
+              borderWidth: featured ? 1.5 : StyleSheet.hairlineWidth,
+              borderColor,
             },
             shadow.card,
           ]}
@@ -845,7 +987,7 @@ function LobbyCard({
           <View style={{ flex: 1, padding: sp.s3, justifyContent: "space-between", gap: sp.s1 }}>
             <View>
               <Ui size={fs.md} weight="600" numberOfLines={2}>
-                {row.title}
+                {shownTitle}
               </Ui>
               <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 2 }}>
                 <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ flexShrink: 1 }}>
@@ -876,6 +1018,7 @@ function LobbyCard({
                 tint={inWatchlist ? brand.accent : undefined}
                 label={t("judge.want")}
                 onPress={() => act("want")}
+                celebrate
               />
               <JudgeDot icon="close" label={t("judge.pass")} onPress={() => act("pass")} />
               <JudgeDot
@@ -883,10 +1026,54 @@ function LobbyCard({
                 tint={seen ? brand.teal : undefined}
                 label={t("judge.seenIt")}
                 onPress={() => act("seen")}
+                celebrate
               />
             </View>
           </View>
-        </View>
+          {/* Verdict watermarks — they arrive with the pull, not after it. */}
+          <Animated.View
+            pointerEvents="none"
+            style={{ position: "absolute", top: sp.s2, right: sp.s2, opacity: keepOpacity }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 4,
+                borderRadius: radius.pill,
+                paddingHorizontal: 10,
+                paddingVertical: 5,
+                backgroundColor: brand.accent,
+              }}
+            >
+              <Ionicons name="heart" size={13} color={brand.accentInk} />
+              <Ui size={fs.xs} weight="700" color={brand.accentInk}>
+                {t("judge.want")}
+              </Ui>
+            </View>
+          </Animated.View>
+          <Animated.View
+            pointerEvents="none"
+            style={{ position: "absolute", top: sp.s2, right: sp.s2, opacity: passOpacity }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 4,
+                borderRadius: radius.pill,
+                paddingHorizontal: 10,
+                paddingVertical: 5,
+                backgroundColor: pal.ink,
+              }}
+            >
+              <Ionicons name="close" size={13} color={pal.bg} />
+              <Ui size={fs.xs} weight="700" color={pal.bg}>
+                {t("judge.pass")}
+              </Ui>
+            </View>
+          </Animated.View>
+        </Animated.View>
       </Tactile>
     </Animated.View>
   );

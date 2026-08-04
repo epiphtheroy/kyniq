@@ -2,10 +2,8 @@
 // MapNative (MapLibre GL Native, dev/store builds), MapExpoGo (react-native-maps,
 // bundled in Expo Go) and map.web (maplibre-gl JS, browser preview).
 //
-// The open API is film/country-scoped (no bare world endpoint; ?limit= caps at
-// 200), so the global set is assembled from the dataset's biggest countries.
-// TODO(owner): swap for a real world endpoint (or the CC BY dataset export)
-// when one exists — this approximation shows ~2,000 of ~17,000 pins.
+// The world set comes from ONE precompiled artifact (see loadGlobalPins below);
+// film focus still reads the film_geo RPC, which is small and always current.
 import { METATAKE_BASE } from "../config";
 import { supabase } from "./supabase";
 
@@ -34,19 +32,6 @@ type ApiLocRow = {
   lng: number | null;
 };
 
-const SEED_COUNTRIES = [
-  "United States",
-  "United Kingdom",
-  "France",
-  "Italy",
-  "Japan",
-  "South Korea",
-  "Germany",
-  "Spain",
-  "Canada",
-  "Australia",
-];
-
 function toPin(row: ApiLocRow, id: number): Pin | null {
   if (row.lat == null || row.lng == null || !Number.isFinite(row.lat) || !Number.isFinite(row.lng)) {
     return null;
@@ -64,16 +49,6 @@ function toPin(row: ApiLocRow, id: number): Pin | null {
     posterPath: null,
     ts: null,
   };
-}
-
-async function fetchCountryPins(country: string): Promise<ApiLocRow[]> {
-  const res = await fetch(
-    `${METATAKE_BASE}/api/v1/locations?country=${encodeURIComponent(country)}&limit=200`,
-    { headers: { accept: "application/json" } },
-  );
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = (await res.json()) as { locations?: ApiLocRow[] };
-  return json.locations ?? [];
 }
 
 /**
@@ -110,27 +85,71 @@ async function attachPosters(pins: Pin[]): Promise<void> {
   }
 }
 
-/** World view: biggest countries, batched small — the API carries a harvest guard. */
+// ---------------------------------------------------------------------------
+// The world, precompiled.
+//
+// Owner 2026-08-03: the world map "barely loaded". It was assembling itself at
+// runtime — ten /api/v1/locations calls (Vercel function → DB, one per seed
+// country) plus ~28 Supabase round trips to decorate the result with posters and
+// TakeScores. Thirty-eight requests, and the map still only held ~2,000 of the
+// 17,337 pins because the open API caps at 200 per country.
+//
+// It is now one immutable file compiled by worker/locations-build.py: every pin
+// on every published film, posters and scores baked in, ~525 KB gzipped, cached
+// forever (the version is in the filename). One request, then never again.
+
+/** Compact artifact shape — arrays, because field names would be half the file. */
+type GeoArtifact = {
+  v: number;
+  countries: string[];
+  /** [slug, title, poster_path|null, ts|null] */
+  films: [string, string, string | null, number | null][];
+  /** [name, countryIdx|-1, lat, lng, filmIdx] */
+  points: [string, number, number, number, number][];
+};
+
+/** Public URL of the artifact — see vercel.json for its cache headers. */
+export const GEO_ARTIFACT_URL = `${METATAKE_BASE}/geo/pins.v1.json`;
+
+let worldCache: Pin[] | null = null;
+let worldInflight: Promise<Pin[]> | null = null;
+
+/** World view: one precompiled artifact, expanded once and kept for the session. */
 export async function loadGlobalPins(): Promise<Pin[]> {
-  const rows: ApiLocRow[] = [];
-  let ok = 0;
-  for (let i = 0; i < SEED_COUNTRIES.length; i += 3) {
-    const settled = await Promise.allSettled(SEED_COUNTRIES.slice(i, i + 3).map(fetchCountryPins));
-    for (const r of settled) {
-      if (r.status === "fulfilled") {
-        ok += 1;
-        rows.push(...r.value);
-      }
+  if (worldCache) return worldCache;
+  if (worldInflight) return worldInflight;
+  worldInflight = (async () => {
+    const res = await fetch(GEO_ARTIFACT_URL, { headers: { accept: "application/json" } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const a = (await res.json()) as GeoArtifact;
+    const pins: Pin[] = [];
+    for (let i = 0; i < a.points.length; i++) {
+      const [name, ci, lat, lng, fi] = a.points[i];
+      const f = a.films[fi];
+      if (!f || !Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+      pins.push({
+        id: String(i),
+        name,
+        lat,
+        lng,
+        country: ci >= 0 ? (a.countries[ci] ?? null) : null,
+        layer: null,
+        filmSlug: f[0],
+        filmTitle: f[1],
+        posterPath: f[2],
+        ts: f[3],
+      });
     }
+    worldCache = pins;
+    worldInflight = null;
+    return pins;
+  })();
+  try {
+    return await worldInflight;
+  } catch (e) {
+    worldInflight = null;
+    throw e;
   }
-  if (!ok) throw new Error("locations unreachable");
-  const pins: Pin[] = [];
-  for (const row of rows.slice(0, 2000)) {
-    const p = toPin(row, pins.length);
-    if (p) pins.push(p);
-  }
-  await attachPosters(pins);
-  return pins;
 }
 
 /** Film focus (?film=<slug>): film_geo is a SECURITY DEFINER RPC, Tier-2 safe. */

@@ -19,30 +19,42 @@ our website, metatake.net.
 
 ## No account needed to review most of the app
 
-Browsing is fully open: the Tonight deck, search, every film and director page,
-and the Locations map all work without signing in. An account is required only
+Browsing is fully open: the Tonight deck, Explore (search + curated lists),
+every film and director page, and each film's Locations map all work without
+signing in. An account is required only
 to SAVE judgments (watchlist / seen / ratings) and to enable notifications.
 
 **Demo path (2 minutes):**
 
-1. First launch → onboarding: keep country United States, tap a couple of
-   streaming services (e.g. Netflix), choose "skip" on the account step.
+1. First launch → onboarding: the account step comes first — choose "skip".
+   Then keep country United States and tap a couple of streaming services
+   (e.g. Netflix); the taste step can be skipped too.
 2. Tonight tab → tap any film card.
 3. On the film screen: TakeScore donut, the Invitation lead, "Where to watch"
    for the selected services, filming locations, the director row — all native.
 4. Tap the judgment bar (want / seen). This is the one action that prompts
    sign-in.
 
-**Reviewer account:** no demo credentials are needed — the reviewer can create
-an account in-app with any email address they control: enter the email, receive
-a 6-digit one-time code, type it in. (Sign in with Apple is also offered on
-iOS.) Account deletion is available in-app under the My tab → account section
+**Reviewer account** — ready to use, no email round-trip required:
+
+```
+Username:  appstore.review@metatake.net
+Password:  Review-IEsheX0CHD47
+```
+
+Tap "Continue with email", enter the two values above, tap Continue. The account
+already exists, so this signs straight in.
+
+Three other ways in are offered, all real, none required for review: Sign in with
+Apple, Google, and an emailed 8-digit one-time code ("Email me a code instead").
+
+Account deletion is available in-app under the You tab → account section
 (Guideline 5.1.1(v)).
 
 ## Why the app requests location (when-in-use)
 
-Used only for the "Near me" toggle on the Locations map tab, to center the map
-on nearby filming locations. Location is processed on-device and never uploaded
+Used only for the "Near me" toggle on the Locations map, to center the map on
+nearby filming locations. Location is processed on-device and never uploaded
 or stored on our servers. The permission is requested in context (first use of
 "Near me", not at onboarding), and every feature works if it is denied — the
 map simply stays at the default view.
@@ -51,14 +63,14 @@ map simply stays at the default view.
 
 One notification type: "a film on your watchlist just arrived on one of your
 streaming services" (computed per user country). Strictly opt-in via a switch
-in the My tab; off by default; no marketing pushes. The push token is stored
+in the You tab; off by default; no marketing pushes. The push token is stored
 with the user's account and country only for this purpose.
 
 ## Web views (Guideline 4.2 note)
 
 The app's value is native: the judgment screen (score, spoiler-free lead,
 judgment bar), the availability-aware queue, the situation picks, the Locations
-map with Near me, director filmographies with per-service availability dots,
+map on each film, director filmographies with per-service availability dots,
 and availability push. Web views appear only in the supplementary "Read more on
 Metatake" rows, which open long-form criticism articles from our own site
 (metatake.net) inside a native-headed reader — the mobile equivalent of a

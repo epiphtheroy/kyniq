@@ -4,23 +4,35 @@
 // (/film/meaning/*, /film/lineage/*, /reception, …) stay inside the reader.
 // Session is carried via SSO handoff (§13-12).
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { glyphs } from "../src/platform/tokens";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { ActivityIndicator, Share, StyleSheet, View } from "react-native";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Share, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
+import { useAndroidBack } from "../src/platform/back";
 import { Btn, Hairline, Screen, Tactile, Ui } from "../src/components/ui";
 import { METATAKE_BASE } from "../src/config";
+import { SkeletonText } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api } from "../src/lib/api";
-import { brand, fs, radius, sp, usePalette } from "../src/theme";
+import { fs, radius, sp, usePalette } from "../src/theme";
 
 /** Exact hub patterns that must open natively (webview contract §2-③). */
 const FILM_HUB_RE = /^\/film\/([^/?#]+)\/?$/;
 const DIRECTOR_HUB_RE = /^\/director\/([^/?#]+)\/?$/;
 
 const stripTrailingSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+// A malformed %-sequence in an intercepted URL must not throw inside the nav
+// callback (URIError) and derail link handling — fall back to the raw slug.
+const safeDecode = (s: string) => {
+  try {
+    return decodeURIComponent(s);
+  } catch {
+    return s;
+  }
+};
 
 /** 32px circle-disc chrome button (sheet header grammar). */
 function HeaderDisc({
@@ -71,6 +83,18 @@ export default function ReadScreen() {
   const [webLoading, setWebLoading] = useState(true);
   const [webKey, setWebKey] = useState(0);
 
+  // The reader is a browser, so Android's back must mean "back a page" before it
+  // means "leave the reader" — otherwise following two links inside an essay and
+  // pressing back throws the whole screen away. iOS gets the same behaviour from
+  // allowsBackForwardNavigationGestures, which is an edge swipe and iOS-only.
+  const webRef = useRef<WebView>(null);
+  const canGoBackRef = useRef(false);
+  useAndroidBack(() => {
+    if (!canGoBackRef.current) return false; // no history left: let the screen close
+    webRef.current?.goBack();
+    return true;
+  });
+
   useEffect(() => {
     let alive = true;
     setUri(null);
@@ -114,14 +138,14 @@ export default function ReadScreen() {
       // /film/lineage/*, /film/x/reception, …) intentionally do NOT match.
       const film = pathname.match(FILM_HUB_RE);
       if (film) {
-        router.replace({ pathname: "/film/[slug]", params: { slug: decodeURIComponent(film[1]) } });
+        router.replace({ pathname: "/film/[slug]", params: { slug: safeDecode(film[1]) } });
         return false;
       }
       const director = pathname.match(DIRECTOR_HUB_RE);
       if (director) {
         router.replace({
           pathname: "/director/[slug]",
-          params: { slug: decodeURIComponent(director[1]) },
+          params: { slug: safeDecode(director[1]) },
         });
         return false;
       }
@@ -162,7 +186,11 @@ export default function ReadScreen() {
           }}
         >
           <View style={{ width: 84, alignItems: "flex-start" }}>
-            <HeaderDisc icon="close" iconSize={18} onPress={() => router.back()} />
+            <HeaderDisc
+              icon="close"
+              iconSize={18}
+              onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))}
+            />
           </View>
           <Ui size={fs.base} weight="600" numberOfLines={1} style={{ flex: 1, textAlign: "center" }}>
             {title}
@@ -176,7 +204,7 @@ export default function ReadScreen() {
               gap: sp.s2,
             }}
           >
-            <HeaderDisc icon="share-outline" onPress={() => Share.share({ message: webUrl })} />
+            <HeaderDisc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
             <HeaderDisc icon="open-outline" onPress={() => WebBrowser.openBrowserAsync(webUrl)} />
           </View>
         </View>
@@ -187,8 +215,12 @@ export default function ReadScreen() {
       <View style={{ flex: 1, backgroundColor: pal.bg }}>
         {uri ? (
           <WebView
+            ref={webRef}
             key={webKey}
             source={{ uri }}
+            onNavigationStateChange={(nav) => {
+              canGoBackRef.current = nav.canGoBack;
+            }}
             style={{ flex: 1, backgroundColor: pal.bg }}
             onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
             onLoadEnd={() => setWebLoading(false)}
@@ -213,18 +245,33 @@ export default function ReadScreen() {
             allowsBackForwardNavigationGestures
             // target=_blank links navigate in place (Android) so §2-③ still sees them.
             setSupportMultipleWindows={false}
-            decelerationRate="normal"
+            // 0.998 IS "normal" — RN's own alias for UIScrollViewDecelerationRateNormal.
+            // The string form killed the reader outright on Android: react-native-webview
+            // declares `decelerationRate?: Double` in its codegen spec, so the generated
+            // Fabric delegate casts whatever arrives to Double and a String throws
+            // ClassCastException while the view is still being created — a red box, not a
+            // degraded scroll. The prop only does anything on iOS, but it is passed on both
+            // platforms, so the value has to be one both can hold. Never hand this a string.
+            decelerationRate={0.998}
           />
         ) : null}
-        {(!uri || webLoading) ? (
+        {!uri || webLoading ? (
+          /* An article's shape while the page arrives — a spinner over a white
+             void reads as broken; this reads as loading. */
           <View
             pointerEvents="none"
             style={[
               StyleSheet.absoluteFill,
-              { alignItems: "center", justifyContent: "center" },
+              { backgroundColor: pal.bg, paddingHorizontal: sp.s4, paddingTop: sp.s6, gap: sp.s3 },
             ]}
           >
-            <ActivityIndicator color={brand.accent} />
+            <SkeletonText w={0.45} size={12} />
+            <SkeletonText w={0.85} size={26} />
+            <View style={{ paddingTop: sp.s3, gap: sp.s2 }}>
+              {[1, 0.96, 0.99, 0.6, 0.92, 0.97, 0.5].map((w, i) => (
+                <SkeletonText key={i} w={w} size={14} />
+              ))}
+            </View>
           </View>
         ) : null}
       </View>

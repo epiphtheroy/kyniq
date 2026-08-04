@@ -57,13 +57,44 @@ export type Connector = {
   stepKeys?: [DictKey, DictKey, DictKey];
   /** extra expectation copy (IMDb wait / Netflix no-ratings / Watcha revert) */
   noteKey?: DictKey;
-  /** file only — document-picker MIME hints */
+  /** file only — document-picker MIME hints. See CSV_TYPES/ZIP_TYPES. */
   fileTypes?: string[];
   /** parse hint forwarded to the server (letterboxd zip vs csv is auto-detected) */
   sourceLabel: string;
   /** oauth only — the one-line sign-in pitch shown instead of the 3-step guide */
   pitchKey?: DictKey;
 };
+
+/**
+ * MIME hints for the document picker.
+ *
+ * iOS resolves a .csv to text/csv and a .zip to application/zip, so the short
+ * list worked. Android does not: the type comes from whichever provider owns
+ * the file, and Downloads/Drive/Gmail hand back application/x-zip-compressed,
+ * application/vnd.ms-excel (for CSV!), or nothing at all. A type the picker
+ * does not recognise is not an error — the file is simply GREYED OUT, which
+ * reads as "the app can't see my export". Hence the aliases, and
+ * application/octet-stream as the floor for providers that decline to guess.
+ *
+ * Being generous here costs nothing: the server identifies the format from the
+ * file's own bytes (lib/import/parsers.ts), not from what the picker claimed.
+ */
+const CSV_TYPES = [
+  "text/csv",
+  "text/comma-separated-values",
+  "application/csv",
+  "text/tab-separated-values",
+  "application/vnd.ms-excel", // what several Android providers call a .csv
+  "text/plain",
+  "application/octet-stream",
+];
+const ZIP_TYPES = [
+  "application/zip",
+  "application/x-zip-compressed",
+  "application/x-zip",
+  "multipart/x-zip",
+  ...CSV_TYPES, // Letterboxd also exports a bare CSV
+];
 
 export const CONNECTORS: Connector[] = [
   {
@@ -73,7 +104,7 @@ export const CONNECTORS: Connector[] = [
     tint: "#5A9E4B",
     exportUrl: "https://letterboxd.com/settings/data/",
     stepKeys: ["connect.letterboxd.s1", "connect.letterboxd.s2", "connect.letterboxd.s3"],
-    fileTypes: ["application/zip", "text/csv", "text/comma-separated-values"],
+    fileTypes: ZIP_TYPES,
     sourceLabel: "letterboxd",
   },
   {
@@ -85,7 +116,7 @@ export const CONNECTORS: Connector[] = [
     collectUrl: "https://www.imdb.com/exports/",
     stepKeys: ["connect.imdb.s1", "connect.imdb.s2", "connect.imdb.s3"],
     noteKey: "connect.imdb.wait",
-    fileTypes: ["text/csv", "text/comma-separated-values"],
+    fileTypes: CSV_TYPES,
     sourceLabel: "imdb",
   },
   {
@@ -96,7 +127,7 @@ export const CONNECTORS: Connector[] = [
     exportUrl: "https://www.netflix.com/settings/viewing-history",
     stepKeys: ["connect.netflix.s1", "connect.netflix.s2", "connect.netflix.s3"],
     noteKey: "connect.netflix.note",
-    fileTypes: ["text/csv", "text/comma-separated-values"],
+    fileTypes: CSV_TYPES,
     sourceLabel: "netflix",
   },
   {

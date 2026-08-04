@@ -1,35 +1,112 @@
-// Edition registry — the app's ONLY country list (HANDOFF §6.2).
-// Country (availability scope) and locale (content/UI language) are separate axes;
-// availability may use any country while content falls back to English until the
-// web locale projection is live for that language.
-// Adding a country = one entry here + one dict file. Anything more is a design smell.
+// Two registries, two axes (owner directive 2026-08-03).
+//
+// Until now "edition" bundled three things into one choice: which country's
+// streaming availability to query, which content language to read, and which UI
+// dictionary to load. That is why the list was four entries with two of them
+// greyed out — a country could not be offered until its language shipped.
+//
+// They are now independent:
+//
+//   EDITIONS       — WHERE you watch. Drives film_provider_index queries only.
+//                    Any country with availability data can be offered, because
+//                    picking it says nothing about what language you read in.
+//   CONTENT_LANGS  — WHAT LANGUAGE the films are named in. Drives the TMDB title
+//                    projection (films.title_<loc>, migration 0121) and the
+//                    multilingual search RPC. Independent of country entirely.
+//   UI_LOCALE      — the app's own chrome. Stays English (see below).
+//
+// Adding a country = one entry in EDITIONS. Adding a content language = one
+// entry in CONTENT_LANGS + the `_<loc>` columns + a backfill run. Anything more
+// is a design smell.
 
 export type UILocale = "en" | "ko" | "es" | "ja";
 
 export type Edition = {
   code: string;
   country: string; // ISO 3166-1 alpha-2, drives film_provider_index queries
-  locale: UILocale; // must stay in sync with the web locale registry (lib/i18n/locales.ts)
-  live: boolean; // false = hidden from pickers (reserved, like web live:false locales)
   flag: string;
   label: string;
 };
 
+/**
+ * Availability markets, ordered by how much of the catalogue each one actually
+ * carries (measured against film_provider_index, 2026-08-03: US 4,818 films /
+ * 198 services · CA 4,178 · FR 4,113 · GB 3,863 …). The English-speaking markets
+ * lead because they are who the app is for.
+ */
 export const EDITIONS: Record<string, Edition> = {
-  US: { code: "US", country: "US", locale: "en", live: true, flag: "🇺🇸", label: "United States" },
-  KR: { code: "KR", country: "KR", locale: "ko", live: true, flag: "🇰🇷", label: "한국" },
-  ES: { code: "ES", country: "ES", locale: "es", live: false, flag: "🇪🇸", label: "España" },
-  JP: { code: "JP", country: "JP", locale: "ja", live: false, flag: "🇯🇵", label: "日本" },
+  US: { code: "US", country: "US", flag: "🇺🇸", label: "United States" },
+  GB: { code: "GB", country: "GB", flag: "🇬🇧", label: "United Kingdom" },
+  CA: { code: "CA", country: "CA", flag: "🇨🇦", label: "Canada" },
+  AU: { code: "AU", country: "AU", flag: "🇦🇺", label: "Australia" },
+  IE: { code: "IE", country: "IE", flag: "🇮🇪", label: "Ireland" },
+  NZ: { code: "NZ", country: "NZ", flag: "🇳🇿", label: "New Zealand" },
+  KR: { code: "KR", country: "KR", flag: "🇰🇷", label: "South Korea" },
+  JP: { code: "JP", country: "JP", flag: "🇯🇵", label: "Japan" },
+  FR: { code: "FR", country: "FR", flag: "🇫🇷", label: "France" },
+  DE: { code: "DE", country: "DE", flag: "🇩🇪", label: "Germany" },
+  ES: { code: "ES", country: "ES", flag: "🇪🇸", label: "Spain" },
+  IT: { code: "IT", country: "IT", flag: "🇮🇹", label: "Italy" },
+  NL: { code: "NL", country: "NL", flag: "🇳🇱", label: "Netherlands" },
+  SE: { code: "SE", country: "SE", flag: "🇸🇪", label: "Sweden" },
+  IN: { code: "IN", country: "IN", flag: "🇮🇳", label: "India" },
+  MX: { code: "MX", country: "MX", flag: "🇲🇽", label: "Mexico" },
+  BR: { code: "BR", country: "BR", flag: "🇧🇷", label: "Brazil" },
 };
 
-export const LIVE_EDITIONS: Edition[] = Object.values(EDITIONS).filter((e) => e.live);
 export const ALL_EDITIONS: Edition[] = Object.values(EDITIONS);
-
 export const DEFAULT_EDITION = EDITIONS.US;
 
-/** Best edition for a device region; unknown regions fall back to US (EN content). */
+/** The device's market if we carry it, else the US. */
 export function editionForCountry(cc: string | null | undefined): Edition {
   if (!cc) return DEFAULT_EDITION;
-  const hit = EDITIONS[cc.toUpperCase()];
-  return hit && hit.live ? hit : DEFAULT_EDITION;
+  return EDITIONS[cc.toUpperCase()] ?? DEFAULT_EDITION;
 }
+
+// ---------------------------------------------------------------------------
+// Content language.
+
+/** The languages films can be NAMED in. Must match migration 0121's columns. */
+export type ContentLang = "en" | "ko" | "es" | "ja" | "zh" | "fr" | "hi";
+
+export type LangOption = {
+  code: ContentLang;
+  /** Endonym — a language picker is the one place you never translate. */
+  label: string;
+  /** English name, so an English-reading viewer can find it. */
+  english: string;
+};
+
+/**
+ * Owner 2026-08-03: "영어, 스페인어, 일본어, 중국어, 인도어, 프랑스어 정도".
+ * English is the source language — every title exists in it, so it is also the
+ * fallback whenever a film has no title in the chosen language.
+ */
+export const CONTENT_LANGS: LangOption[] = [
+  { code: "en", label: "English", english: "English" },
+  { code: "ko", label: "한국어", english: "Korean" },
+  { code: "es", label: "Español", english: "Spanish" },
+  { code: "ja", label: "日本語", english: "Japanese" },
+  { code: "zh", label: "中文", english: "Chinese" },
+  { code: "fr", label: "Français", english: "French" },
+  { code: "hi", label: "हिन्दी", english: "Hindi" },
+];
+
+export const DEFAULT_CONTENT_LANG: ContentLang = "en";
+
+export function isContentLang(v: string | null | undefined): v is ContentLang {
+  return !!v && CONTENT_LANGS.some((l) => l.code === v);
+}
+
+export function langLabel(code: ContentLang): string {
+  return CONTENT_LANGS.find((l) => l.code === code)?.label ?? "English";
+}
+
+/**
+ * The app's UI language. Owner directive, reaffirmed 2026-08-03: **the app is
+ * English.** The service is for viewers in English-speaking markets, so a
+ * Korean-reading user does not need the whole app in Korean — they need to
+ * recognise the film. That is what CONTENT_LANGS is for, and it is why the two
+ * axes are separate constants rather than one setting.
+ */
+export const UI_LOCALE: UILocale = "en";
