@@ -37,6 +37,44 @@ export async function filmIndexRoster(): Promise<Record<string, FilmIndexSignals
   return roster;
 }
 
+/* -------------------------------------------------------------------------
+ * The page path caches the ANSWER, not the evidence.
+ *
+ * MEASURED (2026-08-04, pg_stat_statements): film_index_signals_json ran 4,405
+ * times in a 20.5-hour window at 727 ms a call — 11.6% of all database time —
+ * against a 1-hour revalidate that should have produced about 21. The cache was
+ * not holding at all, on the critical path of the very film subpages that were
+ * returning 504.
+ *
+ * INFERRED cause: the entry is too big to store. The RPC returns 1.86 MB of JSON
+ * over 7,158 films, and the Record<slug, …> shape Next actually caches
+ * re-serialises larger still (every slug appears twice, once as the key), which
+ * puts it at or over Vercel's documented 2 MB per-entry Data Cache ceiling —
+ * where the write is dropped silently.
+ *
+ * A page only ever needs one bit ("is this slug indexable"), so cache exactly
+ * that: the passing slugs, newline-joined into one string. Measured the same
+ * day: 3,148 slugs, 63 kB — 30x under the ceiling, with room to grow. The full
+ * roster stays for the sitemap, which needs the raw counts and runs rarely.
+ * ------------------------------------------------------------------------- */
+
+/** Last slug set that loaded cleanly — same safety net as lastGoodRoster. */
+let lastGoodSet: Set<string> | null = null;
+/** Per-instance memo so the string is split into a Set once, not once per call. */
+let setCache: { raw: string; set: Set<string> } | null = null;
+
+async function loadIndexableSlugs(): Promise<string> {
+  const roster = await loadIndexRoster();
+  return Object.values(roster).filter(filmIndexBar).map((s) => s.slug).join("\n");
+}
+
+async function indexableSlugSet(): Promise<Set<string>> {
+  const raw = await unstable_cache(loadIndexableSlugs, ["film-indexable-slugs-1"], { revalidate: 3600 })();
+  if (setCache?.raw !== raw) setCache = { raw, set: new Set(raw ? raw.split("\n") : []) };
+  lastGoodSet = setCache.set;
+  return setCache.set;
+}
+
 /**
  * Whether a film's MAIN page is indexable under the consolidation gate.
  * Subpages gate on (await filmMainIndexable(slug, { visible })) && ownBar.
@@ -60,13 +98,16 @@ export async function filmMainIndexable(
 ): Promise<boolean> {
   if (slug.startsWith("tmdb-")) return false;
   if (hint?.visible) return SITE_INDEXABLE; // visible ⟹ Tier-1: never RPC-dependent
-  let roster: Record<string, FilmIndexSignals>;
   try {
-    roster = await filmIndexRoster();
+    return (await indexableSlugSet()).has(slug);
   } catch (e) {
-    if (!lastGoodRoster) throw e; // no safe answer exists — 5xx beats a wrong robots tag
-    roster = lastGoodRoster;
+    // Fall back through both safety nets before giving up: either cache may be
+    // the one this instance happens to have warmed.
+    if (lastGoodSet) return lastGoodSet.has(slug);
+    if (lastGoodRoster) {
+      const sig = lastGoodRoster[slug];
+      return sig ? filmIndexBar(sig) : false;
+    }
+    throw e; // no safe answer exists — 5xx beats a wrong robots tag
   }
-  const sig = roster[slug];
-  return sig ? filmIndexBar(sig) : false;
 }

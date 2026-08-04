@@ -27,7 +27,7 @@ import ReadingLedger from "@/components/read/ReadingLedger";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 
-export const revalidate = 300;
+export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";

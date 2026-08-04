@@ -24,7 +24,13 @@ import { pageRobots } from "@/lib/seo";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { ruleFigureQuestion, messyFigureTitle } from "@/lib/figureSeo";
 
-export const revalidate = 300;
+// 300s until 2026-08-04. There are 18,168 figure pages and the crawler sweep
+// walks them repeatedly, so a 5-minute window meant almost every revisit was an
+// ISR MISS and paid figure_neighbors again — 4,063 calls at 948ms in one 20.5h
+// window, 14% of all database time, on a page whose content only moves when the
+// factory ingests. An hour keeps contributions visible the same session while
+// collapsing the re-render rate 12x.
+export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -95,24 +101,21 @@ async function load(slug: string, figureSlug: string) {
     .filter((m) => m && m.kind === "figure_type" && m.status === "published")
     .map((m) => ({ id: m.id, slug: m.slug, title: m.title, filmCount: m.film_count ?? null }));
 
-  // Nearest figures by embedding (surface kinship) — live cosine, cross-film only.
-  // figure_neighbors returns no slugs, so a second lookup resolves link targets.
-  type Neighbor = { id: string; label: string; slug: string | null; sim: number; filmTitle: string; filmSlug: string; year: number | null };
-  let neighbors: Neighbor[] = [];
-  const { data: nbRaw } = await supabase.rpc("figure_neighbors", { p_figure: figure.id, p_k: 12, p_min: 0.5 });
-  const nbRows = ((nbRaw ?? []) as { id: string; label: string; film: string; sim: number }[]);
-  if (nbRows.length) {
-    const { data: nbFigs } = await supabase
-      .from("figures").select("id, label, slug, film:films!inner(title, slug, year, visible)")
-      .in("id", nbRows.map((r) => r.id));
-    const bySim = new Map(nbRows.map((r) => [r.id, r.sim]));
-    neighbors = ((nbFigs ?? []) as unknown[])
-      .map((r) => r as { id: string; label: string; slug: string | null; film: { title: string; slug: string; year: number | null; visible: boolean | null } })
-      .filter((x) => x.film.slug !== film.slug && x.film.visible !== false)
-      .map((x) => ({ id: x.id, label: x.label, slug: x.slug, sim: bySim.get(x.id) ?? 0, filmTitle: x.film.title, filmSlug: x.film.slug, year: x.film.year }))
-      .sort((a, b) => b.sim - a.sim || a.filmTitle.localeCompare(b.filmTitle))
-      .slice(0, 8);
-  }
+  // REMOVED 2026-08-04 — "nearest figures by embedding" (owner's call).
+  //
+  // It cost 14% of all database time (figure_neighbors: 4,063 calls, 948ms
+  // average, 112,255 buffers per call before migration 0126), and the section it
+  // fed was frequently meaningless: a large share of figures carry a boilerplate
+  // label like "The film as a whole", whose embeddings are byte-identical across
+  // hundreds of films. For those the list was an arbitrary sample of unrelated
+  // films at "100%" kinship — a confident-looking number backed by nothing.
+  //
+  // The genuine kinship surfaces stay: tropes (figure_type_members), the concept
+  // and theorist links, and the taxonomy axes below — all of them curated or
+  // explicitly modelled rather than inferred from a duplicated vector.
+  //
+  // The RPC itself is left in place (fixed and fast) in case a future surface
+  // wants it, but nothing calls it now.
 
   // Catalog classification — what this figure IS (taxonomy layer), spelled out per axis.
   const { data: catRows } = await supabase
@@ -154,7 +157,7 @@ async function load(slug: string, figureSlug: string) {
     }
   }
 
-  return { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition, neighbors };
+  return { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition };
 }
 
 // Display order for the figure-page "Classified as" line (named archetype first, then tiers, then themes).
@@ -221,7 +224,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition, neighbors } = data;
+  const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition } = data;
   if (takes.length === 0) redirect(`/film/${film.slug}`);   // unanchored old figure (no readings) → film page, not an empty shell
   // Related-boxes sections (SEO module) — deterministic, per-figure mix.
   const relatedSections = await relatedForFigure({
@@ -464,31 +467,6 @@ export default async function FigurePage({ params }: Props) {
           </section>
         )}
 
-        {/* NEAREST FIGURES — embedding kinship (surface axis), live cosine */}
-        {neighbors.length > 0 && (
-          <section className="fg-sec" id="nearest">
-            <h2 className="fg-h2">Which figures across cinema are nearest {figure.label} in {film.title}?</h2>
-            <p className="fg-gloss">
-              The figures whose descriptions sit closest to this one in meaning-space — computed from embeddings,
-              not hand-picked, and recomputed as the archive grows (<Link href="/methodology#rankings">how the % works</Link>).
-            </p>
-            <ul className="fg-nblist">
-              {neighbors.map((s) => (
-                <li key={s.id}>
-                  <span className="tp-rel-kin" title="cosine similarity between the two figures' embeddings — see /methodology#rankings">
-                    {Math.round(s.sim * 100)}<span className="u">%</span>
-                  </span>{" "}
-                  {s.slug
-                    ? <Link href={`/film/${s.filmSlug}/figure/${s.slug}`} className="fg-conn__fg">{s.label}</Link>
-                    : <span className="fg-conn__fg">{s.label}</span>}{" "}
-                  <span className="fg-nb__in">in</span>{" "}
-                  <Link href={`/film/${s.filmSlug}`} className="fg-conn__fl">{s.filmTitle}</Link>{" "}
-                  <span className="fg-conn__yr">({s.year ?? "?"})</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
 
         {/* Related boxes — before the contribute CTA so readers actually reach them */}
         {relatedSections.map((s) => (

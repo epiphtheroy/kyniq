@@ -12,7 +12,7 @@ import "@/app/home2.css";
 // moments) JSON-LD, og:video / og:image, a video-typed Open Graph — so each
 // broadcast is eligible for video rich results. ISR (revalidate 300), per-slug
 // lazy like the film page.
-export const revalidate = 300;
+export const revalidate = 3600;
 export const dynamicParams = true;
 export const maxDuration = 30;
 export function generateStaticParams() { return []; }

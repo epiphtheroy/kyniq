@@ -70,7 +70,12 @@ export default function robots(): MetadataRoute.Robots {
   // "/api/" (with trailing slash) blocks the data endpoints (/api/v1, /api/mcp,
   // /api/pack, …) while leaving the exact "/api" developer landing page
   // crawlable/indexable — it's a public reference + backlink target.
-  const NOINDEX_PATHS = ["/admin", "/api/", "/search?*", "/ask-ai"];
+  // /tv/list/* added 2026-08-04: those pages set robots noindex unconditionally
+  // (a watch-list is a playlist wrapper, not indexable content), yet they were
+  // the single largest source of 504s — 197 in a day. A noindex still has to be
+  // fetched to be read; a disallow stops the fetch. Safe here because the cohort
+  // has never been indexable, so there is nothing in the index to strand.
+  const NOINDEX_PATHS = ["/admin", "/api/", "/search?*", "/ask-ai", "/tv/list/"];
 
   return {
     rules: [

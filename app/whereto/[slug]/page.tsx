@@ -26,7 +26,7 @@ import "@/app/film/[slug]/read.css";
  * generation. The interactive matrix (WatchPageClient) stays as the play
  * layer below; the dark ReadHero + plates match the other reading pages.
  */
-export const revalidate = 300;
+export const revalidate = 1800;
 export async function generateStaticParams() { return []; }
 
 interface Props { params: Promise<{ slug: string }>; }

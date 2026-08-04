@@ -25,7 +25,7 @@ import "./takescore-film.css";
 
 // ISR (house pattern, see app/film/[slug]/page.tsx): nothing prebuilt, every
 // slug rendered on demand and edge-cached via the Data Cache — never per-request.
-export const revalidate = 300;
+export const revalidate = 3600;
 export const dynamicParams = true;
 export async function generateStaticParams() { return []; }
 
