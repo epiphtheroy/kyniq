@@ -1,0 +1,61 @@
+-- 0123 — drop 855 MB of indexes nothing reads.
+--
+-- APPLIED 2026-08-04. Run statement-by-statement over the SQL connection, NOT
+-- through the migration runner: DROP INDEX CONCURRENTLY cannot run inside a
+-- transaction block, so this file has no entry in supabase_migrations. Result:
+-- takes 1,810 MB -> 956 MB, database 4,921 MB -> 4,213 MB. Verified afterwards
+-- that search_semantic still plans onto idx_takes_pub_emb_hnsw and that
+-- search_all('kurosawa') returns the same 38 rows as before.
+--
+-- Measured 2026-08-04 over a 20.5-hour production window (pg_stat_user_indexes,
+-- counters reset 2026-08-03 08:25 UTC, so every number below is "in that window"):
+--
+--   idx_takes_emb_ivf          845 MB   0 scans
+--   idx_takes_pub_emb_hnsw     214 MB   3,239 scans   <- the one search_semantic uses
+--   idx_takes_title_trgm       9.9 MB   0 scans
+--   idx_takes_take_title_trgm  5.6 MB   6,950 scans   <- the one search_all uses
+--
+-- Both drops are redundancies, not judgement calls:
+--
+-- 1. idx_takes_title_trgm is byte-for-byte the same index as
+--    idx_takes_take_title_trgm — `gin (take_title gin_trgm_ops)` on the same
+--    table, just built twice under two names. The planner picks one and the
+--    other is pure write amplification.
+--
+-- 2. idx_takes_emb_ivf is the pre-HNSW vector index. search_semantic's takes leg
+--    filters `status='published' and embedding is not null` and orders by
+--    `embedding <=> qvec`, which is exactly the predicate of the partial HNSW
+--    index that replaced it. The IVFFlat copy covers the whole table (including
+--    the ~38k unpublished rows), is four times the size, and served zero scans
+--    while its replacement served 3,239.
+--
+-- Why this is a speed change and not just a disk change: the database is a
+-- Supabase Small (2 GB RAM, 512 MB shared_buffers) holding 4.9 GB of data. 845 MB
+-- of never-read index competes for exactly the page cache that the hot paths need,
+-- and every write to `takes` has been maintaining it. This is also the instance
+-- that has been sending "Disk IO Budget depleting" mail (see 0118).
+--
+-- Reversible: both can be rebuilt with the definitions recorded above. Rebuilding
+-- the IVFFlat one would take a while, which is the point — nothing needs it.
+
+drop index concurrently if exists public.idx_takes_title_trgm;
+drop index concurrently if exists public.idx_takes_emb_ivf;
+
+-- ⚠️ CORRECTION (same day, after 0126). Two more indexes looked dead here and
+-- were flagged as drop candidates. DO NOT DROP idx_figures_embedding_hnsw:
+--
+--   idx_figures_embedding_hnsw  131 MB   0 scans   <- KEEP. Not dead — UNREACHABLE.
+--
+-- figure_neighbors wanted that index on every call; it just could not use it,
+-- because the probe vector was a joined column rather than a parameter (see
+-- 0126). The zero scan count was a symptom of the bug, not evidence of disuse.
+-- After 0126 the index is on the hot path and carries 14% of database time.
+-- This is the general lesson: an unused vector index is at least as likely to
+-- mean "the query is shaped wrong" as "nothing needs it".
+--
+--   idx_trope_tags_emb          277 MB   0 scans   <- still an open question
+--
+-- trope_tags.embedding is referenced only by tag_sim_pairs, an offline pair
+-- builder, so this one really is absent from every read path. Dropping it would
+-- make that batch job much slower whenever it next runs. Owner's call; left in
+-- place because 277 MB is not worth a surprise on the next factory run.

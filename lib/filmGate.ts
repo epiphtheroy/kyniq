@@ -11,6 +11,11 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
+// Last roster that loaded cleanly, kept for the lifetime of the lambda instance.
+// The signal set moves on the order of days, so a stale roster is a far better
+// answer than a wrong one — see filmMainIndexable's error path.
+let lastGoodRoster: Record<string, FilmIndexSignals> | null = null;
+
 async function loadIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
   const { data, error } = await db().rpc("film_index_signals_json");
   if (error) throw new Error(`film_index_signals_json: ${error.message}`);
@@ -21,9 +26,53 @@ async function loadIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
 }
 
 /** Cached signal roster (all films), keyed by slug. Sitemap builders read this
- *  directly; pages go through filmMainIndexable(). Revalidates hourly. */
-export function filmIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
-  return unstable_cache(loadIndexRoster, ["film-index-signals-1"], { revalidate: 3600 })();
+ *  directly; pages go through filmMainIndexable(). Revalidates hourly.
+ *
+ *  lastGoodRoster is recorded HERE, outside the unstable_cache callback: on a
+ *  Data Cache hit the callback never runs, so assigning it inside loadIndexRoster
+ *  left the safety net unarmed on any instance that had only ever served hits. */
+export async function filmIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
+  const roster = await unstable_cache(loadIndexRoster, ["film-index-signals-1"], { revalidate: 3600 })();
+  lastGoodRoster = roster;
+  return roster;
+}
+
+/* -------------------------------------------------------------------------
+ * The page path caches the ANSWER, not the evidence.
+ *
+ * MEASURED (2026-08-04, pg_stat_statements): film_index_signals_json ran 4,405
+ * times in a 20.5-hour window at 727 ms a call — 11.6% of all database time —
+ * against a 1-hour revalidate that should have produced about 21. The cache was
+ * not holding at all, on the critical path of the very film subpages that were
+ * returning 504.
+ *
+ * INFERRED cause: the entry is too big to store. The RPC returns 1.86 MB of JSON
+ * over 7,158 films, and the Record<slug, …> shape Next actually caches
+ * re-serialises larger still (every slug appears twice, once as the key), which
+ * puts it at or over Vercel's documented 2 MB per-entry Data Cache ceiling —
+ * where the write is dropped silently.
+ *
+ * A page only ever needs one bit ("is this slug indexable"), so cache exactly
+ * that: the passing slugs, newline-joined into one string. Measured the same
+ * day: 3,148 slugs, 63 kB — 30x under the ceiling, with room to grow. The full
+ * roster stays for the sitemap, which needs the raw counts and runs rarely.
+ * ------------------------------------------------------------------------- */
+
+/** Last slug set that loaded cleanly — same safety net as lastGoodRoster. */
+let lastGoodSet: Set<string> | null = null;
+/** Per-instance memo so the string is split into a Set once, not once per call. */
+let setCache: { raw: string; set: Set<string> } | null = null;
+
+async function loadIndexableSlugs(): Promise<string> {
+  const roster = await loadIndexRoster();
+  return Object.values(roster).filter(filmIndexBar).map((s) => s.slug).join("\n");
+}
+
+async function indexableSlugSet(): Promise<Set<string>> {
+  const raw = await unstable_cache(loadIndexableSlugs, ["film-indexable-slugs-1"], { revalidate: 3600 })();
+  if (setCache?.raw !== raw) setCache = { raw, set: new Set(raw ? raw.split("\n") : []) };
+  lastGoodSet = setCache.set;
+  return setCache.set;
 }
 
 /**
@@ -34,8 +83,14 @@ export function filmIndexRoster(): Promise<Record<string, FilmIndexSignals>> {
  * is always Tier-1 (there are zero visible+unanalyzed films; visible ⇔ ≥3 approved
  * figures via the DB trigger), so it is indexable regardless of the roster — this
  * keeps a transient RPC error from de-indexing a live film's established subpages.
- * Everything else consults the cached roster and fails CLOSED (noindex, follow) on
- * any error, so a flaky RPC never accidentally indexes a thin Tier-2 page.
+ *
+ * ERROR POLICY (changed 2026-08-03). This used to `catch { return false }` — a
+ * flaky RPC therefore stamped `noindex` into the ISR HTML of every caller without
+ * a visible hint (Tier-2 mains, film lineage, film reception, film Q&A pages),
+ * and that baked-in directive outlives the outage that caused it. An error is not
+ * evidence that a page should leave the index. So: serve the last roster that
+ * loaded cleanly; if there has never been one, rethrow and let the request 5xx.
+ * Google retries a 5xx and keeps the URL; it acts on a noindex immediately.
  */
 export async function filmMainIndexable(
   slug: string,
@@ -44,10 +99,15 @@ export async function filmMainIndexable(
   if (slug.startsWith("tmdb-")) return false;
   if (hint?.visible) return SITE_INDEXABLE; // visible ⟹ Tier-1: never RPC-dependent
   try {
-    const roster = await filmIndexRoster();
-    const sig = roster[slug];
-    return sig ? filmIndexBar(sig) : false;
-  } catch {
-    return false; // fail closed: unknown → noindex (follow)
+    return (await indexableSlugSet()).has(slug);
+  } catch (e) {
+    // Fall back through both safety nets before giving up: either cache may be
+    // the one this instance happens to have warmed.
+    if (lastGoodSet) return lastGoodSet.has(slug);
+    if (lastGoodRoster) {
+      const sig = lastGoodRoster[slug];
+      return sig ? filmIndexBar(sig) : false;
+    }
+    throw e; // no safe answer exists — 5xx beats a wrong robots tag
   }
 }

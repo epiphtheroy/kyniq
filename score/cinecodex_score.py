@@ -120,6 +120,12 @@ def main():
         if buf: rpc("cinecodex_write_runs", {"p_rows": buf})
     print("Aggregating medians → cinecodex.scores …")
     rpc("cinecodex_aggregate", {"p_prompt_version": PROMPT_VERSION, "p_panel": "sonnet-n1"})
+    # cinecodex_card no longer recomputes the corpus per request (migration 0131);
+    # it reads the cinecodex_axis / cinecodex_rank materialised views. They are
+    # derived purely from what we just wrote, so they are stale until refreshed —
+    # a newly scored film would otherwise have no rank and no comps on its page.
+    print("Refreshing cinecodex_axis / cinecodex_rank …")
+    rpc("cinecodex_refresh", {})
     print(f"DONE. scored {scored} films this run · ~${total_cost:.2f}. Re-run to resume; tell the assistant to review the distribution.")
 
 if __name__ == "__main__":

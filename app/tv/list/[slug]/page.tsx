@@ -10,7 +10,7 @@ import "@/app/home2.css";
 // (an axis cut: a director, a Palme d'Or, a trope, a concept…). One playlist =
 // one page = one video-collection. Carries CollectionPage + ItemList JSON-LD so
 // the list and its member broadcasts are legible to search. ISR, per-slug lazy.
-export const revalidate = 300;
+export const revalidate = 3600;
 export const dynamicParams = true;
 export const maxDuration = 30; // headroom for a cold list build (ISR-cached after)
 export function generateStaticParams() { return []; }
