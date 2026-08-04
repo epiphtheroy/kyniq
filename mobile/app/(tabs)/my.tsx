@@ -59,6 +59,7 @@ import { isWeb } from "../../src/platform/env";
 import type { DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { registerPush } from "../../src/lib/push";
+import { PUSH_CREDENTIALS_CONFIGURED } from "../../src/platform/notifications";
 import { useLocalTitles } from "../../src/lib/titles";
 import { supabase } from "../../src/lib/supabase";
 import {
@@ -1113,6 +1114,10 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
   }, [authOpen]);
 
   const onTogglePush = async (on: boolean) => {
+    // Without an FCM credential registerPush() cannot succeed, so the optimistic
+    // write below would be two syncPrefs round trips whose answer we already
+    // know. Refuse the write rather than perform a failure.
+    if (!PUSH_CREDENTIALS_CONFIGURED) return;
     if (!on) {
       prefs.set({ pushEnabled: false });
       return;
@@ -1256,6 +1261,15 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
               onPress={() => goOnboarding("language")}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />
+            {/* @divergence pushDelivery — Android has no FCM credential yet, so
+                registration always fails and the thumb snaps back. Explained and
+                disabled rather than hidden: this is debt with an exit, and a row
+                that simply vanishes on one platform reads as a feature we never
+                had, so nobody ever asks for it back. Stated, it stays a promise
+                the owner is on the hook for. The switch also shows OFF rather
+                than the stored value — pushEnabled can only be false here, and a
+                switch that looked ON would be claiming deliveries that cannot
+                arrive. */}
             <View
               style={{
                 flexDirection: "row",
@@ -1267,16 +1281,20 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
             >
               <IconDisc name="notifications-outline" />
               <View style={{ flex: 1 }}>
-                <Ui size={fs.md} weight="500">
+                <Ui
+                  size={fs.md}
+                  weight="500"
+                  color={PUSH_CREDENTIALS_CONFIGURED ? undefined : pal.muted}
+                >
                   {t("my.notifications")}
                 </Ui>
                 <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
-                  {t("my.notifyArrivals")}
+                  {t(PUSH_CREDENTIALS_CONFIGURED ? "my.notifyArrivals" : "my.notifyUnavailable")}
                 </Ui>
               </View>
               <Switch
-                value={prefs.pushEnabled}
-                disabled={pushBusy}
+                value={PUSH_CREDENTIALS_CONFIGURED && prefs.pushEnabled}
+                disabled={pushBusy || !PUSH_CREDENTIALS_CONFIGURED}
                 onValueChange={onTogglePush}
                 trackColor={{ true: brand.accent, false: pal.hairline2 }}
               />
@@ -1312,9 +1330,14 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
           >
             <Tactile
               feedback="tap"
-              onPress={() =>
-                router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } })
-              }
+              onPress={() => {
+                // Same rule as goOnboarding: pushed under the sheet the reader is
+                // invisible, so the row reads as dead — and on Android the back
+                // press that undoes the "nothing happened" reveals it instead,
+                // which looks like back navigating forward.
+                onClose();
+                router.push({ pathname: "/read", params: { path: "/about", title: t("my.credits") } });
+              }}
             >
               <View
                 style={{

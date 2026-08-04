@@ -61,6 +61,11 @@ export default function ListScreen() {
   const [tsMap, setTsMap] = useState<Map<string, number>>(new Map());
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState<number | null>(null);
+  // A failed add needs its own flag: `err` only drives the whole-screen fallback
+  // below, which cannot render once rows exist — and the button is not even
+  // tappable until they do. Without this the write fails in total silence and
+  // the user reads it as a mis-tap.
+  const [addErr, setAddErr] = useState(false);
   const alive = useRef(true);
 
   useEffect(() => () => { alive.current = false; }, []);
@@ -109,11 +114,12 @@ export default function ListScreen() {
       return;
     }
     setAdding(true);
+    setAddErr(false);
     const { data, error } = await supabase.rpc("lineage_add_watchlist", { p_slug: slug });
     if (!alive.current) return;
     setAdding(false);
     if (error) {
-      setErr(true);
+      setAddErr(true);
       return;
     }
     setAdded(typeof data === "number" ? data : 0);
@@ -152,17 +158,28 @@ export default function ListScreen() {
       ) : null}
       <View style={{ gap: sp.s2 }}>
         <GradientBtn
-          icon="add"
+          icon={addErr && !adding ? "refresh" : "add"}
           label={
             adding
               ? t("list.addingAll")
-              : added != null
-                ? t("list.addedN", { n: added })
-                : t("list.addAll")
+              : addErr
+                ? t("action.retry")
+                : added != null
+                  ? t("list.addedN", { n: added })
+                  : t("list.addAll")
           }
           onPress={() => void addAll()}
           disabled={adding || !rows?.length}
         />
+        {/* Say it where it happened. The button reverting to its old label is
+            indistinguishable from a mis-tap, and the next tap is another silent
+            no-op — so the failure is stated here and the button asks to be
+            pressed again on purpose. */}
+        {addErr ? (
+          <Ui size={fs.xs + 1} color={brand.tsRisk} style={{ lineHeight: fs.xs * 1.6 }}>
+            {t("list.addFailed")}
+          </Ui>
+        ) : null}
         <View style={{ flexDirection: "row", gap: sp.s2 }}>
           <View style={{ flex: 1 }}>
             <SaveListBtn slug={slug} variant="label" />

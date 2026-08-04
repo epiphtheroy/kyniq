@@ -939,11 +939,26 @@ export const connectApi = {
     redirectUri: string,
   ): Promise<{ url: string; pending: string | null }> {
     const auth = await bearerHeaders();
-    const res = await fetch(`${METATAKE_BASE}/api/connect/${provider}/start`, {
-      method: "POST",
-      headers: { ...auth, "content-type": "application/json", accept: "application/json" },
-      body: JSON.stringify({ redirect_uri: redirectUri }),
-    });
+    // Bounded like every other call (getJSON above), by hand because this one
+    // can't use it: a 503 here means "not configured yet", a different answer the
+    // caller renders differently, and getJSON flattens every non-2xx into one
+    // Error. Unbounded, this hung the OAuth CTA with nothing on screen changing —
+    // and RN zeroes OkHttp's timeouts, so on Android "hung" means forever.
+    // 20s: the server mints one authorize URL (TMDB adds a request_token round
+    // trip of its own), it does not pull a library.
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 20_000);
+    let res: Response;
+    try {
+      res = await fetch(`${METATAKE_BASE}/api/connect/${provider}/start`, {
+        method: "POST",
+        headers: { ...auth, "content-type": "application/json", accept: "application/json" },
+        body: JSON.stringify({ redirect_uri: redirectUri }),
+        signal: ctrl.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
     if (res.status === 503) throw new Error(NOT_CONFIGURED);
     if (!res.ok) throw new Error(`connect start ${res.status}`);
     const out = (await res.json()) as { url: string; pending?: string | null };

@@ -142,23 +142,39 @@ export default function OnboardingScreen() {
   const entry = normalizeStep(params.step);
   const editOne = entry !== null && entry !== "account";
 
+  // Any ?step= entry is a SHEET someone opened over what they were already
+  // doing — a settings row, or the sign-in prompt a film brief raises when a
+  // signed-out reader judges. Dismissing it must return them there, whichever
+  // step it carries. This is deliberately NOT `editOne`: account is excluded
+  // from that one because signing in should carry ON to taste calibration,
+  // which is a statement about Continue and says nothing about back.
+  const dismissible = entry !== null;
+
   // Android's hardware back walks the funnel BACKWARDS instead of destroying it.
   // The four steps live in this one route's state, so without this the system
   // back pops the whole route and drops a first-run user into the tabs halfway
   // through setup. iOS has no hardware back, which is why the flow was only ever
   // linear there and the gap went unnoticed.
   useAndroidBack(() => {
-    if (editOne) return false; // single-step edit from settings: let back close it
+    if (dismissible) return false; // a sheet raised from elsewhere: let back close it
     const i = STEPS.indexOf(step as Step);
-    if (i <= 0) return false; // welcome, or a side entrance (language): fall through
+    if (i <= 0) return false; // welcome: nothing of ours behind it
     setStep(STEPS[i - 1]);
     return true;
   });
 
-  const finish = () => {
-    set({ onboarded: true });
+  const close = () => {
     if (router.canGoBack()) router.back();
     else router.replace("/(tabs)");
+  };
+
+  // `onboarded` is a claim about what the user was ASKED, so only the funnel
+  // makes it. Closing a sign-in sheet is the same exit WITHOUT the claim: a
+  // reader who dismisses it has never seen country, services or taste, and
+  // marking them onboarded here means they never will be.
+  const finish = () => {
+    set({ onboarded: true });
+    close();
   };
 
   // Step ④ taste calibration only makes sense with a session (me_mark_seen
@@ -224,8 +240,8 @@ export default function OnboardingScreen() {
             {/* Deep-linked re-entry (?step=) must always be dismissible — a
                 signed-out first-timer who tapped "Sign in" is otherwise
                 trapped with no back/close until the account step's Skip. */}
-            {onboarded || isStep(params.step) ? (
-              <Tactile onPress={finish} hitSlop={10}>
+            {onboarded || dismissible ? (
+              <Tactile onPress={close} hitSlop={10}>
                 <Ionicons name="close" size={22} color={pal.ink} />
               </Tactile>
             ) : null}

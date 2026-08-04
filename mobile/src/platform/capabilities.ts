@@ -64,13 +64,16 @@ export const DIVERGENCE = {
       "needed: on 2026-08-03 the owner asked for two specific map changes (an 'Only this film' " +
       "action, and dropping the world-view title pill). Both landed in MapExpoGo.tsx (iOS) and " +
       "neither reached MapWebView.tsx (Android). Nothing failed — no type error, no test, no " +
-      "warning. That is a whole platform silently missing an owner instruction inside one day.",
+      "warning. That is a whole platform silently missing an owner instruction inside one day. " +
+      "2026-08-04: both of those crossed to Android and were verified on a running emulator, so " +
+      "the chrome is level again. The feature delta below is what is left, and it is the older, " +
+      "harder half — the ledger caught the instruction gap in a day and the engine gap is still open.",
     parity: "debt",
     exit:
-      "Either bring clustering + the 08-03 chrome to the iOS surface, or collapse to one renderer. " +
+      "Either bring clustering + poster pins to the iOS surface, or collapse to one renderer. " +
       "Both surfaces must satisfy one contract so a chrome change cannot land on only one of them.",
     files: ["src/screens/MapExpoGo.tsx", "src/screens/MapWebView.tsx"],
-    qa: "Both platforms: the world view has no title pill; tapping a pin from the world view offers 'Only this film'.",
+    qa: "Both platforms: no title pill on the world view, a pin tap offers 'Only this film', and a dense city reads as one cluster rather than a pin drift.",
   },
 
   appleSignIn: {
@@ -148,13 +151,17 @@ export const DIVERGENCE = {
     android: "FCM via Expo push — requires google-services.json, not yet configured",
     why:
       "Expo's push service abstracts both, but Android additionally needs an FCM V1 credential. " +
-      "Until it exists, registration fails and the app degrades quietly rather than breaking.",
+      "Until it exists, registration fails. 'Degrades quietly' was the intent and it was wrong in " +
+      "practice: the switch slid ON and snapped back with no error, no toast and no disabled state, " +
+      "while its subtitle went on promising notifications — a control that lies is worse than one " +
+      "that is missing. Since 2026-08-04 the row reads PUSH_CREDENTIALS_CONFIGURED and explains " +
+      "instead of failing, and fires no server write it already knows will end at false.",
     parity: "debt",
-    files: ["src/platform/notifications.ts", "src/lib/push.ts"],
+    files: ["src/platform/notifications.ts", "src/lib/push.ts", "app/(tabs)/my.tsx"],
     qa:
-      "Android, DEVELOPMENT BUILD ONLY: the push toggle in settings stays ON after a relaunch " +
-      "(today it silently reverts). Not testable in Expo Go — remote push was removed from Expo Go " +
-      "in SDK 53, so Expo Go always logs a warning here regardless of our configuration.",
+      "Android: the Notifications row says it is unavailable and offers no switch to fight with. " +
+      "Once google-services.json + an FCM V1 key exist, the switch returns and must stay ON across " +
+      "a relaunch — DEVELOPMENT BUILD ONLY, since remote push was removed from Expo Go in SDK 53.",
   },
 } as const satisfies Record<string, Divergence>;
 

@@ -18,6 +18,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Btn, Chip, GradientBtn, Loading, Screen, Tactile, Ui } from "../components/ui";
 import { t } from "../i18n";
 import { GEO_ARTIFACT_URL, boundsOf, loadFilmPins, toFeatureCollection, type Pin } from "../lib/pins";
+import { useAndroidBack } from "../platform/back";
 import { brand, fs, radius, shadow, sp, usePalette } from "../theme";
 
 const MAPLIBRE_JS = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js";
@@ -42,7 +43,7 @@ type Selected = {
  * The page that runs inside the WebView. Film-focus pins are baked into the HTML;
  * the world view fetches the precompiled artifact itself (see ARTIFACT below).
  * It talks back over exactly one channel: ReactNativeWebView.postMessage with
- * {type:"pin"|"clear"|"open"|"pins"|"pinsError"|"ready"}.
+ * {type:"pin"|"clear"|"open"|"films"|"pinsError"|"ready"}.
  * onMessage re-validates every field — the page's payload is never trusted as-is.
  * Verified 2026-07-17: real tiles + clusters, and a pin tap posts
  * {name, country, film_slug, film_title} back to the card.
@@ -375,7 +376,6 @@ function buildHtml(fc: string, boundsJson: string, accent: string, artifactUrl: 
                        poster: f[2] ? "https://image.tmdb.org/t/p/w154" + f[2] : null,
                        ts: f[3], lat: p[2], lng: p[3] });
           }
-          post({ type: "pins", n: a.pins || 0 });
           reportFilms();
         })
         .catch(function () { post({ type: "pinsError" }); });
@@ -426,8 +426,6 @@ export default function MapWebViewScreen() {
   const [tries, setTries] = useState(0);
   const [selected, setSelected] = useState<Selected | null>(null);
   const [locDenied, setLocDenied] = useState(false);
-  /** How many pins the page loaded — the world count comes back over the bridge. */
-  const [pinCount, setPinCount] = useState<number | null>(null);
   /** Films inside the current viewport, best-scored first — the bottom strip. */
   const [inView, setInView] = useState<MapFilm[]>([]);
 
@@ -440,7 +438,6 @@ export default function MapWebViewScreen() {
     setFatal(null);
     setReady(false);
     setSelected(null);
-    setPinCount(null);
     if (!filmSlug) {
       setPins([]);
       return;
@@ -472,7 +469,6 @@ export default function MapWebViewScreen() {
         | { type: "pin"; props: Record<string, unknown> }
         | { type: "clear" }
         | { type: "open"; slug?: unknown }
-        | { type: "pins"; n?: unknown }
         | { type: "films"; films?: unknown }
         | { type: "pinsError" }
         | { type: "boot" }
@@ -484,10 +480,6 @@ export default function MapWebViewScreen() {
       }
       if (msg.type === "ready") {
         setReady(true);
-        return;
-      }
-      if (msg.type === "pins") {
-        setPinCount(typeof msg.n === "number" ? msg.n : 0);
         return;
       }
       if (msg.type === "pinsError") {
@@ -549,11 +541,36 @@ export default function MapWebViewScreen() {
     return () => clearTimeout(timer);
   }, [html, ready, fatal, tries]);
 
+  // One selection drawn by two renderers: the card is React state, the callout is
+  // a DOM node inside the page. Dismissing one without the other leaves a bubble
+  // floating over a map with nothing selected, so every dismissal goes through
+  // here — the ✕, and Android's back below.
+  const dismissSelection = useCallback(() => {
+    setSelected(null);
+    webRef.current?.injectJavaScript("window.__clearSel && window.__clearSel(); true;");
+  }, []);
+
+  // Back closes what is open before it leaves the map. Until now the map answered
+  // nothing, so back on an open pin threw the whole screen away — and when the map
+  // is the tab's root there is nothing under it, so it left the app instead. iOS
+  // never had the question: it dismisses by tapping the map or the ✕, which both
+  // still work here.
+  useAndroidBack(() => {
+    if (!selected) return false; // nothing open: the press belongs to navigation
+    dismissSelection();
+    return true;
+  }, !!selected);
+
   const nearMe = useCallback(async () => {
     try {
       const perm = await Location.requestForegroundPermissionsAsync();
       if (!perm.granted) {
-        setLocDenied(true);
+        // iOS has one kind of denial and it is final, so "denied → send them to
+        // Settings" is right there. Android's first "Don't allow" is soft: the OS
+        // reports canAskAgain and expects the app to ask again in place. Latching
+        // on it threw the user out to Settings for a permission the system would
+        // still have granted, and the map never flew anywhere again this session.
+        setLocDenied(!perm.canAskAgain);
         return;
       }
       const pos = await Location.getCurrentPositionAsync({});
@@ -587,6 +604,10 @@ export default function MapWebViewScreen() {
     );
   }
   if (!pins || !html) return <Loading />;
+
+  // The first pin is not guaranteed to carry the title; the slug is the honest
+  // last resort, since a blank pill is worse than an ugly one.
+  const filmTitle = filmSlug ? (pins.find((p) => p.filmTitle)?.filmTitle ?? filmSlug) : null;
 
   return (
     <Screen>
@@ -625,27 +646,30 @@ export default function MapWebViewScreen() {
           gap: sp.s2,
         }}
       >
-        <View
-          style={[
-            {
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 6,
-              backgroundColor: pal.chrome,
-              borderRadius: radius.pill,
-              paddingHorizontal: sp.s4,
-              paddingVertical: 10,
-            },
-            shadow.card,
-          ]}
-        >
-          <Ui size={fs.md} weight="600">
-            {t("map.title")}
-          </Ui>
-          <Ui size={fs.xs} color={pal.muted}>
-            {filmSlug ? (pins[0]?.filmTitle ?? "") : pinCount == null ? t("loading") : t("map.pins", { n: pinCount })}
-          </Ui>
-        </View>
+        {/* Owner 08-03: the "Locations" pill said nothing the screen didn't
+            already say, and wrapped to two lines doing it — while eating the top
+            band it shares with Back and Near me. The world view now carries no
+            title at all; film focus keeps a slim pill because WHICH film you are
+            looking at is the one thing the map cannot show. Landed on iOS the
+            same day and never crossed to here (ledger: mapFeatureDelta). */}
+        {filmSlug ? (
+          <View
+            style={[
+              {
+                flexShrink: 1,
+                backgroundColor: pal.chrome,
+                borderRadius: radius.pill,
+                paddingVertical: 8,
+                paddingHorizontal: 14,
+              },
+              shadow.card,
+            ]}
+          >
+            <Ui size={fs.sm} weight="600" numberOfLines={1}>
+              {filmTitle}
+            </Ui>
+          </View>
+        ) : null}
         {!filmSlug && router.canGoBack() ? (
           /* Opened from Explore or a film: the map is a pushed screen with no
              header and no tab of its own, so this is the ONLY way out. */
@@ -669,7 +693,11 @@ export default function MapWebViewScreen() {
           </>
         ) : null}
         <View style={{ flex: 1 }} />
-        <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? () => void Linking.openSettings() : nearMe} />
+        {/* Once the chip leaves for Settings instead of flying the map, it is a
+            different control and has to look like one — same signal as iOS. */}
+        <View style={{ opacity: locDenied ? 0.4 : 1 }}>
+          <Chip label={t("map.nearMe")} icon="locate" onPress={locDenied ? () => void Linking.openSettings() : nearMe} />
+        </View>
       </View>
 
       {filmSlug && pins.length === 0 ? (
@@ -764,10 +792,7 @@ export default function MapWebViewScreen() {
             <View style={{ width: 36, height: 4, borderRadius: radius.pill, backgroundColor: pal.hairline2 }} />
           </View>
           <Tactile
-            onPress={() => {
-              setSelected(null);
-              webRef.current?.injectJavaScript("window.__clearSel && window.__clearSel(); true;");
-            }}
+            onPress={dismissSelection}
             hitSlop={8}
             style={{ position: "absolute", top: sp.s3, right: sp.s3 }}
           >
@@ -820,6 +845,22 @@ export default function MapWebViewScreen() {
               onPress={() =>
                 router.push({ pathname: "/film/[slug]", params: { slug: selected.film_slug as string } })
               }
+            />
+          ) : null}
+          {/* The two directions a pin can take you (owner 08-03): out to the film,
+              or down into just that film's locations. Film focus was already fully
+              built here — camera fit, Back-to-film and Show-all chips — and was
+              only reachable by leaving for the film brief and coming back. */}
+          {!filmSlug && selected.film_slug ? (
+            <Btn
+              kind="ghost"
+              label={t("map.onlyThisFilm")}
+              style={{ marginTop: sp.s2 }}
+              onPress={() => {
+                const slug = selected.film_slug as string;
+                dismissSelection();
+                router.setParams({ film: slug });
+              }}
             />
           ) : null}
         </View>

@@ -40,6 +40,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { Btn, GradientBtn, PosterImg, Screen, Serif, Tactile, Ui } from "../src/components/ui";
 import { getLocale, t, type DictKey } from "../src/i18n";
+import { useAndroidBack } from "../src/platform/back";
 import {
   connectApi,
   importApi,
@@ -127,6 +128,20 @@ type ResultState = {
 };
 
 type StateMap = Partial<Record<ConnectorId, ConnectorState>>;
+
+// An import outlives the screen that started it: leaving /connect cancels nothing
+// on the server. So the two facts a new mount needs — "is one still running?" and
+// "did one finish while nobody was watching?" — cannot live in component state.
+// A ref would answer "no import is running" to a remount that happened mid-run,
+// which is how the same file got imported twice and how the recovery effect below
+// relabelled a healthy run as an error.
+const runRef: { current: ConnectorId | null } = { current: null };
+
+// The summary a finished run couldn't hand over because its screen was gone.
+// Written by the run itself, not by a setState that dies with the component, so
+// the unmatched list (§6-5's honest leftovers — the ledger keeps only its count)
+// survives the trip back and greets the user exactly once.
+let handoffResult: ResultState | null = null;
 
 // ---------------------------------------------------------------- tiny pieces
 
@@ -333,6 +348,66 @@ function ReturnBanner({
   );
 }
 
+/**
+ * Leave confirmation over the import theater — springs up like the guide sheet,
+ * but in place rather than in a Modal. A native modal window would take Android's
+ * back press for itself, and this sheet is the one surface that must hand it back
+ * to the screen underneath: back here means "never mind", not "leave".
+ */
+function LeaveSheet({ onStay, onLeave }: { onStay: () => void; onLeave: () => void }) {
+  const pal = usePalette();
+  const insets = useSafeAreaInsets();
+  const y = useSharedValue(320);
+  useEffect(() => {
+    y.value = withSpring(0, motion.spring);
+  }, [y]);
+  const anim = useAnimatedStyle(() => ({ transform: [{ translateY: y.value }] }));
+  return (
+    <View style={[StyleSheet.absoluteFill, { justifyContent: "flex-end" }]}>
+      <Pressable
+        style={[StyleSheet.absoluteFill, { backgroundColor: pal.scrim }]}
+        onPress={onStay}
+      />
+      <Animated.View
+        style={[
+          {
+            borderTopLeftRadius: radius.lg,
+            borderTopRightRadius: radius.lg,
+            backgroundColor: pal.bg,
+            paddingHorizontal: sp.s4,
+            paddingTop: sp.s3,
+            paddingBottom: insets.bottom + sp.s4,
+          },
+          anim,
+        ]}
+      >
+        <View
+          style={{
+            alignSelf: "center",
+            width: 36,
+            height: 4,
+            borderRadius: radius.pill,
+            backgroundColor: pal.hairline2,
+            marginBottom: sp.s4,
+          }}
+        />
+        <Ui size={fs.lg} weight="600">
+          {t("connect.leave.title")}
+        </Ui>
+        <Ui size={fs.sm} color={pal.inkSoft} style={{ marginTop: sp.s2 }}>
+          {t("connect.leave.body")}
+        </Ui>
+        <GradientBtn label={t("connect.leave.stay")} onPress={onStay} style={{ marginTop: sp.s4 }} />
+        <Tactile onPress={onLeave} style={{ alignSelf: "center", marginTop: sp.s3 }}>
+          <Ui size={fs.sm} weight="600" color={pal.muted} style={{ padding: sp.s2 }}>
+            {t("connect.leave.go")}
+          </Ui>
+        </Tactile>
+      </Animated.View>
+    </View>
+  );
+}
+
 /** Eased 0→n count-up for the completion numbers. */
 function useCountUp(target: number, duration = 900): number {
   const [v, setV] = useState(0);
@@ -364,16 +439,25 @@ export default function ConnectScreen() {
   const [states, setStates] = useState<StateMap>({});
   const [sheet, setSheet] = useState<ConnectorId | null>(null);
   const [run, setRun] = useState<RunState | null>(null);
-  const [result, setResult] = useState<ResultState | null>(null);
+  // Adopt a summary left behind by a run the user walked away from (see handoffResult).
+  const [result, setResult] = useState<ResultState | null>(handoffResult);
   const [banner, setBanner] = useState<ConnectorId | null>(null);
+  const [leaving, setLeaving] = useState(false); // theater exit confirmation
+  // The OAuth handshake before there is a run to show: start() can stall for its
+  // whole budget, and the theater only opens once the browser comes back.
+  const [starting, setStarting] = useState<ConnectorId | null>(null);
   const [pasteEmpty, setPasteEmpty] = useState(false);
   // OAuth connection state (§4): server-of-truth rows from me_connections(),
   // plus a client memo of providers the owner hasn't configured yet (503).
   const [conn, setConn] = useState<Partial<Record<ConnectorId, ConnectionRow>>>({});
   const [notConfigured, setNotConfigured] = useState<Partial<Record<ConnectorId, boolean>>>({});
 
-  const runRef = useRef<ConnectorId | null>(null);
   const cascadeTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const clearResult = useCallback(() => {
+    handoffResult = null; // consumed — it must not greet the user a second time
+    setResult(null);
+  }, []);
 
   // Hub state: load once + subscribe (onConnectChange fires on every transition).
   useEffect(() => {
@@ -406,13 +490,18 @@ export default function ConnectScreen() {
     };
   }, [session]);
 
-  // Recovery: a mid-flow breadcrumb can't survive an app restart — no run is
-  // alive at mount. "importing"/"syncing" wrote (or may have written) to the
-  // ledger → surface as retryable error; "authorizing" never wrote → clear it.
+  // Recovery: a mid-flow breadcrumb can't survive an app restart — "importing"/
+  // "syncing" wrote (or may have written) to the ledger → surface as retryable
+  // error; "authorizing" never wrote → clear it.
+  //
+  // A restart and a remount look identical from here, and runRef is the only
+  // thing that tells them apart: a connector still listed there is writing rows
+  // right now, and calling that an error would be a lie the user acts on — they
+  // retry, and import the same file a second time.
   useEffect(() => {
     void connectStates().then((m) => {
       for (const c of CONNECTORS) {
-        if (runRef.current != null) continue;
+        if (runRef.current === c.id) continue;
         const st = m[c.id]?.status;
         if (st === "importing" || st === "syncing") {
           void setConnectState(c.id, { status: "error" });
@@ -462,7 +551,8 @@ export default function ConnectScreen() {
       runRef.current = c.id;
       setSheet(null);
       setBanner(null);
-      setResult(null);
+      setLeaving(false);
+      clearResult();
       setRun({
         id: c.id,
         stage: "reading",
@@ -577,7 +667,8 @@ export default function ConnectScreen() {
         }
         runRef.current = null;
         setRun(null);
-        setResult({ id: c.id, films: committed, ratings, unmatched, finds });
+        handoffResult = { id: c.id, films: committed, ratings, unmatched, finds };
+        setResult(handoffResult);
         void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       } catch {
         if (cascadeTimer.current) {
@@ -590,30 +681,34 @@ export default function ConnectScreen() {
         setSheet(c.id); // guide reopens with the friendly retry line
       }
     },
-    [reload, startCascade],
+    [clearResult, reload, startCascade],
   );
 
   // ----------------------------------------------------------- oauth runner
 
-  const beginRun = useCallback((c: Connector, stage: RunStage) => {
-    runRef.current = c.id;
-    setSheet(null);
-    setBanner(null);
-    setResult(null);
-    setRun({
-      id: c.id,
-      stage,
-      oauth: true,
-      total: 0,
-      matched: 0,
-      matchedShown: 0,
-      posters: [],
-      postersShown: 0,
-      committed: 0,
-      writeTotal: 0,
-      slow: false,
-    });
-  }, []);
+  const beginRun = useCallback(
+    (c: Connector, stage: RunStage) => {
+      runRef.current = c.id;
+      setSheet(null);
+      setBanner(null);
+      setLeaving(false);
+      clearResult();
+      setRun({
+        id: c.id,
+        stage,
+        oauth: true,
+        total: 0,
+        matched: 0,
+        matchedShown: 0,
+        posters: [],
+        postersShown: 0,
+        committed: 0,
+        writeTotal: 0,
+        slow: false,
+      });
+    },
+    [clearResult],
+  );
 
   const failSync = useCallback(
     async (c: Connector, provider: ConnectProvider, reason: string) => {
@@ -696,7 +791,8 @@ export default function ConnectScreen() {
         }
         runRef.current = null;
         setRun(null);
-        setResult({ id: c.id, films, ratings, unmatched: [], finds });
+        handoffResult = { id: c.id, films, ratings, unmatched: [], finds };
+        setResult(handoffResult);
         void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       } catch {
         await failSync(c, provider, "sync");
@@ -709,23 +805,33 @@ export default function ConnectScreen() {
   // → sync theater. Cancel is silent (§13-17 spirit); 503 → friendly "coming soon".
   const runOAuth = useCallback(
     async (c: Connector) => {
-      if (runRef.current) return;
+      if (runRef.current || starting) return;
       const provider = c.id as ConnectProvider;
       const redirectUri = ExpoLinking.createURL("connect-callback");
+
+      // Claim the tap before the network: the button reads "Connecting…" and the
+      // tile behind the sheet agrees, so a stalled start() looks like work rather
+      // than a dead CTA (QA 08-04). This mark used to be written after the call —
+      // that is, only once there was nothing left to wait for.
+      setStarting(c.id);
+      void setConnectState(c.id, { status: "authorizing" });
 
       let started: { url: string; pending: string | null };
       try {
         started = await connectApi.start(provider, redirectUri);
       } catch (e) {
         if (e instanceof Error && e.message === NOT_CONFIGURED) {
+          await clearConnectState(c.id); // nothing was attempted — idle, not broken
           setNotConfigured((p) => ({ ...p, [c.id]: true })); // sheet → coming soon
-          return;
+        } else {
+          // Stalled or refused. The sheet is still open and now reads the error.
+          await setConnectState(c.id, { status: "error" });
         }
-        await setConnectState(c.id, { status: "error" });
         return;
+      } finally {
+        setStarting(null);
       }
 
-      void setConnectState(c.id, { status: "authorizing" });
       let back: URL | null = null;
       try {
         const res = await WebBrowser.openAuthSessionAsync(started.url, redirectUri);
@@ -759,7 +865,7 @@ export default function ConnectScreen() {
       }
       await finishSync(c, provider);
     },
-    [beginRun, failSync, finishSync],
+    [beginRun, failSync, finishSync, starting],
   );
 
   // "Sync now" on a connected tile — skips auth, goes straight to the pull.
@@ -899,6 +1005,38 @@ export default function ConnectScreen() {
     else router.replace("/(tabs)");
   }, [router]);
 
+  // Android back, answered once for all four internal states of this route (the
+  // guide sheet is a Modal, so its own onRequestClose still takes precedence).
+  //
+  // Leaving mid-import is now SAFE rather than forbidden — runRef and
+  // handoffResult carry the run and its summary across the unmount, so nothing
+  // is abandoned and nothing is lost. But it is not free either: the theater is
+  // the only place the pouring posters and the counters exist, and a run cannot
+  // be re-entered once its screen is gone. So back asks instead of acting, and
+  // the answer is a real choice rather than a reflex. On the completion view the
+  // step back is to the hub — the leftovers list is the point of that screen.
+  const inRun = run != null;
+  const inResult = result != null;
+  const onAndroidBack = useCallback(() => {
+    // Paired with inRun, not read alone: the run can finish under the open
+    // confirmation, and a flag left true would then eat a press on a screen that
+    // shows nothing to dismiss.
+    if (leaving && inRun) {
+      setLeaving(false); // back over the confirmation means "never mind", not "leave"
+      return true;
+    }
+    if (inRun) {
+      setLeaving(true);
+      return true;
+    }
+    if (inResult) {
+      clearResult();
+      return true;
+    }
+    return false; // hub: nothing owed, let the route pop
+  }, [leaving, inRun, inResult, clearResult]);
+  useAndroidBack(onAndroidBack);
+
   // ------------------------------------------------------------ signed out
 
   if (!session) {
@@ -932,9 +1070,13 @@ export default function ConnectScreen() {
     return (
       <Screen>
         <Stack.Screen options={{ headerShown: false }} />
+        {/* A screen with no way out is where users press back in the first place. */}
+        <View style={{ paddingTop: insets.top + sp.s2, paddingHorizontal: sp.s4 }}>
+          <BackDisc onPress={() => setLeaving(true)} />
+        </View>
         <ScrollView
           contentContainerStyle={{
-            paddingTop: insets.top + sp.s7,
+            paddingTop: sp.s5,
             paddingHorizontal: sp.s5,
             paddingBottom: insets.bottom + sp.s6,
             alignItems: "center",
@@ -1029,6 +1171,19 @@ export default function ConnectScreen() {
             </View>
           ) : null}
         </ScrollView>
+
+        {/* We can't recall a commit that is already writing on the server, so the
+            only honest offer is "it keeps going". Saying so is the whole point of
+            asking: the user leaves knowing the import is not being thrown away. */}
+        {leaving ? (
+          <LeaveSheet
+            onStay={() => setLeaving(false)}
+            onLeave={() => {
+              setLeaving(false);
+              goBack();
+            }}
+          />
+        ) : null}
       </Screen>
     );
   }
@@ -1040,7 +1195,7 @@ export default function ConnectScreen() {
       <CompletionView
         result={result}
         onShelf={() => router.push("/my")}
-        onDone={() => setResult(null)}
+        onDone={clearResult}
         onUnmatchedTap={(u) =>
           router.push({ pathname: "/search", params: { q: u.title } })
         }
@@ -1203,6 +1358,8 @@ export default function ConnectScreen() {
                     null
                   }
                   comingSoon={!!notConfigured[sheetConnector.id]}
+                  busy={starting === sheetConnector.id}
+                  failed={sheetStatus === "error" || conn[sheetConnector.id]?.status === "error"}
                   onConnect={() => void runOAuth(sheetConnector)}
                   onSync={() => void syncOAuth(sheetConnector)}
                   onDisconnect={() => void disconnectOAuth(sheetConnector)}
@@ -1407,6 +1564,8 @@ function OAuthSheet({
   connected,
   lastSyncedAt,
   comingSoon,
+  busy,
+  failed,
   onConnect,
   onSync,
   onDisconnect,
@@ -1415,6 +1574,8 @@ function OAuthSheet({
   connected: boolean;
   lastSyncedAt: string | null;
   comingSoon: boolean;
+  busy: boolean;
+  failed: boolean;
   onConnect: () => void;
   onSync: () => void;
   onDisconnect: () => void;
@@ -1446,6 +1607,14 @@ function OAuthSheet({
           ) : null}
         </View>
       </View>
+
+      {/* A handshake that failed says so here, or the CTA looks like it does
+          nothing. Hidden while retrying — the button is the live answer then. */}
+      {failed && !comingSoon && !busy ? (
+        <Ui size={fs.sm} weight="500" color={brand.tsRisk} style={{ marginTop: sp.s3 }}>
+          {t("connect.status.error")}
+        </Ui>
+      ) : null}
 
       {/* One-line pitch — the reassurance before a one-tap sign-in */}
       <Ui size={fs.sm} color={pal.inkSoft} style={{ marginTop: sp.s4 }}>
@@ -1489,8 +1658,9 @@ function OAuthSheet({
         </>
       ) : (
         <GradientBtn
-          label={t("connect.oauth.connect", { service: NAMES[c.id] })}
+          label={busy ? t("connect.stage.connecting") : t("connect.oauth.connect", { service: NAMES[c.id] })}
           onPress={onConnect}
+          disabled={busy}
           style={{ marginTop: sp.s4 }}
         />
       )}
@@ -1520,9 +1690,14 @@ function CompletionView({
   return (
     <Screen>
       <Stack.Screen options={{ headerShown: false }} />
+      {/* Steps back to the hub, not out of the route — the leftovers below are
+          the one copy of this list, and the hub is where another import starts. */}
+      <View style={{ paddingTop: insets.top + sp.s2, paddingHorizontal: sp.s4 }}>
+        <BackDisc onPress={onDone} />
+      </View>
       <ScrollView
         contentContainerStyle={{
-          paddingTop: insets.top + sp.s7,
+          paddingTop: sp.s5,
           paddingHorizontal: sp.s4,
           paddingBottom: insets.bottom + 140,
         }}

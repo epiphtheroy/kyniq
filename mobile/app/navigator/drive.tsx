@@ -19,6 +19,7 @@
 // Position is ledger-derived server-side (invariant §10-1); marking the next film seen
 // advances the chevron ("rerouting").
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useAndroidBack } from "../../src/platform/back";
 import { glyphs } from "../../src/platform/tokens";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
@@ -669,6 +670,23 @@ export default function NavigatorDriveScreen() {
   }, []);
 
   const back = () => (router.canGoBack() ? router.back() : router.replace("/navigator"));
+
+  // Android's back unwinds this screen's own layers before it leaves the drive.
+  // Nothing on this screen has a server copy: Resume restores only the destination
+  // and the route pref (§10-1), so a press that pops the route silently throws away
+  // the skipped turns, the pan position and whatever card was open. Depth decides the
+  // order — the poster card floats above the sheet, so it dismisses first.
+  useAndroidBack(() => {
+    if (pick) {
+      setPick(null); // the ✕'s dismissal, reached from the system control
+      return true;
+    }
+    if (sheetOpen) {
+      setSheetOpen(false); // expanded → peek, the contract for an Android bottom sheet
+      return true;
+    }
+    return false; // nothing open: back means leave the drive
+  });
 
   // ── loading / error ─────────────────────────────────────────────────────
   if (err)

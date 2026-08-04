@@ -245,7 +245,14 @@ export default function ReadScreen() {
             allowsBackForwardNavigationGestures
             // target=_blank links navigate in place (Android) so §2-③ still sees them.
             setSupportMultipleWindows={false}
-            decelerationRate="normal"
+            // 0.998 IS "normal" — RN's own alias for UIScrollViewDecelerationRateNormal.
+            // The string form killed the reader outright on Android: react-native-webview
+            // declares `decelerationRate?: Double` in its codegen spec, so the generated
+            // Fabric delegate casts whatever arrives to Double and a String throws
+            // ClassCastException while the view is still being created — a red box, not a
+            // degraded scroll. The prop only does anything on iOS, but it is passed on both
+            // platforms, so the value has to be one both can hold. Never hand this a string.
+            decelerationRate={0.998}
           />
         ) : null}
         {!uri || webLoading ? (

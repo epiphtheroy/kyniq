@@ -184,12 +184,22 @@ export default function TonightScreen() {
   const [origins, setOrigins] = useState<ReadonlySet<string>>(new Set());
   const [originCatalog, setOriginCatalog] = useState<{ code: string; count: number }[]>([]);
   // Taste is the source swap (me_recommend_wwi), now an explicit opt-in the app
-  // remembers (owner 07-30) rather than a chip that resets every launch.
-  const bold = taste;
+  // remembers (owner 07-30) rather than a chip that resets every launch. It dies
+  // with the session HERE, at the derivation, and not at each consumer: the source
+  // is auth-scoped and the chip that turns it back off is signed-in only, so a
+  // signed-out user left in this mode would face a blank deck whose only control
+  // is invisible. The pref itself survives, so signing back in restores the choice.
+  const bold = taste && !!session;
   const presetParam = [...presets].filter((p) => p !== "bold").sort().join(",");
   // v11 tokens bake direction into "newest"/"oldest" — never send sort=year.
   const sortArgs = { sort: SORT_TOKEN[sortKey] };
   const rankCap = RANK_CAP[sortKey] ?? null;
+  // The one gate on paging — the fetch and the footer spinner read the same value.
+  // A Top-N deck slices everything past the cap away before render, so a cap that
+  // stopped only the spinner left the auto-page effect walking the whole catalogue
+  // behind an empty list. On this project a silent client-side request flood is not
+  // a theoretical cost — it has taken the site down before.
+  const moreAvailable = !bold && fetched < total && (rankCap == null || fetched < rankCap);
   // Era floor (owner 07-30: pre-2000 films were permanently squatting the top).
   const yearMin = ERA_YEAR[eraKey];
   const originList = [...origins].sort();
@@ -200,11 +210,6 @@ export default function TonightScreen() {
   const [reasonBySlug, setReasonBySlug] = useState<Map<string, string>>(new Map());
   const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const noticeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Hide-seen defaults ON when a session exists (§5.2); toggling still mirrors
-  // the stored pref so other surfaces stay in step.
-  const [seenOverride, setSeenOverride] = useState<boolean | null>(null);
-  const hideSeenEff = seenOverride ?? (session ? true : hideSeen);
 
   const hasProviders = providerIds.length > 0;
   const needsServices = servicesOn && !hasProviders && !bold;
@@ -217,12 +222,6 @@ export default function TonightScreen() {
     },
     [],
   );
-
-  // "Bold pick" swaps the source to the auth-scoped me_recommend_wwi; on sign-out its
-  // chip hides but the preset would linger and fetch an empty anonymous deck — drop it.
-  useEffect(() => {
-    if (!session) setPresets((p) => (p.has("bold") ? new Set([...p].filter((x) => x !== "bold")) : p));
-  }, [session]);
 
   const fetchDeck = useCallback(async (): Promise<{ rows: DeckRow[]; total: number }> => {
     if (bold) {
@@ -284,9 +283,9 @@ export default function TonightScreen() {
   }, [fetchDeck, bold]);
 
   const loadMore = useCallback(() => {
-    if (bold) return; // fixed 60-row source, no pagination
+    // bold's fixed 60-row source, the end of the list, or the Top-N cap.
+    if (!moreAvailable) return;
     if (loadingMore.current || status !== "idle" || refreshing) return;
-    if (fetched >= total) return;
     loadingMore.current = true;
     api
       .tonight(country, servicesOn ? providerIds : [], {
@@ -309,7 +308,7 @@ export default function TonightScreen() {
       .finally(() => {
         loadingMore.current = false;
       });
-  }, [bold, presetParam, sortArgs.sort, rankCap, yearMin, originParam, status, refreshing, fetched, total, country, servicesOn, providerIds]);
+  }, [moreAvailable, presetParam, sortArgs.sort, yearMin, originParam, status, refreshing, fetched, country, servicesOn, providerIds]);
 
   // Reason chips (session only) — one server-supplied reason per matching card.
   // Bold rows carry their own reason from the λ=0.6 pull (§13-17: no fabrication).
@@ -419,7 +418,7 @@ export default function TonightScreen() {
   const visible = (rankCap ? rows.slice(0, rankCap) : rows).filter((r) => {
     const e = ledger.get(r.slug);
     if (e?.dismissed) return false; // always hide passed films
-    if (hideSeenEff && session && e?.seen) return false;
+    if (hideSeen && session && e?.seen) return false;
     return true;
   });
   // Localized release titles for the cards actually on screen (migration 0121).
@@ -430,8 +429,8 @@ export default function TonightScreen() {
   // still unpulled; RN never fires onEndReached on an empty list, so pull the next page
   // here to avoid a premature "Deck cleared". loadMore self-guards against over-fetching.
   useEffect(() => {
-    if (status === "idle" && !bold && visible.length === 0 && fetched < total) loadMore();
-  }, [status, bold, visible.length, fetched, total, loadMore]);
+    if (status === "idle" && moreAvailable && visible.length === 0) loadMore();
+  }, [status, moreAvailable, visible.length, loadMore]);
 
   if (ready && !onboarded) return <Redirect href="/onboarding" />;
   if (!ready) return <Loading />;
@@ -528,15 +527,14 @@ export default function TonightScreen() {
           />
         ) : null}
         {session ? (
+          // The stored pref IS the state (§5.2). A session-time default layered over
+          // it always won on mount, so the OFF the user chose was unreadable on the
+          // next launch and Tonight drifted from every other reader of the pref.
           <Chip
             label={t("tonight.hideSeen")}
             icon="eye-off-outline"
-            active={hideSeenEff}
-            onPress={() => {
-              const next = !hideSeenEff;
-              setSeenOverride(next);
-              set({ hideSeen: next });
-            }}
+            active={hideSeen}
+            onPress={() => set({ hideSeen: !hideSeen })}
           />
         ) : null}
         {originCatalog.length ? (
@@ -720,8 +718,6 @@ export default function TonightScreen() {
       </Screen>
     );
 
-  const canLoadMore = !bold && fetched < total && (rankCap == null || fetched < rankCap);
-
   return (
     <Screen>
       {/* Masthead + filters ride INSIDE the list (owner 07-29: chrome must scroll away
@@ -758,7 +754,7 @@ export default function TonightScreen() {
         onEndReached={loadMore}
         onEndReachedThreshold={0.6}
         ListFooterComponent={
-          canLoadMore ? (
+          moreAvailable ? (
             <View style={{ paddingVertical: sp.s5, alignItems: "center" }}>
               <Dots />
             </View>
