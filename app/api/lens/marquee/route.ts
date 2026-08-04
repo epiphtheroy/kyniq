@@ -43,7 +43,12 @@ export async function GET(request: Request) {
     p_q: searchParams.get("q") || null,
     p_year_min: num("year_min"),
     p_year_max: num("year_max"),
-    p_country: null,
+    // Production country ("Made in"), lowercase ISO2 — compared against
+    // curation.film.country_code, the same column cinecodex_countries counts.
+    // Was hardcoded null, which silently dropped the filter for signed-in users
+    // with Hide-seen on: the only difference between the two paths must be the
+    // seen exclusion.
+    p_country: (searchParams.get("made_in") || "").trim().toLowerCase() || null,
     p_max_cost: 100,
     p_sub: {},
     p_ts_min: num("ts_min"),

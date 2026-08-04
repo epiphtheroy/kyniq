@@ -8,6 +8,7 @@ import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { LensProvider } from "@/components/LensProvider";
 import ConversionProvider from "@/components/conversion/ConversionProvider";
+import { WatchPrefsProvider } from "@/components/WatchPrefsProvider";
 import { pageRobots, ORG_SAME_AS, KNOWS_ABOUT, PERSON_SAME_AS } from "@/lib/seo";
 import "./globals.css";
 
@@ -159,7 +160,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
         <LocaleSuggestBanner />
-        <UserFilmsProvider><UserSavesProvider><LensProvider><ConversionProvider>{children}</ConversionProvider></LensProvider></UserSavesProvider></UserFilmsProvider>
+        {/* WatchPrefs wraps the others: country/services/title-language are read by
+            card and poster surfaces inside all of them. */}
+        <WatchPrefsProvider><UserFilmsProvider><UserSavesProvider><LensProvider><ConversionProvider>{children}</ConversionProvider></LensProvider></UserSavesProvider></UserFilmsProvider></WatchPrefsProvider>
         <Footer />
         <GlobalCmdK />
         <Analytics />

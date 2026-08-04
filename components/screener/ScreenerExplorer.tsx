@@ -15,6 +15,8 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { useLens } from "@/components/LensProvider";
 import { useUserFilms } from "@/components/UserFilmsProvider";
+import { useWatchPrefs } from "@/components/WatchPrefsProvider";
+import { useLocalTitles } from "@/lib/useLocalTitles";
 import PosterActions from "@/components/PosterActions";
 import { CODEX_DIMS, takescoreDimUrl, displayTs } from "@/lib/cinecodex_dims";
 import { verdictSentence, verdictShort } from "@/lib/takescore_prose";
@@ -100,9 +102,12 @@ export default function ScreenerExplorer({
   const [hideSeen, setHideSeen] = useState(false);
   const [showDims, setShowDims] = useState(false);
 
-  // ---- watch prefs (localStorage, no login) ----
-  const [watchCountry, setWatchCountry] = useState("US");
-  const [providers, setProviders] = useState<number[]>([]);
+  // ---- watch prefs: the site-wide store (WatchPrefsProvider), not a local copy.
+  //      Set once in /settings (or here, or on the phone) and every ranked
+  //      surface agrees. ----
+  const { country: watchCountry, providers, set: setPrefs } = useWatchPrefs();
+  const setWatchCountry = useCallback((cc: string) => setPrefs({ country: cc.toUpperCase() }), [setPrefs]);
+  const setProviders = useCallback((ids: number[]) => setPrefs({ providers: ids }), [setPrefs]);
   // ---- pins (URL ?pin= wins, else localStorage) ----
   const [pins, setPins] = useState<string[]>([]);
   const [pinMeta, setPinMeta] = useState<Record<string, { title: string; poster: string | null }>>({});
@@ -127,19 +132,14 @@ export default function ScreenerExplorer({
     const dm = parseDims(g("dims")); if (Object.keys(dm).length) { setDims(dm); setShowDims(true); }
     if (g("mv")) setMaxVotes(g("mv"));
     if (g("hide") === "seen") setHideSeen(true);
-    try {
-      const wp = JSON.parse(localStorage.getItem("mt-watch-prefs") || "{}");
-      if (wp.country) setWatchCountry(wp.country);
-      else { const loc = (new Intl.DateTimeFormat().resolvedOptions().locale.split("-")[1] || "").toUpperCase(); if (loc) setWatchCountry(loc); }
-      if (Array.isArray(wp.providers)) setProviders(wp.providers);
-    } catch { /* defaults */ }
+    // (country + services are the provider's business now — including the
+    // first-visit guess from the browser's region.)
     const urlPins = g("pin").split(",").map((s) => s.trim()).filter(Boolean);
     if (urlPins.length) setPins(urlPins.slice(0, MAX_PINS));
     else { try { const t = JSON.parse(localStorage.getItem("mt-ts-tray") || "[]"); if (Array.isArray(t)) setPins(t.slice(0, MAX_PINS)); } catch { /* */ } }
     hydrated.current = true;
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => { if (hydrated.current) try { localStorage.setItem("mt-watch-prefs", JSON.stringify({ country: watchCountry, providers })); } catch { /* */ } }, [watchCountry, providers]);
   useEffect(() => { if (hydrated.current) try { localStorage.setItem("mt-ts-tray", JSON.stringify(pins)); } catch { /* */ } }, [pins]);
 
   // ---- rows ----
@@ -255,6 +255,10 @@ export default function ScreenerExplorer({
     const t = setTimeout(() => { fetchPage(true); fetchHist(); }, 320);
     return () => clearTimeout(t);
   }, [sort, lam, q, yearMin, to, country, genre, ts, subJson, maxVotes, provActive, providers, watchCountry, personalMode]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Release titles in the reader's chosen language (migration 0121), overlaid on
+  // the English rows at render time. English costs no request.
+  const titleOf = useLocalTitles(rows.map((r) => r.slug));
 
   // ---- pin helpers ----
   const pin = useCallback((slug: string, title: string, poster: string | null) => {
@@ -423,9 +427,13 @@ export default function ScreenerExplorer({
       {/* results grid — click a row to drop its verdict curtain */}
       <div className="scr-grid">
         {rows.length === 0 && !loading ? (
-          <p className="scr-empty">No films match these filters. <button className="scr-empty-reset" onClick={() => { setTs(null); setDims({}); setMaxVotes(""); setProviders([]); setHideSeen(false); setGenre(""); setCountry(""); }}>Reset filters</button></p>
+          // Note: "Reset filters" clears this page's filters only — the services
+          // are an account-level setting now, so wiping them from here would
+          // silently reconfigure every other surface.
+          <p className="scr-empty">No films match these filters. <button className="scr-empty-reset" onClick={() => { setTs(null); setDims({}); setMaxVotes(""); setHideSeen(false); setGenre(""); setCountry(""); }}>Reset filters</button></p>
         ) : rows.map((f) => {
           const isOpen = openRow === f.slug;
+          const title = titleOf(f.slug, f.title);
           return (
           <div className={`scr-rowwrap${isOpen ? " open" : ""}`} key={`${f.slug}-${f.rank}`}>
             <div className="scr-row" role="button" tabIndex={0} aria-expanded={isOpen}
@@ -435,12 +443,12 @@ export default function ScreenerExplorer({
               <span className="scr-row-poster">
                 {f.poster_path ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={`${POSTER}${f.poster_path}`} alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`} loading="lazy" width={66} height={99} />
+                  <img src={`${POSTER}${f.poster_path}`} alt={`${title}${f.year ? ` (${f.year})` : ""} poster`} loading="lazy" width={66} height={99} />
                 ) : <span className="scr-row-poster--e" />}
               </span>
               <div className="scr-row-mid">
                 <div className="scr-row-title">
-                  {f.title} <span className="scr-row-y">({f.year ?? "?"}{f.director ? `, ${f.director}` : ""})</span>
+                  {title} <span className="scr-row-y">({f.year ?? "?"}{f.director ? `, ${f.director}` : ""})</span>
                 </div>
                 <div className="scr-row-band">
                   <b style={{ color: AX.v }}>V {Math.round(f.v)}</b>
@@ -457,7 +465,7 @@ export default function ScreenerExplorer({
             </div>
             {isOpen ? (
               <div className="scr-curtain">
-                <p className="scr-curtain-verdict">{verdictSentence(f.v, f.c, f.r, f.u, f.title)}</p>
+                <p className="scr-curtain-verdict">{verdictSentence(f.v, f.c, f.r, f.u, title)}</p>
                 <div className="scr-curtain-row">
                   <div className="scr-curtain-scores">
                     <span className="scr-cs" style={{ color: AX.v }}><b>{Math.round(f.v)}</b><i>Value</i></span>
@@ -480,6 +488,9 @@ export default function ScreenerExplorer({
           );
         })}
       </div>
+      {/* The page that is on its way, in the shape it will land in. A filter
+          change keeps the old rows up instead (they are still true until the
+          new ones arrive) — only an append has nothing to show. */}
       {rows.length < total ? (
         <div className="scr-more"><button onClick={() => fetchPage(false)} disabled={loading}>{loading ? "Loading…" : `Load more (${rows.length}/${total.toLocaleString("en-US")})`}</button></div>
       ) : null}

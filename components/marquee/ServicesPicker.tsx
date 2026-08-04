@@ -5,7 +5,10 @@
  * button opens a floating panel of the country's providers, grouped by how you
  * access them: Subscription / Free / Rent & Buy (YouTube, Apple, Amazon…). The
  * parent owns the selected id list + persistence; onServices lifts the loaded
- * list so the parent can tell which selections are rent stores.
+ * list so the parent can tell which selections are rent stores — WITH the
+ * country it was loaded for, because the parent also prunes selections against
+ * it, and an in-flight country switch would otherwise have it prune the new
+ * country's ids against the old country's list.
  */
 import { useEffect, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
@@ -35,7 +38,7 @@ export default function ServicesPicker({
   country: string;
   selected: number[];
   onChange: (ids: number[]) => void;
-  onServices?: (svcs: Service[]) => void;
+  onServices?: (svcs: Service[], country: string) => void;
 }) {
   const [open, setOpen] = useState(false);
   const [svcs, setSvcs] = useState<Service[]>([]);
@@ -49,7 +52,7 @@ export default function ServicesPicker({
       if (!alive) return;
       const list = (data as Service[]) ?? [];
       setSvcs(list); setLoading(false);
-      onServices?.(list);
+      onServices?.(list, country);
     });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
