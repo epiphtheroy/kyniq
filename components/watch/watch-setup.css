@@ -1,0 +1,161 @@
+/* WatchSetup / TitleLanguage — the personal-settings panels.
+   Design system v3 "Newspaper": hairlines, square corners, one red accent, Inter
+   chrome. Imported by the components themselves, so both panels are portable to
+   any surface that wants to embed them (a Marquee popover, onboarding). */
+
+.wset { font-family: var(--font-ui); max-width: 640px; }
+
+.wset-lab {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 6px;
+}
+.wset-lab--row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+
+.wset-country { margin-bottom: 18px; }
+.wset-select {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  padding: 9px 10px;
+  width: 100%;
+  max-width: 340px;
+  cursor: pointer;
+}
+.wset-select:focus { outline: none; border-color: var(--ink); }
+.wset-note { display: block; font-size: 12px; color: var(--subtle); margin-top: 6px; }
+
+/* ── services grid ───────────────────────────────────────────────────────── */
+.wset-group { margin-top: 12px; }
+.wset-gtitle {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.wset-gtitle--subscription { color: var(--ink-soft); }
+.wset-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.wset-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 6px 11px;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.wset-chip:hover { border-color: var(--hairline-2); }
+.wset-chip.on { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.wset-chip.on img { filter: none; }
+.wset-chip img { border-radius: 3px; display: block; }
+.wset-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--hairline-2); }
+.wset-lib {
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.wset-chip.on .wset-lib { color: var(--bg); opacity: 0.75; }
+
+/* ── saved setups ────────────────────────────────────────────────────────── */
+.wset-setups { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.wset-chip--setup { padding: 0; overflow: hidden; }
+.wset-chip--setup button {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px 6px 11px;
+}
+.wset-chip--setup button i { font-style: normal; font-size: 11px; color: var(--muted); }
+.wset-chip--setup.on { border-color: var(--accent); }
+.wset-chip--setup.on button i { color: var(--accent-text); }
+.wset-chip-x { padding: 6px 9px 6px 4px !important; color: var(--subtle) !important; font-size: 14px !important; }
+.wset-chip-x:hover { color: var(--accent-text) !important; }
+
+/* ── save-this-setup row ─────────────────────────────────────────────────── */
+.wset-save { display: flex; align-items: center; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.wset-input {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  padding: 7px 9px;
+  min-width: 200px;
+}
+.wset-input:focus { outline: none; border-color: var(--ink); }
+.wset-savebtn {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: none;
+  border-radius: 3px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.wset-savebtn:hover { background: var(--accent-hover); }
+.wset-clear {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent-text);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.wset-empty { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+.wset-sum { font-size: 12.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.55; }
+.wset-sum b { color: var(--ink); font-weight: 600; }
+
+/* ── language picker ─────────────────────────────────────────────────────── */
+.wset-langs { display: flex; flex-wrap: wrap; gap: 6px; }
+.wset-lang {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  padding: 9px 13px;
+  cursor: pointer;
+  transition: border-color 0.12s ease;
+}
+.wset-lang:hover { border-color: var(--hairline-2); }
+.wset-lang.on { border-color: var(--accent); border-width: 1px; box-shadow: inset 0 0 0 1px var(--accent); }
+.wset-lang-n { font-weight: 600; }
+.wset-lang-e { font-size: 12px; color: var(--muted); }
+.wset-lang-tick { color: var(--accent-text); font-size: 12px; }
+
+.wset-samples { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 4px; }
+.wset-samples li { font-size: 13.5px; color: var(--ink); }
+.wset-samples li span { color: var(--subtle); font-size: 12px; }
+
+@media (max-width: 560px) {
+  .wset-select { max-width: 100%; }
+}

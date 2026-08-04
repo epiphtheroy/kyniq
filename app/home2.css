@@ -541,6 +541,35 @@
 .mthome .facetgrid{grid-template-columns:1fr}
 }
 
+/* ── The top bar must FIT the phone (owner report 2026-08-04, iPhone Safari) ──
+   Symptom: a white gutter down the right of every page, and the dark sections
+   ending short of the screen edge. Cause: Safari does not clip a row that is
+   too wide — it widens the DOCUMENT, and the whole page then scrolls sideways
+   past the background.
+   Nothing in .navrow shrinks by default: logo, "Menu", the "Room" label and the
+   account cluster are all white-space:nowrap, so at 390px they demanded ~440px
+   (measured: 96 + 74 + 237 + gaps, against a 338px content box). Each rule below
+   removes real width rather than hiding the overflow — a global overflow-x on
+   html/body would have masked this *and* broken the sticky nav, since it makes
+   html the scroll container. */
+@media(max-width:680px){
+  .mthome .wrap{padding:0 16px}
+  .mthome .navrow{gap:10px}
+  .mthome .navright{gap:12px;min-width:0}
+  /* The bookmark glyph carries the meaning; the word is what doesn't fit.
+     :not(.nbadge) so the unread count still shows. */
+  .mthome .navright .nicon > span:not(.nbadge){display:none}
+  /* "Sign in" and "＋" are two doors to the same place, and the pill is the one
+     that converts — so the disc is what goes, not the pill. */
+  .mthome .acct .avatar--join{display:none}
+}
+@media(max-width:400px){
+  .mthome .navrow{gap:8px}
+  .mthome .logo{font-size:15px;padding:6px 9px}
+  .mthome .menubtn{padding:8px 2px;gap:6px}
+  .mthome .signin-pill{padding:0 11px}
+}
+
 /* Expanded top bar: 5 groups inline with per-group dropdown (wide), hamburger Menu fallback (narrow). */
 .mthome .navgroups{display:none;align-items:center;gap:2px}
 .mthome .ng{position:relative;padding-bottom:11px}

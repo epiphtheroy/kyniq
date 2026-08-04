@@ -7,6 +7,7 @@ import LocaleSuggestBanner from "@/components/i18n/LocaleSuggestBanner";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { LensProvider } from "@/components/LensProvider";
+import { WatchPrefsProvider } from "@/components/WatchPrefsProvider";
 import MotionRuntime from "@/components/MotionRuntime";
 import { pageRobots, ORG_SAME_AS, KNOWS_ABOUT, PERSON_SAME_AS } from "@/lib/seo";
 import "./globals.css";
@@ -166,7 +167,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
         <LocaleSuggestBanner />
-        <UserFilmsProvider><UserSavesProvider><LensProvider>{children}</LensProvider></UserSavesProvider></UserFilmsProvider>
+        {/* WatchPrefs wraps the others: country/services/title-language are read by
+            poster and card surfaces inside all three. */}
+        <WatchPrefsProvider><UserFilmsProvider><UserSavesProvider><LensProvider>{children}</LensProvider></UserSavesProvider></UserFilmsProvider></WatchPrefsProvider>
         <Footer />
         <GlobalCmdK />
         <Analytics />
