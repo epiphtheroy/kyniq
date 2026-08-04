@@ -240,3 +240,29 @@ The 48h story-cluster dedupe and the 7-day film-reuse check read this file. Keep
 2026-07-29T10:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 2 reviewed
 2026-08-03T05:18:45+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
 2026-08-03T05:20:28+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 1 recorded
+2026-08-03T06:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 1 recorded
+2026-08-03T07:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-03T08:00:00+00:00 · PASS-CAND · Spider · archive links 0<4
+2026-08-03T08:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T09:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T10:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T11:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T12:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T13:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-03T14:00:01+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 1 recorded
+2026-08-03T15:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T16:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T17:00:00+00:00 · PUBLISHED · kw: Police · anchor: police-1985 · lane: direct · modules: takescore,canon · /now/police-1985-pialat-cw-police-24-7-renewal · dist: revalidate,indexnow:200,bluesky:200
+2026-08-03T18:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T19:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T20:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-03T21:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T22:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-03T23:00:00+00:00 · PUBLISHED · kw: deadpool and wolverine · anchor: the-devil-wears-prada-2006 · lane: direct · modules: takescore,honors · /now/devil-wears-prada-2-vs-deadpool-wolverine-streaming · dist: revalidate,indexnow:200,bluesky:200
+2026-08-04T00:00:00+00:00 · PUBLISHED · kw: huw edwards · anchor: poetry-2010 · lane: direct · modules: takescore,reception · /now/huw-edwards-gelyn-eisteddfod-poem-poetry-2010 · dist: revalidate,indexnow:200,bluesky:200
+2026-08-04T01:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 1 recorded
+2026-08-04T02:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-04T03:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-04T04:00:00+00:00 · PUBLISHED · kw: m · anchor: avengers-endgame-2019 · lane: direct · modules: takescore,locations · /now/avengers-endgame-opening-record-spider-man-brand-new-day · dist: revalidate,indexnow:200,bluesky:200
+2026-08-04T05:00:01+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-04T06:00:00+00:00 · PUBLISHED · kw: very · anchor: christopher-nolan · lane: direct · modules: filmography,takescore-oppenheimer-2023 · /now/very-modern-odyssey-vs-nolan-odyssey-homer · dist: revalidate,indexnow:200,bluesky:200
