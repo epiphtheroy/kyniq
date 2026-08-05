@@ -34,7 +34,10 @@ const RULES = [
   [/에 있어서/, "에 있어서"],
   [/에 다름 아니/, "에 다름 아니"],
   [/```/, "코드펜스"],
-  [/^\s*(?:번역|다음은|아래는)/, "메타발화"],
+  // Meta-speech = the model talking about the task ("번역: …", "다음은 …입니다").
+  // Must not fire on prose that legitimately opens with the word — a trope about
+  // mistranslation starts "번역의 실패는…" and is not meta-speech.
+  [/^\s*(?:번역(?:문)?\s*[::]|다음은\s|아래는\s|물론[,.]|알겠)/, "메타발화"],
 ];
 
 /** last 3 chars of each sentence — the ending signature */
