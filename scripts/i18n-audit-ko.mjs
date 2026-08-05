@@ -101,12 +101,30 @@ function auditCorpus(name) {
   const TEMPLATE = name === "tow_assembled" || name === "tow_segments";
   if (!TEMPLATE && topOpen[0] && topOpen[0][1] / rows.length > 0.03 && rows.length > 100)
     collapse.push(`첫머리 '${topOpen[0][0]}' ${pct(topOpen[0][1], rows.length)}% (>3%)`);
-  if (sd / (mean || 1) < 0.35 && allLens.length > 200)
-    collapse.push(`문장길이 변동계수 ${(sd / mean).toFixed(2)} (<0.35, 단조)`);
+  // Monotony is only meaningful RELATIVE to the source. Trope titles are short
+  // noun phrases whose English is itself uniform (cv 0.15) — an absolute floor
+  // flags that as collapse when the Korean is in fact more varied than what it
+  // came from. Collapse means the translation FLATTENED variety the source had.
+  const enLens = [];
+  for (const r of rows) {
+    const en = src.get(r.entity_key)?.en;
+    if (en) enLens.push(...sentenceLens(en));
+  }
+  const koCv = sd / (mean || 1);
+  let enCv = null;
+  if (enLens.length > 200) {
+    const em = enLens.reduce((a, b) => a + b, 0) / enLens.length;
+    enCv = Math.sqrt(enLens.reduce((a, b) => a + (b - em) ** 2, 0) / enLens.length) / (em || 1);
+    if (koCv < enCv * 0.85)
+      collapse.push(`문장길이 변동 ${koCv.toFixed(2)} < 원문 ${enCv.toFixed(2)}의 85% (단조화)`);
+  } else if (koCv < 0.35 && allLens.length > 200) {
+    collapse.push(`문장길이 변동계수 ${koCv.toFixed(2)} (<0.35, 단조)`);
+  }
 
   console.log(`\n── ${name} ── ${rows.length} rows, ${allLens.length} sentences`);
   console.log(`   번역투 위반: ${flagged.length} (${pct(flagged.length, rows.length)}%)`);
-  console.log(`   문장길이 평균 ${mean.toFixed(0)}자 · 표준편차 ${sd.toFixed(0)} · 변동계수 ${(sd / (mean || 1)).toFixed(2)}`);
+  console.log(`   문장길이 평균 ${mean.toFixed(0)}자 · 변동계수 ${koCv.toFixed(2)}` +
+    (enCv != null ? ` (원문 ${enCv.toFixed(2)} · 비율 ${(koCv / enCv).toFixed(2)})` : ""));
   console.log(`   병기 ${glossTotal}회 (${(glossTotal / rows.length).toFixed(2)}/항목) · 대시 ${dashTotal}회`);
   console.log(`   종결 상위: ${topEnd.map(([e, n]) => `${e}(${pct(n, totalEnd)}%)`).join(" ")}`);
   console.log(`   첫머리 상위: ${topOpen.map(([e, n]) => `"${e}"(${n})`).join(" ")}`);
