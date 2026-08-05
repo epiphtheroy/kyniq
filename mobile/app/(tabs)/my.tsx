@@ -52,6 +52,7 @@ import {
 import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE } from "../../src/config";
 import { ALL_EDITIONS, langLabel, uiLocaleLabel } from "../../src/editions";
+import { countryLabel } from "../../src/i18n/tokens";
 import { Appear, ProgressBar, Shimmer } from "../../src/components/motion";
 import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
@@ -1249,7 +1250,7 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
             <SettingRow
               icon="globe-outline"
               label={t("onboarding.editionTitle")}
-              value={`${edition ? `${edition.flag} ${edition.label}` : prefs.country} · ${prefs.providerIds.length}`}
+              value={`${edition ? `${edition.flag} ${countryLabel(edition.code, edition.label)}` : prefs.country} · ${prefs.providerIds.length}`}
               onPress={() => goOnboarding("edition")}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />

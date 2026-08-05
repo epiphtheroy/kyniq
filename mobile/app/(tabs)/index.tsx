@@ -43,6 +43,7 @@ import { useRate } from "../../src/components/RateSheet";
 import { DEFAULT_EDITION, EDITIONS } from "../../src/editions";
 import { Appear, Dots, Pop, SkeletonScreen, Sparkle, haptic } from "../../src/components/motion";
 import { t, type DictKey } from "../../src/i18n";
+import { countryLabel } from "../../src/i18n/tokens";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
 import { useLocalTitles } from "../../src/lib/titles";
@@ -466,7 +467,7 @@ export default function TonightScreen() {
         <View style={{ flexShrink: 0 }}>
           <Chip
             label={edition.flag}
-            accessibilityLabel={`${t("my.country")}: ${edition.label}`}
+            accessibilityLabel={`${t("my.country")}: ${countryLabel(edition.code, edition.label)}`}
             onPress={() =>
               router.push({ pathname: "/onboarding", params: { step: "country" } })
             }

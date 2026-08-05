@@ -134,3 +134,30 @@ const TOW_VERDICTS: Partial<Record<UILocale, Map>> = {
 export function towVerdictLabel(en: string): string {
   return TOW_VERDICTS[getLocale()]?.[en] ?? en;
 }
+
+// Storefront country names. A static map rather than Intl.DisplayNames, which
+// needs a full-ICU Hermes build — a name that silently falls back to a code is a
+// worse failure than 51 strings maintained by hand. Keyed by EDITIONS code.
+const COUNTRIES: Partial<Record<UILocale, Map>> = {
+  ko: {
+    US: "미국", GB: "영국", CA: "캐나다", AU: "호주", IE: "아일랜드", NZ: "뉴질랜드",
+    KR: "대한민국", JP: "일본", FR: "프랑스", DE: "독일", ES: "스페인", IT: "이탈리아",
+    NL: "네덜란드", SE: "스웨덴", IN: "인도", MX: "멕시코", BR: "브라질",
+  },
+  es: {
+    US: "Estados Unidos", GB: "Reino Unido", CA: "Canadá", AU: "Australia", IE: "Irlanda",
+    NZ: "Nueva Zelanda", KR: "Corea del Sur", JP: "Japón", FR: "Francia", DE: "Alemania",
+    ES: "España", IT: "Italia", NL: "Países Bajos", SE: "Suecia", IN: "India",
+    MX: "México", BR: "Brasil",
+  },
+  ja: {
+    US: "アメリカ", GB: "イギリス", CA: "カナダ", AU: "オーストラリア", IE: "アイルランド",
+    NZ: "ニュージーランド", KR: "韓国", JP: "日本", FR: "フランス", DE: "ドイツ",
+    ES: "スペイン", IT: "イタリア", NL: "オランダ", SE: "スウェーデン", IN: "インド",
+    MX: "メキシコ", BR: "ブラジル",
+  },
+};
+
+export function countryLabel(code: string, en: string): string {
+  return COUNTRIES[getLocale()]?.[code] ?? en;
+}

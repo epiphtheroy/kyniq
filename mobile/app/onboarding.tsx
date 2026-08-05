@@ -44,6 +44,7 @@ import { Serif,
   Wordmark,
 } from "../src/components/ui";
 import { ALL_EDITIONS, CONTENT_LANGS, UI_LOCALES, type ContentLang } from "../src/editions";
+import { countryLabel } from "../src/i18n/tokens";
 import SignInPanel from "../src/components/SignInPanel";
 import { SkeletonScreen } from "../src/components/motion";
 import { t } from "../src/i18n";
@@ -607,7 +608,7 @@ function StepEdition({ onNext }: { onNext: () => void }) {
                   >
                     <Ui size={fs.sm}>{ed.flag}</Ui>
                     <Ui size={fs.sm} weight="600" color={on ? pal.bg : pal.inkSoft}>
-                      {ed.label}
+                      {countryLabel(ed.code, ed.label)}
                     </Ui>
                   </View>
                 </Tactile>
