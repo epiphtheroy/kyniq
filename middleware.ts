@@ -225,9 +225,16 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   // Bare /search (no query) is left alone — it renders no search at all — and so
   // is the /credits index, which is one cached page rather than a per-person fetch.
   {
-    const wantsSearch = pathname === "/search" && !!request.nextUrl.searchParams.get("q");
-    const wantsPerson = pathname.startsWith("/credits/");
-    const wantsFigure = FIGURE_PATH.test(pathname);
+    // Next.js prefetches almost every <Link> in the viewport (1,188 of them in
+    // this codebase, 3 opted out), so one person scrolling a grid fires dozens of
+    // requests in seconds and would trip any of these ceilings. Crawlers never
+    // send this header — it is the one signal that separates "a reader arrived"
+    // from "something is sweeping us", and without it these limits would 429 real
+    // people on the catalogue pages.
+    const isPrefetch = request.headers.get("next-router-prefetch") === "1";
+    const wantsSearch = !isPrefetch && pathname === "/search" && !!request.nextUrl.searchParams.get("q");
+    const wantsPerson = !isPrefetch && pathname.startsWith("/credits/");
+    const wantsFigure = !isPrefetch && FIGURE_PATH.test(pathname);
     if (wantsSearch || wantsPerson || wantsFigure) {
       const prefix =
         ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")) ??
@@ -252,9 +259,10 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
       // route is next: no human reads a page a second for a minute, so a /24
       // sustaining that is sweeping, whatever it is sweeping. Search and
       // citation bots are exempted above, so indexing is never slowed.
-      const burstPrefix = ipToPrefix(
-        request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")
-      );
+      const burstPrefix =
+        request.headers.get("next-router-prefetch") === "1"
+          ? null // a reader's link prefetches, not a sweep — see the throttle block
+          : ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip"));
       if (burstPrefix && throttled("burst", burstPrefix, BURST_MAX_PER_MIN)) {
         return tooMany("burst");
       }
