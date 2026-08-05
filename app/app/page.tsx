@@ -12,7 +12,12 @@ import SiteNav from "@/components/home2/SiteNav";
 //    not endorsed or certified).
 //  - no "human-curated" / "not AI" claims anywhere (credit overhaul pending);
 //    TakeScore/Invitations are "by Metatake Editorial", nothing more.
-//  - honest store status: coming, not live — no dead badge links.
+//  - honest store status (owner 08-05): iOS build 17 is WAITING_FOR_REVIEW and the
+//    public TestFlight link is live — link it. Android is in Google's closed-test
+//    review — no Play link until it's real.
+//
+// Screenshots in public/app/ are 560px JPEG derivatives of the ASC set
+// (mobile/store/shots-65, real app + real data) — regenerate them together.
 
 export const metadata: Metadata = {
   title: { absolute: "Metatake — the app" },
@@ -28,6 +33,37 @@ const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
   </Link>
 );
 
+const TESTFLIGHT = "https://testflight.apple.com/join/8jKKV3Eu";
+
+// 560px derivatives of the ASC screenshot set — the real app, real data.
+const SHOTS = [
+  {
+    src: "/app/beta-tonight.jpg",
+    alt: "Tonight tab — a deck of films on your services, each with a TakeScore and want / pass / seen buttons",
+    cap: "Tonight — the deck, cut to your services",
+  },
+  {
+    src: "/app/beta-brief.jpg",
+    alt: "A film's judgment brief — In the Mood for Love with its TakeScore ring and spoiler-free Invitation",
+    cap: "The brief — TakeScore and a spoiler-free Invitation",
+  },
+  {
+    src: "/app/beta-services.jpg",
+    alt: "Where to watch — the film's streaming offers, with the services you pay for marked YOURS",
+    cap: "Where to watch — your services, marked",
+  },
+  {
+    src: "/app/beta-locations.jpg",
+    alt: "Locations — the film's real filming locations pinned on a map",
+    cap: "Locations — real places, on the map",
+  },
+  {
+    src: "/app/beta-explore.jpg",
+    alt: "Explore tab — browse by genre and decade, and 114 curated lists",
+    cap: "Explore — 114 lists to browse",
+  },
+];
+
 export default function AppLandingPage() {
   return (
     <>
@@ -42,6 +78,74 @@ export default function AppLandingPage() {
           back on whether you chose well. Every film in the catalog carries your judgment state
           — want, pass, seen — and the app&apos;s one job is to move it forward.
         </p>
+
+        <section
+          style={{
+            margin: "26px 0 0",
+            border: "1px solid var(--ink)",
+            background: "#FBFAF7",
+            padding: "22px 24px 24px",
+          }}
+        >
+          <div className="seclbl">iOS beta — open now</div>
+          <div className="tick" />
+          <h2 className="disp" style={{ fontSize: 22, margin: 0 }}>
+            Try it on your iPhone today.
+          </h2>
+          <p className="body reading" style={{ fontSize: 17, margin: "10px 0 0", maxWidth: "58ch" }}>
+            Metatake for iOS is in App Store review — we expect it to clear within 2–3 days.
+            You don&apos;t have to wait: the TestFlight beta is open to everyone, no invitation
+            needed.
+          </p>
+          <p style={{ margin: "18px 0 0" }}>
+            <a
+              className="btn-cta"
+              style={{ fontSize: 15, padding: "12px 20px" }}
+              href={TESTFLIGHT}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Join the iOS beta on TestFlight&nbsp;→
+            </a>
+          </p>
+          <p className="ui muted" style={{ fontSize: 12.5, margin: "12px 0 0", lineHeight: 1.55 }}>
+            Open the link on your iPhone — it installs through Apple&apos;s free TestFlight app.
+            The Android closed test is with Google for review; that link follows.
+          </p>
+        </section>
+
+        <div
+          style={{
+            display: "flex",
+            gap: 14,
+            overflowX: "auto",
+            WebkitOverflowScrolling: "touch",
+            margin: "22px 0 0",
+            paddingBottom: 6,
+          }}
+        >
+          {SHOTS.map((s) => (
+            <figure key={s.src} style={{ flex: "0 0 208px", width: 208, margin: 0 }}>
+              <img
+                src={s.src}
+                alt={s.alt}
+                width={560}
+                height={1211}
+                loading="lazy"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                  borderRadius: 18,
+                  border: "1px solid var(--hairline)",
+                }}
+              />
+              <figcaption className="ui muted" style={{ fontSize: 12, margin: "8px 0 0", lineHeight: 1.45 }}>
+                {s.cap}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
 
         <hr className="rule" />
 
@@ -120,20 +224,25 @@ export default function AppLandingPage() {
         <div className="seclbl">Availability</div>
         <div className="tick" />
         <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-          Coming to the App Store and Google Play. The app is built and in pre-release testing;
-          store listings go live after the test gate. We won&apos;t show badges until they link
-          somewhere real.
+          <strong>iOS</strong> — submitted and in App Store review; we expect the listing to go
+          live within 2–3 days. Until then, the{" "}
+          <a href={TESTFLIGHT} className="accent" style={{ textDecoration: "none" }} target="_blank" rel="noreferrer">
+            TestFlight beta
+          </a>{" "}
+          is open to everyone.
         </p>
         <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-          Want in early? Write{" "}
+          <strong>Android</strong> — the closed-test build is with Google for review. Want in
+          when it opens? Write{" "}
           <a
-            href="mailto:wonwoo@metatake.net?subject=TestFlight%20%2F%20early%20access"
+            href="mailto:wonwoo@metatake.net?subject=Android%20closed%20test"
             className="accent"
             style={{ textDecoration: "none" }}
           >
             wonwoo@metatake.net
           </a>{" "}
-          and we&apos;ll add you to the TestFlight and Play internal-test lists.
+          and we&apos;ll add you to the Play test list. Store badges appear here the day they
+          link somewhere real.
         </p>
 
         <hr className="rule" />
