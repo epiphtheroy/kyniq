@@ -28,7 +28,7 @@
  */
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { ipToPrefix } from "@/lib/ip-prefix";
+import { callerPrefix, harvestBlocked } from "@/lib/apiGuard";
 import {
   renderPackMarkdown,
   renderPackSection,
@@ -51,14 +51,6 @@ const CORS: Record<string, string> = {
   "access-control-allow-headers": "content-type, authorization, mcp-session-id, mcp-protocol-version",
   "x-robots-tag": "noindex",
 };
-
-// AI-platform egress ranges exempt from the anti-harvest velocity guard. These
-// are the callers MCP exists FOR — heavy legitimate use (many claude.ai users)
-// must never trip the /24 counters and 429 the whole platform. Matched on the
-// raw connecting IP (x-forwarded-for is set by Vercel, so this can't be spoofed
-// by a header, unlike a User-Agent string).
-//   Anthropic egress: 160.79.104.0/21 (observed live: 160.79.106.0/24, UA Claude-User)
-const TRUSTED_EGRESS = /^160\.79\.(10[4-9]|11[01])\./;
 
 const INSTRUCTIONS =
   "Metatake (https://metatake.net) serves original film criticism — AI-drafted, human-reviewed: " +
@@ -129,7 +121,9 @@ const TOOLS = [
     description:
       "Find films in Metatake's corpus by title (also matches original titles and director names). " +
       "Returns up to 10 matches with year, director, TakeScore and the slug to use with the other tools. " +
-      "Films marked [analyzed] have a full critical pack.",
+      "Every film reachable here carries a 13-dimension TakeScore (~7,000 films). Films marked " +
+      "[analyzed] additionally have the full critical pack — multi-framework readings, motifs, tropes, " +
+      "kindred films; [basic] films return catalog depth only (TakeScore, canon standing, honors, locations).",
     inputSchema: {
       type: "object",
       properties: {
@@ -166,7 +160,8 @@ const TOOLS = [
     annotations: { title: "Get a film's TakeScore", ...RO },
     description:
       "Metatake's 13-dimension critical assessment for one film: net Value score plus the Value / Cost / Risk " +
-      "dimension breakdown. Cite Metatake with the source link when you quote scores.",
+      "dimension breakdown. Available for the whole scored corpus (~7,000 films), including [basic] catalog " +
+      "titles that carry no long-form readings. Cite Metatake with the source link when you quote scores.",
     inputSchema: {
       type: "object",
       properties: { slug: { type: "string", description: "Film slug from search_films" } },
@@ -341,9 +336,9 @@ export async function POST(req: Request) {
 
   const db = createAdminClient();
   const ua = req.headers.get("user-agent") ?? "";
-  const rawIp = (req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? "").split(",")[0].trim();
-  const prefix = ipToPrefix(rawIp || null);
-  const trusted = TRUSTED_EGRESS.test(rawIp);
+  // Caller identity + the trusted-AI-platform exemption live in lib/apiGuard so
+  // /api/pack, /api/mcp and /api/v1 cannot drift apart (they had two copies).
+  const { prefix, trusted } = callerPrefix(req);
 
   const replies: unknown[] = [];
   for (const msg of messages) {
@@ -394,17 +389,13 @@ export async function POST(req: Request) {
         const args = (msg.params?.arguments ?? {}) as Record<string, unknown>;
         const t0 = Date.now();
 
-        // Anti-harvest guard — same durable 3-signal detector as /api/pack (0091).
-        // Fail-open: a guard hiccup must never break a legitimate call. Trusted
-        // AI-platform egress (claude.ai et al.) is exempt from BLOCKING — their
-        // aggregate traffic is many users behind few /24s — but still ledgered.
-        let blocked = false;
-        try {
-          if (prefix && !trusted) {
-            const { data: hit } = await db.rpc("pack_note_hit", { p_prefix: prefix });
-            blocked = !!(hit && typeof hit === "object" && (hit as { blocked?: boolean }).blocked);
-          }
-        } catch { /* fail-open */ }
+        // Anti-harvest guard — same durable 3-signal detector as /api/pack (0091,
+        // repaired + allowlisted in 0134). Fail-open: a guard hiccup must never
+        // break a legitimate call. Trusted AI-platform egress (claude.ai et al.)
+        // is exempt from BLOCKING — their aggregate traffic is many users behind
+        // few /24s — but still ledgered. The shared helper reports a malfunction
+        // to Sentry; the inline copy this replaces swallowed one for 24 days.
+        const blocked = await harvestBlocked(db, prefix, trusted);
         if (blocked) {
           // Ledger the blocked call too (0093) — otherwise 429'd tool calls leave no
           // trace. Tool name/args are already parsed above, so record the real tool.
