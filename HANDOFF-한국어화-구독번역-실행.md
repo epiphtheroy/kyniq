@@ -98,6 +98,20 @@ to.W `verdict_label`(5종)·`authority_label`(4종)은 닫힌 enum → DB 아닌
 - 게이지 주간 80% 도달 시 중단 → 다음 주 리셋 후 재개(원장 재개).
 - 대화형 세션과 동시 사용 회피(저녁/야간 런 권장). hourly 파이프라인도 같은 구독 소비 중임을 계산에 포함.
 
+### 2.1 🚨 폰트 — 안드로이드 두부(□) 리스크 (2026-08-06 발견·조치)
+
+번들 폰트 **Inter·PT Serif 둘 다 한글 글리프가 없다**(TTF cmap 직접 검증: U+AC00·U+D55C 부재).
+- **iOS**: CoreText가 시스템 서체로 자동 대체 → 렌더됨(서체 혼용은 발생).
+- **Android**: 커스텀 Typeface가 지정되면 대체가 신뢰할 수 없다 — RN의 고전적 **두부(□)** 사례.
+
+조치: `mobile/src/theme.ts`의 `font.*`를 **로케일 인식 getter**로 전환. ko/ja/zh에서는 `fontFamily`를
+`undefined`로 반환해 플랫폼 기본 서체(Apple SD Gothic Neo / Noto Sans CJK)가 잡도록 한다.
+모듈 스코프 `StyleSheet.create` 캡처가 0건이라 getter로 안전(전 사용처 21곳 렌더 시점 평가).
+
+⚠️ **실기기 미검증** — 에이전트가 기기에서 확인할 수 없다. 안드로이드 실기기 한국어 확인이 출시 전 필수.
+⚠️ **대가**: 한국어 사용자는 브랜드 서체(PT Serif)를 잃는다. 둘 다 지키려면 한글 지원 서체
+(Pretendard·Noto Serif KR)를 번들해 `theme.ts`에 이름만 넣으면 된다 — **양 바이너리에 수 MB 추가라 오너 결정**.
+
 ## 3. DB 관리 계약
 - `content_i18n`에 **가산적 upsert만**. 신규 entity_type 4종은 기존 PK·인덱스·RLS 그대로 사용(마이그 불필요).
 - `source_sha256` 전행 기록 → 마스터 §6 리컨실러 최소판(주기 크론: sha 불일치·신규 감지 → 재번역 큐)이 이 데이터로 가동 가능해짐.

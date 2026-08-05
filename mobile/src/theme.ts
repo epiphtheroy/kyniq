@@ -9,6 +9,7 @@
 // Brand thread kept: PT Serif survives ONLY for film/director display titles
 // (the editorial nod), and the gradient stays in the Metatake red family.
 import { useColorScheme } from "react-native";
+import { getLocale } from "./i18n";
 
 export const brand = {
   // Lava gradient — CTA buttons, active states, selection rings.
@@ -93,15 +94,32 @@ export const fs = {
   x3: 32,
 } as const;
 
+/**
+ * Scripts our bundled faces cannot draw. Verified against the TTF cmap tables:
+ * neither Inter nor PT Serif carries Hangul (U+AC00, U+D55C), and the same holds
+ * for kana and Han.
+ *
+ * iOS substitutes a system face for missing glyphs on its own. Android does not
+ * do that reliably once an explicit custom Typeface is set — the classic result
+ * is a row of tofu boxes. So for these locales we ask for no family at all and
+ * let each platform pick its own, which always covers the script.
+ *
+ * The cost is the brand face for Korean readers. The fix that keeps both is
+ * bundling a Hangul-capable family (Pretendard, Noto Serif KR) and naming it
+ * here — an owner call, since it adds megabytes to both binaries.
+ */
+const SYSTEM_FACE_LOCALES = new Set(["ko", "ja", "zh"]);
+const systemFace = () => SYSTEM_FACE_LOCALES.has(getLocale());
+
 export const font = {
-  serif: "PTSerif_400Regular",
-  serifBold: "PTSerif_700Bold",
-  serifItalic: "PTSerif_400Regular_Italic",
-  ui: "Inter_400Regular",
-  uiMed: "Inter_500Medium",
-  uiSemi: "Inter_600SemiBold",
-  uiBold: "Inter_700Bold",
-} as const;
+  get serif() { return systemFace() ? undefined : "PTSerif_400Regular"; },
+  get serifBold() { return systemFace() ? undefined : "PTSerif_700Bold"; },
+  get serifItalic() { return systemFace() ? undefined : "PTSerif_400Regular_Italic"; },
+  get ui() { return systemFace() ? undefined : "Inter_400Regular"; },
+  get uiMed() { return systemFace() ? undefined : "Inter_500Medium"; },
+  get uiSemi() { return systemFace() ? undefined : "Inter_600SemiBold"; },
+  get uiBold() { return systemFace() ? undefined : "Inter_700Bold"; },
+};
 
 // Concentric radius scale (benchmark: buttons 8 · cards 14 · sheets/strips 24-32)
 export const radius = { xs: 8, sm: 12, md: 14, lg: 24, xl: 32, pill: 999 } as const;
