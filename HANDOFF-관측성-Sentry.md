@@ -51,6 +51,14 @@
 2. **Vercel → metatake 프로젝트 → Settings → Environment Variables**: `NEXT_PUBLIC_SENTRY_DSN` = 복사한 DSN, 환경은 Production(+원하면 Preview). 저장 후 **재배포 1회 필수**(클라 값은 빌드타임 인라인). 같은 화면에서 **"Automatically expose System Environment Variables" ON** 확인 — 꺼져 있으면 이벤트가 environment="development"로 태깅됨.
 3. **확인**: 배포 후 존재하지 않는 페이지가 아니라 실제 에러를 유발(예: 임시로 `/api/v1/*`에 잘못된 파라미터) → sentry.io Issues에 수 분 내 표시. Sentry 기본 알림(새 이슈 → 이메일)은 자동 on.
 
+## §4.5 인시던트 기록 (2026-08-05) — "DSN이 번들에 있는데 이벤트 0건"의 진짜 원인
+
+- **증상**: DSN 인라인 확인·client key 활성·수집 파이프라인 정상(수동 envelope POST → 이슈 생성)인데 90일간 error·session 수신 0건. 08-05 프로덕션 removeChild 크래시도 미기록.
+- **원인**: Vercel의 `NEXT_PUBLIC_SENTRY_DSN` 값 자체가 오염 — **잘린 DSN(`…/45117`) 3개 + 완전한 DSN 1개가 그대로 이어붙은 348자** (붙여넣기 사고). Sentry 프로덕션 빌드는 DSN 검증이 제거돼 있어 이 값을 통과시키고, 호스트 첫 `/` 이후 전부를 projectId로 삼아 기형 ingest URL로 전송 → 전 요청 실패. 세 런타임(클라·서버·엣지) 모두 같은 env를 쓰므로 전부 침묵.
+- **진단법(재사용 가능)**: 헤드리스 크롬으로 페이지 로드 → `window.__SENTRY__`에서 `client.getOptions().dsn` 확인 + 합성 uncaught error 던지고 envelope POST의 **URL 모양**을 관찰. "번들에 있다"≠"실행된다"≠**"전송이 도달한다"** — 세 번째까지 봐야 한다.
+- **수정(커밋 1f677224)**: `lib/sentry-dsn.ts` `resolveSentryDsn()` — 끝-앵커 정규식으로 마지막 완전한 DSN을 회수, 인식 불가면 undefined(=Sentry off). 세 init 전부 이걸 통과. **env 값이 오염된 채로도 다음 배포부터 정상 동작.** Vercel env 정리는 선택적 위생(오너, §4-2 참고).
+- **부수 수정(같은 커밋)**: `instrumentation-client.ts`에 removeChild/insertBefore 가드 — 구글 번역의 텍스트 노드 치환이 React 커밋을 크래시시키던 것(08-05 실사용자 보고)을 흡수하고, 발생 시 warning 이벤트(htmlClass의 `translated-ltr` 마커 포함)로 URL과 함께 보고.
+
 ## §5 후속 (선택, 별도 세션)
 
 - **소스맵**: `withSentryConfig` + `SENTRY_AUTH_TOKEN`(Vercel env) 추가 → 난독화 해제된 스택트레이스. 10.66.0은 요건(≥10.13.0) 충족. 빌드 파이프라인을 건드리므로 배포 한산기에.
