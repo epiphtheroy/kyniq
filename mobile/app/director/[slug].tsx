@@ -25,6 +25,7 @@ import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { fs, radius, shadow, sp, usePalette } from "../../src/theme";
 import type { DirectorCard as DirectorCardT } from "../../src/types";
@@ -110,6 +111,10 @@ export default function DirectorScreen() {
     () => [...(card?.films ?? [])].sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999)),
     [card],
   );
+
+  // Filmography titles follow contentLang like every other list surface — this
+  // screen was the one that never got the hook (survey 2026-08-06).
+  const titleOf = useLocalTitles(useMemo(() => films.map((f) => f.slug), [films]));
 
   const picks = useMemo(() => [...(card?.picks ?? [])].sort((a, b) => a.pos - b.pos), [card]);
   const startPick: Pick | null = useMemo(() => {
@@ -309,7 +314,7 @@ export default function DirectorScreen() {
                 <Appear key={f.slug} index={i}>
                   <FilmRow
                     slug={f.slug}
-                    title={f.title}
+                    title={titleOf(f.slug, f.title)}
                     year={f.year}
                     poster_path={f.poster_path}
                     ts={f.ts}

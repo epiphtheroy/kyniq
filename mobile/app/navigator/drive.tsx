@@ -33,6 +33,7 @@ import { METATAKE_BASE } from "../../src/config";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { useFilms } from "../../src/state/films";
+import { useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, motion, radius, shadow, sp, usePalette } from "../../src/theme";
 import type {
@@ -365,6 +366,13 @@ export default function NavigatorDriveScreen() {
     return null;
   });
   const [data, setData] = useState<NavigatorPayload | null>(null);
+  // Every film the payload can put on screen, across all route prefs — one batched
+  // title lookup rather than one per turn card.
+  const routeSlugs = useMemo(
+    () => [...new Set(Object.values(data?.routes ?? {}).flatMap((r) => (r?.stops ?? []).map((s) => s.slug)))],
+    [data],
+  );
+  const titleOf = useLocalTitles(routeSlugs);
   const [err, setErr] = useState(false);
   const [gen, setGen] = useState(0); // refetch bump (reroute after a judgment)
   const [pref, setPref] = useState<NavPref>("fewest");
@@ -574,11 +582,13 @@ export default function NavigatorDriveScreen() {
     if (!base) return null;
     const active = base.stops.filter((s) => !skipped.has(s.slug));
     const rear = base.stops.filter((s) => skipped.has(s.slug));
-    const stops = [...active, ...rear];
+    // Localize once here: every turn card, waypoint and label downstream reads
+    // stop.title, so projecting at the source fixes all of them at once.
+    const stops = [...active, ...rear].map((s) => ({ ...s, title: titleOf(s.slug, s.title) }));
     const reasonFor = (slug: string): string =>
       base.next?.slug === slug ? base.next.reason : base.then?.slug === slug ? base.then.reason : "";
     return { base, stops, reasonFor };
-  }, [data, pref, skipped]);
+  }, [data, pref, skipped, titleOf]);
 
   // ── Map v3: idealise the route into the hero lane over the odyssey plane. Null when
   //    the plane hasn't loaded or no route film is on it → the synthetic overworld. ──
