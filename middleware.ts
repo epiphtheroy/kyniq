@@ -102,6 +102,20 @@ const forbidden = () =>
 //                     the slug's trailing id is the only input, so the URL space
 //                     is effectively unbounded.
 //
+// Added 2026-08-06 after a saturation incident took the site down (34% error rate
+// over 90 minutes):
+//
+//   /film/[s]/figure/[f]  421 of 997 gateway timeouts — 42%, the largest single
+//                     source. It is the most expensive page we serve: eight to
+//                     ten mostly-sequential round trips (films, figures, takes,
+//                     sm_concepts, take_traditions, meta_takes, figure_type_members,
+//                     figure_taxonomy, siblings, related). Its URL space is film ×
+//                     figure over 18,381 figures, so a sweep never repeats a URL
+//                     and ISR never gets a second visit to serve from cache.
+//
+// The ceiling is 10/min because reading a figure is a slow act — you open one and
+// stay. Opening ten in a minute is already machine behaviour.
+//
 // KEYED ON THE /24, NOT THE IP. The previous per-IP key never fired once (zero
 // 429s across 22,800 /search requests a day) because a crawler spread over a
 // subnet looks like many distinct visitors. A /24 is the same unit the bot
@@ -115,10 +129,16 @@ const forbidden = () =>
 // 429 + Retry-After is deliberate. Every major crawler answers it by slowing
 // down, and unlike a 404 or a noindex it never removes a URL from the index —
 // the same principle as the fail-closed work in lib/filmGate.ts.
+// /film/<slug>/figure/<slug> only — the film page itself is far cheaper and is
+// the one people actually link to, so it must not be caught here.
+const FIGURE_PATH = /^\/(?:[a-z]{2}\/)?film\/[^/]+\/figure\/[^/]+$/;
+
 const hitLog = new Map<string, number[]>();
 const THROTTLE_WINDOW_MS = 60_000;
 const SEARCH_MAX_PER_MIN = 20; // a person types a handful of searches a minute
 const CREDITS_MAX_PER_MIN = 30; // a person opens a few crew pages; a sweep opens hundreds
+const FIGURE_MAX_PER_MIN = 10; // a reader opens one figure and stays; a sweep opens the catalogue
+const BURST_MAX_PER_MIN = 60; // sitewide backstop — one page a second, sustained, is a machine
 const THROTTLE_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
 
 function throttled(bucket: string, key: string, max: number): boolean {
@@ -201,19 +221,21 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     return NextResponse.next({ request: { headers: request.headers } });
   }
 
-  // Throttle the two expensive route families before anything else pays for them.
+  // Throttle the expensive route families before anything else pays for them.
   // Bare /search (no query) is left alone — it renders no search at all — and so
   // is the /credits index, which is one cached page rather than a per-person fetch.
   {
     const wantsSearch = pathname === "/search" && !!request.nextUrl.searchParams.get("q");
     const wantsPerson = pathname.startsWith("/credits/");
-    if (wantsSearch || wantsPerson) {
+    const wantsFigure = FIGURE_PATH.test(pathname);
+    if (wantsSearch || wantsPerson || wantsFigure) {
       const prefix =
         ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")) ??
         "anon";
 
       if (wantsSearch && throttled("search", prefix, SEARCH_MAX_PER_MIN)) return tooMany("search");
       if (wantsPerson && throttled("credits", prefix, CREDITS_MAX_PER_MIN)) return tooMany("credits");
+      if (wantsFigure && throttled("figure", prefix, FIGURE_MAX_PER_MIN)) return tooMany("figure");
     }
   }
 
@@ -223,6 +245,19 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     const ua = request.headers.get("user-agent") ?? "";
     if (ua && !GOOD_BOT.test(ua)) {
       if (BAD_UA.test(ua)) return forbidden();
+
+      // Sitewide backstop. The per-route ceilings above each had to be added
+      // after that route was the one that fell over — /search, then /credits,
+      // then figure pages on 2026-08-06. This one does not need to know which
+      // route is next: no human reads a page a second for a minute, so a /24
+      // sustaining that is sweeping, whatever it is sweeping. Search and
+      // citation bots are exempted above, so indexing is never slowed.
+      const burstPrefix = ipToPrefix(
+        request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")
+      );
+      if (burstPrefix && throttled("burst", burstPrefix, BURST_MAX_PER_MIN)) {
+        return tooMany("burst");
+      }
       const prefix = ipToPrefix(
         request.headers.get("x-forwarded-for") ??
           request.headers.get("x-real-ip")

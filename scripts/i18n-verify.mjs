@@ -3,7 +3,12 @@
  * i18n-verify — compare what we translated on disk against what landed in the DB.
  * Read-only (anon key). Run after scripts/i18n-load-all.sh.
  *
- *   node scripts/i18n-verify.mjs
+ *   node scripts/i18n-verify.mjs --confirm
+ *
+ * ⚠️ Requires --confirm. This issues ~16 `count=exact` queries, and on 2026-08-06
+ * it ran against a database that was already saturated and every one of them
+ * timed out (522). Counting rows is never worth adding load to a sick database:
+ * check the dashboard first, then confirm.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
@@ -17,6 +22,11 @@ for (const line of readFileSync(join(ROOT, ".env.local"), "utf8").split("\n")) {
   const i = s.indexOf("=");
   const k = s.slice(0, i).trim();
   if (!(k in process.env)) process.env[k] = s.slice(i + 1).trim().replace(/^['"]|['"]$/g, "");
+}
+if (!process.argv.includes("--confirm")) {
+  console.error("i18n-verify hits production with ~16 count queries.");
+  console.error("Only run it when the database is healthy: node scripts/i18n-verify.mjs --confirm");
+  process.exit(2);
 }
 const URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;

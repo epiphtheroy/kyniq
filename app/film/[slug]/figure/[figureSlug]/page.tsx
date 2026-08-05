@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -52,6 +53,30 @@ type Take = {
   source: string | null; theorist: { slug: string } | null;
 };
 
+/**
+ * The reading catalogue — every published "reading" meta-take, in title order.
+ *
+ * It does not depend on the figure, the film, or anything else on the page: the
+ * same rows come back for all 18,381 figures. Fetching it per render made the
+ * most expensive page on the site carry a full catalogue read, and on 2026-08-06
+ * a crawler sweeping film × figure turned that into 42% of the gateway timeouts
+ * that took the site down. Cached for an hour, it is read once and shared.
+ */
+const loadMetaTakes = unstable_cache(
+  async () => {
+    const { data } = await db()
+      .from("meta_takes")
+      .select("id, title, laconic, theory_family:theory_families(name)")
+      .eq("status", "published").eq("kind", "reading").order("title");
+    return ((data ?? []) as unknown[]).map((r) => {
+      const m = r as { id: string; title: string; laconic: string | null; theory_family: { name: string } | null };
+      return { id: m.id, title: m.title, laconic: m.laconic ?? null, family: m.theory_family?.name ?? null };
+    });
+  },
+  ["figure-meta-takes-1"],
+  { revalidate: 3600 },
+);
+
 async function load(slug: string, figureSlug: string) {
   const supabase = db();
   const { data: film } = await supabase
@@ -62,40 +87,46 @@ async function load(slug: string, figureSlug: string) {
     .from("figures").select("id, label, kind, description, created_at, updated_at")
     .eq("film_id", film.id).eq("slug", figureSlug).maybeSingle();
   if (!figure) return null;
-  const { data: takeRows } = await supabase
-    .from("takes")
-    .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source, theorist:theorists(slug)")
-    .eq("figure_id", figure.id).eq("status", "published");
+
+  // Everything below keys off figure.id (or nothing at all), so it goes out in
+  // one wave rather than four sequential round trips.
+  const [takeRes, metaTakes, tropeRes, catRes] = await Promise.all([
+    supabase
+      .from("takes")
+      .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source, theorist:theorists(slug)")
+      .eq("figure_id", figure.id).eq("status", "published"),
+    loadMetaTakes(),
+    supabase
+      .from("figure_type_members")
+      .select("meta_take:meta_takes!inner(id, slug, title, kind, status, film_count)")
+      .eq("figure_id", figure.id),
+    supabase
+      .from("figure_taxonomy")
+      .select("axis, node:taxonomy_nodes!inner(slug, label, kind)")
+      .eq("figure_id", figure.id),
+  ]);
+  const takeRows = takeRes.data;
   const takes = ((takeRows ?? []) as unknown as Take[])
     .sort((a, b) => Number(b.is_invitation ?? false) - Number(a.is_invitation ?? false) || (b.strength ?? 0) - (a.strength ?? 0));
   // Map this figure's concept tags → /idea slugs (only concepts that recur become links).
   const conceptKeys = Array.from(new Set(takes.map((t) => (t.concept ?? "").trim().toLowerCase()).filter(Boolean)));
   const conceptSlugs: Record<string, string> = {};
-  if (conceptKeys.length) {
-    const { data: cs } = await supabase.from("sm_concepts").select("slug, name_l").in("name_l", conceptKeys);
-    for (const r of (cs ?? []) as { slug: string; name_l: string }[]) conceptSlugs[r.name_l] = r.slug;
-  }
-  // The canonical tradition each reading leans on (Phase 3) — one canon per take, if matched.
   const tradition: Record<string, { slug: string; title: string }> = {};
   const takeIds = takes.map((t) => t.id);
-  if (takeIds.length) {
-    const { data: tr } = await supabase.rpc("take_traditions", { p_ids: takeIds });
-    for (const r of (tr ?? []) as { take_id: string; slug: string; title: string }[]) {
-      tradition[r.take_id] = { slug: r.slug, title: r.title.replace(/\s*\([^)]*\)\s*$/, "").trim() || r.title };
-    }
+  // Both derive from `takes` and neither needs the other.
+  const [conceptRes, tradRes] = await Promise.all([
+    conceptKeys.length
+      ? supabase.from("sm_concepts").select("slug, name_l").in("name_l", conceptKeys)
+      : Promise.resolve({ data: [] as { slug: string; name_l: string }[] }),
+    takeIds.length
+      ? supabase.rpc("take_traditions", { p_ids: takeIds })
+      : Promise.resolve({ data: [] as { take_id: string; slug: string; title: string }[] }),
+  ]);
+  for (const r of (conceptRes.data ?? []) as { slug: string; name_l: string }[]) conceptSlugs[r.name_l] = r.slug;
+  for (const r of (tradRes.data ?? []) as { take_id: string; slug: string; title: string }[]) {
+    tradition[r.take_id] = { slug: r.slug, title: r.title.replace(/\s*\([^)]*\)\s*$/, "").trim() || r.title };
   }
-  const { data: mtRows } = await supabase
-    .from("meta_takes")
-    .select("id, title, laconic, theory_family:theory_families(name)")
-    .eq("status", "published").eq("kind", "reading").order("title");
-  const metaTakes = ((mtRows ?? []) as unknown[]).map((r) => {
-    const m = r as { id: string; title: string; laconic: string | null; theory_family: { name: string } | null };
-    return { id: m.id, title: m.title, laconic: m.laconic ?? null, family: m.theory_family?.name ?? null };
-  });
-  const { data: tropeRows } = await supabase
-    .from("figure_type_members")
-    .select("meta_take:meta_takes!inner(id, slug, title, kind, status, film_count)")
-    .eq("figure_id", figure.id);
+  const tropeRows = tropeRes.data;
   const tropes = ((tropeRows ?? []) as unknown[])
     .map((r) => (r as { meta_take: { id: string; slug: string; title: string; kind: string; status: string; film_count: number | null } }).meta_take)
     .filter((m) => m && m.kind === "figure_type" && m.status === "published")
@@ -118,10 +149,7 @@ async function load(slug: string, figureSlug: string) {
   // wants it, but nothing calls it now.
 
   // Catalog classification — what this figure IS (taxonomy layer), spelled out per axis.
-  const { data: catRows } = await supabase
-    .from("figure_taxonomy")
-    .select("axis, node:taxonomy_nodes!inner(slug, label, kind)")
-    .eq("figure_id", figure.id);
+  const catRows = catRes.data;
   const catalog = ((catRows ?? []) as unknown[]).map((r) => {
     const x = r as { axis: string; node: { slug: string; label: string; kind: string } };
     return { axis: x.axis, slug: x.node.slug, label: x.node.label, kind: x.node.kind };

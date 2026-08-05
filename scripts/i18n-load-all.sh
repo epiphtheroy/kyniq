@@ -39,4 +39,5 @@ for c in $CORPORA; do
 done
 
 echo "\n── verify ──"
-node scripts/i18n-verify.mjs 2>/dev/null || echo "(run scripts/i18n-verify.mjs for the DB-side count)"
+echo "Not run automatically — it costs ~16 count queries."
+echo "When the database is healthy: node scripts/i18n-verify.mjs --confirm"
