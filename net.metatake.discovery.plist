@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>net.metatake.discovery</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>/Users/jerryje/Developer/MetaTake/discovery/scan-daily.sh</string>
+  </array>
+  <!-- 09:30 local, per discovery/README.md. The WhoisDS list this reads is for
+       today-2, so the hour only has to be a time the Mac is usually awake. -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>9</integer>
+    <key>Minute</key><integer>30</integer>
+  </dict>
+  <!-- A missed day is not worth catching up on at login: the scanner reads a
+       dated list and the backfill flag (--dates) exists for that. -->
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StandardOutPath</key>
+  <string>/Users/jerryje/Developer/MetaTake/discovery/state/launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/jerryje/Developer/MetaTake/discovery/state/launchd.log</string>
+</dict>
+</plist>
