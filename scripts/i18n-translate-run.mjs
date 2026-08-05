@@ -160,7 +160,12 @@ function callClaude(system, user) {
     p.stderr.on("data", (d) => (err += d));
     p.on("error", reject);
     p.on("close", (code) => {
-      if (code !== 0) return reject(new Error(`claude exit ${code}: ${err.slice(0, 300)}`));
+      if (code !== 0) {
+        const detail = (err || out || "").trim().slice(0, 400) || "(no output)";
+        const e = new Error(`claude exit ${code}: ${detail}`);
+        e.processFailure = true;
+        return reject(e);
+      }
       try {
         const j = JSON.parse(out);
         resolve({ text: j.result ?? "", usage: j.usage ?? {} });
@@ -252,6 +257,19 @@ const outDir = join(OUT, `${CORPUS}${SAMPLE ? "__" + TAG : ""}`);
 mkdirSync(outDir, { recursive: true });
 
 let okCount = 0, failCount = 0, outTok = 0, cacheR = 0, bi = 0;
+// Circuit breaker. A usage limit is not a per-batch problem: every worker hits it
+// at once, and a short per-batch wait just burns the retry budget in seconds —
+// that is how 1,322 invitations were lost on 2026-08-05. Consecutive process
+// failures trip a long global pause instead, because the run is unattended and a
+// limit that clears in an hour should cost an hour, not the rest of the corpus.
+let procFailStreak = 0;
+let pausedUntil = 0;
+async function breaker() {
+  while (Date.now() < pausedUntil) {
+    if (existsSync(STOP)) throw new Error("STOP");
+    await new Promise((r) => setTimeout(r, 5_000));
+  }
+}
 const startedAt = Date.now();
 
 async function runBatch(batch, idx) {
@@ -293,9 +311,22 @@ async function runBatch(batch, idx) {
         status: problems.length ? "ok_with_warnings" : "ok", keys: rows.map((r) => r.entity_key),
         warnings: problems.slice(0, 20), file: file.replace(ROOT + "/", ""), model: MODEL });
       okCount += rows.length;
+      procFailStreak = 0;
       return problems.length;
     } catch (e) {
       if (String(e.message) === "STOP") throw e;
+      if (e.processFailure) {
+        procFailStreak++;
+        if (procFailStreak >= 4 && Date.now() >= pausedUntil) {
+          pausedUntil = Date.now() + 20 * 60_000;
+          console.error(`\n⚠️  ${procFailStreak} consecutive process failures — pausing 20m (likely a usage limit)`);
+          console.error(`   ${String(e.message).slice(0, 200)}\n`);
+        }
+        await breaker();
+        const wait = attempt === 1 ? 30_000 : 120_000;
+        await new Promise((r) => setTimeout(r, wait));
+        continue;   // process failures do not consume the attempt budget
+      }
       if (attempt === 3) {
         failCount += batch.length;
         logLedger({ ts: new Date().toISOString(), corpus: CORPUS, tag: TAG, batch: idx,
@@ -312,6 +343,7 @@ const queue = batches.map((b, i) => ({ b, i }));
 async function worker() {
   while (queue.length) {
     if (existsSync(STOP)) { console.log("STOP file present — halting"); return; }
+    await breaker();
     const { b, i } = queue.shift();
     const w = await runBatch(b, i).catch((e) => { if (String(e.message) === "STOP") return -2; throw e; });
     bi++;
