@@ -40,6 +40,18 @@ const RULES = [
   [/^\s*(?:번역(?:문)?\s*[::]|다음은\s|아래는\s|물론[,.]|알겠)/, "메타발화"],
 ];
 
+/** Quoted speech plays by its own rules: Hitchcock's acceptance speech is
+ *  "감사합니다… 정말로." and Ken Loach tells actors "준비되면 시작하세요." Honorific
+ *  endings there are correct — the register belongs to the speaker, not to us. So
+ *  style rules are checked against the text with quoted spans removed. */
+function unquoted(s) {
+  return s
+    .replace(/[""][^""]*[""]/g, " ")
+    .replace(/"[^"]*"/g, " ")
+    .replace(/['']["^'']*['']/g, " ")
+    .replace(/'[^']*'/g, " ");
+}
+
 /** last 3 chars of each sentence — the ending signature */
 function endings(text) {
   return text.split(/(?<=[.!?。])\s+/).map((s) => s.trim()).filter(Boolean)
@@ -69,7 +81,8 @@ function auditCorpus(name) {
   for (const r of rows) {
     const t = r.text || "";
     const reasons = [];
-    for (const [re, msg] of RULES) if (re.test(t)) reasons.push(msg);
+    const bare = unquoted(t);
+    for (const [re, msg] of RULES) if (re.test(bare)) reasons.push(msg);
     const dashes = (t.match(/—/g) || []).length;
     dashTotal += dashes;
     if (dashes > 2) reasons.push(`대시${dashes}`);

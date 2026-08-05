@@ -118,12 +118,25 @@ const RULES = [
   [/에 다름 아니/, "'에 다름 아니다'"],
   [/```/, "코드펜스 잔류"],
 ];
+/** Quoted speech plays by its own rules: Hitchcock's acceptance speech is
+ *  "감사합니다… 정말로." and Ken Loach tells actors "준비되면 시작하세요." Honorific
+ *  endings there are correct — the register belongs to the speaker, not to us. So
+ *  style rules are checked against the text with quoted spans removed. */
+function unquoted(s) {
+  return s
+    .replace(/[""][^""]*[""]/g, " ")
+    .replace(/"[^"]*"/g, " ")
+    .replace(/['']["^'']*['']/g, " ")
+    .replace(/'[^']*'/g, " ");
+}
+
 function lint(en, ko, { longForm = false } = {}) {
   const errs = [];
   if (!en?.trim()) return errs;
   if (!ko?.trim()) return ["빈 출력"];
   if (!HANGUL.test(ko)) errs.push("한글 없음");
-  for (const [re, msg] of RULES) if (re.test(ko)) errs.push(msg);
+  const bare = unquoted(ko);
+  for (const [re, msg] of RULES) if (re.test(bare)) errs.push(msg);
   const dashes = (ko.match(/—/g) || []).length;
   if (dashes > (longForm ? 2 : 1)) errs.push(`대시 ${dashes}개`);
   const glosses = (ko.match(/\([A-Za-z一-鿿][^)]{0,40}\)/g) || []).length;
