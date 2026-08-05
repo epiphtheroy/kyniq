@@ -31,6 +31,7 @@ import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { supabase } from "../../src/lib/supabase";
 import { trueSizeOf } from "../../src/lib/lineage";
+import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalTitles } from "../../src/lib/titles";
 import { useFilms } from "../../src/state/films";
 import { brand, fs, radius, sp, usePalette } from "../../src/theme";
@@ -146,7 +147,11 @@ export default function ListScreen() {
     void reload();
   };
 
-  const shownLabel = (typeof label === "string" && label.length ? label : slug) ?? "";
+  // The list's own name lives in content_i18n (lineage_list/label) — the route
+  // param carries whatever the previous screen had, which is English.
+  const listLabel = useDbLabels("lineage_list", "label", useMemo(() => [String(slug)], [slug]));
+  const shownLabel =
+    listLabel(String(slug), (typeof label === "string" && label.length ? label : slug) ?? "") ?? "";
   const trueSize = trueSizeOf(slug);
 
   const header = (

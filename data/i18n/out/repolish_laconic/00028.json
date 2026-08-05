@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-manufactured-by-the-system",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죄는 발견되지 않는다. 생산된다. 자백을 쓰는 손은 장치(dispositif) 쪽에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f1b2498c493570edccc15a5c4f22eaf0e62b2f65e3bc945285965822c7fbf3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-becomes-the-artwork",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입 밖에 낸 자백이 그대로 작품이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "598cdcb5d3938eb2d306af6f19a9985a42e93677d9d772a3e704b5f3b3b07a99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-is-really-confabulation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구이거나, 남에게서 빌려온 욕망이거나, 스스로 지어낸 신화. 고백은 결코 있는 그대로의 진실이 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de6bbdbb71071367aa73546c218e015593d4e060fcccab592a7aebdf8c8ace0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-seeks-punishment-not-freedom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 닿지 못할 자기 자신을 향해 안으로 겨눈 잔혹.",
+  "model": "claude-opus-5",
+  "source_sha256": "7eb7732149290b8b089f47b0c8173756cb2a874a10fda1c6f5428130db6e417b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-uses-the-beloved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고백이 도구가 될 때, 사랑하는 사람은 수단으로 내려앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da0dddea95f33c26c77ac8aaccb78e3da18fb9e75dd15aec1a6618d8987f2f8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confessional-artist-devoured-by-the-audience-summoned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기를 드러내는 예술이 드러낸 자를 파괴한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1c6495ed4234c6524452ad5576d784b1d72c597e1ad8df67676fc8fa52e5fce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confessional-booth-without-a-priest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "믿음이 물러난 자리, 세속의 공간이 고해성사를 물려받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcf12d0b99a472343b713985a6ac515d7aba05206c058653d90afdc335baa378"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confessional-booth-without-its-priest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계와 유리, 화면, 낯선 사람. 사제 없이 우회하는 고해.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1551df99526a3c962c9736dc57ef0dd67531fa912c39a60ed122cf561edc0bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-frame-as-political-vision",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면비와 프레이밍이 곧 권력에 관한 논증.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c0f5fd464d7f2f5e9c1284f5b4e3d405afca4f0cb2292f8456b33f7801ed5d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-space-that-manufactures-intimacy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가까움을 만드는 건 감정이 아니라 갇힌 공간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0ce8b32973a046ae7eba626e240382f47512c1d2cf5d199dd9092b209a2c0b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-space-where-intimacy-hides",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "트렁크 안에서, 극장 안에서만 겨우 가능한 사랑.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bb7c3fe72b54df0cf64a0c276cd7a6d5980bd3303d240c3465dade06fe6bd39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-stage-as-cinematic-discipline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트 하나, 방 하나. 제약을 형식의 미덕으로 바꿔낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "984e6378e48e0637bacb87e2d9019768e3015b24545aab999e708ab3ff6d5897"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confinement-drama-in-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "더 오래된 무언가로 분장한 팬데믹 밀실극.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8cd5694a2021ebe8b2a9fa0d979b948bfc7303d4cbc5fd71b3da80606e148dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conflagration-as-the-film-s-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불과 연기, 스크린이 저도 모르게 뱉는 진실.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e547099dead5839e6388c0e1eec12892f2803d9a767f94e74cd9eff3667b256"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conjurer-whose-trick-is-the-apparatus-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "방법도 기계도 연출된 나약함도 다 드러내놓고, 바로 그것으로 속이는 흥행사들.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffe428e00bbe74ad448800e6313c170da0c75309c795afffcbe95c822ff71c09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conquered-who-speaks-the-conqueror-s-tongue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "나를 지우는 권력의 말을 능숙하게 익혀 살아남기.",
+  "model": "claude-opus-5",
+  "source_sha256": "63938a395850385bf16736bef173e9c9384d1d1d4d4519731c6ced7569cab481"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conqueror-devoured-by-his-own-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제국에 홀린 자들은 자신을 규정한 정복보다 오래 살지 못하고, 그 정복에 먹힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4d5f284b7472425161471f92cc80911ec3ebb69d502d24b4ad1a272da309cb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conscience-that-finally-refuses-to-strike",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내리치지 않은 손. 영혼이 뒤늦게 깨어난 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64b9ba33f368448e0373832a928d8a5eaa2fc61e87f23491b583fa3f7bb4a7ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-consequentialist-alibi-that-devours-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목적이 수단을 정당화한다는 논리가 제 도덕 장부를 스스로 비워버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c6cef1d158969bb4de54447c5974cf4747db3c74dec9f825392163655830984"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conspicuous-rig-as-rupture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "값싸거나 낯선 장비 하나가 이야기의 주술을 깬다",
+  "model": "claude-opus-5",
+  "source_sha256": "e44b793f7afa1e8c3bbd28c29f86ea785e61fcbc222f777323bc183c173edddd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-constraint-that-forged-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스스로 채운 족쇄가 의미를 낳는 동력이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0de7d797c84358f3fa201ba8a7f89c9af321fc8f9f6a1a8b7db4110e4848a57c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-contagion-filmed-as-fog-and-shadow",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무성영화 시대의 역병을 질병의 안개 그 자체로 읽어낸다",
+  "model": "claude-opus-5",
+  "source_sha256": "d2bc7cc771e1d9f83bb982551df2a6819b467adc776eb3c0084832b1d204b9d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-contaminated-body-as-national-bloodline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "더럽혀진 살이 표시한다. 누가 국민이고 누가 이미 죽은 자인지.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd1a98552f62dc3b39a164c764be9c7330c21a0e63bb212f865f2759f09a00e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-convent-as-forced-birth-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돕스 판결 이후의 수녀 호러는 신성한 임신을 강제된 임신으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ec0bd70b53963f3bb7585f3d4052aff4ac3ece3075e1ea80b951238eccea518"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-convent-as-reproductive-factory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성소의 껍질을 벗기면 출산을 빼앗고 찍어내는 기계가 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f2b7c0e9ba4f8a5639236c56011599bfca264c52aceadc5f1d7cb7bfaad98b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-convent-as-total-institution-of-discipline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수도회를 노동과 처벌의 공장으로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "f221d0cfcfd44cc21b50ae139dd962deb410b2874d6ad7f1a35cef27c867e143"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cool-label-as-critical-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 영화를 쿨하다고 부를 때, 비평가는 그 슬픔에서 달아났음을 고백한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "876d31ec30d9175e16507f6dea97aa2b251040158a5b2cc7705edc41b6bdb1bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-that-has-no-original",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "존재한 적 없는 원본을 찬탈한 시뮬라크르(simulacre). 그것이 왕국과 재판과 몸을 다스린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3df4635685554b1ea288ab00e7bb3cba6f2a820c77acca10c47193cef15b1455"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-that-outruns-its-original",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "복제가 원본을 앞질러 도착해 원본 자리를 차지한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ff4c86b5e784efaa851721712bb3d3d8589acb1d9b748eb752d87479795ff96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-with-no-original",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지시체는 없고 이미지가 존재를 대신하는 세계. 순수한 시뮬라크르의 하이퍼리얼.",
+  "model": "claude-opus-5",
+  "source_sha256": "d61a49ab09f0b69d80c58842041a117b7d743c1ececada159494cd8c7dbc3c69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-with-no-original-behind-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성은 밑바닥까지 연기다. 그것을 받치는 진짜 원본 같은 건 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9870c8523c6ce16548f4aeab0ea2a57e9a8cd90ee76d5a2ff8ba33b2392c737"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-corpse-son-as-mourner-s-surrogate-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌아온 몸, 혹은 대신 놓인 몸. 애도하는 자는 거기에 자기 슬픔을 묻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c47df67e26ce66edada8e448539ecd5cdba3464dc997604552c7a4f150d0366"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-corpse-that-refuses-its-grave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 묻지도 치우지도 애도하지도 못하는 시체.",
+  "model": "claude-opus-5",
+  "source_sha256": "69845baaffca38d5ab16fb8a9e0402ef72ec165cfa03d858ed0ee7d02d8bd8a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-corpse-that-was-always-watching",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계속 곁에 있고, 같이 실려 다니고, 아예 구조에 설계돼 들어간 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "01bf352250573d6d2f91dd00e68c4d8f1ed6caa72c125dcb1edcef467bc9c1b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmetic-as-the-repressed-that-speaks",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화장과 립스틱은 금지된 것이 되돌아오는 증상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70ed48cdf371d3940d8cda7e4bba702b257edf676c799e0aff3d30d70e50e725"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmetic-face-is-the-commodity-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "희게 칠했거나 닳아버린 얼굴. 교환되는 물건으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85db42097c6f142b400737889c91b6ea280e53dabc17b49fec69dd3869608532"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmology-that-procreation-refuses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "출생과 생물학, 마지못한 낳음. 그것이 우주의 진짜 법칙이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebfda311458051ce9482237530f02e36e8b9a875dcc0f14c03012e5d5f2face3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-as-endless-tribunal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "심판은 판결이 아니다. 끝나지 않는 절차일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a98a4f390841995420db238e1c37d5655c60ade091291385b4d3cbd75a11131"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-as-engineered-artifact",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "존재도 덕도 제조된 물건이다. 저절로 생겨난 것은 하나도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47d93f054a5b34105a6e5d04457bb1157f9d14558462609a605400f019c3dbb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-audited-as-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도덕의 질서가 정의가 아니라 회계로 돌아가는 세계.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cd54df97ead45e3e49eb88cfb0130b823997e16753ccc4e3c36d1c54f701d5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-faked-from-earthbound-stuff",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트장과 숲, 제트기와 페트리 접시로 불러낸 우주.",
+  "model": "claude-opus-5",
+  "source_sha256": "4786ca532bce9075e269e49462f814b418153c5095e6b8b56e99dd118a57bcb3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-pursuing-its-own-awareness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우주가 스스로를 보려고 안간힘을 쓴다. 무심하게, 때로는 황홀하게.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c9a8cf13ad84a20151e94cbba719f3055f42279c22944dcf3aae4432603e811"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-that-demands-its-blood-price",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "희생의 산술은 아직 폐기되지 않았고, 세계는 그 계산에 복종한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b6e024f6b87e2f83956aba4555e6d704d574339c053cf648fb1f4415227bf25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-that-withholds-its-reasons",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "은총도 의미도 도덕의 바닥도 빠져나간 우주. 남은 건 기계장치뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fac23eea3e5d6a834f7b8331b7341828bf43f85f8c9e40278c8788eff5dc052"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-was-built-in-an-english-shed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무한한 풍경을 불러낸 곳은 영국의 소박한 촬영장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f8e1d6fff207aa5e0c90f20927d76e64c5230a7ae4330e2b5863447452367a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-wired-by-coincidence-not-cause",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사건들이 공시성(synchronicity)으로 운을 맞춘다. 인과는 조용히 왕좌에서 물러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c22eed75c0d01ca703277d6991617f45937b51cd655f0cfad75bb9fcde75e583"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-with-no-highest-good-or-telos",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "질서�� 세울 목적이 없는 우주. 죄를 벌하지도, 통달을 상 주지도 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57e9a94854f8c3094371a1aef4cecb9ac87b315d291986dd3b2a7a2c54014231"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-as-defense-against-collapse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무너져가는 자아 앞에 갑옷 삼아 걸치는 옷.",
+  "model": "claude-opus-5",
+  "source_sha256": "1477251a4e5c0dfb5e244b416cbaccd208f6159558de7d61296b61daf5d88d26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-of-a-doomed-leisure-class",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화려한 옷은 하인들이 떠받쳐온, 이제 사라질 귀족의 제복이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e0ba4e96915753da2c6e5152bb419b4160b3ec2ed4804593a8e705592120bce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-stripped-to-reveal-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "페르소나를 벗기면 연기 아래 진짜가 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7dfc9c93a227b016894511436cdf159bba8104e5a39162154fc1994071336dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-that-becomes-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위장은 어느 순간 감추기를 그만두고, 입은 자의 존재를 짓기 시작한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66b89d552924e298bb6e93d35dd2c45d6c3a07ca15718ab91eb78bbe392fbfa6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-that-speaks-what-the-self-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변장이 곧 고백. 얼굴이 억누른 말을 가면이 대신 뱉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cce75b1583f5f39a00d9d05379652fb0fa4bd8d590853fd564bdcc47640ca69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counter-where-cash-buys-public-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국의 사망자 수를 만드는 건 총이 아니라 공포다.",
+  "model": "claude-opus-5",
+  "source_sha256": "34169ef67c94faddcb0225536994cc20acba4037220b3123c5aec76c7d824982"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counterfactual-life-as-grief-work",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실현되지 않은 시간선을 부르는 건 공상이 아니다. 애도의 논리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36825b67a3978af7055d19f1dc1a4d71aa2885765d7f5de567ae4ff56fc105dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counterfeit-reveals-money-s-original-forgery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위조지폐가 폭로한다. 돈은 애초부터 허구였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59f2408c069297310cec86c7b0c8e5151177568ad2d8bf34b087a00262d94239"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counterfeiter-who-steals-authorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명성은 위조다. 평판은 훔친 서명이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa010479917d1c654c3485d67832f9e96523c5d79260505b7d0725b9608e6fc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counting-that-refuses-its-sum",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "숫자로 된 제목이 부르는 셈. 그러나 총합은 나오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "315b0b7a573d7da9716342efc8d1d9e99fb0f2085e3bca27426029017f95e573"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-country-club-pretending-to-be-bloodlines",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신흥 부자들의 지형이 구세계 귀족의 정통성으로 분장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f66b2a02bb2f85c2c1001691f518e21df93c759dbf512e6321f1a87a93906da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-countryside-as-the-pastoral-s-undoing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "늪, 진흙, 늑대의 땅. 전원은 뒤집혀 진실이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "274643df0485a5e8ffda100a7dd352f5d6744e48f97741a0bf55bf3fc2b239dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coup-already-won-before-the-coup",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력은 무력으로 넘어가지 않는다. 말씨와 예법, 실내의 규범이 먼저 끝낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b05615903a90cfa46803c6c013b188de2de16a0f9acdf6c21353277cb16a0cb"
+ }
+]

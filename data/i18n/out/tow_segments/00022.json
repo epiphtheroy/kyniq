@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1dc3e9e69eb34f03",
+  "field": "text",
+  "lang": "ko",
+  "text": "그랑프리와 다비드 디 도나텔로 작품상을 받았고, 대중에게도 널리 알려진 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "1dc3e9e69eb34f0330359183dc5a6a08fce1c0b03b954fdcb0b73d6b91237566"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5ae089d1e269bdb3",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독상을 받았고, 대중에게도 널리 알려진 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "5ae089d1e269bdb31d3ee19ad3b3ace37a37538ab8ad43818d1f3d3092eb366a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9a03dafede741ddd",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 압바스 키아로스타미의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9a03dafede741ddd4b716ef0c7ead6b78a1330fa6acc5349ef063c1a2b3cbf91"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7e343ef015bc493c",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 The Guardian: 100 Best Films of the 21st Century에 이름을 올렸고, 대중에게도 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "7e343ef015bc493ce7ebe5ae05f9814d3b2c66d3fe9953aad18f3aa64c813bdf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5805bc61979e87f8",
+  "field": "text",
+  "lang": "ko",
+  "text": "AACTA 작품상과 Australian Critics' 21st-Century Top 25 (2018)에 오른 영화, 대중에게도 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5805bc61979e87f81046f5d347626dcdd398b371532c5743fd664236105af009"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "091590461955af00",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 예시카 하우스너의 작가 계보 속에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "091590461955af003e265f3597a2e459de32a2831e0ea516941d1122f5bbc07a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f3f3e41be95d1ada",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 뉴욕타임스 21세기 최고작에 이름을 올렸고, 대중에게도 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "f3f3e41be95d1ada68166806df9ea07345108f405e1a8cf81f61d7ea2293ea74"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8cb05f1799858140",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 올리버 헤르마누스의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8cb05f1799858140c4f130182425f4d1c1028e61658273a52ce9a1db68b16359"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7210b55318565bb0",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 감독상에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7210b55318565bb045714b98e603e89fa88b14290aa5384b93ffd1027f76728e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6f030bc691fb601c",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 여우주연상에 이름을 올렸으나, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "6f030bc691fb601c9381646ddecd58a45e27d6640caffe3b127328be84063cdc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b665c4824d5a54c6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 비간의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b665c4824d5a54c6be64b38a827f6c53652a7c61feb68a0b66e2399b8c9e3f74"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a5fec01664a5bae8",
+  "field": "text",
+  "lang": "ko",
+  "text": "Kinema Junpo Best of the 2000s에 이름을 올린 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a5fec01664a5bae8ff86aab98b0a53083a3f4af9d164422c297e174a8909301c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4b428ea6588b12ae",
+  "field": "text",
+  "lang": "ko",
+  "text": "Cristal for Best Feature에 이름을 올렸으나, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "4b428ea6588b12aee231c0c2f417e6b73ddb5a471ab51a621c20e8465e752f4c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fb0407fb36b9cccc",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 유아사 마사아키의 작가 계보 속에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb0407fb36b9ccccd861a79f1ac6f55896de074b024f824cbc8966559f9517c5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2673da229a3a9d70",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금사자상과 Golden Horse 100 Greatest Chinese-Language Films에 이름을 올린 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2673da229a3a9d70c9913b77c9e7fbf65b40199350352487d2929168d148a05a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6c7c061bd85cc09c",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금종려상과 AFI's 100 Years…100 Movies에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6c7c061bd85cc09c49d46330e51bd1ad00b52a289b4888897b99bb88e8dba5bc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "88dd5d529f269c3b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 고레에다 히로카즈의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "88dd5d529f269c3be4554eecd1d5b3e325af2ed43391d596a16379bfb701459a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8d404b1275e2c5dd",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review 작품상과 National Board of Review Top Ten Films에 이름을 올린 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8d404b1275e2c5dd05800daeec975cce9c57aba78bddc65602f66d547ac9a6af"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8e46e73b0914a4a5",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 저스틴 커젤의 정전화된 작업이 떠받치는 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8e46e73b0914a4a5feb99adb7f40902b940c8a96a73a034260f8722b685c1c66"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5bfce50f68938ee1",
+  "field": "text",
+  "lang": "ko",
+  "text": "Canadian Screen Award for Best Motion Picture에 이름을 올렸으나, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "5bfce50f68938ee19f6530db71962840b1fcf0219b8b72de7c23a792b725a9cf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3c0dca9ea82378aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "IndieWire Best Films of the Decade에 오른 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "3c0dca9ea82378aa357a117a1cf0132b0b650cd0091db7146416471cb523eaee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ba4dd2753e7cb4fc",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 은곰상 연기상에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ba4dd2753e7cb4fc8905c63c7ca98d7b5080237f5b97bedd6ec8d866529e711d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b582f9baff654b2d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 C.J.의 작업이 떠받치는 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "b582f9baff654b2d19284872a071c1776924da0e3ab80b60ada14c60c8d6615c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4340e74371d3b443",
+  "field": "text",
+  "lang": "ko",
+  "text": "오바시의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "4340e74371d3b44354b02715181a26853456a3b33199683328bc1d2235d6092b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "074211c1197e19da",
+  "field": "text",
+  "lang": "ko",
+  "text": "은곰상 감독상을 받은 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "074211c1197e19daf11144ae60e3aeb16f419ea257ad6d3d1dd4faccd0ab698e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c0182e834fbdfcaf",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 라스 폰 트리에의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c0182e834fbdfcafcb0bfea13bed63c654d1ba695668bf7816596bf3536f2c08"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b177a4bbc8406de3",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 존 트렌고브의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "b177a4bbc8406de3b63ca20a793b853a6022b66cd46bafaf03850dc50b9527da"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8cd223fb2f6aef5b",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금종려상과 Somos: 100 mejores del cine mexicano에 이름을 올렸으나, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "8cd223fb2f6aef5b14995fac46a8a745e4ce9482a4bf48d08e03f55dd2b279a5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "76f3427643bf1eb5",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grande Prêmio do Cinema Brasileiro 작품상을 받은 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "76f3427643bf1eb577fb2049b2b98f226f9b2a60218d0e2eeaf74f9134e65514"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c89f4b7b8c108668",
+  "field": "text",
+  "lang": "ko",
+  "text": "여우주연상과 National Film Registry에 이름을 올린 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c89f4b7b8c108668ca597e79b36a72cc2d77953b9d6145f44f25901c14f71301"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1b4aa27437e556ba",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 칼 테오도르 드레이어의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1b4aa27437e556baea39ec8a01d32a9eb524ac92c9f80bfe9f5b277a67066ddd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b8021d522b558a2c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 배리 젠킨스의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "b8021d522b558a2ca1d14d5e263a575cb0c22472a5ec7286628c3da292a0644b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "de667e323928e7d2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 마하 하지의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de667e323928e7d2f646e4912ca90a1f70f571d437242e7cd4bb2c6826e5be50"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cdc04c7263f232fa",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프랜시스 포드 코폴라의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "cdc04c7263f232fa8b3542b5257c3ccf199b405e9525d723b5e577024af1a814"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f9df266d9b40bd23",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 National Society of Film Critics 작품상에 이름을 올렸으나, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "f9df266d9b40bd234a8840b69bb0992e5421a0a9ce226a35b8772840a5f52210"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b3acdf626974295a",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금사자상과 볼피컵 남우주연상에 이름을 올린 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b3acdf626974295a00394d2200edb8da65f85255efb8484880efdaae6f74bb7d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "abd8eda4a209e6a7",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독상과 각색상을 받은 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "abd8eda4a209e6a7a0fe9ea774f78c857b2305308e41d57be71fcc302c12c025"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0edae626baa94b27",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 WGA 각본상을 받은 영화, 대중에게도 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0edae626baa94b27029a963d7ef249ef576381b508c816bcd8d6411bda12e164"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b4ef2acc942f1a98",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 곤 사토시의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b4ef2acc942f1a980432a55e476704c44c9809e7f0a73a8fce06ab713da5c21d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0db0b58ab2c1e5da",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 유아사 마사아키의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0db0b58ab2c1e5da7b1a3cbfe2f1e738f30e397492b69cbc3fb879dcf681663e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e83931a76628ae43",
+  "field": "text",
+  "lang": "ko",
+  "text": "각색상과 National Film Registry에 이름을 올린 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e83931a76628ae43640b8d3d0af2a0334366678b8dc6f764a87e92bd14f57178"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8f3d96e934d2254f",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금종려상과 각색상에 이름을 올린 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8f3d96e934d2254f9bbccdec22be1d043df17d648ca14109bf2e65b83be0a59d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a920c70172d8897d",
+  "field": "text",
+  "lang": "ko",
+  "text": "은곰상 연기상과 National Board of Review 작품상을 받은 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a920c70172d8897d44765226c76f6397bb9617c98dae28eb8646c6e550ba78d4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "babd29178219fff4",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 올리버 헤르마누스의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "babd29178219fff41e1e847b59eb6694742d197be294ba7e713d6138412185e8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cde7672a432ca68d",
+  "field": "text",
+  "lang": "ko",
+  "text": "심사위원상과 Canadian Screen Award for Best Motion Picture에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "cde7672a432ca68d028452a83d33613874be8cab061a78ef2a1a868b69818ba8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ea7bf2fc5ad470e0",
+  "field": "text",
+  "lang": "ko",
+  "text": "니카상 작품상을 받은 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ea7bf2fc5ad470e03e180a788d390b759a6d964f27633b27b707151eca45c7d4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "78c755dcbfad258a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 알레한드로 란데스의 정전화된 작업�� 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "78c755dcbfad258a7f7e1c335d031bad9b72f88be2d79c24af3d2799e7e496f3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f0b3cc890f4b116b",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금사자상과 BBC: 100 Greatest Films Directed by Women에 이름을 올린 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f0b3cc890f4b116badab3a84868d2eae8b6f35665248f43cacba43c3f900d073"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a9f77ad391370914",
+  "field": "text",
+  "lang": "ko",
+  "text": "여우주연상과 은곰상 연기상에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f77ad391370914623895ef470859a802a8154865378431453c0065315f310b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9d6f7bc70a38dfc4",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century에 이름을 올렸으나, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "9d6f7bc70a38dfc48c08b5a286806740e85b44c2ebd34a8f554efbf02d1ad848"
+ }
+]

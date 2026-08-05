@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-refuses-what-the-mind-permits",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 먼저 반란을 일으킨다. 이데올로기와 공모가 끝내 부인하는 진실을 기록하면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "95c433a9e30afa47265470f39fcbaad1d4ef54d6555eb15f660a25001e657753"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-speaks-what-words-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고뇌, 빙의, 귀 기울임. 춤추는 몸은 의지와 무관한 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75830313e4dc468a4e487ed004ff996cb92f10b0904b5582db3d52c7f5a2d310"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-stomps-out-its-own-tempo",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살로 빚은 타악기. 춤추는 자가 곧 북이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cacb58d7f7513a8fd5297dbb0f8d1885e851e195d7ab4ddde3fcd414f6ab81f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-stores-what-history-erased",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대만 뉴시네마는 사적인 몸과 사물에서 억눌린 국가의 기록을 읽어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "025494db0331903b9a15de8e6fa80e0958c62335b32c7eea0d32d04a55882c12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-testifies-against-the-official-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "산 살과 죽은 몸이 정권이 부정한 상처를 증언대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51ec299d3cdd77e5b52b8672cca0d66e7702df189fd96cfdc12c1626dc20bbb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-was-the-career-now-falling",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "육체 하나로 쌓아 올린 자아. 어느 날 문득 죽음과 쇠락 앞에 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44277f0c023ba2ee6692bd45156729276801e48799e618c1204ee85e4a1167c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-wears-its-occupation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 이 몸을 점령했는지, 살갗에 표식이 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19ac12606f6aa347559e09ec0e8f0b9ea59b31f52c469a4abb892e0efb5a6f6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-will-not-stay-bounded",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "괴물로 변이하며 제 범주 밖으로 흘러넘치는 살.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f5dae40f5210de2dfa7b1a59aa671914fb519a81505c64393474a2a038a8ada"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-wills-itself-through-distance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오직 견딤으로서의 움직임. 세계도 자아도 그 앞에서 휜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcf71fc75ea88add31c9dcf9fe4730b43d942aab575884e3f78333d78c2b8a42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-the-state-condemned-reclaimed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음의 낙인이 찍힌 몸. 행위와 노동으로 그것을 되찾는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b908257f4728d85352dbe3419a28d5f92c8c9b5f210e77e90cc33d35e5847d5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-worn-down-into-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기가 실재로 무너져 내릴 때까지 설계된 탈진.",
+  "model": "claude-opus-5",
+  "source_sha256": "f135778054741b5c3a354e1bb8552b9258ffa64f731f4793ef510158fd5288b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-wounded-as-performance-art",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 살 위에서 예술로 상연되는 자기파괴.",
+  "model": "claude-opus-5",
+  "source_sha256": "afd708e7769d03eacfa008e56f0850bd5ce0d4a1b2c30c1cbc2319a24dca089e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bomb-buried-inside-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전후의 생존 트라우마가 장르 영화 속 원폭의 잔상으로 암호화된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea873c541b8251827af25461f7872c6f3c929f267e3287a4575061fb26284d8b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bomb-returns-as-repressed-knowledge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눈앞의 모든 사물이 실은 원자의 비밀, 그저 얼굴만 바꾼.",
+  "model": "claude-opus-5",
+  "source_sha256": "b46b77695f1fba80c798e0e1c1c3b133f2c3b2a6e861f2f613220c8de607cfa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bomb-that-indicts-its-own-suspense",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "히치콕이 벼려낸 공포의 기계장치. 그 칼끝이 그걸 원한 관객을 향한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c9bc68dc4c0b623ca5a2fdeb9231c1fa5ed7211ecf8548d948366bf1a72c602"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bond-between-men-that-denies-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남성 동성사회성(homosociality)은 스스로를 부인하는 그 몸짓으로 동성애적 욕망을 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d678fcc1e355f9027d37fff46216f0340154cdbd9b50c0cb81da81a0d462f69f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bond-spoken-without-words",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "충성도 친밀함도 언어가 아니라 얼굴로 건너간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a44846d2bf7994f818b5b95ee0bd3ff86f173e9d60c00335166850be6e49a1c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bond-that-disguises-pure-contingency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인연이라 부르지만, 실은 우연. 이름이 진실을 가린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95e3dddff53f69aa756d34b787706bb2bfac23e09fd21c20fe18caa1165a1585"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bond-that-hallucinates-the-other-across-space",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두 영혼이 서로를 상상하며 하나의 텔레파시적 대상으로 녹아든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d2955fc5d5f5b0bd7e5c4f7f69c44d7a1da84640d04ceaf86e86ad6c3f54430"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-boom-filmed-as-its-own-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이탈리아의 경제 기적을, 그것이 남긴 잔해와 치러야 할 셈에 비추어 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca387f6a0e8a652e2ca12fa74c55fe05baf6ab90e0ce3180dc8f7d06925f5ff1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-border-as-law-s-self-suspension",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권은 국경에서 제 법을 멈춤으로써 스스로를 규정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5f0821b09c4073a5be3ab95e52dd830a63f85dc8234eda5d846f5213462c1fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-border-as-membrane-not-wall",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국경은 벽이 아니다. 존재가 스며드는 문턱이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "235f1e0e16a790b9e33a728af364bcbe9d4f510f9e0a3248346a5db6d6b4db22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-border-as-mutual-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두 국가가 함께 써 내려간 허구, 그러나 없어서는 안 될 허구.",
+  "model": "claude-opus-5",
+  "source_sha256": "4979ce0f314e875c9b5fb3aeb643b66b913c9bc2d8a886b7e07aeed28f506df6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-border-between-body-and-machine-dissolves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유기체와 기계, 인간과 비인간. 그 선을 허무는 데 전부를 건 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf17c15f0de92d24a204a6243a1d8ff97ea09f426fc3d25ee7e35c58071ce88f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-border-region-cast-as-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알자스와 라인 강가의 로케이션이 제 몸에 새겨진 분쟁의 경계를 그대로 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "543b05d58f6f674f083c7dff513384a1f1cc7ce57187a15c2f33674823ceba97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-border-where-flesh-becomes-mechanism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살과 제조물 사이의 경계가 녹거나, 뚫린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69f0355fa61b7b1cb7add56955c263afc6504c640a9c78337ac9c6441ad1ced1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borgesian-map-that-swallows-its-territory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재현이 부풀다 못해, 비추려던 현실을 모형이 삼켜버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87f90e26c0994bd1112a8f11fafce67fd3733835a60e0c3859aff14dae0c2da9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borrowed-geography-wearing-a-danish-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "덴마크 영화가 한 풍경에 다른 풍경의 옷을 입힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e2231cca677a754233c90e44f21c1d2bd94fbd8675707e67db6f555971f81ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borrowed-pop-song-as-emotional-surrogate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수입된 록. 영화가 제 입으로 못 하는 감정을 대신 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85c704dca3a1bb5931e20557bb6a02e3fb2698d12d0d8dc68ac2475a11b97f02"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borrowed-ruin-standing-for-the-dead-dream",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "할리우드의 실재하는 장소가 야망의 시신으로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1472e583f6a53db6d2191322a50497d990634bb56ac48ea987d969feb3b588d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borrowed-self-worn-as-ideal-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모자란 자아를 메우려 이상화된 타인 속으로 들어가 사는 주체.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f495e5a88e9329863f5f96f27139712bddc8345f6dc9650e8a40bbf0f1d621d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borrowed-song-that-speaks-the-unspeakable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낯선 노래, 혹은 흔한 발라드가 인물이 못 뱉은 말을 대신 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce250f3289148c30226432e889d1b79fb21dca6aedddd8d267cc57a3cc59dd9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borrowed-song-that-speaks-the-unspeakable-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음악이 고백을 대신한다. 인물이 직접 낼 수 없는 그 목소리를.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad27133b900d9d9be6e0578cfa7afecfdc4caada1789927302eb978716f8a00b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-borrowed-text-as-decisive-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인용하고 바꿔 끼운 텍스트. 그것이 작품을 굴리는 진짜 동력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7438d8b83c78e983fa3848391d00e721629e7f18a65da78883d31a7fe73eb095"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bottle-as-slow-motion-suicide",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "술은 액체가 된 죽음충동(Todestrieb)이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93377809d233ec81690cd2c82c97e9044bea540c7d531aafd41c182152209a3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bourgeois-instrument-that-devours-its-owner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교양의 물건들이 그것을 떠받든 계급을 향해 이빨을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f7b097dfe1d87c5c0d56e871aae0ff2528cd3ad5eec3a3f02bffb807b38b3c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bourgeois-wife-s-secret-daytime-hours",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "점잖은 부인들. 빌리거나 사들인 시간으로 은밀한 오후를 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ef5c9026246f29cea8b7e153f8102fcb72e8cf14b777e04af1260ef3b798454"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bourgeoisie-auditing-its-own-comfort",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안락한 계급을 앉혀 놓고 묻는다. 그 값은 누가 치렀는가.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a4dac3b583151e32bd6ed5b9a862188606bd5e9bcde8c0fc43582ee8e9b1055"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bourgeoisie-imprisoned-in-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계급이라는 자리가 그대로 나갈 수 없는 방이 되고, 가족이 되고, 덫이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccd90f0a35daf0a505a92819d538aae13ded7836eac5f08651d24d0e99976100"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-box-office-number-as-national-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관객 수를 다시 읽으면, 한 나라가 스스로를 진단한 기록이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afaeb65dc5c491cfe51a359df3d4c78eeb7e99d5397df1dbed28c9b4ab6fa8e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-box-office-verdict-as-cultural-diagnosis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흥행의 성패를 관객의 증상, 나아가 문화의 증상으로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "94703828401369ffca4c1497a7c2c3444ae7a98d4eaf927430c068d613656141"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brace-that-embalms-a-dying-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸에 두른 보조 장치가 일러준다. 이 정치체는 이미 시신이라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "82af7c51e086cff92295cd43ba8fdb113469be8b9d47d2c34f780a9e7eded34b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brain-made-sovereign-of-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의식이 한낱 장기로 줄어든다. 몸도 정체성도 뇌를 따라간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b430a55247e40837bbb24a5060de166e89bbfc4cf0f2c849b539e8e1a850f1fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brakhage-ghost-in-the-grain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주워 온 셀룰로이드가 배우지 않은 아방가르드의 시선으로 프레임에 깃든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88655fa6ac8da8f9f323048cbe763e5ce12e7d49e7fdb215d22c2cea4ca37ad4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brand-name-as-true-protagonist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이 영화의 진짜 주연은 영화가 파는 상품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce92f7fbd7d9964bdc997c4d2e4ec39cd72d76453f91433599a002979940f51c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brand-that-devoured-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말기 자본주의. 마지막 주권자는 기업 로고다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13d0eafca4797a7264bad8af1eab619c4f280e51d38f97c8a642cbef7a0645ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brexit-allegory-that-dares-not-speak-its-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "브렉시트라는 균열이 몰래 부쳐 온 편지로 읽히는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3fa3fc54f0f4ecd5f71cec41164cc0bd0833bc783ccc2fe1844c63af5c7083"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bride-sold-into-her-own-authorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "팔려 온 여자가 갇힘을 재료 삼아, 운명에 맞서 쓰는 자아로 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "597126b00a7403258ead46bc6ad0a85525b4cf9b03b74a021e049b3f4ecbc29c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bridge-as-collapse-made-civic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사적인 상처와 슬픔이 공적으로 떠오르는 자리, 사회기반시설.",
+  "model": "claude-opus-5",
+  "source_sha256": "b19d02f82b17bea959422053d239a45a6575b51bc0e4582dbbb93e729303d8b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-broadcast-as-live-funeral-for-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뉴스와 백색소음. 들리는 현실이 죽어가는 소리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae6425ebe1390f471690450821ccbffd28079dba21c1a1df60585b24c0d6e0b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-broken-wall-as-world-system-in-ruins",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무너지는 벽 하나가 무너지는 문명, 무너지는 역사의 질서에 이름을 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16b4e4cf2a237c38342fc46b04767c952a4a25bfb7390682be8c75dd6b0272a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brothel-as-functioning-matriarchy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자들의 세계에서 여자가 다스리며 제대로 굴러가는 유일한 질서.",
+  "model": "claude-opus-5",
+  "source_sha256": "52caec6f81ae76a24390a7c143b845aabe06b0833b7cb29ee8cda785508462fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brothel-as-hidden-economic-base",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유곽이 예술과 교회와 사회 질서를 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94ea5bbe70ee06fd33eaa2ee38b22eafae9849f5150091bfeee7d8bad291d680"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brothel-reveals-marriage-s-true-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매춘은 결혼이 감춘 것을 정직하게 펼쳐 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d396b84b2174d051117e7dc626f458b159d4a107b108fbdedf97aa18f8310025"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brother-killed-to-pay-the-blood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형제 살해. 가문의 빚을 피붙이로 갚는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "0be307e8b4555298415e4174e3608f7128cdd09bb9565a68b9f8e1857b681649"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-brushstroke-revolt-against-photoreal-polish",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "붓자국을 일부러 드러내는 애니메이션. CGI의 마찰 없는 매끈함에 대한 반란이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0107a8d0dea6b5dfa236597c136f21b1b3526061425d497cc4e5340080037bd9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bubble-economy-read-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일본 거품 시대의 호황과 불안, 그 초상으로 영화를 해독한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ea19f126a0b7f7040977f375378cd2ebc6ca9a942edf424fb7a6ea67eb89802"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-buddy-bond-as-disavowed-romance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자들의 동행. 영화는 그것이 사랑이라고 끝내 이름 붙이지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b56bc2ccedb30c3dfce0acf50a679234fc3b040b31921ab4d3a8234adb5890f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-budget-constraint-made-into-style",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈이 없다는 사실이 영화를 지배하는 미학의 논리가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36397c7ab9dc3b397b7c0cd82d2600b8c99a40e1c431337f60aaee36a2a65c75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-budget-s-constraint-becomes-the-style",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수단의 결핍. 그것이 영화 고유의 미학으로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "644f2eb426ab1ff17f3382c5d21939111e572a39a95d7141e23a0022d4ad4518"
+ }
+]

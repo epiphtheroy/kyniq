@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-predator-is-a-position-not-a-beast",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "포식은 짐승이 아니라 자리다. 누가 사냥하고, 누가 사냥한다고 믿기만 하는가.",
+  "model": "claude-opus-5",
+  "source_sha256": "30c393afbab33f6f15de7923d28d18cf85aa977828d5d0945aa5e5f82dfa41e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-predator-revealed-as-prey",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결정적인 순간, 쫓던 자와 쫓기던 자가 자리를 맞바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6687f0c99c65d4131e4b5b9160c8da50b46c69c5131b3f30090b1bf9116738a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-predator-who-wears-the-conjurer-s-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쇼맨십으로 위협을 가리거나, 쇼맨십 자체로 위협을 실행하는 인물들.",
+  "model": "claude-opus-5",
+  "source_sha256": "04e5c7726bb60c9a2afd03820057fd754860df4a954bd181f4c65cc388da5e6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-predatory-sea-devouring-capital-s-pleasures",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상어와 해상 스펙터클. 자본이 제 향락을 스스로 집어삼키는 광경이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2058bc9766c6fe314ba8c47a17db9dfbe96fa0697a43c4e08a1659cdf142194"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pregnant-body-as-contested-property",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자궁이 전장이 된다. 누구에게 미래를 허락할지 권력이 거기서 판결한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1291ad1c60b21801160454f1bbe18737ea0a9853dc2e912a49db4e6589585767"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-present-tense-erased-by-last",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지금을 없애버리는 한 마디. 혹은 한 번의 거짓말.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3cd2b54b7c44cbf539d81e7a78db459d93b1f6bb819ede24c758a67c3485294"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-press-as-civic-myth-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시견이 아니다. 국가를 인쇄해내는 제도로 찍힌 저널리즘.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fa2f3f62c250c7e05a83d7b2617adbb52e1d00a1d5985112a43a89b371d5faa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-press-as-engine-of-manufactured-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집국은 분노를 주조하거나, 제 신화를 스스로 기소한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f816f7c6b9c14262181dcea9a017f71cd0eed12e9522e05b1e59a17733b88505"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-press-as-predatory-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알리는 대신 집어삼키는 권력. 그렇게 다시 상상된 언론.",
+  "model": "claude-opus-5",
+  "source_sha256": "209bdf888c96fe9b6501a00e5117ff66c4feb5ecc04183c6635712c7430b6c39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-price-hidden-in-the-loving-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다정한 호칭 뒤에 값이 숨어 있다. 재앙이, 상처가.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc726e4a185137ea5c8943bff0d3336f576fe8d6dced4adaf8c2034f39fdb04e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prison-as-factory-of-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감금은 주체를 벌하지 않는다. 주체를 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e96b04aca9d4719db048ba1004b10aa2698d6c2ae3c1a2eb8bfe326abf91bf62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prison-that-recruits-its-own-wardens",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갇힌 자를 제 간수로 삼아 스스로를 재생산하는 감금.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c4415cd7c4c189ad47948655bda36c1d3335ece8913db19e84562069bf323ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prisoner-who-self-taught-his-way-free",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감옥이 독학자를 길러낸다. 그가 배운 것은 결국 탈출이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc9da438288da2beaefe99a9b8fbf55037a82fac383873d23305eddc5fc013c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-private-wound-as-public-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "훼손된 몸. 집단의 정치적 사건으로 요구되고 중계된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3da4f1780579a9a53967c42d2ba4d0275628fd314a1a4757e731ddbc715ab84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-private-wound-as-the-nation-s-suppressed-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내밀한 침묵과 병증을 한 나라의 정치적 기억상실로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b94e3c2fc112ba03e648aa0c391d6bbc4250c4b7cbf8102cdfa3fc990ddb321"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-privatized-fist-of-revolt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집단의 몸짓이 포획되어 개인의 스타일로 팔려나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df729353bbbf20db449dafb8b01f3d09dce09f14fb42693f7fb73daad6c24f57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prize-as-the-west-s-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유럽의 찬사가 씌우는 왕관. 서구가 필요로 하는 의미에 주어지는 상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4288ba186ed86f51d0c7ccefcca5c4f173857f38653c51c02c88a5be09df993b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prodigy-who-fled-his-own-gift",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "너무 큰 재능. 지닌 자는 휘두르는 대신 달아난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "23fdc59728ec16fa5341981a3c035d70f7c9cfa03ae88d45207b38f0b31e2491"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prodigy-who-stopped-too-soon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일찍 멈춰 선 천재. 재능은 굳어 은둔이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5740066e6f159a73c134e0baa12f8162663a24347db18c3d1ebc6a93e3480e9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-production-became-its-own-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "촬영 현장이 그리려던 광기를 그대로 되풀이했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec1c97be7dce8f5b456eb4169d9b4ebd07abc5a8dafca6016921e486d8bc2822"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-production-code-as-hidden-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "검열의 족쇄를 진짜 작가(auteur)의 손으로 다시 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4ac25f505ca1f7b566c783a214c96a7866c46c6d44ba53a80ace111ad84b29b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-production-constraint-that-forged-the-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제작 여건의 한계가 곧 그 영화의 미학적 명제가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dd423b5eed8412f988f9299766b15dd3172aac44e846e099467d9f067537cab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-production-s-strain-becomes-the-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 만든 산업의 조건, 그것이 표면으로 떠올라 주제 자리를 차지한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cfd430474d9b78666abf990c08b94d460a94ca3f41ad10778cbe89af196c014"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-profiteer-who-becomes-the-reluctant-rescuer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원은 잇속 밝은 자들에게서 온다. 제가 속여먹는 그 기계를 이용해 사람을 살린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "114d61b9eac1c703fb859e4166c4dea6b16c89e73420b089320e3f5a6dbbc078"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-promise-as-indestructible-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맹세는 맹세한 자보다 오래 산다. 이성도 죽음도 그 구속을 풀지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39652447f5e35444cef4d6099c5a85006b843d3b5e8fc171a81ff742754bd0c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-promised-refuge-filmed-as-inescapable-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "희망의 장소를 찍되, 그곳이 실은 감옥임이 드러나게.",
+  "model": "claude-opus-5",
+  "source_sha256": "3eb4144a05c7603b296b8a7aadc567d12c5153e0189fcf61c55d24e75a6e8847"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pronoun-that-names-the-unnameable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공포영화의 문법적 회피. 괴물에게는 고유명사가 주어지지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a70713b6b718bd9d3580c65835a86b3ccabb80157083b49d9e75b7a32d96fc8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-proof-that-damns-or-acquits-too-late",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증거는 온다. 아무도 구할 수 없게 된 뒤에야. 무죄와 유죄가 거기 달려 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b78aeba0cb6c521f8f6e751c0d7cfae62c4c147b4e6c877d03e8b1a5e40c642"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-proper-name-the-map-cannot-hold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "붙여진 이름을 넘치고, 가리고, 끝내 빠져나가는 자아.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e6b15720dc46272c2918d1435b92e0f63d33ab59afa4128392c4646413f77f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-property-sold-off-as-the-welfare-state-liquidated",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매물로 나온 집 한 채, 팔려나간 공유지. 해체된 사회계약의 형상.",
+  "model": "claude-opus-5",
+  "source_sha256": "d903e11d0b2d2f24f28fd30fbf54c7f88b69e1d771aa5f95602dabe9a9b6c9a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prophecy-authored-by-the-one-who-fears-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "환영은 예고된 미래가 아니다. 예언자가 몰래 써 내려간, 차마 인정 못 할 소망이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b12527d0b82c656de4633a018ab917045b8e0d4c8607bf0c367f06ca5f951093"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prophecy-label-as-critical-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 영화를 예언적이라 부를 때, 고백되는 쪽은 현재가 부인하고 싶은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81d043dca0f400eb35c99492d6d23be9dcf0ecc25fb7c365db4790a858bbd86a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prophet-punished-for-seeing-first",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남보다 먼저 진실을 본 죄로 조롱당한 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "b056a73b72dfd30444bf33d2b6e28fddf067f797057ccf8c6619323e70a8b99f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prophet-who-authors-his-own-omens",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예감은 앞서 본 것이 아니라, 몰래 제 손으로 이룬 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "467ef08c3bdc4ce3a0ebae10bb5fb0f205267fa13b769c19fadc8d57785730b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prophet-who-speaks-in-equations",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신탁(神託)이 된 수학. 숫자는 파국을 내다보지만 아무도 귀 기울이지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9927d2e2a5345ae9c8456df84b4d62ca7a6dd31a198f37443e16b36e80314bd2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prosthesis-that-sorts-who-survives",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의수와 의족, 몸의 값을 매기는 판결문.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaee21982ffdb876364ad7c334449aa916d839dd2f100e43bec0c8df6d67cbc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-prosthetic-body-as-phallus-against-castration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증강된 팔다리와 이식물은 상처를 부인한다. 부인하면서 그 상처의 이름을 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbf9386f413bb0b9f62c641719f08b8149307bcb37ce5a82bfc7090272966e2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-protestant-lens-on-catholic-vice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금지된 가톨릭적 과잉을 칼뱅주의의 엄격한 화면에 담기.",
+  "model": "claude-opus-5",
+  "source_sha256": "8399b04f5890825cd92124afdbc741a120742813cff346b6786a470ddc66aea9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-proven-al-estate-as-mind-s-laboratory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프로방스의 별장이 자아를 세공하는 밀폐된 장치가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01c0249a737e92056b3dd6354282771e3eedfeaf3126e72c3bcb4e5c8facec89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-province-smuggled-into-the-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변방을, 혁명과 이주의 땅을, 대도시의 방 한 칸 안에 들여놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a6db9c0b31c08189789ca75a7663c4e7a3eab56bdd5ff117e86c13421313101"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-provincial-heart-s-sentimental-education",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어린 영혼이 처음 겪는 작은 고통들. 그 하나하나를 현상학처럼 들여다본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b665507c80eb3cb934f550a7cffb255a329048be75ca3e436fd5b4050084fd8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pub-as-dying-welfare-commons",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동네 펍 하나가 사라져가는 공동의 영국을 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e05e060b0195afab0ad56bc893780a335c24bf49e8f42fe9f7b2e2aed0c62840"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pubescent-body-in-abject-revolt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사춘기의 몸, 공포와 전치(轉置)가 일어나는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "96185d780e1e536c5e53ca30b5f11ed0c37b57e147275d81375b6d23fa7ed7f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-public-servant-abandoned-by-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영웅적 행위도 결국 노동이다. 제도는 그 노동에 돈도 명예도 주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7da7406be919749a634e0a0bfd714159577fc516095f3ad74f2c1c878a5fbe8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-punishment-that-manufactures-the-crime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "처벌이 죄보다 먼저 온다. 규율은 제가 고치겠다던 비행을 스스로 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dab66b1e3b216c4f8b2df22d033d2095164fe63bff35d111c9e22c8d069652e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pure-thing-that-drives-the-rot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "순수는 가림막이 아니다. 썩게 만드는 동력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36d446e99c78657a3e5f77f548293cce2de48aeb136944f48f1c277c72214929"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pursuer-authored-by-the-pursued",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쫓던 자가 알게 된다. 자신이 먹잇감의 손에 쓰인 허구라는 것을.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d04e943493b837a9411450e4d51b17e769b6abe695be6126681074dd93a7085"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pyre-as-declaration-against-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불로 선언하는 주권. 저물어가는 질서를 향해.",
+  "model": "claude-opus-5",
+  "source_sha256": "8db85766e443177d2683c62b50d656902bbb7b596223ac26ffdccc725d42d894"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pyre-that-stands-for-the-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불타는 몸을 점령당한 나라의 알레고리로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afe645b653b89056fbf0897bd2ab190ad6215b7f7b714d4f4e48484ea9c7664e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-quarrel-over-how-to-film-the-shoah",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참사를 재현해도 되는가. 수용을 둘러싼 전쟁은 그 질문에 대한 투표였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd6c93c99dc20395a0852bb40fa731c6d1feb7d6b6f5ea17beccbc61d934f1bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-queensland-soundstage-dreams-of-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호주의 세트장이 바다를, 폐기물 행성을 불러낸다. 제가 선 자리와는 아득히 먼 곳들을.",
+  "model": "claude-opus-5",
+  "source_sha256": "da300ef3efde818f5df41f72caca4a2cd21fa4a0d17051200af845e9222e4488"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-queer-man-who-speaks-through-silence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 서툰 남자. 발설할 수 없는 언어로 사랑한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cc3480f4ae4115f79b4aadf4056af2e3c74bb7b61f8e56d53b73b1febbfa42f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-quest-that-veils-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 탐색은 무언가를 가린다. 죽음, 혹은 무대에 오르지 못한 실재(the Real)와의 마주침을.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6c9895d3d0a68d037db1ffa17a90bed2064fe3374493688e90cdb9a38dd1a9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-quiet-climax-that-outweighs-the-loud-one",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 동력은 스펙터클이 아니다. 속삭임 한 번, 대사 한 마디다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebbaa23f382a8eef17b23da6793101cc55214ca996e57c48cd9e74e843d8b52e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-quiet-performance-as-the-achievement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배우가 소리를 낮추고 힘을 뺀 자리. 거기서 승부가 난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1136e59a5038576f0e0ea66144c7b488c7e6221aff13cfc10485d94fccafdaf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-quiet-refusal-as-domestic-insurrection",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부부 사이에서의 물러섬. 젠더 규율에 맞선 소리 없는 봉기로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07ecca14d768cdb05fe47d4f3a8767643e5c2b96296eeb95483c5e70bc137e4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-quiet-surface-holding-buried-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고요한 화면, 담담한 눈길. 아직 오지 않았거나 눌러둔 폭력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b70aa98c17611bbd97d4c9c46b4c64bed30258ea4dbe63f17136ce2d7fcc6cf4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-radical-film-defanged-by-canonization",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평은 도발을 기린다면서 길들인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44114b6a17637362c0ac186d3d6dd7824bab8a524181abf8c9b0c59903315709"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-radio-as-sardonic-commodity-god",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흘러나오는 팝. 소비문화의 무심한 신이 거기서 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea7590a7e2bf3936c4b34b43574f1df39487a5d542e49c1d92c6393ae301a51d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-radio-broadcast-as-history-s-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면 안에서 울리는 방송이 끝나지 않은 과거를 프레임 안으로 데려온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9157172e3f52225cd60cb6b52c661f1246b8b274dd115d6b4f6d6f002a163b5"
+ }
+]

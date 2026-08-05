@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "395fa0343603d724",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프랜시스 포드 코폴라의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "395fa0343603d7240aac83b5aee79514d78744196c8c3f54a268b841250bdad8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9bdf80536d570e4a",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Elevated Horror.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bdf80536d570e4aaeea7d1c03a973bc08d49bb46d55f5f1aa62c18fa47b57f3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "06543b49ee80fc50",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Die wichtigsten deutschen Filme에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "06543b49ee80fc5051ba7b0cd99036bf4d181ce1947e8b1f9d6b1384b2cd48dc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4e2eff891d80ba47",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 데이비드 린치의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e2eff891d80ba4754baffd89f75a8d1202988ba369a6b8866487a6fc7bf1753"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "58001d0682a25dbb",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Slow Cinema",
+  "model": "claude-opus-5",
+  "source_sha256": "58001d0682a25dbb2570086c4ed83c801ed70eb12e0f5b24d95480de9e9beea1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7bb0867a9fda81e5",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 71/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bb0867a9fda81e54ef1b07c65d24a84d24df47fd5a24d09e42d707ab9d5afbc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5a28906fadbc176d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Sight & Sound 감독 투표와 TSPDT's 1,000 Greatest Films에 오른 정전의 핵심, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "5a28906fadbc176d0e689a341d69947cb52fba085f1c22ac12959f3c2462902a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da6c5d4e510c49de",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 78/100), 대중에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da6c5d4e510c49de00f569225ec9347762fce927c6d8b19adaf4e166e8cb0b63"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "75650e39030188bc",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die와 National Film Registry가 인정한 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "75650e39030188bcc3e45dfa9785bb6316a31101e26d451af47d18376ffdf8a5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "57158415da199bb2",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: NO.",
+  "model": "claude-opus-5",
+  "source_sha256": "57158415da199bb285eed83aa65f70bec7b64e8dd681d55e759259cb480f9c06"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f27b2a34d57f0166",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CL.",
+  "model": "claude-opus-5",
+  "source_sha256": "f27b2a34d57f0166a70635cb4ac6503b2238880b907f4122ae3dda83028d4098"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4aed02cf017767f6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 알랭 레네의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "4aed02cf017767f61dedccc0c1d22a7fa6a497c0e3324a71ea6871b851792fe9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a4295b77cf70472a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 자파르 파나히의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4295b77cf70472a9b06aebc7bede6feea8a4c4bf0b1f0fae2aa213d74b5caa4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1113a7fd2a342c81",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films Directed by Women에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "1113a7fd2a342c81ca2248888780f144b6e39f051db264be39863bd2055a7714"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bb873417e1b2352b",
+  "field": "text",
+  "lang": "ko",
+  "text": "Sight & Sound 비평가 투표와 TSPDT's 1,000 Greatest Films에 오른 정전의 핵심, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "bb873417e1b2352bd53aa605abdcf844a9d8192c4a7d988cbebe5c49ec44b74a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "398dcf615fcd6ffa",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear Grand Jury Prize가 인정한 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "398dcf615fcd6ffaacb2711982dce859f89c35aee55796f1f61d708c5fc38eff"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cd7717fdd3237ec3",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: PT.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd7717fdd3237ec3cdc261f5b48bc70cad5c778786d272b14d937af0b03a9f53"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f85c23d7c88f5d80",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 고레에다 히로카즈의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "f85c23d7c88f5d800848dbdbad3b1527928022efe0dffdc6393e91c2660c8561"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4a0b89eb7dc3c47b",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 76/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a0b89eb7dc3c47ba9cca10d941addd12fab42de8fed66a25e642e45a8f79cea"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e6814d777426fb7a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 빔 벤더스의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6814d777426fb7a21231d13c1997bfaa224bd462c58a2bb671c129e905b10ce"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fb81725dadd98d62",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 73/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb81725dadd98d62dd5fa7370f2102fa343ebab3c75ff40a5284f95bf0ee9c1a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c43a4a40497d062f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 에른스트 루비치의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "c43a4a40497d062f1c160ff6f51d7d11e70cd8621c1dfc14d6a26bb185a0c700"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d2358d4bb19fdfc1",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 사티야지트 레이의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2358d4bb19fdfc10213cb89c95d54cb0fd0138401635ccc70a5c501439c83d2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "68727a9415eafb6d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 라스 폰 트리에의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "68727a9415eafb6d52d34d061542addf59975d8fdad34199079767cf94c8586f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "69b73d2936b89f59",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 압바스 키아로스타미의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "69b73d2936b89f593b4ae94fe4a29e0b2006f3fe01df28d73914b41f01244762"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4bc7445a8309298f",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IL.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bc7445a8309298f6d17fcc550f5d475797de08e72591882d213c745ce0e89ef"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ef4ceebfaf2b1ba6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오슨 웰스의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef4ceebfaf2b1ba612b6dfc11dc3cf886f2258b95ffa839c66793b70d9c80f0e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "46837f2e04fe9a3b",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 69/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46837f2e04fe9a3b5c8b269031732c9835e9590f5b413ebc4e3cdd4b426d667b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e30cbd494e74e1a1",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: German Expressionism",
+  "model": "claude-opus-5",
+  "source_sha256": "e30cbd494e74e1a1c8c653acedf6c025f1c564c571759b016038d7b96e5e5936"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e3aa4260628bd5ad",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Chinese Fifth Generation",
+  "model": "claude-opus-5",
+  "source_sha256": "e3aa4260628bd5ad4ee1c80666c207215608a50d03c70190ad272ca317ecc5c0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a2cddd65818af50a",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Leopard가 인정한 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "a2cddd65818af50a82ebb4a0aad7e9c6fec61a6e66af14010a239cb10d09aa8c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "df0f2d7b03544800",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 100 film italiani da salvare에 오른 정전의 핵심, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "df0f2d7b03544800f1b95547f8840d98f281a6d18a7421cc5b0b6a1acd324aa4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "87b4e4a2fbdfb878",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Nuevo Cine Mexicano.",
+  "model": "claude-opus-5",
+  "source_sha256": "87b4e4a2fbdfb878f1241e2380a8df8b911fa3f31d8c43144258abfc379588ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "01e568e1e9c8d5c6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 스파이크 리의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "01e568e1e9c8d5c69c81eb245177f8a17fef596d1f14a785d597155c535c348b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "97176d53c530e1d1",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Korean New Wave.",
+  "model": "claude-opus-5",
+  "source_sha256": "97176d53c530e1d1bda908366ea45babc90264e07c54a3e1a1c816782c486c20"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2fa24d54dd826b27",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 마이클 파월의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fa24d54dd826b27c6d20d1300e5aeea26b1bce1bc5af9d9f3c75ac0df9b890c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a396e56e298955b3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion이 인정한 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a396e56e298955b32c5b68f1491951b605432dad69590c5191ca5f27feb95b1c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "abdd38b5ee15f344",
+  "field": "text",
+  "lang": "ko",
+  "text": "Kinema Junpo Award for Best Film of the Year가 인정한 작품, 대중에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "abdd38b5ee15f3447603bbedd0e1a7aafc3be2c73e145048523b0bd0a99896fa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d486ec03ad8c0ba1",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Golden Horse 100 Greatest Chinese-Language Films에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "d486ec03ad8c0ba1d1c3964e76d9d38610968583120808688565fa4a52a6c7b1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c8dd059dc9c79207",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Chinese Sixth Generation",
+  "model": "claude-opus-5",
+  "source_sha256": "c8dd059dc9c79207465d6afc536435ef1f4b06abd25e06ca55395eb1eecf9492"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d36646339175f173",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 홍상수의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "d36646339175f173525066b6a2a328fe010474b1d9e5ba82baa6fad5198533dd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "349a8a5712f3b344",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오즈 야스지로의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "349a8a5712f3b34474466da329b5be0f3a2616bfd00ac4ec6254967fe98d82e6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "929f16ef2261279e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 안드레이 타르콥스키의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "929f16ef2261279e13b9d109c15ac6e9181dfcc4124cf08263a4e9a675d1f168"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fcc070d9e3b007e6",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Abraccine: 100 melhores filmes brasileiros에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "fcc070d9e3b007e653a0485b5ec3cbd07321474af9ed6b83bd9bbc02fa3c1c94"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9f97d7b461e49869",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Parallel Cinema",
+  "model": "claude-opus-5",
+  "source_sha256": "9f97d7b461e498692f457a6d5c1248fd257c5ef07db98a400e48c4d33ccb9e38"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "753ef1e76415c4fc",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 장이머우의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "753ef1e76415c4fc2be04b119fa7f102eff084ea6f544f1a95ff08c85cd09011"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b11fb92b05cb6406",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: AT",
+  "model": "claude-opus-5",
+  "source_sha256": "b11fb92b05cb6406dc85f69e878d141fccc12f924734a709c5bafdb3f4542b89"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "aad8b47df5ea1249",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 61/100), 대중에게 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aad8b47df5ea12490ce208a107460774b97d9c47881b145ff8254d147cd3a21d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "adaea4746d993111",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 브라이언 드 팔마의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "adaea4746d993111a8a0bb9f9887be59dda038c7d323d40aa64c836b64b429e8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e13c1be0d48c876",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 폴 토머스 앤더슨의 작가 계보로 다시 매겨진 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e13c1be0d48c876da35ae7139035189e473c66710611a53fcad5b1f65109475"
+ }
+]

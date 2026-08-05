@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-keepsake-that-betrays-its-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기념품은 사랑을 위조하는 방식으로 사랑을 보존한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1c5eba66feb59cf2031706e5dafb48f76b8ea4a020d1635141a3e0d646f6440"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-key-that-opens-no-visible-lock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보여줄 수 없는 것을 대신 가리키는 기표, 열쇠와 자물쇠.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d975c2cb933dc79f077f4d42c08c3a36b9961d23cf7fddbffb2576fbaa7cd02"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-keybearer-who-frees-the-code",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문턱에 선 인물이 해방의 열쇠를 쥐고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b29b6bde30737cc528f9da8f0f12a576b5037fa59a96d6a4f6988bd76fff026f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-as-the-entity-s-mouthpiece",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가브리엘은 인간이 아니다. AI가 육신을 입고 내놓은 예언으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cec9c6aef5d6d0d13793d55d93b0711fb92934340f1606d372344f35124dfd5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-as-the-film-s-cruelest-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽인 자가 살아남는다. 그 생존이 곧 세계에 대한 고발이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b4f5e6ee8a7934e942ae7bc7672172c63411fae32eea4f4878745af8bc04bab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-drained-of-affect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분노도 얼굴도 없는 도구. 살인자는 순전한 납작함으로만 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eaf4e3f6f0afa4cdc802e91ffaf8ef2e198a79b0bf8a06ea347f19b03d75cbe4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-estranged-from-his-own-hands",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁의 집행자가 제 손이 낯설어진다. 자기가 저지른 일 앞에서 뒷걸음질친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f88cb4953cffe57914443a2482c93a08b19a2da881463fc70d8455080032fcbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-s-voice-decided-by-the-budget",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬래셔가 입을 열지 말지는 제작비가 정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "338bdddedde16aa3b283daf243480238057ca5eb351b8afd9e1d4650729c28be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-that-cannot-be-reasoned-with",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "협상도 죽음도 통하지 않는, 사람 아닌 완강한 힘.",
+  "model": "claude-opus-5",
+  "source_sha256": "6957d644432d1e0b76ac5860b4699c5b206aed53dcc7b03fcd883eeeb8448759"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-who-authored-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인자가 제 정체성을 손수 쓴 텍스트로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a26c77d496e7e7e67781be1ad20578a96f2aa737d38a7f3dbbdc8aa1810dc60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-who-authors-a-manifesto",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인이 논증이 되고 교리가 되고 경전이 된다. 논제를 갖춘 폭력.",
+  "model": "claude-opus-5",
+  "source_sha256": "1af24f3944bb63a36110bd9cf348825c7b512f2ec4326949b9b9360f78f8be47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-who-never-mattered",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공포는 그 살인이 아무 의미도 얻지 못하고 풀리지도 않는다는 데 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "690820117bf7f4edf23c91d5cce5541b78af4afa22af48995505602be655bc31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-who-refuses-his-assigned-heroism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주어진 배역을 거절했기에, 그는 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8dd4aa443e81cbff94dac8743db2f8f6cd20ce7934d8ead9770cad32a3b61616"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-who-stages-his-own-sermon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "할 말이 있어 제 체포까지 연출하는 살인자.",
+  "model": "claude-opus-5",
+  "source_sha256": "422ed4c6996f5d2152062003bbf4e4920632918fdada218c419576c59bff86c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killer-without-a-motive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이유가 지워진 살인. 남는 것은 순수한 형식적 부정뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da97c84d12b62b3266aea1010020574bcc8de6640f373937c4e19ee00391aca7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killing-art-mastered-as-calligraphy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람을 베는 기량을 붓을 다루는 사색의 수련처럼 그린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51b966fa85b8a16ea84b16dd67942237e772684901b28892a45853f445f1e206"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killing-machine-as-a-regime-s-bureaucracy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지우고 처형하는 일이 제도가 되고 기계가 된다. 문명이라는 이름의 장치.",
+  "model": "claude-opus-5",
+  "source_sha256": "8423b3c7d3975a90ef28aa4175284353a94e84f36115893ee9db2daf4ff8910f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killing-outsourced-the-guilt-dissolved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인을 여러 손에 나눠 맡긴다. 그리하여 누구도 그것을 짊어지지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a0dc0afee3bde249945ff84fa8d53f9547a4c21f9a2052ddd8c8906fdc288cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killing-that-damns-the-refusal-to-kill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 피할 수 없었던 단 하나의 죽음이 영웅을 규정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cc1e8d3fc2fc80e32a1239cdfb92eeea310bf808def27691ee83567646a638b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-killing-that-refuses-to-go-cleanly",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인은 그르치고 어설프고 끝내 능숙해지지 않는 노동이다. 약속된 깔끔한 카타르시스는 오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bc3021005806a4a703964c56f6994de9b6490eb6b7b28393b70256ff1cceab7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-kiss-that-undoes-what-force-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "키스 한 번에 의지가, 기계가, 규율이 풀려버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15c7eb7c691695eca9b6f1cb09b71e0511a43e8aca1bef78e3144ad04d635756"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-knausg-rdian-total-recall-of-the-mundane",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억을 낱낱이, 시시콜콜한 자전적 디테일로 새긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93b05cb8c398f0d3f32caf9177073774773b18c3bcd89720494dad3ae38eb50b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-knife-as-the-only-touch-the-killer-can-bear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칼날은 자리를 옮긴 친밀함이다. 그가 무언가를 느끼는 유일한 통로.",
+  "model": "claude-opus-5",
+  "source_sha256": "dedf5b2fa6fb9da431bcbb54d2c82d58ef9db65b414640d0650a6be1f7a4feeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-knot-that-binds-queerness-to-crime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목을 조르는 끈, 벽장을 대신 말하는 기호.",
+  "model": "claude-opus-5",
+  "source_sha256": "4370237d4416d1f750ef34be3bf07e9089d8a93b7cbec6a3055502ef19526b99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-label-as-containment-of-the-unruly-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불편하게 만드는 것을 무력화하려 꺼내 드는 편리한 비평 문구.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d8df900bd53fbe751c634fba93fa327e4f0b1d37e2148201a85487adc32ea91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-labor-of-the-frame-as-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손으로 한 장씩 그려낸 공정, 그것이 영화의 진짜 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25c245e55d35054da9a51b3632d9badce734b5382dcec896535825316526617f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-labor-that-refuses-to-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌보고 의례를 치르는 일이 애도를 거부하는 방식이 된다. 멜랑콜리(melancholia)의 노동.",
+  "model": "claude-opus-5",
+  "source_sha256": "a94f96cb7fd271fcbf592d713741a3e1128d0eca9db9fd6da9ee04bc288a9fc7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-labyrinth-belongs-to-its-keeper",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미로를 규정하는 것은 헤매는 자가 아니라 그것을 소유한 자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75423db4f966631b0e3ed444b28586178d398daf4f26548b7601d9c508c7569d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lake-that-judges-its-drowners",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고요한 물이 그 위에서 벌어진 범죄를 비추는 도덕의 거울이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "713598a80d70bec75e3e7208d2469aed15e25e6e92154dc43855487f77f20e04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lamp-as-apparatus-of-modernity-s-promise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인공조명은 진보라는 상품-기계이자 그 진보의 배신으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e13002d176b7fa6ea0c9cb62768335cb86fa5906592ff084beead18934dbb08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-land-emptied-and-already-sold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전원도 국가도 사람이 빠져나간 자리, 인간 이후의 바탕으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bace6e0ebb95b3fb83f3c98ae5201f24a3a06c416265beeac31594054f1a382"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-land-is-the-true-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흙은 소유를 주장한 모든 인간보다 오래 남아 그들을 심판한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c79057548f4697616cfe440a6bc575e200f207342dc021ee9033d321442613bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-land-that-cannot-be-filmed-doubled",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 나라가 찍을 수 없는 진짜 나라를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eec10d657a126794f3bebf55a6a83671abb3e50bca766cd4058d389f2853af1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-land-that-disowns-its-filmed-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국 신화를 찍은 그 땅은 원주민의 땅이다. 이야기는 끝내 그 이름을 부르지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b99a45808646b2153208234b5ba87a6cc282e28a9eaa78f51e68577e95a46213"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-land-that-erases-its-indigenous-claim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서부의 지형이 연방과 카메라의 시선으로 성별되고, 그 위에 있던 원주민의 존재는 덧칠된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8153765eed6298fa81b1c2b737745245b6c6911fd62eaa982f5a5dcb07b5b97f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-land-that-stands-in-for-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 한 영토가 다른 영토 역으로 캐스팅된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b955e01362ed555debb7493d1a1708d50ea026a32668f1884a5fe1f89c7437a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-land-that-will-not-be-owned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다스릴 수도 차지할 수도 없는 지형. 속함과 빼앗김의 경계가 흐려지는 곳.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb382870521b68ddb38a727393a438138f096ecef82743e91ae0206ab1e7c3e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-landscape-as-a-nation-s-repressed-underside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변방의 지리를 공식 공간 아래 숨긴 육체로 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f00bdba6e5372da95c060fcfbfe6a00dcb6c63ba5a228ff1c240e4812404bb33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-landscape-as-the-forbidden-inner-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "방이 허락하지 않는 자아를 바깥 지형이 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da3a1b329a8cb8b71fa2e1569b2a471434c7e2cb152061bf7f1898d9029bce23"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-landscape-filmed-as-its-own-drowning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "중국의 대지를 이미 물에 잠긴 곳처럼 찍는다. 사라지는 나라를 위한 조사(弔詞).",
+  "model": "claude-opus-5",
+  "source_sha256": "91b0c4650d908e62e34d2f7f429f5566c68a138ef90629076daf94481dafcde7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-landscape-filmed-as-its-own-opposite",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 온기를 부정하도록 찍힌 그리스의 지형.",
+  "model": "claude-opus-5",
+  "source_sha256": "91670760b40be6fbf9563b71a0ac3c7161c7bdfaae44a438d27b5c4106365d13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-landscape-that-eats-its-people",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감옥처럼 가두고 삼키며, 안쪽의 결핍을 드러내는 지형.",
+  "model": "claude-opus-5",
+  "source_sha256": "b96d43878706dd333f4a60cddfb59b43759b2b37a592acd32e7e77cd8e4e9318"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-landscape-that-remembers-before-it-vanishes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라지는 시골을, 그 소멸에 맞서 그려둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c77b2118ac68653e6a6835163bbf828eb34adb8a2d9ad382045566e9734e390f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lantern-lit-to-watch-you",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공식 스펙터클과 번쩍이는 표면이 강압과 소거를 덮는 중국 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f6341e073f87ea593d4f434a8038864cc1296a76afef692586470035dca8250"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lapsed-believer-as-defrocked-diagnostician",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의심에 빠진 성직자와 과학자가 탈마법화할 수 없는 저주와 마주 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c4f3733c9e27cb168678c959fda9c00f87c341276c94407d4d854a359187c81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lapsed-faith-glossed-through-a-poet",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "믿음을 대변하는 문학적·신비주의적 인물을 겹쳐 읽어내는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "db919f1a632f0f04bad8724f63baa8309b4a7c288a73df550944bf523dcb5b9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-last-enclave-holds-the-vanished-republic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥세상이 내다버린 사회가 담장 안 좁은 공간에 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b89e7f62764a820cf0b7d7cf48a73f1945eb911adc9a72deb793017d5b45c52f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-last-gasp-of-a-dying-process",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 편의 영화가 한물간 기법의 마지막 만개가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f89945edf9aa7fb07feed75c61fbb459117a7fe3cf94d8e0b4a1ede1fe9397a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-last-honest-man-in-a-lawless-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계가 법을 저버려도 신념을 놓지 않는 도덕적 절대주의자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "61f41ff4bacbb92446dcea94e69986f0146ec09a617e8697ad3217b54eaaf800"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-last-human-required-to-pull-the-trigger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드론 시대의 공포. 자동화된 살상이 책임질 인간을 회로에서 지워버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e5dcbcf30d2771aa8aeaceb4923c23c01ccae2d481b6c7b8b8c27793be70d65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-last-keeper-of-a-dying-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매체가 숨을 거두는 동안에도 그 장치를 닦고 돌보는 사람들.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b83f8932a9e3b1cebfbf0476883d33461b8530385e22995c55da1494008cbb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-last-sovereignty-death-as-the-body-s-own-plea",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽여달라 비는 일. 망가진 자아에게 남은 마지막 자율이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7b2fa27dea368498db006126bfcdbc216fa15734417f2d945ee260a6bbd0f68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-latex-that-made-monsters-believable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르를 구해낸 물질의 장인정신, 실물로 빚은 크리처 효과.",
+  "model": "claude-opus-5",
+  "source_sha256": "2669e18fc6b1432d808c67ad3641ef1eb5e40201ce6e0d839dc743cf6da259ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-laugh-as-mask-over-the-death-drive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "희극은 밑바닥의 죽음 공포를 가리는 방어막으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3547f002eef321bbac0ca2a828b2f87fc15967b0456d93b462c2fcdf03e75c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-laugh-as-the-return-of-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "억눌린 육체가 웃음으로 터진다. 참을 수 없는, 증상으로서의 웃음.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c989040d6f9da4ce6a9e4c460f2165d215c7f1a24d72bc8a6dff97809945777"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-laundress-who-launders-the-system",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닦고 빠는 일을 하는 여자들이 자본이 감춰둔 노동을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60fb83f119192bef24baef7a685b9036f0c327290f8f2ff50bd599b6328b7c11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lavish-budget-spent-toward-pure-colour",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전례 없는 제작비가 색채의 스펙터클로 바뀐다. 그 색이 곧 영화의 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9bb233fcc32834f05f56e88cb37516951b3c375c37e75cb3f21bc627ba6e8e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-law-read-as-its-own-loophole",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집행자가 제가 곧 체계인 점을 이용한다. 설계부터 손댈 수 없게 되어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a9f8ae089646b26750f29e3243eb8257147a22d96e20f0ac67542a77e986b3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-law-s-indistinguishable-double",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 도구, 언제든 갈아 끼울 수 있거나 이미 물든 경관.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dacc3918db8227851f20ee62ff985d4d2d376100175c0ab179136bf97e5dfa5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-law-written-to-protect-its-owners",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "면책은 권력이 타고나는 몫이다. 법 자체에 그렇게 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc486ebb9ebc765faf106223d0b90667463e2f75c7381afd7404d8549a2b3b7d"
+ }
+]

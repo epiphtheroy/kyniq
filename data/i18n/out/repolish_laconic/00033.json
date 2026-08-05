@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-domestic-war-conducted-as-operatic-bickering",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집안이야말로 극적 전투가 벌어지는 진짜 무대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49c6ff0330c0989942e76e9604a6dfce0dd7a8d144c1bb741933cfba1e396386"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-donkey-as-mute-moral-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간이 입에 담지 못하는 뜻을 대신 짊어진 짐승.",
+  "model": "claude-opus-5",
+  "source_sha256": "51a5f14808dcd47b7988b2aa0a79798a1ac8f47695fbbc92bcf903026de67be2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doorway-as-the-frame-of-the-permitted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문간이 정한다. 무엇을 볼 수 있고, 말할 수 있고, 넘어설 수 있는지.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c62af5f97779b584743db8b19f0f5953ae1a140f1d2f150d7dfe4aa586cac35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dostoevskian-soul-before-the-firing-squad",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도스토옙스키의 사형수, 그 죄와 의지의 형이상학으로 읽어낸 인물들.",
+  "model": "claude-opus-5",
+  "source_sha256": "7830e8418b0359116710093c63d5e0e89dd53ca5868335647ce627e61672b0f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-as-the-film-s-hidden-thesis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "겹침은 모티프가 아니다. 작품이 숨겨둔 논증이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9143c3fd5310cd4f83e56a22967c37d38aee098419b6d5595e7e81df213d2dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-as-the-self-s-returning-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분열되고 억눌리고 언젠가 죽을 절반과 마주 선 자아, 그것이 도플갱어다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaab8175f4a2eae3f756badf184e26f69101a04ecfe453a9fa7f7647d4793d6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-life-that-is-really-one",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두 개의 삶이 하나로 포개진다. 한 존재를 두 번 읽었을 뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e62c7d5e0d9ebaa1a42c18271ec03d3f2c804e50ce9f9e2d3831ecd5c515d2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-who-was-never-a-boundary",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쌍둥이도 타자도 아닌 것. 무너져 내린 경계선.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd3034e282cfd328be2d9fb15a0c57f5e595b28b7ce7add182a5be946326d39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doubled-voice-as-a-split-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "겹친 목소리, 합성한 성부. 자기 자신과 갈라선 정신이 거기서 상연된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7dc3d0dfaf748716fca49efb0997424b7bd4d472bb0c837b264e9a00bef73125"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drained-palette-as-suppressed-consciousness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "핏기 가신 색채. 검열된 기억이거나 트라우마거나, 도덕이 마비된 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b11e9cc8116c36853f781b1bc4d3e3d7ba9794cf55585e6e4d1a642380d3f2cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawing-room-that-punishes-the-outsider",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "워튼의 사교계는 그 좁은 벽을 넘어선 여자를 기어이 단속한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32b497c23fdd3d44dceb62f5cadb470d5ba230281674c7dff2a60e7c3705a6ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawing-that-audits-its-maker",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그려진 이미지가 그린 자를 심문하는 손이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cebf2da477c3511582e792e7d10d41e243451137210261b69c6d6e34d3225eae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawing-that-precedes-the-meeting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가리킬 대상이 아직 없는데 먼저 그려진 그림.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce95ff2f71d61ad7d6d00aee1fc50292c83a3592a2382531f12e6c9a07f2bebd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawn-window-that-authors-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스케치한 창 하나가 작품을 낳고, 그 사실을 스스로 안다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf58b8ac8716461f6e6ec463e5547759d354e1514b494bedbce471b0860c40bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-as-residue-of-pure-attention",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꿈은 남김없이 들여다본 삶이 남긴 잔상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db1fa05146b050b793464f83f3145197e77d57eeb28637439d69a553aa269583"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-named-as-rigged-anesthetic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 열망의 정체는 위에서 팔아넘긴 사기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfc7331eccbda1f5e285b01afd5dd45a91521f3407552449d57afed80c26b9ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-realm-as-collective-unconscious",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어낸 세계가 우리 모두의 심층을 대신 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d7f0c11baac69a2c32857c088cfd69f2c43d9c8b77d58d7046873071acef164"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-sequence-as-engineered-artifact",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꿈결 같은 몽타주. 무의식의 자발성이 아니라 계산된 축조물로 연출된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be232fbe4c1fd747849aee80d2179ed896d33108a7f400f57bf1e532a5f1e520"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-that-holds-what-the-dreamer-won-t",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의식이 끝내 거부한 진실을 꿈이 대신 보관한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f418220eb5833a33b2c7ba89fb41ef5b0b1525978542be921579501bb2089371"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-that-wish-cannot-survive-waking",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소망은 꿈에서 이루어지고, 현실 원칙에 부딪혀 깨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95b85c5f36037f4e6c76d8fa3c958d23635a0b1a6ee687d1deecac27ae1cd3f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-with-no-waking-frame-to-return-to",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "깨어 있는 세계는 이미 녹아버렸다. 남은 것은 꿈뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "960d5696a701c677272ea6ef3ef97f30fc0fca2c7acf55b27f71c5dc5b1610dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dreamer-who-films-his-own-trance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만든 이의 몽상을 그대로 기록하는 장치, 그것이 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50c589608abcc1a1e67c0e30dfda9df612a6897e0a61235332e6377c3a0a4e5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dress-as-the-state-s-inscription-on-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "옷은 권력이 몸에 제 이름을 새겨 넣는 장치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fad419c8fc55a90d9eca36164b9759bdd4d2d14439ae064158ba57ec93940637"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drifter-who-is-never-quite-a-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠도는 사람들. 뿌리도 없고 누구도 제 몫으로 셈해주지 않는, 대개는 일하는 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "e91b452dcde3a3b137cb2a970187af1d6f9453788cf93249f6f911799e2fbf1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drill-sergeant-whose-cruelty-is-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹한 교관을 다시 읽으면 체제의 도구이자 신도가 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "589266e6e040cae61c964905e5600e028e5a7b2cbdf9a8a58ffba2df3f305960"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drink-that-speaks-what-he-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "술은 증상이다. 억눌린 속내가 술을 빌려 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b45ccecf6068c0aa54bc964af74c727c905b5d637fbb40e6250f693cd82168ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drip-as-memory-leaking-through",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물방울 떨어지는 소리. 회상이 스며드는 소리.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec6e7b6ed2883afcedc0d8c3cc04304dcd0da77ecfb82bc96f84c4708933fb92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drive-speaking-through-a-borrowed-limb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "행위의 주체가 바깥으로 밀려난다. 남의 몸으로, 혹은 접붙인 팔다리로.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3ab0755b9e1edc98b29b636b408b1e5d7729caeb68564eae697ef83cfd306e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drone-as-outsourced-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "원격 살상은 도덕의 책임을 발뺌 가능한 기계에 떠넘긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28e8ddea93bc068812ef4615c1fd210b8d634bb6969609c5c5c72e3935791766"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drone-as-unsymbolizable-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미가 끝내 삼키지 못한 것. 지속되는 저음이 그 자리를 표시한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e592c336dd1b133f94275900c9bd273346beae0848466ef9760a4b8667a17ae2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drone-that-becomes-the-film-s-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물러서지 않는 저음이 내레이션의 자리를 빼앗고 장르가 주는 위안을 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "caebe02644b76698202f01f7c67e1a0afb056fa494171a1320506667b438d435"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-body-released-from-gravity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물속. 무게도 육체도 힘을 푸는 고요한 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "6184b68e40c620a47e9135cda2caf7fc2c8e9e8084d4b6b92d300a23b9a1b193"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-boy-who-carries-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물에 잠긴 형상 하나에 애도되지 못한 상처가 응결된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31467412c07518536212aa4ff5003cc9a31db20c6818d2eea2d6b198b0445d00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-daughter-returns-to-indict-the-mother",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도가 금지되었거나 거부된 자리에서 물의 여성적 복수가 터져 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c11699c1de676bc077811dad7ab16d54176505bc6927175f7fc1cea6e0c7fbda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-father-as-the-fallen-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가라앉은 아버지, 무너진 상징 질서.",
+  "model": "claude-opus-5",
+  "source_sha256": "adae1f381d8ae2145a5ee52d77c551dd22fa706bb09685b9defe282197154b2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-returning-as-color-or-voice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "억눌린 것이 되돌아온다. 물이 아니라 빛깔로, 말로.",
+  "model": "claude-opus-5",
+  "source_sha256": "6652ed46ee2ea8c07565d53c4c01a95228fe05bdce44224137e7379bc7d8f501"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drug-film-s-reception-as-moral-panic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찬사든 경악이든, 비평이 드러내는 것은 영화가 아니라 그 시대의 불안이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94150d53b34654c8e905a3307d9006c6f673bf3eaedc409f9ad31fff3b26acfb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drug-film-that-breaks-linear-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "약물이 풀어놓는 것은 인과와 순서의 붕괴로 연출된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96d903c278a242fc9f7b20466c0d92825ef54b6167e96f56662a5fb56a957e16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drug-war-as-the-hidden-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금지를 집행하는 기구야말로 이 영화의 진짜 적, 곧 국가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "515a8b0b0727757dde395b906ae6684832aca4ce94b9b4db25d7e6112acf2bf9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drum-kit-as-death-drive-s-altar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타악은 강박이다. 자기 절멸을 향해 내리치는 박자.",
+  "model": "claude-opus-5",
+  "source_sha256": "4da970cd82aaaba627e98efbf35654e9bd5b5fb9bd031cf1cd902eacc03f0969"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drum-sequence-as-embedded-cipher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드럼 연주 한 대목에 영화 전체가 축소되어 암호로 박혀 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c17e132712f79aec2eed59112e98dbeab70b0c0602987b574a7a522ef65671c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dry-vessel-that-never-filled",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마른 우물, 잃어버린 작품. 창작이 봉쇄된 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d453cedf8dbc1271d4b5dff5fabbcaa05380abdeb3d00085942ef04cb358027"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-duel-that-refuses-to-be-a-duel",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대등한 자들의 맞대결. 형식이 약속하고 영화가 무른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d865dfe8fa1c1f5739535d9552b7a9081c5136d077300a198872cd83580fce0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-duty-no-one-assigned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고르지도 못했고 벗어나지도 못한 의무, 거기 삼켜진 사람들.",
+  "model": "claude-opus-5",
+  "source_sha256": "8114637c2b8b161a776c7270f9ec55b90eace3765dd48e1b35e6583bb4da450e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dwelling-disguised-as-a-tomb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살림집과 잘 가꾼 정원이 정체를 드러낸다. 방부 처리실이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c17347b1cbe0a0a8266983f796a6bbc5aae45ef145ee7c3d8d823084bdc0be80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-earth-s-geology-outlasts-all-narrative",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인공은 플롯이 아니라 심원한 시간(deep time)이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "567fe1696d82af738d0833571f06b2bf82ded7a2776ad87dcbd4378e46ad146d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-earthly-desert-cast-as-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 건조지대가 외계 행성과 태고의 저편을 연기하도록 징발된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7d821ed8056167b11aeee6ab88167a01b56ca2bccb867455fa0ba7bfc584397"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-earthquake-that-authored-its-own-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재앙과 지워지는 땅. 키아로스타미의 영화는 바��� 그 위에 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb219f3c9f747ca21728c27c73353773664ca34d555c55981057576a4176d790"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eastern-margin-as-europe-s-repressed-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "루마니아와 동유럽의 노동, 그 몸들이 EU가 부인한 무의식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0345578868951f88156c56bdc9e2bc08b1dfae9176d99cf819b35fa250834547"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eclipse-as-cosmic-verdict-on-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하늘이 가려질 때, 자연은 주권의 폭력에 공모하거나 판결을 내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e83876c69462775a57ba519ef83529feb458ee10d54999de67ebf2358e3d12d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eclipse-that-devours-the-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가려짐은 정신의 식욕이다. 제 자신을 삼키거나, 제 이름을 부르거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf70e1a88755f31f0eb2ed14b8c83b8ec5860b3d3854d2213d60defdbb89b1f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economic-miracle-filmed-from-inside-its-casualties",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동아시아의 호황을 개발주의 이데올로기와 소외로, 그리고 패자를 향한 감시로 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69faaf4586f533db0536ecb330d124845f42bc9671c5d4ecf2adadbabd9fa191"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economy-disguised-as-a-lucky-break",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "행운처럼 보이던 것은 금융 체계의 숨은 기계장치였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24560c2400b73008724276839fc420865fb757a4fd6a4b89e5fb2a8c2b8d8056"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economy-no-ledger-records",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호의와 말과 솜씨. 돈 밑을 흐르는 진짜 화폐.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d2e5ba3ea42449883f562a08c2b47fa9c7f81e130458afff2b05e5dbc7e21f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economy-spoken-in-criminal-tongues",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금융과 범죄가 한 몸이 되어 한 나라의 화폐적 무질서를 이룬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32f20d59fee3d1bb2f04ead8a6fc5406f0b6506c83e381aa4116f625d19a8a87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ecstasy-that-cannot-tell-saint-from-sinner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "종교적 황홀과 육체의 욕망이 하나의 실신으로 무너져 구별되지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25fcda495633604bbd1141d0139e75eeed7548df90c459c6ace155ec175940ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-as-the-grammar-of-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤엉킨 컷의 순서가 곧 회상의 문법이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5507289b4d9f995c22d662b5305ef2f202f7c8ce180836cdc4d1ff7090ab34cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-performs-its-subject-on-us",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "컷이 영화의 절차를 관객에게 그대로 되풀이한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c9879dc8ab0abacacf9012986985956e161ecd9fe5adafe69e01acec6d640ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-renders-the-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집이 판결한다. 무엇이 진실이고 누가 죄인이며 누구를 실재로 셈할 것인지.",
+  "model": "claude-opus-5",
+  "source_sha256": "83b631e763be69cb2294c7e0355dd448e7a2cf045ac7d6b15b97aa36fcb44d97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-that-confesses-its-own-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "컷과 자막이 제 손으로 저지른 조작을 실토한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81ab9f2d9e6e73fccc24f23f60d212da3a839cdf29afe75e323c0177303ea5bd"
+ }
+]

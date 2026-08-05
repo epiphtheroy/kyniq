@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "mercy-that-cancels-the-vengeance-owed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "적을 살려두는 순간 전사의 거래는 파기된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41b30fcf7af09c0896bac5c3eb2d977432713f73f59cf2755c04d98e838ceb4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "meritocracy-as-aristocracy-in-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "능력이라는 구호가 물려받은 특권과 그 자기변호를 덮는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b175171b3e48b471c540f408a76caf6427a17071dadda03eb1bf02c0afd6276e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mexican-auteur-smuggling-nuevo-cine-into-hollywood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스튜디오 기계 속으로 잠입한 멕시코 뉴웨이브의 감각.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f85651a3e24f765eadc5b1a506fb4e5232268b776fd308c695a52327caef529"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mexico-city-as-economic-crater",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신자유주의 멕시코가 입은 상처, 그것이 이 거대도시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9521c8c3479f507d06f306032ec21b6d061b9d9c6e5fc8faee239deac58745c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mexico-s-violence-as-the-frame-s-hidden-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가 폭력과 마약전쟁의 참상이 화면 밖에서 이야기를 밀고 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b101461eb5a1edff71f6a0d4ca063d0bb0c214fdfb1bb8f6451b68ae1cb1f0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "militarism-authoring-its-own-justification",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁 기계가 제 손으로 징집한 영혼을 제 손으로 서술한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "694e880dd19bf6edbdd8f0eb29880d76156dd4be1ba680453c5d2565c6f63327"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "milk-as-infantile-surrender-and-forced-dependence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우유를 마시는 일. 복종이자 성찬이며, 가학자가 못 견디는 그 결핍.",
+  "model": "claude-opus-5",
+  "source_sha256": "f92eb7011512ca1463f13659288bc355c1590e295a962cc6ecc4ac83bc4a95ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "milk-as-the-pre-oedipal-maternal-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흰 액체는 상징 이전의 젖가슴으로 되돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfe6989738e78c633b0a2955713fe27161be520a83708d404474d07066079c77"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mirrored-symmetries-of-mutual-suspicion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서로를 비추는 두 진영, 의심으로 맞물린 편집증의 거울상.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd2acea8e84c316130569a42e357a266ba467afc953d850dedb9f50969f772c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mishima-s-beautiful-wound-as-doctrine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아름다움이 내리치는 절멸의 칼날에 바쳐진 육체.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b809122234a92210dd90e07f4352c9a213d8ddae27fafc871a19250464fd313"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mishima-without-a-cause-to-die-for",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초월적 믿음만 빠져나간 육체 숭배, 그리고 미학적 자기조형.",
+  "model": "claude-opus-5",
+  "source_sha256": "108c95bf8f9242d72b8715a3c8411e28c9391b1cfdbee736a40a6fe5b1814704"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "misogyny-and-cruelty-as-filial-grief-disguised",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남을 향한 공격성은 아버지를 묻어둔 애도다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6037d91de66de604920b523083783e0359e42c2a070053c4e60a1e7e2a02433b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "money-as-sign-detached-from-substance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자본이 순수한 투기적 추상이 된다. 무게도 마찰도 없고, 가리킬 대상도 없는 기호.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6610578b8f2a8081c7c0f475376c8857b66e0d049e1329328ebf885653e510b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "money-renounced-so-the-depression-can-be-survived",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원에 앞서 부는 벗겨지거나 도둑맞거나 감춰져야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf7b4a1c3738fce43815561abcd8c2327f29ed61844eccac7b17452eff3f57d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "money-that-produces-nothing-but-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "순수한 가속으로서의 자본. 노동도 정의도 없이 불어나는 재산.",
+  "model": "claude-opus-5",
+  "source_sha256": "4019b7f773880f3a06c54bf49b6992a9926b1e532c79ae18129a86e60795b171"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "monochrome-as-a-world-withheld-or-blinded",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색이 없다는 것은 앎을 감췄거나 도덕을 감췄다는 뜻으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "841759c4fc354d51eb6b5cad860a104dbb2a23ce114e78f040415257204547c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "monochrome-as-refusal-of-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색의 유혹에 거는 윤리적 제동, 흑백.",
+  "model": "claude-opus-5",
+  "source_sha256": "39ba3fb97f195bf5fb3846b900d56c47f1326a86bb5cf1f27d968ccb36706489"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "monochrome-as-the-aesthetic-of-scarcity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑백 필름을 결핍의 시학(詩學)으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f44d6c88abfb290bca1e776805d12be4c65ef617071a12cdf749da844ce94012"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "montana-played-by-a-stand-in-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서부를 다른 데서 찍는다. 변장한 지리.",
+  "model": "claude-opus-5",
+  "source_sha256": "98c3120687744e689e2cea83fe52b7217e7e6665f867a5c86e36dc32c22ee4e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "montmartre-as-living-quarter-against-the-sealed-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파리의 실제 언덕과 숨 막히는 스튜디오 복제본이 맞선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86ca513a34d02bdb035405f6aee14b3f8397d88ce7fb4f253828352615e7c3b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "montreal-wearing-another-city-s-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기가 아닌 어딘가로 위장한 로케이션.",
+  "model": "claude-opus-5",
+  "source_sha256": "7daedfa166e48a25c7526213a4fc2777df6c1f4d9bef6fe643b8b8c03b67133a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "morandi-s-bottles-stillness-painted-until-it-yields",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 지속을 모란디로 읽는다. 소박한 사물을 거듭 그려낸 그 참을성 있는 정물로.",
+  "model": "claude-opus-5",
+  "source_sha256": "26492a7fe7fd500ec729bd704a8af455cd3ffa3eff25287ccf7a43192ab5fffd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "motherhood-made-not-given",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모성은 주어지지 않고 만들어진다. 허가받고, 제조되고, 프레임 밖에서 부과된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ca80090ff8d75a8c0ffc595f09c23aa7d99d82934da6aa130cfd0fa35c2ca7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-a-spouse-who-is-not-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아 있거나 사라졌거나 돌아온 배우자를 두고 치르는 애도.",
+  "model": "claude-opus-5",
+  "source_sha256": "67745a28d17a03d92d0bec40ab149c8e31e302e249dd4dca6ae86a13fc554e86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-a-vanished-object-that-was-never-possessed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망이 어떤 부재에 들러붙고, 그 부재가 애도하는 자를 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3fb754fd874a730eb8eba99d6e64be7f74cf24d38136c293550dcaf7da8b627"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-begun-before-the-loss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아직 잃지 않은 것을 미리 슬퍼하는 슬픔.",
+  "model": "claude-opus-5",
+  "source_sha256": "61fd2cb60a8acc715b095c51bb444dd2b9d32717bf3decf58f0a22621f11c58d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-disguised-as-genre-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔이 모험의 옷을, 대회의 옷을, 프랜차이즈의 옷을 걸친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6b7f9bef500589397dcfce3397d5cf6e38459fe552dbe16d217dad23b319ccb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-displaced-onto-a-substitute-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 상실을 마주 보지 못한 슬픔이 대역을 찾아낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1282dc996e23b2cdc9dc574860d5e51e0c6c6b249f2f4b9c7c5d5f58d8aa537"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-that-precedes-the-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주검이 생기기도 전에 시간부터 앓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2da83c3d9638d0322059aef2f6d48dec7524a733fecb3ce310a71c2a9a29ec2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-that-refuses-its-proper-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전치되고 가장되고 봉쇄된 슬픔. 정작 죽은 자만 빼고 아무에게나 바쳐진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e659d2479c87bedeec74694ff83a09a446d309fc3f036ce71c6fc169423aab8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mourning-worn-as-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔을 부인하는 현란함, 그 현란함으로 연출된 슬픔.",
+  "model": "claude-opus-5",
+  "source_sha256": "e28c0bb846419610795167eecdee23309404ee907bc5b4e6bc8ef6e69bb73ff5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "munich-as-the-built-cage-of-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기가 삼킨 말을 도시의 건축이 대신 뱉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c10517fc7d301f748e75aac5107cf10dd5c986840b70cfd2247e872d54cee868"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "murder-as-the-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부인해둔 소망이, 혹은 그런 자아가 떠오르며 살인으로 터진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "477a082ebe6fd0f20b0ea496052c3ad0fb139ab5773e98f2fa1838672bbdb7d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "murder-filed-in-triplicate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 무기는 서류다. 살인은 격정이 아니라 관료의 노동.",
+  "model": "claude-opus-5",
+  "source_sha256": "d10694fde88b7fef9ef7258c345031e0f3732de564152230f0365ba840f8e8fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "murder-redeemed-as-aesthetic-not-moral-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살해를 윤리 바깥으로 옮겨 아름다움의 범주에 다시 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7337b56c7006343cba6aa900311f8851a599596eca70f7bf0383440b83b4f215"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "music-as-europe-s-wounded-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "함께 쓰던 악기와 함께 듣던 작곡가가 민족주의에 난파된 유럽 문화를 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87ff61f58214a56f6710f51a8a0cdc638e967fd540abc9d7b1045032a6ea4ab6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "music-as-frozen-architecture-of-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "움직임과 격투가 읽히는 박자로, 중력을 품은 음악 구조로 굳는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7b1f5b2d744b854f15327253c492daeacfab7b9e6cf710851e7f7cb84f78bab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "music-voices-what-speech-withholds",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인물이 말하지 못하거나 말하지 않는 속을 음악이 대신 고백한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f67963d402203f13430eb273475021377b505bda4d066707ac9085b3fcc1697"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nachtr-glichkeit-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세대를 건너뛰는 시간 도약 위에 상연되는 외상의 사후작용(Nachträglichkeit).",
+  "model": "claude-opus-5",
+  "source_sha256": "d1546eaeb0b06a25d6bd783a3a9e3e03e529cd67b9c9f7866196977ba16f2b86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "named-for-the-power-that-owns-its-victim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 주인은 주인공이 아니라 그녀를 짓누르는 쪽이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d06a8f2a8957629b0cff79f955b68a09f7ea1da1d4b524d308b473483847e43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "names-of-gravity-that-bind-and-orient",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "중력을 불러내는 제목들. 가둠으로, 혹은 잃어버린 방향으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "7857f0a2fb7326dad3581dc4eae3e49c935f139942c0756edc0ae96783039fb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "naming-as-conscription-into-reproduction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이에게 이름을 준다는 건 그 아이를 문화에 징집한다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cc36e16b834eb5a474d0e5d4c32603e7c77a93a8dee3a4ec8b51f2ab3b5f9f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "naming-people-by-their-function-to-mourn-them",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호칭이 사람을 역할로 줄이고, 그렇게 파묻힌 자아를 애도한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9d4eb70442ea04dcbf680bb0f5feb8648cd5760b8d6805e96d1a5f34455c473"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "naming-the-film-after-the-absence-at-its-center",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 가리키는 건 없는 것, 혹은 없는 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5cfb40856e2f19b73f99aee118e34d635d668bdd15de9f40cdf2a2742e1d1bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "narrated-from-inside-death-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라가 이미 죽은 자의 자리에서 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af3182db43cdbadff33b31b89e20a97d706843455ee50f022280395fcbbf80e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "narrated-from-the-aftermath-of-an-ending",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 세계가 다 끝난 뒤에서 건네오는 이야기.",
+  "model": "claude-opus-5",
+  "source_sha256": "42aeb69a60dc130dc2692ab5bf880b782230e0d95f3a6c877412b904adaa4b6d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "narration-performed-for-a-listener",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면 안에 듣는 이가 있고, 목소리는 그를 향해 연출된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2f70ab0ffcf8cbf9801748a239198fc4916b4763d3fe032656fc0a62caeced9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "natural-light-as-moral-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "있는 그대로의 햇빛이 이 영화의 윤리와 감정�� 판결한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0735ea316c5d15e1e00bb65294346ea12a2f6337873cc4fad36c6ba7c795860"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nature-as-predation-without-innocence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "야생은 에덴의 순수가 아니다. 무심한 죽음이라는 진단.",
+  "model": "claude-opus-5",
+  "source_sha256": "0340bf6c6687cac903e45acf02c4a1439e3bba98948098991d114c8d104a85d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nature-bled-for-capital-s-dream-of-immortality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "숲과 수액과 버팔로를 털어간 자리, 그것이 채굴 자본의 장부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52fd29b3df361882ec7009739b1527df24765ba9aaf6cbbe7924a9a86dadb407"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "neorealism-haunting-its-own-afterlife",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "네오리얼리즘의 장례로, 폐허로, 생존으로, 유전적 귀환으로 무대에 오른 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab20eb8201733623841a0e6a4e84c54a81eae9d537227c8cbf5ef4020a0c1d89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "neutrality-as-the-alibi-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초연한 자세를 취하는 것도 이미 한편을 드는 선택이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9920b4151f3af00f0d7938b1e2b5aa3bee9267611e266ba774c135698b7dfeb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "neutrality-is-the-choice-that-cannot-be-made",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불타는 세계 앞에서 중립은 허구다. 영화마다 그것을 벗겨낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b00516fbcdb5a5732f28f866e77c7e15ecf5c83120e52aeb3c06200090ec757"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-england-s-calm-as-containment-vessel",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔잔한 뉴잉글랜드의 표면, 억압을 눌러 덮은 뚜껑.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd562021050d532e0363f927d4889cce2bb67837960172e45ef25746b8f4e86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-mexico-plays-the-dying-west",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미 사라진 변경(邊境)의 대역을 맡은 주.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd434314e4f4e9334b548caf5da7017fedcc21ffd9657044a5f72f1ea8afa9f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-orleans-filmed-as-stylized-unreality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시가 칠해진 인공으로, 연극으로, 장소 없는 림보로 풀어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b24ccab77847c118ecf3d6930919530639ccd91577faafd7efd86bce5ad19fda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-york-filmed-over-its-fiscal-crisis-grave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파산한 1970년대의 도시. 시체이거나 데스마스크이거나, 아물어가는 상처.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c4e895839bcc92e641207a821b54b3c23867c556af1fb82ff42a50d8500b1eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-zealand-wearing-another-world-s-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 풍경을 데려다 허구의 지리, 남의 나라 지리를 연기시킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7beeb7712341807754599da3213b1531c57b6d07c304be5119bbbcdf44dfab2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-zealand-wearing-another-world-s-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웰링턴의 지형과 스튜디오가 딴 세상 판타지로 위장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85ba613121551a7b77af1d4471e235e8320a6e6a098da85828fad8458bc98d45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nietzsche-s-demon-made-literal-the-loop-as-test",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시간 루프가 곧 영원회귀. 아모르 파티를 묻는 윤리의 시험대.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ca55ec167ab6428930f29fa8679c4742716fbb8bf759fff8fdc65c78a05b27d"
+ }
+]

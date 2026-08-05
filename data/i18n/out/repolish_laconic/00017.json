@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ailing-father-as-the-nation-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "병든 가부장. 그 몸이 곧 썩어가는 이란이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ea3a60b2c0d658f308ee50b0fdfb7f67196d6259665cadf92d50d50eee3c23b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-airport-as-threshold-one-can-never-cross",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "환승 구역이 영구 유배지가 된다. 형벌이자 유일한 조국.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d4ac98be16f2c93a7a486e9afb39fafae177b3f7fb62993f682fed66eff3b1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-akedah-without-the-ram",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아브라함이 칼을 든다. 천사는 오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cb99d889256bbc2f536c45b6b2d94f1e228ec2edaf8a7680eb02b43a94daf88"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-akerman-domestic-duration-yardstick",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아커만의 부엌 시간, 집안일이 곧 영화라는 척도. 그 자로 재는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "2350b51b16df6c537d5f6e462def6a09146f3ee9193be5bb60008a46a9ac6118"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-akhmatova-witness-who-speaks-for-the-silenced",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말을 빼앗기거나 사라진 이를 대신해 증언대에 서는 한 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e83f0cc098cb808e3846ad3ea4108cf577f894a4a1610f61536ea339d8ba8c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-algerian-war-filmed-in-its-silence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프랑스 영화가 제 식민 전쟁을 다루는 법. 지우고, 옮기고, 감춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afbd3123623dadf37f7c05abae33fb848f61d7ae2d029372b40084dfe79ada08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-alibi-of-pure-fun",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "순진한 오락이라는 알리바이. 그 뒤에서 이데올로기와 역사가 일한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb48c8955d47f3e8baf361e21b506142a0bc6edacc8582bd39d51f4d33878a85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-alien-was-the-migrant-all-along",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "외계인 침공담을 이주 노동자의 정치로 읽어내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dd9959510b50236376c2d41f1aa607bd80cd71d06a6eab0a296679c47e6367d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-allegory-smuggled-as-period-or-fantasy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "먼 시대, 먼 세계. 9·11 이후의 공포를 비추는 자리 옮긴 거울.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb52a64919a13bbfc098e489fc0b2fd05d3cbaf26093840385953b1ff848311c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-allegory-smuggled-past-the-censor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 지켜보는 아래, 금지된 역사를 말하려고 암호를 건 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "4164377d2d9cd473122a8d761dec39e93d3cb2d675066d40c6c583ffe4e5bb53"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-allusive-title-as-buried-source-text",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고전 구절이나 상투어 하나가 제목에 박히면, 영화는 오래된 이야기가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35ede59879c108c69c210eb044674fdd3e62671192a1a45f51ff299d6a993388"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ally-whose-allegiance-cannot-be-read",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누구 편인지 끝내 읽히지 않는 동행. 그 알 수 없음이 영화의 논제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f497092fb2ec79608baa6ed010cdf8a71eee3559a4f0d2776c8b96a2cfa68bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-alphabet-as-engine-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "언어가 곧 장치다. 법을 세우고 감옥을 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1c758528f0306aedcb1c8a6aed8af4d63f35582d07bde6135abac8bbcc89eb6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-altar-that-eats-its-devotees",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "숙달이라는 신. 공물로 살과 피를 받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15001e61fdef6f2f4651650b876122f29f062bbd43772bc185ce97349c2be8ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amateur-ideal-as-class-alibi",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "\"순수한\" 스포츠의 껍질을 벗기면 물려받은 특권의 여가 이데올로기가 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef5edc1d9990dfc812e78413046f7232d1df5159448783f24ba54ffec6fb253e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amateur-s-last-desperate-gamble",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "처음 나선 자가 단 한 번의 진심에 전부를 건다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9c9cd0a8b47faa4df33de1c1c23e572c92b388b6d5e4810a7bc9e3f16bf362d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ampersand-as-the-film-s-true-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 '&'. 그것이 이 작품의 숨은 주인공이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de6573714b6be14272a023903538a61811717695c96ed8f0ced640758a5dcc93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amputated-reverse-shot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "응답할 숏을 주지 않는다. 공포도 의미도 거기서 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ad2c662f78817b67c9997bd275d2ddcaebd4d047c428e3b522cf247cd8e6cd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amusement-park-as-devouring-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "놀이공원을 다시 읽는다. 사람을 삼키고 망가뜨리는 기계로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9cd69e2fc6a7659a6e9e70094917430ba57258320aebc1c00e3691f0e383edc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anachronistic-score-confesses-the-film-s-real-date",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시대에 맞지 않는 음악이 실토한다. 이 영화가 정말 누구에게 말을 걸고 있는지.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a641c90606e542cb34204ae4e6a943488d779b917c596fe18816b0435318b5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anarchist-whose-violence-is-theatre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미와 질서를 부수는 일이 곧 공개 공연이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c3c6b735d0680036de957d4f4bd94474c2e4337dd85cb60cb1e563a2de8fe4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ancestral-plane-returns-the-disavowed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저승을 다녀오면, 남은 자가 애도하기를 거부한 것이 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5d4e9cce8d22420d4f526866325dd3ba8119e843d516c6d86f4752821fc7d8c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ancient-war-built-on-a-soundstage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강가의 장대한 전투. 알고 보면 스튜디오에서 지어 올린 세트다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67e87d5d9460e2072cb79a20122ad7f04fb40ed79aa1b63c56edd86fb11aa7b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-andean-landscape-as-vessel-of-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안데스 산맥과 파라모가 역사와 기억을 진다. 인간이 내려놓은 말까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff00617be8f8254fc098d9dc7677e02a79fd9868a597c8c7219100792f7f70c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anglophone-allergy-to-style-and-interiority",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미지근한 평결. 감정을 아끼는 화법을 견디지 못하는 문화가 거기 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4778d0ed5be7fd7a9c0d25a0ccf895c620bf7aca1f997e345ee9a5f99cda3c06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-eaten-as-colonial-abjection",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "반려동물, 혹은 고양이 사료. 제국의 혐오가 자리를 옮겨 앉은 대상.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f2445c32a12efbb36d8b692447115c0c8174c4bdcb4dadf127c4d9e7d8cf021"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-eye-that-refuses-our-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라가 은유로 옮기지 못하는 비인간의 눈.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e89a3708cfc1e6974fa6a5b45954bc038e8b10d6400d1527f87907f5ccc69b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-eye-that-refuses-our-meaning-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자연의 무심한 응시(gaze)가 의미라는 인간의 계약을 무효로 돌린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d463e843213cde12815a2249fdeb64d69699adc8f2d41415bd588815859fc60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-that-names-the-title",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 걸린 짐승이 영화의 진짜 주어를 바꿔 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3bef0b929fc2587d669aaad54159e75323ab6e78b2158ab80fded93774810742"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animated-frame-as-forensic-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다큐멘터리의 정밀함으로 전쟁을 되살린다. 카타르시스는 끝내 주지 않는다. 그 유보가 증언이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cffb04862bb465dc936711886451f489503aacf9cbe2ca82bdd857c6ad97bc03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animator-s-eye-builds-the-world-s-physics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애니메이션의 공간 논리로 다시 짓는 것들. 의식, 공간, 그리고 가둠의 규칙.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdc5af4972ae5eb9459ed00f830f102c02b20eec86fb54421e0b6ae1be5d53ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animist-cosmos-beneath-the-squalor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계를 붙들어 매는 것은 아이의 의지, 혹은 애니미즘의 질서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff3407da914d3be1aa5087c7a665a76d8f89ddaa389b9d94a77af1fa07c4d040"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-annex-where-the-hunted-wait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안네 프랑크의 은신처. 봉인된 방에서 기다리는 모든 도망자의 원형.",
+  "model": "claude-opus-5",
+  "source_sha256": "71dfe071a914be6c5f2574370883140c140daa43e740762f23bd90ca7405621b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anonymous-roadway-as-modernity-s-void",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고속도로는 장소가 아니다. 근대의 불안이 고이는 통로일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de01e80e629a55a1555d8d52f8cfdcab0167b9c7caea95b10928a5fdbfcf73ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anonymous-tape-as-externalized-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "출처 없는 녹화물이 고발장처럼 도착한다. 감시가 심판하는 초자아(Über-Ich)로 바뀌는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "886e26f5c377a93c842cd191a861dc62217ab6c82699d21f96c62c35b122a795"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-as-involuntary-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불리는 노래가 부르는 이보다 많은 것을 말해버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31389318aeea905bcdbf2b0fb2bbfb464c37fef6917dae7690c33636d5424982"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-misheard-as-liberation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "노래 한 곡이 영화를 통째로 앗아간다. 허가에 굶주린 문화가 제멋대로 다시 새긴 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92cf899ecabdaa8eb79e2b43e8a322d3a97204babce3f0b7d0d7885d943ffe46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-that-audits-its-own-promise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가를 장부로 삼는다. 지키지 않은 약속이 적힌 장부.",
+  "model": "claude-opus-5",
+  "source_sha256": "51077b8b096b999476a0331ddae44fd387c65b3ca9bd8fb9ae435d53337a419d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-turned-against-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "익숙한 팝송이 뒤집힌다. 장송곡으로, 혹은 폭동으로. 그리고 영화의 이름이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ba115518a8638ee51a15f24320479afba67bba1ace084eeeac8a885db73db64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anti-method-where-living-is-the-medium",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기법이 아니라 존재가 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e1ca4e88e25201f90cc09ec1ef86c6b5e86d1e42906324c600a9ec32a370f13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-antipodes-disguised-as-america",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차마 이름 못 할 미국의 장소를 남반구 로케이션이 대신 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ecb23e488dc2d1cf9702b958e3f3530df4373f0ffc268daac8e09025d7d2592"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anywhere-korea-stitched-from-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이곳저곳을 기워 만든 공간. 어디에도 없고 어디에나 있는 서울.",
+  "model": "claude-opus-5",
+  "source_sha256": "71d5ce15cc3b118e67760b21464ce725c0210bb547d51a86527248c7fb2a3d9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apartment-as-hidden-ontology-of-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사는 공간을 경제로, 식민지로, 공백으로 읽는다. 영화가 감춰둔 진짜 주제.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad6c9db4f997a43c953cc237ea83b1dcf22573fa17ddac175a07af4cce39de0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apartment-as-national-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한국의 집. 신조이자 등기부이자 재난의 경전.",
+  "model": "claude-opus-5",
+  "source_sha256": "767fb62fafc3cd049b8ea38a458bb5f361da6993ce34bb279c6a93225c3fa3e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apatow-improv-factory-s-house-style",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저속한 코미디를 하나의 산업적·미학적 서명으로 읽는 법.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b45863e22efd7c545f9e160df79de1f27e1878bd9a660ae39d3f0ada4cddb46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aphoristic-cruelty-of-the-wit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독을 잘 벼린 경구에 담아 건넨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "838a3f02925230f8e05c7a9ff0893b133c0c7652f6647c0e50681063a29dd493"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apocalypse-is-a-witnessing-not-a-battle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 가리키는 건 이미 시작된 계시. 그것도 아래에서 올려다본 계시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9defb34fcb8df7018c968db2b5f1b9b1c21d7b8cb5a52e6ca46fe94547086e01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apocalypse-made-tactile-by-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손으로 만든 특수효과가 재앙에 무게를 준다. 픽셀에 자리를 내주는 순간, 애도가 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0b6bc9909af6dc5d6bf5ce6f12c6a95eeb1feb5d99b1f8f9dbf092b79f41b1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apocalypse-shrunk-to-a-single-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파국이 스펙터클에서 물러난다. 닫힌 방 하나, 그 친밀한 화면 안으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3888fbd03e8d6dc6cc6f9b11fe3ce25a06fc0ea326ebe3cceb6a2fcbc27b48e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apparatus-as-theological-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광학 기술을 동원해 믿음을, 신앙을, 숭고(崇高)를 제조한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e45cdc1f11b74d642ada44092d66e7fcea4f2f2718e2e5637575b1bcac6e1996"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apparatus-that-manufactures-its-own-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "심문은 자백을 캐내지 않는다. 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5e9a83b01f5d4434eda9da04c3e6b57253e4676b27081de6dd3f38b7c07f07b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apparatus-that-sees-but-cannot-comprehend",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시 기계는 시야만 쌓는다. 이해는 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09acc9d835729d58aeef78c2dfa1a80d798c9bbf64f92fdff63698d72628693d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-applause-that-was-a-nation-apologizing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갈채라는 이름의 공개 사면. 문화가 스스로에게 내린.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2fb31af122f37d97c70ab0b7ae2fbdd26f33cd185247a0c39f8e9a9a0f66162"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apple-that-decodes-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사과 하나가 작품 전체를 여는 열쇠가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7db77af19d1bb0af7e277ca73a2627316b5c90997369a36c6f39d098549d2da7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apprentice-as-cipher-not-person",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "\"견습생\"은 사람이 아니다. 형상이거나 기능이거나 소망일 뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "748a0458fe07c1271ccd2d785b1e44218adbb7a58a8e4a46d61d043c588eb46e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architect-who-builds-on-a-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짓는 일이 사적인 고통의, 혹은 공포의 기념비가 될 때.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec2f677c44bb45787ffdc2474b60aa17e451a3b9c63cbd8f82e66336857ccf5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architect-who-cannot-build",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 손으로 세워야 할 것으로부터 밀려난 설계자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e55437fbfc509179b61950afd4506d1e6e8214e97085645cc503f5064380813"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architecture-built-from-what-is-not-said",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미는 삼킨 말, 침묵, 뒤늦은 고백 속에 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed6ff174471c5ccd4a4689edc334dd4ce7c4b997b70314e3d78cc2ec8610c04f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architecture-that-cages-its-class",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문턱과 계단이 곧 경제적 계약이다. 몸으로 겪는 계약.",
+  "model": "claude-opus-5",
+  "source_sha256": "71ebeab374171e6888d158d4e054583e929ed03aacba0fe8d3f489cf32e015da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architecture-that-diagrams-class",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어진 공간이 사회 위계의 단면도가 된다. 빈틈없이 통제된 단면도.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7da92f02d3dbe5651d808bd5d00fcdc0176bbe4136ed57666cf9d2099654da9"
+ }
+]

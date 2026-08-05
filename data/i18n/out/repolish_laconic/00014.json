@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "resurrection-by-accident-not-acclaim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정전(正典)에 오르는 건 값어치를 알아봐서가 아니다. 사고 덕분이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f62016eef1f7ad85e5c7ff9715826782daa6b74269ed72ad351115be1c2b095"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "returning-to-the-scene-of-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망이 태어난 자리로 돌아가 그 행위를 되풀이해 연출한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ad387bff5580ef27fadcb6ca29ff10708f6cc8f7a120e52a7e649f5ba8bc0f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "revenge-that-refuses-its-own-closure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르가 약속한 해방을 복수가 끝내 내주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "daab011e3976f1ca5ea0f1f61ad2fe9acb88ddd9c00859e310ee6b36d32a73de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "revenge-yields-only-hollow-symmetry",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정확하고 균형 잡힌 복수. 다만 도덕이 비어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "465dbc4c51defdd6452fa829be4860252dbed59303e869fec892e7a5591ae1b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reverence-as-cultural-exhaustion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평의 경탄이 곧 바닥난 문화의 증상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74313ad8e6020ba364f3284025f4ce38726586d1bdd3a014ac3005ebcfc5abbf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "revolutionary-violence-as-staged-debate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "봉기를 입으로 이론화한다. 파농과 간디, 그리고 연기되는 특권.",
+  "model": "claude-opus-5",
+  "source_sha256": "05c03b28e8489e560ba5ccfac3ec9a311f4738e7e9af1bbbfc24b6576bab1a67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "romance-revealed-as-predation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑 이야기를 해독하면 포식자의 구애가 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9ba44c6378ebf33d74f759b0f83520d1233f21e8d7f34a17469d03039bf0466"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "romance-unmasked-as-labor-contract",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑을 풀어보면 임금 관계이거나 서비스이거나, 짜고 치는 시장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19fef0ab6f36b50a75f78f436037f7c59f0623e75bca73f01469d3568a689440"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "roughness-bred-from-haste-and-want",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "싸고 빠르고 서툰 제작이 남긴 찌꺼기, 그것이 잔혹함이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46154be3219ed66022e970c6db65bb7103be004e2b2410c056559105fc7bffc7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "running-as-the-body-s-confession-of-a-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입이 못 하는 말을 질주가 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59c22baaf55496db3041a8b492ad20465d3e04815d5e9318eba8d80676d2f7b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sacrificial-substitution-one-killed-so-another-drives-on",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "희생양 하나가 죽어야 남은 자가 계속 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b836c697ff0cb2d14cea7670759ed25b2cf891b0f483d0819e6ea697cb98eccf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sade-as-the-film-s-secret-philosopher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화적 잔혹의 숨은 저자로 읽히는 사드 후작.",
+  "model": "claude-opus-5",
+  "source_sha256": "e21fa7c8c265cc642b574fd31c09e397b43b24067aaae7040855fb769c2c4638"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sadism-as-disavowed-desire-or-shame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹은 가면이다. 그 밑에는 스스로 이름 붙이길 거부한 금지된 갈망이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30e2a303426d8d99b6d9e301a5c815f7f1ece2bfd6e08e27c0cd5ca7c9a16a70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "saintliness-as-pathology-not-virtue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거룩함을 다시 읽는다. 반동형성(reaction-formation), 마조히즘, 도덕적 회피로.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c314a985398b20ed1cf51746fb78a882eebc783085221acdafafc67bb7ea13b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "salome-as-the-speaking-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리가 못 하는 고백을 무용수의 몸이 발설한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3e7827bcf1ce1c4839bbe14b6db6135f2390070d2116b603fc39b38aacc65dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "san-francisco-filmed-as-a-vanishing-home",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쫓겨난 자들의 도시. 비어가고, 값을 감당할 수 없는 땅으로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4ca62dd19411c38f67bc63a2286a1d1a89c771e52e6254c9561b944ae2e5131"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sanctity-as-surplus-wrung-from-below",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거룩함도 행운도 결국 힘없는 자에게서 짜낸 축적분이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "739ad1c2c07792d1e1e94d947b624b01f256162c3db6cba4a5e92456b56e8f05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "santiago-as-apparatus-of-exposure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칠레의 수도가 이방인을 시험하고 처리하는 매질로 작동한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d67325be90795f8a5274d72eceec31315c6d7a93cd1e205fed489878730650a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "saturated-color-as-movida-s-liberation-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알모도바르의 과포화된 색. 프랑코 이후의 자유를 안료로 바꿔놓은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5817c5569744f92f340c3621dcae86785aeba87da90c8d2efd23812904d4d1c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scarcity-forged-into-style",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예산이든 무게든, 물질의 제약이 곧 미학적 논변을 굴리는 엔진이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ee4f4c689e99f5129788dc880dd5a67828513f262dc798fa6f0a855939cf2f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "schubert-as-the-sound-of-foreknown-doom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슈베르트의 가곡이 흘러든다. 결말을 이미 아는 음악으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9f541af8fb2a2d7a32bcb8f3f96713f30f1e3ed491521a10f09eecf6aa4c895"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scientists-against-the-state-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지식이 자기를 부리는 제도에 맞선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41245ffff69d2e4447ebee40a1f57ba80d47f83eed3f54b715a5de61432f7b2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scored-against-the-copland-american-pastoral",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신화가 된 미국 풍경을 심문하려 음악을 불러내고, 뒤집는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9546d24ba60c24fc768129ebb744eb9bad5b64312105e104d48290e3778ea509"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scorn-for-sincerity-as-critical-embarrassment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감정을 비웃는 말. 정작 감정 앞에서 움츠러든 건 비평가 자신이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "291f12999a8c5d60baae3ef81a06ecd428f1303ea1bf88d9c43d8d985f520235"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scripture-that-survives-its-own-forms",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성서는 살아남는다. 우화로, 만화로, 위안 없는 요구로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3169df0073e828488a23400e480d5ea824a329fb9b5f3f8b8ae10723999f3a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sebald-s-spiral-of-irretrievable-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "걷는 기록자가 되찾을 수 없는 상실 주위를 맴돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72ee8b2a8bcab0259be5568b69ede0364c14f3eb536b79f1dda5d719bdff3abb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "secular-drama-as-smuggled-theology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르 플롯은 변장한 종교 논고다.",
+  "model": "claude-opus-5",
+  "source_sha256": "512af056708eabe2061d83e8efbbc6691e7a2320e9e694f0f882947db2343dae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seduction-as-the-long-con",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구애든 인신매매든 동력은 같다. 진심처럼 설계된 기만.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e5e211ffadf1cffcde4786f52106a525f075f1aab00d188801b33d96e05eb55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seizing-the-means-of-representation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대상이 장치를 빼앗아 자기 이미지의 저자가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81fcb338303f66623bd0dfdc4b21462c4bf9507c6cc777c96d5d2a6f25425c42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seizing-the-right-to-appear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보일 권리를 요구하는 일, 그 자체가 정치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36973ae32df8c4052d316fa027acf1635245e9e2a9a773ec7d8be395bb72e020"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-fashioning-as-capitalist-assembly-line",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미학적 자본주의 아래 정체성을 만드는 일은 포드주의 노동이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad95f35ffe54022a6cd6dd197901664627625409a7e5b6d91c1462af08bb22e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-liberation-through-the-material-of-bondage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "풀려난 자가 자신을 묶던 도구로 해방을 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c447c95e506869e3dfdab3517f0b4929b6f5e7814f626b4b20246a49089400c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-mutilation-as-the-sovereign-refusal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 주인도 준 적 없는 법. 그 법을 쓰려고 몸이 제 살을 벤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a00ef905b2f19b30f90f13cefe59792e33ae6c9f0972f79d9a138e05c6642a0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-mythology-as-cosmology-of-grievance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사기꾼이 제 상처를 하나의 체계로 포장해 내놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb802cc743d240d0b89f7de7eb5236f30cb5ec7449827c41fac1156464264465"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-overcoming-reframed-against-decline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재발명도 늙어감도 니체적 극복으로 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "121533d340c4b97f4c27fe68b25ac15a182efb40ea30d23343f7c5b855c18b8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "semb-ne-as-founding-father-and-long-shadow",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "셈벤의 계보(系譜) 안에서 모든 영화는 후손이거나 판결이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db701f6c5b35fc1a0171f742767d64b80aa0405fba3debc5d38e26276d3ccfc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seraing-s-dead-steelworks-as-moral-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "탈산업화된 왈로니아가 말없이 인물들의 운명을 빚는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1728d94643a6d7dbe7ef1de0c427106884d3590b3084e64cd1de1de1b5b4ee05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shadow-as-budget-expressionism-born-of-bankruptcy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명암의 대비는 미학적 선택이 아니라 경제적 증상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "646c4fd0bb68b348caf681435d884d5716865f52453ef35716bfbe9a87c75c0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shame-as-the-hidden-engine-of-change",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑이라 부르는 것 아래, 진짜로 미는 힘은 수치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "852d37ab67e50626fed923bb4e10444fc9b367e1bd442eb203928517c4c882bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shame-internalized-as-self-policing-repression",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안에서 제조한 수치를 걸치고 산다. 초자아로, 배지로, 명령받은 은폐로.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e8814cf3ddb43fe799e26b0f7a7ba8313b2b552277cabca91e79a040d4473f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shanghai-doubling-as-the-placeless-future",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 중국 대도시가 익명의 내일 역을 맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d31f6effef90bcddf4333d9bae6ff749dc5e6259de73239d5669076070d3109"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "she-forges-her-obsession-into-authored-text",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자의 욕망이 공적 문서가, 도발이, 예술이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c92273ad777c3040944db61c799464ffce7272ea2a9319565a4a11aed40488d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shooting-inside-the-real-not-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 장소가 곧 논변이다. 외부인의 그림엽서식 프레이밍을 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a16ae56081d649cd6e609c27526f69de54a82ff0ed1e1cd5a2940a8b4106cd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shooting-the-crime-at-the-scene-of-the-crime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장소는 걸쳐 입은 의상이 아니라 상처다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed8da1518f9931c353fb410c44f8e8bb02833ef1bf81024b53d91a16dbcf97a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-in-order-so-decay-felt-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시간순으로 찍는다. 감정을 겪게 하고 발견하게 만드는 엔진.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5659a53ee04c3584d1b6bde5be7d0abd0db0d1ca7fbdc4b6da407be7c57c854"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-inside-the-very-place-it-depicts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "픽션이 숭배하는 성유물, 그것이 바로 그 로케이션이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ac05dac6e2943bf3724244131086b09dfe1b68fb45ef1264c04184bc52d903c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-where-it-actually-happened",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 경로를 그대로 찍어 성물함으로 삼는다. 진정성이 신화를 붙들어 맨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbad0eefa449627f1c74c0326df8769f0ef1bef967e89ce9afcac22041fb387a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-where-the-atrocity-happened",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라가 허구를 심는다. 수많은 사람이 죽은 바로 그 흙 위에.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d35f6bf073de8be94d4b73af06ae187ac9ee16ca6602687811cb54ca3fcbd35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sight-refused-blindness-as-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보지 ���기. 나를 지배하려는 가시성의 체제에 맞서는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba1804ac17d91067b6c9e58d0b4085ceb759d94fdcac5b39c7c950521fd1e47e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sight-restored-as-aesthetic-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시력이 돌아오자 맹인이 지녔던 더 참된 봄이 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7df0d11970f25061e6872a521e74e20fb36a01ba16bf6f22d4b4debc21aad7c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sight-without-recognition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보기는 하되 알지도 믿지도 못하는 눈.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb6a631a59877499bd2bc195e06dde6813fe788e5083280bdc9c6e7ec806ad33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-presence-not-mere-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 고요는 빈자리가 아니다. 증언이고, 맞서는 진실이고, 신의 응답이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f378539f6e5e69656a7208798c4a38870d9349209a70e3a2d5f135970e4c7e33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-director-s-refusal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리를 거둬들이는 일이 설명과 위안과 해설을 거절하는 방식이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5ac998b14b56ecf4ffb709e180b1217de96c7d93908acddf39bdf3200e05806"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-film-s-only-honest-speech",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말해지지 않고 보이지 않는 것, 그것이 가장 정직한 발언이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be58323bc2cd64aff1c594c472f9f3566f8e2eaf5b9c3ddfab49868e9a6be587"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-refusal-to-speak",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "함구는 결핍이 아니라 스스로 택한 유보다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64b940393e1e941a8eb8b404546f1270f5a15480d9f1c3b20c1c1c4b0396ed4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-state-s-seizure-of-the-voice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강요된 정적. 주권이 몸과 살림살이를 움켜쥐는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4afb21646ba4ce4d569cd36b0e791126e5c195c6ba9f575961998af8f1fc964c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-withheld-word-s-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "봉쇄되고 옮겨지고 무기가 되는 말. 함구가 곧 상징적 행위다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e7941d312aa148d9da9fb77d1c9b343739c2bb8d6449d2973f310b8e78a6bd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-engineered-by-subtracting-the-script",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무언(無言)은 부재도 기술적 한계도 아니다. 깎아내어 지은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17bfa9297840e6e9692b6b94aff836eb15eb3599fa3baf6ad02b3ba771a108ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-that-forces-the-eye-to-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리와 소리를 억누르면 의미가 시선 쪽으로 넘어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "715b940d35d3c0c8428d7dc25a9739a6254a9ef303965eaba452edb5271c9a0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-weaponized-as-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음량을 낮추는 쪽이 협상에서 이긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "392f481b4d12485028c6b65f4d13bdea7509df9d3dec6ffe48cb2806c55a1b8a"
+ }
+]

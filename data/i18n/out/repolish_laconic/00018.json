@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-built-over-a-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "되찾을 수 없는 것을 안고 있는 무덤. 아카이브가 그렇다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87f06af91fe8d960fdbea743bf32fc0ebe295e48c0b8fa22ab07499aae7376d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-that-argues-with-its-keeper",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다큐멘터리 푸티지가 증거로, 무기로, 다투는 증언으로 편집자에게 되돌아선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78f8f84e6be6b4662989b25c47a3097071f758fe939317714453dd121008b89f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-that-outlives-its-keeper",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보르헤스의 무한한 도서관. 지키던 자가 지키던 것 속으로 녹아든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cce6b5b134c19976a8b5b6f7b6084e8617efeb4419a015773e7bfd90cb87231a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-that-speaks-without-interviews",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말하는 얼굴을 없애고 죽은 자를 불러내는 다큐멘터리.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6ba24d5f41b2eb5f8171466a9c85679c86553690b220ff6085b25322f4675bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arena-with-no-outside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥이 없다는 사실이 곧 공포인 밀폐된 울타리.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e8e30e9fc0d7b1f0815bcb1065e8b03a808dd0dc4e968262ac2b67d3ff3fb0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aria-as-the-body-s-final-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "육체가 끝내 옮길 수 없는 마지막 증언, 그것이 노래로 터진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e119c42fae3080e3a33461bad3153999706dcbd413851a9bfae53168ad55df2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aristocrat-communist-filming-his-own-extinction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기가 배신한 계급을 찍는 부르주아 좌파 예술가.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d1bed608cd836c5e882823d065ce3094cf28bc48c19338d778822103e6025de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aristocrat-filming-his-own-class-s-funeral",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "귀족이 제 낡아감을 스스로 이야기한다. 카메라는 그 밤샘을 주재한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebe308b78eefd4dd1b7d0c663483d4c02a1580464e74d6598e6481e18e053bbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aristocrat-who-floats-above-consequence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남들을 다 옭아매는 인과에서 혼자만 면제된 인물.",
+  "model": "claude-opus-5",
+  "source_sha256": "58af575149a8ec6f094b810264a498b2f2789853752ecf97cb8bae6dab16790c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arithmetic-of-whom-to-save",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목숨을 목숨과 저울에 올린다. 구원은 계산으로 배급된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ee683eb9327e47adaeac204821614d62c7293d95784da0fead064bb6af2d225"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-armored-heart-loosened-by-eros",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "심장을 두른 쇠. 그것을 벗는 일이 곧 사랑의 승리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eef13dbcf8a287af59264c36658ffd0f23047bae4b865be3e729759c35a9bf95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-army-as-the-hidden-face-of-rule",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무력이 국가 뒤에 선 진짜 주권자의 얼굴을 벗긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e962febcf28bf842e8db2f36c1966969778e9999fd7dc63f7c6b1017705f9c17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arrival-that-never-arrives",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목적지가 구조적으로 불가능하다. 움직임만 끝나지 않고 이어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a424695f281e0bcc96e3b621ef062f2804be1ccf3bf1c5fabf4f59207335c81d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arriviste-who-devours-old-europe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "퇴폐한 대륙을 삼키러 대서양을 건너온 식욕.",
+  "model": "claude-opus-5",
+  "source_sha256": "672b66b6501ee4610ea56da9a258c1b8de2a487aeaa7e926d652238609463c8c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artificial-surface-smuggling-the-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사탕빛 겉면이 그 아래 이데올로기를 들추는 무기가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74e2af48817958cb557e58e3d5394e0d5121750ba98b2c61aabe24fa1b5985ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-filming-his-own-annihilation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "천재 창조자가 카메라를 돌려 제 무너짐을 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e569beae7e59150b86f88e55ab44e5b001edc842f52a37aa6b0e62160073d5c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-history-forbids-to-play",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "역사의 폭력 아래 연주를 금지당한 채로만 음악은 살아남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d706cf719a1545c8f10c3f9bf9c66e2f49b6ee3e499642f73fb8aee745f1a58c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-burns-the-words-to-live",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지면도, 상징도, 정상에 오르는 일도 마다한 창작자들. 저자가 되느니 사라지기를 택한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c208eedb25af56e92d481be5eee16a2ab86295da9f6a4589c1af12bd9b54375"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-films-her-own-decay",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허물어지는 자신을 연출된 소재로 삼는 다큐멘터리 작가.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c8f41605c26896e5311f6eeb23665c6bbc288fc1a831b8cf1a07d11725d6c8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-reduces-a-person-to-material",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 삶을 수단으로 쓰는 칸트적 죄, 그것이 창작이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed98e45de4bd389c075a97aa755426bbd1b8ab63cef61babab372972e3a70e36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-works-without-a-net",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 번 헛디디면 죽거나 끝장나는 자리에서 닦는 기예.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cf0d1192c0a4b5cf01b45cde90856272ed42bbc6acd791e9cfa7497fda3e54c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artwork-censored-by-its-own-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "체제가 눌렀거나 금지한 것을 통해 읽는 소비에트 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "3aca2a7a27a0c7a717d0805d3cba279c59d6c550994aeaf8ef5eca034cc63189"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asian-genre-film-forged-by-economic-shock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지역 금융위기와 국경을 넘나든 거래가 낳은 산물로 읽는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "53aeccf73ceaaa13efda3346c24667ac7a7f68f1ae779b11949be1249360e42d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aspect-ratio-as-confinement-and-release",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임의 너비가 영혼이 쉬는 숨의 치수가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20a209fa5ba8012b54f58905a7b55d5024f0175a110b15e6d7cb5de84c45fe6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aspect-ratio-as-streaming-era-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알고리즘의 거실에 놓인 영화를 두고, 화면 비율 자체가 논쟁이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ec5d721e3e9294a24c0c1a66cd810b2c9fda977598b5f19182d8b40a5e50451"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-assassin-s-hotel-as-visible-social-contract",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "콘티넨탈의 규칙. 폭력의 세계를 붙들어 매는 홉스적 계약이 눈앞에서 상연된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02799ab9de33abb6d661c937b9054678acf52d812d0d5745084f46c83b8ee348"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-assimilated-voice-as-colonial-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리를 바꾸고 자신을 바꾸는 일. 내면화된 우월주의의 시선을 몸소 수행하는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcab058726856a06598476f6464ea64faab9952b9d7cbb925d593a3abd447208"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asthmatic-recluse-who-corresponds-with-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "병약한 은둔이 사라진 것들과의 위태로운 왕래를 키운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aba5178969a155061c4f3cb4d61599a6cb2c497ca431cd62917a149d298dc8c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asylum-as-mind-externalized",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광기를 바깥으로 밀어내 건축과 부인된 권위에 새겨 넣는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f64a7623705e48c8c373778f2c68a0ae0b7ffe50bb159f7ca094f91277351cb8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asymptote-that-never-closes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닿지 않고 다가서기만 하는 사랑. 가까움은 끝없이 미뤄진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8e165595e9eee0584db5e3511154ed9d5d6de97156ecba695e00ba4c1dd57bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-athlete-as-discarded-state-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "설계된 챔피언이, 자신을 만들고 버린 체제보다 오래 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee6edfd32314653aaacaecef9fe3e4f1ae52856fa7cccd8debe4370cb5ed464a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-bought-fortune-beneath-respectability",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전시에 챙긴 폭리. 오늘의 부는 그 위에 묻힌 채 서 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0defaef49e0e2d241e0deffc37696a006c99e251865b4aff885863f4fc6ba2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-survived-only-by-reenacting-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가해자도 피해자도 폭력을 공연으로 무대에 올려야 겨우 삭인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afc80fb2418f7630ba587b59d05439e0b9b473d26a793e799b812ffe00136b8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-that-effaces-its-own-authorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔적도 이름 붙일 주범도 남기지 않도록 연출된 폭력.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a2c81dbf46951722157c428e19258a4e5fad33d893236888b5193f9b59e16a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-the-camera-refuses-to-show",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임 밖에 붙들어둔 폭력이 영화 전체를 지배하는 부재가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "343e1eb2205a91efd4798ff1674f5a2364256f195eb410f5880a7f49805137d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-withheld-from-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고통을 구경거리로 만들지 않는다. 두 번째 침해를 막기 위해서.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4a9f716d5eb297c9e41886389d12d5e11530ad11af6caa191f1515aa4b9b527"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-withheld-from-the-frame-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력을 보여주지 않는 것, 그것이 함축의 방법 전부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00377751a0b12fb39f68c8eca8a49e284b639bab8bdeda9f772bdc1806eb8a51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-as-the-film-s-truest-critic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현실의 반응이 거꾸로 작품의 평결이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bf6f6a04d3afc8f03fb9e1ce06919c3378c0ec353ae6bca734a7afbcb32c928"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-collapse-as-promotional-myth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관객이 쓰러졌다는 보도가 이 영화의 진짜 마케팅 엔진으로 돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7190749354d7b3d3ad5d750b310774a510c9865fd5f68452a8e4ff3aff5da19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-crowns-the-monster-it-should-indict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카리스마가 소시오패스를 사랑받는 아이콘으로 세탁한다. 비판은 숭배가 되어 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55abe46946379f286461c57ab8e77bb69ed4e4dd482a1512d9030bc774532520"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-hatred-as-intended-effect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거부당한 것이 아니라, 거부되도록 설계된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b37c9e2825986d4a6dd0b700a2fa50e6dbdc0cbf8acc8dcdbdafebfe779e599"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-recoiled-from-its-own-reflection",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평의 혐오는 움츠린 관객이 자기도 모르게 그린 자화상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdc1c082b6612ad2ab65b4936ae4c81fdf828574e7d6b86a62ae13f464ea0bf9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-s-outrage-as-self-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내용을 향한 비평의 역겨움이 그 문화의 뜻하지 않은 자백이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80df872bd78d04cc1b30505cb82a9709a0c95b698c09d659826cfbac11a6198f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-s-reception-as-religious-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흥행 성적과 분노. 그것이 곧 한 문화의 신앙고백으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4facf2a68f47ac310da05dc65218af3856f2161c3965a2a7e21b68ed22cda3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-adored-its-villain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "괴물에게 반한 군중. 그 군중을 고발하는 것은 수용의 역사 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5041d453abc556b829e42cf6a0d9d30c6d55be8a22f65340d8ee805c9f3c0475"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-cannot-bear-ambiguity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'진짜' 답을 사냥하는 비평가의 손짓은 실증주의의 움���거림이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "955bba030112b57c8784fc0630056c0410bcdfe902384e9f71e7fd6f71e18506"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-refused-to-be-implicated",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평의 분노와 논쟁이 프레임을 향한 관객의 믿음을 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6159b90bdb3202e4596be15c0f94eeb9f7e020d6e80219bfa2969e0c855adda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-watched-itself-indicted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이혼을 다룬 영화들. 관객은 보다가 자기를 알아본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a33ff5bc8634df6dffad3740567fdbfae93909b9f90605122dcab8a9e69fd614"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audit-that-replaces-the-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속죄 자리에 장부가 들어선다. 양심은 회계에 맡겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee6b8a0f3acbc52acbae412ec0c2e06c8d347eb353dd5f0a74e9724f54b3b1d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-auditor-as-secular-ascetic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기 신화를 결산하는 회계사를 세속의 수도승으로 고쳐 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf40712fa5befd3e43dc2c0806882badffd68247d22e38c97747b545e8828764"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aunt-who-is-the-forbidden-mother",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어머니를 향한 욕망이 이모에게로 옮겨 붙는다. 혈육이 기원을 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f07415eebc11c30d4187d618baac628ed1312af46e51bd8cbbeb1a08b775cdb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-australian-suburb-as-crypt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "햇살 쏟아지는 대척지의 가정집. 그 안에 슬픔과 공포가 사사로이 갇혀 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a2840d4aea01cfd27a761012afd1c56dae0283fab77ddda913942317967b647"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-auteur-exiled-into-a-foreign-tongue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모국어에서 밀려난 일. 그것이 영화의 진짜 주제가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8992953d9300d4d5a3636f066b39c0e8f6e7bad6b6729e1673f0dbe71511d05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-auteur-s-studio-as-patriarchal-crown",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독의 권위를 강압적인 가부장 주권으로 다시 그린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "491f36818160f9a949a23f472614489307cd309c265c924f8c86290f360285b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-authentic-one-who-refuses-bad-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맑은 선택 하나로 자기기만에서 빠져나오는 고독한 인물.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c1c9ebc0ac56c4b7d37f94ad2cad9b5de564746a3deecd0074c592bd45de0af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-authentic-place-staging-a-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 결혼식장과 고도(古都)가 빌려온 연기를 떠안는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72381dc96b249848ce526c0117c106306581e355b461c1978bda2d3717458576"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-bleeding-into-his-own-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 만들기가 곧 분신(焚身)이다. 감독은 삼키면서 삼켜진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8c273b07351fc0db111d754c6c84cc3126210794aceec85431cdfc90eb75009"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-directs-himself-into-existence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아낸 영화가 아니라 씌어진 영화다. 링이 아니라 편집실에서 만들어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e0c74b811a3c8f3234ca70c2bc816ffd563633d91a93f72752792509816ee57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-imprisoned-by-his-own-masterpiece",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자신을 규정한 바로 그 작품에 사로잡힌 창작자.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e25f38c72755054a9b6c91e91a7d5c395ade73c8920fd6c769f8c4000b80248"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-invented-after-the-fact",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 씌어지는 자리는 촬영장이 아니라 편집실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eef14da5a60bfd980634366d34a05efdeb4300c452e93f33851c6bc76711e801"
+ }
+]

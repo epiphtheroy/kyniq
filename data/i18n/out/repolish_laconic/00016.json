@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "technicolor-as-the-era-s-beautiful-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짙게 물든 색이, 그 시대가 믿는 척했던 번영의 정체를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "862f319d26879656a91c77b0f61c9bcf910f9ecad49492e03945a20c26e7cee6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tedium-sculpted-into-the-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "느림과 망설임을 일부러 설계해 미학으로 삼는 방식.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d96490be3fcc4f5f0c68fbc0125ef7319893ceb7603d60a9c0c60e6979b598b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-and-violence-share-one-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낫게 하는 손이 곧 상처 내는 손이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "673f7b8f4b23b8e88676a4d560b7093c083bbb79aebf5b42d0456a61b6ef8a87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-as-the-delivery-system-of-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무기가 된 친밀함. 애정이 가장 적은 치사량이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9716bd4b74fbc6d1bc567dcac3af451330944ab6da973cdc05479cb0820ad47b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-authentic-only-as-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연출되고, 사들여지고, 거짓으로 지어질 때에야 사랑은 진짜가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ab3880749110df680b8853886955c06ab49522c0ddd147542fe4ea978ba052c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-that-disguises-an-unequal-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알리바이로서의 로맨스. 애정이 의존과 지배를, 한쪽으로 기운 힘을 가린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35eb328a01f02bfcb878d4d0d0a426e5df2687c21b8ee0f4e986508788f59e52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "terror-built-from-what-is-withheld",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스펙터클이 아니라 없음과 모자람, 보이지 않음으로 지어 올린 공포.",
+  "model": "claude-opus-5",
+  "source_sha256": "e55978cfef77048f81b40879330e202a302d825a289c828b3cf66bde9398b0bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "terror-wrought-by-hand-not-computer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손으로 만든 물건이 CGI보다 공포를, 저 너머의 세계를 더 잘 설득한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "daf5dc03c77e775fe21cc86ef2fb8a6de63b809e66092eb59cbc14f4f6866d9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "texas-as-linklater-s-only-possible-soundstage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "링클레이터의 영화가 딛고 선 땅, 오스틴과 텍사스.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e9f00e18e9ac3a671cc8f32cf10a4f862143a71acdec5334ce52f0c810f7c93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-3-11-disaster-as-hidden-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재난의 트라우마를 묻혀 있는 진짜 주제로 읽어내는 일본 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0d4e486b57bc199d288aa0b7e1fddda9696bc17718a6c98f4ac57f42fc8f1b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-a24-house-style-as-brand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "A24라는 브랜드가 빚어낸 프레스티지 장르의 산물로 읽히는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b36a9cc8ec3038bbd09329cfaf25548219185b73f4304faadd03768fc20ce59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abattoir-as-disavowed-engine-of-comfort",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부르주아의 삶 밑에 감춰둔 도살장. 식탁이 말하지 않는 토대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9674bfe25241c09d7e5047f9f9303617745805b6cef79ea830061adc2d6f5c46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abject-body-of-motherhood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빼앗기거나 비체(abject)로 밀려나거나 애초에 허락되지 않은 어머니의 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "a68d869a56fc81a4e9944b9a4b64f7f7ff4a1e27a785e715f5b82d737f9e5aff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abject-made-sacrament-the-eaten-remainder",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 밀어낸 것을 도로 받아 삼키니, 그것이 성찬이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc3b7e9839f9f20cd9d615c48b75340b0cdd362da0be3a96b507752532949d6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abortion-choice-filmed-as-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 선택을 화면에 담는 일 자체가 정치적 입장이 되는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "c87b1eb6f1d29582463fd9849840cad5a092807c4633990a1765d68684bc4c3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abortion-smuggled-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로 대 웨이드를 둘러싸고 몰래 암호화된 재생산권 증언으로 읽히는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "df59d0a5c941cdc6fc40e6b5ad1dfa6c7d4432968438bc5c58faf3ea4ff3f5e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absence-that-founds-the-whole",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빠진 자리가 남은 전부를 짜맞춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a83f88cb28ecc77cbef7826f7fd95f0a47da2f9ed63df7cb9b15bd13598db75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-father-as-structuring-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지가 물러난 일은 배경 설명이 아니다. 영화 전체를 짜는 범죄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de89e41132aa083b633a9a47ca21779fdc6d367ea67dbe36beedcd1f182952a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-mother-conjured-back-by-will",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잃어버린 어머니를 불러낸다. 소망으로, 유령으로, 헛것으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f282ddbe3ab2f236387a493232f9f3e62ed831a5ee64406fa477fefd0c9fe88"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-one-who-rules-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "없는 것이 남아 있는 모든 것을 짜고 부린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f9bf1871724124c77a7ef99323f7a3b6f663825923119d67be10188afe67732"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-score-speaks-louder-than-music",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음악을 거두면 그 자리가 말한다. 고백이거나 무감각이거나, 사건에 표시를 남기지 않겠다는 거부.",
+  "model": "claude-opus-5",
+  "source_sha256": "8654d23ddb0b75941388dc433134c13cf5f32b4c4fa676b208d95fb099442a04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accident-that-was-always-intended",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'실수'로, '실패'로 불리는 살해가 실은 체제의 본심을 실토한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "869ddddab2f72661b5b4392cf33357233313e8595f971e9b7996db91e2b5b962"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acclaim-as-the-symptom-it-indicts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찬사가 곧 영화가 진단해낸 그 부인(否認)이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a1eec78f0cb84bf46381f33748f7f0c38190ac7f52ed3bf03ffe5c2a6866616"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acclaim-that-grants-permission-to-enjoy-bond",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허가증이 된 찬사. 비평가들에겐 이 시리즈를 좋아할 핑계가 필요했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "606aaf0126606b1f8112d3a996c3f9849084e356483343b3712ec6ec5963b2cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acclaim-that-tamed-the-margin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안전하게 급진적인 것을 편안히 소비하는 일, 그것이 비평적 열광의 정체였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24a5e4efeb8dfbc9ce24151a265ccf1b19eda22e4c3634b0cc81bc2c424d21f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accusation-as-the-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리 내어 뱉은 말이 말한 자가 묻어둔 부인을 되불러온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9132b61cb8a1a69f5bf5c5afbcf788d92244490250a07991f55ab6afe680487d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accusation-that-indicts-its-accuser",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 향한 미국의 분노가 그대로 영화의 증거가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ee777a02d6260cbfaa9acdda1ae55e320e90507caefb9aa1acf85e97d6a4243"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accused-who-becomes-the-accusation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마녀라는 혐의를, 혐의를 쓴 자가 끝내 완성한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bf9cd0042c7fb65429e96d71c911b58ab573e8cd7865da509e1c4033c6ffa46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acquirer-who-mistook-owning-for-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사들이고 부수는 남자들. 사들여서는 닿을 수 없는 것을 사들이는 일과 헷갈린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a08ff557d56fb478b9bf0b03cfee9553c6c7fa7752b161dd21a101855ac0e16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acquittal-that-settles-nothing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형식은 무죄를 선고했으나 도덕적 죄는 그대로 남아 떠돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ec5b6e6fd46d41c0a02444caaee9f9aa0116d711197d5d161194a3d534ad27e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-action-spectacle-as-anti-triumphalist-elegy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르의 근육을 애도로 다시 읽기. 유능함에 대한, 혹은 제국에 대한.",
+  "model": "claude-opus-5",
+  "source_sha256": "652a413cfe7ed793a32296476c8b8a6d00daad2680f9c95b1c1412c899ebb395"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actor-exiled-inside-his-own-role",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기자의 실제 삶이 배역 사이로 배어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a43b360d5d8dcbd75dd6758b42069d093f0d24be91ed8cda33c71529945d6f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actor-s-distrust-of-his-own-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "얼굴을 믿지 못하는 마음 위에 세운 연기.",
+  "model": "claude-opus-5",
+  "source_sha256": "0665bca5bb6748e6ac9c9d2493352e28fadfc1cfa9f8bbbb7b4e3c23ac3c9fc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actors-who-co-wrote-their-own-speech",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저자성이 배우들에게 흩어진다. 대본이 안 쓰인 것처럼 들리는 건 실제로 얼마간 그렇기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8026fecfbdbe7e031b8694ba1172bb2a57c0b4ec46b3aabd99e098503c870582"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actress-cast-as-her-own-mother",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기가 딸을 어머니의 자리로 무너뜨린다. 그녀는 그 배역을 되풀이한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1667fefaf52c81c8095680574ef28ba6b928ead78da8c721f58196855bab6b75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actress-whose-self-is-her-last-role",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기가 연기하는 여자보다 오래 살아남아 그녀를 삼키고 지운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de03cd83180df87c300b24c7c88a7f2a4dcc42037cee84346acb13e76512cbb6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adaptation-that-confesses-its-own-limit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문학이라는 원전과 영화라는 형식이 부딪히는 자리를 무대에 올리는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "090fe768386d5d2e6f9ee6b905cc2c5c30180eceffb1b5f8232229c6e9903fd9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-addict-as-the-author-s-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "약에 망가진 인물을, 회복 중인 작가 자신으로 읽는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "92183c4fa61e624c999cbcc149f2f9dd09c54db012be8274359a814b43f20bff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adjective-that-sentences-the-child",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수식어 하나가 그 아이에게 형을 선고한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da8e6ee13acc1979a9b665f6b7e55917ca42b67dc43c7fbdf536c16ecc6dc193"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adman-s-craft-turned-against-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광고로 익힌 기술을 비판의 무기로 벼려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f53b9da6179bf914a21f3586ebc9e1f172b198b1a88f24bb261291a0d9aadfd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adoring-crowd-s-latent-authoritarianism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대중의 열광이 굳어 위협이 되고 통제가 되고, 언젠가 폭도가 될 조짐이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cb90c8d7786689708be206649117248f3d998a0ee7ccf15f68861cd270b643b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adult-who-never-left-the-lap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지나 어머니의 품에서 자라기를 멈춘 아들들.",
+  "model": "claude-opus-5",
+  "source_sha256": "8912ff35cdede9301fb9cbded427e06a7ce684d49bad6f3db7c2e0cd27e50705"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adults-pretend-the-bomb-is-safe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어른들이 없다고 우기는 폭력을, 아이들은 안다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92d546672cc05d8133d82b0839a6630a82d383c41e32e2af8f2568640244704f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adventure-tone-hiding-the-tragic-chord",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한껏 부풀어 오르는 음악이 의기양양한 모험 속으로 풀리지 않은 것을 몰래 들여온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a496f3603db9ed510da4f650f1a7aac26fc628faa4395068fe4a5762c31f8cb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aerial-eye-that-convicts-from-above",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "머리 위에서 내려다보는 시선. 감시받는 땅은 그 순간 범죄가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaef66e757f736bb31e24d1e9d9d4674c4e3fd7d13f60003490bd72553361f82"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthete-sovereign-who-forfeits-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "통치 대신 아름다움을 골랐고, 그래서 나라를 잃은 군주들.",
+  "model": "claude-opus-5",
+  "source_sha256": "20f29430f060c5669dfad6694de60f52988f5292896e805a043511a401bd2ec5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthete-who-mistakes-cruelty-for-art",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세련된 감수성이 살인 면허로 둔갑한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8f35f5f90bd4c7d710f444f1b5703ab141c899be7404a5c6b733b99a5e8d8d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthete-whose-style-hollows-the-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갈고닦은 취향을 내면으로 착각하고, 끝내 내면 대신 그것으로 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ca2a32ff5d90d58245812bf2b732db3dea26fb53c2d5242583ea2cb4443be9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthetic-forged-from-an-empty-wallet",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈이 없어서 생긴 것이 곧 그 영화의 화면이 될 때.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb513c81fa0d93688dc448b3562737d8ed0c1e47b82226d4faa41817daebcc07"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthetic-indicted-for-its-german-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독해할 때마다 영화를 파시즘의 죗값 앞 피고석으로 끌어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e055885dd24dd53ae33e1bc73b7f374fc656f5052cbb84aa35d3ba1533c42b6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-african-nation-that-refuses-to-be-named",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대륙 하나가 이름 지워진 나라, 부를 수 없는 나라, 익명의 나라로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c6f32a9a0e7bf6c21a29e177a2e58c54d38e05ccf40d4149aed6dc0fa61b273"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-after-that-reveals-no-after-exists",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒷이야기를 좇다 보면 뒷이야기란 없다는 사실에 닿는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a10543c27865a8d2b131f66d8013b23b75d51e3ad443c4e258878c25beb1e7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-afterlife-audited-by-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저승도 장부를 적고 수수료를 물리고 영혼을 회계 감사한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac577013fecd0ca22255855be00fca7c4d3ccf66355d8f64bfc99e51c50d4166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-age-gap-reception-mistakes-for-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "나이 차를 두고 터진 비평적 분노가, 정작 그 영화가 겨눈 문화의 증거가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2e964f2220a4f92893e422005a2fa3a1739221023f79423f3c94be161fc32f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aged-body-that-still-demands-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "늙은 몸이 욕망할 권리를 내려놓지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "302635e6a8a7b0372179fc7caad153536f2b05d3132172b52be25c3f36a150b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-agent-cut-loose-from-his-own-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "질서를 지키려면 그는 그 질서에서 사라져야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59c0a9ebb7b069517ec5ed2f8a5c166bd20f9af0bb3e7db45dc4c19a5d80931f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-agent-who-cannot-be-held-guilty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자유의지가 병리로, 강박으로, 광기로 주저앉으면 책임도 함께 녹는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06611b247c9d790bb1d716981b70edc7a5623f0a1615b4f48f3c95eb642dc867"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aging-magus-who-lays-down-the-book",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권능도 마지막 꿈도 내려놓는 프로스페로.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc046195cc08e67765d45fe685bd311adaab4d160a6e75e7d1d3560606f72251"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aging-star-dreads-her-own-replacement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "디바가 마주하는 것은 퇴물이 된다는 사실, 그리고 자기 자리를 차지할 젊은 자신이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cdf8d33328bad976321476e83ae8de721ec66a8bb60c7d462eacb8e2520a605"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aids-crisis-as-structuring-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 이름 불리지 않음으로써 화면을 떠도는 전염병.",
+  "model": "claude-opus-5",
+  "source_sha256": "65f4ad7238a9074a85e2d0abe09130570ee4333f8bde5cf9525a252d87448b7c"
+ }
+]

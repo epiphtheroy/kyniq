@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
+import { appLocale, directorLabels, pick } from "@/lib/i18n/appProjection";
 
 /**
  * Mobile BFF — Director card (HANDOFF-모바일앱-프리워치.md §2.2).
@@ -119,6 +120,11 @@ export async function GET(req: Request, { params }: Params) {
       facts: { n: number; text: string; source?: string | null }[] | null;
     } | null;
 
+    // Locale projection — one batched content_i18n read, English wherever a row
+    // is absent. Same table the web reads, so one translation serves both.
+    const locale = appLocale(new URL(req.url).searchParams.get("locale"));
+    const i18n = await directorLabels(locale, slug);
+
     return NextResponse.json(
       {
         v: 1,
@@ -127,13 +133,19 @@ export async function GET(req: Request, { params }: Params) {
         profile_path: dir?.profile_path ?? null,
         birthday: dir?.birthday ?? null,
         place_of_birth: dir?.place_of_birth ?? null,
-        portrait: (portraitRes.data?.body as string | null) ?? null,
-        name_meaning: facts?.name_meaning ?? null,
-        intro: facts?.intro ?? null,
+        portrait: pick(i18n?.portrait, locale, "director_portrait", slug, "body",
+          (portraitRes.data?.body as string | null) ?? null),
+        name_meaning: pick(i18n?.facts, locale, "director_fact", slug, "name_meaning",
+          facts?.name_meaning ?? null),
+        intro: pick(i18n?.facts, locale, "director_fact", slug, "intro", facts?.intro ?? null),
         facts: (facts?.facts ?? [])
           .slice()
           .sort((a, b) => a.n - b.n)
-          .map((f) => ({ n: f.n, text: f.text, source: f.source ?? null })),
+          .map((f) => ({
+            n: f.n,
+            text: pick(i18n?.facts, locale, "director_fact", `${slug}#${f.n}`, "fact", f.text) ?? f.text,
+            source: f.source ?? null,
+          })),
         picks: (picksRes.data ?? []) as unknown[],
         next: (nextRes.data ?? []) as unknown[],
         films: films.map((f) => ({

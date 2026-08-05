@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-secular-institution-as-disguised-monastery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세속 조직 위에 얹힌 신앙의 건축.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4565b50c5e03026476a4e876836192c6dda7a8c9dbc5ec7f300576078ba5254"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-securitized-dread-of-the-post-9-11-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시 시대의 불안이 장르와 이미지를 휘어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2486d0002ac757fd57c44b5d0a3f9f162de7e4f0c1437ce7dba139a062e5a6e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-security-state-s-right-to-destroy-its-own",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권은 시민을 태우고 쓸어내고 잡아 가둘 수 있을 때 증명된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db238d8dbc2de39ed28df9bbe5bfe8e84ec895912d93c9c40177eaa95e2f0dd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seized-home-as-occupation-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집 한 채를 빼앗기면 그것이 곧 정복 전체다. 살던 사람은 밀려난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13dd1925e2ee73139aece110d2838ee69f03c998a86c8aacb1002488efd0146f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seizure-as-hidden-truth-erupting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경련이 터진다. 표면이 한사코 부인하던 것이 그 순간 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "372e8ea13886b69cf03717f475d0ce7d7e447c2ef3212634ff0ddcbb82f93012"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seizure-as-the-body-s-suppressed-speech",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의식이 검열하고 밀어낸 것이 경련으로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d085d70443398266e8519ad60286676fa254b12eb744cbe63bb659c41af20b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-appointed-engineer-of-a-sealed-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밀폐된 장치 하나를 붙들고, 이것이 세계를 떠받친다고 믿는 관리자.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f856ed2d5f0c853432c2a521d480e58dc6b204d0b3ea64f71bbb613ce4674eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-borrowed-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성은 주어진 배역이다. 그 아래 본질 같은 것은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3401a6b294a473b9f2b52db4e7d1ce9b84422707a1927f85d0954e17459526ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-editable-file-not-substance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고정된 영혼은 없다. 자아란 고쳐 쓰는 기록이고, 짜맞추는 일정이고, 다시 세우는 구성물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37ce16a5a71b22a656aca1e12f458b6f3350defcfcfa964987ea101ac18cbbc7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-performed-copy-without-origin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성은 인용이면서 집필이다. 배역 밑에 원본은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ab0d9808e3902bcd187997bd9e2f8ad4594d12114c4c2996140a74dd00bb264"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-pilotless-committee",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "키를 쥔 자아가 없다. 정신은 웅성거리는 군중이거나, 그냥 빈자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35135606b8d210bd1304b63fa34e02f283e5e6a7bd7900599c314af55a39fca0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-authored-against-the-given",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실존이 본질에 앞선다. 자아는 물려받지 않고 고른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0362a5972de25c44c22fc6e6ad357d039c47b3a051e9878855a99520b4e28e92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-authored-in-others-testimony",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남이 이야기해줄 때만 존재하는 정체성.",
+  "model": "claude-opus-5",
+  "source_sha256": "2482b8b7d21b9f91db5778632aeb432976ea59f655d58550c2658e84b54305da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-authored-into-being",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소심한 남자가 더 대담한 자기를 이름 붙이고 써내며 불러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49f7a1afc9e4686d7184dcf55034c4c8d7bed5314853a3e251f48c951ae35cb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-bankrupting-cathedral-to-dying-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코폴라는 저물어가는 예술에 기념비를 세우다 스스로를 무너뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "552d4eee2cb29413ae4b75a9f68fc209a6108f8e26faec413fef212a6221a67a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-bound-to-the-unmet-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 다 알 수 없는 타인에게 지는 빚, 그것이 윤리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "553a8e3b96015c9506d26c1b4ad76ab556928746072969010881aabfe8679bf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-branded-for-late-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주체가 스스로를 상품으로 연기하고, 그대로 내다 판다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d826eb54463a8c980b92134ace84ee2814c182eda66e7ca59873e0b8578288e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-cannot-survive-its-own-class-ascent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 계급을 벗어나 올라선 자는 그 상승에 부서진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1a1cda1b856ea4e19d153e8b7f1122a41ed3bef8ba161ac5491ad0b1268b845"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-composed-against-collapse-as-didion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔을 견디는 방법. 자기를 침착한 문장으로 써내려가는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba6d770537375c50d2b6631990b0ee5be93c4cb6daca15cf89876a5ba12baccf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-consumed-by-its-own-refusal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낫기를 거부한 상처, 남자는 그 안으로 녹아 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0820abe88d78407d9d20f2afdb032f9897b45cc9e00c76dc875172d0ddef3e1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-destroying-machine-at-full-speed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화려하게 실패하려고 정교하게 설계된 장치, 그것이 세트피스다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc9687ba24cfa8fab8b99b7584b9d4ecc45373a26c191609e42b242ac4c193ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dispersed-into-invented-names",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저자성이 이명(異名)들로 흩어진다. 지어낸 창작자들이 진짜 저자를 대신 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1d38fbbf8935e41e9146ad262ff2451b4563add047a52aafacfc345d942f09b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dissolved-into-its-own-broadcast",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "송출된다는 것, 곧 흩어져 없어진다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "c748110ce4ab6a71eb234e436b47e2095a3a8553de1c3b4d1c4c1c8e1f326a75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dissolved-into-pleasureless-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속은 비었고 즐거움도 없다. 정체성은 그 위에 걸친 의상일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8d748e3d66ebf51a4995b7fbb87a14fe61542dc5433d97428c1e2007d86d823"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dissolved-into-weather",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성도 사랑도 굳은 실체가 아니라 날씨로 그려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "355ad7ed1e5b5d0faba297849f19dddfdb9fc7f74f03aed0ab5c30506df6f7e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-found-only-in-borrowed-voices",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남들의 목소리와 페르소나를 그러모아 조립한 정체성.",
+  "model": "claude-opus-5",
+  "source_sha256": "13ac831a13ebb378c972f51603efe15c452595879f3fdcfd176706c91f5fc63f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-heard-only-when-deaf-to-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "듣는가 듣지 못하는가. 자아의 조건은 거기서 갈린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60694937d5d2e763a6b899dbe2b871b2736604de29e5fc47ae7e9ffaf2a08d93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-indulgent-charge-as-critical-flinch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과잉이라는 비난은 영화가 요구하는 것 앞에서 물러선 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd83f4c512d568e613c7124082acf3813ca60837e7051b54d73819f066ccad99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-is-held-as-property",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피부 아래에서 인격은 세입이거나 먹잇감이거나 소유물로 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bb23c5527f45923d767f47eef06702130f76b4d72e479c11afbfff2e5d2db08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-is-made-of-state-not-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성이 국가의 역사로, 주권의 예외 상태로 녹아든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85b6eae46102fa7b8b047c4cb781f870df54d3617a6c9724ffeb0bc79f1f8e37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-made-man-as-predatory-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자수성가라는 미국식 신화, 실은 제 창조자부터 집어삼키는 사기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1671b1359454f9baf108d8ed1a9e7569aba9f26aa56c3a723ce748ad1286105d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-made-of-many-never-one",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "중심이 빠진 복합체, 군중, 성좌로서의 정체성.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c126b1b9265da4463f8948e32457f2acdaa580c88312b1b35a94bf1958f1ec1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-multiplied-into-heteronyms",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분열된 작가성을 읽으려 여러 자아의 시인 페소아를 불러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "989fa7ac464bd52fc18f8541e7dbd03a179cfd00411580d7f2b9ed9c7e8695a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-multiplied-into-other-names",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하나의 정체성을 여러 개의 지어낸 자아로 써낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d6a4dc8a52b3632dca7809d511f0017b9f612fd830853d07d83fe22822b08af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-murdered-to-be-reborn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무언가가 되려면 이전의 자기를 죽여야 한다. 패싱, 그리고 멈춰 선 애도.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9cebdfa48b79db5a740f05e84d5fcce203af17960a4ad37f2bde86706639e2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-performed-as-puppet-theatre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸을 무대 위 분라쿠(文楽)처럼 짜고 조종한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "839db811d75e6421977c4524a710452f9651329f81e4f9a44f1e0f69a578b50b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-performed-under-the-sociologist-s-gaze",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성은 지켜보는 눈 앞에서 연출된 것으로 들통난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f75e3db233ebb72b6113d092b4323b4c352a9c73367df749c4cfdd795f872353"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-priced-on-an-open-market",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간의 값어치가 거래 장부의 한 줄, 호가로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f247d2c36e67a602eb0abc515ef64fde1bcfd36797cf0ec917188e7d158c432"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-reduced-to-spectatorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구경거리가 되거나, 구경만 하는 자로 쪼그라들거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b16f0708582b2385a05f43faf2a6c053e22bd3df54b3f0d2d6cc52515b7241a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-rewritten-in-a-borrowed-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다른 언어, 다른 이름, 다른 형식을 빌려 정체성을 벼려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1be7f53a9c066b2800f3d4101577683037d33235d8da334333b55253bc58280"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-splintered-into-heteronyms",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "페소아의 가면들. 창작된 페르소나가 창작자를 앞질러 버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de4f11e8a226b2908725e64a5585800764bc90d6d6105a3b38fa3cc0500cc74d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-subtracted-held-in-remission",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부재로 있는 정체성. 병이고 연기이며, 지워지는 중의 현존이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39a1e8dc687e4f14f008fc6a9a8354e6665c0c215afa1627c8525b315eb0ce8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-surrendered-to-become-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동일시는 식인이 되고, 뒤바뀜은 대리 자살이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aed0c26cebde08b3d4511f6d5581700881e3ece32ee7642e68406f64cbe3ec6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-lives-only-in-the-present",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억 상실을 결핍이 아니라 하나의 존재 방식으로 다시 상상하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "66289d45681ac40ebc944168ebbc97fab3a364e87bc5c291409a6b66fd5a3263"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-needs-its-opposite-to-exist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부인하는 적, 부인하는 전설. 정체성은 그것들에 맞서야만 규정된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f399049d85dad2beb4907302376be756fb52033906326c4bc09c184681b81476"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-walks-beside-herself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "둘로 나뉜 몽상가가 제 몽상 속을 걸어 다닌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1eef3891ff627c7d33dcf559359cd531e6732d295d52d6e591fa6d4b1a268240"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-will-not-hold-its-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기에게 고정된 초상과 끝내 겹쳐지지 않는 정체성.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c559a6a3559c95cc9ceb71130b5251558534d17ee427aac3f4e938d7fe8e45f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-used-as-a-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트의 인간성 정식(Formula of Humanity)이 방���을 틀어 자기 자신을 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "576931ea88f49f567c75ed193a7ec6bee68437e2e5a131ca399495c4ed0168b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-withheld-from-those-who-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내면을, 제 이미지를 내주지 않는 것. 그것이 도덕적 행위가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f64160b8dea2a4106d890c154372e06a0057bd84b06df7c2408292c0b890d202"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-worn-as-borrowed-persona",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 사람이 타인의 정체성을 담는 빈 그릇이자 그 옷이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ae819241cb56c29370ac7c6eb5705ad32733bf81a32fa8bfb494b528356c9e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sent-down-generation-read-as-surface",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쫓겨나 유배된 세대의 상처가 물질의 질감에 새겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85e0acf74705a9818954c31506b1ad41e144f2e50a5a2bd1cb51015a4e025f88"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sentimentality-charge-as-critical-cowardice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감상적이라는 고발은 고발하는 쪽이 감정을 두려워한다는 증거다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d08d6fbab5c120d71fd4d154c48aa8781870940cc55143b13c19d95a50d8a85d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seoul-stairs-that-devour-their-climbers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비탈진 언덕 계단, 이 영화들의 진짜 적수는 그 지형이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c7a9c2a378ce43ca44a4f168fe4de2445c2ce84424c842172ca4a32823d6e7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sequel-critics-forgave-for-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "판을 키우는 대신 애도했기에 용서받은 후속편들.",
+  "model": "claude-opus-5",
+  "source_sha256": "3dc1983d649985de61a78782c83fb8fce9c8781cafb1eb9dbc6ba114c4f90c52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sequel-number-as-its-own-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'2'가 번호이기를 그만두고 주제가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d0116a04b29eee085f32b3a4a6b9c160e8f45ece5d40934fb065c4d7848e56"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sequel-that-fears-its-own-forebear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤늦게 붙은 프랜차이즈 속편이 제가 흉내 내는 원작 앞에서 느끼는 불안을 그대로 극화한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f10656c21483699554a396600df7d03289dfeaac9ed7afcc040b11a72838c9f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sermon-weaponized-into-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쇼맨십이 된 설교. 구원은 상품이고 강단은 무대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb7b33953cfbdc856bf44c9eb6fad2a43c05446072e38ee7a34af065479eeaac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sert-o-as-brazil-s-mythic-backland",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "메마른 내륙, 국가의 신화이자 예언으로 찍힌 땅.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cc83a47ce8295bd91c23059a75fedad23dfabe8b449e0bd5bfaaf94427de566"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-holds-the-sharpest-knife",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 정치적 뇌관은 부리는 자가 아니라 부림받는 자가 쥐고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22a6ecff2c7544ab9a9761d2b76fd2d35e09959de6822adc047d64e63c33b6a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-carries-the-house-s-disavowal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부르주아 가정은 살과 욕망과 수치를 시중드는 몸에 떠넘긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3a81e9aa9498da76bf1ad6798bc703b3d84025134f5687bae1be050cfc94a2e"
+ }
+]

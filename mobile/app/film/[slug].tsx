@@ -47,7 +47,9 @@ import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
 import { bandWord, verdictShort } from "../../src/lib/takescore";
+import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalTitle } from "../../src/lib/titles";
+import { towVerdictLabel } from "../../src/i18n/tokens";
 import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
@@ -251,6 +253,8 @@ export default function FilmScreen() {
 
   const [card, setCard] = useState<FilmCardT | null>(null);
   const [tow, setTow] = useState<TowComment | null>(null);
+  // to.W prose lives in content_i18n, not in the RPC — project it at the edge.
+  const towText = useDbLabels("tow_comment", "rationale", [slug]);
   const [leadOpen, setLeadOpen] = useState(false);
   const [err, setErr] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
@@ -765,12 +769,12 @@ export default function FilmScreen() {
                 to. WY. Heo
               </Ui>
               <Serif size={fs.sm} style={{ lineHeight: fs.sm * 1.65 }}>
-                {tow.rationale}
+                {towText(slug, tow.rationale)}
               </Serif>
               <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 2 }}>
                 {tow.verdict_label ? (
                   <Ui size={fs.xs} weight="700" color={brand.accent}>
-                    {tow.verdict_label}
+                    {towVerdictLabel(tow.verdict_label)}
                   </Ui>
                 ) : null}
                 <Ui size={fs.xs} color={pal.subtle} style={{ flex: 1, textAlign: "right" }}>

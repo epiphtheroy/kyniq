@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4dfc1aa97ec3b92a",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Registry에 등재된 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "4dfc1aa97ec3b92aee84539733ac03ece3093ebf014fd897e03c01ad6e74cc90"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "de782452b0d6778f",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Best Picture Oscar와 TSPDT's 1,000 Greatest Films에 이름을 올렸고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "de782452b0d6778f21ec12f11270f198d0c1d4a0b82a0b8c6bc1bcda222e82cd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d855b09dc6e7389a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 68/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d855b09dc6e7389acf9f5d63aebd4eb4cebe027758856df73c2a65cd70c3fd64"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bcf807f20f0c8fcd",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 1001 Movies to See Before You Die에 이름을 올렸고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "bcf807f20f0c8fcd128ce376b13a24fa4860fdfca4ec41dc68b9f5fcfc161784"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b84eaa1a872afc55",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 구로사와 아키라의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b84eaa1a872afc55b83b0cfc4eec534f3b2a35e4d72b62ee24820c3b33a46717"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "67e9fe511a9c9777",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 장뤽 고다르의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67e9fe511a9c97777f1416c415737e6cd33879d378c9163d2b52055114025a63"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "58acdb5708f105ec",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 National Film Registry에 이름을 올렸으나, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "58acdb5708f105ec80ab84c6a6cb86b5357ddc76e9a2454557f574af6c5f1dce"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5192ba9544b5bc89",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: AU",
+  "model": "claude-opus-5",
+  "source_sha256": "5192ba9544b5bc89a85f27073c4e3855c628513ba2fb21a804f5f6101112e458"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b3e0abc34ddd4320",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 1001 Movies to See Before You Die에 이름을 올렸으나, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "b3e0abc34ddd4320b2d8184e15b25c00de09675594087aea8b17f4f134c37873"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2731054d01b16b3b",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: XC.",
+  "model": "claude-opus-5",
+  "source_sha256": "2731054d01b16b3be3ed389b6a46d6d460694015565a93d1885cbcc08d63bade"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ab44a4777b841c4a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 65/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab44a4777b841c4a5f9367cc4901199438db8d43b18381e928e6e05e5df40ebb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "622ad0b9d99d5dd4",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 62/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "622ad0b9d99d5dd40841da8a70c0232388d3632b0d69bef31a54bf635da551cb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ff64370b31386173",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Cahiers du Cinéma: 100 plus beaux films du monde에 이름을 올렸고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ff64370b313861732933eda437112e03c2f9cb2e67e03d4ddc041e9462380ad8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "75e8f5a6072e2f9e",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: New German Cinema",
+  "model": "claude-opus-5",
+  "source_sha256": "75e8f5a6072e2f9e250ef93ef96dde6769dbbd39b16cb72e844750139fa1b44c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2115cbea6f32d50c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 하워드 혹스의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2115cbea6f32d50c1c8c893759c3c5faaecf18a927609e4a30310d57e507ae16"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "48486c7839679580",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: MX",
+  "model": "claude-opus-5",
+  "source_sha256": "48486c78396795805b5468447c67e2d70fba7a36bd33d2a1b3fac51c26b03656"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c3d54e65d9c66f5c",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 63/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d54e65d9c66f5c966ad120cf1d0c29997068e0c1f91d18f9d0c55bb8f925fa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6a77f9c18722a8ab",
+  "field": "text",
+  "lang": "ko",
+  "text": "Saturn Award Best Film을 받은 작품, 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "6a77f9c18722a8ab66b6e4b415ed285daf78f52e3e55e404f0baf1ddd3701896"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "15f4033166d61a04",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 70/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15f4033166d61a04d3e9b7957944db3b7ca0c064a064ad982aec3acc8f2a5c8d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ca136e67d25f0624",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 잉마르 베리만의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca136e67d25f06248cb4881fbdb52bc43c2a80f2ea65c735b2d2145be958f5e6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ca2425e16694fd98",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Registry에 오른 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "ca2425e16694fd98b476f0146405f19dffd56a75817696ee792f57fcc4de3204"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d89f78c2d63faf70",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 마틴 스코세이지의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d89f78c2d63faf702394d16ee30880454933f10d093789b7b9427deb63ff362e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "262989dff232a060",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 National Film Registry에 이름을 올렸고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "262989dff232a060376a112ee3d36ddfbec02f37e533cf543f18ece2004f0d7c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "32fe2e85dc2877e8",
+  "field": "text",
+  "lang": "ko",
+  "text": "Filmfare Award for Best Film을 받은 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "32fe2e85dc2877e888b27278e5158a842c5289ea308b621dfe4f3e4fd28c3d8c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7bd0908517b9378e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 존 휴스턴의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bd0908517b9378eb42c6dd82adca7580f2a4ed5ba0fadb7e8e475af1e2192a0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d9d466e27648b1e6",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films에 이름을 올렸고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "d9d466e27648b1e66d1e94cc82231f605af175b2c0d8f03954c042d3693697a1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f5a5e5f72db1bbaa",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 Sight & Sound 감독 투표에 이름을 올렸고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f5a5e5f72db1bbaa4191a94afaf8d25b6a725be7cf9a4079edb89665a86e7bb1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7a3711d5c7eaf4ce",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: HU.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a3711d5c7eaf4ce98f8e31cdf42db5a4daa633469c8959d676ea63ace0d4bf1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8ca61986a617e26d",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Cahiers du Cinéma: 100 plus beaux films du monde에 이름을 올렸으나, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "8ca61986a617e26df31e73a4ecc5574583ec8da964a00eebe449b244ed92f9a0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "de1973e4d63e1cda",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Registry에 오른 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "de1973e4d63e1cda2e8980baf2cda5f588f7b4c4ccf81eb92efa1b4651c8031c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "277bbe1cb3a33804",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 엘리아 카잔의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "277bbe1cb3a3380476d2c8b4cadff4391029cabd1cfaa8c76b58f2ad8b35ab78"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0a42be0edd2562c3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion에 오른 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "0a42be0edd2562c3aea621b4eb4ad7922661e67f06bd4821e551c20efb9f0338"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "aacbef6862e3305f",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or에 오른 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "aacbef6862e3305f5acbacb2b8bcaddf9e67b7ab871674e77e7b3a06afbdddcc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "377381cdd0ac587e",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IR.",
+  "model": "claude-opus-5",
+  "source_sha256": "377381cdd0ac587e591c7581dd97e4e4b8917f9351ac38b2c93d7094aea6193c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ea507d259741e578",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 뚜렷한 기록은 없으나, 일반 관객에게 대단히 유명한 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea507d259741e578218ce33b85d7eac187eef278cb8c7c2c49ba6123103ca0a2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0b19b1d78cd15d09",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 시드니 루멧의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b19b1d78cd15d09b34f11ec0eb5a3014e4797b72d919cfd9c7cf85c21de4d2b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5245ac2f42592858",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 스탠리 큐브릭의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5245ac2f42592858d3172a9a2da9e52be1d6fe7ae1879ec39bdb0e72d036ab52"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "432d0d38bfedc34d",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Palme d'Or와 TSPDT's 1,000 Greatest Films에 이름을 올렸고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "432d0d38bfedc34d0e55bb5f20e4d972c3dc8594da4b155fd52d5b209d7f2c18"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "687544f6c9a252f3",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 장 르누아르의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "687544f6c9a252f31fbadd0fff70285d2ac5660b61f722119171ea980f53e7e9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f74f02693c50f2d4",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films of the 21st Century에 이름을 올렸고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f74f02693c50f2d43ac6d63d8f57fbddfce516baa1c419eb5863e9d71c5d0491"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4d8317c9231c9963",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 스티븐 스필버그의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d8317c9231c9963eec6e7a98e1bf0d97c64ef82a0d4b0fd98d9b2e5b04bbd36"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b8da9eacb42030cb",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: PL",
+  "model": "claude-opus-5",
+  "source_sha256": "b8da9eacb42030cbe1d70fec057241f1b6fea567ab76a12eec8239529151daa9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7ffc14033df45657",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 64/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ffc14033df456570f62553c2fad60ad7354f248ff696327d52e07c0c1eebf49"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cb2506f793cd9ad9",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: GR.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb2506f793cd9ad931019bc9bf0dbac19100719bc3535726ea45656e7f755311"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "464ccdfc5ff44a9f",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: BR",
+  "model": "claude-opus-5",
+  "source_sha256": "464ccdfc5ff44a9fd42cf75aae63db800b0d4ba315900757c4f003be82f11ef0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5263e3b067fb0dc9",
+  "field": "text",
+  "lang": "ko",
+  "text": "Kinema Junpo All-Time Best Japanese Films에 오른 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "5263e3b067fb0dc90d90ca3c800dc1642724a8d3f034ab144a92f0579554dfd7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5a6d4c4cd2f2d7b3",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 72/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a6d4c4cd2f2d7b3b2f7ab0d41a0551d4fc83e923fa597958a2062659e262b6e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ded3d62dc3c747ef",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Chinese Sixth Generation.",
+  "model": "claude-opus-5",
+  "source_sha256": "ded3d62dc3c747ef4aba0b369d28429d94672f9de3927a5763e953e2c04e1727"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "01f1d78682805e35",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die와 National Film Registry에 오른 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "01f1d78682805e35b2d8dde63fcb457a3acc2a67706d6496fa574886d73ba3aa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "59ee138e70158af7",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 페데리코 펠리니의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59ee138e70158af779849e4a6f78f693f9d9f289bd607faf4a65cef5cf533454"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "childhood-as-sovereign-state-of-nature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이들의 세계를 전(前)정치적 공동체로 읽는다. 사회계약을 예행하거나 끝내 거부하는.",
+  "model": "claude-opus-5",
+  "source_sha256": "87ff422054013e2c56d3fcb184d4f7f1a00ca428f04398343228952aeea7c604"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "china-s-population-policy-as-human-accounting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인구 국가의 장부. 몸이 세어지고, 계산되고, 버려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06a6f34ab67262554420fb3110a1a8649473435419166f3716fcb21e0ed54336"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "china-s-soft-power-engine-in-spectacle-s-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보편의 서사시로 분장한 민족주의. 그 옷을 입은 블록버스터.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd787793f25c1adce831ed6d12b709ec99b0617008cfe0684fb884708363ad4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "choosing-the-love-you-cannot-verify",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참된 사랑은 끝내 확인할 수 없는 것을 껴안는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99e8bb30cf3ff403d0599fce772062b807f921f592c7e58370d5e7752b4ade68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "choreography-before-psychology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미도 공포도 내면이 아니라 움직이는 몸에서 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38d0e2ba6f0275fcf3b224871cb21cc7f423cdd7b60b7c3338fefc42c0627239"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "choreography-writes-the-story-in-space",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동작 설계가 편집과 플롯을 밀어낸다. 공간의 논리가 곧 서사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15910c2e9819e821fb3254cf2c0bdb8e90a62d9f91844f46371d569c94bedda9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chosen-kin-outranks-blood-kin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고르고 알아본 사이가 핏줄보다 앞선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82a5fab0eb1ae275df152c655cf9626f0658dfc791e228bba38cb44e438ddff2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "christian-doctrine-turned-against-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "십자가도 그리스도도 약속도, 저마다 뒤집혀 제 무너짐이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17042a99b8b2fc1f8dd35f3c3dd0c42073f991bd933576fd4b33c340900fe133"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "christmas-as-commodity-masking-its-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공장에서 찍어낸 명절의 흥. 축제 포장지 밑에 잔혹이 숨는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43b72cf1ecb3283463d3482fd101d89c50badde80efb1c0b503ab3654bc46b1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chromatic-defiance-of-postwar-austerity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결핍의 잿빛에 맞선 색과 춤의 반란.",
+  "model": "claude-opus-5",
+  "source_sha256": "99e1e658f0e06f7b058e894005f3df349d7cbe8abb67c5613ef9fbff98f6993f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-compensatory-fantasy-for-an-unredeemed-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현실이 내주지 않은 정의와 탈출, 영화가 대신 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bcf0bfd1cdce7e0110b3c7964404661ca7d06f980329191b6164de207e9d280"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-mortuary-photography-of-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미지는 방부 처리된 주검, 카메라는 장례 절차.",
+  "model": "claude-opus-5",
+  "source_sha256": "a792d5bd77ffcf1259104f31321d5a09aff4dfac64c462e04ad13cbe64c4619a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-rite-against-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 퇴마와 부활을 상연한다. 과거를 되돌릴 힘을 불러내려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "40b5c78ec8c11841ba11d8a6908fd52315f8b005f3306ae7dd72721969f177b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-the-mind-s-guilty-alibi",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참극을 가리고 변명하고 고쳐 쓰는 영화-꿈.",
+  "model": "claude-opus-5",
+  "source_sha256": "e194bfd78363c5407a0d5995e4c881ab31d7135171249d0e4f1993c12d320622"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-time-made-perceptible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지속(durée) 자체가 눈에 보이고 손에 잡히는 물질이 되는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0a3edad111e9e4447e35e0cb2d321d3f8b48b54096132346cb73905333ea361"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-born-from-the-reality-tv-bloodstream",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "리얼리티 TV와 타블로이드 방송의 포화. 그것을 진단하거나 거기서 태어난 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa83fab75fd2d7924e13ccca1e6b45da67f8cb743d9c011b22f2e0db6a02168e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-confessing-it-cannot-hold-pansori",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 구술 형식 앞에서 제 모자람을 스스로 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "862def5b3fdb1a495414d40483862931612737cca49f16b59ca44711ebbfba86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-conserving-its-own-stars",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프랑스 스타덤을 살아 있는 채로 보존한 박물관, 그것이 이 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac30159f4624711a81bb90e0d3d407fe974573e1b364d2bdb2d93acd59e9ebeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-filmed-inside-the-economic-crash",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "2008년에 붙들린 영화들. 금융의 잔해를 애도하거나 세탁한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e85cc718b367c42b9edd162dcf9c9193d7aa6b7ba315102bc5ff71d69ae8175"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-founded-on-its-own-vanishing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폐허와 부재와 자기 지움 위에 스스로를 지은 매체.",
+  "model": "claude-opus-5",
+  "source_sha256": "f48f936bc17969cae87130416a9fcf8e903b6842dafc5759081b49cabe568c0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-mourning-its-own-theatrical-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 극장의 숭고(崇高), 그 기념비로 자신을 읽는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e7081d7b6ff21fe974701619eeb003a26add873f9b329f2bc4ce8d12cd4e333"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-on-the-threshold-of-sound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무성과 유성이 갈라지는 단층선. 거기서 소리는 외상이자 무기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e9890ae2b34428d438a840fbb288e3ec9d7a63388524b48dd7f1c7538febe5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-rewriting-history-s-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대항 아카이브가 된 스크린. 역사의 셈을 힘으로 청산한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa3e6ea41996186ac2a51bbd73da3be163057b58a447e9e127bb7d03f79004e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-s-apparatus-turned-predatory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영사기와 광원함 자체가 위협하는 도구로 돌변한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c38319f9bd20cca6b258e97ccdabfd9dd863cdbe610470a5b474a47d1bb281f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-stripped-to-bare-procedure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내면도 이야기도 없다. 방법과 공기와 절차만 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec30d7483fb912669f82e964cabc699a5affee0b1bb587b5954baddc80c42594"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinephilia-as-the-critic-s-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 영화 사랑을 애도하는 한 비평가. 영화는 그렇게 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a898a4c7f51412d1809d7afb6d12d0064b6e5275a9d0bec119432630e91a9c2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "citizenship-as-the-price-and-liability-of-belonging",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소속에는 통행세가 붙는다. 동화된 이방인은 제 것이라 말하지 못할 부를 쌓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebec80a9edab79fe72625a0d65dd09af9d94603c6204961cdb4546a18121ef3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "civilization-as-mask-over-suppressed-instinct",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "얇은 겉칠이 갈라진다. 눌러둔 야만이 정동이 되어 밀려든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c0b5d7f98dd243cd47434df3b0254f3303e54b0106e4baa1980e493c0034eeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "civilization-is-the-crime-it-cannot-confess",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자리 잡은 질서는 끝내 부인된 폭력 위에 서 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c76e61793eaaf5ede4ec7ad6d8ac0acd6268f99dbbb0b5d75b6a006bf432fe41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "claiming-the-public-sphere-as-forbidden-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공적 공간은 남자 몫으로 남겨둔 자리였다. 여자가 거기 발을 들인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aff64e27b2036697bd3c1a769d4a879a59595b0657ee8b02d6b6118c75f974b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "class-war-erupts-in-a-confined-space",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "방 하나, 도로 하나, 밧줄 하나 안에서 터지는 적대.",
+  "model": "claude-opus-5",
+  "source_sha256": "9439e4b98526e9dbc6223a5d598a6ddd83446f17043a93e0278cb60d3a4c7953"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cleveland-wearing-another-city-s-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면 속 그 대도시는 대역이 사칭한 얼굴이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30ade6b8de4965fa00fcb8a370fc9a92ff0075573fcffbf3910c3fff58b6ccde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "clothing-as-the-manufactured-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의상은 꾸밈이 아니라 정체성을 짓는 공정이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cab74167a4f68aea60f86a3119cd68ccfdf9933c7cbed524e0ae4855489be2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "clubbed-for-naming-the-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시민의 말이 병영 국가의 곤봉과 만난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "334792f86a376562e29e746f954e1bc65302a046017f5ce45ef6521361ae0dd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cold-concrete-as-mausoleum-of-universalism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베를린의 잿빛 돌이 유럽의 이성과 신의 도서관을 함께 묻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ea070ae09c87f5109087859f6895e3480bbf425b69f70afc61e09f958e84fa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "colonial-memory-returning-as-contagion-or-strike-ghost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눌러둔 식민의 과거가 역병으로, 유령으로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ebd926e8ff4bc8c223a3eeaef243f82013998d8733af8d56c1ff8a3727606eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-a-filmmaker-s-first-heresy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사실을 옮기려는 색이 아니다. 감각으로 저지르는 배교(背敎)에 가깝다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab882c70f621d7ef479a877fa90c89270ed083e6528393ec0c37860a86b17ced"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-defiance-of-a-national-austerity-aesthetic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짙은 색채가 지배하는 금욕의 정통에 반기를 든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c43ee0e8a04f71c2c49063242457aa643955b3e7ecc52a5c1149a5b9e1353dc5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-grammar-not-garnish",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화가의 눈을 가진 연출이 색을 서사의 통사로 배치한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "947af3244b0b0c309950711a22d1169a83b42e7d3093ac883a1ac4a23ef5f18a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-inherited-moral-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛으로 벌어 지어낸 팔레트, 유산으로 물려받은 팔레트.",
+  "model": "claude-opus-5",
+  "source_sha256": "cca895cc83aa838a44443546d88c769761a1cdd1160d8098e5ef553ef029e492"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-confession-that-this-is-only-paint",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짙은 색은 실토한다. 이 이미지는 사실이 아니라 인공이라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b5aca7bb8515b056af4d640dd9a060a3b68f2157db4f1174257c17829335ded"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-excess-symbolic-order-cannot-contain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색이 터져 나오는 자리, 거기가 재현과 법이 다스리지 못하는 지점이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8295eba5c6d8a925dc3a57c875df051408cb8c85f22919527f97094c587bf520"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-film-s-buried-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑백이 결정적 순간까지 감춰둔 것. 색이 분출하며 그것을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24e5b656bbb47755e9ba1015248552523c03313f0204173a76bc26f30c67a9ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-membrane-of-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억이 무엇을 간직하고 무엇을 바래게 하고 무엇을 금하는지, 색과 그 부재가 적어둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66ac195f42112d328c3623d4b16a9081437c703875ba17ea4fe3712f802cdf34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-threshold-of-embodied-being",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아 있는 살과 핏기 없는 관념. 그 경계에 색이 그어져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "931f2170808ec1180607ff4efee7248047bfa88939112f474b238be451be2990"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-engineered-to-stage-emotion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "팔레트와 그레이딩은 감정을 담지 않는다. 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c747244b91e62c2983acd0881a1df993f979570682ed68be0167f637ebafce4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-that-bleeds-beyond-its-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 대상을 넘어 번지는 짙은 색조, 그것이 곧 욕망이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "647e3b81b36f64c3796c8de7abd795c9d8b8668171f7a68bb7c43dd85774a7dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-wielded-as-an-authorial-signature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색이 장식을 그만두고 만든 이의 서명이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19a5eea73c22a89282daef0afa86f5123bd0d8ca3be0b6fa62f64863549f8f9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "colour-drained-or-bloomed-to-reroute-feeling",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장면이 요구하는 감정을 굳이 배반하려고 설계한 색조.",
+  "model": "claude-opus-5",
+  "source_sha256": "61fcb44943cb22d08790c83d07c738c8f81a04e33649a828250b7c985cf339ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "combat-staged-as-choreography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "싸움을 춤으로 다시 짠다. 결투는 춤으로 벌이는 논쟁이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "358c2726322e572a97f6e9e722fef20f87533ed5d19b486f9d342087bd9a8a05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "comedy-cut-into-kinetic-rhythm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "농담을 움직이게 하는 건 대본이 아니라 컷이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af7cbe49a03e5aa4eacb72080c0de3e21f7b48b82f723acce7d02aa16ff05a8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "comedy-that-refuses-death-its-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웃음이 살육에서 무게와 응보와 비극의 중력을 다 빼낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc7cb9144325c7f10647a8dc58af61232da22772c2eb9284c529a424c0d0f841"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "comedy-where-language-fails-to-connect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진심이 통할 수 없다는 사실, 거기서 짜낸 웃음.",
+  "model": "claude-opus-5",
+  "source_sha256": "797970c9474a48341c054a9c970a8940385ce57f4b84f2bc344ce70d20d69b04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "communication-without-a-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸 없는 명령으로, 혹은 금지된 텔레파시의 욕망으로 건너오는 의미.",
+  "model": "claude-opus-5",
+  "source_sha256": "bac020d66c1134c2f14bf45ee822f73cddc3fd5c756b94a9770f749198350419"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "competence-as-the-woman-s-quiet-insurgency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일을 능숙하게 해내는 것이 곧 자기를 쓰는 일이자 반란이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "091e78bef5b2a6ebc21a56159578971b467d53f90c59fdce4fd1bb4afa3ec099"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "composing-the-poem-at-language-s-vanishing-point",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 실패하고 녹아 침묵이 되는 자리. 시는 거기서 지어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ffb19cc66144e6bbc5a62622a902de807be81c0f6763912c16717c93e32f5bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "composure-as-foreclosed-or-defiant-selfhood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고요함은 증상으로도 읽히고 무기로도 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4be6ff6a1e9447fdf4d9217a899d61c1b023a775b8e8924426a55634921e00a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "composure-as-survival-s-manic-armor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔들리지 않는 저 태연함. 절멸의 상처가 벼려낸 갑옷으로 다시 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21bf710b02dddb47473337835236daa45b4ec55349bffa1eebcb0ae6b0d7168b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "compression-as-a-formal-cruelty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시간을 눌러 짜낸다. 위안은 주지 않고, 슬픔은 형식이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bebf993c650cb74ed5ad94a1cb5e8929633e8271f981fa1a49ea6e19b56003f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "concrete-utopia-read-as-its-own-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모더니즘 건축의 약속이 제 발밑으로 돌아온다. 감옥으로, 교수대로, 무덤으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed9bc2bf7c825cabaabb2c463be83cb1133d4cf85a03af27fe95fc53a1e697a8"
+ }
+]

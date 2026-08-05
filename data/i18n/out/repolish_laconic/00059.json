@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ritual-wearing-a-genre-s-clothes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "겉모습은 장르지만 그 아래에서 전례(典禮)로 다시 읽히는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "25f0e510701b300e362949e4541f290e2868d235887acc63dde02c63350a3992"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rival-as-mirror-stage-double",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타인이 곧 주체가 잃어버린 반쪽, 거울에 비친 그 반쪽이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09a7af8603fc18e00377ccbbb805487c81813fee7533d0bd1e1c1af1005d07a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-river-as-engine-of-dissolution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물길은 배경이 아니다. 자아를 지우는 장치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f972e3e641d54773ac7b726e0031a5de990eeabbfca97ea2ca99766d7b0d510"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-river-as-indifferent-moral-tribunal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흐르는 물이 인간의 죄를 삼키고 녹인다. 아니면 말없이 심판하거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc955c38c5170ef25c25ec1d228de00de43f48fa6be1088b92032998f7c9cc68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-riviera-as-painted-unreality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지중해 연안은 지리가 아니라 한 폭의 그림이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2fd6f160dbee97201f5b212266e4b3931e4cba7de4381c59373ce2563ba4efe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-road-mapped-only-by-improvising-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이동하는 속도 그대로 시나리오를 써 나가는 벤더스의 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "57c4347275074809ab346c89a4df54b9a4b4fa32d5883b6b898e74f8f0ec09a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-robber-who-holds-a-kantian-maxim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강도질이 절도가 아니라 도덕법칙의 실행으로 수행된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9eaf57755fbb6756cc2bb74859433e8119e5ddc6cb38970c5c7cda34646f6604"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-robe-hides-a-liturgy-of-capture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "종교 의례는 여자들의 믿음을 가부장이 빼앗던 그 장면을 되풀이한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92ba143447b131e14f185c174d87175cce86ff601cc8dd22d7061e609c89f53a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rocket-that-climbs-only-to-fall",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "발사든 탈출이든 폭발이든, 솟아오른 것은 결국 부서져 내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4fda7a0fce491e6d474e5320a7f11ec0ed3f4aa3b7efbb5c3aa90a27d598437"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-role-devours-the-actor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배역을 맡은 사내가 그 배역이 되어버린다. 의상이 살을 삼킨 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "329940c45acd1948c18a75d25f3130002b871e88445c80b978119ade4f505644"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-roles-were-always-interchangeable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인자와 무고한 자는 서로의 거울. 정체성이란 갈아 끼우는 가면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "902186571f9686fa7c4b7bc7adb3a9868c6d783a53a225eef968ddd926c6569c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-authored-backward-from-its-ending",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결말에서 거꾸로 읽어야 풀리는 감정의 암호.",
+  "model": "claude-opus-5",
+  "source_sha256": "28da5af9220aed067f2d3ad83949852ab04872db4ae37d6c4f5411e8c9860b40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-clocked-against-its-deadline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑의 크기는 그것이 끝나거나 결단해야 하는 시각으로 잰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "134bd2292d0abd9e7435899ec48b8faabc3013808cdcdf53a9f3fb870849ac75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-misread-that-reveals-the-critic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이걸 사랑 이야기라 부르는 순간, 고백하는 쪽은 영화가 아니라 관객이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94e18109d0cfd255fc53f095866e22c0c366c4ad79b37f0a3c40b163902290e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-that-cannot-name-its-class",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계가 입에 올리지 못하는 것을 대신 봉합해주는 환상, 그것이 사랑이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e5890e687ea8d8b3b8122f527dbea05e26fc8bf053ff718842546618412586d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-that-launders-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "친밀한 온기가 제 발밑의 점령을 없던 일로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e02e06a1e407f431e389041413d1d35fd3694c85e48991129c9ae90903c8d3f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romanian-city-as-moral-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시의 공간이 한 나라의 상태를 그린 지도로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a47809a9931dda7da52ed463003a7bf2cd4a958149d69674c11d0e4f0b9ea1b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-room-as-the-handover-clock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "1997년, 홍콩의 소멸을 향해 재깍이는 밀폐된 방들.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ffe78900dcd83fce89295c6ad07f83ae9471c79218d1bfba7c1cb9f50617d1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-room-that-becomes-a-polity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실내 한 칸이 실은 시민 질서가 앉은 은밀한 자리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdea858e561f7ffe2fda587542d220731df65f499615910279881ebefede8c97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rotted-face-the-mask-solves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가면 아래 묻힌 얼굴 하나가 영화 전체를 깨뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae76e2b4ce9119e4398b55aa5736b51a377068c2f070c0eaf205dea25998f6cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rotting-flesh-as-abject-eruption",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "썩어가는 고깃덩이로 되돌아오는 억압된 몸, 비체(abject)로서의 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac6469ff8938ad90d079d6319e8ad9406b2076c82740e3ac71fd1d7a197efcee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ruin-that-erased-its-own-ruin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전후 유럽의 현장에서 찍는다. 지워졌다는 사실 자체가 주제가 되는 곳에서.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cfc7eb535cac86aef60ed7196801146a3ba9849c0bfc32addfeec55dca604a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ruined-motor-city-shot-for-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "디트로이트의 무너진 공업지대. 화면에서 지어낸 은유가 아니라 실제로 거기서 찍은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da9b1671a66d71ffe21adb4131c40df244bfb7229b7da56070b1ec96907f53cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ruinous-gift-spectacle-as-sovereign-expenditure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쓸모가 아니라 주권을 연기하려고 가치를 불태우는 과시.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1bf181ad8fc911fcd6feb4a127194fbdbe9791195af4f5d04f01cb4bbcbfb01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-runtime-worn-as-cinephile-badge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상영시간이 인내의 훈장이 되고 미덕이 된다. 영화제 문화가 앓는 헌신의 증상.",
+  "model": "claude-opus-5",
+  "source_sha256": "36c8e635d579bb8e2cf2f60d129cae173ad24d81bb9e51d1c1464777720cc4a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rural-idyll-as-staged-artifice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목가적 풍경의 정체가 드러난다. 세워 올린 세트이거나, 환상이거나, 테마파크다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67f6750bcaa703f7a376b5c54f743e9a5e541a714759de5d7c11ad28e95fc539"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sabotage-that-wounds-first-to-verify-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기혐오는 사랑을 먼저 부숴놓는 방식으로 사랑을 휘두른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8288888ad883dca838d37fc9feee45c361fe3f59042db4bd7e85a7e3a13805d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-animacy-of-the-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기술이 스스로 의지를 갖거나, 숨은 신성으로 깃든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ab4f87b44a6ad28f7d716fb231e60c00aa80b82445312de93250b7aeff139d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-as-pure-negativity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신은 오직 부재로, 침묵으로, 말할 수 없는 선으로만 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30d1d5b7c17145852a254f43f42af97fa8599fa43c29687239afc1e15d174e69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-disguise-that-misleads-the-faithful",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신적인 것, 길을 일러주는 것이 거짓의 얼굴로 뱀의 몸으로 숨어든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41551960f1dbbb8843692c947dc63739b16e8e4f25928a87d6cfdb1ce0be59d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-fire-as-closed-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불태움의 의례. 그것으로 성스러운 질서가 세워지거나 봉인된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "373356b45408b63a88cc099f22ebbd3d5ab5e2eabce2098565785fccc9f3dc0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-migrates-into-the-record",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거룩한 것은 이제 사물이 아니라 정보에 깃든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9cfc675e1cd6821c662b912e1879bcb6cf45b26e5cc49c5e993c6ffe1acc8a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-score-for-an-absent-god",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신은 이미 떠났는데 합창과 성가가 그 세계에 음악을 입힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64730494e19cddfb319d4a5f8582bf2f83e233854e8bae7f48d0a31c5d4859fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-text-inscribed-as-score",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경전과 선율이 악보처럼 지친 육신 위에 새겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3010384ed4058bada044556db37b0e411779688f3e40b4f88b21ee4ac879229"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-was-always-a-fiction-he-needed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓임이 드러나는 순간 오히려 놓아주는 이상, 거기 바친 헌신.",
+  "model": "claude-opus-5",
+  "source_sha256": "eba87f0065d8fc52c98e6bcb3f94930372adaa8306001e0fe6679b767dd6d3ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacrifice-disguised-as-genre-ritual",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화마다 다른 장르의 껍질을 뒤집어쓰고 희생 제의를 밀반입한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81b6a71010fbf372ba8d728f30ce1e3f40cf3c5187ead9452e1fd10ea4ff8002"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacrifice-that-breaks-the-trolley-calculus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 몸을 내어주는 순간, 다수를 구한다는 셈법이 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "264f09efb66dfdd5e0d098d17621a22e33d92116870c654097477a34bf61d355"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacrifice-that-founds-nothing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제의로 바쳐진 희생이 텅 비어 있다. 구원도 없고 세워진 질서도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa74aa63d3770ffc0b4bd03ed3871b942ace8335d5e2a536e7edf286dacdb8d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saga-haunted-by-its-own-dead-past",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속편들은 조상의 상처를 강박적으로 되풀이하고, 덮고, 끝내 그 앞에 무릎 꿇는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "148b764938196e94313167584b0ee9b299ba4a45e50682a54f2c7b0dd9a01a39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-who-sanctified-affliction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고통을 소명으로 고쳐 읽는다. 거룩한 바보는 밑바닥에서 신을 만난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5627e1d7d7c774ca7e7aa429bc2243f946dd960b8a8e530bd113128fc0aa22a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-who-starves-at-being-s-banquet",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시몬 베유의 고난. 먹기를 거부하는 자기 비움이 곧 거룩함이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6245a54284d7613ab7e8bc533f78e32107002caca3c82c10c570eac161df03bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-who-starves-to-author-her-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "굶는 것이 성스러운 반란이다. 몸을 거부해 거룩함에 이른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42259d1aa293cb53ea7db1613e313100b5c4ecf571f435d222ac072fcfae8091"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-whose-virtue-cannot-save",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정작 중요한 단 하나의 시험 앞에서 무너지는 성스러움.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5ca43edd07b5b0e827e6b38df5df3459665ec2f8bf93bed1c761818cedd2803"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salaryman-read-as-bubble-allegory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일본 영화라면 무엇이든 경제의 호황과 붕괴, 그 뒤의 숙취로 풀이된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a64beb79943d2744190cfc2ecc454ae48eaca2414f462e452e6f90d918afb93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salesman-as-damned-american-archetype",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파는 사내의 등 뒤에는 언제나 윌리 로먼의 유령이 서 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fffa8552d97a47635afcf624cfe4975a118c18851f57e6f52a4769f865bafa21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salesman-who-believed-his-own-pitch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 친 사기에 제일 먼저, 그리고 치명적으로 넘어간 장사꾼.",
+  "model": "claude-opus-5",
+  "source_sha256": "b09a4c803b5b83cbb51ea0ceab3861bc2bbb64cbb27acbbc97fab63f996264cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salvaged-body-driven-toward-home",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잘려나간 몸을 기계로 다시 붙였다. 그 잔해를 몰고 잃어버린 기원으로 향한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07db2547cbdd3517ad74ad432a55099c0e7e104306c5f01bcfd56ec2dd035737"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-samurai-code-as-hollow-sign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부시도(武士道)는 뜻이 죽은 뒤에도 빈 의례로 남아 숭배된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77e44ba2ab83cd8c9bbc5f0f0cd0102dbe4d329a89c8c92aa1c5fdaee894df13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-samurai-code-exposed-as-hollow-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명예란 의미가 비어 있음을 가리는 텅 빈 의례였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39df9d5b96fffd611603f4391048bb6053d26f64d0ea53d988f33850a9d2b6dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sanctuary-that-is-also-the-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피난처와 감옥이 같은 건축으로 겹쳐진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "730d61aae31bbd12baf7d33521e69e974ed7a966ee3d97bb44fc43599647429e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sanctuary-that-is-secretly-a-tomb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "침묵도 안식처도 결국 죽음의 한 형식이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c02eef2768fbeedfe3608503fff4ecf8faff8a1e98972bffdb6663fd2c93882f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sartrean-bad-faith-diagnosis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실존주의가 말한 자기기만(mauvaise foi), 그것을 해석의 으뜸 패로 삼는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87433af004a0f94da42e94b8a46f71d74ef84c4aa90486622290d31bb54d266f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-satanic-panic-as-reaganite-repression",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "80년대의 도덕적 공황을 밖으로 투사된 국가적 위선으로 풀어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51696697d2be73da28370e7ce3825c5fb28e7895b48f5d4ea4bfe0ef69783764"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-satire-its-targets-adopt-as-anthem",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찔린 자들이 되레 오독한다. 인용은 어느새 숭배가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d52b23e065f2faa336fe599f3431daa2b1821699639f2858d2a6b8665a99126"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-satire-reviewers-dismissed-to-escape-its-aim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평가가 일축했다는 것 자체가 풍자의 화살이 그에게 꽂혔다는 증거다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe5aa2415964df121f5d018fbe574a155e7c6a797e687308923050c4ce7422a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saturated-frame-as-debt-owed-the-poor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색채와 노동자의 몸, 그 둘이 사회적 알레고리로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f5a01fd16ca1ccdff86aa1d73d58b1b3e14b4ba20e83b27ffad0cd154cc8a06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-savant-who-computes-his-own-exit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계산하는 머리가 체계에서, 또는 운명에서 빠져나갈 길을 설계한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bea5e2ceccf1e34fe91092ce685aae6fe97204ede50b88499ec19c2caff1dd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-savior-as-engineered-counterinsurgency-asset",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해방자로 온 메시아는 제국이 자원을 삼키려 제조한 도구였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3e50d831c0198891d2e1e923ea182c363908b4824bb095e6a7e4386b9a65e1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saxophone-as-the-soul-s-untappable-voice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말도 폭력도 닿지 못한 자아를, 색소폰이 대신 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6b8356e8fd5adcc29e4f3c34ee4fa64bd62d57e8da315c97a086e19a4af1bed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scandal-is-the-real-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금기의 이미지는 그것을 단속하는 문화를 되비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a6f5e09b7f9fcd8c2af90ae2869c149a941cd1dcc99082b931d820f3881fb4a"
+ }
+]

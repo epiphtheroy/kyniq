@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da0d8e7f92e3d109",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 Los Angeles Film Critics Association Best Picture에 이름을 올렸고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "da0d8e7f92e3d10995116594ff9cd1f83c5f02b81b73b63fdc348de8b896ca92"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2a692ac6392b0cc1",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. Golden Lion과 TSPDT 1,000 Greatest Films에 이름을 올렸고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "2a692ac6392b0cc1240a88fa6fa549d33783c866c2903527115c78e4b1e74dc3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63db7b08fbeb96d9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 John Crowley의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63db7b08fbeb96d9da375f7389b3d1361951dc6104d9eba0fb69fc1aa50c4328"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a9e4ef5e3fdee6d6",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA Best Adapted Screenplay가 인정한 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a9e4ef5e3fdee6d66c71c815944e069b050a6aaaee241bc7a036848b7fd77bf0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6bc14d367b796501",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Rima Das의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "6bc14d367b796501c28598c9716563671f4a2ccdd574ced70c12aca65a7432b3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3a702bc343686e39",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century와 대종상 영화상 최우수작품상이 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "3a702bc343686e391a63d5c90ce82559c669d2d9d242a2ff58a8ff3121b5542e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5c4135cfe5c48b26",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear와 David di Donatello for Best Film이 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "5c4135cfe5c48b269ace5ead9bce966a2d6a11d762fdd15319cd31eed36c28a1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d70265dead2bd89e",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Adapted Screenplay와 Los Angeles Film Critics Association Best Picture가 인정한 작품. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "d70265dead2bd89ecb8445fd1c9217d49f5fd1116cc11d2a8c78a483768bdf91"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7f66bc820955fb76",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die와 TIME's All-Time 100이 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "7f66bc820955fb763cc4572594342d995aa197600b6b1884b668ae33af596c89"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b15fe5808a4d002f",
+  "field": "text",
+  "lang": "ko",
+  "text": "Jury Prize와 The Guardian: 100 Best Films of the 21st Century가 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b15fe5808a4d002ff638ca71fd0bd81b84fbc7041118796808189b54918b6c23"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7c897e16d866d860",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA Best Adapted Screenplay가 인정한 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "7c897e16d866d86085d8f6284f8ac9b4951effdacebecc6c2799da6b2a115e4e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6ee5ad5bfdc1a3a5",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Nadine Labaki의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ee5ad5bfdc1a3a5fb0120edbe41d4ad36279c077e650041b443cab23f562fc4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "44e27673ec005c92",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century가 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "44e27673ec005c924fd2f879203c3936bb6bf16e74145d3274f7d2e5e6575c78"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2b846d7988c632b5",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 David di Donatello for Best Film에 이름을 올렸고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "2b846d7988c632b5c30cd74f6906aa204723e10b75fd3c10f241a51f9859136f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "996c17668a220746",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 우스만 셈벤의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "996c17668a2207464679b71660ce0ec4ce9b4df20298d70a20ce4dfbf6bafda9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2adc01b68a079d86",
+  "field": "text",
+  "lang": "ko",
+  "text": "Goya Award for Best Film이 인정한 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2adc01b68a079d8695e74f7ae650b5adcec3e6985705b4a65f710929e463d505"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e21e39752eb1de0a",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actress와 BBC: 100 Greatest Films of the 21st Century가 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e21e39752eb1de0a3bc0698457e9ce8e7e9ba9258f2ee8ce23eda51c12e3c01d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "deb42c3e4479c489",
+  "field": "text",
+  "lang": "ko",
+  "text": "TIME's All-Time 100과 National Film Registry가 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "deb42c3e4479c4891d4b84d03eb3c1e46ac27339cfe239fbf0bda9e48269de64"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3a25c11058c8e5e4",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 Best Film이 인정한 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "3a25c11058c8e5e4c0e5535519e5a208bc2e6962e89f739355d071a2b667c93e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3f43bde861c0a45a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Athina Rachel Tsangari의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "3f43bde861c0a45ab0cfd4c17d57985a269137c0b09181f96accf6eac6b1690f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63643472366079dc",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 Critics' Choice Best Picture가 인정한 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "63643472366079dccec72901f73b937f6a88f8d5858bba48be5782b771a81277"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4c0cdb3ecc85de00",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Film International Competition이 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "4c0cdb3ecc85de000cdc62e2a3f66dbf5948826d444a9d171e327ce2835dba9d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3cfe47b0a8ca3158",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 Best Director가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cfe47b0a8ca3158792e38fc68d8b1dde6211ecc780b49b649440b9bb7bfd2dd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "65cb0d8a41de0149",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear와 National Film Registry가 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "65cb0d8a41de0149a678a999d2e17fe7e00469f7d4bd5713f993f7120510f2cb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a876e6d4ada2865e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Srdan Golubović의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a876e6d4ada2865e1bd856425a510fdfef97e1c120da47a5395e3f5b2f6898d8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9316c77572c3b3bd",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 Abraccine: 100 melhores filmes brasileiros에 이름을 올렸고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "9316c77572c3b3bd1f703ba4a4696cd5d96ee320a9200491ed63931b13a78d25"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4012a08bd84464b5",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 Golden Shell에 이름을 올렸고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "4012a08bd84464b5bd6c9ae517de2175f04ad347cc768f778e778294ec5ff44d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cedefc5668a17936",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Director와 Best Actress가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "cedefc5668a179360631c816b82dbe08f2af51342adcad799ee29b62aa385f45"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b6e2bb37b459406d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 누리 빌게 제일란의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b6e2bb37b459406dae0489868666796a0f6ba081b6729191061748934eff5866"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "35069578ec70e619",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 빅토르 에리세의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "35069578ec70e61992dab005dc1142db1e8abd68bf6e37a59390e44a6198bb3d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1b773d4ef9849945",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 칸테미르 발라고프의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1b773d4ef98499451ca8d9c70bf7815b7d5e24bac751972fd159c360f93b75ab"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "92bf9edde593853e",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 Best Adapted Screenplay가 인정한 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "92bf9edde593853e4fea83c185a31f33b0c381898557e6385c6a319a6c7e96d3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7188b08bf4756199",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 소노 시온의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7188b08bf475619953d9f9b6282818ad316e3aa4be0f4a1bc2489449f719e0f3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "49dcc1b31486c2a3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Director와 European Film Awards Best Film이 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "49dcc1b31486c2a364170b0ee76943ea1c7ce26c7aa96f088b6725492c1b00e4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "96feded671903ca1",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor와 Best Actress가 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "96feded671903ca1acc78d638d22aaae72e7618f7deb84ca77767f8d4ea7abac"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d07a1d64a908c676",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Juho Kuosmanen의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d07a1d64a908c67614a7acb1b4bc0d814fc19de16ae47c87517eddbb059cc38e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "beb0e9c3037d10f9",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Film과 Best Adapted Screenplay가 인정한 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "beb0e9c3037d10f98340471bbb8fc638b27c0988ed8cd8fb70477db1dee59ae5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3c3566fe40a06cac",
+  "field": "text",
+  "lang": "ko",
+  "text": "대종상 영화상 최우수작품상과 KOFA 100 Korean Films가 인정한 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "3c3566fe40a06cacf346dbb9449749c62c264a79082dde7b522c24ce8b5abe7a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d5a8a01f58e896bf",
+  "field": "text",
+  "lang": "ko",
+  "text": "Polish Film Award for Best Film이 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d5a8a01f58e896bfb095b388f79ecae238b57ec8524fc91fbba72fac5731b330"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "671442d4b17b7422",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 Best Original Screenplay가 인정한 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "671442d4b17b74226b13ab8d1c5af8b05bd3613767dfa7e389e487b71e18ab04"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "55ccccbf5c7cd0b8",
+  "field": "text",
+  "lang": "ko",
+  "text": "Somos: 100 mejores del cine mexicano가 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "55ccccbf5c7cd0b8db3b0b0e614e92446907b72c5c5c5ab54aea064ea0fea588"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c541d8a7fbb80d1c",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 National Board of Review Top Ten Films가 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c541d8a7fbb80d1c9bb0d02d536bc9b7aeef298b6c8ff8993a7d7b814ac632a5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2a642365da12bd66",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: XC",
+  "model": "claude-opus-5",
+  "source_sha256": "2a642365da12bd662bd10f47631fc3b9bdf7d9bfbc0ddf063077e50ff1d15b08"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "57b5bce13a5c1f2e",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 체코슬로바키아 뉴웨이브.",
+  "model": "claude-opus-5",
+  "source_sha256": "57b5bce13a5c1f2ede132b502dbe69ef570c2cfc81555980f50ddc39a6b92a9b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "53e6cd4a6a03ff7d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 페드로 알모도바르의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "53e6cd4a6a03ff7db825d0ec4254c0ba15a7debc546cbbf025d717f4c97c1880"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "835309ebb1527b7d",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 Best Film에 이름을 올렸고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "835309ebb1527b7d28d6ba926600eb9a4a698925062971536a99001b0512a8e8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e6d931d00bef7151",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Board of Review Best Film에 이름을 올렸고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e6d931d00bef71512799ce49c473af16735bad13d7fb2e92e7ea23c82fd2e15c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ce16b28014e47d4e",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 TIFF Canada's All-Time Top Ten에 이름을 올렸고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ce16b28014e47d4e33ce7bfcd624de02f747d8b058f536a03fe70afdb33bd404"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "305f60c8b7283222",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오시마 나기사의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "305f60c8b728322220ed3c7aea2b18460f3fa8df6009dd1688869e5863232ca6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "546f347a908e1911",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Director와 청룡영화상 최우수작품상이 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "546f347a908e19110accbfd906e2f39786338253d8634e58a6dc1571d8276bf3"
+ }
+]

@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cbbba7997e9c385d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Albert Maysles의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbbba7997e9c385db173909e4de05e18be02250d6ae731f091551b8428a6742f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ea9c3c4c393bf448",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Eric Rohmer의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea9c3c4c393bf448f9a3251858009c0bbb047032ee28fbb20f23dab9da19f717"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5077c0fb3f2a9fee",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Best International Feature Film에 오른 정전의 핵심이며, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "5077c0fb3f2a9fee6ced04d7e90916cf4ba3c25dd60682ec0003942a6aa6ad47"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "68d31b6b615a82db",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: PT",
+  "model": "claude-opus-5",
+  "source_sha256": "68d31b6b615a82db525c05a6e93e10abb9c34984e305e6a9e99e38efb71ab25e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "671e2591008b2abc",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Jury Prize에 오른 정전의 핵심이며, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "671e2591008b2abc3bdb59558cf237f28e4fc8517e6478a0acb960a0b4755fa9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "037d2009f6f81c9e",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor를 받은 영화이며, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "037d2009f6f81c9e5516691102ea74d4a0ed1ec32cecbf2b21e922f44e9c3d7e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7bafe9b5b1a5050b",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion과 Grand Jury Prize로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "7bafe9b5b1a5050bd8e323886bec1134c03416913c3af7f1f143d3bd59678bb6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "45e2ba59797cffd5",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor를 받은 영화이며, 일반 관객에게 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "45e2ba59797cffd52a5530d5818fbdf8f80679f18bae42fbf2517e947eefd344"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "695392a74b5de88b",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Dogme 95",
+  "model": "claude-opus-5",
+  "source_sha256": "695392a74b5de88b98fa7109458f3ff7537e0c68369cfd0cb21a330f966f590f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "627548c9821ea52e",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 National Board of Review Top Ten Films에 오른 정전의 핵심이며, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "627548c9821ea52e09ff59c4df0c0c00356278179d7d46d81345d92753d3a7e0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "37b046731da49d18",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Satyajit Ray의 정전화된 작업이 떠받치는 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "37b046731da49d18f1c00c3b8337b3df196f8063a54b5422772cf9336298b576"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7091cfc02e8a1bca",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Parallel Cinema.",
+  "model": "claude-opus-5",
+  "source_sha256": "7091cfc02e8a1bca095cdc0e34ab3d5dfe2f97b8a7f8bc9121d50f9303131011"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0d8cc1c32a79c135",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 박찬욱의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d8cc1c32a79c135c4ba1789a2436fc4a64b2bbb0d695260c3cf20b5014752bc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "28a76e59748e8adb",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Matteo Garrone의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28a76e59748e8adbb54170233bac6bb9b48c078760a6a0681b0f280f3deb3e25"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "afad1c9a9ce3f289",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: New Queer Cinema",
+  "model": "claude-opus-5",
+  "source_sha256": "afad1c9a9ce3f289a979f1e5ceeab5856aa8a5e61534f2f9885a1e7bf98c419c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8d2703e8abd965aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Gus Van Sant의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d2703e8abd965aa583c755bc6c189a4f79ed487063234c94428d907c7299037"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f75003d32fff49ff",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "f75003d32fff49ffa758c960d7e136d609b77ab3efa64d6be45eab7bd24a7799"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7ebc9c3473899600",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Pablo Larrain의 정전화된 작업이 떠받치는 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7ebc9c3473899600a4d02d3d5dd69bcbd90351d0e16caa1f4f6f865cbdc4c513"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1e660a5684077f22",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: RU",
+  "model": "claude-opus-5",
+  "source_sha256": "1e660a5684077f221d751a56406118b67bbe8c568ab6925192a5d91d8ae83765"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b77ea90a136065cc",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Prix로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "b77ea90a136065cc14c8ca87885a2c5c60afa9fd5f1ef94e788d0835302a0be7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "18469a332c62c584",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 천카이거의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18469a332c62c58470da6d74102a1272c934d874db257b071a4c886662b97976"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8b16e6a2fc009d9b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 F.W.의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b16e6a2fc009d9bb7455a78d2ad8977b64200a79d2f3670baeea79a5c3de11c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9a5d9d1cfb0e70ec",
+  "field": "text",
+  "lang": "ko",
+  "text": "Murnau의 작가 계보.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a5d9d1cfb0e70ec3f2128a62342c5aef5060aff46c3e7cd165d4ab63a219ecd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8832b6a9ba8f6382",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Kelly Reichardt의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8832b6a9ba8f638209497fc436e38c93234784eb4b149ecb61c4c72a78191ba6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fbb973d77a3b3003",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Registry와 National Board of Review Top Ten Films에 오른 영화이며, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "fbb973d77a3b3003f5407facc5bb5d7e6ea1f58ae651a574c7bd089c533f519c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "07493d47cc9d770d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Director로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "07493d47cc9d770df7d408db63542ca16123b451ee19269e717667e87d8ce985"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9236a64a8c58f43c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Noah Baumbach의 정전화된 작업이 떠받치는 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9236a64a8c58f43c08e1e4dc6ac4ea2675ab0cc8b1a291c8811f9bb4e909f47d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "696bdf4990e9c7d1",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Kinema Junpo All-Time Best Japanese Films에 오른 정전의 핵심이며, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "696bdf4990e9c7d1bbdb5379331fa5f6e32af41cbb7252129e9b2e5d5f4adea4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "82a4f594adc8d31e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 고바야시 마사키의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82a4f594adc8d31e4fe1731400010e9b97bb519e434713728176e88f75dc34e9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d25b0b3778b190a9",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor와 National Board of Review Top Ten Films를 받은 영화이며, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "d25b0b3778b190a96cc1c2dbecc22eef7909e6364585c1cf12886838b614fd1a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "13745d106e6af2be",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Max Ophüls의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13745d106e6af2be9ff6f2a134b414a2991bbd87a399f2262a128f9c81eb3625"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5f7893a4e549ceee",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Pedro Almodóvar의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f7893a4e549ceee6cf0505803cc96af76db603fd8d90443444365af7ef50bd8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5f6a958c47e613c9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Kirill Serebrennikov의 정전화된 작업이 떠받치는 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "5f6a958c47e613c9b795022d3189c7a7ee25178f425488f00d83da0745589e97"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72f67b88d80022f9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Joachim Trier의 정전화된 작업이 떠받치는 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "72f67b88d80022f9b6b46ad80a7d789d5348dd8537fc5f47385a200d3790fbf4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "58319edc6ef565c2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Wes Anderson의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58319edc6ef565c2465603759b903c80accc27875925e8458d9eb1832ebfd88a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "30c5a5b7b65e937d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 미야자키 하야오의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30c5a5b7b65e937dc0c979858d3718523637ac738c360738b5a4da26b8a0dcab"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "afa3f72007fa53f3",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Rob Reiner의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afa3f72007fa53f39509106a96695da43c81906c7b4db0e8b069cc9edb94fea5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7d557b9af51cc1a4",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Steve McQueen의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d557b9af51cc1a4aa6bf91a922f211ac15b9af42351ddd628f663e486348928"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "850dc139d4376ec3",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치로 높이 매긴 영화이며(Value 77/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "850dc139d4376ec3a1333cd71de6f3945a5e990736beae5c1aec992403c070c5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dfc2e27e8fdcdc1f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Cristian Mungiu의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfc2e27e8fdcdc1ffaa4b574236c091a38319928a51b3cb196c453998afcc03b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "796a572f4e3139e1",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Best Director에 오른 정전의 핵심이나, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "796a572f4e3139e10d2ff212c7b80042ee7184af97d1bc4a6416c31a46d0ff83"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c4b3c6f0a6e07ddb",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion과 TSPDT 1,000 Greatest Films에 오른 정전의 핵심이나, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "c4b3c6f0a6e07ddba7c85704bc1213436456dfa7e3ad65d0952f08ce6a293e9f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a7034530ec459678",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CL",
+  "model": "claude-opus-5",
+  "source_sha256": "a7034530ec4596783065f97ba24ee8e4cffcdc632c928bec0da2384480ce6778"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d8d6e90f1b958bdb",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear for Best Leading Performance를 받은 영화이며, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "d8d6e90f1b958bdbb05c2a92733678f2da55a6f7e77b8ae477bdb8d5e95c5f66"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ed25e50037d53e0a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Krzysztof Kieslowski의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed25e50037d53e0aa1729d6a72b57fd6663214e25551dfc73c00a1d572bd4d40"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "690db3b8750559bc",
+  "field": "text",
+  "lang": "ko",
+  "text": "Gdynia Golden Lions for Best Film으로 인정받았으며, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "690db3b8750559bc889954902e312483b2eb838f1a22688f6a28d2dc1bf50251"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8b7a7f3e7041c1f4",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Registry와 National Board of Review Top Ten Films로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "8b7a7f3e7041c1f420a3463b6a4e49347f5eba4f143dcbd5ac87e7f53f9a8fff"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fd082501bb4caf7f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Spike Jonze의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd082501bb4caf7f0aec259863e9d77d626ebe03875360fbe25ac818890f94cf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5f5fc0509b0fc116",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear for Best Director로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "5f5fc0509b0fc11622651494a60183c6d0c3ba7c44e7c4894a41f58c3fe405dd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "28158fa7bcc59200",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Radu Jude의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28158fa7bcc59200cc28a5216782eb118ef5daceee1362b1ea1f5918264953d9"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-disbelieves-her",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집이 위협으로 돌아서고, 지켜보는 프레임이 여자를 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba01c5d774322bc6808521085fc7a089800b67c03c6a45d238603d1637992db3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-drinks-with-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "취기를 대신 연기하는 장치.",
+  "model": "claude-opus-5",
+  "source_sha256": "509256a442d9ea4e5931dc2318807979fb10e155d8c8eacce736a613bd89c1a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-has-already-died",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈가 세계의 무심함에, 그 죽어 있음에 도달한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe5e06d93ed1136c5c2c6044d466e9e64526c03ad029b39816e5b9092afbd84a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-hunts-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임이 사냥하거나 두들기는 힘으로 변한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0937c5c6ae9e5e69a58c680b3af08c0b5e57d86851a0a5f6ea79f19419a1757c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-implicates-its-watcher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장치가 렌즈를 돌려세운다. 보고 있는 우리 쪽으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "18d5031799cc4c48324e57155b0f61ecd58395d283a92ae5c9a83eb91e8ebadf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-knows-more-than-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거부하고 감추고 내다보는, 별개의 지성이 된 렌즈.",
+  "model": "claude-opus-5",
+  "source_sha256": "18a5e7500e6ec08abce131ea8144e501d819cdaf65ff14141817761bfc26a90a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-records-its-own-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스스로를 찍은 화면이 고백이자 감시이자 자기 고발이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c5d7171f30c3694f61dbc0d146c181d516876389fb419ec5f4507510525ae91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-refuses-to-cut-away",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 몸을 프레임에 붙들어 벌어낸 공포.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae48822b327d09912df0b38c00694c38de51304d5ce704e044d905ec79c0322b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-refuses-to-flinch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈가 자비를 거둔다. 관객은 마취 없이 참상을 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b3e825dd7fb3ded843e8e46b58744413ce096427ace5c8a28bce3eb6891e3e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-refuses-to-show-the-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임 바깥에 남겨둔 것으로 그리는 제노사이드.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bedb90e1af0bfd9aee74b4840cd823c0af1caa4b0d718dd963e317862a5c13a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-watched-but-would-not-save",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈 뒤의 목격자. 끼어들지 않음으로써 공모한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d598a5f07246e1ef6760bb3036a1ac5e9ed82c0015c46e2e3206ce692365556"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-withholds-comfort",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고레에다의 화면은 위로를 내주지 않는다. 슬픔은 끝내 풀리지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16586454f82547d5af1d7169f19df275eef82a62f91e00a95eaff5bd017e0185"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-turned-against-its-captors",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "포획의 도구였던 사진이 역전의 무기로 뒤집힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6384fb989e6862f01c7c6126988328bc378a163ba537a51b77b9a4f96116e65a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-turned-back-on-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시받는 삶, 애도하는 삶을 스스로 찍어 저자의 자리를 되찾는 여성 영화작가.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cf75ff1cb33a3fca5c427b51828ff9e9e15b966d8af8ad5dbb3fbf7e53d62b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-turned-on-its-own-maker",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "핏줄이자 고백으로서의 촬영. 만든 이를 지켜주던 거리가 녹아버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1824875c25aa38e9cafdb7e4e3ac66da25743bf1ef9844db94927dc77dee4131"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camp-as-hidden-constitution-of-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "근대 질서의 숨은 논리로서의 강제수용소.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae91a9ddb14108722ca551e9c188b2e795914418763b498eec228e6c421b92ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camp-logic-as-survived-condition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절멸수용소의 기계장치를 인간이 아직 벗어나지 못한 조건으로, 혹은 현대 그 자체로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adc98b973ecbf1fd131601ff142885145888e7ab3341b1911cc02f22024b8411"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camp-that-refuses-to-be-a-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음의 자리를 무대로 되살리기를 거부하는 것. 그 거부가 윤리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21af120ae9484f47b2c49e321a84686d4323dcbffe0bd6ad966a1177d6e65a66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camusian-stranger-misread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뫼르소로 불리지만 그의 명료함만은 끝내 갖지 못한 주인공들.",
+  "model": "claude-opus-5",
+  "source_sha256": "d17a6e9cc6687328945640eb072e16b3801d59163812c0bb545afe07cd53e425"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-canadian-backwoods-wearing-another-world-s-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "온타리오와 북방 침엽수림이 스크린에서 다른 땅 행세를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "deb9456fac25cefdf45e0733b5e49029d22e4e204fa19526c704df1dd83e87ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cannes-ovation-as-diagnosis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화제의 기립 박수는 평결이 아니라 증상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ff9b6905281f1daf7d4120600302c831f7c5cad75b44f8a60ba05a16940dbf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cannibal-as-capitalism-eating-its-own-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소비가 문자 그대로 실현된다. 체제가 제 살을 뜯는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac32a4c5f6999f07485d2b77a35b2fb83e6b2141958251c467213b84442d012"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-canon-crowned-it-to-serve-a-need",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정전(正典)이란 뒷날의 문화적 필요가 소급해 만들어낸 발명품.",
+  "model": "claude-opus-5",
+  "source_sha256": "825827f6f594253e114acdadbc90194b0ae2be6bef14aee1cfba76b4d7de6bc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-canon-s-coronation-read-as-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 편이 어떻게 신성해졌는지를 보면 그를 떠받든 시네필 공동체가 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "683061269a23350a3eb8004d378a0c0bc08c89a598c81a107d1da0c9eeabe348"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cape-that-wears-the-patriot-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대량감시를 영웅적 대테러 인프라로 정당화하고, 다시 극으로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b76a68add6e38d7b6d6b01b659ca6f87b369e77e9ce0d7376010f671de154635"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-capote-stand-in-devouring-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인공은 저마다 트루먼 커포티다. 남의 비극을 먹고 사는 기생 예술가.",
+  "model": "claude-opus-5",
+  "source_sha256": "67665b43ff25a7dcaaf358f8574b35b1bcc8dd493ad57bcc64ecffe86cfe1b4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-captive-behind-the-glass",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 공간이 곧 그 안에 갇힌 몸, 혹은 양심이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c131e989d3ba5e8f593d2f70f0ec51b9ac9a86361880184110389ca384285ee9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-captive-bolt-that-reduces-body-to-meat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도살장의 논리. 사람이 서로 바꿔 쓸 수 있는, 처리 가능한 고깃덩이가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adec4b178014219703b9064356d990e57465cdbf48276274f80cd72ce7f93d21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-capture-medium-as-its-own-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기록 기술이 영화의 의미를 직접 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdf2f6d6d3f45a52cd2b264d9ef8f3d7beec15fba845275be2ab60e760a89e51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-car-crash-as-erotic-sacrament",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "발라드식 상처 페티시. 금속과 흉터와 욕망이 하나로 녹아 황홀에 이른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57ccd5012dd7e64302d463b14cf63f8e0d10ce0d6e16eb8c9a37bbe073979db6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-car-crash-as-social-reckoning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차량 참사가 화면을 찢고, 눌러둔 집단의 진실이 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b0029816bf5ec88953bb0310568fb4df809692b9af6668c80c303de5fcbe733"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-car-itself-as-the-film-s-secret-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작동하는 주인공은 운전자가 아니라 차다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e107b3e79fdb8cdeb7bd133ddd446820ac75bce4dc3c953869605626f6f2ddd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-card-that-reasserts-the-calendar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자막 카드나 확성기 같은 삽입 장치가 선형의 시간을 포고하듯 설치한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13fe2e63d6d4388de48017c613738edc1e21497b521eb147e5366d9c282636af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caregiver-who-chooses-the-face-over-the-rule",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눈앞의 한 사람을 돌보는 일이 생존의 계산을 거스른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38933a8d160785e8577b89b2b5c519ac981aee6236270dc132ab7282f0b60f51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caregiver-whom-care-made-criminal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑이 선을 넘는다. 다정함 자체가 죄가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5a55a71737bf0840fed69c59ec5081c6fe14fa8c7456b8796dcd3b626015675"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caregiver-whose-love-is-a-cage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치유가 감금으로 바뀐다. 둘을 묶는 것은 상처다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83651e99fd54e343a774db0f04441258776b62982de7545a87d4ee4fc3eaa5ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caressed-fetish-crossing-the-curtain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "철의 장막을 넘어 밀반입된 스타킹, 그 페티시.",
+  "model": "claude-opus-5",
+  "source_sha256": "301e3ef1be0f4a90d412fec75cf4f63fc052ab2a17c399801cc967246357ace8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caretaker-whose-mercy-becomes-a-regime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "선의가 통치로 굳는다. 치유자가 세운 질서가 곧 우리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "956308097d9cf414af011f0335f91f1c91d9a8e9adb402045a97cfcdbab997a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-carpathian-real-beneath-the-studio-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구의 지명, 옮겨 심은 지리 아래 눌려 있는 진짜 지시대상. 동유럽이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b283eb5712c907ea0a91c5a561a10b7687f49b36913120a4c26e6573455d371c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casino-as-capital-s-true-cathedral",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금융의 진짜 엔진은 도박장이라는 듯 찍힌 궁전들.",
+  "model": "claude-opus-5",
+  "source_sha256": "a550e8e5533a5d60cc78b162dd1fe6abc94108bfc7ec13abfd4cc41f398bb1b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casino-filmed-before-its-demolition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미 철거가 예정된 서식지로 찍힌 라스베이거스.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c8e878f2de49eef0468ccbf4425df0eb781748326d7013ba9f18c92e263014a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cassock-as-sovereign-immunity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사제복이 세속의 법을 막아내는 방패가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91d09eee353d0d910cf5e6514e58b78f838a8d98a07e1d5ee97cfc2ff51350e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casting-choice-is-the-real-text",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배우의 몸과 계약이 관객의 기대를 무기로 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11bbae759c8e709989e905248e14e09424e1f6b4a8fc1ed6346e1cb61c83a944"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casting-outrage-as-authenticity-policing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 그 역을 맡느냐를 둘러싼 소동. 그 밑에는 순수성에 대한 불안이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "046134f86ce8e06ce9986681a8fcb9af1b5adfa5720aad7268ea71107ede73f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castle-built-to-outlast-its-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호그와트를 그 안의 허구보다 오래 남을 축조된 기념비로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab8b38cbe6899fb1c9d4746c68be2516bc95eebdf7758806467469bb99220f80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castle-that-is-its-own-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "요새는 막으려던 파멸을 제 안에 새겨 넣는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "066d595411262a418ea80ef877e5dc42c4034b9ddd471f3b182e4f95eace0c20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castrated-patriarch-in-crisis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남성의 권위가 무너지고 썩고 물러난다. 마지막 증상은 폭정과 떼쓰기.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b87e007afc23f375b7344d1e2c70eb0a05d4a2a416b997df71c1c9512ce0c7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castrato-frozen-in-his-role",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성을 빼앗긴 자, 빠져나갈 수 없는 배역 속에 영영 박제된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b34ea643a3bde250dac969a640eaf21a0ebe00c185ea0420d8239dca7355ebf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cat-as-externalized-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고���이가 주인공의 생기를 대신 지고 다닌다. 그 침묵이 곧 상실의 표시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1696b3cf9fed23958663215c31f3382ee3302140866f3e0347ddc4f20ff54c85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-as-self-deception",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트의 도덕법칙을 불러내지만, 끝내 알리바이이거나 회피임이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a838b81ba113ecca5e950395c1519f4f62c57c4d9a49c94fc626acd03d70692"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 몸, 한 몸짓에 깃든 칸트의 도덕법칙.",
+  "model": "claude-opus-5",
+  "source_sha256": "62a5df81a2b624361ad7115a77f7caa20e5c44e563323cd8b09324d6b38ebdf1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-tested-by-a-child",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이에게, 갓난것에게, 아직 도덕 이전인 존재에게 걸어보는 칸트의 도덕법칙.",
+  "model": "claude-opus-5",
+  "source_sha256": "082c1635b107d3f62de96b318d2d2d3d102e4a3c31182be3ab5921529db886aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-turned-against-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "너무 철저히 지킨 나머지 잔혹으로, 희생으로 굳어버린 칸트의 도덕법칙.",
+  "model": "claude-opus-5",
+  "source_sha256": "e303989632ab75dbd86ff317d905f7af0df1f15a2449fae8cbe3a5fd6ea543a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cave-as-allegory-of-confined-consciousness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "플라톤의 동굴을 다시 읽는다. 지층으로, 감옥으로, 배로, 가짜 하늘로.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7c9dd61d3756d02e6f926783c6bb951b2b436a0d4faa74148e1c8fdddc7cd7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cellar-as-buried-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지하실에는 한 나라가, 한 정신이 묻어둔 것이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27be4ee4e5988d170d427bff586390b476da931ec39845885d0392461a21a086"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-celluloid-strip-confessing-its-own-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "긁히고 삭은 필름. 영화가 눈으로 보여주는 제 필멸이자 죽음 충동.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0a73400a12e716a95b33b80b0790efb0c47248a36b89c1f4e1220f59cb7f124"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cgi-lab-that-birthed-a-new-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만들자면 새 연산 도구부터 발명해야 했던 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a738466a6c0ab7627e3eec5587858760900e9ba92357bea62b526736439c485"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-champion-defined-by-what-he-cannot-win",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "승리라는 상. 다투어지고, 텅 비어 있고, 제 손으로 스스로를 무너뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "129a75a7e063dd57159cfc0b1d381925b04a4d63964a45a17ce4ffd7d5677b80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-champion-who-cannot-hear-the-people",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대중을 대변한다는 예술가가 정작 대중과 멀어져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6987e4f64fb9d0fd626b7051b567e9038de3d9ec62b47e7db38c220e88a61742"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-character-named-grace-read-against-her-grace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그레이스라는 이름의 여자. 그 '은총(grace)'이 무엇을 가리는지 묻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e8cf8c5bcf30b28458dae57632922c296a17268aead645a20a4024617b7db67"
+ }
+]

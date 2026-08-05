@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9c28e10536c94180",
+  "field": "text",
+  "lang": "ko",
+  "text": "금계장 최우수작품상을 받은 영화이며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9c28e10536c94180afae0fca680c49491a34de90c441924cf918e7c7ce2e9fea"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "246291e510a598cf",
+  "field": "text",
+  "lang": "ko",
+  "text": "은곰상 심사위원대상과 금계장 최우수작품상에 이름을 올린 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "246291e510a598cf8165c66d58f86a77661ac8ce5539f2cdf21498353aa98e77"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "88f5dae19bceee5b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독상과 남우주연상에 이름을 올린 작품이며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "88f5dae19bceee5b1db87bf68378f21db662f2927f3a4362c6653f77036e4e65"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "326d7fea98f68e51",
+  "field": "text",
+  "lang": "ko",
+  "text": "클레베르 멘돈사 필류 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "326d7fea98f68e51a19e8191feef701fe81672e8b09032f696f8cd2dd8dc1432"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e96ae5e1e48ac463",
+  "field": "text",
+  "lang": "ko",
+  "text": "모하마드 라술로프 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e96ae5e1e48ac46391248304f5978794737ce2f8f35378a1c0df34b9d4171837"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "041bf83435384e34",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 황금사자상에 이름을 올린 작품이며, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "041bf83435384e34e34fde3b8f919d9bba9c4ecf5a5b949733c977a26995aa34"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4e3534a7ced8293f",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore 측정값이 유난히 높은 영화이며(Value 80/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e3534a7ced8293fdc5b9844f7acd4341093d335bb94ddc908f9201a943b8e12"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7df4e93b0df90b32",
+  "field": "text",
+  "lang": "ko",
+  "text": "AFI 100년 100대 영화와 WGA 101대 시나리오에 이름을 올린 작품이며, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "7df4e93b0df90b32160a33bd0b096b51ce34f6b2e824f6554f9f6b30e57b3493"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "947d27cebcb3b1bf",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금종려상과 다비드 디 도나텔로 최우수작품상에 이름을 올린 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "947d27cebcb3b1bf63577cbcea1305abcbfd92a99b0705fed09c2af54ad75d0f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2db03d7e536107a8",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore 측정값이 유난히 높은 영화이며(Value 80/100), 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2db03d7e536107a8416dd4edbfdd488201170fedc6474806e6ed1ef0f917da41"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1d7e9cf14896859c",
+  "field": "text",
+  "lang": "ko",
+  "text": "루벤 외스틀룬드 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d7e9cf14896859cbbc57ebfd233011c614851cc653761e47acb7bf781f7addd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d228b8f1b55e660e",
+  "field": "text",
+  "lang": "ko",
+  "text": "프랑수아 트뤼포 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "d228b8f1b55e660e48ab8f1e8514734408f54cedf32daad75d8d8dfdf8480e12"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "031f0df4dbb85695",
+  "field": "text",
+  "lang": "ko",
+  "text": "일디코 엔예디 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "031f0df4dbb85695a95debb8731537292a0da68f9358f0704d85776360811395"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "87540fc8c31e293d",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore 측정값이 유난히 높은 영화이며(Value 80/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87540fc8c31e293ddacd2f071581688d1c7147117824d48cd53ad59a02722ab3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "df72c09562ef6c5d",
+  "field": "text",
+  "lang": "ko",
+  "text": "TIME 올타임 100에 이름을 올린 작품이며, 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df72c09562ef6c5dfd8d6db6d9065e02b7328684c07489084611d263d78806d7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "54320584d952bf20",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, 황금곰상과 TSPDT 1,000대 영화에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "54320584d952bf2056c54967872c6952a4feedaf5b45ea1077376536b77bebdf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "304b185b9a13f187",
+  "field": "text",
+  "lang": "ko",
+  "text": "일본 아카데미상 최우수작품상에 이름을 올린 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "304b185b9a13f18739ba34bd87c8c7124f9ce5ab1040ebd2aeb02c7b7cb13c30"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b3736acca2705d3e",
+  "field": "text",
+  "lang": "ko",
+  "text": "애쉬 메이페어 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3736acca2705d3e8d4e43a703ce88323c6065c0d1561cd98f286166c9e96fb7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cfdeae50a3a2431f",
+  "field": "text",
+  "lang": "ko",
+  "text": "스르단 골루보비치 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "cfdeae50a3a2431fead7d9b7917d30baba085197956e8e1ee3e6fb03805cc6ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5920bd393e336e43",
+  "field": "text",
+  "lang": "ko",
+  "text": "미로슬라프 슬라보시피츠키 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5920bd393e336e43d66adb2aa5875f1784ae8a57a35712ab276ee8fd834eaa3e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ddaddf98931083ac",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 WGA 101대 시나리오에 이름을 올린 작품이며, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "ddaddf98931083ace46a8471ee0699de93fd7243b757bb4aa2b537472e78d76a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5e285221e6fb1ac6",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA 101대 시나리오와 전미비평가위원회 10대 영화에 이름을 올린 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5e285221e6fb1ac656ba76e52610326f94109649fe80b3bf3d275ee5e9d55b43"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "160a5ad9c46a3a19",
+  "field": "text",
+  "lang": "ko",
+  "text": "카우테르 벤 하니아 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "160a5ad9c46a3a19f65c91ccde0e7c3e1d7ae12a4657f03439292fd002e94baf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "909a023884f141fe",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, 황금종려상과 황금곰상에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "909a023884f141fe6a24c15a6dec7e880c524d11577329b106e59aa057c6b1ed"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cdf0bd8136057984",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상과 감독상에 이름을 올린 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "cdf0bd81360579849997d87a07aeb4a87284dd494c35a49a202dd320a13d4285"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a19fe26980c4f2ea",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상과 금마장 100대 중국어 영화에 이름을 올린 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a19fe26980c4f2ea49701baf35642ce59dc227cc048b1f7e536ece2ca5f71c83"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b9082c2e45bf13e3",
+  "field": "text",
+  "lang": "ko",
+  "text": "DOX:AWARD에 이름을 올린 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "b9082c2e45bf13e33ada692cf5b5c2334e447ea66772a66c75c8f66d9f3bea75"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7b34592476dd327b",
+  "field": "text",
+  "lang": "ko",
+  "text": "굴드바게상 최우수작품상에 이름을 올린 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "7b34592476dd327bb4e220db369ef63bc37c1f785d8b74fb28d4c0604391849d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "71cff5c1b81448fd",
+  "field": "text",
+  "lang": "ko",
+  "text": "누리 빌게 제일란 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71cff5c1b81448fd0991a26f3cc59985205238e25afab9de8dcf6a128cac95ff"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "02a4b24f76089660",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 가는 값어치로 높이 평가한 영화이며(Value 78/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02a4b24f76089660c1496ed51d853491d5a53729b524d5f623919b2e0a90e061"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bf1b3fdeae08d789",
+  "field": "text",
+  "lang": "ko",
+  "text": "세바스티안 렐리오 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "bf1b3fdeae08d7897bd9c091c6e5efa404b83a23bdd7cf2ff7d1f80a5583ca9e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "33de757ff0f16084",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000대 영화와 인도 국가영화상 최우수 장편상에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "33de757ff0f160843e3ea342f211959e1221273d7e14131342eec2286ca08d0f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9b5bbb6a201b95cc",
+  "field": "text",
+  "lang": "ko",
+  "text": "여우주연상과 뉴욕타임스 21세기 최고 영화에 이름을 올린 작품이며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9b5bbb6a201b95cce539a785e3cc27fb765eb53a9cdaea8f95b4eecba54ad1d8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "976898cc37b53455",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: 아니오",
+  "model": "claude-opus-5",
+  "source_sha256": "976898cc37b534555f037ccc87f64465886f19ce3a779df823819b7fd97ad540"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "324f016484906bf4",
+  "field": "text",
+  "lang": "ko",
+  "text": "요아킴 트리에 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "324f016484906bf4c4f11586a6f87bd8b15dcbacfc9c6b027eb2b4c034cd64be"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6130ea70b0b6bb94",
+  "field": "text",
+  "lang": "ko",
+  "text": "존 트렌고브 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6130ea70b0b6bb94388a81ca1ba5818b15988d94462c76c45a7e75b65daeca1b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "195fc88504b37a1b",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금사자상과 인디펜던트 스피릿 작품상에 이름을 올린 작품이며, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "195fc88504b37a1bc51944c69fc22fa20e1252d83a8f80ac3c355313465cf2a6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9862c5b68e6e8721",
+  "field": "text",
+  "lang": "ko",
+  "text": "나홍진 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9862c5b68e6e8721eec48c212b402c8e42824f44732431a246c3e15b8c1bdaf2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d8fa7d7a29e1a96c",
+  "field": "text",
+  "lang": "ko",
+  "text": "모하마드 라술로프 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8fa7d7a29e1a96caa356c97e4f9417d0a49fe97ef7308fc7faa86684ae0c739"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4730142c11c91c77",
+  "field": "text",
+  "lang": "ko",
+  "text": "파올로 소렌티노 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4730142c11c91c77eb18caf6e8e2dc2503d663c543380b1e473493d6fd6d2efa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1a34b61694faea6b",
+  "field": "text",
+  "lang": "ko",
+  "text": "작품상과 여우주연상에 이름을 올린 작품이며, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "1a34b61694faea6be2a99a90042edee27dadd691c28fc871c9aff22a018444d0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "87430a18ad4b6b51",
+  "field": "text",
+  "lang": "ko",
+  "text": "허우샤오셴 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "87430a18ad4b6b51af92a3330454bdbbb17a0bf30e3fdb4e7bcf5e20555ef44e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5186e19a3bfd9d4f",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000대 영화와 키네마 준포 2000년대 베스트에 올랐고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "5186e19a3bfd9d4fcf4027d429e268e8126379d2c4a02a8f6fa4d0129f85334f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "aa1a567c1b326ff9",
+  "field": "text",
+  "lang": "ko",
+  "text": "아만다 넬 유 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "aa1a567c1b326ff9f08d27a2a430e57913c7b09e4057607c96731b7632d44bed"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "86586437ac1979e7",
+  "field": "text",
+  "lang": "ko",
+  "text": "세자르상 최우수작품상과 BBC 21세기 100대 영화에 이름을 올린 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "86586437ac1979e7942ba38ec9079f3676a6a9f54a19e2e15a1ea415d69b83c1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ce40f8dc09d8240c",
+  "field": "text",
+  "lang": "ko",
+  "text": "심사위원대상과 금마장 100대 중국어 영화에 이름을 올린 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ce40f8dc09d8240c38fb0af7bf92622dc9bd7829c7c35b152c791d227f5d9fcc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0a80b445257c8c0e",
+  "field": "text",
+  "lang": "ko",
+  "text": "바츨라프 마르호울 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "0a80b445257c8c0e7bd58763110359138a49f4fe9b729063c9fdf7cf22379530"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "273eef6cacadc6e8",
+  "field": "text",
+  "lang": "ko",
+  "text": "아시안 필름 어워드 작품상에 이름을 올린 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "273eef6cacadc6e8b74f7f9af79a6034d58c681f6f35f9b0fbf47741c141bf20"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a15c7578816e48c3",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, Sight & Sound 비평가 투표와 감독 투표에 올랐고, 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a15c7578816e48c3dda8b3915630b901d48adc3367710d8273eb7a4ff15c5f44"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1db170f2682a1f0f",
+  "field": "text",
+  "lang": "ko",
+  "text": "자크 타티 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1db170f2682a1f0f66eb2b75c678dd98d944ed9be9d6c7acfdb820ebc347e122"
+ }
+]

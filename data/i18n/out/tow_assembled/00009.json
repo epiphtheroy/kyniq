@@ -1,0 +1,4502 @@
+[
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sugarcane-2024",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 73/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5efd8268f7fe2c7d8174ff5cef95c9f043dd4c8bd781227a497770b794d1b76a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suicide-room-2011",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Jan Komasa의 정전에 오른 작업이 떠받치는 작품. 어느 정도 알려져 있다 · 국가 정전: PL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e1cb003b6340999b1133f1be1de6f76128763e351d7b54627cf9591931ed8fd"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sujata-1959",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d3f1e82c941f664f9fb813ee89985490250a9007423ae0d57ae79b0362e40d2"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sujo-2024",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b025cb51a624cbdcedb343ce025de37eba9fcabf381913242433a6bb1b1d03d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sullivan-s-travels-1941",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 AFI's 100 Years…100 Movies에 올랐으며, 어느 정도 알려져 있다 · 국가 정전: US · 감독 프레스턴 스터지스의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "52502c6eb45867faa519dd9880e4eee5c93fe6911f594f4fc5cbf1a25641987d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sully-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 선정한 영화. 일반 관객에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e69cc88e126486b47fcbcd2436afaefa35ba85cb02e0e6d6aeffcc231ef93864"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-1993-2017",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Carla Simón의 정전화된 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a832d1c0a29a130c7cd11ad2d831a58b75d2ae5a32ec30104f1f7ea995455f90"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-and-smoke-1961",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-days-with-coo-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a4d7a00ab61b006062c48d20bb7ac3fe841cafbe46dedf5084710ea13a023b3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-hours-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Olivier Assayas의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63a580c1b5b392ced86ab500b603f7c6b09ec6dc614d0a570e065c0422b6a36c"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-in-the-golden-valley-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-of-85-2020",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 프랑수아 오종의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10a30c6037ee8e4668b49c62e55addb05996abd3190fe569b749ee9c2b2fbbe0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-of-soul-2021",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 65/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35de123313eba3e70084c242b416e7899a6a90aceca1e25452c4ed21f6f421d2"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-palace-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "금마장 선정 위대한 중국어 영화 100편에 이름을 올린 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CN · 사조: Chinese Sixth Generation · 감독 루예의 작가 계보로 다시 값을 매긴다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b9826951e26f073caabd24bf8cb7ce83195f50d19e42f81cd462be9a07b53c8"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-showers-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-snow-1995",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: HK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01f64babf53f3a598b6cc768e03eb89a7346d3527d1d2f1f68cfa499a24741fe"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-wars-2009",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 호소다 마모루의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "919cea7bf9e322b8ae411ab22f52e4d2427a47181816cf201e755f309b31b231"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-with-hope-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summer-with-monika-1953",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Ingmar Bergman의 정전화된 작품 세계가 떠받치는 작품. 어느 정도 알려져 있다 · 국가 정전: SE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5181d14622baf9c48fa219ab2c45ee88f8faa7acbb3e2f2b8d900b6606d35cc5"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "summertime-1955",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sumo-do-sumo-don-t-1992",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sun-moon-and-star-part-1-1961",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunday-1997",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdcef3a0387352d5decebd10d756f3330d77a4462a8622ca9198838d708f63ad"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunday-bloody-sunday-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "decefae2f59d9151e9ba4d70ad21a88f4dbf0dfdffa3a2b05bce321e43281e91"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunday-in-august-1950",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunday-too-far-away-1975",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sundays-2025",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sundays-and-cybele-1962",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46177c0eb322fdeb77fb0438e714af886dfa9c78eda491eb565d2b3411ccc2de"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunrise-1927",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 감독 투표에 올랐고 널리 알려져 있다 · 국가 정전: US · 감독 F.W.의 작가 계보를 통해 다시 평가된다. Murnau의 작가 계보. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "4627a4cb1025c3a90f874a6b1c7fcac05a1bc17ca28c79f97949e147e42ef744"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunrise-at-campobello-1960",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunset-2018",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 László Nemes의 정전화된 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0830936b9b77c055cb59cd5bc0161291401564de50c4ed7491827c94321b625"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunset-boulevard-1950",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 Sight & Sound 감독 투표에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: US · 감독 빌리 와일더의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf451e0d3a51db4a070949c644ed6efe12ff720d95d0f73677b566db698e8b05"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunset-song-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 65/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f352ef2b7dc14f5e9fefce610d0f815e93fa48f3c617e990564038e24fd628a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunshine-1999",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 62/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "329da9eb30a1dfbce9e475e16aa44465ea8b3af59ec042e748278db0590cd88f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunshine-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63c39017cee5b103f159eedcdd2565a37510dcccd80e93d395ed9a5d01ff525f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sunstroke-2014",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "super-fly-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "superbad-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뉴욕타임스 21세기 최고작에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다 · 국가 정전: US. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c41b60a2ca3aa892757b304359a68fed3dd1917930a20a1f48a729a7a41ff6c3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "superman-1978",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Film Registry와 National Board of Review Top Ten Films에 오른 영화이며, 널리 알려진 작품 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14c1e81495a5267b406a23c8dcad709aa27e7bff8c8a8a55aaf58fe03b5d15c0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "superman-ii-1981",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Saturn Award Best Film을 받은 작품, 널리 알려져 있다 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55a2471f1fe9c6b82100639637839a1e600a776f07f05232bc0944d48624bef3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "superoutro-1989",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "support-the-girls-2018",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d54801694dbdbc959865f1c4167066e6961c4ce7e5a2e879db062ecf92c45234"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "surcos-1951",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f9a9dd5eadb6ab0bacd9cfce67193340bb17711066dcb62bb02d0bb97e63fbb"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "surrender-1931",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "susana-1950",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Somos: 100 mejores del cine mexicano에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: MX · 감독 루이스 부뉴엘의 작가 계보로 다시 값을 매긴다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcd7270bb454cdab9f053fb3a359d6c3656877702b14ff88c5fc361577cd0225"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "susanne-1950",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suspense-1913",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suspicion-1941",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Actress가 인정한 작품, 어느 정도 알려져 있다 · 국가 정전: US · 감독 Alfred Hitchcock의 작가 계보를 통해 값이 다시 매겨졌다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db74afe1e1bbf2c8963b62650f247de25532dec660ada727f30066e639734276"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suspiria-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 오른 데다 널리 알려져 있다 · 국가 정전: IT · 사조: Giallo. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b4bd10e30ab7eb2ac8b07a9ca197f0cf55644b5e6393052ed5656b651d2d528"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suss-the-jew-1940",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suzaki-paradise-red-light-district-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3bb7cb9a9b5670186cfd58bcfd4c4d845c38fc27f5856575157f1fa2177cf55"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suzaku-1997",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 71/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7006127c5636f0546407d8222953bebfae47360556fc240b82acbb868e74199"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suzanne-suzanne-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c901c5f8b3f5822eae07e4729e88934f590a6983d88f8f7eb191b9110d26144"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suzhou-river-2000",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "타이거상으로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: CN · 사조: Chinese Sixth Generation · 감독 루예의 작가 계보로 다시 값을 매긴다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c041daee6c4b76157dc38ebd814d6991f1993f657dcd4f2c01e48ba225982bd0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "suzume-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: JP. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e517ee4399eb40278cfc00fd153e00a3bda28345601c204726daf62b9ecec0e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sway-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8db38840dbf0e4ad40dfa0659500059acaacdd2b9e899970e2b9605f88a58fe9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "swayamvaram-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 71/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "537949c58fe8168406d4865810274381681584e1028adde141efcaf20ebb661b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "swedish-wedding-night-1964",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweeney-todd-the-demon-barber-of-fleet-street-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Globe Best Motion Picture Musical or Comedy와 National Board of Review Top Ten Films가 인정한 영화이며 일반 관객에게도 대단히 유명한 작품 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a6ff304dad05e7f7e7fb247024e325a4e282f0995f0e277e575a38d7cd8d6ef"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweet-bean-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 70/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2801eda0b9c0d58f4fa6a42f00eca21fc56c1ee8396085ccdf8ea7e0a674702"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweet-country-2018",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 74/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9731716e67d6f73c5a518d5ae9bcafed5b69ca13e755d8f7abefe9b4e8846829"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweet-emma-dear-bobe-1992",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afee48676718212180fda9b9bf2226c9bc9a6eaaf012d9318585ab8eecf1e7f2"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweet-money-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweet-sixteen-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Screenplay에 오른 작품이며, 어느 정도 알려져 있다 · 국가 정전: GB · 감독 켄 로치의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17ceae4319c8f70b126302d75a4b90bea14d212b6f807dfd5f41afe1afd5bf6a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweet-smell-of-success-1957",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 TIME All-Time 100에 올랐고, 어느 정도 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "e76470489a23f54cde8b6d7761400946312eb558b4e2b47a76598ae2a7a66f51"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sweet-sweetback-s-baadasssss-song-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e2c40c7cdcb457a7fa37ad96fe3d388867e26462cd30b8ace1c721457e97148"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "swimming-pool-2003",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: FR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdddc7d8166a0a05d138f8c5190afc6970edf2c1429e58fd3d57ca11b92b5a6a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "swing-time-1936",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "AFI's 100 Years…100 Movies와 1001 Movies to See Before You Die의 인정을 받은 작품. 어느 정도 알려져 있다 · 국가 정전: US · 감독 조지 스티븐스의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbb3a2e483d5ce8ad6782211c5442e073d3a93726543814f2937da7ca1b7ad8a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "symbiopsychotaxiplasm-take-one-1968",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 National Film Registry에 이름을 올렸으나, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "418ab6f58442e8f0ce06725350516cd3afe8d09281229399887cac16f53c97f1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "sympathy-for-mr-vengeance-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치로 높이 평가한 영화(Value 75/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: KR · 사조: Korean New Wave. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "333e94885a04737c1e25bf4d0e62dd181654a8d626c2619c6d6f32118f4e9e80"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "syndromes-and-a-century-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 BBC 21세기 위대한 영화 100편에 올랐고, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: AT · 사조: Slow Cinema · 감독 Apichatpong Weerasethakul의 작가 계보 안에서 다시 값이 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "88ef649c85b49855a7edaf7d870ced73791c3e5573c5592c8f78f61256044454"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "synecdoche-new-york-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 BBC 선정 21세기 위대한 영화 100편에 올랐고, 널리 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b38164d0ec9e59968456a2b227af7a8a48d132eb827dad659dda111f2f4e5447"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "synonyms-2019",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear와 IndieWire Best Films of the Decade의 인정을 받은 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: DE · 감독 나다브 라피드의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6312a158f7e387e1e1d8a47a878b8c0209c91fac00796966c43baadc6a9be302"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "syriana-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 61/100). 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "022e6934eb588cff1f7e5ca8a2a4eaf61554019a3ef69bd67f3a50318ac85a33"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "system-crasher-2019",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 68/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea81e3c71f5b281cd17ca3ad1b571798a0c55cc44e006830fca8086d7d135210"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "t-r-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Volpi Cup for Best Actress와 National Society of Film Critics Best Picture의 인정을 받은 작품. 널리 알려져 있다 · 국가 정전: US. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af37f61fd253c26c3cb37e3018eb70ae40547a3635e9283492510089ba4fa863"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tabarana-kathe-1985",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 65/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ea925b3db251091f759bc66e4b738a356c2352c3c5d8c73412ce7bc14ec38e8"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tabu-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 BBC 21세기 위대한 영화 100편에 올랐고, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: BR · 감독 Miguel Gomes의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a9acb2aeebab0856dcd7ee40188d0a79fdfe5d2d0f5e37cab2a92c0a7add084"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tabu-a-story-of-the-south-seas-1931",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 1001 Movies to See Before You Die에 이름을 올렸으나, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bd346fe97d86fc24c5e0d1d420facaf58c216ad2ea0876371e0dc820a32212e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tacoma-narrows-bridge-collapse-1940",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tae-guk-gi-the-brotherhood-of-war-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 64/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: KR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1957da30f7086d4ac97acb36ae710b981d49ca5a2b429e23ffbf51c595b47f4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "taipei-story-1985",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Golden Horse 100 Greatest Chinese-Language Films에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품 · 국가 정전: TW · 사조: 대만 뉴웨이브 · 감독 Edward Yang의 작가 계보 안에서 다시 값이 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c2834d623b65199066e538ae0e1ac7d83a208409fa74f585a96d4d69941e892"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "take-care-of-my-cat-2001",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: KR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbdc8d4851dec24acaac153a7fb287496030c1cc26aee95689957264ada5b1f7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "take-care-red-riding-hood-1970",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "take-my-eyes-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06c5021f7beb8e0968aff5f7af24ecc42f51c239c2d6376951b18739ca897995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "take-off-2009",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "take-shelter-2011",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "take-this-waltz-2011",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Sarah Polley의 정전화된 작업이 떠받치는 작품. 어느 정도 알려져 있다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b2e2eb816ff5b2f8e75b1a05d82cfc3543c74e736e631df3dd96c54895a16fc"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "taken-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: FR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd5281240fd01770dc2eb53d49df247500d6c2d60e777cb156a0206f25c03d5"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "takeshi-childhood-days-1990",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "talcum-powder-1981",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tale-of-cinema-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 홍상수의 정전화된 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e2dc21ef554287579102c604cbf095d1fe2739d4b387257e70eb9218a506968"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tale-of-tales-1979",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸으나 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: SU. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "2af2bcfd775f20026cb9a5a903df79270adefa178f84623dbef5e8b68bc98af6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tales-from-the-darkside-the-movie-1990",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tales-of-beatrix-potter-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tales-of-ordinary-madness-1981",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "talk-to-her-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Caimán 스페인 영화 100선에 올랐고, 널리 알려져 있다 · 국가 정전: ES · 감독 Pedro Almodóvar의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a60e0ae86b858b88d80808affb9dcf01be0aa929aa47fa94c38fa5a53580a04"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "talk-to-me-2023",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "AACTA Award for Best Film이 기린 영화. 널리 알려져 있다 · 국가 정전: AU. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89e8515fe6298717e6015c40079ba19e9e045a1789a8c052c24ce2700e2de5e0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "taming-of-the-fire-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tampopo-1985",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 67/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2382217b362a59f27ffb5679cd35cf5aece72acbf6ed83f9b83dededd880fc11"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tange-sazen-and-the-pot-worth-a-million-ryo-1935",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a4d7a00ab61b006062c48d20bb7ac3fe841cafbe46dedf5084710ea13a023b3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tangerine-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "IndieWire Best Films of the Decade로 인정받은 작품. 어느 정도 알려져 있다 · 국가 정전: US · 감독 션 베이커의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4c3ab0989be16fc4aa3cef3b26b1b39446fdcfa2be6d917bfd3c8f59035187b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tangos-the-exile-of-gardel-1986",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f2d6fc6a4c00044b2af53348d29d63c2f2a86f4d0e6104ba07bf184d82a95d4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tarantella-1940",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tarzan-and-his-mate-1934",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tarzan-the-ape-man-1932",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tasio-1984",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06c5021f7beb8e0968aff5f7af24ecc42f51c239c2d6376951b18739ca897995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "taste-of-cherry-1997",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 황금종려상과 Sight & Sound 감독 투표에 올랐고, 어느 정도 알려져 있다 · 국가 정전: IR · 사조: Iranian New Wave · 감독 압바스 키아로스타미의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "1136924e333fc1dbee4cf94bffec009c36447500709596e8fda99a078d16aff6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tattoo-1967",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tattoo-2013",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "taurus-2001",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: RU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02739a5448f17d54a5e2689eb0bad3178b24f5d696c2546ef6d84fd63189602f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "taxi-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear로 인정받은 작품, 어느 정도 알려져 있다 · 국가 정전: IR · 사조: Iranian New Wave · 감독 자파르 파나히의 작가 계보로 다시 매겨진 값. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d386bcd0361aa694f5a38ae30137b24a993d5830cc447a6fcb0c3111dfad8e5"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "taxi-driver-1976",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 Palme d'Or에 올랐고, 일반 관객에게도 대단히 유명하다 · 국가 정전: US · 사조: New Hollywood · 감독 마틴 스코세이지의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "93a5e3ef78664d73d0ae1d56d2eb19ced8e2da55326874f613387377b7f3f748"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tazza-the-high-rollers-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tchaikovsky-s-wife-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Kirill Serebrennikov의 정전화된 작업이 떠받치는 작품이며, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: RU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f42408cccae94163c605b12cd91d71da4b1615d8e66dd6d8a3c577788e7b7d7b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "team-america-world-police-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century에 이름을 올렸고 널리 알려진 작품 · 국가 정전: US. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c983ba9523abd7c6690f2e3969d96ee829277ae729f7267483f90eaa537337f4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "ted-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century의 인정을 받은 작품. 일반 관객에게도 대단히 유명하다 · 국가 정전: US. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c61090c4d543226fd6a194658e9f38e3481bf0703571ffb82e664ccba51cfc85"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "teenage-wolfpack-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "teesri-kasam-1965",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0a8cc9cfab41301d34f8fbb1161b3952da1d1eda65c38e3b848b0095ff8c733"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tempest-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "ten-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Director와 BBC: 100 Greatest Films of the 21st Century의 인정을 받은 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IR · 사조: Iranian New Wave · 감독 압바스 키아로스타미의 작가 계보로 다시 매겨진 값. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae8ba98b4e6ade688aa60c5650634346a06a5764a565ff956a9a1a8a94da5416"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "ten-canoes-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 66/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35aa2b2371a53a8a08a9b60e82b61e2e8a8009a3841ddc9096b923cae872f56f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "ten-nights-in-a-barroom-1926",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "ten-north-frederick-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "ten-years-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: HK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0168c9c6b4bbc2593c15db1cc15e138d88c637f9b7ecb8f2a129e218e55711d4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tender-mercies-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 70/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d70662f691bbcf06491c7afd180f1a411eefd1a2350f9aa2642c84e71f845c5"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tenet-2020",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63c39017cee5b103f159eedcdd2565a37510dcccd80e93d395ed9a5d01ff525f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "teorema-1968",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Volpi Cup for Best Actress에 올랐고 어느 정도 알려져 있다 · 국가 정전: IT · 감독 피에르 파올로 파졸리니의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "94eb64642f1e56e6e044835d700888fa016045284779b0da39fe5d8fad2a984e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "terminator-2-judgment-day-1991",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 National Film Registry에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: FR · 감독 James Cameron의 작가 계보 안에서 다시 값이 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e08c37ba93a4c859b4e96cf088c7794b9e5019d8237d94141699739aaa6848c"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "terminator-dark-fate-2019",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "terms-of-endearment-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상에 이름을 올렸고 널리 알려진 작품 · 국가 정전: US. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8eff1fc8b53a9f71c5e3f2cf4f68011018a472882cb9750e9307dc96bb17e7a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "terribly-happy-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "terrifier-2-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "terrifier-3-2024",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tess-1979",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "César Award for Best Film과 National Board of Review Top Ten Films의 인정을 받은 작품. 어느 정도 알려져 ��다 · 국가 정전: FR · 감독 로만 폴란스키의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc880e7b267b9c8344db17d8184c2506a114f474f6c33b8dbf1418fd4bceda27"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tess-of-the-storm-country-1914",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "testament-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6baf74f389a836246d0f76061cdc583085018e5ffb110991272f0a9df4667cb"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tetsuo-the-iron-man-1989",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 60/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56bce16d9f5016588d6ff9e661c8f492f7eac028106a3d107fcf729c6281c648"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tevye-1939",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2de20e527b407599a813e3eb8036846a36de60578943cdc6508fb8624073f30"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "text-2019",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "teza-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 75/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e92f3ac36f38514661c6f97afc2ee5fb81cb24fa125f46f807fc2c66b0a238d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "thappad-2020",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "that-brief-summer-1976",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "that-championship-season-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "that-damned-meat-1985",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "that-day-on-the-beach-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "금마장 선정 위대한 중국어 영화 100편에 이름을 올린 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: TW · 감독 Edward Yang의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17bbc17237d4dbfe2b0c2463995effe783d4dc208a775d7f3d62c2ac9e29ec49"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "that-obscure-object-of-desire-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다 · 국가 정전: FR · 사조: 초현실주의 영화 · 감독 루이스 부뉴엘의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "85e0a89ac8ce2532e9cf67717ff1a35fa33f85f615ded156267f591ceb8fc315"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "thayi-saheba-1996",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-3-penny-opera-1931",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 76/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2b5061fe56f4b9b59a77b6c73e5ccc87e3878ad1574cff4e3fbf1115861c0ff"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-3-rooms-of-melancholia-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 78/100), 대중에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f520ba8b7d679fc9265d3f1f98a41ab2c3808f934177eae1fec722cc8a961739"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-317th-platoon-1965",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 75/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "343b974b2a07523b75f719fb0d40d4f3b670c77424ba89bf0fabe44d7263d282"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-39-steps-1935",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 1001 Movies to See Before You Die에 올랐고, 널리 알려져 있다 · 국가 정전: GB · 감독 Alfred Hitchcock의 작가 계보를 통해 값이 다시 매겨졌다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "c329ead627679db5eb001c08b74f403873fd912b0d14bc9f7c69507259d8b975"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-40-year-old-virgin-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-400-blows-1959",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 감독 투표에 올랐고 널리 알려져 있다 · 국가 정전: FR · 사조: French New Wave · 감독 프랑수아 트뤼포의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4b064bca98a3169446b4178449c68c66d0eaf148d097a0313c044642b527829"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-4th-company-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-7th-voyage-of-sinbad-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-abandoned-1945",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-accidental-tourist-1988",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-accused-1988",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-accused-uncle-shangang-1994",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-act-of-killing-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films of the 21st Century에 오른 정전의 핵심이며 어느 정도 알려진 작품 · 국가 정전: DK. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "d92ca1ba5c9304f4a575016cdf14c641dafe85c0beb37277a0b320360e8e5c43"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-admiral-roaring-currents-2014",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-adventures-of-picasso-1978",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-adventures-of-prince-achmed-1926",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Die wichtigsten deutschen Filme에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품 · 국가 정전: DE. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5afcbb58e8a9db2074992fca72094c810dfa04abbdad6a8b2a609129c62bde9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-adventures-of-robin-hood-1938",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 1001 Movies to See Before You Die에 올랐고, 널리 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ecd6051e3895fb60fb7cc9fe68990af9e7cdd9cb5d36c4bc33bc3f1de5bcda2"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-african-lion-1955",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-african-queen-1951",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 AFI's 100 Years…100 Movies에 올랐고 널리 알려져 있다 · 국가 정전: GB · 감독 존 휴스턴의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "79c2f4ab101a4333b7f3f5b90b371cb0cf44682ba1b92846b650f8de9540616a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-age-of-innocence-1993",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Board of Review Top Ten Films에 올랐고, 널리 알려져 있다 · 국가 정전: US · 감독 마틴 스코세이지의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "91188c1c2ed5f692458d0b1538794bf54b4fa13ca9fd228113a423a293a7d519"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-age-of-the-earth-1980",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Abraccine: 100 melhores filmes brasileiros에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품 · 국가 정전: BR. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8bd1597300eed692677f0b63064a48a204391a0e804422a40f3f35765b97315"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-agony-and-the-ecstasy-1965",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-alamo-1960",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-almost-man-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-american-friend-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Die wichtigsten deutschen Filme의 인정을 받은 작품. 어느 정도 알려져 있다 · 국가 정전: FR · 사조: New German Cinema · 감독 빔 벤더스의 작가 계보로 다시 매겨진 값. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be8444518642fba5fd803ac74a1b762288a7e4140e9c02f9ba92a338b6e1e624"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-american-president-1995",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films에 오른 영화이며 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f566f7fe0556fa147211f20be4032287a1350d1a3667a7f7dde5f07d7b2fa0e4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-anchorite-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bae0f0801120b8c2bb2d673920364f13de8b5e84b7ec59d2b7b558e9f26a47be"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-angel-was-born-1969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: BR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89c5a2210c69bf563a0928678047863fad64a7a982cb21573e23e2a5a480a798"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-angels-share-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Jury Prize가 인정한 작품, 어느 정도 알려져 있다 · 국가 정전: GB · 감독 켄 로치의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "564a525e774ddfc2910f89ead19ff2bea15caa220c1568f8f6e286f6735bab87"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-apartment-1960",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 Best Picture Oscar에 올랐고 널리 알려져 있다 · 국가 정전: US · 감독 빌리 와일더의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "945019ac1a23c2892d7ea345f78daf01a709591d18cb21de70650ddb3ddb3163"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-apartment-with-two-women-2021",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ape-woman-1964",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f88389c24edde9e484c190df1aec644d435e3ccff2b3268dcf2a00b7922eae6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-apostle-1997",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 68/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0201ab10caa7591bee2d38ea10d2d829344edd4b5f6bc8b415904a198597664"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-apple-1998",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "BBC 100 Greatest Films Directed by Women에 이름을 올린 작품, 일반 관객에게는 덜 알려져 있다 · 국가 정전: IR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d691c3ff53e1b8f297d9c3200b9fe45534ef83e92ecf98c63b57870ca82b4eed"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-apple-war-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-apprentice-2024",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Canadian Screen Award for Best Motion Picture가 인정한 작품. 널리 알려져 있다 · 국가 정전: US · 감독 Ali Abbasi의 작가 계보 속에서 값이 다시 매겨진 작품. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9756cd8efc6df8d9e3ad836831003f68def575bb6d8185c394e1709ab334b87"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-apprenticeship-of-duddy-kravitz-1974",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear와 Canadian Screen Award for Best Motion Picture의 인정을 받은 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CA. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1690a5799e1b1d62b335cc9e445c062a0a4825cb07ba7f9a05938d541a17beb9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-arbor-2010",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 73/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93fb66889016d6387b9a176c443ce7f0311eeec1cb1f6b0afcee1d000c280e4a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-arch-1969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: HK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0168c9c6b4bbc2593c15db1cc15e138d88c637f9b7ecb8f2a129e218e55711d4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-art-of-crying-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c9c0ee9545a6b876276d63e428fe23b1baae135aa8e74c56d6c8dfd9530e4df"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-art-of-getting-along-1954",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-artist-2011",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상이 인정한 영화, 일반 관객에게도 대단히 유명하다 · 국가 정전: BE. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf43d217a59a137e6315922cbfbf874e4f3f18e0b66996d8611dee8af96a97f0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ascent-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 황금곰상과 Sight & Sound 감독 투표에 오른 이름이며, 어느 정도 알려져 있다 · 국가 정전: SU. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbeac7456be49a68de85444b9459259b9e3594a05d207cc38b00aea8f5886a12"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-asphalt-jungle-1950",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Volpi Cup for Best Actor에 올랐고, 어느 정도 알려져 있다 · 국가 정전: US · 감독 존 휴스턴의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "4672e7e3853622d36e13929672a607840c0c76688f1e17b883f48ab2eb8e44cd"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-assassin-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Director와 Golden Horse Award for Best Feature Film의 인정을 받은 작품. 어느 정도 알려져 있다 · 국가 정전: HK · 감독 허우샤오셴의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "12c6af229df207c3a39d12f2ffab7104617706fe92a960aa24064223074444ca"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-assassination-of-jesse-james-by-the-coward-robert-ford-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "볼피컵 남우주연상과 BBC 21세기 위대한 영화 100편이 인정한 작품. 널리 알려져 있다 · 국가 정전: CA. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa8d514bd658b8783772c4b87036dcd5041b7a3791dc02d95159f4bb4c58b174"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-assault-1986",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 70/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: NL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96258d67451575413b8744def6bf9778100add23c4ce493f60bb261566236e76"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-asthenic-syndrome-1990",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 은곰상 심사위원대상에 올랐고, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: SU. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5dc5c313f50a3e313429ceaf6426158d85e39e220606bdea31b6e57899dd236"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-atomic-cafe-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "670aae06d2ac3bff06569dacacf8e1c6b6fd405ac99b586214e055da06883e74"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-attack-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Ziad Doueiri의 정전화된 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b9cb731a9b51e977151984791ea61857bf1dae5b8574352ec1e421735ef7248"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-attorney-2013",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-audience-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-augustas-1930",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-aura-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 68/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51d289bd9f2a49c7f73390060ac23ecaff0f0dc54cfe21944c7939545457ce68"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-avengers-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Saturn Award Best Film을 받은 작품, 일반 관객에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b80407b6138acf88bde59c833bd32f02f65f8fb405f4902531f4a67d5d7dfe3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-aviator-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Film과 Golden Globe Best Motion Picture Drama가 기린 영화. 일반 관객에게도 대단히 유명하다 · 국가 정전: DE. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6b9730e0f6430548f24f5d7142d823d8c94a2941ec803e36afaf8a71c7ed068"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-awful-truth-1937",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 감독상에 올랐고, 어느 정도 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "1301962a3cee85f723ec19a2e16c759f44d3c32939ca56ff188dbcfcd3827784"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-baader-meinhof-gang-on-trial-1986",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4d41a52efcedee4a10d6c73ee6a4d7d8cc483bd39b13ac03ce3253a51edece7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-babadook-2014",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "AACTA 작품상과 IndieWire 10년의 영화에 이름을 올린 작품, 대중적으로도 대단히 유명하다 · 국가 정전: AU · 감독 Jennifer Kent의 작가 계보로 다시 값을 매긴다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eab5b66d8cb1860c62430d0497012ecec7d256ae6bbb93c1db58a936f772d38b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bachelor-and-the-bobby-soxer-1947",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bachelor-party-1957",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bad-and-the-beautiful-1952",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 각색상에 올랐고, 어느 정도 알려져 있다 · 국가 정전: US · 감독 빈센트 미넬리의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "be2594b3efc25d8528d80320429548197ce994cc8edbe09d3ee10cf0aa62724e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bad-news-bears-1976",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 61/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1f788f27ba86800dd42530acb6f6ba61e97802b1cd120dfaf50bf3359168975"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bad-sleep-well-1960",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 구로사와 아키라의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: JP · 사조: 일본 황금기. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afe88b11431fbfc5620a9b5e6989a25c78cdc6b4d579874de683bc88af8155d0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-baker-s-wife-1938",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4450ed7dff95120f650154e1bdccc2c648ec97c6949c5003a8a6eff09e14f9ea"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ball-at-the-anjo-house-1947",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8db38840dbf0e4ad40dfa0659500059acaacdd2b9e899970e2b9605f88a58fe9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ballad-of-a-small-player-2025",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 에드워드 버거의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63a2a04351cfb78619e85fd0944a9a317ac0cc407aa910e61ea1cc8dbcd40888"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ballad-of-buster-scruggs-2018",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 69/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2652d08d26a16ba8251683a6904a937023683870cb996fedd29712fcb14caf1c"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ballad-of-carl-henning-1969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ballad-of-gregorio-cortez-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2de20e527b407599a813e3eb8036846a36de60578943cdc6508fb8624073f30"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ballad-of-narayama-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 79/100), 일반 관객에게는 덜 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10db8868091fea15f32314bb3056976da542f6e9f36a1db8169dc17e4a23c0bd"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ballad-of-narayama-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "황금종려상과 세자르 작품상에 이름을 올린 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: JP · 감독 이마무라 쇼헤이의 작가 계보를 통해 다시 값이 매겨진 작품. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d4b63e397f02d67d7a4a042f635a4d6ca0144605fbcc6e4b19d1bcce71ed77d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-band-wagon-1953",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 어느 정도 알려져 있다 · 국가 정전: US · 감독 빈센트 미넬리의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3ad81d0af3da586804c76b6d81351189e1c9567fde35e5a6625ceaabb15d654"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bandit-1953",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: BR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28a2631c7cc4577a6c05e8274c1428b91165f4bcf3d957c9b9917f449fa5bb50"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-banishment-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Actor로 인정받은 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: RU · 감독 Andrey Zvyagintsev의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b4134eddedb7e5a136fcf3574569454dff2eeb38cdf5bc02029f8d8094b4cdb"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bank-dick-1940",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die와 National Film Registry가 인정한 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29ab09667bb41652bb2916796adadf0539c42e245a903adaea66ff36eb41bdf7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-banshees-of-inisherin-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "볼피컵 남우주연상과 골든글로브 뮤지컬·코미디 작품상에 이름을 올린 작품, 대중적으로도 대단히 유명하다 · 국가 정전: GB · 감독 Martin McDonagh의 작가 계보로 다시 값을 매긴다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3670a86e9d003b6fa010e563f2689be15c766ef6ab3989d15391d9aaeedb69fc"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-barbarian-invasions-2003",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 68/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CA. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b2b82233552b2593a87afd78674fedcc5a7bba96ab1f9ec3e1eb39d52f0b844"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-barefoot-contessa-1954",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Cahiers du Cinéma: 100 plus beaux films du monde에 이름을 올린 작품, 어느 정도 알려져 있다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e1720a739de58bcc1b645224bd4200c05c117e5c0c85b78e65438b075fa1828"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bargain-1914",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-barracks-1944",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-batman-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-battle-at-lake-changjin-2021",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Rooster Award for Best Picture로 인정받은 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CN · 감독 천카이거의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73d47fa4a817382bc36e849bbdaf9455acd91628ee941e03a551a140fda3578f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-battle-for-the-republic-of-china-1981",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-battle-of-algiers-1966",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 황금사자상에 올랐고, 널리 알려져 있다 · 국가 정전: IT. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "5391fba616cb8dbb6fb3630e9b93aa8e72e4ab05deebf520ec0bf87493a6073d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-battle-of-san-pietro-1945",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Film Registry에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US · 감독 존 휴스턴의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41c1ed5ea22caa7a8802b0ea19188812328fc438dcded6882e498adfd233fc54"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-battle-of-the-century-1927",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-battle-of-the-rails-1946",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Palme d'Or와 감독상에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccdc0bc500fff9c877838b1f3af9df3bbda1f49cf72608fcc7f3f646992d3f82"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bay-boy-1984",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beaches-of-agnes-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "BBC 100 Greatest Films Directed by Women에 이름을 올린 작품, 일반 관객에게는 덜 알려져 있다 · 국가 정전: FR · 감독 Agnès Varda의 작가 계보 안에서 다시 평가된 작품. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec6eb2e763d9b6bee8d6202f01f6d5d80906cc76fd32d92fd341fc186876d1b1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beads-of-one-rosary-1980",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 70/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: PL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4fd5f0b5435314df3de560ff782f634568598bdee7bb59a0f0c7e6094e6bba1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beast-within-1995",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42c6308cf0c0206aa1d63149591ac02e51a98c2cf87841de9a085edbb80e25c5"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beat-that-my-heart-skipped-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "세자르상 작품상이 인정한 작품. 어느 정도 알려져 있다 · 국가 정전: FR · 감독 Jacques Audiard의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c92efcc1a5a3efc5e720e6fbe455652cf3264d906d9d8a78f51fda952734883"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beau-brummels-1928",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beehive-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78f0c8bb16cf1c45a01983702352a674a38e221c2cd59846e2e1276e120d9029"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beginning-and-the-end-1993",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: MX. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd4accd7657700c16b3894fb5263678785e1503a46de8611b25cc8124bcd20a9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-beguiled-2017",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독상이 인정한 영화, 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "119883e8044718ebaa5d36524c1fae988d5a18901ba1c48d832eff8200f2480d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-believer-2001",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 66/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a718c054f6d2bcd5a099ee7781f6a51d6aaa55013685c54b279fb609a1c365b2"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-belles-of-st-trinian-s-1954",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-belovs-1992",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 70/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: RU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3098d308b51e213a11f20b3498fe646f79ccaf27acfb46493bccf4d73f6bbee6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bench-2000",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-berliner-1948",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-best-damn-fiddler-from-calabogie-to-kaladar-1968",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-best-intentions-1992",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "황금종려상과 여우주연상에 이름을 올린 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: DK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9abeace3bf7952b81a266c5e73d3dce0217afaaa2d3f0f24dd018e5909d4f1e3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-best-of-times-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-best-of-youth-2003",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 71/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4f42973a56f6c08bbcc3edce997b984a7aa12f0d8a5f2849ad3c0ee8a13e39f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-best-offer-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "다비드 디 도나텔로 작품상이 인정한 영화, 널리 알려져 있다 · 국가 정전: IT. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b69b9655dfe59998ebed52087e62c4025ee3219e2a871805ad3788a8861bd848"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-best-years-of-our-lives-1946",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 아카데미 작품상과 TSPDT 1,000 Greatest Films에 올랐고, 널리 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf2cc4d28c828f2fc7adbbbe7a876a59394fc3bff73ef4e71b08de386f4596d6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bible-in-the-beginning-1966",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IT · 감독 존 휴스턴의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80e42f35ae4449e8e16d591ab74d253b26d15d690a02c7b3aacdac2a41cb429b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-chill-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-city-1963",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Satyajit Ray의 정전화된 작업이 떠받치는 작품이며, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IN · 사조: Parallel Cinema. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a2f8b6acca2ce8a29e8500de050c17a332308d414b3fb78cbeaa296b7d9f077"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-heat-1953",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 어느 정도 알려져 있다 · 국가 정전: US · 감독 프리츠 랑의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c6ab1e70edd7f15d78a0155dd9ddfa6329e1c9169d46764aea91ca24c929f80"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-lebowski-1998",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 National Film Registry에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: GB · 감독 조엘 코엔의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "da8d85af8d4da1a3c3359762918d3ad4aef039d3b6f89f2cb0e216b0223387a8"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-night-1976",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-parade-1925",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die와 National Film Registry가 인정한 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29ab09667bb41652bb2916796adadf0539c42e245a903adaea66ff36eb41bdf7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-road-1935",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "085c91fcd26512d7e2db74327752654e9bab31c116d0efc43a7dc7609714ee31"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-short-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "각색상과 미국제작자조합 작품상이 인정한 영화, 대중적으로도 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6951427f38b5a0de8e3edc76c2624565eda92905f72e03daf135a568401b1aaf"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-sleep-1946",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 널리 알려져 있다 · 국가 정전: US · 감독 하워드 혹스의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "9458b9d8dab6751ae55087c819bbaa075dc9cac27658cad8b153d7f2eefc2f49"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-big-trail-1930",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-birdcage-1996",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "SAG 앙상블상이 기린 영화. 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "750861e1b14666a412ed23548dbe18435dd734ca7ccf1df8cf604fdc193dbc94"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-birds-1963",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 널리 알려져 있다 · 국가 정전: US · 감독 Alfred Hitchcock의 작가 계보를 통해 값이 다시 매겨졌다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf42731bdbbb06cfc220142fe31e1298686d0f2dee7a72f17c3fbcb25b3e428d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-birds-the-bees-and-the-italians-1966",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Palme d'Or와 100 film italiani da salvare에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: IT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c438c4b4c1c2f8788d2510724706d95a08ea6d50f51bbd0576a65a498101aa21"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-birth-of-a-nation-1915",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 1001 Movies to See Before You Die에 이름을 올렸고, 어느 정도 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "88ebcb913b3ae670c7bc77cd90f298a76eb37d080fcc9a2b78de024ca6e121e6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-birth-of-a-nation-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-birth-of-new-china-1989",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-biscuit-eater-1940",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bitter-stems-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 66/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b8d90b5b520ff4127c1feca839cbbc9efecd448f83c68769466064ebb706947"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bitter-tea-of-general-yen-1933",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US · 감독 프랭크 카프라의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bee8ea3eabe92dddadd443506d8f21345ec5d4322664a3d26fa5187ed9be8ba7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bitter-tears-of-petra-von-kant-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다 · 국가 정전: DE · 사조: New German Cinema · 감독 라이너 베르너 파스빈더의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "e41b884c7525cd26a7c289386aca6b4a43c28985e822d1912113de2d24a9ba42"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-balloon-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-cat-1934",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die로 인정받은 작품, 어느 정도 알려져 있다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5aaa4c6615b1e9de175d5103e1eb6d72b665d117b1907c88b82ff7b620cc7d6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-market-of-love-1966",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-masks-1917",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-orchid-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-phone-2022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-pirate-1926",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-sheep-1949",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-black-stallion-1979",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 65/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c6f8f627949afb3b49a50b806f8c4d97112ae9ebf9d64245b1ae796da571d0c"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blair-witch-project-1999",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blind-side-2009",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Actress가 인정한 영화이며 일반 관객에게도 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a42da06741d2c866b060ea7deb85ac9f294316c6b625d67967b77f58c08c703"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bling-ring-2013",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blonds-2003",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blood-of-jesus-1941",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blue-and-the-black-1966",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blue-angel-1930",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Die wichtigsten deutschen Filme에 올랐고, 어느 정도 알려져 있다 · 국가 정전: DE. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "0587fad0a6d912c48e46b6025b42753d6f914f13f70e85c9a663cf22bfcc023f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blue-bird-1918",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blue-caftan-2023",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 마리암 투자니의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7012edd0fd768fb78d31d6b87cdbd9a5d6e1d82ee1fd23d7cf0d6c15d4b6629b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blue-kite-1994",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 79/100), 일반 관객에게는 덜 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CN · 사조: 중국 제5세대. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22c8dec4582a977208857bf45334d334cf3a6082352e9e569717fe8453ec61bd"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blue-trail-2025",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-blues-brothers-1980",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 널리 알려져 있다 · 국가 정전: US · 감독 John Landis의 작가 계보 속에서 값이 다시 매겨진 작품. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c97230770b7b65a31b7da6eaf67821f37c7358fa84faf887240190ef65b3ace"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boarder-1954",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-body-snatcher-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bodyguard-1992",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bold-the-corrupt-and-the-beautiful-2017",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: HK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "524d998bf24aef86f173f5d799f46fa7f1d56d6db0b5060d5fb62b045810e597"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-book-of-fish-2019",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: KR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "813c44121a13036a11778ecbbc6fa976315dc7c35c24d7a7b68649589cc3d68a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bookshop-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boss-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boss-anatomy-of-a-crime-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bourne-identity-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bourne-ultimatum-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 선정한 영화. 일반 관객에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e69cc88e126486b47fcbcd2436afaefa35ba85cb02e0e6d6aeffcc231ef93864"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boy-and-the-beast-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 호소다 마모루의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "919cea7bf9e322b8ae411ab22f52e4d2427a47181816cf201e755f309b31b231"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boy-and-the-fog-1951",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boy-and-the-heron-2023",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 72/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c97595f4a16fa954169f32fec91f188e97f159d90796502d658001c117df9897"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boy-friend-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-boys-from-fengkuei-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "금마장 선정 위대한 중국어 영화 100편에 이름을 올린 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: TW · 감독 허우샤오셴의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ac0374f0b7ea433bb3429d09cd3512ccb26784125af8e245ce1494841e29c92"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-brand-new-testament-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bread-of-those-early-years-1962",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e17cddc4aba782fd7e2842efb5c6d350000fea0af3aabb17b74f935b60ffc8e1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-breakfast-club-1985",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 National Film Registry에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: US · 감독 John Hughes의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "0df03f20efdd11536ed7c2841e3f1c8454d732fa115a15dccc1ddd1a8ea3e6d3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-breaking-ice-2023",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 앤서니 첸의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc3b462e7e2c332f18bce1ffba2d84cbdb955f2cc189bff5c6e96d823f82afc2"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bridge-1959",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 70/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42e4176dca4c1433f2ad48f58d3c908b19a470290e724f019df945f3535c71de"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bridge-on-the-river-kwai-1957",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 아카데미 작품상과 TSPDT 1,000 Greatest Films에 올랐고, 널리 알려져 있다 · 국가 정전: GB. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a966b5262dc22b7124c9472470b4184dcc55dd067739f74dd2ff3e91b320ff6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bridges-of-madison-county-1995",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 오른 데다 널리 알려져 있다 · 국가 정전: US · 감독 Clint Eastwood의 작가 계보 속에서 값이 다시 매겨진 작품. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "7578470076b25e4322ac29b691470d656f3e4a9813a49fda3fd18acf60fb6828"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-broadway-melody-1929",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-brothers-karamazov-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6baf74f389a836246d0f76061cdc583085018e5ffb110991272f0a9df4667cb"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-brothers-mcmullen-1995",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-browning-version-1951",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 71/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aedefbf7e7a80299fd3f81858d65cbebd4f226046c846cb4f0cf618fceba9cae"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-brutalist-2024",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치를 높이 매긴 영화(Value 77/100). 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13833c49674ff340cfbc9cda34c16ecf8e100c8a58704bc711c0f3582bde86e0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-bucket-list-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 선정한 영화. 일반 관객에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e69cc88e126486b47fcbcd2436afaefa35ba85cb02e0e6d6aeffcc231ef93864"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-buffalo-creek-flood-an-act-of-man-1975",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74be229d534b975240e20428f491a9d88c57feee46fc5f1c53ac81ca90c1e9e1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-burmese-harp-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 이치카와 곤의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: JP. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab8555ef7ee7c57b17cd803fb16a656afdb5a3dac48874850d111745a64f5a96"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-butcher-boy-1997",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 76/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8832766b81c6459cc6709eb18e9d7ec00e0244e0cf228c84566c1f507182566e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-butler-2013",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-butterfly-effect-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전에 뚜렷한 기록은 없으나, 일반 관객에게 대단히 유명한 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f80e27cd1d5cb98c7632f25fcccd31b199626dcdebab0a4b910a22573e6233d3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cabin-in-the-woods-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cabinet-of-dr-caligari-1920",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Die wichtigsten deutschen Filme에 올랐고, 널리 알려져 있다 · 국가 정전: DE · 사조: 독일 표현주의. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f2fe7f885b5cf45bd87130135b44ecd8d35b139af7b6beec31c951a61b2bcb4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-caiman-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "528b2fbd096811e926b7c0a746a91969da4cbb5b598b4f25d99d8f9d269e4d01"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cameraman-1928",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 어느 정도 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c149855921659d9f39e273e08b79c689f9b7bae16a10e3732edcfd480a8e069"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-candidate-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 62/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa2539e10118a6d70c97e708aa6bf3f3e98a2ed2e6775fc60b31576b60f8e2e8"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-canterbury-tales-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR · 감독 피에르 파올로 파졸리니의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c338f2262dfaa8c996b77322440e80e95776d537a94c1d3c3783d4c838e2d521"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-captain-from-kopenick-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 66/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef8714907dd8ec1a2ac1c4ea6cbe6c4c3b285ef8bd362b35844a338dc8e6b313"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-card-counter-2021",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 70/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: SE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7824870a50d17a1dcfcfbad5b02bc897aa72ec789ca0a104aafe3ee9ab88dc4a"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cardinal-1963",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-case-is-closed-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-case-of-bronek-pekosinski-1993",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: PL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a92beae3cabdfd9f64df287e343426a7a808aedc9c00b152c306141b064f7ef"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-castle-of-cagliostro-1979",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Kinema Junpo All-Time Best Japanese Films에 오른 작품이며, 어느 정도 알려져 있다 · 국가 정전: JP · 감독 미야자키 하야오의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56e4e28411e9db1adf258e02029945df6054347f9f3e63c3b6f15270e8a6029b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-castle-of-sand-1974",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "716c376075dbd20204b37d76532a07dbd2f2e5ff6e23e6b46b455fa84be705c1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cat-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "277da77e5b4f80be73fa63ac2c1549422cf1f37cb8fddb74e3709de6e158a59d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cat-returns-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: JP. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e517ee4399eb40278cfc00fd153e00a3bda28345601c204726daf62b9ecec0e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-catastrophe-1986",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-catered-affair-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-causes-of-drug-addiction-1982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-celebration-1998",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Jury Prize에 오른 정전의 핵심이며, 널리 알려진 작품 · 국가 정전: DK · 사조: Dogme 95 · 감독 토마스 빈터베르의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce4002bb619fd8d56af2ed1328caa5f641509a3a6638cc0cc1238d6fca2ba7b1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cement-garden-1993",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d1dd6565470140ad3dfce4cc61a228bdc72aeabbecb6ed273e4f198b0d632c7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-ceremony-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Kinema Junpo Award for Best Film of the Year가 인정한 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: JP · 작가 오시마 나기사의 계보를 통해 다시 값이 매겨진. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c296fb18378dd8ce5976c5a050ae45ef6cd98ec1b7ecc710eeabbab745f5ec1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-chalk-garden-1964",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-challenge-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-champ-1931",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-changeling-1979",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-chaser-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 63/100). 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: KR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76084d3f815be4503a0d7cde237a9c3a15636262a93bf1e3b241234e7b02d803"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-chasers-1965",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cheat-1915",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-chechahcos-1924",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cherry-orchard-1990",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8db38840dbf0e4ad40dfa0659500059acaacdd2b9e899970e2b9605f88a58fe9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-chess-players-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Satyajit Ray의 정전화된 작업이 떠받치는 작품이며, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IN · 사조: Parallel Cinema. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a2f8b6acca2ce8a29e8500de050c17a332308d414b3fb78cbeaa296b7d9f077"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-child-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "황금종려상과 The Guardian: 100 Best Films of the 21st Century에 이름을 올린 작품, 어느 정도 알려져 있다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e03c2e0d03b7a1a785c0276397e9e5d00d60650b52a4fa10d50faa6df92dd4bc"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-childhood-of-a-leader-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 브래디 코베이의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9367f289b243fac42e91505bbf9a870be302001636e285ae339e950f18b131ed"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-china-syndrome-1979",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 60/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e039e4beb20e1d5682eac6b7a710d26832a4f0388be286db0297d13947b9143b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-chosen-1981",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-chosen-ones-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cider-house-rules-1999",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "각색상이 인정한 영화, 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed3441463b482f287f8bf37b86d63133824162f93e5a09100c6d10ab226cbb2b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-circle-2000",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Lion에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IR · 사조: Iranian New Wave · 감독 자파르 파나히의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "885fd0a0cd10a7991bb5889420a1c87f4aa25798057aef6f4930ce6a08c8309c"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-circus-1928",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다 · 국가 정전: US · 감독 찰리 채플린의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d1892f513e2413482661bb77ff155c42e30fc7d68f79371d463e671dbaf95cc"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-citadel-1938",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-city-1939",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-clan-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-class-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "황금종려상이 인정한 작품, 어느 정도 알려져 있다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be5008139ebdb6c1735732d1849acbbf954589f6e18916a6feefd2e9e07feb90"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-clock-1945",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US · 감독 빈센트 미넬리의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16fbde738181a2004048d1f5f0b01b1302698773d298a04a82168afd853fa01e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cloud-capped-star-1960",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸으나 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IN · 사조: Parallel Cinema · 감독 리트윅 가탁의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae576c477be48e5bdac2a16b561fb37bb4df45db568b4ddfab5bb6452272b283"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cloud-in-her-room-2020",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "085c91fcd26512d7e2db74327752654e9bab31c116d0efc43a7dc7609714ee31"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-clown-2011",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-club-2015",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Silver Bear Grand Jury Prize에 오른 작품이며, 어느 정도 알려져 있다 · 국가 정전: CL · 감독 파블로 라라인의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da6071cb148132e7e08f545c4399ee0ac46768f92edbbef194559702537f59c9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-coachman-1961",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cold-summer-of-1953-1988",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: SU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d74dcc8b3a52715d6c5dbcbc1aeebd67828c6ec909ded12c80f1fd41b6ed9fa9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-collector-1965",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 68/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdd0f5e3f69d05f782f8768599dd82b9bfbd32edd341fb15e28bbc115f18402f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-collector-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-color-of-money-1986",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Best Actor와 National Board of Review Top Ten Films를 받은 영화이며, 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec5b3bcfa5c09a1ed152224c1f2f1c0fa6f97100d0c7a3a6182b513aa19bb3e2"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-color-of-paradise-1999",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 68/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IR · 사조: 이란 뉴웨이브. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "147eb48da8241eff82a46acb5365df0178367b536655745aa11ca3ab005bcb30"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-color-of-pomegranates-1969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 감독 투표와 TSPDT 위대한 영화 1,000편에 올랐고, 어느 정도 알려져 있다 · 국가 정전: SU. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "da2b91f940e6bdd3373ee3eb992ff14dbd4dda08087d76376651b37871ed4e6c"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-color-purple-1985",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "미국감독조합 작품상과 전미비평가위원회 작품상이 인정한 영화, 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8756f353428e0d7ebe4be9b3a1588046c4e39bc909ec8c6a6334109beaf59f9d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-comedians-1967",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-commitments-1991",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-common-man-1975",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-commune-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Silver Bear for Best Leading Performance가 인정한 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: DK · 감독 토마스 빈터베르의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2867254880611e36f0146f9394f8cac1799a7d9173df0ba3f9d8a8b0826422b0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conductor-1980",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: PL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebd60c3d3fa482cf226ff032cc5af71cefd9c5ab9fe1df5b1d4fe6bc16558f3c"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-confessional-1994",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 65/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CA. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d057d6aa8e22481c5702341f06037ae838dcf3821b941724d1b1447206ba07fb"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conformist-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 감독 투표와 TSPDT 위대한 영화 1,000편에 올랐고, 어느 정도 알려져 있다 · 국가 정전: DE · 감독 Bernardo Bertolucci의 작가 계보 안에서 다시 값이 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd24578685704f334c895a67cad46194114dfb2e3b3ab1d2981101f918f35744"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-congress-2013",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 아리 폴만의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de7688a31bfd8590a8643b2942ba55c4e69c3ce459a5fb2b538f3243255d4a4b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conjugal-bed-1963",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conjuring-2-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conjuring-2013",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conjuring-the-devil-made-me-do-it-2021",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-connection-1962",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "BBC 100 Greatest Films Directed by Women에 이름을 올린 작품, 일반 관객에게는 덜 알려져 있다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f02061873fcbd23537dc5e1c09d3e70478c42ba47359070fad4531e0e988a9f6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-consequences-of-love-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "다비드 디 도나텔로 작품상에 이름을 올린 작품, 어느 정도 알려져 있다 · 국가 정전: IT · 감독 파올로 소렌티노의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a903f3c725dc3e7c936b2006c0f9578d8a45c26e97b6486d479e03a60ac1d48f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conspirators-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-constant-factor-1980",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 70/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: PL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4fd5f0b5435314df3de560ff782f634568598bdee7bb59a0f0c7e6094e6bba1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conversation-1974",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 황금종려상과 Sight & Sound 감독 투표에 올랐고, 널리 알려져 있다 · 국가 정전: US · 사조: New Hollywood · 감독 프랜시스 포드 코폴라의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4a481a35af77f0620e5ef07d9ed2d04772240e921cd4517ffabc46d2f0c1d0d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-conviction-1991",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cook-the-thief-his-wife-her-lover-1989",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다 · 국가 정전: FR. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "75acd365172d7e3ce19678c461c417f785958becb39662c33a53a9ad39e7964f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cool-world-1963",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c901c5f8b3f5822eae07e4729e88934f590a6983d88f8f7eb191b9110d26144"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-corbett-fitzsimmons-fight-1897",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-count-of-monte-cristo-1934",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-counterfeiters-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 61/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68fba3cc02a66b2de6b47104eeb95d58974caa445b9f77187d4c05fdd551b740"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-country-girl-1954",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-court-jester-1956",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cousins-1959",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c250bded1d40d04b0da9e01f25bbb61811045e2ce857631e210689408b81ba3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cow-1969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 73/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IR · 사조: 이란 뉴웨이브. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44127609da6ef7f224a868d15c58b80b01ee66c8f0ba7ba9bdcf8296a46b26a7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cranes-are-flying-1957",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 황금종려상과 TSPDT 1,000 Greatest Films에 올랐고, 어느 정도 알려져 있다 · 국가 정전: SU. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b13714415b7a89f1fde970b28e90ecb06d329120016af30087dca11fef86254f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-crime-of-monsieur-lange-1936",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 TIME All-Time 100에 올랐고, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR · 감독 장 르누아르의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "a54c910a7cf65e2c539c547a47ca70b5fa2783a56648259cb4bbc976d7012b1b"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-crime-of-padre-amaro-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 61/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: MX. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "065d44032071ece8ce82f92feb4432f15a0bf895b36edbdc16f44b672bab0f68"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-criminal-life-of-archibaldo-de-la-cruz-1955",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Somos: 100 mejores del cine mexicano에 올랐으나, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: MX · 감독 루이스 부뉴엘의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7d622605ca6d75041fc9105bead6b803aced285eed17703e35157591d8f8046"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-crow-1994",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-crowd-1928",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 1001 Movies to See Before You Die에 이름을 올렸으나, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bd346fe97d86fc24c5e0d1d420facaf58c216ad2ea0876371e0dc820a32212e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cruel-sea-1953",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67e00192a5f902eba9b408b264ca49ba697e562dfc1ef31117deb78df2f459a0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cruel-story-of-a-woman-who-spins-and-spins-the-wheel-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cruise-1970",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cruise-1981",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cry-of-jazz-1959",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5439ef07c9cc95e2d9eb75870feb405060d07636b0bf44966f53ab549d8842a0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cry-of-the-children-1912",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-crying-game-1992",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 66/100). 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e01ad8f03152c324fb0d2ab0444587029746e11ebd1ccea4b5050fd5b7924e7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cuckoo-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: RU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07fec65b46a81bd9697229a5c354e26ee817919256caa10676e70d7f1b77c1be"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-curious-case-of-benjamin-button-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 선정한 영화. 일반 관객에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e69cc88e126486b47fcbcd2436afaefa35ba85cb02e0e6d6aeffcc231ef93864"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-curse-of-page-3-2003",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-curse-of-quon-gwon-when-the-far-east-mingles-with-the-west-1916",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-cursed-village-1930",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dam-busters-1955",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-damned-1947",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Palme d'Or에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7559a939c930f2dfeab5b3f2ac47878dc918c20e0ec9f8a12406f48dcfae522f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-damned-1969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다 · 국가 정전: DE · 감독 루키노 비스콘티의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6dbc85fc51340357d673fb7fb7e4eeafdd7461deb461bb035832b8f8bd3d871"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-damned-and-the-sacred-2002",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-darjeeling-limited-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dark-at-the-top-of-the-stairs-1960",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dark-knight-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films of the 21st Century에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: GB · 감독 크리스토퍼 놀런의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8250384235930f83423f6861f9ac6c9d3cbfda3f683c8b03e9956a63f9b60a5"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dark-knight-rises-2012",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63c39017cee5b103f159eedcdd2565a37510dcccd80e93d395ed9a5d01ff525f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dark-side-of-the-moon-1986",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-daughter-of-dawn-1920",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-a-pig-fell-into-the-well-1997",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "타이거상과 KOFA 한국영화 100선에 이름을 올린 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: KR · 감독 홍상수의 작가 계보로 다시 매겨진 값. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c49019cb7c188a90f6fee65f7705c5ae2a21df3551fcba1b326e3812a4422e6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-after-2017",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 홍상수의 정전에 오른 작품 세계가 떠받치는 작품, 일반 관객에게는 덜 알려져 있다 · 국가 정전: KR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce3bb89e1f86b0dc645fda2c88e42cc32191acbb4e1a4b9ac42c230cbdb2861f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-he-arrives-2011",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 홍상수의 정전에 오른 작품 세계가 떠받치는 작품, 일반 관객에게는 덜 알려져 있다 · 국가 정전: KR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce3bb89e1f86b0dc645fda2c88e42cc32191acbb4e1a4b9ac42c230cbdb2861f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-i-became-a-woman-2000",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 75/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "332ec04d6197762caccbaba5a98cede8b0a2dcb0fc8c5caccfecee4db5226242"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-of-the-beast-1995",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-of-the-dolphin-1973",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US · 감독 마이크 니컬스의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e1da4850e2da079a21f32345f5f9abc6cd7ee039f47810e7f449abf3314c917"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-of-the-jackal-1973",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "BFI Top 100 British Films가 기린 영화이며, 널리 알려져 있다 · 국가 정전: FR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09d96ac3af9691f269c761cd92b0f9907d0c1e6253dd5ca9197d54b5bb5e63a6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-of-the-locust-1975",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6baf74f389a836246d0f76061cdc583085018e5ffb110991272f0a9df4667cb"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-the-earth-stood-still-1951",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 65/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9eda8588d8fe9e2fa0583f96edc8ec1ca1a45f22e66c2a90358f0ce142d8a461"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-day-will-come-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-days-between-2001",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dead-1987",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 존 휴스턴의 정전화된 작업이 떠받치는 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: DE. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "f408a7a38871e3d467d7f8da8f225542d9a00c6fab438a323107ac44699d00e9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-death-of-louis-xiv-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 Albert Serra의 정전화된 작업 전체가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2140835a1511222ed50be9dbeffe9934ce2b682b3fefaace2457dbaaf23534ad"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-death-of-mario-ricci-1983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f88389c24edde9e484c190df1aec644d435e3ccff2b3268dcf2a00b7922eae6"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-death-of-mr-lazarescu-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 Romanian Critics All-Time Top 10 (2008)에 올랐고, 어느 정도 알려져 있다 · 국가 정전: RO · 사조: 루마니아 뉴웨이브 · 감독 크리스티 푸이우의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7d3751652db793532eee7ec4e70d75debe3b314d785cda644102c2cc5529e9e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-death-of-stalin-2017",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 63/100). 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: BE. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67be64914dd79277ba34e586d1e9728d25f5174443f0513227b1249fb9e828b1"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-deathmaker-1995",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39d8549c0d72b8af73d335faef5d8e1d34577320971b4bb445ddf7c81f581e73"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-debt-1988",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-debt-1999",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-decameron-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Silver Bear Grand Jury Prize에 오른 작품이며, 어느 정도 알려져 있다 · 국가 정전: FR · 감독 피에르 파올로 파졸리니의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0108153f71fc352401899aaac1d41c76272a3854d61120d12e54d9e49a7a9dab"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-deceased-1965",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-decline-of-the-american-empire-1986",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CA. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ced737f461b0aa6336f425b490932c2c55dd4959bedd891966501583418fb56"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-decline-of-western-civilization-1981",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "670aae06d2ac3bff06569dacacf8e1c6b6fd405ac99b586214e055da06883e74"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-deep-blue-sea-1955",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-deer-hunter-1978",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Best Picture Oscar와 TSPDT's 1,000 Greatest Films에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: GB. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "2da1e6e2e4461800c8c0fc7e189d7fd114be50a0ffa907a1561184b8d6b25b80"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-defiant-ones-1958",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 63/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af5e2f0619fb758b8cdf7b1df80f55a93ae42818c6aa3cc39495eb0d2d2d6483"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-delinquents-1960",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-deluge-1974",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: PL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd3751e54e2a2e573b9f746b163fc30262b0aa12513d9b9cae3afe6d979eb2e4"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-departed-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다 · 국가 정전: HK · 감독 마틴 스코세이지의 작가 계보를 통해 값이 다시 매겨진다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ca240accfb1724c59ea33bbce2f630753838d991ae69b66ef36bb4958f53111"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-departure-1967",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fbaced2589ff17cda97679b153580bdb28c1d7ceab360ca9c518b582de78db9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dependent-1969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-descendants-2011",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "각색상과 로스앤젤레스비평가협회 작품상이 인정한 영화, 대중적으로도 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f76d178b47c10284e01ad75b0d0cc2d60143bde024466acd95dc3900ba77267d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-descent-2005",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63c39017cee5b103f159eedcdd2565a37510dcccd80e93d395ed9a5d01ff525f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-description-of-bankruptcy-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-and-the-ten-commandments-1963",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c250bded1d40d04b0da9e01f25bbb61811045e2ce857631e210689408b81ba3"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-is-a-sissy-1936",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-never-sleeps-1994",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: MX. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "157e961b2f19b1916365a1484e61bb54a1633fa27a97431399837ad5a09ad0b7"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-probably-1977",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 은곰상 심사위원대상에 올랐고, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR · 감독 로베르 브레송의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "348aac06f5d4e704161cad5bf060a531dcb213173dd71d7b39e0608250e93fa9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-s-backbone-2001",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독 기예르모 델 토로의 정전화된 작업이 떠받치는 작품, 널리 알려져 있다 · 국가 정전: ES · 사조: Nuevo Cine Mexicano. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70a7b8c7b2e7f11fa91b828cbdd3ebd442f97e2ebf8bf66d1f5585d8797cf559"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-s-playground-1976",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AU. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35b855a807bff87e005018fa246313bece343a66c4024fbda0cdabf6cb25d926"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-strikes-at-night-1957",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39d8549c0d72b8af73d335faef5d8e1d34577320971b4bb445ddf7c81f581e73"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devil-wears-prada-2006",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 선정한 영화. 일반 관객에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e69cc88e126486b47fcbcd2436afaefa35ba85cb02e0e6d6aeffcc231ef93864"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-devils-1971",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다 · 국가 정전: GB. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f27e25311862d665a70601232f980ebda2096262775dc86fae9849db607fb77"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-diary-of-a-chambermaid-1946",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US · 감독 장 르누아르의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce5f7103d5bdff67d910f1a01241cf604c9172560347297d5d2dfc6d20310497"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-diary-of-king-yonsan-1987",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-disaster-artist-2017",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "황금조개상과 전미비평가위원회 올해의 10편이 인정한 영화, 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06c512126cbcf947ac0c738a3854d44d6bf7af4580d5d56b351749aca6fa307f"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-disciple-2020",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높이 친 영화(Value 78/100), 대중에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b1f3a0caf5e3005a55b1a584090e3b6ab1d619389d4f0e2c8f2ded23b7bcb82"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-discreet-charm-of-the-bourgeoisie-1972",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Best International Feature Film에 오른 정전의 핵심이며, 어느 정도 알려진 작품 · 국가 정전: FR · 사조: 초현실주의 영화 · 감독 루이스 부뉴엘의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b81ee11cc943ab04b8e615325f187ff82f9acbfc278eede2627329cc46779381"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-disenchantment-1976",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4e34bff34b53b878afde362b7782fc99301185788c57ef6626cd815fe26984d"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-dish-2000",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-distinguished-citizen-2016",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 65/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: AR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f476455abe0e874ed26ed9c563f3312c87335fed4613a4a7f0e9c85e11af03e"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-district-2004",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-divine-comedy-1991",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: PT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41824f32ec91fc8e01473c5405d74e46265151920d7eeb301f3d9fed40415fca"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-divine-lady-1929",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-divine-weapon-2008",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-diving-bell-and-the-butterfly-2007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "감독상과 BBC: 100 Greatest Films of the 21st Century에 이름을 올린 작품, 널리 알려져 있다 · 국가 정전: FR. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3658e52bbfa36cc9db4b37e01aab7eb1bf5a1d3fa61fae19d6ade7f44b9f79a0"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-divorcee-1929",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "the-docks-of-new-york-1928",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die와 National Film Registry가 인정한 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29ab09667bb41652bb2916796adadf0539c42e245a903adaea66ff36eb41bdf7"
+ }
+]

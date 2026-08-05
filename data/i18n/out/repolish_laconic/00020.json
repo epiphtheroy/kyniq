@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-believer-whose-faith-licensed-the-killing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교리문답과 십자가. 살인의 영장으로 발급된 종교.",
+  "model": "claude-opus-5",
+  "source_sha256": "8df580483754a04e4ecb886062620bad968517adf38337fcd9968480ef1da36d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-believer-wrestling-a-silent-god",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의심이 시험하고, 목격이 시험하고, 응답 없는 기도의 고통이 시험하는 믿음.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a1d6611bfd6400f266bf75a97be426995f69a85b3513e79fde25429d8617bf0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-as-image-not-person",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망이 그림에 들러붙는다. 살아 있는 여자는 거절당한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ba18498c73efe56b9edef590d8c510d3db0ae7f4c653bb512c56faaf2dcfe4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-as-marvel-and-monster",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흠모가 곧 삼킴이고 격하이며 흡혈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79ab6a7c77402532961ddf5efc08ac612d90ef33007a0a6d5a0c4711c4cdddd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-as-mirror-of-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상대에게서 비치는 것은 사랑하는 자의 얼굴, 아니면 그의 충동뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "e12262ac9e656aa3b1c92bd312733f608748bc4f870ef228082ac43f2e6a3bc5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-as-sovereign-withholder",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거절하는 쪽, 붙잡는 쪽, 끝내 내주지 않는 쪽에 권력이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8db094f3d89b33eda54e08be7507c00196febf37f62f78266717f05bef062981"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-as-the-manuscript-s-lifeblood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망을 다시 읽는다. 원고를 돌게 하는 피로.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f7dfd6d4939051d113459a500b281000518355f834205b027492f6d859760fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-demoted-to-fuel",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연인이 파괴의 도구로 강등된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "233063192e0a8a2d3e1b55f8dffe2935453e9b2941ecbad31f8574d60edd8c8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-possessed-only-by-her-vanishing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망은 돌아올 길이 끊긴 뒤에야 대상을 손에 넣는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e596048f1b3ba20577af484d586c61e21ff8afe5a2cceffee907233b16ceb103"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-recast-as-self-mirror",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑이 겨눈 진짜 대상은 사랑하는 자 자신의 미적 이미지다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3da563fb62258f534dafb3f1c97a3ddaa1d8c3bb8b78fa2d440bc55c76a4d1cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-returns-as-the-mourner-s-medium",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 자는 남은 자의 원소와 결핍 안에서만 이어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4310e858d8876e589b283e2c72c5faac9d8866610bf5ea5c0fb7fc22361b41ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-was-always-interchangeable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑을 대체로 읽어낸다. 그 사람은 애초에 유일한 적이 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15b32cab5fc76ffea5c052ed56860dc83b44a105316246ce2d219ca222d9985d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beloved-who-cannot-be-had",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닿지 않는 것, 주어지지 않는 것, 선택되지 않은 것. 욕망은 거기서 정의된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e834abad299730f2a5478124e639374e7eac2df1f5e9e67c89bb6309126f4f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-benevolent-lie-against-kant-s-absolute-prohibition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자비로운 거짓말 한마디가 정언명령(kategorischer Imperativ)의 폭정을 터뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e34ee4eab53b78748349568842989128e12269fc75d79f19d0ff4901ba6ca2b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-benjaminian-collector-drowning-in-citations",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벤야민의 수집가와 아우라(Aura), 인용으로만 이루어진 책. 그 렌즈로 읽은 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4c40e635c594cf83b824d06ee75773c58e972761654b7ccd9e09be735feacc6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-berlin-wall-as-buried-trauma",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분단 도시의 장벽이 억압된 무덤으로, 때로는 혼인 침대로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bebb7e6d4b756be36bde32c782df679c3413d64a59f97aa64b6a3142644eebb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bermensch-misread-into-murder-and-muscle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "니체의 초인이 불려 나오고, 뒤집히고, 결국 고발당한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "281dc7f4f4488cd61dcd7c5b1d8a9506cb662c747ea34ba1dc25262511e55d80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bet-as-kierkegaardian-leap-of-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도박판을 다시 짠다. 체념과 무한한 믿음 사이에 건 내기로.",
+  "model": "claude-opus-5",
+  "source_sha256": "3dbc07681770adc9e63047ede730bfad1f5e380c8ee367f0704cd5331a2d9a73"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-betrayer-disguised-as-the-betrayed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해를 가한 자가 자신을 피해자로, 혹은 맞선 자로 믿는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc8bc8bc80234f2e7ac47c06950ea3795d9d51cb3c3fe926d33ac96763205f58"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bicycle-as-engine-of-self-and-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자전거가 정체성과 욕망과 근대를 실어 나른다. 누군가 소유하고, 나눠 타고, 도로 빼앗아 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "693244286b3ccb34df9f10213d706202914245deec1241a997e3e601cd21a347"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-big-short-s-grammar-as-public-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해설형 스릴러의 문법이 체제를 향한 고발장으로 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f16ed67350408a2539878bfcc9972b5aa84fe504b4aa63b73d44f683c7f0dd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-binge-as-self-erasure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 붙이길 거부하는 슬픔의 자리를 강박적 소비가 대신 채운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96607cbf2c8640c87d946d70131c846a3ebaa7abf0cfe447ed594fec8060d430"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-biopic-measured-against-bohemian-rhapsody",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이제 음악 전기영화는 전부 그 잘 닦인 히트작에 대한 대답으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47595ab1acdd3ae50b34942b06540b9b43bf88074776417254e2aaf67dde6903"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-biopic-whose-subject-never-existed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가면 뒤에 또 가면. 그 외엔 아무것도 감추지 않는 삶.",
+  "model": "claude-opus-5",
+  "source_sha256": "735d0009ffc640056d734a5b64ec5343321718572a9b84a79cd84d54b823af74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bird-as-banal-face-of-the-bottomless",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔한 날짐승 한 마리가 바닥 없는 공포에, 혹은 농담에 이름을 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8682740d100cdb0110d688e4d18557ffde8046f59b534781508a87b76feffd7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bird-as-displaced-soul-keeping",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간이 감당 못 하는 돌봄과 암호와 자아를 비둘기가 대신 진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9960ceaa5a3e4c6017fabe06654d5df97985730ca03cc9cc6b5301bfe3a3bffc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bird-as-externalized-psyche",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "새가 주인공의 떨어져 나간 내면을 몸으로 산다. 영혼이든 억압이든 분노든.",
+  "model": "claude-opus-5",
+  "source_sha256": "95f927c851b89583e2755045cbb1fe9a0cc6b2c8eeff9f32138cf7b253ef5c35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bird-that-names-the-accuser",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죄와 심판, 고발하는 무리가 새의 이름을 달고 제목이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db0c9fe42e77a5453a9f38965381d85d4532688d1f991b12c6b28adbf18529ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bird-title-as-cruel-promise-of-flight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "날개 달린 제목. 땅에 묶인 자를 살려두는 거짓말의 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0db0d6d716a8cc5aa3a0599c582e2260dd5b542bc2a05c40eb05b616b89ab17d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-birthplace-filmed-as-unreachable-ghost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독이 제 고향을 찍는다. 돌아갈 수 없는 곳으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f60f3cd822ea05440cf487b2ea36754945638e23c5fa49c758829c672a74ed7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-black-body-lynched-as-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결백해도, 유능해도 소용없다. 밧줄이 점찍은 몸은 구해지지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b571f50d80643fa21db0e615701e6f1c08d267923806b149f1eb4576b1fe760"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-black-champion-as-gatekeeper-s-foil",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑인의 탁월함을 세우는 이유는 하나, 백인 권력을 다시 정당화하기 위해서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "226a1283417d941108553f3bbfcddf4f4ce961bc9d9f1213abcd8f39fe763f01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blade-as-proof-where-testimony-fails",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증언은 모두 흔들리고, 칼 한 자루만이 앎의 닻으로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b8ca54f89fe1957fcd85342c03a4e2cd21dab235fd1004fb848d3ac85b1b960"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blade-that-returns-to-its-sender",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밖으로 겨눈 폭력이 제자리로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f09506d58ce0fb1df82bc60680e893ba5d57f2dc323c36f731c648ceb7a037ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blank-cipher-whose-emptiness-is-the-answer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공백은 무언가를 숨긴 게 아니다. 그 텅 빔이 답이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fa9ff21b3239aee583d95d51070ed50dbd97ad634c22c3fc9d697e0491ec152"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bleaching-white-as-erasure-of-the-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타버린 흰 화면. 외상이 돌아오는 자리이자 담론이 자아를 지우는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "d24704f3416fbf90dacbecf509b6a8f1f96bdca0e9df7131ec9764ca105b91d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bleeding-body-as-return-of-the-disavowed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상이 묻기를 거부한 것을 상처가 대신 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c06968ad7cc6b817dff06f5a9172defc159ae100b03cffec7cf16d18d8dace6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blind-bard-who-sings-to-survive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눈이 멀었거나 눈을 감은 악사들. 그들에게 연주는 어둠을 견디는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14a3d590ffa55a0848738a5fb3f52e2f89cf99b0627196e068a261854ac1fde6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blind-prophet-power-cannot-tolerate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "앞 못 보는 예언자를 권력은 훼손하고 규탄하고 없던 일로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d20851d2d4929870409d8820df3bfe697d2ad25e5554ceafda509b1328870893"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-block-universe-where-no-act-is-free",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결정론. 영화가 숨겨둔 존재론의 정체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2486107ecf671b862ef7f42d53fc21955e55e002b21f1c9b9717b5c16065153f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blockbuster-engineered-for-its-cultural-moment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흥행 계산과 그 시대의 정치에 눈금을 맞춘 스펙터클.",
+  "model": "claude-opus-5",
+  "source_sha256": "9dd9d5d3b8e2ff1f52dc9d746ce2c0b40bc53ae19e90b0a59c09c1917fe9da08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blood-he-keeps-as-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상실의 자국을 끝내 씻어내지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bff7b7304a1208f7a1225fa32b51d93f8fef89e11a6a4176baa7b1156a1f09f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blood-is-adolescent-menstrual-terror",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "월경혈이 터져 나와 사춘기의 환상을 깬다. 실재(le réel)가 도착한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfdfe0ce1d6191997ff4718249a10d605e18ce43948606393ec0b6824b1f9f4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bloodline-as-counterfeit-crown",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정통성의 정체가 벗겨진다. 꾸며낸 계보, 예언, 왕정복고의 환상.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d5f0e9300a07a3ef9eb543df4cf2fadf10c704d40a07ea491e33e48a6c7d07a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bloom-made-to-be-trodden-or-bent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짓눌리고 꺾이라고, 의지에 굽으라고 놓아둔 꽃.",
+  "model": "claude-opus-5",
+  "source_sha256": "19c5dfa98d56a03831d5894d1b7c585f82d6fcb41d6c2fe04689ba6a823e84e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bloom-that-grows-on-graves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꽃은 죽음의 시계이자 문장(紋章)이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cf08151d2334546897081773ca7c2e136798f6d5f2329b23b7580955741bf1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blur-as-contact-with-the-infinite",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초점이 풀리는 순간, 그 몸은 죽음이나 절대에 스치고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e1b8d6aa363759c5fcd7df57a9218b3ab531a6bc12998442a2758589c2bbd87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-blur-that-precedes-the-photographic-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공기의 흐림을 카메라가 실패할 것을 미리 알린 원시 사진의 왜곡으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b460fe7430a05ef268d3be970d2037129f5b588035a501dd3a889917d71f2335"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-board-as-screen-for-what-is-not-said",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "판 위의 수가 그 밑에 깔린 욕망과 두려움을 가린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41c2213b4ce6e8dec26169a42c15297bed405379c76c75b67c02b85b87c3710d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-boat-as-tribunal-of-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배가 법정이 된다. 누가 구조될 자격이 있는가.",
+  "model": "claude-opus-5",
+  "source_sha256": "085eeff5fdcfc70c63d7297beba3d2c478de966f440116a8925f5fe383ee94e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-articulated-philosophy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸의 기술이 그대로 하나의 교리가 되는 무술가.",
+  "model": "claude-opus-5",
+  "source_sha256": "b96ad871c35b61f61ffd97814e45c9208d23a7b40bc19c4db7bc9cfdbba4da34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-capital-s-last-frontier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시장이 다 파먹고 나면 마지막 상품은 살이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "009b4cb9a868403d70f1877a32a02985721177dce7e5c514a7651b3b90f47be9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-capital-s-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살을 장부로 읽는다. 축적과 프롤레타리아화가 적힌.",
+  "model": "claude-opus-5",
+  "source_sha256": "76c5d718db59b511c297d54247f876b7270be19a93bd432d3638e6698eb039b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-capital-s-raw-material",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "《Alien》의 우주에서 살은 잉여이고 상품이고 시장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60c8cc9ccd2673b77ff718b950ff2c9fb887c337e56ad0f47a42a99f256f7de8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-devouring-nation-s-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 몸을 먹어치우는 미국. 그 회계 장부가 육체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1503f3f7a5fae9badae3ebe3f694662b597a3e0067aa717246e38446eb534484"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-displaced-maternal-sign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸에서 터져 나오는 것들을 암호화된 모성의 기억으로 되읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "683ca0596102fe8c41b1d7ff508ea558d88d2bbee0e8fc1ed23f393127b5c059"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-disposable-substrate-for-the-idea",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정신을 위해, 개념을 위해 몸은 아래에 놓이고 버려지고 넘어선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "631e3649d13f618bb47fd4d84a4e26d1500576b55cc965cec4d135d8b4ab5e50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-endurance-performance-art",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고통을 무대에 올린다. 살을 매체로 삼은 아브라모비치식 지속 예술처럼.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2b3664c37e57a30a3ed2408268084ad296fc2f51e9c29614618b969fc98d422"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-extracted-commodity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 수명을 위해 캐내는 광맥, 살과 피.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e254cd986252738e0eea31ee03f6ea66a5dfd3bb43d28e108bc3845f56ad8ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-franco-s-wounded-spain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스페인이 하나의 육체로 그려진다. 잘리고, 뿔에 받히고, 속이 빈.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f495c91f546eb94a5045a375fe819d915d77c6f092329a169e3e76c73409d07"
+ }
+]

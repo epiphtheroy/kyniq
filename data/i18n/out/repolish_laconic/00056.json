@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rail-that-refuses-its-destination",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "운명이라는 이름의 이동. 선로가 사람을 실어 나를 뿐, 그 반대는 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bece68642bfc76093e3ab25e78a7f5b2371ef2a1fc98ce16f8f4eae9f497e28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ransom-as-bait-everyone-as-collateral",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "후기 자본주의는 희생자를 미끼로 걸고, 다시 담보로 장부에 적는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "642c624b5c31a219c2de7adfb041cd705b9c7d6dbe6029a2730b93806ebca767"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rat-names-the-hidden-informant",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쥐새끼의 이미지. 영화가 배신을 암호로 자백하는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65f8168be72cdbedb3cdefee913a624508864b94210a948d12ca6da7b477a95d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rating-board-as-co-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "검열의 평결이 영화를 빚는다. 그리고 끝내 진짜 주제가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "799f34708c6c6b4b639ea5e8689aaee7a83b1b1a56a7f42021e9d25c97c11e5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reagan-eighties-filmed-as-manufactured-nostalgia",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시대극의 외피를 빌려 그 십 년이 치른 정치적 비용을 파낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ff6604d3b1fec7392cadc3f3852a890483a9b86c683bac0fe3b048698c9db83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reagan-era-read-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레이건 시대의 향수와 복고, 그 후유증. 영화를 그 증상으로 읽는 독법.",
+  "model": "claude-opus-5",
+  "source_sha256": "c50f2e796700b715caf638be2e5280f4f4a868c437bb6f136b7ea3a4aa7a61ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-author-history-credited-to-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제로 해낸 자는 지워진다. 이름은 전설이 가져간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f427dec0b39c6201661ddf49726ea0a018f41d1d2a82ff30329f16a474f91c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-body-against-the-render-farm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맨몸으로 뛰는 스턴트, 늙어가는 살. 디지털 이미지를 향한 선전포고다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bca2f462fb1643be04e96d965c895476b37046d2af098cb2aa3a31c67e39a85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-body-of-water-indicts-the-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 지형과 바다가 꾸며낸 드라마를 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ace7bd4dd824a0bdbc2301b14520299178e5e0780db8d0655408b256416ee876"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-casino-playing-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소가 극중 허구 속 제 역할을 직접 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6940247579dc9c618ff4d836900fbc800496a7d2f4f3f80f063ec59e5b68076"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-city-as-staged-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소를 끌어다 한 번도 없었던 도시를 연기시킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8295f55fe004e1e386a9410984bd792e31c5323674c3eabe674ceb5c6f0fa119"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-city-beneath-the-built-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 도시의 거리와 지어낸 극중 공간, 한 화면 안에 나란히.",
+  "model": "claude-opus-5",
+  "source_sha256": "12fe917ba7ce1a286aa79df9c9d3ae10c1b62502bb35b5c99234dfceaa3017eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-city-faked-somewhere-else",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트 위에서, 혹은 엉뚱한 지형을 빌려 불러낸 뉴욕.",
+  "model": "claude-opus-5",
+  "source_sha256": "d13d986d4029d018aec44b1e7eca64a419d66f98db730df77f6ca85469c80700"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-city-filmed-as-anywhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "특정한 촬영지의 얼굴을 지워 미국 어디든 될 수 있는 익명으로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9482bdd57d8cd6ff43325c67ed2b35541d469a0acd68bce01666ce353147d30e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-city-filmed-as-its-own-ruin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 도시 공간이 한 나라의 공허와 쇠락을 대신 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80ba440baec880192cacb1ac473a3f5398bbdfa1ffa9028f66f78bc3974f2c5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-conscripted-to-authenticate-the-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다큐멘터리적 실물을 픽션에 몰래 들여온다. 진실을 조작하기 위해, 또는 폭로하기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae8adb952488bbc9f26a0ba8b4863c8bf3b260280defc9fd63d278ab9914ccd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-death-bleeds-through-the-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배우가 실제로 죽었다. 그 사실이 영화의 주제가 되어버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6ff18114f112ce52cd3fcaa547dadb159ab002a8bc6fd40186e53085ed5dc89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-dwelling-rebuilt-in-studio",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집 안의 친밀함을 로케이션이 아니라 치밀한 재건축으로 위조하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "c45a5fc9a212e3b939d84abbfc7fe718780eb9cc42912dba51722eebacb7d01d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-erupts-through-the-document",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기록 영상과 재연 화면이 묻히고 억눌린 실재를 뚫고 나오게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f13400f2c0b033fdd581b81e1da298676797544fa6478f3b34ffedda2af8c6d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-erupts-through-the-symbolic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라캉적 실재(the Real)가 밀고 들어와 상징 질서를 찢고 버틴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b96a8518517ba880ba10fa6b74c1b4a44bf39b1735c9a258c09034fba5b357e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-frontier-that-acts-its-own-border",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "나라의 실제 끄트머리가 극중에서는 살육의 무대로 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ddb9fa227caabe127a85ad3ecd69ffd42f8ecc328259be2d2883149b9e9982f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-hand-inside-the-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구의 프레임 안으로 밀반입된 다큐멘터리의 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d2bcd95d4ef64a90e3d7647de334964bc4618dfe46b95f75da00f95080cfcbf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-history-pressing-through-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구를 그것이 찍힌 역사적 순간의 다큐멘터리적 흔적으로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a47845399804d1a888ed3f61d485e24a86435c02a0220c6ed6da9823b69c442"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-hong-kong-machine-as-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 교통 인프라를 다시 짜서, 서로 이어지지 못하는 영혼들의 거처로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22cdc123ece4085a248aae9b37dbb8ee59309778a49e974985dadc157f2d3d15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-horror-house-as-pilgrimage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르의 성지가 된 그 집에서 직접 찍는다. 공포와 관광이 한 몸이 되는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "6972fa9a0d7f3a68f813ca95e6a754c7875e3f9a6238aa140321dde23cd0872e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-land-standing-in-for-myth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남부 캘리포니아의 지형이 딴 곳인 척한다. 그리고 그 이음매가 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7552588096debe682af28956cecb4798af4281c831f2ea05d0f0864d34411fc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-landscape-as-buried-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 지형을 국가적 참사가 남긴 흉터로 읽어내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "380c3e1015f644c7b2be42d1324bc14b7e93bd2f67e99cf098941d89f8b61b33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-landscape-cast-as-myth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 지질을 끌어다 우주적이거나 성스러운 저 너머를 연기시킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bef2037ffbe2cebc8d7e9df48f3ba499cbcc6b40906f34675263cf61852f2d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-location-as-testimony",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 땅을 밟고 찍으면 지리가 다큐멘터리의 증인이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e7ad40e0819e8469255a6936b43a2fc358d729cea0aab25d3ed57035fb889a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-location-beneath-the-painted-surface",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연출된 장면 아래 다큐멘터리적 지리가 숨어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2e2cd68b37077412d34ccd2ccf14b104d291cedcd9950991c95927ade1802f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-location-filming-its-own-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소가 제 쇠락과 소멸을 기록하는 다큐멘터리로 변한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "199984694032525f05f8b9e2f62d7c1e5fa784543e2ff1fb79d1d282a945c796"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-location-that-indicts-the-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "각본은 추상으로 뭉갠 진실을, 진짜 거리가 기어이 화면에 밀어 넣는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c14705b48845635b41f0d75715063ca37e66d813131e6bcfa60adac3875f968"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-los-angeles-as-apocalypse-already-here",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 장소를 종말로 읽는다. 주민들이 이미 살아내고 있는 종말.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cfb891c39cb92decf0995464aae423aa86a70ab7e322d5ecc7973395259d89f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-manufactured-by-removing-the-director",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작가가 뒤로 물러난다. 그러면 비배우들이 스스로를 연출하며 진정성을 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8add87dcf5855f324d804ab2b804181dfd08536d6ea89733c6de7cd41e37e074"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-mountain-that-refused-the-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "촬영지가 영화적 조작을 거부하고 제 존재를 밀어붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e19880e9e4691b11ea1217ae6400ecae269fec90b1b63e4d645aef81ab2a48c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-new-york-address-beneath-the-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맨해튼의 어느 번지수. 그 지리가 곧 영화의 숨은 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d342b242b0df9fdfccc70cbbd5ca4850dd3fe4eff14746949327bcce641f9413"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-obscenity-is-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "외설은 살에 있지 않다. 의상 속에 숨어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "515cc49430b0d362e4661e1d8f15194b827308c7be94a84dac4876a5fb80d5e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-outsider-cast-as-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "헤어초크는 정착하지 못한 인간을 연기하는 배우 대신, 실제로 그런 인간을 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4f32a4219b940aef76ac3cdb70943533fce30e49e7ced5b00a0695138fec6c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-paris-edits-out-the-banlieue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보편주의 시민 신화 앞에서 다문화 파리는 주장되거나 지워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "498286263a6bc5b0632475c7340ca80adda147fdf8533bfbb0f10010c01f4e7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-beneath-the-mythic-nowhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 위에 얹힌 미국 신화를 실제 지리가 유령처럼 따라다닌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4d721658f05fbc82b28b7b94f3c750d56af1ac9f33e645e11cecebee864b2ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독일의 장소들을 징집해 허구의, 혹은 상징의 지리를 연기시킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f803098f03b090fed5e4912cc9e6aba9c5d8486f370ff861919a8efa0d50963"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-its-imagined-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누구나 아는 장소가 자기 아닌 나라를 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84f9500a1c6825d3a5eda96b006a8a3ad262a58422c33f27bc4f2858f02b5e44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-russia-s-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소가 나라의 몸을 대신한다. 아직 벌어진 상처이거나, 이미 시체이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc469196fb4bb16e0f376805c8e6555a57adf8df03484943b845e070e0a7ddd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-sacred-or-dead-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 로케이션을 끌어다 영원한 땅, 무덤 같은 땅, 성스러운 땅을 연기시킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4fff0998aff60e26feab3b46793d755a2312ce32c0ead4c372e2be044f81b09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-conscripted-to-play-fiction-s-ruin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상실이 실제로 벌어진 자리를 다시 세우거나 텅 비운다. 제 몰락을 연기하도록.",
+  "model": "claude-opus-5",
+  "source_sha256": "383fadbc4d99d6db77f9b0f9da0af77a213e74895b61d90aa1365981c1ef75a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-filmed-as-another-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기록된 실제 장소를 시제로, 극중 시간으로 징발하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "65acf8d9626f4fcee18618491907c204553d5bf477d95df9183379ba60aab6bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-that-outlives-its-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름이 붙은 그 장소는 순례지가 되고, 소송이 되고, 저주가 된다. 허구가 지리로 번진 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e83d43cbde3a384e8e73881d9a5f242c90dfa3699bd44417e27cfe76f5519742"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-walled-out-by-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상상된 도시가 서려면 실제 도시는 밖으로 밀려나야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c476c510a4cfcc06a822b19c9ae0843cd7f7dfe281408abbab139465a55d7c19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-province-shot-as-wounded-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쇠락한 공업지대를 있는 그대로 찍는다. 상처 입은 중국 전체의 대역으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "c128bb6b6cab79cbe5cde86b98aa10b47b0cc39ea9000fa9dc698dd2dfac06ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-shore-as-epistemic-edge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 물의 경계선. 알 수 있는 것이 끝나는 자리로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51559fd659a014b817bbd7b11b8ee485811fd74ef7122ba0f6c966e5be4c4736"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-shore-as-fiction-s-border",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 해안이 문턱이 된다. 세계가, 법이, 평화가 거기서 끝난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1a51409d6f9c2baa2bf9c9da517c6f410966f776a6259cdbfd5e7f7590be8bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-snow-that-refuses-metaphor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 눈은 각본의 설계를 따르지 않는다. 의미가 되기를 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5001034d0d90c4615b3f069e8ebf1b40ba3f2e3180e599b3792555e0c9e9a149"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-stone-anchoring-a-refused-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 지리를 부인하거나 끝내 감당하지 못하는 콘크리트의 장소들.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf7f2e2eed9be385964bed5d5dbbc2244f52d3c0fb07790f160391b9b712b0fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-street-disguised-as-anywhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "특정한 촬영지가 미국 어디에나 있는 흔한 동네인 척한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b836e9e70470c3c340089339b32f5166064ea0f0ec387fbbee734fac216dc163"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-sweden-that-disowns-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스웨덴을 다큐멘터리처럼 찍어 스웨덴의 신화를 고발하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4277ff720c3bf1d4002f1389102a9b9398f2ece7e4386b1be3640a1073f3f1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-tearing-the-symbolic-open",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내장을 건드리는 감각의 과잉이 영화의 질서에 구멍을 낸다. 실재가 터져 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64f62d1f30df4be6e099a99b1a25d43ba835edfe675ffb4cc6cb233b7b18996a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-that-cannot-be-seen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "볼 수 없는 대상. 순수한 기표이자, 의미 없는 중력.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea40c1d33758eed39350891430bf8435e65405ba182a5eeee2fe76f17bb58593"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-that-withdraws-from-reach",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜에는 끝내 닿을 수 없다. 그 불가능을 뼈대로 세운 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "44e41f7ce62d7e1b3d10ff9a2a49f27a15b72336d61c822ddc8d235f4d752854"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-tokyo-district-as-hidden-sacred-underworld",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 도시의 한 구역이 감춰진 신화의 땅, 이계의 영역과 겹친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "534497fade97b54c668fd6b38f5afe5e2b161590d69835a2f38afe7736f240a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-town-beneath-the-mythic-south",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남부라는 전설 아래로 떠오르는, 이름을 가진 하나의 실제 마을.",
+  "model": "claude-opus-5",
+  "source_sha256": "0725ce494af9ddc0d01bbd13148e1a23fc9bde7e6457d970564f2ef86b8812f1"
+ }
+]

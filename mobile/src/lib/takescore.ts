@@ -1,3 +1,4 @@
+import { bandWordLabel, verdictLabel } from "../i18n/tokens";
 // TakeScore prose — a straight port of the website's lib/takescore_prose.ts.
 //
 // Deterministic band tables that turn the V/C/R numbers already on the film
@@ -24,7 +25,10 @@ export function bandOf(score: number): 1 | 2 | 3 | 4 | 5 {
 }
 
 export function bandWord(axis: Axis, score: number): string {
-  return BAND_WORDS[axis][bandOf(score) - 1];
+  const step = bandOf(score);
+  // English stays the source of truth (and the fallback); the projection is
+  // render-time only — these strings are never sent to the BFF.
+  return bandWordLabel(axis, step, BAND_WORDS[axis][step - 1]);
 }
 
 /**
@@ -34,8 +38,8 @@ export function bandWord(axis: Axis, score: number): string {
 export function verdictShort(v: number, r: number): string {
   const hiV = Math.round(v) >= 72;
   const loR = Math.round(r) <= 20;
-  if (hiV && loR) return "High value · low risk — a safe masterpiece.";
-  if (hiV) return "High value · high risk — ambitious but divisive.";
-  if (loR) return "Solid but not peak — a stable choice.";
-  return "Mid value, mid risk — approach with care.";
+  if (hiV && loR) return verdictLabel(0, "High value · low risk — a safe masterpiece.");
+  if (hiV) return verdictLabel(1, "High value · high risk — ambitious but divisive.");
+  if (loR) return verdictLabel(2, "Solid but not peak — a stable choice.");
+  return verdictLabel(3, "Mid value, mid risk — approach with care.");
 }

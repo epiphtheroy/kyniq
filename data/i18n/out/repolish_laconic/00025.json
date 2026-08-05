@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-of-boring-as-the-critic-s-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지루하다는 말은 영화의 실패가 아니라 제 조바심을 실토하는 소리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbae84ccc1812c9415b27fb2fd3506437bc71a2c9cbf7cf725c4532aeb42b906"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-of-derivativeness-as-critical-failure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아류라는 판정. 드러나는 것은 영화가 아니라 비평가의 준비 부족이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "03ce199c977888293f74ac487ffc4b58e85da3e927eab294911c6ed3530d3539"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-of-emptiness-as-critical-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공허하다는 고발은 고발당한 영화가 아니라 고발한 쪽을 비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39091ac0cb257b3fcf33521389da22a9f613dd1c45f4f2a2608d702100d3845a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-that-indicts-its-accuser",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평가가 내린 기각이 도리어 그 비평가의 문법 미달로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93103ecde036c65aeefb5aef0c1ece40bf78fa56674a04ed70df1a7977d85d91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charming-predator-who-disarms-before-he-kills",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력에 앞서 던지는 미끼로서의 카리스마.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d8db75bd985c343e8de73dd5108ab50f1083bc554105c59ae7348e3a334d049"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cheap-camera-that-made-the-film-possible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "싸고 흔해진 촬영 기술. 그것이 있어야만 존재할 수 있었던 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "a22cf220872e43d611e885193259512cb3bc228e3358e4ae8e36d2aa4f4357af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cheap-room-reborn-as-cosmos",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈이 없어 좁아진 공간을 의도된 형이상학적 건축으로 바꿔 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16a6d18a8b86d6a0246d012f101e225f696d21452ba7b965c36af5891f481e3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chef-estranged-from-his-own-gift",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "요리의 경지가 자기배신으로, 상실로, 끝내 포기로 돌아선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e685d0638ae0e249d2cffca3fe15fa28bb74d5c8897d0b673e489328b004f03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chemist-who-measured-the-human-limit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이성이나 천재성이 모자람으로 작동한다. 스스로를 무너뜨리는 도구.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae368d5ce5166763077a0a5498604be14e1330d93a2f302bb3c31163e1b7a241"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chicago-that-was-filmed-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시카고 아닌 곳들이 불러낸 신화적 시카고.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd81425b11582c75e97127b76210eb729641b0138d3fd031602f2b211828aa37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-as-disavowed-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실을 말한 자는 쫓겨나고, 어른들이 억눌러 둔 죄책은 아이가 진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d06b95ad5dec8ed2e2564e8bccdd21a2a593e0313659b41511b03517af4255d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-as-hidden-observer-anthropologist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가장 어린 눈이 어른들의 맹목을 조용히 관찰한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb100e6069bce1db028a97cf73743f5b2c111af02da658942b761f2df27810d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-as-reborn-camera-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 인물이 영화의 기록 장치가 되어, 남들이 못 보는 것을 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7fc28de1198fc219bd8146c792e5ce20f3c85d4b60cb1a86066a74cbd2b73a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-conscripted-by-the-spectacle-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미성년이 배우로, 증인으로, 노동력으로 징발된다. 그들을 착취하는 관객 앞에서.",
+  "model": "claude-opus-5",
+  "source_sha256": "abc8cfc23aa52aa9018a90da1e570a656c4d0bd817054909dc4cf79ad440795b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-forced-to-carry-the-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짊어질 이유 없는 어른의 짐 아래 주저앉은 유년.",
+  "model": "claude-opus-5",
+  "source_sha256": "645a31ac4b8602d5891178d89c501b0701c0530865c49c3303f4c5796ce35cf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-s-imagination-as-director",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제작 방식 자체가 이미지를 아이의 지각 쪽으로 휘어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7f7c69d18de1b20a6f3bc3b0588353465146a31f2e960566977a2c13b013abf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-s-word-as-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누구의 증언이 믿기는가. 그리고 그 뒤에 오는 마녀사냥.",
+  "model": "claude-opus-5",
+  "source_sha256": "4395850c0018dfb190d817f955fc6be3a0e931b2debf4f62e9e48e1b847e2052"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-sees-what-adults-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아직 물들지 않은 자만이 괴물의 정체를 알아본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7244ea9b709c5308a181f0f95cf8377c10d07e7007e5bb92cf71df5665e144da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-treated-as-mere-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트적 범죄. 아이가 목적이 아니라 수단으로 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf11d863f4b4f43e835fe5d9504e7ae6528285aab91818c4a72bab1402ddfa9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-voices-what-adults-repress",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족이 부인하는 증상을 어린 몸이 대신 비명으로 터뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd61adc7374f7a477f9e5a9f468216cd570f93bebcd28821ca0f1dd55e2dcf46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-aestheticizes-the-ruins",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무너진 질서와 쇠락 한복판에서 아름다움을 연출하고 매만지는 어린 인물.",
+  "model": "claude-opus-5",
+  "source_sha256": "44d016aa0e029019ffd886ba4024ca5bfb20f9a2b5c6233e0bacb25a705f068d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-carries-the-ethics-adults-abandon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어른들이 결과와 편의 뒤로 물러난 자리, 남은 도덕은 아이 몫이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b69ba21ee40fb1856b26a14f36ba015cab7e5dfda2f1985414cd3a67b60baf0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-forces-the-maxim-open",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실을 뱉어내는 기계로서의 아이. 어른이 숨긴 법이 그 앞에서 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04d1f6c3789a156d82cc43d85d79cf1ee0c3671e891178a717b9bd6bad678560"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-keeps-the-doomed-household",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어른들이 손 놓은 집을 아이 하나가 건사한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ef7013e05dab9ac77dc0564ff9a473ba5b4d660e57be6e089899b53e1ff881e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-watches-instead-of-acting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍고, 판단하고, 끝내 구하지 못하는 어린 관찰자.",
+  "model": "claude-opus-5",
+  "source_sha256": "174dace228e0c1a4772c3c184f88a80137823d201298d564de4b676742ef84cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-whose-real-life-bleeds-into-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서사의 도덕적 무게를 스크린 밖까지 지고 가는 아이들.",
+  "model": "claude-opus-5",
+  "source_sha256": "767b5a4b36f3027c8cfd6178166f742809bdd5b563c12d0358ca414df57f7a35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-whose-refusal-decodes-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소년의 사소한 몸짓 하나가 이야기 전체의 열쇠가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6245a2d07cfcd9c6038aa48da3f7ee6e4fa7f6c0b6b0c477fc1f5700e1ded66f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-children-are-the-only-adults",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성숙이 뒤집힌 자리. 어른이 놓아버린 도덕의 무게를 아이들이 든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82b5efb62e7c56d00626ab40639d6db4fe946cca033443caa4ff35c1b960ecb3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-children-s-film-that-wounds-on-purpose",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹함이 배신이 아니라 목적인 가족 오락물.",
+  "model": "claude-opus-5",
+  "source_sha256": "a42822dac2212bad52f363ac55264d065c9e5f4243c394d97b00308baddbb3ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chinese-city-as-buried-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시의 지리가 억눌린 기억으로, 알레고리로, 입 밖에 못 낸 상처로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a81755f04242d8d88d3d5765236e8b7f66aa75f553d9f797a64486996c273264"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-choice-against-bad-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사르트르적 자기기만을 거부하는 자리에서 세워지는 진정성.",
+  "model": "claude-opus-5",
+  "source_sha256": "e852887ff13a3ea800a869cdf6b004876380fd4685a04563fa88a0f389e50437"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-choice-that-refused-to-collapse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결정 하나가 여러 가능세계로 갈라진 채, 끝내 하나로 수렴하지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4aedca66ee883bcc08b65a2b58cb74b4bb318cf87db0dac97d291eacba880572"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-choreographer-s-eye-as-moral-camera",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안무가의 시선이 그대로 영화의 윤리적 프레이밍이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "abd7926157a08f1ddec8c053199ed14bd3f6189f889f92520cec3cd7870b3d92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chronophotographic-gun-that-dissects-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마레의 운동 카메라. 살을 프레임 단위로 저미는 무기.",
+  "model": "claude-opus-5",
+  "source_sha256": "23a6fafa8e9c801a2d177721da18bb342f2f5f002c516a978c4b5b8700ebbf69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cigarette-as-disavowed-desire-made-oral",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기는 끝내 말해지지 못한 갈망이 자리를 옮겨 앉은 기호다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6db03613fc5e297c7ff80c51ca8a80f3c5c988070e431e69b1aca0109b2d96c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cigarette-as-forbidden-sovereignty-of-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "단속받는 몸이 유일하게 주장하는 자율. 그것이 불법이라는 조건에서만.",
+  "model": "claude-opus-5",
+  "source_sha256": "c303816d5270b3fc1cd37039e2d7d11ba526abbed3f355db8310c77f4c969e9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cinema-built-on-absence-and-the-gap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알맹이는 사건이 아니라 그 사이, 보여주지 않은 이미지, 비어 있는 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fa6281066db474e6719eef19d007530223653c27517fda7b9b73851f988ac93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cinematic-image-as-revenant",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 죽인 이미지들을 불러내는 강령회로서의 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d1c98a4208fab2e3bb553d57d70b8323df8b23650f49b879cf857b1a371cdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cinephile-s-anxiety-behind-the-crown",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대관식은 곧 비평적 불안의 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9b4125ac40dbcaf687daa3d74a665559efc7a08b69d01e3baff90d10c07adb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-circle-that-forbids-escape",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "운명이 된 기하학. 움직임을 흉내 내거나 비웃는 닫힌 고리.",
+  "model": "claude-opus-5",
+  "source_sha256": "1043f9c917b2881666694f0326481af0c768d26ecaeea6ee98ef9ef39ce245e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-citizen-reduced-to-a-file",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시 아래 사람은 암호로, 일련번호로, 서류철로 녹아버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff2b7c3e299f2c0264bd666f4b9ace3f60d13f0cf43101bc7cb1fec796231243"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-citizen-s-casually-privatized-arsenal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치명적 폭력이 평범한 손마다 흩어져, 걸리는 데 없이 공기처럼 깔린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d294e3c70fd1faaee75b5b04b234bc223b59c272a9c317e6dcdab4bde364258"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-a-body-in-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔이 시민의 몫이 되고, 국가 자체가 상주가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25f5add22e34b74c187a2e8484a9843bc6cc3b7e24193f52106c1242e43af7c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-capital-s-reflecting-surface",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유리와 이미지 속에 제 모습을 연출하는 자본, 그것으로 찍힌 대도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "af4128eb8a49e48790023dd38d59ab980c0dbaad05a26d7d6399e4e2a0b2ed05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-confected-wound-of-longing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아물지 않는 통증을 봉하려고 엽서 속 환상으로 지어 올린 파리.",
+  "model": "claude-opus-5",
+  "source_sha256": "41c194380b14cc4a5b89fdf067a1494d5d892212d21ddb9755dec43043f2f2cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-industrial-corpse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "펜실베이니아의 죽은 산업이 영화가 파헤치는 실제 시신이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c72fd66183957936e9ec65f85348b0b5746a8f15e4d2377ed3bcc1b99fb562b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-assembled-from-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 붙은 장소들은 남의 땅, 지어낸 곳, 있을 수 없는 곳을 기워 만든 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bc0d4bb69921366f78796e360419d21f5192e439c9a39eddf953e84bdd84e32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-built-as-a-theological-stage-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평범한 스웨덴의 장소들이 우주로, 성소로, 지옥으로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c7cd41a880a63ce20d947fe2fc1370b65c4427d0ff03c0dcee9dd37ee7ab64d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-built-as-emotional-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장소이기보다 심리의 극장으로 세워진 도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b6abea480eca13af777b4474566282a1d8d8e15ed5461b571225a6e76a7ad69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-built-elsewhere-to-be-nowhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 아시아 대도시가 다른 나라 땅 위에 세워져, 꿈속의 어딘가가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74e9e05654179713cd36a53b04332853328f6a01b5f6a46808f5b1a5e3c09a25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-cast-as-another-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 대도시가 다른 도시 행세를 한다. 그 위장이 곧 의미다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cebe86b9f588f2091d5db50840bca3b2c38edebb49117f4ada7f8331855f6858"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-conjured-on-a-hollywood-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계의 대도시들이 캘리포니아 촬영장 위에 환영으로 다시 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f01ac85e93cc5d5fac3b9522746890dc0ee012947c701ffcc495de0fe99210a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-as-anyplace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 그 도시, 이름을 지우고 어디에나 있는 익명의 도시로.",
+  "model": "claude-opus-5",
+  "source_sha256": "c699019a2aa68131c0251df6d877fa2d66f328dfaf7c2681e58e2a68c83eb528"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-as-its-disavowed-double",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 장소가 차마 보여줄 수 없는 다른 장소를 대신하거나 가린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d9742d602f6f564b9f3b9aa8591536f8607d9dc48d84ce06fa55219d446effa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-as-its-own-antagonist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관광엽서의 신화를 겨눈 무기, 실제 변두리의 지리.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd5ea5c3dfade49711916b3cb33d8afcd9aa7d42c3e4e2baa6367d847f0120d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-before-its-demolition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "곧 사라질 곳으로 기록된 파리.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5b58bee164c6537b13efef3296218d00d3aa4a590f09b7233a00477a836c89a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-a-stand-in-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시가 남의 얼굴을 쓴다. 그 바꿔치기가 의미가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa083ea36171df2b202f94a029f136ebd8eba2422aa03921b7d39fa06cd0a552"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어디도 아닌 곳으로 연출되거나, 제 나름의 의례를 지어내는 멕시코시티.",
+  "model": "claude-opus-5",
+  "source_sha256": "65660f1d1fa04dea8d35473745c2b7c6c447e76544b59d39c3041cbac776acf0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-disguise-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가면 쓴 실제 도시로서의 고담. 혹은 세트 위에 지어 올린 신화.",
+  "model": "claude-opus-5",
+  "source_sha256": "31adf09d1f3eb73ee3bc882dace7b3a96fcf8b75855efe670aad8c3833332365"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-rome-s-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로마의 땅과 촬영장을 거쳐 한 대도시가 세워지고, 가려지고, 되살아난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09e66909261a73d0cb51bec6cb4a39a9decfae18607368baef9b437dec757ef2"
+ }
+]

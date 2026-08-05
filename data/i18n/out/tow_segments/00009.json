@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7cac5400009b61a7",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Albert Serra의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cac5400009b61a729dfe1bda3518c5a4d67e5cc529c3830c30ff13592515fdf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "409f8b41251a411d",
+  "field": "text",
+  "lang": "ko",
+  "text": "New York Times 21세기 최고 영화와 National Board of Review Top Ten Films에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "409f8b41251a411d16e46d22051dab1ce9ac065092eb3528c857ccd15f7b3c8e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "712b826974c5ca62",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Die wichtigsten deutschen Filme에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "712b826974c5ca6291edc0dac728fe8ed73c8513b01bf544408196532a30e59c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ba15f01c6efa6b2c",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Greek Weird Wave.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba15f01c6efa6b2c2e8e0c35a19bf3a27b1bbb8855c58e12811ad923e3b05144"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fb5d9e478416c214",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 George Lucas의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb5d9e478416c214afcdfee1610b37165755d523bf611187f7f879cdf39e1068"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fb6344a1f2ae060c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Alejandro González Iñárritu의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb6344a1f2ae060c1203d2491a8cdc75648b99536d1390cd83cff05e942062d2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ec6abebb9fc61c2e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jessica Hausner의 정전화된 작품 세계가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "ec6abebb9fc61c2e7bf36fcdc47b0bd46e40c81c0a66a9b2949b05c72153bb34"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "18753d0434890110",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 John Landis의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "18753d0434890110353a6abff7e7cc934b66a81fddcf319d60742ec42b29a58c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5ad227ec8179cace",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Danis Tanović의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ad227ec8179cace3eca3d12924e132afb90f403c5f3254b2b31ae34908e9bab"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "db90dfe8c0d7b8e5",
+  "field": "text",
+  "lang": "ko",
+  "text": "New York Times 21세기 최고 영화와 The Guardian: 100 Best Films of the 21st Century에 오른 작품. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "db90dfe8c0d7b8e5b239205676e6cdb5b86867d21fc79fc0a4b11f2fd6ff1582"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0f8e679a87f03b63",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Director로 인정받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0f8e679a87f03b633632560cc082df4e8e1a3b1eb36dbd21b48572ca00c0c229"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "73947536fc07ce64",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Leos Carax의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "73947536fc07ce640ef18d4f195f1a03e36dee80b06ae7a73aace6e00ccaa3ce"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bfc60fa8fc199e5c",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 Palme d'Or에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "bfc60fa8fc199e5c048237cb89c363d67fe99ffcc029e7347c00b88d66041839"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "aa7bbfea5d073782",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Kleber Mendonça Filho의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa7bbfea5d073782930538819e04f692a7852fa19c2276ad03b66b5a6e8a5208"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ce24091337c2e523",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jean-Pierre Melville의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce24091337c2e523f66d91c770aa63c87b8e0023c2f2fe56bb973ec754bcba68"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "eae2324732455f42",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion과 German Film Award for Best Feature Film으로 인정받은 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "eae2324732455f429565baa2cdfda15c16924285aa6f343e815dfc54b63644ac"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "813c007e0fb7b4d2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Ingmar Bergman의 정전화된 작품 세계가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "813c007e0fb7b4d22f2b6c724a33dcbb660ce4cfeb3302691cc7c48c0fdc6640"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f21c7edb2dce6107",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Sarah Polley의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "f21c7edb2dce61070cbfa3ca3721d3ed16cb7de6003ff0759ffdf1019e4b2501"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3b1df383ca746a08",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 WGA: 101 Greatest Screenplays에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "3b1df383ca746a086f400bc4d4bd37c50a01fbfdfac1b2d602504c0e4ddea6df"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "92e6a61985d493ee",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Golden Lion과 TSPDT 1,000 Greatest Films에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "92e6a61985d493ee9d5223881269a980ab24fd995e0ee6d2c31563421616e976"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "19c8ed79fc408faa",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: RO",
+  "model": "claude-opus-5",
+  "source_sha256": "19c8ed79fc408faa6968a1220fd7771193d3640b1da547b4ff46caa5e85a758f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "44eb77d57eab1286",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Clint Eastwood의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "44eb77d57eab1286c8369c1cf07170024ac9d95781f741ed7ddb1d8a767eaf4b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e2cda4171231198a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Ousmane Sembene의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2cda4171231198a31b2ba4604d90608d7867c9e15aaf0dfdd42732b33a9f5af"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d8e3bb54eabe649f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Darren Aronofsky의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8e3bb54eabe649f5c189a63b06ff0b86f7f4edb3d33e35a9dc71613a7ee4445"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4a13a273f694a1f2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Ali Abbasi의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a13a273f694a1f236e691ee5098b988ae064c61777a43bc14bacf2b31c53b02"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4003b8e86184badb",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오시마 나기사의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "4003b8e86184badb8bdbec3f91270731bfb2c4616919d1b5c1a84e1120d176df"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c408993a50c284d7",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor로 인정받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c408993a50c284d727b7829d0ed5c64ee6f5a7b62ce956c94141ac3c626013f0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b6f783a56119e908",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Olivier Assayas의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6f783a56119e908e01591a9dde38d6373460a92af2ce8ba5813fa7617ae1a7e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "49d161f1ad78a43b",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 Best Picture Oscar에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "49d161f1ad78a43bf8d2b8036c829978a34d82e1ec4e43e8c7c43351b2ebda6a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "821503caf2947e2f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Nabil Ayouch의 정전화된 작품 세계가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "821503caf2947e2ff9adc0ad5858bfc85a1fc66fe6f9f0dc45a2762b55b378b1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "db6e6669a8ac746a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Lukas Dhont의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "db6e6669a8ac746ae82d2b64984480e88a0ed0d1cd19a6e892e8685219d09a6d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e74e98d3ac12dad8",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Pedro Costa의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "e74e98d3ac12dad86afbce3e6ebd04514537d0eecfddd8ab57a669ebf8d9473c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "56b9d5cfa4a97803",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Award for Best Feature Film으로 인정받은 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "56b9d5cfa4a978031734681e28a1feba4f743c3a82849aa43d7ddb4a4b11b0f1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "288951ee8f10a3c8",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor로 인정받은 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "288951ee8f10a3c8ff61f5ca2e5f09fb69e3164d6df9a04bcfe297496b48798d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "98c29f95165dab46",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Guillermo del Toro의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "98c29f95165dab46693f4a4634aaed8c51d4b552a9af9fbbc0c81c342e7e9092"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "090aae0265a5e44e",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Best Direction에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "090aae0265a5e44e84bca8f766b1490a98ca331201abf12631ce89799b4b4db8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "32378572d9b310fa",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치로 높이 평가한 영화(Value 77/100). 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32378572d9b310fa6fc2f346d551e7043120fb8651b2ad5c37668576a2b313af"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ddc5a60c2b3913ab",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films Directed by Women과 National Film Registry로 인정받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ddc5a60c2b3913ab1c40202c2fbe435ea292c572c48b31c33d63580703e9350a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a20fecdc81398b46",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Yorgos Lanthimos의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "a20fecdc81398b4622a4acd960cfbccc091be28fcdda7e31f0baa08b370cd34e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "21b6bfb3cd74e8b4",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치로 높이 평가한 영화(Value 68/100). 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21b6bfb3cd74e8b49f523c3918599750157d1a650814da536611d909e96364af"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6c68a867011db772",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Globe Best Motion Picture Musical or Comedy가 영예를 안긴 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6c68a867011db772989daa08761f614af0bafdc4d41bee3c1716790ef96e1d2d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "05189fdfb14f5420",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 하마구치 류스케의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "05189fdfb14f5420d088534de811deb5a872c98e28e5f91133b4dc6c6c67e5fb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e2e514dc8d497482",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Board of Review Top Ten Films에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e2e514dc8d497482d06522c4092d82edef9e1435721550dc14d4a8330a0d3029"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ae49fb662921e66c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오즈 야스지로의 정전화된 작품 세계가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "ae49fb662921e66c171b0a9d1a2d7c2e6617cbbeecba93ff1c83fa8563236def"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a30cd16e35180d10",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Werner Herzog의 정전화된 작품 세계가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "a30cd16e35180d1044f831700a6e976eb93c24257f0db081fac355b7b8ad6360"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f34dc3a3452f94c2",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Volpi Cup for Best Actor에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f34dc3a3452f94c2351f26bd7bcf88b7437f79f93eb616d0c0d2b3db07aeec4f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ec986487663d0cfc",
+  "field": "text",
+  "lang": "ko",
+  "text": "IndieWire Best Films of the Decade로 인정받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ec986487663d0cfcbff3d59a0b1cec01d9afc741119eb2903bea939772b74bcb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "043f0df050a268f1",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: FI",
+  "model": "claude-opus-5",
+  "source_sha256": "043f0df050a268f1a88a588b7b4aa70e03670656f3f5603c97da0abe8b7cf20d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "00b27fe7e7f7173e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Nawapol Thamrongrattanarit의 정전화된 작품 세계가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "00b27fe7e7f7173e1e6bfd936a8abf5ca0a494b48376e7633b8f5ba5dd7d1de3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "acc4d245cea0612b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Ruben Östlund의 작가 계보 속에서 값이 다시 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "acc4d245cea0612b3f1b2201b1d69fb0b99c56f876b5de70ae2f56e2dadf8dcd"
+ }
+]

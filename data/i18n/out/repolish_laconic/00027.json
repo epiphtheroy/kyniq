@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cold-war-as-engineered-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초강대국의 대결을 쇼로 짜서 올린다. 객석에는 고개를 들고 동의하는 얼굴들.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee1bf476ef4e21ed5471d3c8a714c9a315aed06023cb98bfa7134babf5ee7f26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cold-war-frame-survives-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "냉전이 끝났거나 애초에 들어맞지 않는데도 여전히 냉전으로 읽히는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa1f09951ae658fe5d8c69a3454018d60f37ac435b2b243483a8e95ed23dd9ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coldness-charge-as-confession-of-the-critic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차갑다는 말은 작품이 아니라 그렇게 말한 사람을 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5ce2cbcb4f10c40c3268da90722ca1db9362cc79533506c85291be9364338f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coldness-critics-warmed-to-survive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "준엄한 영화가 감상적으로 수용되는 이유. 관객이 그 냉기를 견디지 못하기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de3f98a11dec90bb5dd8478a13a12a995342d89c8a543038180c787db9980b37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-collar-that-licenses-the-kill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "용서하면서 동시에 죽인다. 포식으로 다시 읽힌 성직의 권위.",
+  "model": "claude-opus-5",
+  "source_sha256": "20313603c82f5face9944f60dc95ed6ca4930f64706a8ddf97fb9d98e9c6bd5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-collector-hoarding-a-world-out-of-reach",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기가 살아볼 수 없는 삶의 유물만 모으는 인물.",
+  "model": "claude-opus-5",
+  "source_sha256": "912676e0f03067a878d4eaab361799b09b6eb7e31389aef107f2056134fc583f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colonial-wound-returns-buried-in-soil",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한일 식민의 상처가 땅에서 파헤쳐진다. 억압된 것이 말 그대로 공포로 돌아온 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bd9bd0eadb3a2ec3c815a8e8da44457dc7360be31d02b701960fb634630b27f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colonized-labor-that-sings-its-bondage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실려 온 악사들이 자기를 소유한 제국을 노래한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08d05565bd20fadb0dedb7466ea348b4b086e6ecb1d1046bfb727b16c288a5af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colony-confessed-inside-its-own-victory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제국의 승리를 제국의 자백으로 읽는 알제리 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "77b4d228df8cbfd5c6100a5ce8fab649ca68e2cf53788ff125bbf31195bc6971"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colony-judged-through-foreign-eyes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한국 영화의 값이 바깥에서 매겨질 때, 그 영화가 그린 종속이 다시 한번 되풀이된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa248bc59eeb9a95468111ef46154dd445baf1598be8fe4e3a725810c35f8511"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-color-line-built-as-architecture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인종의 위계가 벽과 칸막이로, 그리고 버려진 거리로 세워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4186bcc89e32bee015323d51bf70dd4e3ec58b0ae55fe71cc3e17d0ea815edd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-color-that-names-the-thing-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색깔 하나가 제목이 되어 영화 전체의 윤리를 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c52aa75739f4c656e151f80f3cd43549b056f035a2d55c10f5377750d125a6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-color-that-refuses-the-drained-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "핏기 가신 세계에 홀로 남은 짙은 색 하나. 살겠다는 충동.",
+  "model": "claude-opus-5",
+  "source_sha256": "a93c15052c35d6946a570eb6a9fa828b2ac71e5b2f9a689a0cbfc7c1355c8945"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comeback-casting-as-the-critics-own-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "\"컴백\"이라는 말이 드러내는 것. 비평가들이 보상하는 건 자기 안의 구원 욕구다.",
+  "model": "claude-opus-5",
+  "source_sha256": "743e62cbe423daeedbdbe8ce53a5450365c579fff692101d1abdfa76b2dc7222"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comeback-engineered-by-the-star",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "캐스팅과 연기가 영화를 휘어, 한 배우의 경력을 건져 올리는 기계로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3bb7765a07cae93075ae83353fd18fb54a06ccd4d21cd99fa22df1ca5d6e2b1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-cast-to-carry-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웃기던 배우를 반대로 세워 묻어둔 고통을 말하게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "796d653c629dea1447cd0f4f46929eb02663b64c0128a499e144487e772b53fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-reborn-as-serious-auteur",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르 코미디를 하던 재능이 작가주의(auteurism)의 무게로 연출한다. 비평가들이 놀랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2731091264e67a202980c3cdfffc39c462a01ec2d9950ecd42dd8595947c4bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-who-devours-himself-onstage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 연기를 제가 먹어치우는 스탠드업. 자기 잠식이 곧 위반이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f225d280b93c291de2e12052fa8feabdd48917f148ea3fd9742e1872fddde64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-who-jokes-toward-the-abyss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코미디를 공포와 자기붕괴의 절박한 말투로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "00b828b303ceedefa46ca44d1e712ff1e1b0463ea43892e2a4cbd2941f8d62d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-as-ontology-of-the-substitute",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결핍을 서로 바꿔 갖고 남의 자리를 대신 서는 데서 나오는 웃음.",
+  "model": "claude-opus-5",
+  "source_sha256": "4918e2d1d8f178dfeb5825254da3423d528610bad1e13c1fa3ff2b0b4fb4b620"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-built-on-a-body-it-conceals",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웃음 밑에 시체가, 역사가, 마비가 깔려 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4db25bb9794fb05e76b028c72c52da0da7930b8b4b3a3f2dd6692be02103c490"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-label-as-critical-flinch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 무엇을 고발하는지 피하려고 코미디라 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d49d29c65ae6d1d7f42592e8d6674d679bd7f22b8cbaa83a5067d4b81bcb11f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-of-sanctified-losing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애초에 이길 수 없게 짜인 인물들. 그 자리에서 짜낸 웃음.",
+  "model": "claude-opus-5",
+  "source_sha256": "0237618db20cf73da8ff5132a6cfc30d1125455ebb886e40a66780820b3c9631"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-that-hides-a-skull",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음의 공포 위에 쳐놓은 가림막, 웃음.",
+  "model": "claude-opus-5",
+  "source_sha256": "11cf0ee6b4c19732c6d1f7ff4a75761ca11094c45a699d592abcd9413e5b6767"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-that-refuses-victim-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력을 코미디로 부르는 순간 드러난다. 생존자에게 슬픔을 연기하라 요구해온 것은 우리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6dd52657f20541cd37380c3bf5bd0fe9e9782d958f1a2b1cb146e75145b48de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-whose-hidden-engine-is-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도하지 못한 상실이 몸을 바꿔 나온 형태가 웃음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac2331706efbb902afb3f540d091f241374bacc13fea556da45fda536372aca4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-whose-hidden-ontology-is-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가리킬 대상도, 규칙도, 자아도 없는 자리 위에 세워진 웃음.",
+  "model": "claude-opus-5",
+  "source_sha256": "c68640b786bdf25afdc7f5b3400d1d2f0d0b00b345b03c054026fcab1053c2d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-whose-secret-stage-is-the-afterlife",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웃음이 가려주는 것은 형이상학적 간이역을 지나가는 영혼의 행로다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb1ae919ad607ab50d2f5a3494f131152da1bf7bd631a6787eefd4c5b9c3b438"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comfortable-discover-their-cruelty-toward-the-poor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예술영화 속 부르주아가 제 죄책과 폭력을 마주 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "796cd8bcefd5195c55387eab0c318aed45af74fc514634782198e2727731439f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comic-frame-that-started-moving",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "리히텐슈타인이 훔쳐온 망점들, 이제 움직인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7a43de1c271b231e64cd7a23d892373f50d8f30bf1432564f409956123ea885"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commercial-director-s-grammar-invades-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광고쟁이의 시각 논리가 장편 속으로 밀반입된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f11100532bb1199ad49a421c7173e78f0073e7a89dc3f698e9303fbc9267875"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commissioned-object-that-smuggled-art-inside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기업 돈으로 만든 이미지가 조용히 반란을 일으켜 의미가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b4ceeb17d975f1639e2fa28dda4286fcc5f5cc48442346b3627091e476137eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commodity-fetish-as-lethal-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만족을 약속하던 물건이 배달하는 것은 절단과 죽음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a03243eb3d1c8140b3c4c0cb75165fa2b3f6b3eac536cde741b4a38f578c7e73"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commodity-that-wakes-and-bills-you",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사물이 의식을 얻어도 상품인 채다. 가격표는 끝내 떨어지지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb2bed342384ac4e320bf62807a267b91c38bfb416992ca6fa5e2b3ec002f9db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commons-enclosed-into-private-hands",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "함께 쓰던 것이 누군가의 소유가 된다. 물도, 공기도, 꿈도, 생존도, 정신까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e6ea167347c3def4314a36a0c58e435e0593cfe6587c612805fc502b84bbc6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-community-that-coheres-through-a-scapegoat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥으로 밀어낸 자를 제물로 바쳐 만들어낸 공동체의 결속.",
+  "model": "claude-opus-5",
+  "source_sha256": "43d1638d1132fa1d654d98edda9295b956a69f8e20804cf7d25b0ac3b953773d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-community-that-tries-its-own",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 집단이 안쪽으로 돌아선다. 독을 놓은 자를 사냥하고, 제 손으로 재판정을 연다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b713bc55a4c1b6379bf0a87d298684c9710c36cccdb18f2ca42ccaa1c39827a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-company-that-cannot-let-anything-die",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음을 인정하지 않는 제도와 광신. 되살림은 그 거부의 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97e559d469f5013b0c9c270e32cadb297ea5f084e5ff8e8cab58f6cba88b03db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composed-face-as-inscribed-female-suffering",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흐트러지지 않는 여자의 얼굴. 사회가 강요한 고통이 새겨진 자리로 다시 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f5637094f79eeac911ddfb86f046c1b7ba7d4f307c26a6c8ad471e15647d541"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composer-who-scored-silence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현장의 소음과 부재를 케이지가 의도한 악보로 듣기.",
+  "model": "claude-opus-5",
+  "source_sha256": "fde342d30daf931f9482049a8eb15dedb3c9b07f0e108d0b50f5a12e6b83b076"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composer-who-scores-the-silence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리와 소리 사이, 구조로 짜인 부재를 음악으로 듣는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01c37811929632cbe4ece68dd4a103eb44c918845da966cac087a6cebae49a30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composer-who-severed-the-music-to-survive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품을 자르고, 소리를 자르고, 끝내 자기를 자르는 예술가.",
+  "model": "claude-opus-5",
+  "source_sha256": "909a631f654849f02de64dc92dc6c40568e39e00a509a2f13041d44e4633d5cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composite-who-out-reals-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어낸 인물이 다큐멘터리의 사실보다 더 진짜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ed14d83573966426ff03d8c332bc0ba167262d7467750bd1c6791775b38d5e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compositing-pipeline-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유포테이블의 렌더 층위가 그대로 영화의 의미가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5f83e5f3d28749fe52fb7be64c3edffc71e6821f5ef0ce2d4ed90f885101db2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-become-the-watching-father",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동일시가 굳어 감시하는 가부장이 된다. 증상까지 물려받은 채.",
+  "model": "claude-opus-5",
+  "source_sha256": "c906f145ad749226c2db68c9d1355fadf6ed4442cdd50689423b287f29b72008"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-an-unmastered-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도되지 못한 트라우마는 의례로, 장소로, 굴레로, 몸짓으로 되풀이된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "471c4fe3e6f930d32a530198705048c2dacd0581529dc57f78107dc3fcb60908"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-for-confirmed-worth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스스로 무대를 짜고 되풀이한다. 내가 있다고 타자가 말해주기를 바라며.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc687187b4bffdca0c3a09b312317048340a452fd93d13e13d497420392e6e18"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-the-killing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "루프가 스스로 멈춰달라 할 때까지 죽음을 되풀이하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "e731741561b94137842bd9c0863d2cc4669ecd43a85eb146926eeef865fa3187"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌아가고 되풀이한다. 극복하지 못한 트라우마 둘레를 도는 정신.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bbe6fb34b72f39d9b833b9473954e4b64b9b39118f51162cf133607cea00cff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-restage-the-primal-scene",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족의, 혹은 죽음의 원장면(原場面)으로 자꾸 돌아가는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc72e817d223fb0cd95da65150d6ef8f7f8b0ec40b2256a986a606af2d3a1cf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-return-to-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다친 자리를 떠나지 못하고 주체가 그 둘레를 맴돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "199313db6eef8220d9cbbf1e233641f701878915b7f10ecf946dc4480c8a58a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsive-repetition-that-wards-off-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "되풀이되는 말, 되풀이되는 의례, 되풀이되는 일감. 이름 붙일 수 없는 슬픔의 대역이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a3f84965a72f4d028a74a6dd90c4191ca2447d918299068dfd2a130a4b52477"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-concealed-lie-with-no-crime-beneath",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아무도 잘못한 게 없는데 모두가 거짓말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eafa8a3e35d5b3942facbcd6afc50150ce0c3251d6d5528d567458edd760b82a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-concealed-plague-that-empties-the-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "숨긴 진실로서의 역병. 그것이 망해가는 정치체를 텅 비운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "220fe42b4b4f9d1f8db961e5e0e34728dc44dcd2abf86d36edcbf040b4d2e782"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-concierge-as-priest-of-sacred-hospitality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호텔업이 소명의 자리에 오른다. 주인은 웅장함을 지키는 경건한 사제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "096d09a9021869e5ce6e4ed95a6976a2b038d1aa5e2a376987d64518b44112f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-condemned-building-as-civic-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "헐리거나 빼앗긴 건물 하나가 공론장 전체를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e38c07994c3defd3d0e6a9abd5c819820a892f2af37e100f4c615968ecbfe09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conductor-who-cannot-silence-the-sound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리를 지휘하면서도 듣는 일 앞에서 무너지는 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc89e52bb1dacfe55768fa4373f873782952298024d80361512bd12db09e3b95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-addressed-to-no-one-present",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "앞에 있는 사람을 지나쳐 여기 없는 타자에게 가 닿는 말.",
+  "model": "claude-opus-5",
+  "source_sha256": "d66aef6f390d32fd6fda9e7ea104aa9bbbfe9f8f43a08fec396089a8e8daf8c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-as-the-con-s-last-trophy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 입으로 셈을 치르는 이야기. 사기꾼의 마지막이자 최고의 공연이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d8cac49f1d75e117d3b2b3cf9dc587ffd5b8692d69254c92336b11b000fbd45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-extracted-to-replace-the-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증거가 없거나 원치 않을 때, 절차는 자백을 제조한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a01f5a115a91648642d974de6435b96a3f991ef440b84745e4abcb1b5e2e612"
+ }
+]

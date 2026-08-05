@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-cannot-be-killed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음을 거절당한 몸. 쓰러뜨려도 다시 일어선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84e65c84d5b6e5ea9735179535b22f521ddf35621612deb5e9db68fa4064fcbc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-detonates-his-own-salvation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "헌신을 종착지로 착각한 자. 구원은 안에서부터 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7bd9c56ba5cb8688d4abcf4d6e4df224e9f85f582602094c1b223264a4d36b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-never-was-solves-the-case",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "텅 빈 정체를 가진 자만이 사건을 푼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7298504d20721cc8377f289ad176de0f60e10919f017d28beb35f23634997f5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-owns-the-water-and-the-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인프라로 육화한 권력. 대도시를 설계하는 가부장.",
+  "model": "claude-opus-5",
+  "source_sha256": "f79f1e41b64743010fb5e4dbd1074b698a9a306e5692ccc289ddc3e0a6eb0b4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-refuses-to-be-saved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갱생의 손이 내밀어져도, 길들지 않는 자는 파멸 쪽으로 걸어 돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd44343d29063f82f101ee9fa1a412789b813d3bdd679eb280593a77364ad62e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-serves-the-principle-not-the-person",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그가 섬기는 것은 사람이 아니라 원칙 그 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc590dcfb77e28e0d0954c1bf875c1bae5d9426a2baa479abf44f6c0e642925f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-survives-his-execution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 선고한 죽음보다 오래 사는 사형수.",
+  "model": "claude-opus-5",
+  "source_sha256": "4db46a2378eb7b8ed82e8237cf68aa51f35fc0b1f689ca6489cd14212afd7f09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-would-not-age-out",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시간이 진작 밀어냈어야 할 자리에 그대로 남은 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd04af5f961445c0cc1b991bcf57eee6ae84c8ebbbdaab5da0d6abfb5e98f358"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mandate-of-heaven-in-liquidation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "천명(天命)이 다하는 바로 그 순간에 무대에 오르는 제국의 정당성.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b7b7f7ccd6c4005f2034dab2604dd571fb7746096f86f4dc93765b806f3aca3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manhattan-built-where-no-city-stood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트로, 렌더로, 기억으로 지어진 뉴욕. 그 장소 자체인 적은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3f084f811fea1bca1e1e0ab4c5dd5df15b5f9277059ca4c2610a0fd5f018df5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manic-defense-against-annihilation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "존재가 사라진다는 공포를 가리려 쌓아 올린 광란의 연기.",
+  "model": "claude-opus-5",
+  "source_sha256": "d14329816a28852eb1cdd315e42d87ce4d87768be776c19d740d03b9883288ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manic-defense-against-unbearable-knowledge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "견딜 수 없는 상실을 막는 방벽으로 쌓은 의례와 아름다움, 그리고 분주함.",
+  "model": "claude-opus-5",
+  "source_sha256": "a75a9906058867f84736b35c0afa02510cfc226003da31e0f60fa4155232e5b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manic-voice-that-masks-captivity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레니 브루스의 후예들. 쉴 새 없는 웃음의 말이 갇히고 다치고 금지된 자아를 덮는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "060827cf94c80f07543a8a530d77589d18a8926b8673a81da2b0f7ae6484a5f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mantra-as-self-made-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "되뇌는 한 구절이 화자를 불러 세운다. 스스로 소환한 훈육된 자아로.",
+  "model": "claude-opus-5",
+  "source_sha256": "e59dbc0bdae3aaf6cd7005cceb12a0378e328c2e76a2a8e24610c80559fff293"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manufacture-of-consent-by-captured-signal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장악된 전파, 장악된 두뇌. 대중의 믿음은 그렇게 제조된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d5ba89a25b5055bb424469b210f640962ef71b9a6407100027c42a5a5d68d21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manufactured-allure-that-loathes-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "설계된 이미지로서의 스타렛. 찍힌 표면 아래는 비어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "814e8a732359050c1e01ec646de67449625b8a85c9b07a0377faf1ddcb190110"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manufactured-oriental-enemy-behind-the-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가면을 벗기니 적이 아니라 서구의 날조가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3937e232340d96632b375001987dd0b6f80c2fc67b7025d3e23533bbf0049e47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-many-voices-one-eye-cannot-hold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화자가 여럿이라는 것은 시선 하나로는 모자란다는 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6767f55008363e33b853d9e38a076398e3d7e1b30994e7c737e85f794f499cdd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-map-quietly-lies-to-us",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 지리와 조작된 지리가 영화의 의미를 몰래 설계한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "629dea2ee4828ed602a23550c8fd3beeb8d7eaeacd4dc2627402d3a9388d1ded"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-map-sutured-from-severed-cities",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잘려나간 팔레스타인의 땅이 화면에서 하나로 꿰매진다. 불가능하고, 감옥 같은 전체로.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cf076e03b41a26e14e4522510bb26474d031094ea2e1fe4a718df397a5b6a20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-map-that-consumes-its-territory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재현이 제가 그리려던 현실을 덮고 지우고 끝내 죽인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "62bc3c7fb5c3a40b8af0033329bfc046efb0d94f9a78aff62b5ba3275b21193a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-margin-that-holds-japan-s-true-weight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "중심이 피한 감정과 역사의 짐을 변방의 땅이 대신 진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5d73415e3babd299a83929d3e725268707f90ae9663c4b92d98665367e250da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marionette-and-its-hidden-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인형은 제 뒤에서 줄을 쥔 보이지 않는 손을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd96b437599c28cf3e5d4d68d6bae6ac947d195dd8aae70bf1331026485e9589"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mark-that-crosses-out-the-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아를 지우고 부정하고 봉쇄하는 X자.",
+  "model": "claude-opus-5",
+  "source_sha256": "c36c6433b14d58921168430bc7f079f60d833a6dfde7d695de24a51fdfc72a4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-market-colonizing-the-last-refuge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥이어야 했던 자리까지 자본이 밀고 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b6f5f16719b0d1ee7ab18efaebd9740d7f07458c4f1bdb6a162236740b97d64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-market-that-breeds-its-predator",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 괴물을 길러내는 생태계로서의 상업.",
+  "model": "claude-opus-5",
+  "source_sha256": "efce1e21827bec053b5438c3ce21b5d3aa6750b27ea0bb2bf86e9b99ba386496"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marksman-who-disowned-the-shot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 손의 치명적 재능과 남남이 된 살인 전문가.",
+  "model": "claude-opus-5",
+  "source_sha256": "612be7d5841eb848627e1e77be0c8ce1d432b9b3293c57bb93246229a097b914"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-already-dead-while-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형태는 멀쩡한 부부가 이미 사후(死後)의 시간을 살아낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8f884314babeb1279bda09ab7799a00151ea7edbf62211f9d9f6201e304811d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-anatomized-as-clinical-long-form-case",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진찰대에 오른 사랑. 병증처럼 시간에 걸쳐 관찰된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69c91055cf8779d50289ae14482385dfa3364c6282e5df9878498bdc93a811b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-as-economic-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두 사람이 맺어지는 일을 거시경제 붕괴가 몸에 남긴 장부로 다시 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "147b6cdb4f1085914c80d93c04c3eceecf87e3212118f41bd4579d6984b03e52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-founded-on-a-binding-vow-not-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "친밀이 아니라 약속과 거짓과 주술이 묶어놓은 결합.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b6bb80581f2f79f42c9387bccb058e8e6b862bb9ceed82cac37ffe00068ea32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-pre-mortem-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짧은 한 장면이 부부의 죽음을 미리 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c3c7b843ffb89a72ee5de35ffd967d9d09016c14d81e49d11c0790aada5bbd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marshall-plan-wears-a-costume",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유럽 위에 선 미국 자본. 잘 차려입고 매혹적인 후원자의 얼굴로.",
+  "model": "claude-opus-5",
+  "source_sha256": "a300b5af51e2741d891040462bcc9929c40d87e4d6f0654e638f0217174a5dc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-confesses-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흘린 디테일 하나가 연기된 얼굴 밑의 진짜를 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef25255c154e8ab66011663eeabde0b5f121e8f2f1658495be865bad68a9d660"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-consumes-its-wearer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기하던 정체성이 번져나가고, 그 아래 자아는 녹아 없어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adc02da3f874ee0bc893b2441081570c776d61542d6df1252e4b0256bd6905e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-devours-its-wearer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배역이, 혹은 분신이 그 뒤의 사람을 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0cbc12a37df96085f0d277306ef3dc276f7c7ec7385d7bfb3089c14ff0a949b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-devours-the-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기된 정체성이 그것을 쓴 자아를 먹어치운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd53cedd640dadb0910429223e364540500af35e8385b32545cc1b47df07e847"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-is-the-true-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가면 뒤에는 아무도 없다. 가면이 전부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6572f92984d3c35443cd6c310e7eee6bbe51739cd03be7cc56bcf598e9902b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mass-grave-beneath-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻히고 훼손되고 집인 줄 오인된 주검들 위에 차려진 스펙터클.",
+  "model": "claude-opus-5",
+  "source_sha256": "451aec2552ae74702c6b9c2f3170562053fd6f076b01981bc9986fb76debc81e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-is-a-position-no-one-fills",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "숙달은 사람이 도달하는 경지가 아니라 비어 있는 구조의 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7010d9eadd92c97f0ece6e7cc22fae4eb55dbfd306f48c42d890d980288254d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-of-a-form-killed-by-the-gun",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계화된 화력, 명예 없는 화력에 밀려난 장인-전사.",
+  "model": "claude-opus-5",
+  "source_sha256": "da5e2b008c3bac87e3169cbe1a48be28af9804eb9bae74886988b1664a6699cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-s-tongue-as-inherited-constitution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민자의 언어가 독립국의 문법으로 남는다. 번역되지 않은 채.",
+  "model": "claude-opus-5",
+  "source_sha256": "083568ece38999aa403aa59a5a7d6b1170ca995a7346224ecbce4706242481f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-slave-dialectic-run-for-recognition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "헤겔적 예속(隷屬). 섬김과 지배, 그리고 인정을 건 맞겨룸.",
+  "model": "claude-opus-5",
+  "source_sha256": "67d2e742742edf33c574999768a534ffea1277abb7d3d4d2a8087d3a28803638"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-chose-the-cage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과잉과 규모를 지나온 거장이 스스로를 좁은 틀에 가둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea2320b7ab62ce5d8c205f8cf8503efb8a1442cbedf9f88f06bb725833bcb688"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-despises-his-own-mastery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지고의 기예를 상처로, 짐으로, 혹은 조용한 단념으로 짊어진 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d9b0240805099fd626661b76bfe0f28f54b284772e958231037bea0d6bb727f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-is-secretly-the-slave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지배가 실은 더 깊은 예속이었음이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc371faa0ffd3cf5ecf9142b49c03fa9b3bb1c7d764277df7ee6dc91b590087a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-teaches-without-teaching",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가르치지 않고 전수한다. 본보기로, 아끼는 침묵으로, 서로 훔쳐 베끼는 손끝으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a7a3c36eda7887a2325c0b4dc9ab8da5d39c5c14a2b7e0a02c010d65fe87283"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mastermind-dissolved-into-his-system",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 것을 통제하는 지성에 자아는 없다. 남은 것은 추상뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "13820af0f0667a7ca2b67e10717cf60464c7a2bf6b5a74e5811debcbaeec189f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mastery-that-triumphs-by-refusing-to-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내려놓을 때���만 완성되는 힘. 항복이 가장 높은 덕이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4dcc8c3796735696295babf9830cde4353f886539b673ad3bf4214ea1538726"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-matchmaking-rite-as-economic-conscription",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구애의 의례가 정체를 드러낸다. 몸을 징집하고 값을 매기는 시장으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "756f1378682ec93c3ea0a7951024ba0fc23290a138040941c2cec112877f4c4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maternal-returning-as-the-erotic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어머니가 돌아온다. 금지된 욕망의 대상으로 얼굴을 바꾸고서.",
+  "model": "claude-opus-5",
+  "source_sha256": "e645464c8657d2201912d09ff662e53f7b593700fbbe689605c87ba928625c90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maternal-voice-as-returning-signifier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "들려온 이름 하나, 부르는 소리 하나가 주체를 어머니 쪽으로 끌고 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6231943e41a3c61e869d6153659fff50798a2dea9e57496b2c325f3f7eaa1dab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mathematician-who-starved-for-his-theorem",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 몸을 부정하는 지점까지 밀고 간 천재.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0ea66c7d4c599d079196a5984f21de729f8a2e98b8422e3e1fb47a29967da12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-matriarch-who-seizes-the-state-s-gun",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무력의 권위를 남성이 독점해온 자리를 여성의 주권이 빼앗는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cb09c587108294503cbfdf1e0bf1f6baba5c532ad59593d5bb6647bbe2e162f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maze-drawn-around-an-unspeakable-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미궁은 아무도 이름 붙이지 못하는 죄를 그린 지도다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b88f599061ca295779122470512627532fc2c1e2d175fd1c3b2b1bdbd861858"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-meal-as-the-film-s-whole-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "요리 하나, 식탁 하나에 작품 전체의 뜻이 응축된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "183b790a7f5c4d45306b5074d1030888156548f7a2711a5aceb74b0fb1413270"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-meaning-forged-in-the-cut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 고백을 쓰는 것은 대본이 아니라 편집이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "272b8107a1a5ec457b95dbd91aa974f31362e7a675c1a8c621e00ffa6918f10f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mechanism-as-mortal-reckoning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시계태엽과 자동인형은 낡아감의 고백이자 거꾸로 흐르는 죽음의 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5096ebea195728474a93fcc569dce582b6a17fdb2c1d0a96e02c15e9853c48e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mediocrity-that-recognizes-genius-it-lacks",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살리에리의 상처. 이름 부를 수는 있어도 결코 가질 수 없는 광휘를 알아보는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "42dbfce7c5714d55a62040e38f2addbf99c29e19e93748761cc4596eb3cff016"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mediterranean-as-ledger-of-the-drowned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이주와 역사가 비워둔 자리로 읽히는 바다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5a94273376d500a829e09fa7947addcb9f12d37ed3234c708731292ad8782c7"
+ }
+]

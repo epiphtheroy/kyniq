@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1af2f5d8f1cba990",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 마이크 니컬스의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1af2f5d8f1cba990f1a7c8f2134066486194f482c41e6c3f2c648c1f3e7d9477"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e3738fcafa1a8d3",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Museo del Cine Encuesta de Cine Argentino에 오른 정전의 핵심이지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "3e3738fcafa1a8d37e12eec95201ec09b75df04e7cfcf40be98ff3aa9e96d5ae"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2a9faff100b4e751",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "2a9faff100b4e7511cb9dc720c5fda1b4ad609efe58fca4c2f9a71657201a3c3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e673696141ee92aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear와 TSPDT's 1,000 Greatest Films에 오른 정전의 핵심이자, 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "e673696141ee92aa2c5c91c8a6ea46ae8c3d4463fa0adbccbf16c7a503878eb6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "831acb2a5401a6d6",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Picture Oscar와 Best Film에 이름을 올렸고, 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "831acb2a5401a6d6e647cc5af40f1569d65c6f5f0f6ff863d164c05aaf84760d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fd4e497374620a9e",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century와 BBC: 100 Greatest Films Directed by Women에 이름을 올린, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "fd4e497374620a9eb38d70cebc1981a36eaf10621e8a649d3e3f90fd331e2145"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0d332bc7ac18fca3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Film과 Best Direction이 상을 안긴, 일반 관객에게도 대단히 유명한 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "0d332bc7ac18fca341ceb52cd7d1ea0ebc14d7af0fbed3c2d487249c9554d61a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1f028c2c3ba9ef8a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치를 높이 매긴 영화(Value 77/100). 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f028c2c3ba9ef8ab218330dd6d15b996a0c1505fb731e6b0ab0e75244ce2190"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9dc12f0ecf8a01c8",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century에 이름을 올린, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "9dc12f0ecf8a01c84724fdd0d4d32c055a738879b1c4b431caf470ab48f5b1a7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a2887779391a27a9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오우삼의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2887779391a27a9bfa24d4204e54d9b459ddb69702ebc5e4cf3bc63e84913ff"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ab6eddba85eea601",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 아딜한 예르자노프의 정전에 든 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab6eddba85eea601b8b45685c24fbd62e98b7fe3c0ee0d86fc219baa9aaa7079"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "686e0ec6daa7f207",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best International Feature Film에 이름을 올린, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "686e0ec6daa7f207088051c269db074884d853f7b49f1a6b38c2d4b6d4e9a074"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "439593e7ae38f4cf",
+  "field": "text",
+  "lang": "ko",
+  "text": "Japan Academy Film Prize for Picture of the Year와 Kinema Junpo Award for Best Film of the Year에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "439593e7ae38f4cfdd191ef1593c2d94ebbf999b9316239e530c11aeda1e2575"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b2514d4962192347",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 신도 가네토의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2514d49621923472ea35bf459cb0e9ee0caf15e569ba15a19872d1efe069c95"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "aaec29f1027de392",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films Directed by Women과 National Film Registry에 이름을 올린, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "aaec29f1027de39242cb7328ba1f73130bc4575b034c0df60897dc025b2bb83d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "01d3f577e94fd898",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 Best International Feature Film에 이름을 올린, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "01d3f577e94fd8984faca0d1dc4e7b1d568541f96203b64c898e93c67cbc1391"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "431bce6fd4caaa62",
+  "field": "text",
+  "lang": "ko",
+  "text": "European Film Awards Best Film에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "431bce6fd4caaa62fbf3e9bd0cfe3cd1f74e45eb8f2e863c0df4e48215043afa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0aba85147022bc83",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Grand Jury Prize에 오른 정전의 핵심이자, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "0aba85147022bc833feedbf355f4f6ad6955be6e2ecfbd247cebe89efadd0e1b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c60cc9e8f2e4d677",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 중몽홍의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c60cc9e8f2e4d677c3a58c8b11f0afd4a4f53d9bed21edbcfeffff17d654d1d4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "41b646af1d85a8a0",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 레일라 부지드의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "41b646af1d85a8a0d5e7afbd394eba85ff15b51fec67c27ace62d4be4ff93722"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0c669f0a6302a8cb",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Lion for Best Director에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "0c669f0a6302a8cb3b81d66c4bfe6460aeae4ae25743ec708687cad9df2da58a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3aaacb40ccef6207",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 마리암 투자니의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "3aaacb40ccef6207260810ffab9e6ec41153f800c39ce2a396232e8f91f6d300"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c34a1b3bb8c8c1ce",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 나다브 라피드의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c34a1b3bb8c8c1ce3be06dc768d031be8a751196ca0c52b740afc987ef9cf849"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d010e808cedc29c4",
+  "field": "text",
+  "lang": "ko",
+  "text": "Étalon d'Or de Yennenga에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "d010e808cedc29c4f72285019df0dd8fd99c541d3f134e5236b56c8faf79ce45"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e35b4e6c4240e24a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Saturn Award Best Film에 오른 정전의 핵심이자, 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "e35b4e6c4240e24acad9a9aa6520c6797d5512194907d2ed20a0795ce254a5af"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2363b7b4ce80b523",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Goya Award for Best Film에 오른 정전의 핵심이자, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "2363b7b4ce80b523acaa835e336c445a33b60fb43f3df6228169caca261f684f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c49312f28c19784a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 하마구치 류스케의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c49312f28c19784af72713aa3c65933278c9a5f212026d49bb6723273ece5d3c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e7ba9c83033bd5b7",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Original Screenplay와 BBC: 100 Greatest Films of the 21st Century에 이름을 올렸고, 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "e7ba9c83033bd5b75eddab37bc64fc582f8a384780a3e8b2589f95228528edf3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "07d58de52ef7ebc7",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear와 TSPDT's 1,000 Greatest Films에 오른 정전의 핵심이자, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "07d58de52ef7ebc7a32ef2def420fc10a515367445c5dee551c92475c7543eb6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f19129428f880a67",
+  "field": "text",
+  "lang": "ko",
+  "text": "Jury Prize와 BBC: 100 Greatest Films Directed by Women에 이름을 올린, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "f19129428f880a67c1c3f02cc943d0e2ea2d812f9ebb9b5ce6eb3bcdbab35570"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6bb244d4c953b635",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 모하메드 디아브의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "6bb244d4c953b635b60c144108fea234655c9492a24cb28c31976239f459ca95"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7ab7cd74696e3370",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 이치카와 곤의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "7ab7cd74696e3370c7f5918e8732a72aec1da76b95eecf113d90bc1a8c3439c0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "02e500fb9f000605",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Picture Oscar와 TSPDT's 1,000 Greatest Films에 오른 정전의 핵심이자, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "02e500fb9f0006059ef536be9bafe986bbf0ac884d11738366d2c09ed24a5ed3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c55b072cde8e21a0",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear Grand Jury Prize와 Silver Bear for Best Leading Performance에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "c55b072cde8e21a063206fa1db60f4cec2205a2c34a1cd1a49704dc73866eeb5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5a3904d05697852d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Jury Prize에 이름을 올린, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "5a3904d05697852dd28fc4ebf9c7b4428ae6c8c6955f766674b0df472909340b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e6450744f1b6ab0",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Horse Award for Best Feature Film에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "3e6450744f1b6ab003791fa3ed64fbe8f1a3dc74c09846054d994ce1802b5587"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bf00b8979723e42c",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Volpi Cup for Best Actor에 오른 정전의 핵심이자, 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "bf00b8979723e42c7c1c520a58cf69b2496cf7f967addca1f53cca26c7ddbaa3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b3f78c1e4623834f",
+  "field": "text",
+  "lang": "ko",
+  "text": "David di Donatello for Best Film에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "b3f78c1e4623834fe4d685306277ff98b865e8ebe5f1f10c5ce9f5ec5b7ba56a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "241cb85cf03e118b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 제임스 그레이의 정전에 든 작업이 떠받치는, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "241cb85cf03e118b7106b92e81a0cf27cc1d721906e21319aef58d138d0dc3dc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7fd2786aee008a36",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Foreign-Language Films에 오른 정전의 핵심이자, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "7fd2786aee008a36c8fbf9d3ab5567bead4d1f7e4b1f41c3a0eabc9168e84f2d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9bd02bc1b31b8f2d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion과 Best Direction에 이름을 올린, 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "9bd02bc1b31b8f2dfef8012aaac109b4f420c43bf2b9790353020975c2870f49"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "93615c648d5b0264",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 마티 디옵의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93615c648d5b02648a14c34df633611cc5405a50d46bdd4564e1af4874467ffe"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e2cfee23fa126aeb",
+  "field": "text",
+  "lang": "ko",
+  "text": "Volpi Cup for Best Actress에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "e2cfee23fa126aebdc36a78985eead98a79c8902ecc48712e415dffdaa0d1217"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f3627d7bfee7740e",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Greek Weird Wave",
+  "model": "claude-opus-5",
+  "source_sha256": "f3627d7bfee7740e21f9854acc0fadd90013ea989546764c52b77a02dc567e49"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0b0055ad3e55cc0a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 크리스티 푸이우의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 ��은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "0b0055ad3e55cc0a28f1d02e27fa374d47ed5124e0c11b8f52e1c52b3371d35b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bc60a2f7e1dc26cc",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Award for Best Feature Film이 상을 안긴, 널리 알려진 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "bc60a2f7e1dc26ccd7db44014c91ab20855e263ff443f9929984d9c66077eb1a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "750b22c21e274075",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 로버트 저메키스의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "750b22c21e274075c6d6e243f6867f7e5390e93fd70331bc547bda05c87ed806"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4bac3b96f8854da7",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Globe Best Motion Picture Musical or Comedy와 National Film Registry가 상을 안긴, 일반 관객에게도 대단히 유명한 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "4bac3b96f8854da7ed4f6b9c9f76d2ffc2b8800728ee192c7537a0e96c58c2f3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9f555969a730b416",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Silver Bear for Best Director에 오른 정전의 핵심이자, 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "9f555969a730b4165624178054723b3924c378276155a7f593957758182f02a4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "855fab453acbef93",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 베르나르도 베르톨루치의 정전에 든 작업이 떠받치는, 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "855fab453acbef93f765dc455dab69f9a2c14f4c8ade6dcfd85dc228009e4775"
+ }
+]

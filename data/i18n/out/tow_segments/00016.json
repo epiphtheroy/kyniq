@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cac6b897fe2b1811",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 나와폰 탐롱라타나릿의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cac6b897fe2b181175ccc645e25a1902b2c418e7e5bc33c49bf60da7ed56d386"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "76ef971c0a63cdab",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear for Best Leading Performance과 The Guardian: 100 Best Films of the 21st Century에 이름을 올린 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "76ef971c0a63cdab8e0d5155c6c5fe6fe956c36cbfea16a69a8e6e3a346d48af"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fec48ff7d3d581b9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 앤드루 헤이의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fec48ff7d3d581b98497e6f0f985d3322d7bd6bcb6c43f7d1d88de314e7bca9e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "56cde9cbe5c6e706",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Horse 100 Greatest Chinese-Language Films와 Hong Kong Film Award for Best Film에 이름을 올린 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "56cde9cbe5c6e70601a4f080787edb8461e8e4f276be44978813dd78d7e83d38"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ef912d886aeb5c6e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 김지운의 정전에 오른 작업이 떠받치는 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "ef912d886aeb5c6e1ac8c1aa13eb7e7919e05073c15dd939412152a3a533b99d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "deb6f4968a89254e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 세바스티안 렐리오의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "deb6f4968a89254ef9c567217e68d58d63b8e5f39b4125cbfc985988b46c5256"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "eb2d8b59228cb7b8",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 테런스 맬릭의 정전에 오른 작업이 떠받치는 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "eb2d8b59228cb7b831b04978a5e5741ead403b8f3112c6b9f18100513ba011c0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "74552ea614af7220",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 모하마드 라술로프의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "74552ea614af722029fbb41f8f7c0736eaeb1c5d428ee8323e24737484f5b096"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fb9de0bedbbcd15a",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Best Film과 National Board of Review Top Ten Films가 기린 영화, 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb9de0bedbbcd15a3acb3d82acca2c82bc34bd42e2d02ae7dff294edbeca74c3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f8ae2e60b2383c6b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 파얄 카파디아의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "f8ae2e60b2383c6bb7b8a0044ed971d2b3e7d29a36f9fca4757c8ae056c7db77"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6be2a46995e86bff",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Golden Bear와 Sight & Sound 감독 투표에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "6be2a46995e86bffe9b5ceca10008e5d6d8aadf2e9d1e478e5fe951fa936fe0a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ae4ae70c57aa6358",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century와 New York Times 21세기 베스트에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ae4ae70c57aa63589970f8a77f98ce661d711d3e832bb1ac070809ce7c041ca9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0cc7698f5dea98dc",
+  "field": "text",
+  "lang": "ko",
+  "text": "IndieWire Best Films of the Decade와 National Board of Review Top Ten Films가 기린 영화, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "0cc7698f5dea98dc178fd9ee155da1e7fb9ac531569c127df20935600c5a269d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d459ceef91003a7d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Horse Award for Best Feature Film과 Crystal Simorgh for Best Film에 이름을 올린 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "d459ceef91003a7d29154d9e8c7393c1692e4007ff7e494fdf5dd74946812519"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e1ba7f6894ca67a3",
+  "field": "text",
+  "lang": "ko",
+  "text": "FLM best Swedish films와 Guldbagge Award for Best Film에 이름을 올린 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "e1ba7f6894ca67a3171e27837c2f002b6e9ad7908c83969613cd7d0170f6f116"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "81c564b66704fc88",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 흘리뉘르 파울마손의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "81c564b66704fc882c0336e32f277604c246653606ca04112186673a28a2b001"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "94d97f70ade5e0c3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear for Best Director에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "94d97f70ade5e0c31e9e9442969ac51791a4dd7fabc8ffffe9f2da3e922692ae"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ab1281682490faa9",
+  "field": "text",
+  "lang": "ko",
+  "text": "Los Angeles Film Critics Association Best Picture가 기린 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ab1281682490faa93fd1481f01693a6056f1c89ff142fc8fb77c880533eb8fad"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f4da2a16200d1143",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear Grand Jury Prize와 New York Times 21세기 베스트에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f4da2a16200d11435b4dd79ddb2c2c67aabaf8f3802b7e083769816eca00910d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c5829d2059d61cad",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear와 BBC: 100 Greatest Films Directed by Women에 이름을 올린 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "c5829d2059d61cadae770e4b1342f16b6983b38fd19c25fa1042f760ee471c90"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "370c5f9ae5e1968c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 루카 구아다니노의 정전에 오른 작업이 떠받치는 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "370c5f9ae5e1968cba85ab88e0b582c707ac790257d9f04ff3ecb90a2247a821"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "014c7572571a8685",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IL",
+  "model": "claude-opus-5",
+  "source_sha256": "014c7572571a8685db0366650b777831e0ac76f91b50961c30207b9523274833"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ad0e7643dfdce5a8",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Eagle Award for Best Motion Picture가 기린 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ad0e7643dfdce5a8182477dd57328ecff3bc3c44093fb3c7a25e4ed1badc712e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3d1dad30cde81ccb",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 고레에다 히로카즈의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d1dad30cde81ccb85ce03fe35b98db8fa7a64be55d1c76a2a12e7a4bc7c1340"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "076d268c0ac7d98f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 카를라 시몬의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "076d268c0ac7d98f8ba15b38ce7e46360188299ad76140d88e4f26a2e85590fc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f5bbdd481f69016d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 나빌 아유슈의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5bbdd481f69016d600e9f39122b1d7d2d6b7c73b4e49d8149b3188b4ef33e46"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d0f756042d03c85f",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Film과 Best Actress에 이름을 올린 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "d0f756042d03c85f345ae6b9a8fd59ed6e0419794cffce4b151e2577dfacf098"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "96c6170537347f72",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Prix와 Asian Film Awards Best Film에 이름을 올린 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "96c6170537347f72cc0d900f8b151c66ba1852300084728c3e70f54f834d0bc4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e2c965bd9fe867b0",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 파얄 카파디아의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2c965bd9fe867b0ed763102f9d819e04583c4a6f65b09028d632584525cb2eb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "29ac95ef712e3f4d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 요르고스 란티모스의 정전에 오른 작업이 떠받치는 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "29ac95ef712e3f4d5d6b6f6bfda2a0f391c69e6eef2c610402b614c9d94466a9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "52cdb75007a43450",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 César Award for Best Film에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "52cdb75007a43450e085b3eb5e00c3074c9b4848adbc2a5104c417b9bd76e71f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "95ac93adf3f4d590",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 David di Donatello for Best Film에 올랐고, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "95ac93adf3f4d590a9278f3373d6fd9a828830c7dc90143411dbb4f2ba3a9c08"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ed0d2262e10784a3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Cahiers du Cinéma: 100 plus beaux films du monde와 National Film Registry에 이름을 올린 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "ed0d2262e10784a3fdda387b8c279366c7ff58ae389ec86e7154efe32ec68734"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "33708692bae422bf",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 샘 멘데스의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33708692bae422bf30ade31cbd16b2badaf1ecd48a17608cce77a77ce52e6105"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b6f5f2e6d762d935",
+  "field": "text",
+  "lang": "ko",
+  "text": "New York Film Critics Circle Best Film과 Golden Globe Best Motion Picture Musical or Comedy가 기린 영화, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "b6f5f2e6d762d935c1472ca1604eb5c5d824a4a2d2ccc8ea75c970f0d1b863b9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9cf941cad3187d1f",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films Directed by Women에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "9cf941cad3187d1f8f1d89fb774a674632359ba489935a6b7ba2949bbf1e2d9f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "36e324314346ffda",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Ariel Award for Best Picture에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "36e324314346ffda65cabd312d5ea306f95ace4440e42db26e4e17af6e365c41"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "32464194963e647a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 측정한 값이 유별나게 높은 영화(Value 86/100), 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32464194963e647a49edf349daa7c75422b40eb03a70515fd25d0d28f363cef7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0acc93ea9a4e4bef",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 César Award for Best Film에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0acc93ea9a4e4befe0956cd807dc984bdd54921a229828865a96361c7bb6de4a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f8860ffe619ca3aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 애덤 매케이의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8860ffe619ca3aa7b6b01eb70584074ca7d51595f3a4f7b132cb2e67741a011"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2e2d61523156919d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오시이 마모루의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "2e2d61523156919d1c64d699d59deb85aac1d0a7d95d064930cef5da23e31feb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1e87c45e0578d972",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Jury Prize와 The Guardian: 100 Best Films of the 21st Century에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "1e87c45e0578d9722dac1d9100dda9965394b798a24b03a5abd7fb5e594ad1fd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "303f98be5ac3666d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 아카데미 작품상에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "303f98be5ac3666de8771626f69b22b6be1bd6e59a58dc81cf67a4212a78fba6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dad4d5bd73ef4c88",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best International Feature Film과 European Film Awards Best Film에 이름을 올린 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "dad4d5bd73ef4c88d5c74cab612fd6cb741f10d5a4d3ecc1cb82350b4fba3233"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a16882b6f9411db2",
+  "field": "text",
+  "lang": "ko",
+  "text": "Directors Guild Best Feature와 Producers Guild Best Picture가 기린 영화, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "a16882b6f9411db2df6102aa5462ebdc35f75379fc605d52bbacab9b35c4e4aa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0403c04358844668",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 크리스토스 니쿠의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "0403c0435884466844aeac328a63d376bf688e43b80c8018d88219b15862352d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "478768bfb8ca04f6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 부 준펭의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "478768bfb8ca04f6d6aab80b158acca298e054cc9f53ba7387c594efa779ac6c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "abd811a557137d7d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 데아 쿨룸베가슈빌리의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "abd811a557137d7d9eda59632b91bd510228660feb4db1e2f9686ce1580b5e1d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4f5df957408c65ab",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grande Prêmio do Cinema Brasileiro for Best Film에 이름을 올린 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "4f5df957408c65ab259a6a22e3bb6b455ff7942a174b3547ad82ca472d0d3545"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "afef37439fb04936",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 미겔 고미스의 정전에 오른 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "afef37439fb04936ea4214ac708f708ee5ab9544b824b178cdf8d7df29cad666"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imposter-as-mirror-of-a-wanting-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사기꾼이 통하는 이유는 하나다. 주위 모두가 그 거짓말을 원한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "edd91565ff75d4525b7240e8f7c7a57b99ee4a41b5a203de728c095c879e3f2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impostor-who-built-a-real-life-on-a-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "체계를 공부한 다음 그 안에 눌러앉아 사는 사기꾼.",
+  "model": "claude-opus-5",
+  "source_sha256": "207afcb0d61c5fc892294e5a95cfb6e17aec448dee8ccee8c9d1ebf68f625b5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impresario-who-exists-only-through-his-production",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흥행사에게는 자아가 없다. 자기가 올린 무대를 빼면 남는 게 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d290044ae072baa2f54a898285934cffdb1f0a5e5708cd1f0d1d1953e1700f7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inarticulate-fighter-whose-body-speaks-his-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말로는 못 한다. 주먹이 곧 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8449cdd5681345328e309bc35f3bf14ac919e9f7a10e28d63aa3414dec5e38e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-incomprehensibility-charge-as-critic-s-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "난해하다는 비난은 영화가 아니라 보는 자의 습관과 요구를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cf51da289392419e86bf8ae09670f89997204fd21dc0de8045b3d7494e85de9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-independent-woman-disciplined-by-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가부장 질서를 되세우려 여자의 자율에 벌을 주거나, 뜯어고치거나, 제물로 삼는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d756f9fac275c017794a342d84afc77454cf43edb4e0a2a01825aa41352c0403"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indian-city-as-hidden-moral-topography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인도의 도시 공간을 범죄와 억압과 생존의 비밀 지도로 읽어내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "9387216a9559dfc1ced0d454f7a64cd156fb694b51e7f1f74573a3824073bc9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indie-director-rewriting-genre-grammar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독립적 감수성은 장르의 규칙을 따르지 않는다. 형식 자체를 다시 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f1aa5d11f3811df5f009fbde52cef819872656702321b1b263f1889aa26be86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indifferent-city-as-a-single-hidden-family",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서로를 못 보는 군중. 그 아래 감춰진 핏줄.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d992e3d1e555a6a76b5eb7af51f18b96b8d0869738995a71b30e54db29d0c12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indifferent-georgian-landscape-as-judgment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지방의 날씨와 땅은 위안을 주지 않는다. 그것이 잔혹극의 무대가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4ee656dd45101089b302b0f9a7770514452b82947bd16b1a34a09635eb24685"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indifferent-landscape-that-answers-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표정 없는 자연 앞에서 인간의 드라마는 풀리거나 녹아 없어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "503602ac2bc433e55f84aab35e78089352c7ad6c5bcf1cfc68b4379db0a828ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-industry-that-devours-its-women-on-schedule",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 고발하는 기계. 그 기계가 삼키는 여자를 영화는 보고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f46bd8246205952ce0a251da98e46b815a441cba2767dc68c13cc11ab0b6034f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-industry-that-resurrects-its-own-estate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 프랜차이즈를 되살리는 레거시 속편. 부활에 중독된 IP 경제의 자화상.",
+  "model": "claude-opus-5",
+  "source_sha256": "f366e774229dd08b340b2e6d95389e5b12e4a2e0b41a63d09a92ba38054893cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inheritance-belongs-to-whoever-stayed-to-defend-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세습은 다툼의 문서다. 소유를 정하는 건 그 자리를 지켰는가, 빼앗았는가, 돌아올 권리가 있는가.",
+  "model": "claude-opus-5",
+  "source_sha256": "4246f45a92f8dd0e235e25651a3d0e438f45ae1574b5751a829f0f7cf3986a9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inheritance-that-comes-with-a-curse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받는 것이 재산뿐이었던 적은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89596b540c357bfd091408dc1ccc1371dace73c80bebaafd4799cd5d768eda6b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inherited-blade-carries-its-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "검은 무기가 아니다. 빚이고 혈통이고 제국이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01853d4ecfb727ba7d57125d056a803d68a20839e4d854fad5d4090ece3f585b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inherited-object-as-open-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 사물이 짊어진 것, 전해지는 과정의 상처.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3ac8b6c1fbcf5ffc589a532dfb7128a17cee92eb02f8d214aa7c25dea2c5745"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inherited-voice-that-must-become-her-own",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자는 죽은 자의 입을 빌려 말한다. 자기 목소리를 찾기 전까지는.",
+  "model": "claude-opus-5",
+  "source_sha256": "b95f10a1a2874bffb7a78516d04c577badc1e90842cf2e6d2c1b5aa42e5b2e55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-innocence-that-knew-and-looked-away",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죄는 저지른 일에 있지 않다. 알면서 모른 척하기로 한 데 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7f5a3e0af4e74386e85b977d05f39097abbd39448a71504d14713c00b0e6f1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-innocent-slain-by-cold-calculus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도구적 이성이 윤리를 죽인다. 논리 하나에 아이가 바쳐진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "219a2964c35dae1a06a86f3175d79ba164fbfb30ae2decf9c256d6a546843ca8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-innocent-word-that-accuses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 놓인 아이 같은 명사가 돌연 고발장이 된다. 감추려던 것의 이름이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd34abc6319def5f4c86ffc52e712ec70557b39b50eb7e60c0fe59d042e4c6ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inquirer-who-becomes-the-experiment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차가운 호기심이 마침내 제 도구를 자기에게 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a196d679f29171d1c48acf10cb3910eb64a78971dec2a41c6f020b8162a39829"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-as-century-in-hospice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "건물 하나, 질서 하나가 임종을 앞둔 한 시대의 몸으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a860a78e2fd016f441c5fb0dc4a9bbc068a6515e1dfe188956ed80e138036f9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-as-engine-that-manufactures-failure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학교와 체계가 하는 일은 셋뿐이다. 가르는 것, 떨어뜨리는 것, 길들이는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "8024fb6499fb2caa325c46e1cb36e8fc4137e21e7f8f60a58da4218ff858dfe0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-as-panopticon-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학교와 아카데미, 서로가 서로를 감시하고 규율하는 푸코적 기계.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9f3ac5b7e2c1ab7b29fa0cc9e3f8afc0caa83ee68b23d9a94615ae1f72a45fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-built-on-the-logic-of-the-police-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄이라 쓰고 통제라 읽는다. 그 건물은 애초에 돌봄받는 자의 것이 아니었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6b23328f44325bd70661ab574bd7abd375a1a7276c6f2b9d6509205083fb68f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-of-healing-as-apparatus-of-control",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치유 공장은 자기가 고친다는 그 병을 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "638eb8aa45dbad9fa081534357567752e50d3c3790350752f1e4a67351059695"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-s-obscene-underside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말끔한 겉면 아래로 통제의 회로가 흐른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc78a3aa021c6910fc3ead85231d028f1dd67db8315e2f3a3385df1584557131"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-unmasked-as-theater",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "병동도 라커룸도 가정도, 서지 않을 수 없는 무대였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ad62df8eba203f301e6a9d9957b89978ec9a228750319b2addb8bc619e34960"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-institution-vanishes-when-you-need-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력의 체계는 하필 위기의 순간에 무너지고 흩어지고 등을 돌린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a80d38edf6ddfba13408002ab50c4ea821742dfed654af365345f241103b944a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-instrument-that-speaks-her-silence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자가 입 밖에 내지 못한 말, 피아노가 대신 낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f60abc48ade4d25d2e16efc4f784b6fdc8c7f03e8077a953ea1cab179045d87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-insurance-man-as-detective-of-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보험계리의 셈법이 증권을 살인의 도구이자 수사의 실마리로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "822e330d7a1a6c1d3589fc9294d9b54450cfd785a5e9f7c95d01a4c0857e2f1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-interchangeable-room-as-stateless-limbo",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "똑같이 생긴 방들이 국적을 지운다. 권력이 머무는 곳 없는 탈역사의 지대.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b53fdae44535447ffb5f5073fe7445cfe07d6f584ad7b17d4e3174444866186"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-interior-forced-into-public-view",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성장이란 사적인 것이 폭력적으로 까발려지는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f590b436f14e71a79a4df2f5fb3d598899d7291c1d52e117091e85f92e732d75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-interior-painted-as-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집도 하숙도, 그려 붙인 벽 같은 숨 막히는 감금으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bd623ba5cd0ebfdfafdd8beaa2995188f8ba4949991af1bb97658381cff8b99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-interview-as-interior-tribunal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라 앞의 인터뷰는 고백이자 오디션이며, 자아를 비추는 스크린이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a064adc059ddd5c40c28c1d0dd4aaeb59f22c960a34e980255fcacbc213e0b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-invented-place-stitched-from-real-ground",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 지리를 이어 붙여 지어낸 장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "76ffdf8dd58237c9cfa1be4c0114b9d0ee704d53199ddc6906a2d8cfc9bb9e0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-invented-self-made-real-by-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꾸며낸 인격이 연기를 거듭하다 진짜 자아가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d69ea8798f39e9798f7ca92ca29e3686695f489e3475d847f8b77e5cedd5383d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-invented-tongue-as-anti-national-gesture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만들어낸 말, 옮겨 심은 말. 어느 쪽이든 국가가 주장하는 소속을 녹여버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84e000fd6dec2c4749f5947b7ea4ce00e3dce95b6548c327e00916c7bd7097fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-invented-world-beyond-the-wall",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥을 봉인함으로써 벽은 하나의 허구를 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c55010575ee93aefed126fabbbbb93e43b3edf52913e6fea06eee639f78a2147"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inventor-erased-by-what-he-built",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "선구자는 자기가 불붙인 진보에 잊히고 뒤처지고 끝내 도둑맞는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9109bbf16015f0d496c002b207254800486442ee19c563a4eb005034c95eed8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inventor-undone-by-his-own-device",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "천재가 도구를 만든다. 그 반동만은 내다보지도 붙잡지도 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3a2470f26898c3ec1b1fb5c296d761b1099e0d22f8a342c1bb8e9cc670c4dc1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-investigation-as-necrophiliac-devotion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형사가 시체에게 구애한다. 풀어야 할 사건인 그 시체에게.",
+  "model": "claude-opus-5",
+  "source_sha256": "6db76ce689de17422de44a6a0902ae27edc454d6763cdcc133bc7dea1c633163"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-invisible-cause-that-never-acts-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무대 뒤에 남은 채 모든 것을 굴리는 숨은 기제.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a6e62a013ee4992d8386a6af7c5a3f39775250ddb03627fbad65dc86e6f5251"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-is-it-real-obsession-as-post-truth-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저게 진짜냐고 캐묻는 비평가의 집착. 정작 드러나는 건 믿��을 향한 자기 불안이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "429cbd7f11a37eb79f5b1aca65679bfd0af25f7931dde4f233a208c0a489ca97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-island-as-extractive-colony",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "외딴 섬이 자원 개척지가 된다. 모더니즘이나 과학의 외피를 쓰고서.",
+  "model": "claude-opus-5",
+  "source_sha256": "58128131451e617cad182457a31e69a5ef46581d803f88376208354e68b21995"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-island-as-membrane-no-boat-can-reach",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물 위에 떠 있는 땅. 닿을 수 없으면서 스며드는 자아의 형상.",
+  "model": "claude-opus-5",
+  "source_sha256": "6223aed1adef34f7de56f181c05558e404338e4a83145fc0da700da5a4f43772"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-island-as-suspended-social-contract",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경계 지어진 땅에서 복지국가의 법은 억눌려 있거나 아직 오지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7a434801e8b01b8da7115da60ea99d643d8b488b8d61947bac80a64e7e6986a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-island-that-plays-a-lost-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하와이의 풍경이 맡는 배역은 에덴, 선사, 전장. 어느 쪽이든 이미 타락한 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a8f81a318475a8da41b29b61dc7bff4dfbe13fc7db10742d0741f051294d0b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-itinerant-player-and-the-voice-that-fades",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠도는 연주자가 지고 다니는 것, 곧 사라질 예술.",
+  "model": "claude-opus-5",
+  "source_sha256": "5785b6b2ccea3188de43c9b696b81a35c50db7a6d1e2a8c3b17346ce3d12064e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ives-score-of-overlapping-america",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이브스의 다조(多調)처럼, 여러 소리가 한꺼번에 울리는 소음으로 그린 국가.",
+  "model": "claude-opus-5",
+  "source_sha256": "761e7f109cff392524961610cd144103f6355fd31364061e6a78009b9db6a07e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-jedi-creed-as-moral-philosophy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스타워즈의 선택을 의무론(deontology)과 책무, 그리고 금지된 결과주의로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfb8bd956a4819f1892164606dbd887c8ec7537fd82446ca38df189b64019bce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-jester-s-refusal-of-the-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웃음으로 버티는 자 앞에서 법의 권위가 녹아내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ce5461b7287d10afe45cb91d24a7b0ca0d964dba7830e94df3ded35734f3f5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-jewel-that-circulates-as-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보석은 교환가치다. 누가 쥐고 있든 상관하지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "40767e760fa6b1549acce12f93ba11f77803693099f64993cdc0025342d14128"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-job-has-no-outside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일이 부풀어 오르다 바깥세상이 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39f03a30eb25dcd85394b6adad6b9797318caaa6dc89e469ceb0ce6e29f14d1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-joke-as-armor-over-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고통이든 슬픔이든 소멸이든, 닥치기 전에 먼저 농담으로 막는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9841d8092f2045e64a4e6d33236a36b3205ea88a51a79e6aff3713287f53f34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-joke-authored-in-the-edit-not-the-script",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현장의 즉흥이 편집실에서 건져지고 짜인다. 그게 진짜 대본이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6656d216700c68e830ecc7ae6a493896e9ec12448cd6503f611a8a1bc2486368"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-journey-that-could-never-arrive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목적지 없는 이동. 스스로를 여행이라 착각하는 움직임.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5d2b876b8d45749974c9e6e79b4d3a46fd7a3bd5d51454e930b981e0a077ffb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-kafka-bureaucracy-as-unreachable-court",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제도가 카프카적 미로로 변해, 그 안에 든 사람들을 짓뭉갠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26f0cc254b0e0d261d25df71f3dc0d566c3fb2a88dcc9f6fd0fbefdb31909b3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-kantian-duty-that-damns-the-merciful",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의무와 자비, 도덕적 책무를 다루는 논고로 읽히는 전쟁 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "d00f1693bd73097173c10a0342c8f5818b1bd261ee362ce85e29f4720e7b8467"
+ }
+]

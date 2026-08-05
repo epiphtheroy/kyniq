@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horror-of-a-world-that-means-too-much",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계가 의미를 너무 많이 뿜을 때의 공포. 예언도 통찰도 슬픔도, 도착할 곳이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aba7d947797c79f15f71161c38e301da66fba419bc3cfaa87e7ead8f5d157a60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horror-staged-in-pitiless-daylight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어둠에 숨을 권리를 빼앗긴 공포.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9c6ea856895ba83ab4b048fcf00f207e3505f2e39aa6269193f66e52affb384"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horse-as-mute-confessor-and-withheld-answer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고백은 다 받아내고 대답은 하지 않는 짐승. 영화는 그 침묵으로 끝난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf997e11205352ddfb99808f80dc747a70689b2d843226e619ac48eb760fd894"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hostile-review-that-proves-the-film-s-thesis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 때리는 반발이, 하필 영화가 하려던 말을 그대로 증명해 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b539d62a7c87c73af1e7dc450cf67d531d6db4bbc9c1905230e7bd6cebe458f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hostile-verdict-as-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "깎아내리는 딱지는 영화의 한계가 아니라 그것을 붙인 사람의 한계를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af60b4b7e5161dc8830f80de01aa5010cf40dc447fccb88fe7ae17f1a3bf9ded"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hotel-as-capital-s-placeless-cell",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어디에도 속하지 못하는 후기자본주의의 건축. 잠시 머무는 방.",
+  "model": "claude-opus-5",
+  "source_sha256": "efb3d29265d5b8fffc50dd41152213ad7ddab458a3bbd38f47a6f4422e189ef0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hotel-that-hoards-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오버룩 호텔은 폭력을 가둬둔 저수지다. 묻어도 가라앉지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3c28f73e049554d5aed23a1f212ae0580d1310bdc389849f94a6756a38248b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-argument-forces-the-buried-truth-out",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집안싸움이 터지고, 가족이 삼켜온 고백이 갈라진 틈으로 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8362bf6b68badb0487a1e8f62786404e5a44de397e5ab648dcb9d18931fe25d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-as-a-living-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집은 건축이 아니다. 감각을 지닌 생물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b55773eedddfa1ded71313aa24f9a272d8d255976b8b352b2957374894fa7fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-as-built-anxiety",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계급의 불안과 야심을 담아두는 그릇, 주거 건축(住居建築).",
+  "model": "claude-opus-5",
+  "source_sha256": "f76c9efaf98ae5c487dd47e02711df925e01aa95d2b215fba41a7090917e7118"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-disguised-as-a-house",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집이 제 정체를 벗는다. 무대이거나, 빛이거나, 고독을 쓰는 문법이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6a1b8dd850198dfd0cdd2272d6b9e433de4dd0c0f3bfddc8b5f5d471799e96b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-filmed-as-sealed-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥 세계로 나갈 길을 막아버린 연극 상자. 그렇게 찍힌 건축.",
+  "model": "claude-opus-5",
+  "source_sha256": "abceff88cd2a23184af79ff3af4249b7603d182931b9f315fe181b2c08a14433"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-governed-from-within",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 집의 질서를 쥔 자는 안에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aba621c3ac03cb0d2036ec143bf59dd735717d6551ec2937e34602100dda05f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-s-drive-toward-total-transparency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "건축과 유리가 모조리 보아도 죄가 없다는 환상을 실행에 옮긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf8df5cddd65bdd1051995ea8c8833d54f21fb6c7da83fbb9899bd57185aac40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-that-holds-its-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억의 몸, 시간의 몸, 분열의 몸이 되는 집.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf42460be533d47997a4ff9343552d34553b3b927ba63e2f8c636225fe9b35ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-that-thinks-as-consciousness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배경이 아니라 정신. 혹은 육체. 혹은 하나의 논변인 집.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaedc7ad8041799db99d931ac3951e8c7efa3abcffb9d5627160fec909802126"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-whose-floor-plan-cannot-exist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도면으로는 성립하지 않는 실내. 그 불가능이 곧 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6db031e5dc48bd0183088440d7facbfb5d62bc550aa84aa156d25ae2781055de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-household-as-state-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가정은 정체(政體)이자 법정이며, 순찰이 도는 국경이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82b79e967a266dd9f0c1420e38c1b51ec05ab8ee062b0c41c6eddb4b40cea3e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-household-as-the-only-possible-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어느 국가도 나를 받아주지 않을 때 마지막으로 남는 정치체, 집.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7bce41bae45bd78f3d224782c933f74b6deafc9e5c6c1fc6f0794843dce1d1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-housing-block-as-dying-collectivist-dream",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "키에슬로프스키가 찍은 콘크리트 아파트 단지. 사회주의 유토피아의 주검이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2201ca93fea6bffe91cba8ea9b5285a7edeb55d7c535283c7e3c4a78012cf20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-dissolved-into-the-watershed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물의 존재론(存在論). 인간을 제 윤곽에서 풀어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12db25a3b41bf6e5593a6d8cabc4b4a14af9b70767fa277397d1af9614ff6974"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-reckoned-as-collateral",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람이 빚으로 정산되고, 남은 담보는 몸뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d44f755c288b03d6c91df50abc44b6fe98e90943dea5fba5d6964fdd3b42c68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-reduced-to-exchange-value",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "값이 매겨지고, 캐내어지고, 끝내 순수한 경제적 추상으로 내던져지는 인간.",
+  "model": "claude-opus-5",
+  "source_sha256": "06d8f52f21531be74f3ca4b69e9aee13c2325e3057903b7e454aebee055a97cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-rendered-as-manufactured-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸도 사람도 공정을 거쳐 나온 물건으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a95c33ff8ae21518574144ad31dc28c261a23071f553b1be838014a6609bf43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-humanist-label-as-critical-domestication",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "휴머니즘이라 칭찬하는 순간, 영화가 내린 가혹한 구조적 판결은 힘을 잃는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ab3fea6302cffe72e88b01188206937cc5b7b9e90e873a544c43e49964a9b0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunger-artist-who-starves-for-the-crowd",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카프카의 단식 광대를 다시 빚는다. 구경거리로 말라가고, 먹을 것은 끝내 거절당하는 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "f04f23cf7f850ebfed3ca017b6428f0fac4bb79e9d9e5d27625a2b7e56d1a386"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunger-that-comfort-kills",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성공과 해피엔딩이 주인공을 만들어낸 그 허기를 갉아먹는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb80099f4fc4ae300ba2f4941938bfa0e700998c17009b1b7711077589e281cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunger-to-be-allowed-to-believe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사기꾼이 잘 먹히는 이유. 관객은 속아서라도 믿고 싶어 안달이 나 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2d076cac3fbd3e3a4d9422411c38abdd2075ec3b2f8d6e563b388e3d3618202"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunt-word-that-hides-a-different-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'사냥'을 풀어보면 선의가, 사냥감 없음이, 합창이, 덫이 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "491d8109e4b3c49c1adafbd5e3ed3a61099c1f8b6350d03d50a83c7afc52c4c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-bound-to-his-prey",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쫓는 자를 살게 하는 것은 사냥의 끝이 아니라 쫓는 일 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adc8a652bb09f59a20864dec3cf814e959995a794f0dc40f521fa55997d995d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-who-becomes-his-quarry",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "추적이 동일시로 무너진다. 쫓던 자가 쫓기던 자의 죄를 물려받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27021c2b203a39232d949676f8d92ae230a681446fa01b661234aecfe970fa60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-who-becomes-his-quarry-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "심연과 싸우는 자는 심연에 먹힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "479c3ed791ee67ca8136c9871fc97cf231ad779982dd1655d9ced278794725e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-who-spared-what-he-hunted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽이라고 고용된 자가 대신 지켜보거나 사랑하기를 택한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85ddfb51e9b058ebf13cc72b0ff9176082b735a42cd0c4a63a741a0f985e3636"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-husband-who-murders-what-he-adores",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다정한 헌신, 그것이 아내를 부수는 동력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb1821f491b4cbbdce7f5e7995bbc8430876ea2f845e4ea31c0fac03d200ebc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hustler-as-avatar-of-the-gig-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인공이 누구든 결국 후기 자본주의의 프리랜서 노동으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3d8c2326ee2056846705fdee370ce0f46295c39e45de9e585bf47fd720bdea5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hustler-as-perpetual-motion-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멈추지 않는 움직임 자체가 상품인 세일즈맨. 그가 파는 건 자기 자신의 운동이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fd83573fac7a82e840b5efea2cfad7066698ae661471c8a824daeb4da900b42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hypertrophied-body-as-reagan-era-america",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "근육으로 부푼 몸. 1980년대 국가 이데올로기가 살을 입은 형상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58e2b584ffa832778b8e8d652196214c5f22730da33c5b53a17b7699ecbdd777"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-iberian-coast-as-buried-otherness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대서양과 지중해의 해안선은 국가가 문서로 남기지 못한 것을 상연한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "940439d77d81052881cf72e984229f5a90c2ee6904792bbe3ad2b08ae2804b32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-idyllic-american-town-as-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국 소도시의 목가적 풍경. 부패든 슬픔이든 뒤에 감춘 연극 세트로 잡힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c1297e503f2c3785047aee1e0a0d1459a66e53263a8e1ec660da4cfd5a8d1dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-idyllic-town-harboring-its-crime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소도시의 건전함은 겉치레다. 그 아래 폭력이 묻혀 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ecd639364cddd19ad3a78947285b784744eddb92cbf964d5489d4f93dcd0377"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-illusion-veil-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛과 유리가 벗겨낸다. 현실이 실은 짜인 속임수였다는 것을.",
+  "model": "claude-opus-5",
+  "source_sha256": "629c94ae442348501ea7f1edb52145bba3527c3095a42aa2c76743067834c103"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-betrayed-by-its-chemistry",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 저자는 감독이 아니라 필름과 디지털 공정이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c40760f132b0dd24a11da5d8c73c675bbd5c1bad8217c26af5316870a5119cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-chemically-corrupted-into-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색보정을 필름에 가해진 도덕적 폭력으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3e63a2c5c2a416d102f7f5661159f611b40076ac0fea179a7316d310e212e69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-estranged-from-its-own-era",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "필름을 제 성질에 거슬러 써서 스펙터클을 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf28f5d75f1556a145a5f746f78fbb48d90f44e763f1e0bf31e53bbbb4d0ed01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-surveils-where-it-pretends-to-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "포착, 메타데이터, 머니샷. 감시자본주의의 광학이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47bfc9c773f587c2e0c1563c05982f21e968c798237a37c1fe4b8366ac035ca7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-crosses-the-screen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저주받은 그림이 액자를 깨고 산 자들 쪽으로 건너온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac81490cb1e8906b721b4520737dc0b7be20bb5beb6d9fff45694e2042b6b004"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-devours-its-watcher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "본다는 행위 자체가 타락과 ���의와 죽음의 장치가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4439d75052037890b766f3c9875374f211154e0a99c336454271bd40de85ff54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-outlives-its-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그림이 살아남는다. 자기를 낳은 육신을 삼키고, 마침내 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11edb030b81d327092f63c51849a36ba421e0b9125c6ffef256e590c79e6ba10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-outlives-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "붙들린 초상. 죽은 자는 그 통로로 계속 머문다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80a4ee99f9b62d73f1efe7b7cb2ee1a529fdb35352a317fd252394fb08718888"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imaginary-friend-as-transitional-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "곁에 없는 어머니의 자리를 상상 속 친구가 채운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9009abff1442a96b5b2ea81a5b3f962057233e7b60c12e3e0866b2933caeef5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imagined-land-that-never-was",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다른 나라의 꿈이 발명해낸 대륙.",
+  "model": "claude-opus-5",
+  "source_sha256": "213c6608e753e858d717f00e58d66b82338cde586c2c6b3d662158b2cd4e9f42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-immigrant-self-erased-to-pass-american",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동화(同化)의 값은 이름을 내주고, 모국어를 놓고, 목소리를 빼앗기는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "976488c482f111962a99224400d07011644479cf29061fe3f727c2491daeb1d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-immigrant-who-becomes-his-own-caricature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력이 정해준 배역을 연기해야 살아남는 이방인.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9c29ec131d9139032d0f69bf7cdaa575acef30c53692a0e0e69997e70f90cd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imperative-addressed-to-the-viewer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 형식이 제 제목을, 제 장치를 관객 쪽으로 돌려 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd293956f09d0aa77a00d1039b06b6e7d26b8789c29ff9311a1221a7cff6a7c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-implant-as-wound-that-pretends-to-cure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보철로 되찾은 기능. 치유의 얼굴을 한 폭력으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bdd52131fa2d6cc55876288593aabda6756dcff5abb06da67563efb2495fc04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossibility-of-witness-as-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증언될 수 없는 참사. 그 불가능 위에 구조를 세운 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d10a390b6a1631f88ebb428be1b8c768a142f56f030e703841c1afd68ebf8e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-arithmetic-of-saving-strangers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누구를 살릴 것인가. 견딜 수 없는 셈 앞에 놓인 희생.",
+  "model": "claude-opus-5",
+  "source_sha256": "186ea46cbee9a0f2cd8e044049608d42d2e929e045c5e25270c45dd0a7229f72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-debt-of-the-spared",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 자에게는 평생 갚지 못할 빚이 생긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "309174bd27af7335b5ec0637aebb163debc8f8bc5d3bb24dab488527fd4b269e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-shot-animation-made-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 렌즈도 해내지 못할 카메라 이동. 그린 프레임과 합성이 대신 불러온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f08cc41505b308ddaaef0b75ab6a33e9da5f857eb0a7ddc69ac087d0cc56069"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-staircase-as-architecture-of-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에셔의 되도는 고리가 무기가 된다. 빠져나갈 수 없는 공간의 논리.",
+  "model": "claude-opus-5",
+  "source_sha256": "8045e240e4956e8bb9d47aaf3834b9a4fce57e00e9aef74ac97722eee8156721"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "films-shot-in-the-imf-crater",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "1997년 금융 붕괴를 실시간으로 받아 적은 한국 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "387d9c491222666afbe51350c405c1261bb6a83d473537847f6d999c12a241c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fire-as-inherited-wound-that-cannot-be-extinguished",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불꽃이 곧 가족의 유산. 억눌린 것이 지층처럼 굳어 대물림된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f8a820e65cf4d98e6ee1c12a1a0b842f0f2e7d484f73ec82e3ac9f7ece85eaa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fire-as-the-crime-the-psyche-replays-to-master",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불태우기, 폭력과 국가적 상처를 강박적으로 되풀이하는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "deba2b93a1cfdcd5c56ab8079eb0acd069670994f698800bfed59d09e951c757"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "flat-affect-as-buried-grief-not-control",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무감각은 자제가 아니다. 길이 막힌 애도다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27620a7c044d3abb4420f4cbd2785b0025b54a3d151663715f3c4edcfe3c5659"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fleeing-straight-into-the-feared-thing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피하다 보면 도로 그 앞이다. 도망이 곧 공포를 향한 추격이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9b2e9b18e88bd4ed2f743a484955b6d12b1517c8731fcc06ebef9a37b17d943"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "flight-as-privilege-without-cost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흠 없이 달아날 수 있다는 것, 그것이 낙인 없는 자의 낙인이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db381f0f48af37822c343ae3b727879c33914343eefdcf2e544607436acbef12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "focus-as-the-hand-that-conjures",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초점을 맞추는 손짓. 카메라가 무언가를 불러내는 순간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a57c0fae0286676ba27e7d402d4cfb3425760e7a07d7640297a48202b1cab90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "food-named-as-a-film-s-title-mood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 놓인 음식 하나가 영화 전체의 조성(調性)을 정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3a6512c0dcdfadd239cec645ad33559d190db79e08a33581071d4ed544ff247"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forced-perspective-as-worldview-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공간을 속이는 기술이 그대로 영화의 윤리이자 이념의 렌즈가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d378fa18a870960727d044aa7f967e72f9c348d74fd2aae8904b1df86418bdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "foreclosed-grief-awaiting-detonation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고요함과 침착함. 압력 아래 눌러둔, 거부된 애도다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ad371b687bed2c180555a5c7bd598b13903df65fc1e3c991916d7cfa28470e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "foreclosure-as-the-crime-with-no-villain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "2008년의 붕괴. 화면이 끝내 고발하지 못하는 조용한 박탈로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b61ce19c75a8259a84d5b95628954be025b05b01f7ccad5ff9d8849fc4a1e536"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgetting-is-repression-not-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잊은 게 아니라 묻은 것이다. 되찾음은 억압된 것의 귀환이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bcaeaf60d24cd8bc7ff41d6657fcd8af8035892a273788414a543f9fff30109"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgiveness-as-the-impossible-unearnable-gift",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "용서는 정의를 넘어선다. 죄는 갚아지지 않고, 다만 풀려날 뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "a10fab17ecd7c23b8edf6f8812b995117938beef5906a90687243a1cbe28fff8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgiveness-earned-by-reliving-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속죄하려면 고백으로는 모자란다. 그 해악을 제 몸으로 다시 겪어야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "779572acd4e37731c268acff3ece529e8615c3077ecdb4d533158d4ef78c25a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgiveness-that-severs-the-causal-chain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 복수를 마다하는 자유로운 행위, 결정론을 끊는 한 수.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8324fd4d5d7dbc63ba80a299867cfbf0e988f58e502a87964f2101bdbad4ee9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "france-doubled-in-a-single-summer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 계절이 나라를 두 얼굴로 갈라놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "529694520c42a808484f7241a614fe4d8058df8020a825e10fa2d3b59992bd54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "france-s-consumer-modernity-inscribed-in-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전후 프랑스의 풍요. 영화가 암호로 품은 진짜 주제.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ed0f7184ecb713ff6949cb1af9f748284389194dc74d1b67bfe7bf7b8d8d434"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "francis-bacon-s-screaming-meat-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뭉개지고 갇히고 도살된 고깃덩어리. 베이컨의 형상으로 읽는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "99f7242e2f392e32ef6c48ba8b305d69918a147df85a717321c2756785c9a623"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freed-by-the-dying-censor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "검열 규약이 무너지면서 비로소 태어난 결정적 몸짓.",
+  "model": "claude-opus-5",
+  "source_sha256": "21fcc9170bfd4ac25edcaa897c9f5dec6b3a4ebde9c4f5d3a01f0ec472c18b6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-as-wound-never-arrival",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자유는 늘 결핍이거나 짐이거나, 닿지 않는 지평의 이름으로만 불린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a437ee7280a8438e713a2bcbfb90a30e29b08ad6bc5b541942e5cfc7f85c7c90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-disguised-as-fate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사르트르적 자기기만(mauvaise foi). 선택이 숙명, 버려짐, 정해진 출구의 얼굴을 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43efa6ed8187f7ed977949d0dd8eea4787530fac088a2064c3d2891ccc752215"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-forged-inside-the-cage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상이 가장 좁게 조여드는 바로 그 자리에 세운 내면의 성채.",
+  "model": "claude-opus-5",
+  "source_sha256": "87fd0ec949850b8d13d05893b05f9ba6a9cf405ab7f31e08dbaacddce50a25d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-is-geographic-not-innate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자유는 타고나는 게 아니라 장소가 정한다. 국경, 길, 건너감.",
+  "model": "claude-opus-5",
+  "source_sha256": "21bf2ecb8ec6d7e7c13f250ede8250450681e0e17120d65ad60e1cf93cd4839a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "friendship-as-the-aristotelian-ethical-test",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동지애가 결혼도 포식도 사익도 제치고 시민의 덕(德)으로 올라선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2ecf22518a76a429624f276ba51b10d15bdf32f7d80509b4678bf1a40f898db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "friendship-as-the-promise-capital-cannot-keep",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우정이라 부르지만, 시장이 그 약속을 무효로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4db4d267486d630d90d9f1b77f52fd1bc42672045e01a21e3cebf1706731c9e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "from-object-of-gaze-to-subject-who-looks",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보이던 여자가 시선을 빼앗아 쥔다. 프레임이 뒤집힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "610323d77707d1fae61daed28f0d13098d0d07c5ac041c354cab5cf022df54b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fuji-s-slopes-as-disorienting-threshold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구로사와의 화산 지대. 방향도 생존도 지워지는 경계지대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41081c9b8b122cb4ff5ee3fa1264dccae6730e94fcae4d375e72ef8833a8b973"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fusion-as-the-plot-s-hidden-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분열이 있는 이유는 하나뿐, 갈망하던 합일을 무대에 올리기 위해서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69429cb0bbec6fdafd6b4b41a2c7bae6df95a9e4ecea7870876f491e7ffc6892"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "garment-as-the-cut-of-class-passage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "옷 한 벌이 계급 이동과 위장의 장부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8568875cea7c896e0239f99fc0a1254725c884b75b7cf4ca84d5f21625ab851"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genet-s-liturgy-sanctifying-the-outlaw",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "범죄자와 추방자를 성인의 자리에 앉히는 주네식 전례. 뒤집힌 성스러움.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe54518d7c04f65adc82c99593b30e94fd5e9e01fa43d91af2ba115667fff771"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genius-improvising-from-the-cutting-room-scraps",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웰스는 제도에서 쫓겨나고 돈이 없었다. 그 궁핍을 편집대 앞에서 형식으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ae1f2ccb3886aaec3c90ed34a0b872f1b6ffd7d4ba60bcc8a418361514379ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genre-as-disguised-mourning-work",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "겉으로 내세운 소재는 슬픔이 빌려 입은 옷일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0964c4110a7682fd9ebd5a734b7cb8124a132c9570eb3df625b80426f6170fd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genre-as-the-critic-s-defensive-misreading",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정치적인 영화를 '장르물'이라 부르며 그 이빨을 뽑는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ceef82e58ed17eacdd5fcf7cda443c0da878bf4a077a1ef515968292c8e7298"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genre-contempt-smuggled-into-praise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치켜세운다면서 정작 그 장르를 얕보는 비평.",
+  "model": "claude-opus-5",
+  "source_sha256": "a267a44b5951a05f9032b525e2d4aa81b0d68b7a9c229325443d7dca4feb0779"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gentle-as-critical-sedation-of-an-accusation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'섬세하다'는 칭찬. 영화가 제기한 진짜 혐의를 달래고 길들이고 무장해제한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f324daf25a154fb2298cc115e8b101d99333a47b92ceb0a02600585579809d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "german-art-pressed-into-the-service-of-annihilation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "콜비츠와 릴케, 그리고 소멸의 색이 되어버린 흰빛.",
+  "model": "claude-opus-5",
+  "source_sha256": "b43c209092c39dcb2601174751785082ad313e7e407172ac505f3bb65130683a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "glass-and-tower-as-architecture-of-surveillance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기업의 수직성이 감시를 낳는다. 그리고 감시받고 싶은 욕망까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b1b4b853b21a5430e6ef28acefd9035612aabd00f602ba8cb4eab393e86355b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "glass-as-the-camera-s-own-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유리 표면. 영화가 몰래 숨겨둔 자의식의 렌즈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24ed4367819d688dff2209e852793ae89a8c1bba3a760f8833088bcd581df0e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "glenn-gould-flees-into-the-instrument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무대를 등지고 기계 안으로 물러난 연주. 매개된 교감만 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d97ea845cc410e6fe54ddf4b1c19540bee76972443f0fff558e1bcad06c1b0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "god-decoded-as-a-hidden-system-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신은 어떤 기계장치의 비밀 작동 원리로 다시 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "994cdce4f403f44f437838ea4ab6e86aaa82887f74651464bc2e67c8b8f36d79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "god-replies-from-the-whirlwind",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욥기의 폭풍 속 응답. 신의 대답 아닌 대답으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf4e71958cafba06130a6bf07d090b47ebf05299496f08f084da6a888b014f61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "going-electric-as-betrayal-of-the-collective",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "앰프를 켠 순간, 운동이 제 것이라 믿었던 목소리가 사유화된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3146f821a28f5b4fda1e133d427fda4413f7edf6031f20931045163314b488e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "going-the-distance-not-winning-is-victory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경기가 재는 것은 점수판이 아니다. 견딤과 자기 자신.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb225da239c08e5946bf3b05c4509ffb98dd3981c0f5b54a6444963f726bad31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-congealed-dead-labor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쌓인 보물은 부가 아니다. 얼어붙은 잉여가치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c1e5295bed72ad49f6ac4464794d0a91b3c0413d2aa9e9530ed6a29d4a5c0f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-moral-test-not-mere-loot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보물은 전리품이 아니라 시험대다. 인간이 정말 무엇을 섬기는지 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43aaa9f7f9c97ea980abc8dbedae74a382e47679c9e9b01819923937cf816172"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-the-mirage-of-sovereign-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "황금빛 광휘의 정체. 뽑아낸 잉여이거나 허구의 주권이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5725595f3057760330909077f7889733246390e7b1852736ee5b1befbeb0ee0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-the-true-protagonist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기에 이름을 주고 이야기를 미는 것은 영웅이 아니라 보물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a9e3375bfd4a03725b9201e56d1cd55e7a78976e61750812fb12029c1397b7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "golding-s-children-restaged-beyond-the-reef",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "《파리대왕》의 야만적인 소년들이 다른 전장으로 옮겨 앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b4a387c7e4d915dcddb9f4d49812582d48eb3fc338e8031f95813f5137b3452"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gollum-the-first-citizen-of-the-digital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모션 캡처가 영화에 강요한 것. 픽셀 안에도 인격이 있음을 인정하라는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee2ce661851ef40cd77b24333a0f821ff95854329c4a2f4811e760821837c056"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gotham-as-stage-managed-political-theatre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정의가 아니라 연출된 허구가 다스리는 도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "291f600fb7ee0bcd62f0e24f0e9a6fabb54fc2d8fad8e26f09cc874fa7added4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "goya-s-black-paintings-as-filming-manual",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고야 말년의 캔버스, 그 무자비한 어둠을 통과해 읽는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "b32f98b21ea240934e1619e5f30f8689e6e92cc9706fafc7063493d17bbf0960"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "goya-s-hand-drawing-the-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참혹을 그리는 고야의 방식. 영화가 그 통로를 빌린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c80610da5717364c569d84536faa85481ee1ba600d5f7b48effe967cd4ff5a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "goya-s-witness-behind-the-camera",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임이 물려받은 것은 참상을 향한 고야의 어두운 증언이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c180cb124be5faccfb69f9ebdf7ba15c608f27927323fe75086d753213c63a79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-arrives-unearned-without-cause",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "은총은 보상이 아니라 선물이다. 브레송의 신학.",
+  "model": "claude-opus-5",
+  "source_sha256": "903fc054e8bf68fe3b99b599fd4cc25953c4b4cd312adf14180e93f712b49a11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-as-composure-before-defeat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이기지도 못하고 위로도 없이, 그래도 지키는 품위.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7894458ac249f204a4d9e307973cf83e8bb44530a8e4826afc249494485471a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-mistaken-for-engineered-chance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우연을 섭리로 잘못 읽는다. 그렇게 사고 하나가 신학이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "680d9abe06b1ceaf51821545bd41bd1f9157e0ad9ae22e5f169a4d3031d5f7ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-that-cannot-be-willed-only-awaited",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해방도 영감도 애써서 오지 않는다. 손을 놓아야 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f4cff18f1d5debd400fd0206ae0189c6452074d79671ea73b5a73dd0fcdf11f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grain-as-the-texture-of-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "필름 입자에 기억이 새겨진다. 디지털의 말끔한 복원을 마다하면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "363dd0c8bd301ed411cb31f194f83cc3a9664043b284d70e3bf51c58cc29cd08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grammar-as-the-film-s-true-tense",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기를 들려주는 대신 동사의 서법(敍法)을 활용해 보이는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b0f26331d190302d599640e225d4a3828dd053914c299fe6e513e835ac2d061"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gravity-as-fall-sinking-and-surrender",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떨어짐은 물리이고 파멸이며, 놓아버리려는 의지이기도 하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "544241b1c7e5496d31d6ee1bbf3c298aaa470d4c7622e8d1f33baaa63dcb031e"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "eating-the-beloved-as-forbidden-union",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망이 타자를 삼키는 일로 바뀌는 자리, 입.",
+  "model": "claude-opus-5",
+  "source_sha256": "c31528f3223aee1ebb9cd1bea0ab32e1bab0798eac7c421f840aa626b110f69f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eden-as-trap-crime-scene-death-dream",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낙원에는 이미 독이 돌고 있다. 아니면 애초에 치명적이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "040dd00a40105be5eb0e5ec2a9995c550a12c9ee0678bec843301055ac291241"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eden-is-real-because-it-was-first-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장소보다 신화가 먼저다. 그 신화가 장소를 진짜로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "137cb1829545bbf41afd4f75ef1c84a6bc2ae52181ed3930506434984b47f000"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "editing-as-mortality-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 살고 누가 죽는지는 컷이 정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3e93b35942f727db5c0d1f7e213b1e770a832283b512b1416c38bac51aa5247"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "editing-as-the-true-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저자도 의미도 각본이 아니라 컷에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d770fd31cbe7edec09130be81daf07734643feab41985437e655395fc672f0b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "edo-resurrected-as-constructed-afterworld",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "옛 수도를 다시 세운다. 밀폐된 무대, 죽은 자들의 나라로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3866842d6c236c4b44e326aa3cdbed1e7a954db317a8a3f9e3a730673da18a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "elegance-worn-as-armor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "댄디의 매력과 경박함은 방어를 위해 벼려낸 연기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8dd1e7ae8db478315cf1fe4b1dcb83a13372fdb031f0c8618f49e4470e8ef44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ellison-s-invisible-man-made-visible-again",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑인이 지워지는 일을 엘리슨의 보이지 않는 지하 주인공에 겹쳐 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca6635c00ca807734117adf28024efe00f30d7a532e7897ac33a54e8ab168331"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empire-devoured-by-its-own-salvage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수탈하는 제국의 도구가 발명자를 향해 돌아선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c63b8146bc83e582284a90e3eb16e0fe7d9ab53bffe1370172fd336b0bc5ee3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empire-reasserted-on-borrowed-ground",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민지가 된 땅 위에서 미국의 힘이 되살아나거나 몸을 숨긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7b36e947973da9b8a94b1775dc49286f9a5c3e709f46f2a1df9c42f174da6dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empty-spectacle-as-mistaking-subject-for-sin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스펙터클이라는 혐의는 무엇을 그렸는가와 어떻게 그렸는가를 혼동한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6e99bad412d4a815879d6e386c9aeca3998179263fada523f66a6e038655f97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empty-virtuosity-as-fear-of-the-machine-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기교가 공허하다는 비난 뒤에는 장치를 향한 비평의 공포가 숨어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e650bd04e343b74a78aeccb6c1d9baf750e54078d4eba95c25ab383dad67b1ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "endurance-itself-as-a-mode-of-being",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남는 일은 사건이 아니다. 존재의 조건이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4066ba8b40aa88b6f6f5775424eff07c5b9818b8fd169ad562a28a1b279734c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "engineered-silence-as-instrument-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 무기는 소음이 아니라 계산된 침묵이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ada709daf05d2f2184457980e56806e9f644eaa24cd3ff4ec9bed96ff0bdd89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "entropy-as-the-film-s-hidden-physics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이 영화를 몰래 굴리는 엔진, 부식과 열역학 법칙.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c7cce57f0b2cf80c5ead0e2a55a1b50edb8da2f8c810228b2975f548404f257"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "envy-as-the-master-key-to-slaughter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자 하나의 질투가 그 집에서 벌어진 모든 죽음을 푸는 열쇠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28b5d467e105ac4bafc7918f0e2e72cbc00f80169a31c905c09364005c4bdb8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-as-the-return-of-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망도 분노도, 상처가 아는 유일한 문법을 되풀이하는 것일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b702c041a9fa46c16b092103d400cf81c93bea83dff87f794b71b03c341102c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-as-the-shadow-government",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력이 실제로 거래되고 군림하는 곳은 정책이 아니라 욕망이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e038d5ec806046bfba37e6afea607dcccc7a2d616bbe3075d28b43aa1c7b904"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-consummated-as-the-bullfight-kill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마타도르의 희생 제의 속에서 사랑과 죽음이 하나로 녹는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a5bd9334ea96823f4fbdc341332abbca424ef504426a9b6c291fc921f38c07c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-renamed-as-sin-by-the-watching-crowd",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교회가, 혹은 입소문이 원초적 욕망에 죄라는 이름을 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "222dfd14fb3db13b0a0ac3dd4793f014797b7f82434da4a5153f8a5857c86323"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eternal-recurrence-as-the-film-s-ontological-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "회귀는 플롯 장치가 아니다. 우주의 구조이자 세계를 이루는 실체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6be59a8bc115113903fde045dfb13701359bf437b2d77e9bfe4f2612bbffba14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eternal-return-reframed-against-its-own-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "니체의 영원회귀를 고쳐 쓴다. 만족으로, 윤리로, 혹은 끝내 꺾이는 의지로.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7cf3f08cd68291eec45eb5d01de1cf0f3b52e6f94e64d1b441a9afdf7763d99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "etiquette-mistaken-for-ethics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예절이 도덕 행세를 한다. 정중함은 권력이 쓰는 가면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95d71cf1da2251d83c8e98996dee52cee301fdac5a96f0eb3105888f738d9b7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "europe-embalmed-in-its-own-archive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낡아가는 사진 기록으로 방부 처리된 대륙. 역사는 호박 속에 굳는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20ff48186db88719f2c75f5360de52f8507845711be8f7f13755254304df0ad4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "europe-s-borders-filmed-as-open-wounds",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유럽의 통합을 행정의 문턱으로, 배제로, 바깥에 떠넘긴 죽음으로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6e6d326724aa95fe4d4b06f78d0894d82ceb9021f247046e0cf9bd48f9ec5e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "every-choice-is-already-a-murder",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무구한 선택지는 없다. 움직이는 순간 유죄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44f22d60c1b0b4c914f117c2e49df67a14de64fdadf4bb74c306b2c1151ac205"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "every-frame-reads-the-1997-clock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르의 볼거리 아래 반환을 앞둔 공포가 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7f128184483da77518a246b0fa295d16e9d57534c242e20b4613fcc75f5ec78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "everything-becomes-a-warhol-surface",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소비 이미지도 자아도, 상업을 예술로 납작하게 편 워홀식으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31a40c05446510d0340622f15d6c625a3cbea070d8dc88998ca8ca23762ef711"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "everything-is-reaganomics-in-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 영화든 레이건 경제를 암호로 품고 있다는 독법.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7d9629b8de60ed3de6881fa67bcb7296569d0392aeba1aa46cb6af6659fd11c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evidence-that-outlives-the-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증언은 입 막힌 몸보다 오래 남아 그 거래를 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57aed1174d6ba6b8beb4b2b3107d164bf0e215420caf84067b0be13463030c26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evil-as-administration-not-monstrosity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학살을 굴리는 건 괴물이 아니라 서류와 절차와 말단 직원이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94e9f00b495f6268fd9124cd7ddb5385518bb9cd178cf4fae1432f9ba96755f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evil-wears-the-pleasant-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가장 지독한 악은 평범함 속에, 매력 속에, 웃는 순진함 속에 숨는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c71e30e102cbefdb4e0e1f94142d4c9df5f6e0835eb5e09719c788852f0bd3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evolution-without-telos-made-from-our-waste",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "괴물은 목적 없이 변이한다. 인간이 남기고 버린 것으로 빚어진 흉물.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea4d9e2fbd722da80565af900550330312ee7d5d3fd6fda93dd8b2cda7f05247"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "excess-engineered-to-defeat-its-era",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "산업의 제약을 겨눠 벼린 무기, 소노 시온식 과잉.",
+  "model": "claude-opus-5",
+  "source_sha256": "614fbf610107dc63183780d1b01ca0395884c7e6a97c763629f9f2f4469ba622"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "f-r-the-island-that-becomes-the-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베리만만의 그 바위섬이 실내로 밀반입되어 자아의 지질이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e058376ad0308c9e348e8e378911b5425ef23d4829dc557053124d4b685d4aea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "faith-as-the-internalized-cop",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 제도보다 먼저, 종교가 자아를 단속한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1814821f4829861c75896290e9532e2d4957802f2bb5a2dd63e562cfab4377e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "faith-wins-by-leaping-past-reason",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "믿음은 모욕당한 지성을 건너뛰는 키르케고르식 도약으로만 살아남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d05d9b0ae75fa793244187fcb6a56fda3a70c61b928ecf742ba064627df1d9b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fan-backlash-as-ownership-anxiety",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정전을 깼다는 분노. 거기서 드러나는 건 팬의 소유욕이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9facb1f6a48cd6b150a0ccbf601c0e300190eb7e2345623a87a016b0ad6b12f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "farewell-addressed-to-the-lost-past",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 건네는 말의 수신인은 시간 그 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8318f1378ddc5f90a5cfd358a198f6fd39654978b01ee839f1b7dcc1fe36c660"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fascism-as-erotic-surrender-of-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주체는 복종 속에 녹아 사라지기를 원한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13f0f5e989064bba16bf9e3324b1b4bf056b6847c8d0fe4b4120c3d6be2908ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fascism-incubated-in-the-nursery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강한 남자를 만드는 건 정치가 아니라 유년이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa96dce8f3738f856d9ff7f550fcda0732741ba3c5843fe12f71ef2040a20aca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fascist-architecture-reframed-as-sacred-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무솔리니의 돌 기념비가 제단으로, 성소로, 고발장으로 다시 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70c18bb46fb4c828f2f8cf4d66b946ef33740ffd3d3a3302f857f0088bd423d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fatherhood-as-something-spoken-not-born",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지는 피가 아니라 말과 행동으로 만들어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e78364c135804fb1f9e1e7724e3a46a93eebfd5608745d03d561b65f0e852ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fear-engineered-by-showing-less",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "덜 보여주어 쌓아 올린 공포. 화면 밖, 끝내 감춘 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "91819c2505735a630211a2bd5ef014c94a18d95823e3b4f68582d85ff008ebbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "festivity-as-manic-defence-against-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "춤과 놀이가 견딜 수 없는 소멸로부터 마음을 가려 준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bdcf90186de1a33c7ea17f15d5892e030b458b022c8525e0cd4d501f224cfa3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fidelio-the-theological-virtue-gone-to-brand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "충실이라는 이름은 상표로, 아니면 자기배반으로만 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bd8b795ba60bf1862c1ae6d82efe3f1ba4f23ec61df8cfdf0df584162fcc0e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fidelity-as-the-endless-re-choosing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "충실이란 그 좇음 자체를 사랑하며 매번 다시 고르는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fae944418c996fdf4edfd95560966d28b639eca8af4781779dff97d442f4f8ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fidelity-praised-as-the-product-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "충실한 반복을 건강함으로 착각하고, 헌신이라 팔아 넘긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "737c607ca54f0710f4b8b89865f1930767b4b569699597a49d8d94c15e11b4af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filial-duty-pressed-to-its-breaking-point",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자식과 부모를 묶는 끈을 끊어지기 직전까지 당겨 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77245fabfbac52636d689115a3c29ff128d4c38422b10d008ae2c14705cb30a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "film-grain-as-polemic-against-the-digital-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "필름의 입자는 디지털의 매끈함을 겨눈 반격이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88015a1d19e6f126476da6f91b2a48e4672b2bdf6a7aa0050f92fa592629f163"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "film-stock-mourned-at-the-digital-threshold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매번 셀룰로이드의 죽음이 상연된다. 영화 자신의 불안으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e075ba59f64c1d133b7c37f78b4b44144bea07c91abc7481f1ae0835d724dcf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "film-stock-mourning-a-vanished-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상이 내다 버린 미학을 매체가 스스로 애도한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f88bf15964454bf6c459ceb4374e1d048bb4892d1b3a28375ebf9c68e073bd21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filmed-before-the-captivity-reckoning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "훗날 물을 죄를 아직 모르던 시절의 해양 쇼.",
+  "model": "claude-opus-5",
+  "source_sha256": "d576b0dad2f2a4b1ba287473bad3361c7d6d62188ece1fe4a89653373f0ab745"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filmed-in-the-atrocity-s-real-shadow",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학살 옆에서 상연되는 휴가지의 밝음, 볕 좋은 일상.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e05305278213f12db7d899a57362c8cd455c9d600fdacd7d7c87d6c7562a287"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filmed-in-walker-evans-s-documentary-gaze",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가난한 이들을 대공황기의 기록사진처럼 세운다. 파토스를 위해 포즈까지 잡아서.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd64773cbbd7db40992f1ed4852371f4e68d03a5618e2608957f8bc727bcdedc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filming-a-lost-era-as-eulogy-for-adolescence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시대극이 제 손으로 되살린 LP 시절의 어린 날을 애도한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb3439b3e8b7488ebdcde1200c5742c88f4bc1fd3a48f9bcfa3cfba7e51a4506"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-built-from-a-datable-surveillance-panic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르 판타지는 감시가 극에 달했던 어느 해의 불안을 옮겨 놓은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8a760846fde9f62b2f4bcd851c5f7d039ae257cc3d429c58385246dc5f5760c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-clocked-to-brazil-s-wounded-political-calendar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독법마다 영화를 브라질 역사의 어느 파열에 못 박는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d1ec06398685611ff3627b473e39f4432960cf2d9759ba4d79b224b58d8f455"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-dated-by-the-reagan-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레이건주의라는 시계에 영화를 맞춰 본다. 그 전인가, 한복판인가, 그 뒤인가.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecb70c9805f8cbd340b852324fdbb910285a5ba375622486e68712c11584144a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-forged-in-the-banlieue-s-burning-year",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "2005년 폭동의 연기에서 태어난 프랑스 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "f97ac09045452d80793f5f4ac1ca2fbd12654c67fba7239716b7777acb7b723c"
+ }
+]

@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3be828e1bbf3add6",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 대만 뉴웨이브",
+  "model": "claude-opus-5",
+  "source_sha256": "3be828e1bbf3add6985c16e772324386e2bd315d92ca021949714d1b74381a43"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4df59249c7d94f9a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 73/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4df59249c7d94f9a3f1370f103dff4158dc7824236c763b838a44b9f5db273fe"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3396b0c05e2227c3",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 이란 뉴웨이브.",
+  "model": "claude-opus-5",
+  "source_sha256": "3396b0c05e2227c382ddc8c53eae20c2ce00ce1bf932165078792a2d768016c9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2b40209417cbb964",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 67/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b40209417cbb964cf2dfc3537f910c97f0de4321b6542137298446d20fc8efe"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9f820233894d4a66",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 1001 Movies to See Before You Die에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9f820233894d4a662731ea0e38dc860a748fe9083a262699b3837fa28ebd9f1b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5c36da472bba4ca0",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 아카데미 작품상과 TSPDT 1,000 Greatest Films에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5c36da472bba4ca0d8b735232116f08fb1f3b0d0ca3f2adea0bccabf210d15c7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5cce4214fa54308e",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 황금종려상과 TSPDT 1,000 Greatest Films에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5cce4214fa54308e8cd3394c485831a1b63d7361250f70432554e9907848e2cc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "87c1cf2d6163a256",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 빈센트 미넬리의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87c1cf2d6163a256e204b5c1b2040dee707de31c5d7f43cc0aa75e5d125fd76f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8a20685b95d825c7",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 우디 앨런의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a20685b95d825c762df53c29b3a2df9a8cbe4657a2e1a45fd22d6403a3236ce"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dbae87370f196785",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: NL.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbae87370f1967858f5d36457bdd2bfc9ffe18b63e087b644958f50beaee2be4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "570433377623f54d",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: FI.",
+  "model": "claude-opus-5",
+  "source_sha256": "570433377623f54db56bfaaec0682ff2f86aae1a5420f50e93f0f747656003cb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7246ff74e1d9aa6f",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 70/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7246ff74e1d9aa6fe39adfb486a48b2d34a7b284a602d3e2b1ca3a15432ddff0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "94d9d0ba775af35f",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 초현실주의 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "94d9d0ba775af35f0ca9584e03a9785795f41867e5c8d285f0f114ec3ae70bf4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b5a1f3c706eb7b52",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 루이스 부뉴엘의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5a1f3c706eb7b521b1ca9709c801506a6adaa03df7652d414bf8bb899824048"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "59f91132474724de",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 60/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59f91132474724debef47afe1ac135a76e1fa75949c6e2ecc706270df8b22547"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "09bc3042496fe922",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프리츠 랑의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09bc3042496fe922f3d2fbd95ea23627fbc154d3cd2009e4f6f1e4e71b67b832"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "833658d294b4b24e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 켄 로치의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "833658d294b4b24e5772c17e9c44d4aa2c32101e632d93f21ada28566eb46232"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "110c89c5ee18c614",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 로버트 알트먼의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "110c89c5ee18c614468573b82f4e0ea19271104376d4904acb53993fc6d05e97"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "49b4a4d8a068e1ee",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 클레르 드니의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49b4a4d8a068e1eeb2f994422787e1592b7481df4b832e161ca4180b09daabcb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b952a941c8cb31a5",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: TW.",
+  "model": "claude-opus-5",
+  "source_sha256": "b952a941c8cb31a539fc9ff459eac6edaff88ef2fb47639b56afc7e8a719051e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d06c76f387dcfaf9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 로베르 브레송의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d06c76f387dcfaf92a17d67a0434655d68495c446451154ca56ea5ea2118c4a4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0236c2370b622293",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CZ.",
+  "model": "claude-opus-5",
+  "source_sha256": "0236c2370b622293ba567db8c656306708255b4e96bacde0a7195cb6f8101b56"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "68fe8fb7c506b90a",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Registry에 등재된 영화, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "68fe8fb7c506b90aa2c4989a0f721198a24dbe6aa52791982ea43eeb1e580581"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0d80a79605cb5e21",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 찰리 채플린의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d80a79605cb5e21c0f2848d82a72b0b297518823f0dab8d41d4fce58cd81d08"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6d308dfc91ff5d67",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 79/100), 일반 관객에게는 덜 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d308dfc91ff5d671926869348ffc5fc5cb4b68763dbd885aa670a4cab5cf783"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "37e7a05d13ce3776",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 누에보 시네 멕시카노",
+  "model": "claude-opus-5",
+  "source_sha256": "37e7a05d13ce377618ad3b408a2f8155fd291cd33d647e54a905120e170d01c1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a88355aadff05661",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 로만 폴란스키의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a88355aadff0566174235f2c916fb0f38207134210a5c1ef9863222aef925e6a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1fff2fff69f29f32",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 77/100), 일반 관객에게는 덜 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fff2fff69f29f325c4137311eab96d25bbdbeddd2d796428b684133f5844feb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "242be41a0fe7d27b",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC 100 Greatest Films Directed by Women에 이름을 올린 작품, 일반 관객에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "242be41a0fe7d27bddd5949200b917eac528699cc09faafb7203915d4183e72b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a5dab561d2d29346",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 TIME All-Time 100에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a5dab561d2d29346928bc2b86f39b7a4e84bcb0e0306ba01dc49af96b1391811"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f8aca5590d095ccc",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 조엘 코엔의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8aca5590d095cccba3c84ff5ad8aea5237454d7ddc8cec1c23c318820c5c919"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0cd3310960dd209c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 루키노 비스콘티의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cd3310960dd209c6e7f59d8787b391747afb6e09699ce6a8b6f33c07e545dea"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "52477bd89035bb47",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 미켈란젤로 안토니오니의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52477bd89035bb47a952c7d0d240dc0d435e7eb5856b173912857c55b33fc57c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e4f966cba53aa4a2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 홍상수의 정전에 오른 작품 세계가 떠받치는 작품, 일반 관객에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e4f966cba53aa4a2fe26ac378c3626040e33343dfd416c04d28d7bedb08dbeb3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f8a15d8e1ee35e48",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 62/100), 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8a15d8e1ee35e48facbf6289b377f9bf8d15e429305f30257bdbc5f6daa1393"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "795428923c066414",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 한국 뉴웨이브",
+  "model": "claude-opus-5",
+  "source_sha256": "795428923c06641444e3318b256049f90bd0ad8bfee12f82fa7d9787c7231bfe"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d2ae5a50a5c25a0e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프랭크 카프라의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2ae5a50a5c25a0ef89f18a3c493435a046e3a8f9e904fc091b1c08f038afb39"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0eda5772e8ee40aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: RO.",
+  "model": "claude-opus-5",
+  "source_sha256": "0eda5772e8ee40aaff8da4de93f0eecb82c5505f657991594336f9e257400d1d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "302cbd1f196e7b29",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 허우샤오셴의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "302cbd1f196e7b2936a9b97c8d5dde88ead0eabf93e9760e450e38f6bc534780"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ef3088bba6c16033",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 AFI 100 Years…100 Movies에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "ef3088bba6c16033d923f7d765de2b7411705c24a3b4e591d4a52942c3c869df"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0e7782a5a40fccc5",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CH.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e7782a5a40fccc5176403d26b9aa43cd280490eab6df95d9f5bc0067021399d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "13eb4567f3fe5af9",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 감독상에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "13eb4567f3fe5af9ff4e433ad8ed8545f2ea5bedd6670cb475f44d34673da828"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f9d124bcff2537eb",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 조지 스티븐스의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9d124bcff2537eb741cfadba83827bfdd30b05c39f595d845ada8ef647cdf93"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "25ae67ce4bb6d2bc",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 72/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25ae67ce4bb6d2bc17b234d9385d90e7f10fcbc71a1ea13a697ea9cff4426b41"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7c2c760fa9eebb1f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 피에르 파올로 파졸리니의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c2c760fa9eebb1fbac67832dcee2f90c5747519d64ee39d50488f0b3fe0cf16"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "022fa0fddae61a94",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 빌리 와일더의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "022fa0fddae61a940c96258c5022c74bf096109b16def274fb4b68129e1c2454"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "719083ab9587ca26",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 베르너 헤어초크의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "719083ab9587ca26c8a9b74c1f302951415cf619fe14e5571f87b7d05751c357"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0fad05f78f30ad0c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 라이너 베르너 파스빈더의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fad05f78f30ad0c40635cfe68e32ae168cbee26c35b9d013fead33adf35e595"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0e9049c6e9a3e96b",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Die wichtigsten deutschen Filme에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0e9049c6e9a3e96bdf6be1b75658cac08ab061fc7dca74b70dbbdc8be1f62ae4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1f6769ac6cfa0c57",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 황금사자상과 TSPDT 1,000 Greatest Films에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "1f6769ac6cfa0c57dd7bb24ba148404e3e71feb2476dca1290d07727901cab09"
+ }
+]

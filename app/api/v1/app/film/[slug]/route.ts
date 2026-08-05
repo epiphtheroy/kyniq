@@ -4,6 +4,7 @@ import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { mergePins, type GeoPin } from "@/lib/locations";
 import { CODEX_DIMS } from "@/lib/cinecodex_dims";
 import { filmBackdropPaths } from "@/lib/read-media";
+import { appLocale, filmLabels, pick } from "@/lib/i18n/appProjection";
 
 /**
  * Mobile BFF — Film card (HANDOFF-모바일앱-프리워치.md §7).
@@ -35,7 +36,7 @@ export async function GET(req: Request, { params }: Params) {
   const slug = (rawSlug || "").slice(0, 120);
   const url = new URL(req.url);
   const country = (url.searchParams.get("country") || "US").toUpperCase().slice(0, 2);
-  const locale = (url.searchParams.get("locale") || "en").toLowerCase().slice(0, 5);
+  const locale = appLocale(url.searchParams.get("locale"));
 
   const db = createAdminClient();
   if (await guardAndLog(db, req, "app_film", slug)) {
@@ -219,6 +220,21 @@ export async function GET(req: Request, { params }: Params) {
           intro: (facts?.intro as string | null) ?? null,
           facts: factRows,
         };
+      }
+    }
+
+    // ── locale projection ────────────────────────────────────────────────
+    // One batched read of content_i18n; English stands wherever a row is absent.
+    const i18n = await filmLabels(locale, slug, (film.director_slug as string | null) ?? null);
+    if (i18n) {
+      invitation = pick(i18n.invitation, locale, "invitation", slug, "rationale", invitation);
+      if (theLife && film.director_slug) {
+        const ds = film.director_slug as string;
+        theLife.intro = pick(i18n.facts, locale, "director_fact", ds, "intro", theLife.intro);
+        theLife.facts = theLife.facts.map((f) => ({
+          n: f.n,
+          text: pick(i18n.facts, locale, "director_fact", `${ds}#${f.n}`, "fact", f.text) ?? f.text,
+        }));
       }
     }
 

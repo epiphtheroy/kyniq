@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-its-own-eulogy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "언어가 무너진 자리에서 몸이 스스로를 애도하거나 지운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc02dd2793a83bc2813dc210863b0d0a7020b694718905ed7846d82e98ebf892"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-its-own-last-resort",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "승산 없는 판, 도구도 도움도 없이 임기응변하는 인간 하나에 걸린 생존.",
+  "model": "claude-opus-5",
+  "source_sha256": "50d097826475a57e5c3d09427322ff0f6d855be18d8477727a70789e54ab4c92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-last-honest-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증언이 무너져도 몸은 거짓말을 못 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc5f460ef5218743a93dba55d7ecb830da0f479e2f2e6a3496797d226a663765"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-national-property-under-claim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 장부에, 그리고 그 은밀한 수술대에 징집된 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b5f2842fe8d69085969cd4d90c71311d5c50a833b707f95e21b45c7663d5627"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-state-evidence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공화국이 달리 만들어내지 못하는 문서를 몸이 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb5dcf917be98e3e073047db16e62b9689486708880ad67a2290023bc91a7c63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-text-to-be-read",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "읽히기를, 해석되기를 요구하는 문서가 된 피부와 살.",
+  "model": "claude-opus-5",
+  "source_sha256": "08a8c4f61ca0bbfa1fc96b12e49a54f11292f848a912c463a6fcc63f3328df2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-the-last-sovereign-territory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다 빼앗기고 나면 몸이 마지막 전장으로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96fb328c2f8389ba5795a2b5bd5c64b81170a1510efa8453bd1a655f12c71d5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-the-untellable-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "각본으로는 흉내조차 낼 수 없는 것을 몸이, 훈련이, 움직임이 해 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83da21dd58e23ee832c95feaa7a5694da1ed00c348aba1120a26dffd32dff613"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-vector-in-the-plague-years",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에로스와 피와 살을 에이즈 시대의 전염 공포를 가리키는 암호로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcaef0c78988224bbf2a091abc44ab5f884beb407f6899aff9c1b5c13f22750c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-as-weather-of-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정동을 만성적인 날씨처럼, 또는 저 혼자 돌아가는 내부 기계처럼 그린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a00f0b6f9a97b0b477afb885886e26154ee02849e05ec74b76fb12c0622d8230"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-bartered-under-power-s-contract",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강압적인 사회와 국가 권력 아래 흥정되는 성과 경력과 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "5cebbe127d04350b630b856adb0453add2b8b015b4e482f995a1f4adb82485f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-built-before-the-word",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대본이 아니라 몸과 형상을 깎아 의미를 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b68906517deacda4f272269f578a70d9ad0bad8c089b4ab6404bf15bf1507f99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-confesses-what-the-mouth-forbids",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 금지한 욕망을 폭력과 몸짓이 대신 발설한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08ae833d178c7cb243cf106ce84c2c817ff97bf9b3fc4b8d51a43b115689f4dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-confesses-what-the-tongue-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "언어가 상처에 닿지 못하니 트라우마는 몸에 쌓인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2eab6aa99670103ea66a92658d97c34ce046549635fbc8198b441898168503c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-confesses-what-words-conceal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 감춘 진실을 몸과 감각이 누설한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "716f49247320cbc0ba84ce4bf3b83a51835488ab3e983815cf7cfe6f3f73ed35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-converted-into-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자본주의는 인간의 몸을 화폐로, 재산으로, 임금 자산으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e099f0c7cae2e4dff92ce07101939a8ab20070915db94cbad69c08cdf9293f50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-disemboweled-for-an-idea",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 배를 갈라 스스로를 지우는 일. 무사가 질서와 벌이는 최후의 논증.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7a534f4814957990ef81e0bfaf1da4579670bddd44aa9cf69d596d1e21cd4f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-erupts-as-repressed-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻어둔 것이 살과 의상과 엉덩방아를 뚫고 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46f6e463ea9628b2373277e84537434c965162dd067994e454839b0b461c7f87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-filmed-in-real-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시간 순서대로 찍으면 흘러간 시간이 배우의 몸에 그대로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0205101468499f5cca76aa0089a63295f2a5e4e0fc4c29a2e56b078300b1185"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-harvested-as-capital-s-raw-material",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장기와 살을 뽑아내고 거래하고 소유한다. 상품 재고가 된 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "6109d8f3e1992536251588dfa895da42d73ec4eec03708e71aace15f3d3c32ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-held-as-corporate-patent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "생명을 설계하고 소유하고, 끝내 지적 재산으로 법정에 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebd3e52b3b1680f6e955f19a84c1ce040fef0107d8ef4fd2fe764ce190a0ba6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-horror-auteur-in-glacial-retreat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "육체에 집착하던 감독이 스펙터클을 등지고 차갑고 임상적인 절제로 식어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d684a77601b3d8728357df6c09ab2d6982d22cd95ad152bc81f5b3da7f788154"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-inventoried-as-extracted-raw-material",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 상품 재고가 되는 순간 욕망은 죽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a073d96ac3cdaee99ff669f74f8e983006a3b1c3dcfe044893d8a1b76748d70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-keeps-what-the-mind-erased",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의식은 잊었어도 몸은 훈련을 기억한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5089c0461e41af8be984b5fc94de4e30419c2158a7c9ffa9519a843cee96a5b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-of-water-as-mythic-threshold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 일본의 물길이 수몰된 저승으로, 잊힌 강으로 다시 태어난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "761e5c1b7893a11b6a87d0136ad85e0770525f63ce5b044fe109537eba84625d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-offered-up-in-flame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스스로 몸을 불사른다. 속죄이자 항의이며, 금욕의 투항.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb0248ce4b66f5e3ad41ce90436882df47964dddc720ca3fdfedd61c7cc89972"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-or-self-as-working-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 경제 안에서 사람이 유동 자산처럼 돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "53831276a0f318471561dabd37b83c51ba317b2a08b5eee6d2ea8d4a5a5a7a86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-outlived-by-what-it-carried",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸은 스러진다. 목소리와 이름과 신호는 그 뒤에도 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e993106beedcb36e634288cafbb44a23e3957abdcc8af8993b64947a71714fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-policed-by-the-watching-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "친밀함이 범죄가 되면, 감시하는 눈앞에서 손길은 증거가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6adf7dd9ad90073da8dff9ae646d7a67bd6099cc52a5f4fa932c885a13cb149"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-politic-as-a-corpse-or-wounded-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가를 하나의 몸으로 그린다. 죽어가거나, 이미 죽었거나, 죽지 않는 몸으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fd70222d58c4d7db84f569ebaee61643ecc2805e130ca032512b4aa11c190c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-politic-cut-into-pieces",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쪼개지고 잘리고 다시 이어 붙인 몸들. 영화의 숨은 논제.",
+  "model": "claude-opus-5",
+  "source_sha256": "add640c055424ad0411fa274e3e2cf282acbbd961c5f1923756fda55c8f3e703"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-posed-as-dead-christ",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만테냐의 죽은 그리스도, 그 단축법(foreshortening)의 자세에 고통받는 몸을 눕힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2c4d9b034715e76c91a326bada792b33d9746684fbd88095ec3a54593b2aa17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-read-as-epidemic-s-cipher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "크로넨버그의 육체 호러를 에이즈 십 년이 말하지 못한 텍스트로 해독한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cefc05ad0db95a482c54151aa12347c8bfaf396cff719f9a8df260c4e8d900cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-read-as-penetrable-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸의 구멍, 몸의 거절. 자아의 경계를 둘러싼 불안.",
+  "model": "claude-opus-5",
+  "source_sha256": "d12b42e1f244e8bf3c74f3e8311a4893f59ab0b5691882acf4a3f3aca0780859"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-recorded-across-real-decades",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기가 아니라 시간이 한 여배우의 늙어가는 몸에 직접 새겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b475bfbdab36968baa8f3fe2b1da370b9b43960f8a4ee3a13fb379779ad28fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-reduced-to-bare-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아감벤의 벌거벗은 생명이 이 영화를 은밀히 굴리는 엔진이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f17a19966110628fecc10a43d35938880de6e010d3c36f40968a21c203b61cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-reduced-to-exchange-value",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람은 청산되고 몸에는 값이 붙는다. 살은 상품으로 돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c688a6e090a2109886b5cadc39ffac4fd699c604600d67ef42037aa295f5a6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-reduced-to-soulless-mechanism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "순수한 기계가 된 삶. 영혼은 빼내거나 수술로 도려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5046cd2eeac3e13c6acf8ea4b1833acf7806508560495b8842767a40784b2902"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-refused-as-political-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "먹기를 끊고 굽히기를 끊는다. 자기부정이 비폭력의 무기가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2fd6b655e1f62eb000631750f9220b8bf6113b24dca7e73bfd572185cfd6f9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-refuses-what-the-mind-decreed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸짓으로, 뭉그적거림으로, 살의 고집으로 실존의 자기기만(mauvaise foi)을 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6c41d514d8417cd4fceaa2e8127d60b078eea242fbd0c46735add9a17264594"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-refusing-the-body-politic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "행진하는 대열에 등을 돌린 한 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f2da00dea4fba8247703d1074ebc8b5900ed3f750664b8dba769210fe0f76da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-remade-as-performance-art",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수술칼로 살을 써 내려가 스펙터클로, 전시물로, 잘 배치된 걸작으로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bf0d7a7533c5944a34a764be51aacff0f71a60a1c1e3e20bf13adea2aa792cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-rendered-into-pure-commodity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마르크스의 가치형태(Wertform)를 살과 의례와 식민지 주체 위에 겹쳐 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b36280b16abece5320f46e06bc209c2d716d94bf397e0ca6df2bef9a0dc393e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-severed-as-final-currency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말도 빚도 통하지 않을 때, 잘라낸 살이 마지막 화폐가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be18c80bae71b13b97810d5b1d62217a7abdfb718fd6014a65acd0dfe61ebab7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-sold-as-property",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람이 물건이 된다. 팔려 가는 자, 곧 상품.",
+  "model": "claude-opus-5",
+  "source_sha256": "18ce7cebf6be4295b89bd0914bb39e299b7f0a928ba974c396fbcd23f7ea8e5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-sovereign-against-the-state-s-claim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸의 주인은 누구인가. 나인가, 체제인가.",
+  "model": "claude-opus-5",
+  "source_sha256": "149c6ca3ade79a3955f1fccc42c73cc0faa0dc2c08a203afbf77bb5cd774d102"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-speaks-what-the-marriage-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부부가, 가족이 입 밖에 내지 못한 진실을 병이 히스테리 증상으로 대신 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b76e2a50e5dea9b54071ac2aec4f21484503798ad99f1799b3e2d0e86152f57a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-speaks-what-the-tongue-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 닿지 않거나 금지된 자리에서 의미를 나르는 것은 몸이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7c597c5b40f550e2d66780fce427ee583c50bfb9e572dfe7c5414a6c8fc8945"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-speaks-what-the-voice-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "침묵과 함구가 번역되지 않는 트라우마에 대한 몸의 증언이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eea1d853e364d08be7bc164a5304cd806bdd95d7f88e1397d0febc3a6566069c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-subtracted-into-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "달라진 몸 자체가 이 영화의 논증이고 효과다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d8026554dc684d9d97315a71b5b308b857afafab9f6973c70a9dabe8d266e4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-authors-through-real-injury",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 서명은 안무가 아니라 스턴트가 남긴 부상이다",
+  "model": "claude-opus-5",
+  "source_sha256": "b24df97fde4b1854eab8e18316cfd2ce8eb5bac5b052a7053f8b188662e6bd9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-cannot-be-addressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "윌로는 호명(interpellation)에 응하지 않는다. 사회의 박자에서 영영 어긋난 걸음.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd78f09691ba9d2e317df669973896b74530da87c51279f25878e1483b6b44f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-choreographs-its-own-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무표정한 곡예의 정확함으로 재난을 춤춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7047d87d249f270b4cdd12063dd4de61f977e34acdefe1271883a363098c708"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-circles-its-own-refusal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인색한 집을 향한 거절은 말이 아니라 몸의 증상으로 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88baeba03599d7f3754dcc35094edcd97f7056fcb16c84e9ef51bbddedaf656e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-fuels-the-household-furnace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족은 식구 하나를 연료로 태워 굴러간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "997bc45ef20713de033165e9b77f73f4f6850ef2255664123845a03d3adf36ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-is-secretly-a-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살과 감정을 기계로, 엔진으로, 부식하는 장치로 바꿔 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8933292ae7a3c05e41b9d07de6917118b4899cd722bf79112393061967516f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-jams-the-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마찰 없는 현대의 질서에 윌로가 일으키는 부드러운 마찰.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c31b68e415aaf3efe720444d637813c7fbb4542b349ba18084d9d177a9c293e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-knows-before-words",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미는 말과 시선이 아니라 살과 손길을 타고 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de8f316fb4cfe98a18fcdd3b7c91421e15ab8cc608bf6e18de69d45d0af35f5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-must-stay-indoors",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "접촉에 굶주린 팬데믹의 시간, 그 굶주림이 곧 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6e4e8b3f3220a82bd9e84ee795333323a97e1f7a3224a0afd11eb2d5aabb487"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-body-that-refuses-to-stay-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "억눌린 시신이 죽지 않는 살로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3acb9c62842918f1cf21c56b3ae05fa698777ecd7a147786a12705eacd81b241"
+ }
+]

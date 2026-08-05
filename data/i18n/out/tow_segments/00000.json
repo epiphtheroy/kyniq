@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bf8df88d474e8b93",
+  "field": "text",
+  "lang": "ko",
+  "text": "숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf8df88d474e8b93553cd8bbc005334f9d3f15476790b19966c7f9a551abc5ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1dd7019e3485b82c",
+  "field": "text",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bee342efeef66ebe",
+  "field": "text",
+  "lang": "ko",
+  "text": "목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다",
+  "model": "claude-opus-5",
+  "source_sha256": "bee342efeef66ebe924df6b73e77e768b5e35e9d389739b50d6498c79b092a70"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cc6c58f8d6d8c739",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: US.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc6c58f8d6d8c739f30f33e99f71422ccaec874416e0e6e18e56ad0037340b69"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fdc835ad1ec393bf",
+  "field": "text",
+  "lang": "ko",
+  "text": "스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdc835ad1ec393bf08d12024956cf4c13ae513a1e4ba585fd90d6071792bdef3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f60bde88e707e3b3",
+  "field": "text",
+  "lang": "ko",
+  "text": "유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f60bde88e707e3b3e7d54f5b8eb8b2461757b37a3f00be9d6375b7ee549d4680"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9492c737ec855abe",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: US",
+  "model": "claude-opus-5",
+  "source_sha256": "9492c737ec855abe35a0474943d25c7910ff5ed6cc689ce71baf7b2b04849a15"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "936d673d03eee35a",
+  "field": "text",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e1b180541d49053",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: FR.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e1b180541d49053174e9477acd94e121065c83ee9d7c84197f11468cdca74a4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "210aea73a6ebb8e1",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: GB.",
+  "model": "claude-opus-5",
+  "source_sha256": "210aea73a6ebb8e1e2b169611a75017626145e2434ab89c4ed488de2f12059f2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d5f79d1f44b41713",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: FR",
+  "model": "claude-opus-5",
+  "source_sha256": "d5f79d1f44b41713c570ac530012a2a2974301f48bd368c4b593e0d6b5f7d1aa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1615ddba070bab48",
+  "field": "text",
+  "lang": "ko",
+  "text": "출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1615ddba070bab48d3df1b3b993af6d9efcca9d037cbb6c463ab46ba34f90247"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0d050cad517d2ef7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "0d050cad517d2ef7e1f0049af41d61984fa7547c0aaa40dcd11f84392bb2c64f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ce64751bc2ef73ca",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: JP.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce64751bc2ef73cab443c303a37d6eb424da169ae604e8568a329a6f1bde815d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "34cd689d6c9740d7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "34cd689d6c9740d70a70c5bbebb5f563317f4d3ef49ff4808849b41c6570bdcf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3b1061e5338b15b4",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: DE.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b1061e5338b15b4bbfe2533cbaadbf7c1809ffafd49d5dff0621af4257009ce"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "69a0f9332fa08cc4",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69a0f9332fa08cc45ad0be36e2c2d2780d5753623d9e8f22bf179433ee9a9947"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "41eb017fad0b52c7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸으나 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "41eb017fad0b52c70362f65978c5ff7684075cf767d09cc85909e3e1feb9cb8b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6ac2fce3b3dae4f1",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ac2fce3b3dae4f1a492c0b0a83fdcbf2ce39bfbf54b4b79b68e0e7d339aa1a8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "62ad0250feaa7416",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IT.",
+  "model": "claude-opus-5",
+  "source_sha256": "62ad0250feaa741678745b196c03dcc887412539964aff5ba2436445f456aee0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9c55057207209cbf",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c55057207209cbf3461b61eb061bda5ac6fd276dd8830e9561291c138bfa66c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1d249fe588058454",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: JP",
+  "model": "claude-opus-5",
+  "source_sha256": "1d249fe58805845437cc7d0deadde7311ddc946e47057f318921cb5800559bda"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3d7e008452dd38bd",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IN.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d7e008452dd38bd6be84142bc44215223aa1f2e15a1d41720d24ace6ee7a3c0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3126715d2b560efd",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3126715d2b560efdb94417e5ee4565637e2f290bcc527ec69c7004d99e9e595d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2ff98b2b5ac8cdb9",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ff98b2b5ac8cdb911b1fb005dbf9e29fc1be2750ffd1f7aa8a783f7d583c223"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bbd219332eb37ccc",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 66/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbd219332eb37cccceac7777992f8ecb4bfae9b73dbc88c799b7266cddfc7f55"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ac247066f95915bb",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: KR.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac247066f95915bb56d224bd88c0420bcb5b6a031bb5039f70938cedb527167d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c6e0eca7a7316dde",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 65/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6e0eca7a7316ddecd7881bd68de0b12e80953f8ae8dc44001fb2a004981c602"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7f2fd0b6a9249cae",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7f2fd0b6a9249caea84c5b5ed1a7b0d1530df53cce0f8535df7d0c54fde9ca4c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8d1daca6f09cd95d",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: GB",
+  "model": "claude-opus-5",
+  "source_sha256": "8d1daca6f09cd95dd8d099c6a0bbbb6f6d3369d9a08eb1562f6aca01379adeb9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "81aa2e69c00bafa4",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81aa2e69c00bafa4144f57058001befd4c4ee9d674f1936cc274b57aac5b6f7c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d141bbef2b1252a0",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: ES.",
+  "model": "claude-opus-5",
+  "source_sha256": "d141bbef2b1252a0541433813d5784eac85dbe5b9e79cb116a21e12bb6a1d3b4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c9c5f4ee21cef381",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9c5f4ee21cef3817094ab0d12c0a1a546ed6657d443cbe1b42e7fef9aa7e3e6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d70ca42ac704ac71",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: DE",
+  "model": "claude-opus-5",
+  "source_sha256": "d70ca42ac704ac71fc9b6b71fe6abea3d12ba08b7b0c5e8e3c52bdc0aa522cc8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c7555cd87ce9bff5",
+  "field": "text",
+  "lang": "ko",
+  "text": "목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7555cd87ce9bff527542194a54d0e41b90ef5e35393ff0f61149887d498810e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "db6b0392f4651454",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CA.",
+  "model": "claude-opus-5",
+  "source_sha256": "db6b0392f46514546d355fae54bd6ae0213d5fce9c535404ea17accce5311354"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "92d3f35a26a8c49b",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: BR.",
+  "model": "claude-opus-5",
+  "source_sha256": "92d3f35a26a8c49b6d6b7606e33328f2f8135ba847df1ff803c8d28075cf2b3d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0680799708bb2f50",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CN.",
+  "model": "claude-opus-5",
+  "source_sha256": "0680799708bb2f50d2db0bc6ac453afd0420faeb1399d42c15e1b600969d7abb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "961693a941a78cd9",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "961693a941a78cd98ed5e2a733edc73e0e4f68072d955a75338a4f967537b2a2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7fccde44434ad9bd",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 71/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fccde44434ad9bd5547828f988d0daa50176dc9f5b8c61b11594d5ff617f880"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8ab3e5bca22ea6c4",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: BE.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ab3e5bca22ea6c4856e4a8efaa7978381965ef6ad8035de65e62fb80e55180f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dd74bad92e21bdd6",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: AU.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd74bad92e21bdd6715deb44637a4fdc7c0a09e214356f7a292024345a189538"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "71b125c99d60a23d",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: DK.",
+  "model": "claude-opus-5",
+  "source_sha256": "71b125c99d60a23d4ab9e3b3c9709356eff00f35ca1bfd589dad6bbbde85ed55"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0bf7a03e81f02fa7",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films에 오른 영화이며 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0bf7a03e81f02fa72deef7bdb0eb4f1f9664d2da04ac58bf21d20b19e9d6aded"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "af6035778d8f1e4a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 73/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af6035778d8f1e4af17cd895c5fd4445c38095fc52cf3c07c84f161efd0cb67d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "203cbe43431b108f",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: PL.",
+  "model": "claude-opus-5",
+  "source_sha256": "203cbe43431b108f5edd5cb458c273f9510f0b643b0cd872590559884db40100"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f97e0d7937747b13",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IT",
+  "model": "claude-opus-5",
+  "source_sha256": "f97e0d7937747b13db2ac4dbf2d91c4d6af6bde8d6338fc70a180684a80c4c81"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cc08b9b687148ae1",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: SU.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc08b9b687148ae19f33e15ef6a4dc4da79c2130efb5392a530d47b82ba4f674"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d84ce05a14155302",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: MX.",
+  "model": "claude-opus-5",
+  "source_sha256": "d84ce05a14155302556a5d9e2bfe2e17bf4856514d8e46193b60cec489af715e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1ee79d78282e90f3",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CN",
+  "model": "claude-opus-5",
+  "source_sha256": "1ee79d78282e90f3185b55108e34f44bc00cd632d23b75d6f05c426887c9096a"
+ }
+]

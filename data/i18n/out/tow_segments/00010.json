@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da60ca1c3fba2e66",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Jury Prize에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "da60ca1c3fba2e66a36aff5ea69c55fcdee78433eb362ee1a02722e32fda4bce"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5d6f64bdee34980a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Éric Rohmer의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d6f64bdee34980a05d70c318a59d79185c17463b1e79148df100e6b7487db5b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cf9a201c7cfcb245",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century에 이름을 올렸고 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "cf9a201c7cfcb24535d0382149fc5258362d7d224ce77dcccadb5d5c8e348754"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0d1763704b8fe689",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상에 이름을 올렸고 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "0d1763704b8fe689993bf3a16cf8a08b6dc0edb9f1db20903462272ea8766b5f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0c6f3382b6912830",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Celine Sciamma의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c6f3382b6912830d87480c739ec6d6d4826a17b3ceeea9c9e32afd50a71d62f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3a0ff95e10962582",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 시적 리얼리즘",
+  "model": "claude-opus-5",
+  "source_sha256": "3a0ff95e10962582e786547c20af50402df958ad6c0c1bb2fafde5258d45b665"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b8d77b96ed98c195",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Fatih Akin의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8d77b96ed98c1958293c9a27e264fc0d309d56a66497a0197e196d795c8077b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c446adb104c1ad01",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 중국 제5세대.",
+  "model": "claude-opus-5",
+  "source_sha256": "c446adb104c1ad0147fcdc25248cb75b02b760f6f4d59bf50f174aabd24f5d99"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "afbcea6bd84b5175",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or에 이름을 올렸고 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "afbcea6bd84b5175da10fafcab732f2bf294f30ade0115df2c1a8477d66ed254"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8338466c2518b8bb",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Jury Prize가 인정한 영화이며 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "8338466c2518b8bb2a6ccc7a65fa56c3e31eec9d865e738f6c4247df8b699ddb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "87e6c4e73fd091ae",
+  "field": "text",
+  "lang": "ko",
+  "text": "Somos: 100 mejores del cine mexicano에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "87e6c4e73fd091aec3466c1561de9f61736d59501e66358451dfec32796ea857"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "eaee03b68377f9c3",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century와 뉴욕타임스 21세기 최고작 목록에 이름을 올렸고 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "eaee03b68377f9c3643cf3250565de04222d186fb0aa6239ac81f0fbb4d915c9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f6161c54e128bd77",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century와 IndieWire Best Films of the Decade에 이름을 올렸고 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "f6161c54e128bd77f4186922471cec5216de499de023de6ec15d6cf452252c39"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "15df97e5a935fa52",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 이마무라 쇼헤이의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "15df97e5a935fa52c0ad81b6f9c398246700c75c1a28990e90f1de231be54cc3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1b9dcca3da5019a1",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치로 높이 평가한 영화(Value 75/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b9dcca3da5019a11944bde9c142bb7931aa3c124b730b7ecc744cdce39e926d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cebce8c939d901bc",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 프랑스 누벨바그.",
+  "model": "claude-opus-5",
+  "source_sha256": "cebce8c939d901bccbcd6e6f84173a77dc0f6efd35d46ef1580661752b416da4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f30436d5ca2abec4",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: AR",
+  "model": "claude-opus-5",
+  "source_sha256": "f30436d5ca2abec453549db424758eb1d6523fb57a37fd225327505f9c729b5c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "421ee9d6c6e03614",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 뉴 아르헨티나 시네마",
+  "model": "claude-opus-5",
+  "source_sha256": "421ee9d6c6e03614704b6a3d5e75619b1ae9df2f830ba5c2821dcee8aabd95f2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "670fd15bf50e534f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Lucrecia Martel의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "670fd15bf50e534f2fda7ffe9a1effed7844aa73f1b132e1c0e9246501647b3e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "513f148fdbf4d9f9",
+  "field": "text",
+  "lang": "ko",
+  "text": "Sight & Sound 비평가 투표와 Palme d'Or에 오른 정전의 핵심이며 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "513f148fdbf4d9f9d20ae7e0bcadbe5804e3df577c57293ff989d96cd28de5f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "678591c9c964d6ea",
+  "field": "text",
+  "lang": "ko",
+  "text": "Volpi Cup for Best Actor에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "678591c9c964d6ea391c4bf88ae277377928d22877db74982f5d393d51678289"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9786adae9873ad62",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Max Ophuls의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "9786adae9873ad62ff5b74299a35b83757a9fca0eb27f22bea1af2a151282671"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a20c4f7fd9f2bf04",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Globe Best Motion Picture Musical or Comedy와 National Board of Review Top Ten Films가 인정한 영화이며 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "a20c4f7fd9f2bf044ceb54e066017cf0b97535fec8676168ba9d3290b90063e2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "047beaa37e00e9ff",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jacques Demy의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "047beaa37e00e9ff3e37177dcf75c90f841938753a0b3ba30de4fc006c0e73a9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c2863738071f3031",
+  "field": "text",
+  "lang": "ko",
+  "text": "Abraccine: 100 melhores filmes brasileiros에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "c2863738071f30312e4a44a3115ddcad885aece14ec81da5600ad896149945e3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9453125834cd3675",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films of the 21st Century에 오른 정전의 핵심이며 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "9453125834cd367501aea82ecf7ce6f273e31fae00789dc18e990a7fee3748cb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f42a574541d96a80",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jonathan Demme의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "f42a574541d96a808eaba37c375933feea96e3a4b0539038cadc4f51408f06c6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "edbb9c24c636a29b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 봉준호의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "edbb9c24c636a29b6f73405b2647396dcf0b2b714594d679b9bb80fffbd50a61"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1dd4429ab50ef5e3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 TSPDT's 1,000 Greatest Films에 오른 정전의 핵심이지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd4429ab50ef5e3532d062b776635609fc7fc46225a43d1a85bc54233614565"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63d0215840790ed1",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actress가 인정한 영화이며 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "63d0215840790ed1500dd63b4436d665275d94be239d2f6da57346488c0da322"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c72d49d195e73140",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 감독상에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "c72d49d195e731407153a5634aea1c5275433ccb823c5eb492e09efcf26972d4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b229d9705aa6d2a6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jacques Tati의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "b229d9705aa6d2a631cdeaa579a2926cf877c42bffd3335b34f80a74464b74a2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ebd60a014583baa2",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Globe Best Motion Picture Musical or Comedy가 인정한 영화이며 일반 관객에게도 대단히 유명한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "ebd60a014583baa23c701bc2974527de8e4edf9a46f1f46de8df27ceecbccac6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7988c0496d7ee1a1",
+  "field": "text",
+  "lang": "ko",
+  "text": "Caméra d'Or에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "7988c0496d7ee1a172e6552ddb9630d05fa3788bdf2eda223ebb9c26be7db0b9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8b04397fdd6bc2b7",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT's 1,000 Greatest Films와 Best Actor에 오른 정전의 핵심이며 어느 정도 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "8b04397fdd6bc2b7451847610fec316c9440421df43123e06740c72ac4405bc5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9778773a30cef760",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 John G.",
+  "model": "claude-opus-5",
+  "source_sha256": "9778773a30cef760502fd11114ac7fc517de0e46d1b5bdfef0180e7d42bb0525"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c7011788470c8d68",
+  "field": "text",
+  "lang": "ko",
+  "text": "Avildsen의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7011788470c8d68be92f45761ea50004f203788ab6f67b6c3eb91a9ff2752f1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "40ab9c96e330bb2c",
+  "field": "text",
+  "lang": "ko",
+  "text": "Sight & Sound 비평가 투표와 Sight & Sound 감독 투표에 오른 정전의 핵심이지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "40ab9c96e330bb2c122635a845efa25755ba201c177f8e2ec69dc16b02fea365"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7e890bcc15d5e7ae",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore로 잰 값어치가 유난히 높은 영화(Value 81/100), 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e890bcc15d5e7aeabc2f9f9c5bde91566fce5818d612c215302b967d029560f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "af36e8f2ed221f82",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 João Pedro Rodrigues의 정전에 오른 작업이 떠받치는 작품이며 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "af36e8f2ed221f82600a0874564db18c1ce713b131e27312d5717f476a0098e2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c204793320ba6d67",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치로 높이 평가한 영화(Value 78/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c204793320ba6d67dca459f582ae65745c3992274bf7fb82d53589081150b560"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "947923baf71c6405",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Sergio Leone의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "947923baf71c64050f620112d18681f5475591f165254b6452fc209169b956b4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f2dcdd829ae2ed5d",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치로 높이 평가한 영화(Value 72/100), 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2dcdd829ae2ed5d606fe70f094206c8eca3964983e811b566cf678a3a1f9d5e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "081f119a632e6c30",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상에 이름을 올렸고 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "081f119a632e6c30d427de2388290bf25f7b0c29579303b63b16ab7ce95b55f7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ac35984d3c3f4fae",
+  "field": "text",
+  "lang": "ko",
+  "text": "Palme d'Or와 100 film italiani da salvare에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "ac35984d3c3f4faee53ca4a492004e1d68915e397da2d414cadfd60fdb905e3f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3b74675f110a35b5",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Samuel Fuller의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b74675f110a35b57bfd0bcbb610e73b154282ecdf12cb640fbfe68170d112c1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "eab7c9a8df4c5b26",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 김기덕의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "eab7c9a8df4c5b2676576df9fe987eb07eaf75e80f4ea769205732ee2bac8ae9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6c501902179430df",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Paul Verhoeven의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c501902179430df0f9ac2098ac87740bcffcae1d8007c5d37097d3c00d84b64"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "34dfcb3e0afc0d08",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Mel Brooks의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "34dfcb3e0afc0d080c2bbfca2cb5990f434873950be6ec33aff1eabfe5dc4c48"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2b1c3e5b4eefbca9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Errol Morris의 작가 계보를 통해 다시 값이 매겨진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b1c3e5b4eefbca92cd89373820eb397f9725f46299ea4dfd81c43a59d9d2a1f"
+ }
+]

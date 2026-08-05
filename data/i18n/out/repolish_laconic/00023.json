@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-building-named-not-the-inhabitants",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목은 건물을 가리킨다. 그 안에 사는 사람은 곁다리이거나 아예 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffa092b9a52b2b456fe6cf8d893fb69c38f80e89252ba01bca55f7075065aecd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-building-that-already-knew-america-s-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 진실을 품은 고해실이자 유령의 집이 된 유명한 주소들.",
+  "model": "claude-opus-5",
+  "source_sha256": "920e1290ec75f157a968b53daf98aaa6bdbef1143c32c0e3d4cf2f26b17d5464"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-built-environment-as-internal-colony",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "건축과 구역을 읽으면 시민을 겨눈 식민화가 나온다. 안으로 돌린 식민화.",
+  "model": "claude-opus-5",
+  "source_sha256": "1649a215ea706300f1a148f23c1010a8095d5e7edf58eb44115799bc9046cedb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-built-set-is-the-buried-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "은유가 건축이 된 자리. 높낮이와 지형이 곧 논지다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d91b3874b1ef4794ee443fa0f63da872d8ae954ae4daddac8516f2080dbd1692"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-built-space-as-segregated-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "설계된 지리에 계급과 권력, 배제가 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df4dd41c4fbd9f418ada1ed51a3cec7ffd2794692901316966073366704688e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-built-utopia-that-becomes-a-cage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공들여 지은 낙원이 실은 감옥이었다는 자기폭로.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e5fee7a13b0cc4e64211a374033f25fcdd17d76ba214f19a361197f087a3841"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bunker-as-the-state-s-last-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정당성이 죽은 뒤에도 권력이 반사작용으로 남아 있는 봉인된 방.",
+  "model": "claude-opus-5",
+  "source_sha256": "a190df6c58e2e22a28b4cd75703f15a104834f2a97b5e715ee095d005a7920a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bureaucracy-that-catalogues-the-citizen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분류된 인간을 보관하는 문서고, 곧 관청.",
+  "model": "claude-opus-5",
+  "source_sha256": "961c310e2b3b6610e5369c8234901f1195a93dd02a3ccf0c9fa67e9aeb3edd89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bureaucrat-who-administers-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악은 괴물의 스펙터클이 아니다. 조용한 관리 업무다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f40a073b08ba3fd5af446e0e5149f946de6375703cea43eca775614b20ccdb33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bureaucratic-acoustics-of-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 판결은 이런 소리를 낸다. 대기음, 손가락 튕기는 소리, 흐느낌.",
+  "model": "claude-opus-5",
+  "source_sha256": "029adaedba7b7372f2cb9752b43e4dabd19e92443220add0c56adaf3b984acc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-burial-that-buries-the-false-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻는 것은 몸이 아니라 자아다. 벗어던지는 일로서의 매장.",
+  "model": "claude-opus-5",
+  "source_sha256": "941b3f0261056fa2a8a70c35edb5e25cc785d5e97b26c17c98abf819004faf22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-buried-body-of-hong-kong-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라진 영화의 시신이자 망명이자 애도인 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "2929899e128398fb3a6726f9e55efe0914f8c196c886c0401f1f92489b997518"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-buried-returns-to-the-doer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눌러둔 것, 저지른 것이 돌고 돌아 시작한 자리로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fbb1e440d16792059dde9574b30db8da6677fa3cc12715b63f6ad954d967348"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-buried-room-as-the-architectural-unconscious",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지하실, 지하 묘실, 창고. 닫힌 공간이 억압된 것의 귀환(Wiederkehr des Verdrängten)을 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd04bd926b2f5018821d72913192c311c8068675bf6ac30ebc4965525d491b09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-buried-trauma-resurrected-as-forbidden-eros",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 자가 돌아오자 학살의 터가 눌러둔 욕망까지 되살린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da6631f3e8000a697ed0cc175294b96c3925c767a2ba5710aad366a4a65d8cc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-burn-as-inscribed-truth-on-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그을린 살갗과 흉터, 몸이 하는 고백.",
+  "model": "claude-opus-5",
+  "source_sha256": "53965893a5e37a77bdff1b5d4288026f8645240aadf61b29b28e2ff0c433a74b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-burned-page-that-erases-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "글을 태우는 일이 야망을 죽이는 일이거나 공허를 죽이는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19d0def45c18c8cdf62b474ab1db787583bd711a169baf612ded71fd2cea8355"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-burning-as-self-inflicted-castration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불을 지른 자가 남몰래 제 몸에 바라던 상처, 그 불길.",
+  "model": "claude-opus-5",
+  "source_sha256": "886909f889639c2813a72fe0612aee9fc5a3b92485499fade2486afdbb18f6d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bus-ride-through-the-real-tehran",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쪼개진 도시를 담은 진짜 다큐멘터리는 대중교통 안에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "779084400fc2405b7cf4025ed982c47f87fabc0e1c54513ae9b344a6b3dc234d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-busking-stage-as-refuge-from-commerce",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "규모와 판매에 맞서 끝까지 팔리지 않은 무대, 거리 공연.",
+  "model": "claude-opus-5",
+  "source_sha256": "b51a2a82a8ff2216d6de3dd22a5240f6d80f14e7afef35e1416e518e850160d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bystander-indicted-by-the-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목격자는 가만히 있었을 뿐이다. 그러나 누군가의 요구하는 눈앞에서 그 가만함이 죄가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b07d79de17a7fd04069b47d21a33f914f0fb575b37d1b0aaa9f1c79565f51e3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bystander-who-is-secretly-the-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변두리 인물이 실은 영화의 중심이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7cbe87b93bcc2db871895adae24ca2efdb5d92930c40178b1420b9d331cd08d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caged-bird-is-the-confined-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "새장 속 새는 갇힌 인간의 축소판이다. 가둔 것이 가정이든 국가든.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e41c3eda1db6e1c5b65e6f84a7b739c293e48da9c1c832d3bcdcc01653f5841"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caged-birds-are-the-marriage-pact",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갇힌 새들에 부부라는 거래가 적혀 있다. 파국을 막으려 맺은 거래.",
+  "model": "claude-opus-5",
+  "source_sha256": "45d2c9e2d68a43a0db9bdd3ddcc007e033ca7af6075929b20510437f737a22c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caged-genius-who-wrote-her-way-out",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갇힌 여자들. 재능이 그들을 둘러싼 벽을 뚫는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e642d5871d65538a9ca69c8e6904acd008dfe6d4527f68fc84c35368d8d5ac11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cahiers-critic-avenging-himself-in-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평이 품었던 원한을 작가주의(auteurism) 영화가 대신 갚는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "676820562db82a3779573e691b6f56bbb37e5d354fdc1b89cd763c9ca3de2235"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cairo-that-was-never-cairo",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름은 그 도시인데, 찍은 곳은 전혀 다른 데다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5c6217515440f37181bd93271e2797e5406fb2d75517ef5961edf06e4e23c25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calculus-of-the-one-versus-the-many",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 영화든 목숨을 맞바꾸는 저울질을 한다. 그리고 대개는 그 셈을 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f56e02912c8d1745f8d69576ead85b2aedada4e63a64b6048c334a0c200ed57f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calculus-that-chooses-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누군가는 냉정하게 몇을 죽게 둔다. 나머지를 살리려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "706d2b48f4580a781e53e3de4728ea420dc74f9c4a6afd50340f22b968b15c16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calendar-unit-that-names-the-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여가에 붙은 이름표들이 자유 시간이라는 거짓말을 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db2383feb6d4c352b4b389f7096023dacc7c517aeb2f17c44a2ab01928537d4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calm-bureaucracy-that-governs-the-womb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자궁을 관리하는 권력은 행정 절차의 평온한 얼굴을 하고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "506de682dbca6bcd083c9500370b026f5657ce5207c30c55893482ab30a96651"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calm-voice-is-the-hidden-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저 평정은 평화가 아니라 영화의 비밀 열쇠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d3254ab5cf1780306abf189fcd76cba20f2029805630d4ef6ab8f5f6621de2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-address-as-survival-rite",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흩어지는 자신을 붙들려고 렌즈를 정면으로 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "abe02f995359e37a29e49f94e5d25c086a3f3b160413d9430f85f7abcc742527"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-a-mode-of-seeing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍는다는 것이 기록이 아니라 의식의 현상학(phénoménologie)이 되는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "21f67707ec0c33dd29489050014bc91b8a7ce1d7685e1d2cefc714408689ee43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-manic-defense-against-loss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍는 행위로 소멸을 막고 애도를 막고, 사랑하는 이가 사라지는 것을 막는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9a168ad2d7e667753fc51c119ad366c0c597064fea34d684606c36adf8aa0aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-nonhuman-gaze",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈의 주인이 짐승이거나 우주이거나 존재 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e4db75c3327e852d6dd4593dcf016d16ddee4397af33777cdf7429aa42b3a19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-smuggled-contraband",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 눈을 몰래 지나야만 겨우 존재하는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "095d3f996d5d839942920e6437642371d566f9e9afde46fda3281d0e5c035931"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-the-eye-of-an-absent-god",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠도는 렌즈가 거기 없는 신을 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4de1d60de8bd54844431c9885a09b95a7a77af616cad403e49471f378099f93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-the-film-s-true-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "각본이 쓰지 않은 의미를 떠도는 렌즈가 써낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c497334cb7adbe874ede776df864b8b98f86f47ca763a3734a644de8c530421"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-at-the-national-hinge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한국 정치의 전환점, 그 열린 창 안에서 찍혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1ea0f1ef1a7ff72b3371606a9d2930883bf557aca631437572f0cd743442981"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-becomes-the-surveillant-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈가 관찰을 그만두고 권력을 쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "568832da3bf3c634a4f9c7ecda64b949846ef3bf47ed35b74877327acbf9710b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-belongs-to-the-seer-not-the-seen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "응시(gaze)를 누가 가졌느냐가 누가 주체인지를 정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32a7d7f153b7f2cebf806385c081f8fb824f9ab30fe0160414f51b41a0a658ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-complicit-in-sexual-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그저 기록할 뿐이라던 렌즈가 그 폭행을 허락한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f4da36b4ed6dbeeec7f7794aea9d6f8e34cfebb63568077ccb4a45034ea2895"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-imprisons-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈가 우리를 단 하나의 의식 안에 가둬버린다. 빈틈없이.",
+  "model": "claude-opus-5",
+  "source_sha256": "30e203aa749343ff7d64bdc20d1bdeea15c534ba2d1b2e0572ea8bad296aaa4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-indicted-as-decolonization-s-accomplice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "탈식민이 저지른 폭력과 실패에 서구의 렌즈도 한몫한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9841ce24dd71689b5a4c1d61c4ee65d22fafea57db6be279c20b759dfec56f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-interrogates-its-own-witnessing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 주제가 증언한다는 행위 자체인 다큐멘터리.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd1967eea0052a84817939d9db84aa8ab4d41d670cd289f2ff3d355ca9091248"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-itself-becomes-the-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계에 실려 움직이는 속도, 그것이 영화의 논지가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ba856d9d1e901cc36c4d44fd3864eb2f0f56daeae73d45c997fd8deb20bbb26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-itself-becomes-the-predator",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠도는 렌즈가 이 영화의 진짜 괴물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af618d9515bb616069e89f0b39eea2421c4a8f673f13c38d2f56a60671313cde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-itself-knows-what-we-cannot-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임이 알 리 없는 것을 안다. 그렇게 도덕적 증인이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "327e5d47487272d0dab565967a8e0b68307412c41a2e10e68e01e250b59e31cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-made-newly-mobile-and-confrontational",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말대꾸하고 걷고 엿듣고 몰래 끼어드는 다큐멘터리 장비.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a4675a5bb8327538c81912de692de6d8394a85a0ca6ae00cfa2a08bcfa031fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-outlives-the-man-who-wields-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈를 제 편이라 믿은 자를 렌즈가 배신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d848db2e4dedb9da003c724743ca625aecc269e756015a206673dc5a00f7d52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-pinned-to-tatami-height",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오즈의 바닥 높이 고정 프레임. 그것 하나가 온전한 도덕적 세계관이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7bc2e7df52930ef09f49bdc3c9a425b9a10c4f6af169438c291cd0792ed206c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-s-aversion-as-its-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈가 끝내 안 보여주는 것. 거기에 누구의 죽음만 죽음으로 치는지가 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14194cf6f42d75752a1814d2df0c836646993d1bb6bde287f5520980b8ad5bd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-s-constraint-becomes-its-cosmology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형식의 제약을 기꺼이 끌어안자, 그것이 영화 전체를 다스리는 의미로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df1550038d7548d78413b37fa7780754bf91e840b5feb9ff8f8aa8c958edc84d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-s-movement-is-the-politics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "르누아르의 떠도는 렌즈는 민주주의를 그리지 않는다. 실행한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be07d650dc72fe992efae320e5e6679f02c746a5bb0b489a1cff8d789bc28d86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-ages-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 시간이 몸 위를 지나간다. 영화는 한 생애를 따라간 종단 연구가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc3779204de4c40f8ddd4a1ea520aeaa2427740b6c43d35bd830b10a067ebba2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-cannot-restore-what-s-lost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결코 이룰 수 없는 구원을 향해 이미지가 안간힘을 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "606f62af40d22cc2a12c53c53a857c1a136e2956acdf0a534e7842c14b21dfc5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-causes-what-it-records",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관찰은 중립이 아니다. 렌즈가 피사체의 운명을 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "62d314e9f86a781f689d33aac81dd9ad08f9b069291861e7865870e091103b97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-convicts-its-audience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시선이 되돌아와 관객을 가해자로 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0122f99cd8f13f47dae7ea436574603c2034f118ef718138d92f63dac291427"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-could-not-stop",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다큐멘터리의 담력. 안전한 지점을 넘어서도 렌즈는 계속 돌았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b713ffb9ba389fa53bdee834a0ce989b0d1060313d2589780b2c39ffc5c8560"
+ }
+]

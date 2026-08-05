@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-medium-as-flesh-made-signal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "채널이 몸이 되고, 몸이 채널이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48737a4260d3d65c3dbb758daa0ff8d8b5457d030869e4487daabf5d5efc0c4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-medium-who-pays-to-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영매는 보이지 않는 것을 증명한다. 그 값은 자기가 치른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2eb547f2fa5efdfd25c505d1dbd4583318b15ab5fa5146861bf3a49d2d825e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-melodrama-reclaimed-in-critical-penance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한때 무시당한 여성 영화의 복권. 비평이 옛 오만을 속죄하는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eff32d2683c75799c3f900fdedf8af1f01b892f6fefc6f76218e647d09056ca2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-meme-eats-its-host-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바이럴이 제가 뜯어낸 작품을 먹어 치운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c7fc7ae1780401185dd671056c51c8a56ba5906616a957be454b02fbb5a45eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-memoirist-who-authors-her-own-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참극에 서술당하지 않고 참극을 서술하는 생존자.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0664ec6561519aa1361c1f109db90199dc0b0d100cd55b42b3087248493dac7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-memory-that-was-already-tampered-with",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마법 같은 회상이 이미 편집된 채 도착한다. 증거는 읽히기 전에 골라진 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7ad118897b0178a249d9860707a8e14ff8597c06f3c6e3d4313c08cbe7ada6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-memory-wipe-as-civic-maintenance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불편한 것을 지워야 상징 질서가 멀쩡히 굴러간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f22450800718a0bd09bd86ca3153b75e9f1c2f08711b461b585ab7b24b7d9480"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mender-who-cannot-mend-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무엇이든 고치는 손. 정작 제일 중요한 한 곳만 못 고친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f956d046ea755d8d2d7a44292d41e02f011e46542ee5119811bb75af199cafa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mentorship-that-pays-a-debt-to-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "젊은이를 이끄는 일. 제 파멸에 대한 배상을 엉뚱한 데 치르는 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b4baac0095b4f16c50111578629141109ca2f7c148e2a33e0a3ffc8fc74d3ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-merciful-lie-as-higher-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓이 더 다정하고 더 참된 정직으로 다시 불린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "796dadfbcb5cee983f164b1cce3822e2d4a18eab33ad84470db8b6ac7f6632a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-merzbau-made-of-cinematic-trash",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슈비터스의 폐품 콜라주 미학을 화면에 옮겨 놓은 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "58b24c5286bc4675c7fad72128f86636e87b7728b8bded2cb550950e35470a5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mesmerist-whose-gaze-foretold-the-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바이마르의 최면술사들. 훗날 대중이 통제된 채 복종하리라는 예언으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb12f1dc100a0bdc62877f993e3a6c44f7635584185f726272a237177ba468c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-metamorphosis-made-from-practical-craft",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변신의 경이는 어디서 오는가. 손으로 짜맞춘 구체적인 광학 속임수에서 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9687b801b5e046bcff8dfba8fe90d29ff1daf0a5a451dc95ee27e768f12e591b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-metaphysics-authored-in-the-cutting-room",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맬릭의 의미는 각본이 아니라 편집대에서 벼려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "224bc43f1dfdb165239b7d8538a3fe04f266ef11dea49b321cf56baaac3bc659"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-method-actor-lost-inside-the-role",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몰입이 너무 완전해서 배우가 출구를 못 찾는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75b274e34a338b31637d6a60b1305bca22dc8f9cc657b4a26fae44e4e1cf35d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-method-confessed-in-miniature-early",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초반의 작은 장면 하나가 영화 전체의 작동 방식을 슬쩍 일러준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c4fafc2d55de156349a480360e2d24160a61b1614a0a704be3e5a1c6e986bf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mexican-house-as-cosmos-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집 한 채가 계급으로, 시간으로, 끝내 우주로 넓어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96c71c31ff2b52062c0b610b4f954a498bf0a35e603fdbc467adc1fd15c9bf9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-migr-filming-europe-on-the-brink",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "망명한 감독들이 자기가 달아났거나 미리 보아버린 파국을 필름에 새긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "340adbb8cc0471803189b2a19d6b719ac1beb60754c368ff5f8cb98079e99ade"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-migr-s-roving-camera-against-hollywood-grammar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국식 편집에 맞선 유럽 감독들의 쉼 없는 이동 카메라. 망명자의 서명이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88e14b0573d2f11bb785f5a8d0e03fde69baf0069dc7873f3a6e904077780167"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-migraine-as-the-repressed-returning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두통이 새어 나오는 자리. 장사가 입에 담지 못하는 죄책이 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7e59de1edbe082577217b913e04a4828710c13ebaa4c9fb175cc93e48495e2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-milgram-room-disguised-as-a-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위가 허락하는 순간 평범한 사람이 잔혹의 도구가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d5801b75c1f8c404930df50344343d8d99a8a7d38fe85aba595132f67f651fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mind-as-governed-polity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "본부를 다스리는 기쁨. 언젠가 끌어내려야 할 정권이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "611e3b24a7d93abc761217d00bbb8f507b329e00471281c11d76f40e997dda21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mind-diagrammed-as-working-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정신을 조종석으로, 흐름으로, 여러 자아의 예행연습으로 그려낸 도해.",
+  "model": "claude-opus-5",
+  "source_sha256": "d392b113d9d3ed3b616c52d7df71a8770edcd0ce50866c0c5ff414b2e1036811"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mind-that-loses-its-own-map",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억이 풀어진다. 자아는 그것을 그린 사람조차 읽지 못하는 설계도가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e60816fedba79cd0884c0f351aa34a8b7ec9c9118de931c6784ace115a62644"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mind-that-reads-its-own-subtitles",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 자신에 주석과 자막을 달아 읽는 의식.",
+  "model": "claude-opus-5",
+  "source_sha256": "18cc4433cb7557a76e6de591e1020308ed0d35f0f5f177ed50969d47e7e92c98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-minimalist-pulse-scoring-the-ordinary",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "반복이 밀어붙이는 미니멀 음악. 사소하거나 격렬한 순간을 성스러운 공포까지 밀어 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3397d2f6081ee231b0910860bda6dbcfbf369428e2a5511f4ea75fa8e7a573a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-minor-element-that-unlocks-the-whole",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대사 한 줄, 사물 하나, 곁의 인물 하나가 나머지 전부를 여는 열쇠가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06d15fc5fe8fd42136ab29abc133751f4f61139e215889aa032f71ea8caa2a3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-minor-figure-as-moral-index",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변두리의 몸, 말 더듬는 몸, 굽은 몸이 주인공의 폭을 재는 눈금이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc33787a306f26ca4a6efa81cca71708ca3531e2909fcd951c167e6ed054bbd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-minor-verdict-as-confessed-fatigue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "\"소품\"이니 \"뻔하다\"느니 하는 판정. 지친 쪽은 작품이 아니라 비평가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a1a3497c8d673ff22c6c7ee9e7c5d853ae15cd25d38dbfacd9e211ee06e1923"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-minor-verdict-as-critic-s-self-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 영화를 \"소품\"이라 부를 때 드러나는 건 작품이 아니라 비평가의 맹점이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a6bc986738a3d8b3b0c3e56d61ac719e7020c3e5cf4b26e16ab7d7a85848dd9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-minor-verdict-mistakes-small-for-slight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작고 내밀한 애니메이션을 묵살하는 태도. 비평가가 볼거리에 굶주렸다는 증거다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd4136a2401383320deec722835ded555c21801e49aff64a510756f4d44f547"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-minor-work-verdict-as-critical-reflex",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거장의 가벼운 작품을 아래로 놓는 순간, 비평가의 편견이 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e870a3a5353cfbba2d5f7360de96d2c87466e7efe71f112dd8fc5341b4815ab7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-miracle-of-the-empty-vessel",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초월은 텅 빈 자리를 세운다. 의미는 거기서 기어이 실체를 찾아내라고 다그친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65309470b4e660bd54eea3352373de1734c7cdaf43c82f64804bd22b9aea5e2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-as-drowning-pool-of-self-sight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "반사면은 나르키소스의 시선. 치명적이고, 사람을 녹인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d52274656210e69a031f0b7a3116967dc57402f5b0c9f69304ab34696d7eacb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-as-the-internalized-other-s-gaze",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거울 속의 그는 경쟁자가 아니다. 대타자(大他者)다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60296776fd787b442cbb9bf4c07e28bf933ef7a11492b4d1f2c2b726e06aa3c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-stage-becomes-self-annihilating-hell",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아가 제 파괴를 향해 증식하는 반영의 방.",
+  "model": "claude-opus-5",
+  "source_sha256": "414e09c81150a8b12c26da5c58d1a9a0720ab1466152e8735ff1a180520ded7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-stage-run-in-reverse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라캉의 거울 단계를 거꾸로 돌린다. 형성이 아니라 해체와 죽음 쪽으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "b68be2995ba03bb67c11255b673456d19c16ff574980ca355350c30e76574cae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-stage-where-the-self-misrecognizes-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라캉적 오인(méconnaissance). 주체가 끝내 제 것으로 삼지 못하는 거울 속 분신.",
+  "model": "claude-opus-5",
+  "source_sha256": "364e04ac7efd30aafc31841b75179f80b42c8c3a4f2b9e97dd3dc062845dbe90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-that-authors-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "반영은 장치다. 자아가 제 이미지를 제 것이라 주장하는 장치.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4e7b9f8942d607a05e7574e175a1eaee34e330425de658315f937e403371825"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-that-devours-its-gazer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "반영이 포식자로 돌아서 바라보는 자를 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7cd901f48d856825db8baab9137bd42eaab475465d047cf5e178ed11f526f1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-that-exposes-the-liars",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비추는 인물, 비추는 표면 하나가 무리의 거짓을 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "405b34c8f807cb58103b1c2c0b6384aeec5e545867cdf34fd5c1a5cca5fd8363"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mirror-that-hands-you-another-s-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빌려온 반영. 욕망과 저주와 다정함이 몸에서 몸으로 건너간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcb6406e24de7a07d03924a599bf440da07d24c95f38b37f97fb7592245102fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-misreading-that-becomes-the-plot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해석이 곧 치명적인 행위이자 방어이며, 숨은 동력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d27e0ea4c8fd217e35e176e81816644e1d3d1aee48a596ced40021e9231141bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-missed-encounter-as-protagonist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 주인공은 인물이 아니라 끝내 성사되지 않은 만남이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bfa6896d83c27c6b37d36994fbd2e73ae3b862e88b2def4f7760d56df699a72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-missing-bridge-is-the-point",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구조의 구멍, 빠진 이음매. 그것이 작품의 진짜 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c647a239a56686de178a073c090b029364450614aef1e536edf8a23314aa4b7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-missing-piece-that-decodes-the-whole",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라진 ��, 사라진 세대, 잘린 손가락, 없는 챕터와 장면. 그 구멍이 형식을 열어젖힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa728e3ea2fdae86cf743576959fcd97e27830b56b38128132df6a7d01d8ce7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mission-names-its-own-impossibility",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 매번 그 줄거리 한복판의 모순을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7bc0d8673793238d4c47ac3accb6d5f250884bff4053addbb3a50a6905c884d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mistranslation-that-wields-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "번역의 실패는 오류가 아니다. 주권과 이데올로기가 쓰는 도구다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0004d2a0514b4af828b05276a5dca38ecbb1fe5b6f3c46223e09e3cadeb5d957"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mixtape-as-inherited-liturgy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버려진 부적응자들. 죽은 이가 물려준 음악이 그들을 성별한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9c94521ebd2831767ca0ec1d0781536e296e6303f41c7d4247b8465dc7a1eac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mixtape-as-salvaged-soul-archive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아무것도 남지 않은 자리에서 자아를 짊어지는 건 손수 고른 카세트 한 개다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3915caef7d006ab71d450f98a07ab849fbeadd439eeb835531ba060c6a412be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mixtape-as-the-mother-s-surviving-voice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카세트테이프가 죽은 어머니를 산 아들에게 실어 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d2092b28f298b780562bd8fc73ffb840ca48d9b6554964bee945afca0f3da49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mob-as-mirror-of-the-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "조직범죄를 낳은 것은 결국 그 나라의 정치경제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5180aa4182746bc3318dccb6101af2e847cedaf31135c265d8f53e0176068aa9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mob-as-single-organism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광란은 한 사람의 광기가 아니라 군중이라는 몸의 신진대사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0e60bfc6d8ee095f1b1f950169e42596915ae9ced7dd82b520d92daa709a815"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-modern-house-as-watching-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유리로 지은 집이 거주자를 감시하고 순응을 강요한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3335ff173edf51a5e4d40fc73ac65541a66a15fb652eaf1a1c65651a6f727d23"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-modest-margin-against-the-indifferent-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작은 자연, 변두리 한 귀퉁이. 서울의 압도적인 위용 앞에 그것을 세워 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d29db089b1ff5325edfbf5b876bb8d982dbe8e6fbdefb5382256fdc20a4410b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-money-that-cannot-price-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈은 사라지거나, 죄에는 값이 없다는 사실을 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7311af1e4c3012bea8f0507f84d762104862bccaf8c48e0edc38d13f46ececaf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monkey-s-paw-dressed-as-a-blockbuster",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹한 설계자가 소원을 들어준다. 조건은 언제나 가학적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0721134a85f8cce35862073b34a9a4f2d69f4f2a29d755355b321969d8e8820b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monster-as-national-sin-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "괴수는 한 나라의 폭력이 바깥으로 걸어 나온 몸이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65e3f259954612212d3c40635b8a4f2d64ada52c3bd507b85ae6ec3fc6f347a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monster-as-the-only-honest-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기된 정상성이 감추는 진실. 그것을 드러내는 건 괴물의 얼굴뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a7a4051e160e3c23f16726f8170dfbd61065a26f631b81c36b67429ca9bc438"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monster-is-domestic-all-along",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공포의 진짜 짐승은 외로움이고 슬픔이고, 결국 집이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "deaa262de68f81d908bf37d2ee72d1e508949c70bbf5c46b054eea5d0046e56a"
+ }
+]

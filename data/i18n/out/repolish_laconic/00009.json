@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "intoxication-as-the-only-available-grace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폐허 한복판에서 술이 잠시 자비를 베푼다. 맨정신의 새벽이 오기 전까지만.",
+  "model": "claude-opus-5",
+  "source_sha256": "c60485560a77498fa8097021249a51d02853245685ea98aeb3275b415a9c3ecb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "intoxication-as-way-of-seeing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "취기는 영화가 다루는 대상이 아니라 영화가 세계를 아는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07a2c63eaa5dc63a81dc80917e66decfab18eb7b8ffc56df0b822f612daed387"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "isengard-as-the-dark-satanic-mill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사루만의 공업은 인클로저이자 포드주의이자 총력전으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8936d968582c6c67abbcb5d5421857907191631b4e7a50dcca5dac38d276434b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "italy-s-economic-miracle-as-hollow-monument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호황을 인적 끊긴 세트로, 사람을 집어삼키는 무대로, 아무것도 기리지 않는 기념비로 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e13ec30aa8af509f7551d62eeb8b0ecb2b361f14da5550107c4edde59dd4e295"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "italy-s-nation-read-through-its-buried-peasants",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "통일 국가란 농촌의 몸뚱이에 저질러진 사기극.",
+  "model": "claude-opus-5",
+  "source_sha256": "39c9bba488ab34dab958d47cdcef190a9f6981e040ce04f89e4db6158a3cc427"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "jealousy-that-secretly-wants-its-own-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "질투와 편집증은 스스로 갈망하는 좌절을 손수 설계하는 욕망이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "055ec9bcfb6cdd0d7a8bea882bb3e80bd9f67883cd0ee8033e7db98310ef9c44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "jenny-the-film-s-buried-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 끝내 발설하지 못하는 진실을 제니라는 이름의 소녀가 떠안는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "424311043146fd8f9dd7918c0510a76692bb3394ae2c2dda43462f566945d91c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "jouissance-beyond-the-pleasure-principle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쾌락을 넘겨 살아남고 넘쳐흐르는 고통스러운 과잉, 향유(jouissance).",
+  "model": "claude-opus-5",
+  "source_sha256": "1588f22dcafe85a62218e0b067c4da590c308e76f1a4681c036c00275c874ea2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "joy-as-survival-under-siege",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상이 끄려 드는 자리에서 끝내 꺼지지 않는 기쁨.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f00e464dfea25927550b08e30bcd18c224da9488050283ac4b03af69f51296e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "junkyard-instruments-for-off-kilter-interiors",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주워 오고 뒤틀어 만든 소리가 부적응자의 불안한 속을 대신 발설한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83ae96e7eb24a24101c08f6abcdf48e6c2eb5dee21b91b4df4b4386337afc116"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "just-following-orders-the-self-dissolved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "복종이 도덕의 알리바이가 된다. 의무가 죄를 잘게 흩어 아무도 유죄가 아니게 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "766282c20063e585fa0c7a88027ffc5c1e2cec554cda6a98e9cb679e3b266ade"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-as-a-procedure-for-choosing-whom-to-sacrifice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "질서를 세운다는 제도가 실은 희생자를 골라내는 기계다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9106fda645c1774131dc92ecd19b53a0f3186a9b861f5b6f1b6ded1dce51fa6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-as-theater-without-ground",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정의를 구경거리로 상연하는 일. 그 상연 자체가 참된 법이 없음을 자백한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13a9c334ae02757ebfb5c1333f97810e632f9eedc7073b75c0a40f81766a7223"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-laundered-into-class-self-preservation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제도가 저항을 삼켜 도덕적 행위를 부의 방패로 바꿔 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e0579afe7644f41eacbce30dea9e223de23e264aee39ad9d72fef1d63535f47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-must-be-built-by-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법정은 없다. 선과 정의는 서로 잘려 나갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe79f6b51c99dd805b02137fecfb52c49217917d26d1aa24b807ce6431e7820d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-privatized-into-sovereign-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 쥐고 있던 폭력의 독점권이 사인의 손으로 넘어가는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "716baa900e6aa558781bf1a6ce2428801ba23db4031426e00c62f5d80059db65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-privatized-into-the-citizen-s-own-fists",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 무너진 자리에서 응징은 사적인 계약이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f938a29dfb8e260a2b708f0a7accf0b8a073dc41d032e4490ffefdf6fc533b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-privatized-where-the-state-withdraws",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 물러난 자리, 폭력도 정의도 사인의 손이 물려받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c905dde7d9e1d21dac6f45f078ce12fd7f42d5dbb0e8ea83ee8a11ad453b1eeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-won-outside-the-law-s-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "판결은 계략으로, 예언으로, 훔쳐 온 말로 온다. 법조문으로는 결코 오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c79ac26ec906e26a2dcfec02d1d13e3d623452c6e0bc6c720ddeb167db3ef7a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kafka-s-burrow-as-architecture-of-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카프카의 불안한 빈 굴처럼 읽히는 밀폐 공간.",
+  "model": "claude-opus-5",
+  "source_sha256": "fef43123dbb34d2280044d3469d4f5ca1bdb8773557fe3a18d1ec8ff6ca27320"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kafka-s-door-meant-only-for-you",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오직 한 사람의 청원자만을 위해 세워진 관료의 문.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac5a701af1129aa6d3c0f56d52b740a9ddbc55b8aecdb49cfeff34b714e96885"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kant-s-imperative-wielded-as-rule-or-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정언명령(kategorischer Imperativ)이 도덕법으로 불려 나온다. 어떤 때는 의무로, 어떤 때는 잔혹으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "9320b295ca72560fb5dcf38f9a594ece89f19b661a8ee1fe1b84e71de3e4a821"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kaurism-ki-s-stillness-withholds-what-tenderness-restores",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공들여 깎아낸 무표정. 말 없는 연민은 그 밋밋함을 타고 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47263a8256e34fb8ce449fdfed5b0e8f473dcbb6a655ff5396fab776072d4ee1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "keaton-s-stone-face-haunts-the-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸으로 빚는 희극적 공포의 은밀한 문법, 그 이름은 키튼이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9262552dce153b6b41d850151971a6ec417f0883247445d5bd2f732c76117029"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kierkegaard-s-aesthetic-flight-from-the-ethical",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미적 인간은 윤리적 의무를 피해 아름다움을 좇는다. 자유의 탈을 쓴 절망일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e72a81c924f7214e65c80c4130eb7e5db81b35146ea5c6cbf3910551e14e3bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "killing-engineered-as-cold-calculation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음이 설계와 공정의 문제로 쪼그라든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f577c36838cea05dadf2d8773a6ac7e70eb75e9dfe42f4eb6e7a3df933cdf64d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kinship-is-cultivated-not-inherited",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족은 핏줄로 주어지지 않는다. 고르고, 돌보아 기르는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dc89f40c4da5ef897f33872423e6fa773b958ceed57add28849d3a130fa1d11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "knowledge-itself-is-the-punishment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안다는 것이 곧 형벌이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86b1748aaec12465d4bea1e8ae734814815c9ba443c7d64748e3a02038918ec5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "knowledge-that-arrives-too-late",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실도 애도도 고백도 구조적으로 늦는다. 대상이 사라진 뒤에야 도착한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1ff8d316aeef089bf78f9468d9bd1680e9bec0e4d557b7cd3d2fe972694444e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "korean-cinema-s-lavish-surface-as-money-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매끈한 과잉. 검열 이후의 산업이 제 자본을 눈앞에 내놓은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddaa438f724a9ce061ce2ddbbdaa741144b9c87214fa918b5a24eddd8f6d1b2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "korean-concrete-as-compressed-modernity-s-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어 올린 풍경을 국가가 근대화하는 살점으로, 동시에 그 소멸로 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0674b9af82c13ea76a4dd029e22ae209b04ee99881d761b745e32fb47571d729"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "korean-genre-film-as-economy-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 공간 하나하나가 한국 발전주의 자본주의의 해독판이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01c5f02d863488c65eb0f86dd6f103640bf817392334b58cb06bc0c2d8a198c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "l-aud-the-actor-as-his-own-ghost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장피에르 레오의 몸, 그 자신에 관한 살아 있는 아카이브.",
+  "model": "claude-opus-5",
+  "source_sha256": "d44540967247c85a0f451b9a7a302498f5a61d7c6558d098264c81c5eb8fa6a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "labor-as-the-hidden-substance-of-the-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "들여다보면 결국 노동에 관한 영화였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa8e7973f8ab2c8387ab61d80f6580604627e6ad40445be612e787209640c03d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "labour-and-the-tyranny-of-the-shop-clock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 짜는 것은 게으름이 아니라 근대의 노동 시간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8386c180e948c51ea8ec0d4eaf4ce91cf25821c17b8dda0631d17944618dd6cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "landscape-as-indifferent-co-author-of-fate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강, 언덕, 철로. 내면의 진짜 좌표는 거기 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2eccf533396c817469919cd3e70b1830defa18d6bc86947e988e7f0c4fc3f160"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "language-mismatch-as-diaspora-s-encoded-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "억양과 코드 전환과 한 박자 늦는 반응이 이주민의 조건을 소리로 실어 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2456d4e25ce0674c545ac63a9110c0e69138f565150865cc42418dc76422121"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lanzmann-s-interdiction-against-the-reenacted-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍을 수 없는 홀로코스트의 참상. 재현하지 않음으로써 그것을 기린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecbd822c4cd0b5c03369df8a1c46f8005c92a31bd9b3a593f4f7b12cb7ec2cdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "laughter-as-the-last-free-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전면적 강압도 죽음도 끝내 앗아가지 못한 저항, 웃음.",
+  "model": "claude-opus-5",
+  "source_sha256": "0dbe3525c7cf8a99932081a258cf5f1714e78120ce2a97fc35d177c603539982"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "laughter-as-universal-sacrament",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "희극이 유일한 힘이자 함께 나누는 성찬이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b48bbb0ed32b7c348234f03d303cc7ff2402da4804682cd0a5d1847c8593118"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lens-artifacts-faked-onto-the-drawn-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애니메이션에 사진의 결함을 심는다. 실감을 빌려 오려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e29d12fc674891c799e0e2512fce162bedfbe6aec6f8cc96e04ec0b7c26e1f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "levitation-as-the-self-unbound-from-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠오르는 몸. 시간에서, 이성에서, 실재에서 풀려나는 장면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08642e34add95452f12c85e34833d0d7b4528ebc8d27977152da7442b40f504f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lies-told-because-we-crave-them",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓말은 듣는 쪽의 허기를 먹고 자란다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db64afd2c78bdff537a8f91d923fe7f5826a754b4d063d062bf355ae0348f71f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "life-composed-in-drafts-never-final",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "완성되기를 거부하는 잠정적 스케치, 그것이 삶이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cf167367196757d26851629b4b80cac693492067e7a2987fa46c6b95ea977b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "life-stripped-to-bare-survival",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법의 보호 밖으로 밀려나 순전한 생물학적 존재로만 남은 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3e3d7a62fa3aad87ade08f65b207f9067b8b18f620b29590346c864cb77287c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "life-turned-into-forensic-confession-literature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 삶을 감사(監査)하다 오토픽션이 되어 버린 자아.",
+  "model": "claude-opus-5",
+  "source_sha256": "80c788af35fbc81c944b6db282b59522b72bbd948727fdcbde5f23621db9333b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "light-as-argument-not-illumination",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "촬영의 빛이 곧 그 영화의 인식론이고 윤리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcb193ae4a488dcccc0bd6892ee36acb806635da4308260c00ddc0620a66041d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "light-as-borrowed-never-owned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛은 반사되거나 상상될 뿐, 주어지는 법이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d65fc108303666e667e1e7b2c04f02f8a79c0763ca6fa367d119445aded3284a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "light-that-refuses-to-release-the-watched",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛은 안식이 아니다. 빠져나갈 수 없는 지각의 장치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c792f8b7a63e7ddd8c1d80e6737aadbed2fae21a364355b933f39d18f4947bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "likability-as-the-critic-s-secret-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인공이 우리 애정을 받을 자격이 있는가. 리뷰는 이 도덕적 찬반 투표를 몰래 들여온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e529aea4092fd9f45fa67d7879d7f965c582c43ea460c81e51f49639960d83ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "liquor-as-the-film-s-operating-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "술은 주제가 아니라 엔진이다. 세계가 거기서 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e245c02c1fc69df7240f2824db0e14275bddf52fdd1204ac2b6fbe055675bcc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lisbon-as-a-geography-of-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시의 실제 변두리를 식민의 슬픔과 지워짐의 지도로 그린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c692f6b6079b1f85e9bc9f4e444dc9387d128abd93a2164b4e4b5624530cb91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "listening-as-the-film-s-hidden-ontology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "귀를 기울이는 일, 그것이 은밀한 윤리적 행위다.",
+  "model": "claude-opus-5",
+  "source_sha256": "178883b3140dc02be71cc52b3e2da731022a403f6a0d7e70066be24f7f87057a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "literacy-as-the-class-frontier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "읽고 쓰기. 예속과 권력이 맞붙는 문턱이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aeae434c36018e66bd00c45f5ae48cfa3ff629e3556ac0ba75e5e59f7c1d301"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "literacy-as-the-weapon-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력의 진짜 무기로 휘둘리는 읽고 쓰는 능력.",
+  "model": "claude-opus-5",
+  "source_sha256": "e28d928ef0468c65692d97d1013cc2771d658b4842f7d09e9409c1fe7011527a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lived-experience-sold-back-as-product",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아도 기억도 현실도 시장에서 사들이는 상품이라고 이름 붙이는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "9501c4030a0bf59a42ade3fe200cbcd8513b301e751d104ca12f1b6e5f19f041"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "living-on-without-a-reason",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버티는 것 자체가 부조리에 맞선 반항이다. 희망은 버렸고 행위만 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bd09c08deabaab7f9ed1bfb6505ab03db4e071efc959efa2e51b0f1fc321e70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "london-drained-into-anonymous-anywhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속이 빈 대도시. 어디에나 있을 법한 무명의 공간이 되어, 사적 욕망의 빈 무대로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1286186055ef41e911a6d8464195253d5cce671954b422c2b90bd852b7ac452"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "los-angeles-as-counterfeit-dream-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꿈의 도시가 실은 촬영 세트의 환영이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de6410b031f57fb4b1d70871b97bfe534f6426540d97775ad49f11f1ee6a26ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "los-angeles-filmed-as-its-own-hell",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "나트륨등이 물들인 도시를 지옥으로, 불타는 꿈의 땅으로 다시 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37e96366390da1009398a0c61ba24e498ad435e79ddaa6b6d8c5d307d4f8bd51"
+ }
+]

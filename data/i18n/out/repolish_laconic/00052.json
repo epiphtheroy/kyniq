@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-sea-that-was-a-tank",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광활한 대양이 실은 스튜디오의 밀폐된 물탱크. 무한을 대신하는 세트.",
+  "model": "claude-opus-5",
+  "source_sha256": "226bb35bfe6a4d68d153dc61ab3cee7b17374c29652dfbc51b610d9f9fbdbfd9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-space-that-is-the-cell",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "열린 공공 공간이 실은 빈틈없는 감시 장치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d61bd93cb29b2556917470d3fd619aa548d1e7cb4a80175d59a02a882c2f92f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-opera-that-scores-the-politics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오페라 음악이 반주가 아니라 이 영화의 이데올로기 엔진이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cea00dc7ca56292903e2dac59d3b9d6770b507887f7845ea28748a1fe1c02c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-optic-that-makes-us-pull-the-trigger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "조준경으로 본다는 것, 그것이 곧 쏘는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10fb4b174a3cd7bdff7c1d1d92a658896831b9efd5413f5803ed001a1b512145"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-order-that-spends-its-own-people",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권의 명령이 죽음을 국가의 장부에 오른 몸의 숫자로 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3da963bb65431b457f3812b1639a2eb9134ff844e69f99d1040a597f3471460c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-apology-or-conquest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수상은 예술적 인정이 아니라 이데올로기의 자기 변호로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33fce6877c92dd4810eeb9e5986ffdad336bed978e1c2b1284f829cad71b32d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-borrowed-legitimacy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 권위가 출처를 밝히지 않은 아시아의 원천으로 세탁된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "858114cd28bd51b8843cc931f8a6abaed49c962602ba92453b6205d6ce9445a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-self-indicting-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아카데미의 영예가 드러내는 것은 영화의 값이 아니라 제도의 식욕이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b3a056a13e0ced6c4b8972a3f94c2e2f1ff7a964a98163a51cd172195097ffa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-the-west-grading-its-own-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 수상은 식민 지배자가 제 죄를 스스로 사면하는 거울이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84dfdf3a3ac24e27c52c47e49f0d674bf3047dc758e8eb136bd7dccb36e6604b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-that-anointed-the-villain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "트로피가 괴물에게 비극적 영웅, 혹은 체제의 관을 씌운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe5bfc202b24b760471467ef96067568bc5154d290da6a3bbcb2692da39cd978"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-other-side-as-border-and-grave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "건너간다는 것은 죽음이고 유배이며, 동시에 닿을 수 없는 연인이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc72aa859e531f1b2e02b6d9e6ddd10cb8375b2971f4e22ac7503b8b6254b579"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-other-who-carries-my-buried-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분신이 주인공이 부인한 죄를 대신 안고, 그것을 되비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c29264c377a6f778867aa01cd8a94a4c8bb2729ff5dabe45a3c0ac1bea784743"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-other-who-is-the-self-s-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람이 아니라 주인공에게 내려진 판결인 형상.",
+  "model": "claude-opus-5",
+  "source_sha256": "319bc61a99fb92a3e668355a446aa84ee65c853b2c8a48ab2c4d8c8c29ee9c22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outcasts-crowned-as-the-true-aristocracy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버림받은 자들이 실은 민중의 진짜 귀족이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0abe379fd4aa24d8cb71a655c328b8d669f426d37e5c68f2fde71219905a6392"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outcome-already-known-suspense-anyway",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝을 알아도 긴장은 죽지 않는다. 공포는 미뤄진 그 예정된 끝에 살아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c6bd613dad50c6fdafe5cfb9dfc87db8b9249d401b864f2cb82171df20bec6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outlaw-living-on-borrowed-air",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "총잡이는 실은 향수에 젖어 죽어가는, 죄책감에 시달리는 아이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f74166c90586450f1c29cb0b6db83d5749550c6429b2567fa5d303be0adf4ca9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outlaw-who-lives-off-his-own-legend",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손 씻은 범죄자가 자기 신화를 연기하며 먹고산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb56612f3b2e554c09386e0ae07a8102179fd3830ad07e5c6eb059ff1cfc1c47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outlaw-whom-the-people-must-reject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "민중은 흠모하지만 공동체는 끝내 부인해야 하는 의적.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b8f92379bfdb0e6e5340fcd8c8245f6b10cd9b59c6074420a741c1f18263e92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outrage-clip-as-attention-economy-liturgy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스캔들은 마케팅 기계가 자기 몸을 뜯어먹는 장면으로 다시 짜인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73a73ec98c3eb7158b8bfc3753d8c605746c56eef5c976bcf4a922c61062385f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outrage-that-confesses-its-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "논객을 향한 격분이, 그가 무엇을 건드렸는지 그대로 자백한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81d9ec093596ff99fafd136b673579a64c817c0f8ec075ac92a63bf92cf7047e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-artist-s-secret-magnum-opus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아마추어의 거대한 사적 프로젝트. 다거를 닮은 강박의 걸작이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05f28fc5da67d9433f5569559a9c1374b60dc30a7d95e362d20af8a4998820ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-who-crowns-himself-on-borrowed-theater",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스펙터클과 겉치레를 주권으로 착각하며 스스로 왕관을 쓰는 찬탈자.",
+  "model": "claude-opus-5",
+  "source_sha256": "96d7a477b68e5bedc8898b3708faaae6fa45bad55045247a57b8c6d4c784e9d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-who-survives-by-not-belonging",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집단이 흉기로 변할 때, 끼지 않는 것만이 안전한 자리가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa527230259d7a94fcefad1ece66acda5c29a8f15e999628d30a7310e77f66bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-whose-damage-becomes-his-art",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고립된 창작자는 자신을 빚은 그 상처 때문에 사랑받거나 파멸한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cdffa5000cdad165609f21dde1874e641797c3e0694fb36b5cf0c8a724ab333"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-overlooked-detail-is-the-master-key",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모두가 딴 데를 볼 때, 진짜 해답은 훤히 드러난 자리에 숨어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cda8ea4afd34ba67371c821a67a80e34f5e614a47342deb54f398696331ad662"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-owen-elegy-for-doomed-soldiery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁에 망가진 청춘을 윌프레드 오언의 송가로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d4505e521cd4ee0bea1b9a0c629ddb9486780ba418475b014944f6410117ef4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pacific-as-ironic-peace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평화라는 이름을 얻은 바다가 전쟁의 무대가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a84c80577b15b3566b93049ed6ae4f0c694e5708f52c4c847dd006036da4d23f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pacific-northwest-as-liquid-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그치지 않는 비. 그 지역은 눅눅한 감정의 연옥으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e20bb6778833940c6634d625909743dce6d142d9dbf7163471c08d93cc1196e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pacific-northwest-wilderness-as-lost-eden",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오리건의 숲을 도시에 밀려 좁아지는 낙원의 변두리로 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b523466e6acc2c6b59f363fde4dae1b766a09af450172ff678dafe86746adb3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pack-as-voluntary-commonwealth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짐승들이 서로 기대어 만든 피난처가 인간의 사회계약을 부끄럽게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80aba95eff52055010a340466d14d0819e7950e60484cba33320628bdc010e1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painted-backdrop-confesses-its-falseness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스튜디오 세트를 일부러 가짜인 채로 둔다. 티 나게.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f26171ac42d98a0d9b367da47853c11b83cbb9fdebfb949924a24571f547a50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-caught-in-the-freeze-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멈춰 선 마지막 화면, 화가가 물에 빠뜨린 빛으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e9625f111b4b8c677c58586a41cb7bea92aab51b3d88993b2ca0ee8d1bb540a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-read-as-an-art-historical-double",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어느 화가의 필치나 사조를 열쇠로 삼아 영화를 푼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d95fc6d8e47f8fe44ea0d870cfae1285643b2a839f61d4a11fefdf2d98216a39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-films-without-words",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한국의 작가를 극작가가 아니라 말 없는 화가로 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "557a8204b8265eca90679794a95cbfad28389b9b43a7e25379fba56e37e7a4d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-raced-the-frontier-s-extinction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "풍경이 캔버스가 된다. 사라지는 세계를 뒤쫓는 캔버스.",
+  "model": "claude-opus-5",
+  "source_sha256": "adb040804073645f36327c8c91eee1cc154f590c03247b7a551b37b8ce030054"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-renders-the-unlookable-beautiful",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차마 볼 수 없는 것에 존엄을 입히는 화가. 그 손으로 다시 읽는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "817f85afd4192d22943ac57bc8c9758f36b4fbac0217700a05de6b6cb985d2b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-wore-her-wounds",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처를 드러내 자신을 연출한다. 몸에 그려 넣은 생존.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1da4b76053bfd25308f6759bfd76ba782d9abfd5ac43ebbece3867967fd1bd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-whose-sleep-breeds-monsters",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고야의 잠든 이성이 꿈꾸는 자의 문턱을 서성인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72559d59e96dfea501dd226ecd08884c81200e45672a0de89e1f0a212b432e29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painterly-sublime-set-in-fatal-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낭만주의 풍경화가 광대하고 무심한 영화의 화폭으로 옮겨진다. 숭고(崇高)가 움직이기 시작하는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "fed45b33f9fcc9f5501fd055514c5722c0794231451bfd9894c5802c1030e855"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pale-hush-of-a-dissolving-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정적, 자아가 무너져 내리는 소리.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6d3eb5caac01d696477793efee5e83b4257e1757e6a46c74fae66e85e71cb10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palette-disciplined-against-its-own-excess",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평은 그 절제를 두고 감독이 타고난 색을 스스로 가둔 것이라 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5845a7e3cf1153c630f6c762403e113e5ed4611d439c7dfd4e13eefc4dab022"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palette-forged-by-production-poverty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불량 필름과 OVA의 셈, 스튜디오의 가난이 낳은 미학.",
+  "model": "claude-opus-5",
+  "source_sha256": "187348705e99a93db89570a906957e88865a241d1638aa218df6b943caa05aee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palme-as-bought-absolution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "최고상이 죄책감을 은총으로 세탁한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae4b0a125629fa2af872e141d3d7ce4e9816c17269fd6a4d870bed74e9b38730"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palme-d-or-as-cultural-border-war",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸의 최고상을 취향의 국경을 묻는 국민투표로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c4fb0990aad14d2ade1d31f3f99bf2c6c4679ad860ce6ebfe9b2bd8fad05a6b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pan-as-an-old-order-s-death-rattle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평가의 분노는 수호자 노릇을 하던 비평이 숨을 거두는 소리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "156625ad3a1c35a10f53ded4f815ad0d7065560ac38f51214a459e900aa01774"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pan-that-became-scripture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평단은 내쳤고, 컬트는 인용할 복음으로 모셨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "34ffe0e5ef1c178a72b4bc24027ececc898d4c7b8bc2c378aca2077407cc0204"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pandemic-as-hidden-co-author-of-production",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "봉쇄가 짜놓은 동선이 영화의 제작 방식을 몰래 결정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7e74c58f8e67e3a86608f04181e9363cbde8d5ebe2575f22adf200cfbcefc45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pandemic-critic-s-hunger-projected-as-praise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찬사를 다시 읽는다. 2020년의 비평가들이 제 굶주림을 채운 기록으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "1335da09855db382acd4ade984e910beda8165432972cbb6a7d46f120c94ad2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pandemic-film-wearing-a-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코로나의 공포가 시대극 호러와 누아르 스펙터클에 몰래 실려 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50d4af51931d52969f471452880152b3e142ef54bed550a34e63b0a585b4f69d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-panic-over-the-film-confirms-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수용이 일으킨 경악이 스크린 위의 그 명제를 그대로 실연한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee98ecc1febdee7134a0a05535ca727f082ea2c7816ecabf28faf9f61e2f44c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-panopticon-as-surveillance-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈와 화면과 건축이 전면 감시의 도구가 된다. 푸코와 벤담이 설계한 판옵티콘(panopticon)의 후신으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "3435d5fb569e750a9d14881e8e33baeac9180651c33127b4aa8379cfc74a1166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-paradise-named-only-to-be-denied",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에덴이나 천국을 제목으로 불러내는 이유는 하나. 그것이 가짜이거나 이미 잃었거나 끝없이 미뤄졌음을 밝히려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "5088e242a6367747eed47608d0b50d715602c59e9c9d6b8623c2aff1740787de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-paris-that-was-built-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 유명한 도시는 다른 대륙에 세운 세트였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99d592c01decefe27568ab9d4d36be663849220407621e73f4e3389ecd87182d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-paris-transit-node-as-threshold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "역과 교외 철로. 떠남이 멈춰 선 문턱의 지대.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d046e232e3b6d6d8c9b72dd6527f5f1db9fdd7a1a00b573e6b858a03366cf50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-parisian-landmark-standing-in-for-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프랑스의 어느 장소가 다른 나라의 지리를 대역한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cbea3ec3a2a2a6a24666bc878cd8657499e647c9c2ad2fbec0ef323b2351215"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-park-as-total-administered-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "테마파크는 스스로를 집어삼키는 후기자본주의 관리 사회로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbb19de4940db5922945106e94395ab40533c01769954ae6a61213ea7db54984"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-partial-frame-as-epistemic-limit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임이 감추는 것. 거기서 타자를 알지 못한 채 두는 윤리가 생긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63e72c7c743c3de97ada477b6cceacb99f36eb920535bd1e79e754237d34ce8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-particular-beloved-against-the-universal-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑이든 의무든, 단 하나뿐인 존재를 범주에 맞세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ede2921fa2665683dee4daf02a879f5f1ea48c60528c1101c0cd56fe341b04fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-passion-play-in-secular-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세속의 이야기가 옷만 갈아입은 수난극임이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50f86695587e1baf2447e6506fe9202a9a21d9af06b97da81bbfadd80cf05440"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-past-is-unfinished-because-never-fully-lived",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억은 미완으로 그려진다. 회상은 아직 닫히지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffd84148e543f02659a6b1931b043016dacee057bc78b3d231b6547b735cd0e8"
+ }
+]

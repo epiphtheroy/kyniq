@@ -1,0 +1,65 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "671809266de15e8a",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century과 Guldbagge Award for Best Film에 이름을 올린 작품, 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "671809266de15e8a763722a81d0cc1fa5285a34f6267a3cff3f205eb03f134bf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "434dcd99e94db940",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Screenplay와 Best Actor에 이름을 올린 작품, 널리 알려진 편",
+  "model": "claude-opus-5",
+  "source_sha256": "434dcd99e94db94071e9e334c8fcfc10ebd5f131220ca08779bae2a04526c9cc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "48a72c4d4cad8a3e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Amjad Abu Alala의 정전화된 작품 세계가 떠받치는 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "48a72c4d4cad8a3eef6e5c4c3d8ecbc866532a5a17ef0c19b0c7fc80bb23bea3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6f63827db058e800",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Best International Feature Film에 올랐고, 인지도는 중간.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f63827db058e800b4392e74631c6026c159187a1408ed3d80448cd3c9a0420f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "44277e26619537a0",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Lion for Best Director와 People's Choice Award가 인정한 영화, 널리 알려진 편",
+  "model": "claude-opus-5",
+  "source_sha256": "44277e26619537a0461eed24960d84286b9175b2df1e1a51aeaf726235f8f356"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "18a9ed3d6b386b1a",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century와 New York Film Critics Circle Best Film에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "18a9ed3d6b386b1aa82e6db7107758122dde9052bc874885754781aa65ad9daf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dd6392484844de9a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Vincente Minnelli의 정전화된 작품 세계가 떠받치는 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "dd6392484844de9a8964f5a1d1c90712a80b6abbb219993ed6468ff62edc8101"
+ }
+]

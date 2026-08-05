@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ce7250645d5fadd9",
+  "field": "text",
+  "lang": "ko",
+  "text": "대종상 작품상과 KOFA 한국영화 100선에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ce7250645d5fadd9a0f9b92d651d2f69b54b4766e6c1112fe86a8b8909d5e122"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5309ae0e85da21cc",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 마하 하지의 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "5309ae0e85da21cc659b45ae3f24711e3908b119e69dd8a93d3e9db0ae84991b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b710435c4f943072",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독상과 IndieWire 10년의 영화에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b710435c4f943072f11e3ff81bbe7e82a1195e40804ddc18758431ce1ece66e6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "479257f4bfda5823",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CZ",
+  "model": "claude-opus-5",
+  "source_sha256": "479257f4bfda5823582b03bd963053753847ee200604b473fe82bdc2d72d5780"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "92af87cd620690c8",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 베를린 은곰 연기상이 인정한 영화. 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "92af87cd620690c8a7047c2bbabefdf9efc6f090e780177e2fd9f0605f798386"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "95823dbeb4e2aceb",
+  "field": "text",
+  "lang": "ko",
+  "text": "금마장 위대한 중화권 영화 100선과 뉴 커런츠상에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "95823dbeb4e2aceb699cef74fed395b35286e3a2c5c14f0cb9d17854d0e010a4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "517592c24c53e92b",
+  "field": "text",
+  "lang": "ko",
+  "text": "베니스 볼피컵 여우주연상에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "517592c24c53e92beb58f6e4d79c32bba258c1e51c551c7973d6f09b687838bb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4ff57e1cdee791e0",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 코르넬 문드럭초의 작가 계보 속에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ff57e1cdee791e0621d390c14caee4555efe8967f0964470732d861c95f3e4c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8ece7d4adab253c1",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금사자상과 청룡영화상 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8ece7d4adab253c1dc6c0389be42cd34c7e66a80a73bbd1dfdae931a00913f3c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3f2efcd4326c7e47",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 이마무라 쇼헤이의 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "3f2efcd4326c7e472ea13b6fb6c6496cf5a461e9c21162f9bbd46281fc607a23"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "994179ebdd2e88d5",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 루벤 외스틀룬드의 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "994179ebdd2e88d5234001991cfe849ddc11b2de4bae62b2380f4fdf532bac84"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ded528a92e32a32c",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 대종상 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ded528a92e32a32c94f27c058bb92364acc5d00474b4f5bacada4459546ed3c0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b96968171a6dd0a9",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1000선과 BBC 여성 감독 영화 100선에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b96968171a6dd0a9eb3d188064054f04b1a9bfa27eeca461c823b20dcaa9a855"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1778da308b49d867",
+  "field": "text",
+  "lang": "ko",
+  "text": "캐나다 스크린 어워드 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "1778da308b49d867ccdf372e6b24f8d1f10f83192b5772f9b22778bba0ee25f7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "52d5657dfe9bb16d",
+  "field": "text",
+  "lang": "ko",
+  "text": "안시 장편 크리스탈상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "52d5657dfe9bb16d1287dccec0d626361d4086612093bb3d519e2c906dbcc606"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bf4146f237316005",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금사자상과 여우주연상에 오른 작품. 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "bf4146f23731600573ceef97fd7f364dc727e6c9f3f2184246079aae1648329f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "30cea059160a715e",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 알레한드로 란데스의 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "30cea059160a715e4b3c0c203b156002f3dcee8e532bfdf302d808176520a4ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a33b6d31267bc961",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 셀린 시아마의 작가 계보 속에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a33b6d31267bc96178434e809c8bf41d17917c93dd802ff18e565c99fbeaf914"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5aa5e5fa3366ad20",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1000선과 베니스 볼피컵 남우주연상에 올랐고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "5aa5e5fa3366ad20a2a3818b596e0e50e5c8da7b5a012e84d04baec32013cc2a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f432a34e4e5834ee",
+  "field": "text",
+  "lang": "ko",
+  "text": "호주 비평가 선정 21세기 영화 25선(2018)이 인정한 영화. 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f432a34e4e5834ee78c2d4ef48ba798a5dbf74cfe8c28c923d5a6cc67297db64"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9f8d50f51d6ba0a7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1000선과 일본 아카데미상 최우수 작품상에 올랐고, 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "9f8d50f51d6ba0a7a74db4dd9c450a5409edce4af892809fa43d90c230255168"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a4d4cf5d2f7d0726",
+  "field": "text",
+  "lang": "ko",
+  "text": "뉴욕비평가협회 작품상과 골든글로브 뮤지컬·코미디 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a4d4cf5d2f7d07268dc846a6fe7627b55ccb85832988836e79136cc32082c16f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a1674ddbaf6e9e3d",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 WGA 각본상이 인정한 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a1674ddbaf6e9e3d3ca5afe8d879b47f462eae164645893b9ca357389656abd9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "496bdf093a500aa7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1000선과 세자르상 작품상에 올랐고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "496bdf093a500aa7dbf7dead83fde0652f96191cd3750100aaf6e44e3036d560"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7901e006346455dc",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 구로사와 기요시의 작품 세계가 떠받치는 영화. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7901e006346455dca79be947bf22758938e23f01a023bcf3b12e0dc34aa9c9bd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5ff7f0b2d725ec4b",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 니콜라스 빈딩 레픈의 작품 세계가 떠받치는 영화. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5ff7f0b2d725ec4b9df1c76a0c3a37273d98874cce8019b6b54e70171b2bcd5b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5f166c03807ff240",
+  "field": "text",
+  "lang": "ko",
+  "text": "각색상과 베니스 볼피컵 남우주연상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5f166c03807ff240255f3104e15ba0b7892c00abed3f1512b2fdc0ec47d2e160"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "426ce73c27c14620",
+  "field": "text",
+  "lang": "ko",
+  "text": "유럽영화상 작품상과 폴란드영화상 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "426ce73c27c14620d787738e0be8009efd8008907eb2bbc9d6a2f2c2b5e0b81f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7f2f6bb85ff7c9af",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 야스밀라 즈바니치의 작가 계보 속에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f2f6bb85ff7c9aff144d40f7eb55096efb02bdf25c1c013e4f82eb2d434c068"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7adbc66b2f36e55d",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 크리스티안 문지우의 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "7adbc66b2f36e55d3f5ea4259a47c050e06bf88ad52c52a7769ab70dd32f02ed"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "088bee4873074f1b",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 와누리 카히우의 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "088bee4873074f1b2da749ae8cb6bda1ca6637e37a7c7df45cbd9a6fef3233c2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "41bc8bce8a650822",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상과 아카데미 작품상에 오른 작품. 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "41bc8bce8a650822960d1daf89ae75ad29ff4e027a5be3aa2f615f6d02680883"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a4fa98e4ec05f0e9",
+  "field": "text",
+  "lang": "ko",
+  "text": "베니스 은사자상 감독상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a4fa98e4ec05f0e972012e82aff40a5740c36b645e90ee9d7e6beb348fd6d4f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d23c6d47f4d42449",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: JAPAN.",
+  "model": "claude-opus-5",
+  "source_sha256": "d23c6d47f4d42449ba38dc4ed3b0d3b04614ae9084655a227995dad130ed8199"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "087251c5a385c9b7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1000선과 베를린 은곰 심사위원대상에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "087251c5a385c9b7e740835dc91756acfc0df9f3a1fa04b2d95baf991f074d0d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "683ff70f21500564",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC 위대한 외국어 영화 100선에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "683ff70f21500564c27ef0cc64d78aa1620c966af487bb1bac2e24d8c49227bb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bdb0cb0b94cae07d",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 아킨 오모토소의 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "bdb0cb0b94cae07d7281228c43a597e52d7238c2b35f5d708fbeae0930298ab0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5742bf25da9ad967",
+  "field": "text",
+  "lang": "ko",
+  "text": "아리엘상 작품상에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "5742bf25da9ad96793a3081ac8cb2396fdb8fd0540ff5d77da827f9198025ed8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72d5319e3311f473",
+  "field": "text",
+  "lang": "ko",
+  "text": "인도 국가영화상 최우수 장편상이 인정한 영화. 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72d5319e3311f4739dadbd931c4d55b6b7a4fffef976bd5c5477c8bff3e15cb5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "efbdc3073e58238f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독상과 베를린 은곰 연기상이 인정한 영화. 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "efbdc3073e58238fbc79d5af0856d64611eea2d178fa176a6f27c29311c18b8d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0ebc25aba0d4b66f",
+  "field": "text",
+  "lang": "ko",
+  "text": "여우주연상과 관객상에 오른 작품. 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "0ebc25aba0d4b66fd83f4013ccafa378a08d09bc56b9d90fe681c8475dd67719"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3704166d7d866c80",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 레니 에이브러햄슨의 작가 계보 속에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3704166d7d866c803a5aa6956cab0a6886f07d2777793893ad57d4dd365a372f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fc973d7e0d2c91f8",
+  "field": "text",
+  "lang": "ko",
+  "text": "독일영화상 최우수 장편상이 인정한 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "fc973d7e0d2c91f8e2ebc762b1e404f6764bd749ff904bfefb0ed3afcb48c917"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ba24df8dab99b8c7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 자크 오디아르의 작품 세계가 떠받치는 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ba24df8dab99b8c784fa89c1e54388e387df89570ab276c068af090ec45bb3ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c4609c3548ed20b5",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금카메라상과 BBC 여성 감독 영화 100선에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c4609c3548ed20b51ce5cd1bba84829b67857061f1e1e81606b5a2135a9b0156"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "99605ce454ebad31",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 부 준펑의 작품 세계가 떠받치는 영화. 일반 ���객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99605ce454ebad31ffc9fc87df575943cd295657c2ce1a693851d1b6c51ea081"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d597bcf9ec9a0517",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 조코 안와르의 작품 세계가 떠받치는 영화. 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d597bcf9ec9a05176943c06a58302065ab2783338a68a445b8803f1b4988848b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2b144bb5a9697d13",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1000선과 BFI 영국 영화 100선에 올랐고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "2b144bb5a9697d1384a11b2f10ed2cad9edf5776fe9f6a108d2f87d0e9f4617b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1ba107a4131a9352",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 WGA 각본상에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1ba107a4131a9352c724938f754279d07b63e96672fcffae1e89866ccab0c605"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "20dab1abe6450aa7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전에 오른 감독 프리츠 랑의 작품 세계가 떠받치는 영화. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "20dab1abe6450aa7cda7863dcae21f08d0a5deb448769599bd77594355e8bee5"
+ }
+]

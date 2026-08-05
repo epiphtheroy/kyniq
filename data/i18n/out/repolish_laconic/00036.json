@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-must-betray-his-saving-virtue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이상화는 다가올 배신을 주춧돌 삼아 세워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "938c1b46841fc03e85d6573fa2bf440f673735e1f6b1949c01b48ce2525e4883"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-postpones-his-own-abandonment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지 노릇이란 실은 떠나려는 자신에게서 달아나는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "6073804bc852c4e9f175b91089b7765d87c5cf0534fc533b33d30d599c48b326"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-uses-the-child-as-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트적 위반. 아이가 부모의 기획에 징집된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6003d4fff38cdd82e4325f6a3015366594fdaa8d58ee9abcda38e66b3699d04d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-writes-the-unsaveable-son",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 부성이 파멸할 아이를 쓰는 권한으로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99da2f4698593bb8977a065bc9728bb551724a47702447ecb3e911e6901b6ade"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-worn-as-inherited-armor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 아버지를 몸에 걸친다. 갑옷이자 상처이자 무기로.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfa7142b32ec1210935d7d7e21876824ebafd01a309c947176b99bec94bf4fcc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-favela-s-verit-grammar-as-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "《시티 오브 갓》의 들끓는 리얼리즘, 어디에나 옮겨 붙는 수사 장치.",
+  "model": "claude-opus-5",
+  "source_sha256": "237df435cdbedfec6acf8f3fe8cceb3fef01bd046d8010e04ca14249dc27f16d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-feast-as-sacrificial-tribunal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "함께 먹는 자리가 제의적 폭력으로, 심판으로, 희생양을 바치는 의식으로 다시 차려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46beaa670ddeddd2f4a2d20fee31b10392d0539dad581ef74cf19c7bd82e5d8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fellowship-doomed-to-carry-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실패라는 이름이 붙은 유대. 의무를 한참 넘어서는 사랑.",
+  "model": "claude-opus-5",
+  "source_sha256": "2718b139117ddb63b9d6844c8356a4981eb5c76f6903ff57615eae0364272fa6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-felony-as-the-only-grammar-of-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다정함을 말하는 길이 위반밖에 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "094d2e69d79720fb75b8d7097195a9381b64a55edb920745c09cd42e1a80a7d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-female-body-as-the-polity-s-hidden-constitution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여성의 몸이야말로 시민 질서가 딛고 선 묻힌 주춧돌이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15f6fc85fea66890ef1eb36ed848a6c35f76a5e0f666c5bd5df5f7dec20dc3bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-female-mask-as-the-truer-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "걸친 여성성이 그 아래 남자를 녹여버리거나 밀어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f84daa0961de036d3cbefc5587513de843e07d99fa851cf7fea3244f7d646ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-feminist-acclaim-that-indicts-its-praisers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여성성을 향한 박수가 폭로하는 것은 영화가 아니라 비평가의 생색이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d2ee7157bb00c8152d6269324c4f88d5dd097664f63dd5af94d3d0debf7ce34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-feminist-verdict-as-critical-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'페미니즘적인가'라는 논쟁이 드러내는 쪽은 영화가 아니라 비평가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bc926ca357f4bde8aea2adcec2193261cb66ef28bee69b6495591298c132160"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ferry-as-trolley-problem-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바다 위의 배 한 척. 윤리학 강의의 딜레마를 말 그대로 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "530ec38f02a9bc6a1387edee2a8c4874c7e68738483dddc2175d64272c3e2d94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-canonizes-its-own-boredom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지루함과 만져질 듯한 느림이 예술영화의 덕목으로 봉해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cc58e4c5621ab07ce2c9ed5d352225478cb8a0bad335e2d5094b603f40f6db7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-crowns-a-national-anxiety",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상은 영화에 가는 것이 아니라, 한 나라가 고백해야 할 것에 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7775939bd5c2246ad0ffe0e55c4437074565116b30b0d00b733f6ee6259b8ea7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-embrace-as-colonial-comfort",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구 영화제의 찬사가 영화 속 날것의 예속을 눅이거나 저만치 밀어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "052df4e52cccca80574bf9c117176a50c30b91a9c813f531915b0a1ea93339a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-embrace-as-symptom-of-western-hunger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상은 주는 자의 허기를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04dffaf5a40567cb4452cb0606265af7f4e37b63745b3e7125293500e02cf7dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-embrace-as-western-self-absolution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "중심부 영화제가 주변부에 화관을 씌운다. 제 양심을 세탁하려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "6216b55a28ce468b66455674ba8ef1196409ed5e820b82e862c48b19c7320a7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-s-appetite-for-beautiful-suffering",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위의 회로는 견딤을 정전(正典)으로 삼는다. 시련을 예술적 진지함으로 착각한 채.",
+  "model": "claude-opus-5",
+  "source_sha256": "8007b50e2eddf15c99cbee28398a4b09eb1fa1e653a8c791466da9d424c75a7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-s-taste-for-beautiful-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위의 회로가 탐하는 것, 아름답게 빚어진 고통.",
+  "model": "claude-opus-5",
+  "source_sha256": "e06931a75daad38fe413e8b60c372c1d555e6df986491dea3017daa1603cb238"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-that-frees-what-order-suppressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "축제가 풀어놓는다. 몸을, 억눌린 것을, 잠시 힘을 쥔 자를.",
+  "model": "claude-opus-5",
+  "source_sha256": "d755bd449a9a72c29743675458ed901b8d7746e1a568d52dfcd5f9417284ebd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fetish-object-that-disavows-an-unmournable-loss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "간직한 물건 하나가 사람이 있어야 할 자리의 빈 구멍을 막는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b68ac1d57a1bbdba4d1698aed8216133aa268091b154524855888348c9ae98f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fiction-that-becomes-real-threat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꾸며낸 연기가 스크린 밖으로 걸어 나와 진짜 힘으로 작동한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38c669f67d8afcbcee66d20ad187660b8d581480deb0069536d2d7481937b0fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fiction-that-claims-to-be-fact",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓을 전하려고 진실의 옷을 입은 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "feca40b7afe691135170d4c3646a19c90d0f2c986a155baaa7de4d5f5aa8db3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fictional-place-pinned-to-real-soil",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어낸 무대에 실재하는 지명이 박혀 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12e5112b47cea05021526f6868ba3e4d8829d509b8453e7292cc2d9666d6f3af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-field-read-through-van-gogh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 풍경을 반 고흐의 캔버스로 잡는 프레임.",
+  "model": "claude-opus-5",
+  "source_sha256": "8786383e9e5f97ce927158b913b80c1b68379f4df4fbe862bc39619f17f42b98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fight-engineered-not-merely-filmed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "격투는 찍히는 게 아니라 설계된다. 카메라보다 안무가와 장인이 앞선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30d7c274beed85fe33267d50d32126e34e2dc67c5a6e534ae3afe43523c22d6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fighter-s-posture-read-off-the-ring",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권투의 자세를 링 밖으로 가져와 평범한 생존의 은유로 삼는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d17c060b7963b799fcb14eadf78fe1a8a789711c574cbb3e2c317bc59c220aa1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-figure-of-speech-taken-literally",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 관용구가 되살아나 파묻힌 뜻을 몸으로 해낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2faf840a50755068951990df4ca42f2c0fd0b38c5ae505da5f35509b5bfdb44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-file-is-the-real-body-politic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관청의 서류철, 범죄와 진실의 진짜 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c2e408052688bbc60d9274004f794823d11069bf0d17faa3987f14b289f3597"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-a-single-devouring-organism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품 전체가 제 몸을 먹고 사는 하나의 생물로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "633a88dbf8c1128f89be3cbd8169e669ab0c081749370d5a9efd95d0c41b3a89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-autopsy-of-the-present",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장치 하나가 작품 전체를 비가로, 혹은 공위기(空位期)로 되돌려 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "efedd2714869b5f75010d316388197f0d64830eaccb777a0f072546b95bfabf6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-confession-not-conversation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죄를 보고하지 않고 죄를 지어내는 말.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0573af7e7c12fde08b377cb03d1110f12c0556ff5ecb0e56a7069a4f9182837"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-forensic-indictment-of-real-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제로 벌어진 살해의 기록 위에 세워 올린 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1e0d43b4e4b2b312c28fb00c8bc85328961646287699e9bd4d7d723c1462eb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-born-from-its-own-score",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음악이 먼저 있었다. 이미지는 그 뒤를 따랐을 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a446cb598f2f9380eb9631096e677b38e527554207ed9500e5ccac855b635d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-around-an-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "존재론적 공백, 혹은 끝내 내주지 않는 중심을 둘러싸고 지은 장르의 건축.",
+  "model": "claude-opus-5",
+  "source_sha256": "783beeb2a3d0b71e6c3a52f38784de6d4ee666cbd24f6ea11e79a5b96d837dff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-backward-from-its-sound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리가 이미지보다 앞선다. 그리고 전체를 받아쓰게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51ece4f6926e82d8dfaa18ebf1049235b791a1b55549da96bbae78f61eb721dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-by-the-attention-economy-it-indicts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주목 시장을 고발하면서 그 작동 원리 그대로 만들어진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "686763b4346e37916efb181c6a75bb23fd3f942d7019cf9f3028a6959a99b02d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-on-descartes-evil-demon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "데카르트의 회의와 속이는 악마가 영화의 숨은 골조로 들어앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85060e4e337e7a33161265fd51d6301229a8a365e8cf83cea5adea20c36a7f4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-on-refused-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품 밑바닥에 깔린 존재론은 거절당한 슬픔이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b8693bad724e7ad171d34f24401ae4a972dcfbe1d76ca69b5981d61030c12f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-on-schopenhauer-s-will",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표상 아래 눈먼 형이상학적 의지, 그것이 현실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6828e68112959423bcac86a347a62136b3820eca3ff16b904f89b909692ea2c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-catches-the-war-it-films",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍히던 전쟁이 그것을 찍는 표면마저 찢어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25bb46e8dba8552dad50f4a61891208ffb304bd025dd08c156e4a2eeb46461df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-caught-astride-the-towers-fall",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "9·11 이전에 찍혔으나, 오직 그 이후를 통해서만 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a63fceb6587039de0d047e5bea41a78fed12c13b4f7f80ca1673541521dd7d38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-conceived-as-painting-first",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍힌 현실이 아니라 움직이는 그림. 그렇게 만들어진 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c39d8cdd9931b48465f0be81b7acc4f8bbdead94b8e611f22cecf9d2f3c0b5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-confesses-it-is-a-dream",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 제 기계장치를 꿈 만드는 기계라고 털어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "350f1ddd56d5f4a8e8b4fbe993742d8b46b54d6b5708eec0a36c68fc08c55c24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-confessing-it-is-a-wish",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품이 스스로를 기록이 아니라 꿈이라 인정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "332f206caaa151fcde695fa358796e93d352cfd2fc15b8aca16d0177183192c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-confessing-its-own-corporate-financing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "텍스트의 진짜 주���는 그것을 낳은 브랜드이자 합병이자 IP다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7cba8c631e5b8f7f8d8db10215c2ae0514292a7c1f2a6d8069e431cebf65cd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-dated-by-chile-s-reckoning-with-its-past",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 칠레의 독재 이후 기억 정치에 못 박아 두는 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "3defd42b1ccd0962d781f53a0646853c858a42ab2225b213c6dc7151c6c57f3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-edited-by-an-mtv-nervous-system",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뮤직비디오의 컷 리듬이 장편의 문법과 감각을 통째로 다시 배선한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fffb4d00f970fb040b7c04864fcfaef50c5d0873f30e0b5b597a9bf467138cfa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-engineered-to-be-re-solved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "되감아 다시 짜맞추는 관객을 위해 퍼즐로 지은 이야기.",
+  "model": "claude-opus-5",
+  "source_sha256": "a56b38f813af2bc51c85f747096f0ff9173ab8ab3ed36bfdf95bbd0dcc31f500"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-filmed-from-inside-a-trance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "암시, 최면, 꿈꾸는 환자의 안쪽. 그 안에서 연출된 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfc5d2bf2e4034e85c291deb75137f2a4dbd54eb5b5403ea77f679487ca29aae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-folded-inside-one-suspended-moment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멈춰 선 지각 하나, 끝맺지 못한 한마디. 서사 전체가 그 안에서 풀린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "142513b73e3b787555514e7a3fe4a006e94ea7c0e258b986d528d27be22a6023"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-indicts-its-own-production",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품이 제작 자체가 맺은 거래를 알레고리로 되비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dea020c4bf718af48d1b95243181ac28821ab1640e00634501d37642197338c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-is-memory-not-chronicle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현실이 회고 속으로 녹아든다. 현재조차 이미 기억된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4963c1c981411ae3648515b9445017d6372abfc0c62d61ec318b1b6606e80e20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-itself-is-the-tribunal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 스스로 재판정을 연다. 관객은 배심원석에 앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0415f696026a74df2f6d388f6801afe493f5299545a272d736d823ce485af1d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-made-entirely-of-quotation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다른 영화들로만 짠 영화. 인용 바깥은 남지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca7ca0d7356ec78a696b214021cc2b649ed3a5c063873c0aacfa9286c709e0e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-narrated-as-already-mythic-legend",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 자가 미래에서 건국 신화를 읊듯 이야기 전체를 들려준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "299803aa728f91aa1269b8391f16cf878c6a7f720b4cec26b1264feb9d1f4fe9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-narrated-from-the-grave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 전체가 죽어가는, 혹은 이미 죽은 정신의 마지막 발화(發火)다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d79f4f8c5407e62a72e345d3c379e366d713f0f554d1e2986992164ef0b4c27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-read-through-a-painter-s-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 한 편마다 화가 한 사람의 생애를 붙여 읽어내는 주석.",
+  "model": "claude-opus-5",
+  "source_sha256": "087284ec3e67e82dfe5401d7828fb05305a4f8609a964544d4dfe230a74b0550"
+ }
+]

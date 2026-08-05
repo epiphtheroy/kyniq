@@ -130,8 +130,10 @@ export const api = {
     return getJSONCached(`/api/v1/app/film/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`);
   },
 
-  director(slug: string, country: string): Promise<DirectorCard> {
-    return getJSONCached(`/api/v1/app/director/${enc(slug)}?country=${enc(country)}`);
+  director(slug: string, country: string, locale: string): Promise<DirectorCard> {
+    return getJSONCached(
+      `/api/v1/app/director/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`,
+    );
   },
 
   /**

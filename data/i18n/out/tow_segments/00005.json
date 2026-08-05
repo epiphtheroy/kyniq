@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72b1996066355a7b",
+  "field": "text",
+  "lang": "ko",
+  "text": "뉴욕타임스 21세기 최고작에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "72b1996066355a7b58429f105d661387db541322c27ad9b37f61a9663c021130"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e83615566a6d3889",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 이안의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e83615566a6d38898dbf5858cd76c8d908855f3a3bd10bbbfd4289d6f37d800f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2a14a32ffa2be730",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 미조구치 겐지의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a14a32ffa2be73068b4d1346cc1acfc3fd946ca260d933f75f7bc9b0d8f82a7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c53cdf98e5ff8e3f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 피터 위어의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c53cdf98e5ff8e3ff034f72d15cc229e03d4a83101061cf7d8dfd13e26fab59d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "793b2d31c658f496",
+  "field": "text",
+  "lang": "ko",
+  "text": "금마장 선정 위대한 중국어 영화 100편에 이름을 올린 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "793b2d31c658f496c3ac0fbf754e657291a1dd9bbbc67d939969b391f2ce3d0a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f386f86a3b62f8d3",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 루이스 부뉴엘의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f386f86a3b62f8d3caae5214481340b496d05dcdd3792bb0e3e8270c3364af7c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c737d3a00aa372fb",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: TH.",
+  "model": "claude-opus-5",
+  "source_sha256": "c737d3a00aa372fbb791f5be0d01293eed5b5a62c9ebdfe348f62888d46a9b2c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c3b1f74082f0bdeb",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 100 film italiani da salvare에 오른 반면, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "c3b1f74082f0bdeb055d15033b8010fcfe30214f10d504924af8b4f6bd2833ce"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "189f718b74f28b6d",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 홍콩 뉴웨이브.",
+  "model": "claude-opus-5",
+  "source_sha256": "189f718b74f28b6d789786d2faf87ea77d8cce5425a33ac08ffb6049f0d39f40"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8b32a7c9e37afd37",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 루마니아 뉴웨이브",
+  "model": "claude-opus-5",
+  "source_sha256": "8b32a7c9e37afd379112c7b37093bb72854e8012fd797231cb311c9e58b8c824"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f73d2160145f6114",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상이 인정한 영화, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f73d2160145f61145c0649c78046448a4089946696810be5047c1f1f972e7853"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e399ff59dfc6193",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 홍콩 뉴웨이브",
+  "model": "claude-opus-5",
+  "source_sha256": "3e399ff59dfc619366b149bbe26d1029aa0433ee363b13f2273db4768d1f52be"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "515d53eb474f1f9a",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC 선정 여성 감독의 위대한 영화 100편에 이름을 올린 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "515d53eb474f1f9a57152db790f4f04caa32df88632d3a9574a3a6a6ed286bc1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2b2c0f65d5358902",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 데이비드 크로넨버그의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b2c0f65d535890214fcb2235def23b1181f20a0dd84a708615888e66f03eb09"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0bc8e8cce08825a8",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 로이 안데르손의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bc8e8cce08825a849fa7ae966ba1eb6d0d480b8b04f114944237d6a43429826"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e1822925a73f0da",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: TR.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e1822925a73f0da8160886ff80fc6dc10670c022e2bc261f296d0c7a1cd4835"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f0603c643a03ef80",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 74/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0603c643a03ef80ca041cd867eb1fdb947da84d94a372cde5b778963e22591c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a34298ba6c64a63d",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 감독 투표와 TSPDT 위대한 영화 1,000편에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a34298ba6c64a63dcf2924d8282517666cfb423a6fcb4d8e739779797b25eb04"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9bb099778ff2bcd6",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actress가 인정한 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9bb099778ff2bcd68483ac0cb3d9308b68394c744eaf47320e63e2bb6aae2041"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e17039032d1014cf",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 베를린 학파",
+  "model": "claude-opus-5",
+  "source_sha256": "e17039032d1014cfad6f22b35759baa022c9adb0f56c9deb734f3447561b4510"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "db39d741db13dfdc",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 Best Director에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "db39d741db13dfdcfeb5824a0a8599e36a0f6b14b3d4bc3510babd0ec7396bde"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "39e38184a5868aa7",
+  "field": "text",
+  "lang": "ko",
+  "text": "Jury Prize가 인정한 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "39e38184a5868aa797da05c75aa2ecf282799b92e8750238ddd6014466e025ae"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b9d2b5fc2ff553cd",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: EG.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9d2b5fc2ff553cd234868d6e1c2ee5770adef194185b28e34e3a4bed9a338bc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7943afb90512d26b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 미카엘 하네케의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7943afb90512d26b57af352d65e53cc760594e05304e904e26c2cb94f32a9952"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "39416d1a6c9d8374",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 루예의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39416d1a6c9d8374e6d479ad6c3bd5a07a1eeab8ef07e42d03dfeb03eb830ce0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f68da1445c420905",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: SU",
+  "model": "claude-opus-5",
+  "source_sha256": "f68da1445c420905057c27d1b170ce915fa167d944ad35764125f9b8e93e16cd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cea19ab18034df23",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 드니 빌뇌브의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cea19ab18034df23bdef7d3fddaad9bef9d2022276d8e27c71d8c789afbc2db9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4db0c101bc69feda",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 왕가위의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4db0c101bc69fedaac5488a2ee8ff8ebaa2dc6929bc4b5e80a668fd24ea8c640"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "33fe190b94b2921d",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 Grand Prix에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "33fe190b94b2921d2622a2ceb41a0431017d58e9da02002037fc04c65ee591f4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "60ff847217d113f9",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 63/100), 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60ff847217d113f904db1ffb6e1e680c71e19690589adc00086d1971149c40b0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "379a7062ddfbef7b",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: GR",
+  "model": "claude-opus-5",
+  "source_sha256": "379a7062ddfbef7bedbd0d26807d9796e514e5401182a4e83d65e5666335294c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "00bba199a94fb0c5",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 이치카와 곤의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00bba199a94fb0c58b12a3afc331761d2dc3f867855af39ba46a858a68c5c79f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0deae808b4b304fc",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "0deae808b4b304fca0ac304155c7014186eadceb961fbd0815d9330d1d7e81b3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "564130ca2a9c0570",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 TSPDT 위대한 영화 1,000편에 올랐지만, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "564130ca2a9c0570515e7f689d4d5c345ad17be024b7d5150eab866eca68fa99"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fb03a298d912ecb8",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 BFI 영국 영화 100선에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "fb03a298d912ecb8e7ff3c4600cdc6c407261219232f5168f675a3bd17ab7510"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1a0f462fa5dcce87",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 이창동의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a0f462fa5dcce8713bdb4a337447367739959c3ae08b9fa7420e5400decd7cd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c2d4d9c9b998dcfe",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 TSPDT 위대한 영화 1,000편에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c2d4d9c9b998dcfea4b912f84dcab08dbcf81e7ab854eefc885480ec90883b16"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4091409fddeb3c4d",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 64/100), 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4091409fddeb3c4d5559c2e159f6b2e77ad4dddb442337643e5d349c1ef6af4b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6950843b51c60019",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 75/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6950843b51c60019dd93cc80bf64bb39afbe1b8d2683b60ef5962d837a64d40a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "afae07ea66355697",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프랑수아 트뤼포의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afae07ea66355697adccab746281b349346da394bc85076e424efb43fe6f42a1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "385b0213bffe1438",
+  "field": "text",
+  "lang": "ko",
+  "text": "Die wichtigsten deutschen Filme에 이름을 올린 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "385b0213bffe14388c8adf824733ea9f1ba93c4378dd6f1d9a29a738dc23447b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b3500df1ac021359",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금종려상이 인정한 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b3500df1ac021359fdc24df9d513d2ffed7812cf02e172bc228e2e47550a9ed4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4ac01e3a53886a0c",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 BBC 선정 21세기 위대한 영화 100편에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac01e3a53886a0c47e5a511dbfb068a24ba6a46a5518c7d11e86a55308ff2b3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "90934d7285092ea4",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 Caimán: 100 mejores películas del cine español에 올랐지만, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "90934d7285092ea48c71202452b237c2a04e79c7b6a033c8805e02564b71e78b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "382e564c8e8e8135",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 79/100), 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "382e564c8e8e8135acb96ebc166ae33cb3b464be19192b539cf86d85bd9c8d1d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b1c4138cea27afa5",
+  "field": "text",
+  "lang": "ko",
+  "text": "Jury Prize가 인정한 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b1c4138cea27afa5a2737c09a2591758f3dfc39681a1411b36d4cef4591e5802"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2bce065bd649bea7",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 65/100), 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bce065bd649bea727915a5c99e585c9ad61f8a6ec12288e2ba8a8a0d6c1eb4f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a7ff6ac85f374222",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear for Best Leading Performance가 인정한 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "a7ff6ac85f37422253f70e5b877e01194db998bc3673486173d876a96e386c5e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f30826f545ad05aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 차이밍량의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f30826f545ad05aa9f708b1db5fdcd0d54d4d94081ba24bf5de1c9a5537f3ded"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6d0cb7b6e70af82c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프레스턴 스터지스의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d0cb7b6e70af82cd59f44597c722abc9cc4a5fbc43e55d70ee57472ff5b61c2"
+ }
+]

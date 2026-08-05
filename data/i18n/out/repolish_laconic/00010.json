@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "los-angeles-filmed-as-its-own-pyre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남캘리포니아의 풍경. 제가 품은 신화를 터뜨리는 기폭제.",
+  "model": "claude-opus-5",
+  "source_sha256": "bedf71546e561722b3214234e3d56d346d77b088ba72b75f8ecf9c1a4cf43155"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-a-condition-to-be-survived",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑은 감정이 아니다. 강박이고 선고이며 수행이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2acdcc474118436034730180e13a1a34063e1a2d87bf9493e38d4c54cb8252b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-a-demand-for-verifiable-proof",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애정을 증거로, 계약으로, 인식론적 시험대로 다시 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ffb97315e512479610a85dff878938696de312cb8d6bf54765c9f6bb711103a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-a-species-of-slaughter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애정과 살육이 하나의 식욕으로 뭉개져 구별되지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8de409af4c1c6737646b621739a99b24c57f5782b2e88fd0e6f2c9d9b82d04be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-an-unrepayable-tyrannical-debt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑하는 일도 사랑받는 일도, 갚을 수 없는 빚을 지는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca42e8992d0e0a79965a76c26ad4e66ccbd71b463e5838b3bfd9640723628e2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-espionage-continued-by-other-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "친밀함이 끝내 그 은밀한 작전이 된다. 벗어나려 했던 바로 그것.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b6586d3cef7988105b51afc83b0dd47f019011ca2cb2e161d7eacd655d5dbec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-fidelity-to-an-impossible-maxim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 배신하지 않는 절대 규율, 그것으로 완성되는 사랑.",
+  "model": "claude-opus-5",
+  "source_sha256": "07e9b60fdae79e78c3013d6b03f76a892f563d410a641cc9cb95c61cec8b001f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-liquidation-of-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경계 지어진 '나'가 녹는다. 사랑이란 허물어지는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5362e12c64c40d6d7f96e67d3fc9ec775c5a0cf0882342ed2770dccf77d64a41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-negotiation-not-possession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소유하는 대상이 아니라 끝없이 다투며 밀고 가는 과정.",
+  "model": "claude-opus-5",
+  "source_sha256": "69393e356fd075c9974ea22a2fa5138e8a80d1af81f758a70337ca8045c7059a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-the-act-of-letting-go",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄이 완성되면 놓아주는 일이 된다. 머무르는 쪽이 잔혹이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbbef5e7b2ce6665329a7dfa2a8662b643bfc5dc359a43614b37fa5874140943"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-the-caste-order-combusting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금지된 사랑, 곧 사회 위계가 제 안에서 터지는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9264f9ecd5e44ec8168798863930c0e04dd4e00887f462fb1027d55d4b8f7b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-the-cold-philosophy-pronounces-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에로스가 진단의 언어와 향연의 논변에 부쳐진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45cccdeae8b33b4ffd5a1a2550ff0186814c073da9e878da254f97d9e1f76fc1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-as-the-wager-on-freedom-s-risk",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑한다는 것은 사랑하는 이를 위험 쪽으로 놓아주는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "938e6249787faa9e8d1980db547080b8156aa17a1bff081f2302562b6c59be30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-built-on-asymmetric-power-over-her",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로맨스를 다시 읽으면, 동의하지 않은 여자를 남자가 일방적으로 통제하는 구조다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d558e2e71585f2f0bb5490d69eeb32bd9717f9bce323723d8e57b40fb7be0943"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-defined-by-what-replaces-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 사랑이 몸을 떠나 물신으로, 약물로, 몸 없는 것으로 옮겨 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae8076ac851e21e69c5b9a76af0525894b13e546677d05045d34012b2892666c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-forged-in-the-impossible-and-abject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "될 수 없고 되어서도 안 된다는 걸 알면서 쌓아 올린 사랑.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c148d50e5b2e2a1890f04a3c81f24ce590a5615ffd95fc12e29612c0e86fcbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-mistaken-for-duty-and-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "헌신이라는 오칭. 상처 입은 정치체, 잊어버리는 아버지.",
+  "model": "claude-opus-5",
+  "source_sha256": "829e9fd0c295598bc697f417831e3d161ffa9ad912f973e8cc81fa72ae807d6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-priced-at-the-market-rate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로맨스가 상품과 교환과 포섭 속으로 녹아 없어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bc9b2fcb5f95a57e2b7f6dfb78551a0da2ffb31833a6ef127e77692626566c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-reduced-to-an-economic-variable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상품 형식은 친밀함도 돌봄도 다정함도 남김없이 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dac09aa95cabbdc0d3c33d1ced13fc75533b614eab9f3f2e99f147c35346f838"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-routed-through-the-letter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망은 우편으로만 오간다. 얼굴을 맞대는 법이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ce14862338f320d4eb6acc365372dce9c05407fbd2828d7e53beffa0c1b22ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-s-maxim-universalized-unto-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에로스적 결합을 칸트적 극한까지 밀어붙이면 죽음의 법칙이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0232d904bad75e7ac56c90d48ab1a4b92e49f2cdc5a28da4189bbf2c1762e1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-spoken-in-borrowed-recorded-tongues",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연인들은 남이 미리 녹음해 둔 대본을 빌려야만 욕망할 수 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "708522aaf8352e6f912389ae8f6dbbed5ccae5162566a1c28305967e18509177"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-survives-only-by-never-arriving",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연인은 유예되고 어긋나고 잃은 채여야 한다. 그래야 계속 욕망된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0504d97c3c1883c4d8a2938e3e64696e5d4f98d52fda2c23818b960fcf1bd6b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "love-surviving-only-as-trace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라짐에 맞서 화석으로, 자국으로, 반응으로 남은 다정함.",
+  "model": "claude-opus-5",
+  "source_sha256": "af510cf0e81e3eb9054117bebe715f2b9a455992438de36af5b52256bfdb695a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lovelessness-named-as-active-presence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑 없음이 사람을 사로잡고 무언가를 낳는 힘으로 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "087984a75decf1e0617fc50f48cf10b06051fa8457d1d77d3bce43d1ad6208ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "loving-the-inanimate-beloved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망이 인형을, 시체를, 언데드의 흔적을 제 것으로 삼는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7dab8426732402f792d16ed927fd5759c723a810cc0cd93401266657e9157d46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "loving-the-spectacle-that-made-the-harm-possible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보는 쾌락이 최초의 범죄를 그대로 되비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "efeb38eff7c58e7401ca1e404183c1885b9e7613fc0d45c9e915dbd3325baaac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "loyalty-against-the-greater-good",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "개인의 의리가 보편과, 국가와, 왕국과 맞선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c33bd770b6f853e798d3a329acf5a04a99b0b52794b00e53ac72c811672e328b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "loyalty-as-symptom-not-virtue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "헌신의 정체가 드러난다. 병리이거나, 호구의 도박이거나, 엉뚱한 데 쓰인 본능.",
+  "model": "claude-opus-5",
+  "source_sha256": "295e13e3231232e0ea3262c501421eabaee84bb98302c6a24e7af548e3b2432e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "loyalty-as-the-only-surviving-ethics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이 영화가 성역으로 남겨 둔 단 하나의 덕, 신의.",
+  "model": "claude-opus-5",
+  "source_sha256": "14c4e9a4c2f6807706bb03274a3485ff352c50f13af98db99391f6ec09183755"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "loyalty-to-the-dead-wrongs-the-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 자를 기리는 일이 침범이 되고 범죄가 되고 배신이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0f5c7c14aa67fc96ff1b9b5d02b711e284326d918daa811665899e9a9a6b06d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lyon-as-the-city-that-sentences-and-confesses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "리옹의 돌은 배경에 그치지 않는다. 감옥과 참회의 뜻을 품고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73e4457facd8effa95050e3fd42fcec4d6ab7d5b70fb3fe59fdccdd0ec3a21b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "made-by-netflix-to-indict-netflix",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "플랫폼이 제 논리를 겨눈 비판에 돈을 댄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1815593c002622862cd638c941614c3528706113c29a96e2ee114e561c6c790c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "made-in-the-wake-of-its-own-era",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 통과해 온 정치적 기후가 연대를 새긴 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "61e4f0b7d4f35e53a28abe0a540e0083d5fb5ee5690d0c8e599dcc63af90c2a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "made-in-the-wreckage-of-disruption",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금융 붕괴와 플랫폼 자본주의가 남긴 낙진으로 읽히는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4413a5c3cde1c53c67eb5f8d09470827bce4374ec7745a5313e6aefb16f8623"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "madrid-built-as-a-stage-over-buried-ground",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시는 억눌러 묻은 것 위에 스펙터클로 다시 세워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d04edc00fc1d6720c1a4c9c48918f40e34067b4df985658c5bc3e677de396c47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "making-as-displaced-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낯선 이들을 위해 손을 놀리는 일. 제 슬픔을 에두르는 우회로다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85a5b6d4dba4155ce288faa3c3bf91960b30a4ad2834b65b7af8c572038e05f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "male-bonding-as-castration-defense",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사내다움의 과시가 남근 상실의 공포를 덮는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a73fc2934439a7f91b1e94e7c90ac596f011e6a921a06293ff5e713f0cdbaa3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "manhattan-as-negative-space-and-cage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공허로서의 도시, 막으로서의 도시, 몸을 밀어내는 기하학으로서의 도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3c229c191de57c60181f6719369ad5af05cf940b7e6535b86195ce5efa7ba6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "manhood-performed-until-it-empties-out",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자다움은 스크린에서 빌려 온 자세다. 걸친 사람을 텅 비우거나 굳어 버리게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1042bf8aa6ffaf78f94e2df9690f41a6051e7f4a7e97e0d4569bc67a9f4bf75c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "manic-defense-against-the-unbearable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "들뜬 에너지로 부재를, 죽음을, 소멸을, 죄책감을 부인하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "16e4fc493e2ab9fea73646d104bfc6bc558be9efd79438fd1f2e950ec4aa322b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "manners-as-the-weaponized-smile",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예의가 공격을 가린다. 정중한 표면 밑에 거절이나 범죄가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c8a6f18cd0fab070c2b533d7928e10b57b7c291dcac47f08c63ff307326da98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "manufactured-panic-as-instrument-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 안에서 공포는 지배를 위해 설계된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8569482df4817abfc86aa2dc77a90c81192591783bd6e458fdf74bbdd3907526"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "marriage-as-fiction-we-notarise-and-co-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결혼은 쌓인 사실이 아니라 둘이 합의한 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "546c718b0ea98b24763b3326cf188679682bde55401dc2a46c6dab7548cb254c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "marriage-as-instrument-of-property-transfer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "혼인 계약을 경제로, 부부일체법(coverture)으로, 자본의 포획으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d484c0cebbf96e9df7af2d9456edd93b88aef744d3773df173306514881b09b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mastering-the-bottle-mastering-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원의 규율로서의 금주, 혹은 절제된 한 잔.",
+  "model": "claude-opus-5",
+  "source_sha256": "b605439ef75e344b629cc08fc070df2b2afa7a919e44fb6b81687f76e23f832a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mastery-as-surrender-of-the-ego",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기예는 자아를 내려놓은 뒤에야 비로소 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "98b10a175da21f3390b07c7b03bc7a8e114e5616e288410f6763305e71bbc87e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "maternal-ambivalence-as-the-film-s-unspeakable-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이가 사라졌으면 하는 마음, 아이를 향한 미움. 영화가 끝내 입에 담지 못하는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "223d4c3686d019b9e67998c3ce78e0b9a8ebfe754ebf5918c9e07bbf9bf69433"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "maternal-love-against-impartial-justice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어머니의 편애가 정언명령(kategorischer Imperativ)을 고발하고, 동시에 그것에 고발당한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3ed1305be6ef6a2cb031c21d523d5701cabb88d75e6b32c7bcc41e719059439"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mcluhan-s-screen-turns-hot-and-devours",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차가운 매체가 제 예언자를 배반하고 보는 자를 집어삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "727f978b2e3a9b53c0a2b5eef873057c001789edb265bdc584814fc42adf6608"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "medea-s-shadow-over-the-murderous-mother",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자식을 죽인 어머니의 신화가 해석의 렌즈로 불려 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce8f248b724ac0f9a8847544cf3f15e610766ab4f81983361f8538ddc9495bfc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "melancholia-as-refusal-to-relinquish-the-lost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도로 건너가지 못하고 죽은 대상을 붙든 채 남는 슬픔.",
+  "model": "claude-opus-5",
+  "source_sha256": "a34db6c142ebbe65dd61ae0cb3314520a62a5bb64127ddc5b0b07a5c8a44112e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "melodrama-denied-its-due-respect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무시당하고 위장되고 얕보이던 멜로드라마. 마침내 진지한 예술로 되찾다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e903b808c417b074b03e6b8e739da56ab308eb6fed470d78454adae374970565"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "memory-as-a-different-tense-than-the-present",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "회상에는 제 시제가 따로 있다. 지금과는 다른 문법이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71685fae54a4db537e1d3b8fc2b6ec0efb044cd226ca08c6728f735564918f4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "memory-as-a-made-thing-not-recovered",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "회상은 꺼내 온 것이 아니라 지어낸 물건이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "016f3787a2759065916ef0833c90fb1c5f12c85a698ff69a7cd776c414921227"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "memory-as-belated-duty-already-failed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억하는 일로 의무를 갚는다. 이미 늦은 뒤에.",
+  "model": "claude-opus-5",
+  "source_sha256": "179b2a271df556261b63d1dbc534a0bda798dbda55ffddf9093fb20cfd950b86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "memory-forged-into-currency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과거를 고쳐 쓰고 찍어 내어 사고팔 수 있는 재료로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75fbad5e1d34ff972257e3241f333d5304b872d78bfe8a677854753ecdb73642"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "memory-is-the-film-s-only-substance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사건이 아니라 회상. 그것이 이 작품의 밑재료다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d63c5944506b4d48b4d12df5794305e82653b8b4f67660fcfc6ee42267c4fd37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "memory-manufactured-through-the-optical-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈와 인화기와 색유리가 기억을 만들어 낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d27522a6a34ff0c363c668a870b5b8a6c4b6eda7c3e1685fcd534842322d9a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "mercy-smuggled-inside-the-engine-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁 기계와 초인 안에 은총과 자기비움이 숨어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7934edc94bc518193a52a6b5dbd2dc8aa1e5948da54f37e63ada234eeac476c"
+ }
+]

@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3106425d16a69c72",
+  "field": "text",
+  "lang": "ko",
+  "text": "KOFA 한국영화 100선에 오른 영화, 대중적으로도 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "3106425d16a69c72c8715bf45b4b57fc98a65399b43c3868fd2b779e391b96b1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2051dfa0fefc066b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 대니 보일의 작가 계보 속에서 다시 값을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2051dfa0fefc066b45cafdafe90c1755ae0b4c9d8d3a9fc68e8c3b72afd7854f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "aa0cb91ce95e50c5",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값으로 높게 본 영화(Value 69/100), 대중적으로도 널리 알려진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa0cb91ce95e50c5bc22639ccb8147f7eee7cad28201ec8fd4a19722097bb4a3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e6036b6be1f7717",
+  "field": "text",
+  "lang": "ko",
+  "text": "칸 황금종려상과 베를린 황금곰상이 알아본 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "3e6036b6be1f7717b24c526600054ed7280ac6fa59bd72bed819cb697f3dc163"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da39a074633f883f",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Prix와 TIME All-Time 100이 알아본 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "da39a074633f883ff71692a839ee2d451acc3b790ab827e367a5cf5a1d9d8f61"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5ea820ed2fa5bdb5",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 칸 황금종려상과 TSPDT 1,000 Greatest Films에 올랐고, 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ea820ed2fa5bdb54e6d5e945fe5ef9dc2402c8059981c81c7547a211e5c55e9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "60bcec78e1f6d202",
+  "field": "text",
+  "lang": "ko",
+  "text": "베를린 은곰상 주연연기상이 알아본 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "60bcec78e1f6d202104054c5d7b09f655eec7257a2afe61932186d0b58fccc52"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2a60d509e65cd2ea",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 카림 무사우이의 정전화된 작업이 떠받치는 작품, 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a60d509e65cd2eabfc78f760bc3f017e977d593f173ec42e0ac4975e0c3924f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "416f7bffed7d108f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 빔 벤더스의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "416f7bffed7d108fa9e112833f6aba7d28765554ba39d49b3bed18d2ee9652dc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3707611da390bb30",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review 작품상과 WGA 각색상이 인정한 영화, 대중적으로도 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "3707611da390bb300fc1daf77447bdc945031c83ec622fc576f5ccaf7871e56a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2501e829ad42482f",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 베네치아 황금사자상과 Sight & Sound 감독 투표에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2501e829ad42482fbb5000a97866787a4b87b1609e6c2fc57df1c016f742ca65"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "39bccf8430bb14eb",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 아킨 오모토소의 정전화된 작업이 떠받치는 작품, 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39bccf8430bb14eb322ac07591b810766ef0dc6f3d75ec92f1425f8354043d1d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72b5b01d774c4929",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 토드 헤인즈의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "72b5b01d774c49292b9f5f51fb4ec131d5839fbba59dc4c61f0e394f35c6e69c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f49573705232f9f9",
+  "field": "text",
+  "lang": "ko",
+  "text": "키네마준포 역대 일본영화 베스트와 일본 아카데미상 작품상이 알아본 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "f49573705232f9f96126c0f1fc56e82d76aec248a1eeacb291dd9b29ae832c76"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2a76d8d308813c98",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 리마 다스의 작가 계보 속에서 다시 값을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a76d8d308813c987c4a9b531e9a7fea1a8adc46ccc751be5fb7d8a1033ff661"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "829e35260c784c5c",
+  "field": "text",
+  "lang": "ko",
+  "text": "고야상 작품상과 Caimán 스페인 영화 100선이 알아본 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "829e35260c784c5c8619917fb9f10f30b0b9fb11d4f7d8099d06e14b2ea824ae"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "94cc988457fd8de7",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 가스파르 노에의 정전화된 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "94cc988457fd8de70873914f58fc1be22a29fda7217934f9093a3106b0605b78"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7afe47a2f39fb865",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 브래디 코베이의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7afe47a2f39fb8652eed7add093d9eeaa7f4cffdd074d62c2dc13de198f072a0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "86a3072da091252f",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 하이파 알만수르의 작가 계보 속에서 다시 값을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86a3072da091252f544f92424367ed9a70df715f9dd8ad6d72a44918a3f1b332"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a9f65967038e990e",
+  "field": "text",
+  "lang": "ko",
+  "text": "베를린 은곰상 심사위원대상이 인정한 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f65967038e990ea25fcb12925948809d0deba099607ac07a4897c1ec65193e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b8fa5017b84fd292",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian 21세기 영화 100선과 예넨가 황금종마상이 알아본 작품, 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8fa5017b84fd292f9c110f834936a2dd35ee0f8ea33ce3cbf245f4eb5a011fe"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "848479071acdcb4b",
+  "field": "text",
+  "lang": "ko",
+  "text": "여자연기상과 골든글로브 뮤지컬·코미디 작품상이 인정한 영화, 대중적으로도 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "848479071acdcb4b9f23bdd5fe0857c97a7f38cd67b29db5156c6e9858b80a92"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c2230a3a36704f5c",
+  "field": "text",
+  "lang": "ko",
+  "text": "전미비평가협회 작품상과 The Guardian 21세기 영화 100선이 알아본 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c2230a3a36704f5c21b2617602aa8eddc3f8565024a63cd3dd791449e25bfc6f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2798ce01e1eb02d4",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 아리 폴만의 작가 계보 속에서 다시 값을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2798ce01e1eb02d42397bb6f7fdd36da8abd32a04e6a112370c7cbeb28c71afa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c74bdf5d68c67dd9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 셀린 시아마의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c74bdf5d68c67dd999d0edee7f8b3b5a9a26f2440da08287350ab4e00415b37e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "007871e8ce5d8532",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 존 크롤리의 정전화된 작업이 떠받치는 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "007871e8ce5d85325238c6f4e73352edd2c16dd83b39acd0934a0d4695b409e1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "44278babacc70073",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 지아드 두에이리의 정전화된 작업이 떠받치는 작품, 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44278babacc70073f379fafb7bd304a22dd0818c7131fa0311ed25fa0691e966"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6637f65ededd45d9",
+  "field": "text",
+  "lang": "ko",
+  "text": "골든글로브 뮤지컬·코미디 작품상과 National Board of Review 올해의 영화 10선이 인정한 영화, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6637f65ededd45d9f69bd616befb6ef4e4da8da02b5b7c7897c89d691db815c5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6997e96ba1a4ff6b",
+  "field": "text",
+  "lang": "ko",
+  "text": "관객상과 BBC 여성 감독 영화 100선이 알아본 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6997e96ba1a4ff6b94bdbf921dc0b8776384ed61b79bd05a350396267d7e6889"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e177c588e849c1f1",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 차이밍량의 정전화된 작업이 떠받치는 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "e177c588e849c1f1b9fdc99f6f2050b950335e006e0d2ea96a96e08eff602922"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6bf9d78b230b83ee",
+  "field": "text",
+  "lang": "ko",
+  "text": "칸 황금종려상이 알아본 작품, 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bf9d78b230b83eeb6bf0a119f327e22f241247a3ad5041ec548d4e05f3d4593"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5af5bfa5f3b806e7",
+  "field": "text",
+  "lang": "ko",
+  "text": "관객상이 알아본 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5af5bfa5f3b806e7b8a1411962df047492e3dbd1f314fa4a076c635558abb0b3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cf3132ea5754cae5",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: EG",
+  "model": "claude-opus-5",
+  "source_sha256": "cf3132ea5754cae5477014fda87344612eb03bcc2569eca373558a40985ab97e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4bacbba8ae3cf055",
+  "field": "text",
+  "lang": "ko",
+  "text": "심사위원대상과 뉴욕타임스 21세기 최고작에 오른 작품, 대중적으로도 널리 알려진 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "4bacbba8ae3cf0559c69f39f522db4607c283d123f8e70a98f3d371d8c20b190"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0c135d509f6ee39b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 코르넬 문드루초의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0c135d509f6ee39b4b0a6ab40b564f21f1b20bd18cc8fa5cb8a45f893810f936"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c51cdbf310606b02",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC 21세기 영화 100선과 The Guardian 21세기 영화 100선이 알아본 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "c51cdbf310606b023ecefe6799adca7adf346e73b4c9567341654b3c9721811b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5a9ec40bc5cb13cb",
+  "field": "text",
+  "lang": "ko",
+  "text": "베네치아 은사자상 감독상과 아시아영화상 작품상이 알아본 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "5a9ec40bc5cb13cb15624b9eaf874b7a852e009583431feeb504785c7d22a067"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "579903ef68971922",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 베를린 황금곰상과 Sight & Sound 감독 투표에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "579903ef68971922e1ec29f8de6e204235c42a519d9b6123e8c3c8ce8a7a99a3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "014b68b29b483c62",
+  "field": "text",
+  "lang": "ko",
+  "text": "보딜상 덴마크 작품상과 로베르상 덴마크 작품상이 알아본 작품, 일반 관객에게는 낯설다",
+  "model": "claude-opus-5",
+  "source_sha256": "014b68b29b483c622648495891cf8e022dd629515c5751ef246b2655c2be2a8f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "28c60ff7576817f4",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 흐리뉘르 팔마손의 작가 계보 속에서 다시 값을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28c60ff7576817f486f28b620dff2be31d0428cdf9014b79293c246f345f46db"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bb9797f254bc8658",
+  "field": "text",
+  "lang": "ko",
+  "text": "심사위원대상과 BBC 여성 감독 영화 100선이 알아본 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "bb9797f254bc86582b766d0ccf0d376b3f43bf88d2f8ed29c17f9614cefd8a64"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f766fb33f1b3ca88",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 WGA 101 Greatest Screenplays에 오른 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f766fb33f1b3ca8838ca7c064f026ad2881d7a2b29694daed7da51f5c669fc31"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "507a0ac2f7c48569",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 베네딕트 에를링손의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "507a0ac2f7c48569824b4c6ec048eba5839cf0a17dd2102a578ecabc5dfc48ca"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cfe7fcb3ac799bef",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 National Film Registry가 알아본 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "cfe7fcb3ac799bef2f98d5afc88ac83848a75eb6a7eb2e8230ffb3c54e7bffe2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8665c736bb3774d1",
+  "field": "text",
+  "lang": "ko",
+  "text": "각색상과 WGA 각색상이 알아본 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8665c736bb3774d13f0cd227d729084548bf51b6901b8fe5913aeaee86ae3d0a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "767f79b76b059ead",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 우디 앨런의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "767f79b76b059eade3b22935ca63ed4d99247c7a671eb3bddd338b95e49838f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "23e793ea6c070fa9",
+  "field": "text",
+  "lang": "ko",
+  "text": "죽기 전에 봐야 할 영화 1001편과 뉴욕비평가협회 작품상에 오른 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "23e793ea6c070fa91651169e1317f47c9f8a7b7df77b2377341c8f707626dd37"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f9657d513e75d116",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 BBC 외국어영화 100선에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f9657d513e75d116b3907061ade8a0e34ee49a7d7d410be7f7299ac19cf61c64"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b5826459afbdd49f",
+  "field": "text",
+  "lang": "ko",
+  "text": "AFI 100년 100대 영화와 남자연기상이 알아본 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b5826459afbdd49f7151bc160b184fb2e2564d505b11e29e034f3f0ddc54b908"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f3129a8e81222a7b",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 심사위원상에 올랐고, 일반 관객에게는 낯설다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3129a8e81222a7bc53127b29ae5aaefe20a98e499df27c1524ac4bc6cf897d2"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-that-outlasts-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안겔로풀로스의 한 호흡. 그 안에서 산 자와 죽은 자, 지금과 그때 사이의 컷이 녹아 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ece6d338eecfe59779f00aa77205d007ea2769765dc980e69b2af83ca1288132"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-that-refuses-to-cut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끊기지 않는 지속. 관객과 맺는 도덕의 계약이자 몸의 계약이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cb21dfae638dcc102c6080311eabf5b238a853acf6d9523cba12e525cdc91f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-look-as-contested-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "응시(gaze)는 주장이다. 내가 주체라는, 혹은 권력을 쥐었다는, 혹은 응하지 않겠다는.",
+  "model": "claude-opus-5",
+  "source_sha256": "29d1171d6b40949ca1c5e0d1943b1144a8d9a778861c1cef3491c2db06251cef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-look-that-must-not-be-returned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보아서는 안 되고 보여서도 안 된다. 어기면 파국.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce37814695ec90ab7aa94a5adf709a399f3dd9dfb7e8bc1c3ef6d98d426c04b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-loop-broken-by-a-single-gesture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "단 한 번의 몸짓이 순환을 끝낸다. 그네를 밀거나, 들어 올리거나, 달아나거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e5ef71c8c3281fa2205915e76021b050e70e8e562b12fb787a88a9bbe2180ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-looted-patrimony-of-a-dead-class",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신성한 물건, 아름다운 물건. 실은 축적의 대차대조표다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05cb6e1da83f83dccd748767b99239f6ab01c8a8e177527d0dd31f6272f974b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-los-angeles-that-is-a-soundstage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 도시가 사라진 자리에 밀폐된 가짜가 지어져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63c7f3385e6a364d306ea744efd3c1f95026f996b6e8a24727ceddb5b138435a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-child-as-the-title-he-cannot-surrender",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이 모양으로 뚫린 자리를 부모는 놓지 못한다. 끌어안거나, 입양하거나, 다른 아이와 맞바꾸거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2ede04a938ce9ad862549a2c0e680a848ab5bcdeef9d3b9a6447ed801e01bf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-decade-as-abandoned-children",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "방치된 채 기운 없는 젊은이들. 일본의 침체는 그들을 통해 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48f99fb65d223a6b603f029f3aa7de5b006ad2e2b56aea3f9c3151d3d79e6d1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-decade-reading-itself-as-drifting-youth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불안정한 일자리, 멈춰 선 삶. 일본의 불황이 그리로 굴절된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dab1c9674150127c77dd751bd90c4d832bbea0c611de2cd4068ea13b9f66ffb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-limb-as-insurgent-remainder",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시들었거나 갈아 끼울 수 있는 팔다리 하나에 체제의 논리가, 혹은 그에 맞선 반란이 새겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45815ececfc2c569a367011226a5c59ae4666d8a3f3086751767b8fa66d785cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-object-that-becomes-relic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잃어버린 물건이 성물(聖物)이 되어 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07971ec10386f81e042f99efcaa2601a8b097a8eb372b310196d8efff3ad994c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-love-story-as-smuggled-class-audit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로맨스는 걸쳐 입은 옷일 뿐이다. 진짜 이야기는 자본이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9b94bb013768e2305be39d5c005b8f151da5b1842b15e4423074257eff369a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-love-story-is-really-the-border-regime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑 이야기는 구실이다. 정작 다루는 것은 이주와 거리, 그리고 관료제.",
+  "model": "claude-opus-5",
+  "source_sha256": "a665fc0eb5e6fa83e3a90a80fde6a9a90fc349eb37472d9903ca6a464a274d55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lover-consumed-by-her-painter-s-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑한다는 것이 곧 잡아먹는 일이다. 연인은 먹히고, 화폭에 갇히고, 벽에 걸린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "322ff195818d70520b5e3e32f8d651da716de2fc0e629d4c2a1bc30d8a84acee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lover-who-became-his-own-novel",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑이 소설로 소화되고, 쓴 자가 그 소설 안에 들어가 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c84c59cec48c0b35c216908d55ff5c07c09ad81198b9357bb0aecee5169c05b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lover-who-consumes-the-beloved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "삼키는 사랑, 제 살을 먹는 사랑, 거울에 갇힌 사랑.",
+  "model": "claude-opus-5",
+  "source_sha256": "69d90ee5c79aa275b68cf4eb671e18aa22c136f98fc30b837d8b88ac393963ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lowly-courier-who-becomes-a-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바닥을 기던 인물이 어느새 도덕을 설파하는 자가 되어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b3bc4c9c14a0f8fa821c9a7e57e7860e69984a04ce9e2c78d3366a7e4d1f5e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-loyal-blade-that-cannot-disobey",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명예가 곧 감옥인 가신. 그 감옥의 이름은 복종이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d61daba33de62a6eecf59e79bdb4b2614845690c575221ec6e4afec5ab8f43c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lucid-madman-who-out-reasoned-the-system",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위선의 선을 넘어서까지 멀쩡한 정신. 그것이야말로 진짜 공포다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d104784b4d13651200171746298e58fb4e989750406591bb74f2efe034008493"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-luminous-beckoning-that-withholds-its-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오라고 부르면서 끝내 이유를 말해주지 않는 빛.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5c3402d2d16bee6e5330b952df86c8c3e92e43a93e9c66b44fb7776790afdf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lush-land-filming-a-spiritual-drought",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "땅은 푸르고 사연도 깊은데, 카메라가 담는 것은 안이 메말라가는 광경이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16f828b866501f1418d40f36cd7d2839925bcaa32fffa77d649671b11e64dbfb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-macguffin-that-refuses-to-stay-empty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기를 굴리려고 놓아둔 물건. 알고 보니 영화의 의미를 전부 짊어지고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05378201ee8a7288a28850a51a5af286895e5bd59a959539e011bcd8380b25a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-ancient-sacrifice-not-progress",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강철 밑에 도사린 것은 진보가 아니다. 오래된 제의, 신화, 짐승이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff2c63927392ca26781c1cc58016854250f0f076f95bfc534607534a5ebf9420"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-devouring-modernity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기차와 유조선과 배. 엔진이 실어 나르는 것은 역사의 치명적인 물류다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8ca5ceccce0e4f250481b6cb39bb53c929b61f018009d7c0646f0c6c5735e7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-disavowed-castration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "탈것이나 기계가 남자에게서 남자다움을 앗아갈 듯 위협하고, 그 위협을 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b72bf6a5cad87ab1626f3b6dc836dea562dcb6c37f38ba96047a19a798b7752"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-hulot-s-stuttering-speech",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "윌로가 못 하는 말을 사물과 장치가 대신 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b28cb556d35551ca1eda23e4334adababbcea43358b4f7fdb0e87193bad21a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-ideological-idol",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 기계를 우러른다. 자본의 영웅으로, 때로는 혁명의 영웅으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cb7480030141d4a754e76ee53493dc8642559fc972abc83d3e7d294d55427c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-reasoning-from-an-imperative",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 도덕률에 매인 인공의 정신. 혹은 그 도덕률을 스스로 지어내는 정신.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d3aa2b6b80095741d8fbe4ba28e4e8fe8ba9625a8ac3197f4f09006b8301e21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-discovers-it-has-a-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만들어진 것에 안이 생긴다. 양심은 바깥에서 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b64e7bddf8e05dba1c95ff7a76cf04ec7b1f35358d4848c832bf32e5b4d80c9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-embodies-capital-s-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자동인형, 기계 팔, 촉수. 살을 얻은 자본이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4708767bc07ab3d5f942c78dba2544ffb312850bc5fc3289460441d3a459b4c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-holds-the-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가장 내밀한 말을 테이프와 녹음기가, 사이에 낀 기계가 대신 받아 적는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0d46665ee61b46571f1d3863b24baaecfdcee0a011a714037c2559bfca93a0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-learns-to-govern",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예측하고 분류하고 지배하는 자율 시스템. 사이버네틱한 공포.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb271c47730e15aea4ae27d154abe26634e728f3b820e33a684a02a2e256c625"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-manufactures-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장치 앞에 세워두면 진실이 뽑혀 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "348aa3131778f0adddddc79668ac1304b971368be5c89be556b87b88c61a3925"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-mourns-us",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계는 우리보다 오래 남는 데서 그치지 않는다. 죽은 이를 슬퍼한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bfd16c0a65d773f9690ad1720809d7b6a77df20283001691f16376096aa3e45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-sings-its-own-symphony",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공장의 소음을 다시 들어보면 하나의 관현악이다. 기계적인 것이 숭고(崇高)에 닿는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "15339af142e9e8047070c8fe56499371ff7cc635c598a22ad59c1589b98ff677"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-undone-by-its-own-imperative",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "논리 체계가 제 핵심에 박힌 모순을 끝까지 실행하다가 스스로 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ec458d479ad976eb25d8ed77f0d9c2347faff5ddc05674b317bc7d3992c21a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machines-speak-where-the-men-fall-silent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람의 대사를 지운 자리, 기계음이 의미를 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35ae47f9697ca32aec3769ed7738bf691215d8798e172d873f7f3f7cacad5b59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mad-quest-to-drag-a-dream-through-the-jungle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정글로 꿈을 끌고 간 피츠카랄도의 미친 짓. 식민주의로도, 해체로도, 패러디로도, 변방의 메아리로도 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ced503205401efe7d53d4f7519d58eec5fb42e034bffdc408b1c87f572bc7bdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-madeleine-that-triggers-involuntary-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맛 하나, 소리 하나, 물건 하나가 묻어둔 과거를 터뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d79b729e438db3872a01779aacc817e7128ec15a5d84fb886dd83f17acb3593f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maghreb-as-cinema-s-hired-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "북아프리카는 어디든 대신 연기한다. 자기 자신만 빼고.",
+  "model": "claude-opus-5",
+  "source_sha256": "657d11c479bd9ee1edcf8f22bcf4bccd6c92215f8974916d35c2cef7c406d255"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maine-that-was-filmed-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "메인 주라는 배경. 정작 메인 주가 아닌 곳에서 불려 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "994994409d200b839f1adff93dafb6032056c29b742003f653bc9d7674b19df5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-as-the-economy-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작가라는 형상이 페스티벌-자본주의 기계 그 자체를 인격으로 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fdee77f5a8bb41923b1c8dce4843453b51f8289de3da0ccc1d1eac8c624a48f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-consumed-by-his-creation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 손으로 만든 종말의 물건에 과학자가 파괴되고, 먹히고, 끝내 홀린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9af8d93c93100c8306b5cca28920fa5a85187452171541f4bc5f063e5d73ff3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-erased-from-his-own-music",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품을 지은 사람이 그 작품에서 지워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f33f6067477820a3b6ba86cf9b01939550236c316e0d51dc6a198d26859de0b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-indicted-by-his-creature-s-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'프랑켄슈타인'은 괴물의 이름이 아니라 만든 자의 이름이다. 이름이 곧 고발이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87c9076e57d770b183337695712924719bd259edef096888536b0bb35ece6d23"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-indicted-by-what-he-made",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "창조는 깨진 계약이다. 기술자-신은 일을 그르치고, 뒷걸음질하고, 심판대에 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f6dcb4cdeebae65038349f5d4e400ac92cc40015bcaebb9e8178f6337117eb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-outlived-by-his-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 천재가 풀어놓은 파괴 앞에서 물러서는 창조자.",
+  "model": "claude-opus-5",
+  "source_sha256": "fca806cb465f5fdc3d863e9f7c0bdd46dcf75c938bb99941fd3586b3f5b10b75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-outpaced-by-the-mind",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기가 설계한 지성에 밀려나거나 아예 무너지는 창조자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "961f2c35d1e15e931ecdc730f43c94f910b7b3dbcd5f514147b12ce24e1aace5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-s-day-job-becomes-the-method",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인물의 직업이 그대로 이 영화의 편집 문법이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7861db5776c46112203749be159f46bc0b7575f85f8009afb1b1243ae1a090e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-who-disowns-his-creation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 지어낸 위험한 것을 제가 부인한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b29d02ee87e82e255e90556bc2f1f80694e53234cabaaefa56072c7f3bd1bc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-who-loved-machines-over-men",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계에 바친 마음이 시장도 군중도 앞질러버린 발명가 영웅.",
+  "model": "claude-opus-5",
+  "source_sha256": "55a8f1f931957727bdcca2c594c12631361b5d492d96381ee4bf8f0da1bf8162"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-who-mistook-the-filthy-for-the-holy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "천한 기예를 신성한 예술이라 믿었던 장인.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ea49b1dc0c10b364a48a5c8e5df48c2cd293731da142351c71f21ce31d57775"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-working-against-his-industry",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상업 영화를 정면으로 맞세운 작가 개인의 비전.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c8ad7fd27cceac6b44adb3b3e90436b139c250ddf140608deab7c7a033fffbe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mall-as-america-s-commons",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광장이 사라진 자리를 소비의 건축이 메운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "680e4973ef2da0ae0bc6ff8edb01009568d5790e4a9ed44698f63cdf543e7d10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-dissolved-into-his-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쌓이고 쌓인 배역 밑에 남은 자아는 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8a63ddb2a07bb9ee826f61fd41d161f5576f03be019aef5ea72f0a5806914ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-living-inside-his-own-legend",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미 신화가 되어버린 사람. 그리고 그 신화 안에 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a40311ecfbf4f01444d5e6aacefb2101086297e486afc9b0272c21cdd78987c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-renamed-by-his-trade-or-field",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "직업이, 풍경이, 떠맡은 역할이 사람의 이름을 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3030d7ed46ce4dfe879df9dfa4ccfb45b762edbb34f048a976ce0374fd11ddce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-authored-his-own-legend",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스스로 지어낸 신화를 연기한다. 연기가 그 주인을 삼키거나, 주인이 연기에서 달아날 때까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "165b2994e9381d9e3ae773b858d7553128da5bdd8f6c52d2aba94f093cdd7cc1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-came-back-to-collect-a-debt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "망령이 돌아온다. 산 자가 결코 갚을 수 없는 빚의 채권자로.",
+  "model": "claude-opus-5",
+  "source_sha256": "af02496ca880e036f8fef2f3a236f9100874333e7cba06302d2da09b11d46d0e"
+ }
+]

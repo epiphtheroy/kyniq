@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mystery-that-voids-its-own-detection",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르의 심장인 추리가 속이 텅 빈 채로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4be75a3fc06c59ed7a630410f982777c7c4d5148de128e254052d7355b0c90a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mystic-whose-body-counts-the-pain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경련과 편두통, 앓은 만큼의 셈. 환시가는 그렇게 진단된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "03d8b934fb7b6a9d65fee207d7b8db70f2c46a8a404e81796311e49ec0cccae8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mythic-rome-versus-its-stone-original",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 꿈꾼 로마와 돌로 지은 실제 도시가 서로 다툰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "465a1bd8b5d4d3b5e58d75a5159a2de06c4ff6a96742f1ae703d137b1f488410"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-last-unconquered-possession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름을 제목에 거는 일. 그들이 끝내 빼앗지 못한 단 하나.",
+  "model": "claude-opus-5",
+  "source_sha256": "36ac401c11d86391421196a9ff68890529ed18edde7a8de9ebc72c4c248a1139"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-self-one-must-recover",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 된 이름은 남이 붙여준 명명에서 되찾아온 자기 자신이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b29236ee86fc6e8f1dcfde7264488ce1581b95d37437c8034cd89ba68324ae8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-symbolic-order-auditioning-its-subjects",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "체제는 이름으로 주체를 시험하고, 분류하고, 가둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a91d827fde0b02fbd032cc975ebea6efa000ae0a9b3d5a265737893a599e1da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처가 사는 자리는 그 말 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ae65cc51c132fcbc4481271d03e720574ff18bf93458550c610639ef0ba71be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-inherited-versus-the-name-chosen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "운명으로 물려받은 핏줄과 스스로 고른 정체성의 싸움.",
+  "model": "claude-opus-5",
+  "source_sha256": "38c6741fc26bc9a6ab94af5ba33cfee1225c2539f620ab39136ab735c580125f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-is-the-plot-s-master-key",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감춰졌거나 가짜거나 바뀐 이름 하나. 모든 자물쇠가 그걸로 열린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cf2b2e74ddc8b3cd0a0788060032f82ffa07768b936245eaa012739975ca536"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-lolita-that-erases-its-girl",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "나보코프의 텍스트. 그 신화가 붙잡힌 아이의 실물을 덮어써 버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4086bb056ca725f2d1c7997b52b1fcd4e3cfa29ae40df6a8157587f8134ac57b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-renounced-to-outrun-the-father",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름을 갈아 치우는 일은 유산에서, 혹은 성(姓) 하나로 축소되는 데서 달아나는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16de54e353809ed1deb4f5db26a061d8bc9719fb17e672bb8cd3f1a83bef109d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-conjures-the-thing-it-names",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부르는 순간 생겨난다. 주권도, 자아도, 원소도.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d14b09460991c2c524c61a0d70404ba6ebf2692f3ae63ece3eb7fe73e8a375b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-dissolves-the-person-into-a-thing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 사람과 물건을 한 덩어리로 녹여 그 사이의 선을 지운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc2283c2ffd3ae0e86d3f95e7c1d4aac6c1c692b653372d501a3593cb42a2b16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-eats-its-own-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 자체를 삼켜 버리는 제목. 애너그램이거나 신화이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "b10a2e4afdf6df4117950a149fc363c31432dbd134fa5072749da020d1d9b358"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-erases-the-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "브랜드가 된 이름이 한때 그 이름이었던 사람을 먹어 치운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "289823a8a27bd96297ce425697ae645047395bfcb19a05f704e39d2e4ff30278"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-names-a-forbidden-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고유명이 가리키는 것은 권력이 억눌러야 하거나 없애야 할 잉여의 자아다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a62718cb1d0d3cd9f6dc6e4958d39bb0974990e794c9ba7785c88c9b7f560da6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-naming-that-refuses-consumption",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름을 불러주는 순간, 그것을 먹어 온 먹이사슬이 끊긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f74fa2758de7032e33fd0aad1439097f20b57a366d8cd86160a1c81dfdc5abc1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrating-voice-as-self-exculpating-bad-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변명하는 보이스오버. 그 변명이 곧 회피했다는 자백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10c5f78774d9e5b9e0bd4b7b6465f05cbc566dc5a499598b275963f6706980fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-already-confessing-to-authority",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기는 심판을 앞에 두고 행하는 증언이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "53378f6ee3b1366dc3303ad406990e5847b4e44debed13467d287b596ff53329"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-as-hidden-hand-of-fate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리가 위에 앉아 도덕의 질서를 주재한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b4fe0c2bd7f2dc4aba797e93f9bca79cdfff91d1adc033be5f860f64db52513"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-speaking-from-beyond-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "들려주는 목소리의 주인은 이미 시체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0da3b73af1f1654866b1a1296e2dee9bcf8f94af2f89dab09c11931159c996a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-speaking-from-beyond-his-doom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파멸이 끝난 자리에서, 남자가 제 몰락을 이야기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd08bc4bbeba5086b0215e0f46df3084b38144ee28f32df71c5f159b26518ef5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-speaks-for-the-verdict-rendering-collective",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초연한 그 목소리가 곧 판결하고 파괴하는 사회다.",
+  "model": "claude-opus-5",
+  "source_sha256": "788413c99293bcf45ef90cd8cd981a2291a1e2760d2ef442e7cae67c9ef145d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-survives-because-he-must-tell",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "들려준다는 것은 그 재앙에서 혼자 살아남았다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d33aedf52ef3793e4f816871125d1ff0201861fe7ff4dab2bfc6b8e386ea698c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-who-is-secretly-the-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리는 스스로를 써 내려가는 원고다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee816655a7031268dd3f1558ce5b6107db343b9cee592ac80a539c5365f8c418"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-who-reports-his-own-vanishing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "따라다니던 자가 제가 지워지는 이야기, 제가 무너지는 이야기를 들려준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "decf122c89213ec08390807d8987b5d854b35e86557c688a6006d26be694c156"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-who-sees-beyond-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보이스오버가 가능한 시점의 경계를 넘친다. 진짜 화자는 욕망이거나 스펙터클이었다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a339c9f397ef8ec3328609c80febca7ef79a0b15eda0cc28e2335ca39a0c13ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-whose-story-indicts-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓말을 하는 쪽은 이야기가 아니라 이야기꾼이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c6d9f9b7a62badbbe1bb7903214737f01f9b440dad5b200cb9d583d2feefa06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-allegorized-through-its-crisis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "긴축과 붕괴의 장부로 읽히는 이베리아와 그리스 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb87aa58c39b477be08e10608058bf0504e596f3de082ec8b5c138346bf16166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-built-on-the-buried",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권은 흙 아래 묻힌 것 위에 선다. 시체거나 기계거나 죄책감이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a49c8a39828704bb448ba8ee33241bf617ef6627fdf4582d897822e662c7e12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-founded-on-a-forgotten-murder",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가는 묻어둔 범죄 위에 세워진다. 결코 입에 올려서는 안 될 범죄.",
+  "model": "claude-opus-5",
+  "source_sha256": "82d81b5aedbb58c7789ca67c3cec12674c3a3afaa86e2c523ef1a2bd7cb545ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-hidden-in-the-filth-and-beast",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전후 일본의 몸을 독소로, 돼지로, 침전물로, 배급으로 암호화하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "592269fe9af91448d0347fb4ed3833ddaa869e9aacb30d09dfc46c2ca777ec19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-re-enacting-its-own-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일본은 폭발과 트라우마와 자살을 되풀이해 무대에 올린다. 일종의 자가 치료 의례로.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ee7248c3753276ecf43e2ea7cc7f543b31853bcefa966ef094841a7a4296238"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-s-defeat-worn-as-costume-or-setting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시대극의 의상, 이국의 배경. 제 나라의 전쟁과 패배가 그 안에 실려 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0121614287ea92675a291e44cb92ac5753d2285fdc76b3b6e1638b78d22417d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-that-can-only-sing-its-loss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라져 가는 민요가 개발국가의 애도를 대신 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8da390b5ff9aaeff003aadbeaedfb650e7a190bc56b2625b09f199fa232174a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-wanted-a-less-ambivalent-war",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔들리는 관객을 위해 영웅을 벼려낸 스튜디오 시대의 불안.",
+  "model": "claude-opus-5",
+  "source_sha256": "9df56742dafcaa52e643906a76eead8d7ac5198ad805ee0807986e566a3a9494"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-national-wound-misread-into-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한국의 재난과 국가의 실패, 장르 영화를 돌리는 숨은 엔진으로 읽어내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "b11fdb53172a66d069b8d8477469f05c68e567c7c50b1969b31306324d2ab943"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-naturalist-who-studies-life-from-outside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아 있는 것에 끼어들지 않고 분류만 하는 관찰자.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bb5515c0b2b64737c9a7f1f8f781d269a7c280932558bbc2be36489fbd83951"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-naturalist-whose-specimen-is-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목록을 만들던 과학의 시선이 방향을 틀어, 목록을 만들던 자를 붙잡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1ce04990d33e0080ff258e82bcc24ed0ddda04beda14c30043e1187a6479a14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-needle-as-instrument-of-addiction-s-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주사기는 화폐이면서 상처이고, 의존의 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de6b19554dae8df2db4a380214bc4c6fa1b8532689cd1be9e079521b23a7ef46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-needle-as-the-worker-s-last-means-of-production",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바느질은 노동이자 소유. 그리고 꿰매는 것은 몸이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff658156e77dcff3ece94763e4008ff6de8b684aa5785429b4c26c20d8cc5c44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-needle-that-sews-and-punctures",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바늘이 곧 증상이다. 집안의 손일이 몸에 낸 상처가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee148529f93ca649aa12b62d0c2b5066873daa95d44c0f6a5c9f8790a5e4a5e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-negation-that-affirms",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 놓인 \"아니\"라는 말. 그 거부가 영화의 진짜 단언이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43f3e71d6ca6e92f86e074840465b4b692e2f1e2584e795e8c4b0bc0b7260056"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-neighborhood-as-unbilled-character",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "포트그린은 배경이 아니다. 함께 움직이는 쪽이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af2e37d94e980a869accc871e9bbf75cc3aa5bdbef7cd64489d503d7a95c45ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-network-replaces-the-couple-as-love-s-unit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연결은 구조로 존재한다. 짝에 깃드는 게 아니라 여러 마디에 흩어져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91bdce772e05ced9a2feb1848c7c849159608313066aad93e9a11d31642477b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-new-wave-as-doomed-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 운동에 이름을 준 조건이 그 운동을 부순다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9c34c13a5b7a03d44c4189a4bcd4c6fe7d18be8aee9657d38129617e16c0edc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-new-wave-watching-itself-age",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 기법과 제 중년을 향해 거울처럼 돌아선 운동.",
+  "model": "claude-opus-5",
+  "source_sha256": "1acb1fb94cbbd46b8c8ac9e2200e24e7c3c827d0a7c9c6a0e1b982b20b62a820"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-noise-left-in-as-indexical-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "침묵이 아니라 소음. 닦아내지 않은 실재가 그대로 미학이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "369c87a49aafa5b0bae415d97891dafbebe68982bdff5d93fc25beb3c198171c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-non-actor-carries-the-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배우가 아닌 실제 사람을 세워, 렌즈 너머로 진짜를 들여보낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba386fb67cb9e983578d7d5938ba430daf9a8e53b3037981ebe1f45458dc69cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-non-actor-whose-reality-outacts-acting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재의 몸 앞에서는 연기가 불가능해진다. 그래서 견디기 힘들 만큼 진실하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f0e073f5322a42442486468741e20ec02c97baaebf38f82598c3172e1ab3674"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-non-place-as-true-setting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "환승장과 이름 없는 실내. 영화가 정말로 다루는 것은 그쪽이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12e3f38f5f023f7ef00db7b0796fb7b025af4216b7f3a3147365d3b8789000ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nordic-place-filmed-as-displacement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 북유럽의 장소를 망명지로, 비현실로, 어디도 아닌 곳으로 다시 찍기.",
+  "model": "claude-opus-5",
+  "source_sha256": "97cdaed863e6efc575683b3759fd34dee0ca1b1bad08f4db666936af46d51ebc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nose-as-displaced-castration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잘리거나 자국이 남은 코가 위협받는 성기를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0031d3b9081f10b8b4a53d27519aa45c415fa0ff0ca12c748d088020f28b163"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-number-title-as-hidden-deadline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 숫자는 이름표가 아니라 시간의 선고다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ad4a1158f8e170f5d8678f5c59a16a10dde8aef85cc5bfa42b571aad68c90b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-numeral-is-the-film-s-true-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속편에 붙은 번호가 진짜 의미다. 강박으로서의 반복.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e922a640dac9ef9f052e36bfc4aab63e853196f3f19b302c4550084b1188578"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-as-congealed-labour-turned-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "노동이 굳어 물건이 된다. 그리고 때로 그 물건이 들고일어난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d560f9c4e6706a9a64ba1d670d708f09e64b48198e8027a217c176d9a1be587a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-as-the-only-continuous-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 연속성을 버티는 쪽은 인물이 아니라 사물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7664df77c231cee93ec194621dd58965b8bf2c6c7f1c574b5c86ceff0f3538ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-earns-its-soul-by-being-wanted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장난감은 남의 욕망을 품삯으로 받아 마음을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f370e8ee300a2f21542504b44f8e7426520c5aa513305db514aa85040fe3817"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-set-loose-from-use",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쓸모에서 풀려나 떠도는 상품-유물.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e7459e0a1d0fb5b3bc90e4d1299caddf367ea14514ae1d5a69618d099f5549a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-carries-the-father-s-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "숨 쉬지 않는 물건이 아버지의 그리움을 실어 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7779eccee653719ced560b2e2f9a5a5c072ad1f8facfdaf98f038887894e4413"
+ }
+]

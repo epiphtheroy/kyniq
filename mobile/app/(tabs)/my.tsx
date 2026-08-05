@@ -51,7 +51,7 @@ import {
 } from "../../src/components/ui";
 import { MiniStars, useRate } from "../../src/components/RateSheet";
 import { METATAKE_BASE } from "../../src/config";
-import { ALL_EDITIONS, langLabel } from "../../src/editions";
+import { ALL_EDITIONS, langLabel, uiLocaleLabel } from "../../src/editions";
 import { Appear, ProgressBar, Shimmer } from "../../src/components/motion";
 import SignInPanel from "../../src/components/SignInPanel";
 import { t } from "../../src/i18n";
@@ -1131,7 +1131,7 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
 
   const edition = ALL_EDITIONS.find((e) => e.country === prefs.country);
   // The modal floats above the navigator — close it before pushing a route.
-  const goOnboarding = (step: "edition" | "language") => {
+  const goOnboarding = (step: "edition" | "language" | "uiLanguage") => {
     onClose();
     router.push({ pathname: "/onboarding", params: { step } });
   };
@@ -1253,7 +1253,15 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
               onPress={() => goOnboarding("edition")}
             />
             <Hairline style={{ marginLeft: ROW_INSET }} />
-            {/* The third axis — unrelated to the row above it, by design. */}
+            {/* The app's own words. Follows the device until someone says otherwise. */}
+            <SettingRow
+              icon="chatbox-ellipses-outline"
+              label={t("you.appLanguage")}
+              value={uiLocaleLabel(prefs.locale)}
+              onPress={() => goOnboarding("uiLanguage")}
+            />
+            <Hairline style={{ marginLeft: ROW_INSET }} />
+            {/* The third axis — unrelated to the two rows above it, by design. */}
             <SettingRow
               icon="language-outline"
               label={t("you.language")}

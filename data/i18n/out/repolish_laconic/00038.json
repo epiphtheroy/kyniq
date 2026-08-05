@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-footwear-that-signs-a-hidden-pact",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신발 한 켤레가 계약이 되고 서약이 되고, 때로 탈출의 수단이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c603c1414eb0f4b9cf7398fb5760f19aca7e2c3f0baf9abd3bd3e39faf026c6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forbidden-door-as-threshold-of-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "봉인된 문. 보여줄 수 없는 라캉적 실재(the Real)에 붙인 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a17eeaacbe2086d337ef182efadea118d076d57beaf6a8cd31e489f8d442319"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forbidden-fruit-of-female-knowledge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사과와 열매 따기에 새겨진 앎. 여자의 몫으로 갈라놓고, 붙들어두고, 끝내 주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4003d951a9ef50b05005c7e63c546f570e215a264342e0cf180782c22a103ef8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forbidden-love-brokered-through-wartime-chinese-longing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이주를 건너, 사투리를 건너, 끝내 말해지지 않은 한 마디를 건너 미뤄지는 사랑.",
+  "model": "claude-opus-5",
+  "source_sha256": "21f8899b6e032ce34b6168cfdbfafb895eaefef2f3ad4590116357599bfb44be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-foreclosed-capacity-to-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "원하는 마음 자체를 죽여버린 인간들.",
+  "model": "claude-opus-5",
+  "source_sha256": "980e1fa4fd5e5ac409fd453e36ba5e94fa5813c85f0cc4e020c5a196a9904f6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-foreclosed-speech-of-the-powerless",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말을 빼앗기고, 낙인찍히고, 입을 막힌다. 들리지 않는 자들이 잃는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d772a739110cda55c5f1cca8c29a6baae4e7c7131191426d08df722778174ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-foreign-built-from-found-stone",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 문화가 실제로 쌓아 올린 건축을 가져다 조립한 상상의 세계.",
+  "model": "claude-opus-5",
+  "source_sha256": "e52bfab6f3bd6a1e2e55a598a7a302d58c528934aafe2f1aa578d3a7dcfcc0f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-foreign-city-faked-on-english-soundstages",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영국 스튜디오 야외 세트에서 불러낸 미국의, 혹은 만화 속의 대도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "744989a6a60a376000951bf8953331cc590fb1bfe2c6cce8913a3c3ce04a3f07"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forensic-dossier-disguised-as-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다큐멘터리스트의 눈이 이야기 속에 증거로 숨어든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "752e8bff2b13422edc169d93723e7869f516d5de585cb40c3b6daa058fbf3f7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forest-as-moral-watershed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "생태의 양심이자 윤리의 지형인 숲.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa357ef576e46594fa973a66bd11e88b5dc2bbaa1269ab2a55a2d77b7afc610d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forest-as-planetary-immune-response",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독에 물든 야생. 황폐가 아니라 살아 있는 몸이 스스로를 지키는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f6755376da6167d014bc9bc5c771f55d1b2ea1f19da3f1e1c6f73033e011a4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forest-that-plays-another-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 숲이 다른 시대, 다른 지역, 다른 전쟁을 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "62af2170356f74d7b226f98ac8a1555d96ea39d3badeb29693e833f171dca96a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forger-of-belief-not-paint",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "캔버스가 없는 곳에서 위조되는 것은 믿음과 현실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ff330bd0d785484e9ace1c9b836db39f8607017a5a9df5ad3134933601250cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forger-who-outpainted-his-masters",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베낀 쪽이 원본을 넘어서고, 그 자리에서 원본을 끌어내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e3473960ae032bdf946987924c929e7ebdf8f19a5704bb95640129a7fd02f9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forgery-that-confesses-cinema-s-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 매체를 위조해 그 진실을 드러내는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "238ef65bd45f2c36e662bc92fea08529081545693fc76fd04a84a48cf0c5ad21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forgery-that-voids-authenticity-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "완벽한 가짜 하나가 원본을 먹고사는 시장을 무너뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1135e22a58ee98641756e0f71e7cf494ae219cc28444a5d91e3efeb34025d7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-forking-path-made-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보르헤스의 갈라지는 미로, 그것이 곧 이 영화의 뼈대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4805a7c685318edac878dcbe3042134b92b349c3322efc16f3230374952d1486"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-form-critics-mistook-for-cheapness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평론가들이 잔재주라 깎아내린 것. 실은 그게 영화의 논지였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cb3a15302e86d3175e00ac4e6487a8bd9e074fc79e55f02268d8fc7fbd4f742"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-formal-cut-that-spares-us-the-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구조가 그 폭력을 보여주지 않는다. 관객이 끝까지 앉아 있을 수 있도록.",
+  "model": "claude-opus-5",
+  "source_sha256": "31072c752f5d1243c9553b6a500e3b5678147bb52539e35de997370f92fa5083"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-formal-refusal-as-the-film-s-deepest-statement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보여주지 않기로 한 것. 그것이 감독의 가장 대담한 선택이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "291be1ab2c41195e18ee14915a4b5ff365dfd6705e2c452dc39d944a05b1fcc7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-formula-calibrated-to-a-new-market",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "디즈니의 공식을 늘리고 고쳐 새 관객에게 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f78417a0d19df7c0c5b96f89f4c581501f7b4f59c6855cc2d0854ed8337e9790"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-crime-sovereignty-must-disavow",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 국가든 살인 하나를 딛고 섰다. 그리고 그 살인을 성스럽게 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b849441f72e695cee60128eff588d789349e7fc0bde61ba051eea88d871f81b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-lie-that-builds-a-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어낸 내력 위에 세운 자아. 믿지 않으면 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5c8344be47522401379f6d23d76e94aba1a27fda9bb6d22687b0a332c9f6755"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-murder-beneath-every-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정착도 법도 원초의 폭력 위에 얹혀 있다. 꾸며낸 폭력 위에.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cc0b5f437293ba93fd8ae0bf8f65eac0e5de8de99b590d4bb3e277b6231d7b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-murder-that-births-the-group",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "첫 살해가 공동체를 만든다. 정확히는, 그 살해를 부인하는 방식이 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa37b8f155871c15dead50903f0302cddd44cb7219a8a0c02b09dd34bebf0aab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-truth-withheld-from-view",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파르하디는 발단이 된 사실을 감춘다. 그러면 진실은 사실이 아니라 심문이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79cd779445ad791ee76fa0d6b5e01fdd07d6d23c671ba99b70e15fb1c3122940"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-a-bruegel-panel",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간의 어리석음이 빼곡히 들어찬 화폭. 영화가 거기까지 납작해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "394905ac0288721b89333cec193310fb52c76c7405e5e86b973cdd05206dbb9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-ink-brush-scroll",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고전 회화와 서예로 읽는 중국 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "06ea704403c3bd1b1f0ebc75dee7b371e8721a6dcdf56026ce21d5f751396386"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-sacred-painting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파솔리니의 회화적 정지. 도상(圖像)의 경건, 영화 이전의 경건.",
+  "model": "claude-opus-5",
+  "source_sha256": "823491ad7daa58600a1e29b15b6329e323ecafc466915c6e071cb1970a5be118"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-wyeth-s-spare-plain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "풍경을 앤드루 와이어스의 마른 붓질로 읽는다. 고요와 거리로 짜인 화면.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3f3bd13137254fa7759313eef9643d89b976ab643303f3c0646fefd8ddb24c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-confesses-the-tale-is-a-eulogy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 화자가 액자를 열고 닫는 순간, 영화 전체가 조사(弔辭)였음이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76afe5393fed0bb6b438391a8abd14eb3f846a0e941daecee432e4f294900c80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-held-like-c-zanne-s-mountain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하나의 형상으로 강박처럼 돌아간다. 반복이 진실을 뱉을 때까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d8be30f18c61878aa9af86d460ce479895855a9e9b55e12f6e1cefaf6237e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-itself-is-the-sender",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보이지 않는 누군가가 이 이미지를 우리에게 부쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "744db23da6c86154a1bb95a185de0ecd476a453bb2eb3e021e2d0ca1bb5ba589"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-painted-after-goya-s-black",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어느 스페인 화가의 공포. 그 캔버스로 읽는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "db30f5e3c4601b07750838226db0903e7735d5ff6995abf4282a3ee8b9c3a03c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-painted-as-a-rothko-field",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짙게 물든 색면의 공허. 지워버릴 듯한 추상 안에서 영화가 벌어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a200c9576e761d6370dc66c4ee6e772ebeb621be62d00f5649347f529eece2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-painted-as-munch-canvas",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에드바르 뭉크의 불안한 색과 모티프로 읽는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "91d6e8db94f6a52dfdd0784a3be026fc150a2d3ea3d2eaac1c524a7795d6d61f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-rate-is-the-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "셔터와 속도. 영화가 숨겨둔 논지는 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fcd89643025f4f5f2191a8dddb2f05f17bc3b42b304d587b9482099f06cfc20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-s-aspect-ratio-as-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "각진 화면비, 시대의 화면비. 가둔다는 뜻이거나, 역사라는 뜻이거나, 건너가는 중이라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77501fc5720f0e4010382b439bb52e1d55112d8861baf9029735346fff903276"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-s-edge-as-accusing-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어두워진 조리개와 마스킹이 화면 가장자리를 공모의 기관으로 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4631e280e8e406a5af6b91ae99a02194a1f22855b81493cdb074487c819762f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-swollen-with-partition-s-refugees",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벵골의 집 안이 빽빽해진다. 아무도 말하지 않는 난민의 유입 때문에.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbd5f7274c533212d5bd99752ad727cb51b1bd340fd329d2386326a1bc1169aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-cannot-contain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "액자가 갈라진다. 제 이야기를 감싸지도, 지켜내지도 못한 채.",
+  "model": "claude-opus-5",
+  "source_sha256": "06036e1940b713774ebb0d434784a826ec0d22184d296bfa39cbb0ea3feb028f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-confesses-its-own-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥의 장치 하나가 실토한다. 이 그림은 전부 꾸며낸 것이었다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "71410855672761ddd203e5e37a226432179d98d8c6d83d915d37aa89f9dfdd0b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-constitutes-ethics-by-exclusion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "테두리 쳐진 면. 도덕적 주체를 격리하거나, 바로 그렇게 규정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a796c4294023521402df6d198d7ac7f421387cb5ce055b1988aa6e5850e7027"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-exposes-its-own-cut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형식이 찢어지고, 이미지 밑의 빈자리가 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "686d3a86e292742da5fcb980c988e1e71ee5e7121204927531b77511952e9219"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-withdraws-to-reveal-its-teller",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물러나는 액자. 누가 이야기하고 있었는지에 대한 고백.",
+  "model": "claude-opus-5",
+  "source_sha256": "660d850b9568ab24d81eb2a7d177de7628175058a42f42ab69a9a96aae608c82"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-where-karma-replaces-fate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비극의 기계장치를 불교의 인과로 다시 읽는��.",
+  "model": "claude-opus-5",
+  "source_sha256": "09a82651831a0d23ac364bc63861d72881b35f26bc9a1065606a1fa32b761bde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-franchise-auditing-and-branding-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "본드는 제 정체를 아는 기업이 된다. 이사회가 있고, 사운드 브랜드가 있고, 사랑받는 이름이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "217d12d53c52ed840c97b97bfa8065e695fed79329629911fe77db9c572e2c2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-franchise-that-cannot-permit-an-ending",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음, 판돈 올리기, 전작에 대한 두려움. 시리즈의 불멸이 거기서 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c01d9c97be818c6df543909572a94b90b48a40fb8742a08935528d075c408d28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-freeze-frame-as-unrendered-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마지막 정지화면은 판결을 내리지 않는다. 미뤄둘 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6758069ec9316d3cd7e286f10b5dd4cd0fca6cc321f0467431f0e664c155a209"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-freeze-frame-is-death-caught-in-stillness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멈춰 선 이미지. 영화의 주검이자, 죽음의 예행연습.",
+  "model": "claude-opus-5",
+  "source_sha256": "424c666c8b238db584ecd301fe46c084047adc9391cc9118679d7618ad3f9927"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-french-coast-as-threshold-of-mortality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어느 해안선 하나가 자아와 소멸 사이의 가장자리가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0e2432e8d8565759c4d61259d7b34d71613bb21367f5a24607c607ebe0b0f46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-french-mask-on-hollywood-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국 액션의 옷을 걸친 프랑스 자본, 그리고 프랑스식 작가주의(auteurism).",
+  "model": "claude-opus-5",
+  "source_sha256": "e954dadc52e6ee9e278621f1943482ad9225829d2dbaa1b5b27af3476c1108be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-friend-across-the-enemy-line",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국경을 넘은 우정. 두 남자의 얼굴에 유럽의 자기 파괴가 얹힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8841f0efeff4036c23097222c782d4a9851211658cec62ba0e6117c7d536b3b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-friend-as-means-not-end",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우정이 무기가 되는 순간, 사랑하던 얼굴은 도구로, 또는 배신으로 떨어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0d5e285a5fa89fbb65004a7e04eb02074e4de76fd1ea117e3a19581cdf4743a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-friend-one-cannot-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도가 막힌 상실. 죽었거나 아무것도 느끼지 않는 타자 앞에서 슬픔은 갈 곳을 잃는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71938c99301dd7714eb825e06b2fd008d65eeeef42d4e0f12e449dec56a91c1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-as-enclosure-of-the-commons",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국의 기원을 다시 읽으면, 모두의 땅을 조용히 처분한 일이 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19c53b7bc647de5ba1783e6472601b4d47acb9eaccbe0a54528958a55aca9d76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-dissolved-into-the-feed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서부는 스크린으로, 스펙터클로, 스크롤로 자리를 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3edb91291c28788351a44afdc5038c2ff64f1fbb18496d41ecd97f755733a45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-myth-and-its-last-free-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람을 묶는 신화로서의 변경. 그리고 그 자유를 몸으로 사는 무법자.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb494e366fe0ec3d5e1de4616f717f83345782e4532de5e4f4b9386452afb0f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-promise-turned-to-rot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장부는 청산됐고, 파수꾼은 상상 속에만 있고, 물려받은 것은 썩었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4817b5f8c7a1525444aca193e7caec2113d223dfe6a9093fbd28eb26814582d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-that-has-already-closed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미 닫혔거나 사라졌거나 애초에 열린 적 없는 프런티어. 그것을 등지고 읽는 서부극.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d23625b5cd8fe002b7de815d687b2aaaf753f40ea1a6aabc3022d7291a65d0d"
+ }
+]

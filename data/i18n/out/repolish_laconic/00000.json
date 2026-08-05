@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "a-berlin-conjured-from-studio-and-stitched-streets",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "조립된 도시. 세트장에서 지어 올리거나, 있을 수 없는 몽타주로 이어 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "725694e5bba9dc1654db16e81451af1d474fb86b6cdab0dec7af02bf655d8e65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-book-in-hand-indicts-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인물이 손에 쥔 책이 영화의 감춰진 판결문이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97803164f882c0d2a4a835e6605a0a88b5a1a6b6b22a3878ff5f1795c64c2c60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cast-of-the-already-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "산 자들을 유령으로 읽는 시선. 그들은 이미 자기 사후를 걷고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e9b15af25fb41b17265b1b9fdc368d8c2a732f08d543ce98f3bf9fa627dfe98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cinema-that-stakes-the-body-on-belief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내기로서의 스펙터클. 꾸며낸 것을 몸으로 믿거나, 진심으로 믿거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "69fa197790914a83bad99cd59d05c11eda7ea87fe58b0cc37bd64de1ce70a51f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-civilization-dying-of-its-own-refinement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스스로를 완벽하게 다듬다가 낡고, 귀가 멀고, 끝내 자신을 속이게 된 문화.",
+  "model": "claude-opus-5",
+  "source_sha256": "6069454e45c359c699a06212775a7f497aa520d5cf110604895eeaf99fdd3814"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-built-from-a-single-cipher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계 전체를 단 하나의 도표로, 하나의 기술로, 하나의 지배적 대칭으로 그려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be8b2735df55aed254a6e2ce65b915446ecd3d9044c6f31e5988bcc5a689f6b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-rigged-by-indifferent-or-malign-powers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저주는 도덕의 응보가 아니다. 세계의 구조 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "010a182a25edcf3ff35ebcd254727e80e007524e60874b0e7b77c1a0d948d402"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-ruled-by-chance-not-providence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우연과 통계로 굴러가는 세계. 서사적 정의는 어디에도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "485f94fa7f33cd18382fcefd7f4d9dac4dc87846433e7c5de2e0d21d3089f85a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-where-predestination-devours-free-will",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "선택으로 얻은 것은 없다. 이 세계는 이미 내려진 운명으로만 돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b742241f53065449e17cb89b14e119a2d0f32b2cfd8891336d508c6f109f0881"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-fairy-tale-that-knows-what-it-is",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르를 알면서 걸쳐 입는다. 더 어두운 것을 덮는 의상으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d99cddd261dd6f193d058bbaf8230397e01d5eb44b8e8eed0ebc31c8c08ea18"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-fiction-built-inside-the-state-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공식적인 감금 아래에서, 그 감금에 관해, 그 안에서 만들어진 허구.",
+  "model": "claude-opus-5",
+  "source_sha256": "75b24fe227a25f6ccb3513b4cb6c36451d395ace0c41b005dbf4e8ecd6a23511"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-life-run-in-the-subjunctive-mood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가정법으로 찍은 영화. 살아온 삶 옆에 살아보지 못한 삶을 나란히 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3d236339c057a73820a41f9c38348d4dfab37a1922d43bebf08b955a23c7ad7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-metaphysical-ground-smuggled-in-sideways",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "겉으로는 전혀 달라 보이는 영화를, 숨은 존재론(ontology)이 밑에서 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "790853c6329a52f56747d6364574f7dd029d25aec968cf5bcd2cb4c0b2f5ae71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-number-where-a-name-should-be",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고유한 이름이 있어야 할 자리에 제목이 헐벗은 숫자를 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87cd38b1402d4884c39c08384eba895de9258a197006d903e6e95ecf51c2d644"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-physics-where-time-cannot-be-undone",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자유로운 도덕 질서 대신 결정론과 유예, 그리고 블록 우주가 들어선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "613f0ec1dc49bf1c3f9adec3c5ec2ffb0d3d8dd0b08514c28112daa738503f4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-real-ruin-rebuilt-as-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제로 무너진 장소를 징발해 지어낸 배경을 연기시킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78ec19435e0454f3c0e6ec8d8b4ea2a91f1a1fea95c86e80489cbfa4e4e436dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-universe-run-on-an-alien-bookkeeping",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낯선 회계 원리 하나로 통째 굴러가는 우주.",
+  "model": "claude-opus-5",
+  "source_sha256": "be14b1aec8ee0ac270081f09f6d2f5c77ff65b1861f9a7bc0c57d47c5b1e3172"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-universe-with-no-guarantor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배후에 저자도 승인도 없는 현실.",
+  "model": "claude-opus-5",
+  "source_sha256": "135532cdc251f3cc0f1814b311c067a8fed0df0f61520493e89cde545509e868"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-whole-film-filmed-from-inside-one-mind",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "극 세계 전체가 단 하나의 내면으로 그려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60cc5f44f59bb12eb1d7cb7d6f03342ee56a694c901778f86f83f51a3354ee24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-world-where-death-is-only-reshuffled",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음을 거부한 세계. 몸은 늘어나고 되돌아오고, 죽음에서 풀려나 떠다닌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6e8e5aa9f6aeed78fdbf0cf1b4f74882320f03d9b57adbe7f92d7040810af9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-world-with-no-referent-but-exchange",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 등장인물은 돈뿐이다. 사람은 증발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab74e4aa2dc09b2ef6609451f16c035bb7cc004ddedc887931f82368f6b42fec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "acclaim-as-the-critic-s-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찬사받는 미덕이란 리버럴 관객이 자기 얼굴을 흐뭇하게 비춰 본 상(像)일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad02015270152385768c79d12f93be17fa2c30597fccd1fa90b7a9948f062b67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "acting-as-the-theater-of-bad-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배역 자체가 스스로 택한 자기기만이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cf974ef47776e64cff68480ab950175d67c15ae0ced585646a72e88b28a465d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "actors-filmed-apart-to-forge-real-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "촬영장에서 배우를 떼어 놓는다. 영화가 그리는 외로움은 그렇게 제조된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8ae2fd872ea6f2b19e00621e5b09153cc67f533124d6fd5612a457baff563a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "addiction-as-the-film-s-buried-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 주제는 의존이다. 장르 밑으로 몰래 들여온.",
+  "model": "claude-opus-5",
+  "source_sha256": "35f7a4209b47353e0e900bc96bffd21ae4f671caf76d67c0f1d24b3ed871736e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "adventure-names-the-thing-that-fails-to-arrive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 내건 모험이란, 약속된 대로는 끝내 일어나지 않는 바로 그것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84cb637994b7522eb573890229db2b4a93c33637eb69dcbc658a211acb8f84d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "aesthetic-praise-as-critical-evasion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑인 영화를 '아름답다'고 부르며 그 정치를 비껴간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "391a601507eaaba0dcd03a1770b944cfc18836a0488121a59e73d5cc42031534"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "affectlessness-as-engineered-estrangement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무표정한 밋밋함이 무기가 된다. 소외시키고, 불안하게 만들고, 끝내 터뜨리기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb58090371e9b4413610fb46d14cb655a197387f306841c8d0d517163e11f634"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "affluence-as-the-price-of-survival",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자가 살아남는 데는 값이 붙는다. 재산이든 희생이든, 탕진이든.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2efa2e6d7071f563c67340f95b7c5a118df2d354bdcdeb4aed45fa391c913bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "aggression-turned-inward-upon-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥으로 향하던 적의가 방향을 틀어 제 몸을 벌한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ec565fa0f59efd4a8a345758e81ef34f1095b0e34641d957296ea84c6e859e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "all-spectacle-no-soul-turned-back-on-the-critic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'스펙터클뿐 영혼이 없다'는 판결. 그 판결이 곧 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a51ef9eda3614db264074c6a1f82a0ec51573f69176988a64cf15d256df55023"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-chose-its-own-anaesthetic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "할리우드는 더 어려운 현대 영화 대신 추억과 위안을 골랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba701f2c42af2f9ae7fca53f236d1c68da8822abe7ae04c656dab8dafe188487"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-conjured-on-a-swedish-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폰 트리에는 텅 빈 스칸디나비아의 무대 위에 허구의 미국을 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d209cc111c3afc09ced32d4c7201baa9e952099e09fa639c2ab3ed8f176206d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-devours-its-own-young",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 내건 약속이 정작 길러야 할 아이들을 삼키거나 빼앗는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e10fa0a978ee7c38946f06e9d908f599d4d99bffa8d8110bdb7d90163336a530"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-outsourced-to-its-southern-mirror",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국은 제 죽음과 무의식을 멕시코에, 그리고 이민자의 시선에 떠넘긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36de4fedb038e7d998602ef551cbf5027943aa86db57e1d34eab082a90375e29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-re-reading-its-own-war",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자신을 감사(監査)해야 할 때, 비로소 적에게 목소리가 주어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18dddaa449e8ea81107e160e04d54c978b41e463d1fdc8d74f878dc355caee7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-s-fatalism-read-back-through-french-eyes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국이 제 눈으로 보지 못한 공포에 이름을 붙인 것은 바깥의 비평, 혹은 뒤늦은 비평이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d00e296097cd278459e815eeed517882372816ebca25a19c01b95c1d958526b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-shot-on-spain-s-borrowed-soil",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구세계의 땅 위에 위조된 신세계. 의미는 그 이음매에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b52557b1ba1ec973271bc748b4d57cedd004fb7e527909a77b375881cdd7fad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-tried-by-the-man-who-would-not-fly",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 번도 밟아보지 않은 나라를 라스 폰 트리에가 땅 위에서 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5352faf8287ae350424ee376c87017102410969f67370760843bbf9c608f7859"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "an-object-that-is-secretly-a-clock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소품 하나가 영화의 진짜 시계 노릇을 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6982beb07b011414675b77115a5d8de5f72c01f2f93a596456a6d12d53d1b09e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "analog-texture-as-nostalgia-for-believability",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파운드 푸티지와 테이프의 거친 입자. 디지털이 내다 버린 진실을 그것들이 약속한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09c156844c506abd220cdfeb9056e227a3165efa11907870d3fb3fa464ba3352"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "animation-as-the-only-medium-that-could",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애니메이션은 타협이 아니다. 그릴 수 없는 것을 그리게 하는 유일한 조건이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e9f89bd05c61d30a8f67b6d4d1faa37d700bb3070a110b1fcf66a0351b48da0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "animism-as-the-film-s-hidden-ontology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영혼을 지닌 살아 있는 세계, 영화는 거기에 뿌리를 내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbb30c100cc96a603df5e97bb80f631a4dd65019c5de8e94f88d404f8c71e8e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "antagonism-bred-real-delirium",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "촬영장에서 오래 끓은 적의가 연기의 광기로 대사(代謝)된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b235777258702bdeda682df6c2ff891cc907da8ef6f8ac93b016272f2964ce5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "antigone-and-the-inverted-burial",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "혈육이 법을 어긴다. 묻어주기 위해, 혹은 갚아주기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc77b50f3562b91e4c714789d0b63dc27048e7a4511ac4f711779ee3270e1899"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "antiquity-restaged-as-empire-s-twilight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고전의 쇠락을 다시 무대에 올린다. 무너질 줄 모르는 현재의 얼굴로.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d430183806f68f2affbde230b9e8fb5829e82efecae8b33f2ecbeda6ad77d27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "appalachia-as-imagined-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두려움의 대상이거나 식민의 대상으로 투사된 산악 남부.",
+  "model": "claude-opus-5",
+  "source_sha256": "81a535f5244463ba22d77d512573ade50df5234d977810695bd39d99bf7b2e94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "appeasement-hiding-in-the-genre-plot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁 전의 스릴러들은 눈을 돌려버리는 영국적 습관, 그 달콤한 유혹을 극으로 옮긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d15bd5b1e5d5ded9c0947a4c04c6ed6b6f17b821afde8a5a245a40b7236bba6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "appetite-as-the-disavowed-self-returning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허기는 범죄가 되고, 자리를 옮기고, 부인된다. 먹는 자의 욕망은 수치스러운 것이므로.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cf01ac359a0bf22ddf33cd674ebe7826d8a4e2b6bf86c11cc6a053a87301a62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "architecture-as-the-cage-of-labor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어진 공간을 노동의 감금 기계로 다시 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f955fe78a7b6998473314d0f50503264e0fe34e0b1de025cc204c4507c4f467"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "architecture-as-time-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어진 공간이 시간성의 육체가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8723fefda51ac0f597fea12692d954be29436c2428406a4ddca7be47ef9cbfb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "arizona-standing-in-for-the-mythic-west",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변경이 아닌 곳에서 찍은 변경.",
+  "model": "claude-opus-5",
+  "source_sha256": "187d26c4127fc1ee72b5df76d04823179803334380f37e6d75c59dfc676e07af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "art-as-survivable-container-for-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "견딜 수 없는 상실 앞의 응급처치. 꾸며내는 일, 만들어내는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb613d72ab1510fe7e129fa60c8eea91de75bdc1f6010828ef42ed99cedfdbc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "art-cinema-financed-by-other-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "품격 있는 영화를 그 돈줄과 징발된 자산까지 거슬러 올라가 따진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55388bd21a988d5b9c31eee2298a6495104dac4eb06da8ef132f91027699921c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "artaud-s-theatre-of-cruelty-on-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹이 정화의 의례로 무대에 오르고, 스크린은 아르토의 무대가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0a2c9c4c07c0914e76b727c6b39c6a4d6e6aae2b75c5a334b60deccd7869d0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "artemisia-s-brush-as-painted-vengeance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처 입은 여자를 젠틸레스키의 복수하는 화폭을 통해 다시 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bc9adad9e6caaa69f911d327e16d1862616b268de4fb89d41a3447a6efbfece"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "astaire-s-vanishing-danced-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화마다 아스테어의 낡아감을 제 춤추는 허구 속에 묻어버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "317791beff500d81f622655effa4c5a34fe41540d3384e2aa4bb2088bf09e2de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "asylum-as-sovereignty-over-bare-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피난처란 받아들인 자를 규정하고 길들이는 권력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c1c2c31680e8b245bffbfd8f1a6becde4c586e71008c5c1d1cf0515c55c4bc8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "atlanta-in-disguise-as-everywhere-else",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "조지아의 세트장과 채석장이 우주가 되고 수도가 되고 국가가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfcca447cd559b7f76714613fef65f8dd73005cdff16e169ccb3c25afff825ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "atonement-paid-in-the-coin-of-the-sin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죄를 지은 바로 그 도구로 구원을 구한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f336ccac50d3d63fe3611eba837fa6493bc19f67a0fd87431fb53838cae7724"
+ }
+]

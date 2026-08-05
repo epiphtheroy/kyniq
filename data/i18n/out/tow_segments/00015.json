@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1f09669bdcc85760",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 TIME All-Time 100에 올랐고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1f09669bdcc857608e433e495cf1a4eb71c29dbe9fee356513c09d685faf4e0a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "65783609b7433c28",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 황금사자상에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "65783609b7433c289eb3da9b765322db32d5d70c1158ff488d491a8433aae5e5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bc8f055763569f2d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Brad Bird의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc8f055763569f2d32471da7363d0c1b4eaf86da723ebc0b8797f351ae06f29d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "37e660843138c032",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Julia Ducournau의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37e660843138c0321e3a880ce556ee5ff99717fdc59ab7f7c0c1023019e6b6b2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7f87b817f017e675",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 유아사 마사아키의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "7f87b817f017e6758c4aeaf748065eb2b1ff15a8c71f6eb29448b2c431710520"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d37535a1a8996fd8",
+  "field": "text",
+  "lang": "ko",
+  "text": "세자르상 작품상이 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "d37535a1a8996fd8d10cefbd1a76f7634a1febfff6821b0921a2fa6e054ef424"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e81c38fd88137ee7",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 감독상에 올랐고, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "e81c38fd88137ee7fe90679d9cb6cde9a83012e5c9a883e0a96c6c6ec19fff1b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7b1ff45536e43a8c",
+  "field": "text",
+  "lang": "ko",
+  "text": "볼피컵 남우주연상과 BBC 21세기 위대한 영화 100편이 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7b1ff45536e43a8c1fb5e8be9ecff40ceecfe3d5a6f48f3377e3c47095b2e346"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ccfca990bae8fad2",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 FLM 스웨덴 영화 베스트에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ccfca990bae8fad2ba78c9158ea88770d84baf85aa64b247835d1367064a28e3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7e292f883cffd8ff",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Paul Verhoeven의 정전에 오른 작업이 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7e292f883cffd8fff707e2455d91d901240ebb6216a126a0e557ec7098d9bdda"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6cfcd6f4584a2f66",
+  "field": "text",
+  "lang": "ko",
+  "text": "심사위원대상과 국제장편영화상이 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6cfcd6f4584a2f66da67a06a42a1d06796d4cd365d0c98569bff484fe5c82989"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a4db5e4c2e3938d2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Ken Loach의 정전에 오른 작업이 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a4db5e4c2e3938d2334d96fe953bf8388c04150524dd81a4c9e15c827f2745db"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7515e49bb7037adf",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 중몽홍의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "7515e49bb7037adf102577cf6794d83da01c884f4548c8d0488f2d92edc90c2c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "289b204ed0c08739",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 청룡영화상 최우수작품상에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "289b204ed0c087391053910f8823362d2f6b27b94a392a83200346be7a63e0c9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "05f7cf9ee878cf7d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 리트윅 가탁의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05f7cf9ee878cf7d5ee7effca2e126c076e6cf4a1294a15fc6271ae56d1a3f99"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3cbbf35e31a7821b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jan Komasa의 정전에 오른 작업이 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "3cbbf35e31a7821beedfa17cfe066e5a12e6d102e08fa1898986cfba6adbab47"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cad83bf76bd7633b",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 BBC 21세기 위대한 영화 100편에 올랐고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "cad83bf76bd7633bb375294839f5b560321d2b5194d28dc1a4c2a647e46ae41f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c70b9023feb54f01",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Caimán 스페인 영화 100선에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c70b9023feb54f01e24e228415b4a0e99f674a1978573f16c2e3d4089cf0c6f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "947c63e801deea44",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. 황금종려상과 Sight & Sound 감독 투표에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "947c63e801deea44f8d8686834c19e6912dda69c8d2dd2cbf8c2d7ad9cb46e12"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3b0a4ca390265bf2",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 은곰상 심사위원대상에 올랐고, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "3b0a4ca390265bf20007df9339edff279014aab5d4adb924c8015d4f144fda52"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a1ab0f1cc3332f4a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jennifer Kent의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1ab0f1cc3332f4a25da6d56de2fd29dba5bff8a3233bf39fd72d4c02c1f9b97"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "191274e6615d98c0",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Martin McDonagh의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "191274e6615d98c058b4670f4ac490dcfe18b820d646dda8b5235202bfc3a8cc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "06cce3b4708971b8",
+  "field": "text",
+  "lang": "ko",
+  "text": "세자르상 작품상이 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "06cce3b4708971b8c003d52f44bcbe14492836cb28e2af9de6dd19273bb3ee7d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2e8d5ddf4f035652",
+  "field": "text",
+  "lang": "ko",
+  "text": "SAG 앙상블상이 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2e8d5ddf4f035652069edab74c41e00d098457a716e053359315c101327be808"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2378d226ec4da0b0",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 앤서니 첸의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "2378d226ec4da0b02d6269fc0b2e93f1bca3b6907b9a92cee1ad1e84406ccd99"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8bc415b07ed8f777",
+  "field": "text",
+  "lang": "ko",
+  "text": "호주 비평가 선정 21세기 베스트 25(2018)가 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8bc415b07ed8f7776a0fdfa7f7f38e34fb139f833a6f80d2f86020b078883bec"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d22cbc07c561a916",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Maite Alberdi의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "d22cbc07c561a916941fd2d364c508f9d0604e7bf545a784de319d84fb8cde96"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d6a1a4481a065c73",
+  "field": "text",
+  "lang": "ko",
+  "text": "KOFA 한국영화 100선이 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "d6a1a4481a065c73735c1a480080f17b559502ddaf5dea4411b47f223121d500"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "278a2eb5762ae338",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 심사위원대상에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "278a2eb5762ae338e83a07b551ce8b4ee2116bf8da0ce4b8ae1a7a0d575968dd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c8c05adb716414d4",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 가는 값어치를 높게 매긴 영화(Value 75/100). 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c05adb716414d4ab37065507db0cb91b1e381df5ce7c717f4bddc3e7b4d4b8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e9b43c7bd98cc168",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 가는 값어치를 높게 매긴 영화(Value 70/100). 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9b43c7bd98cc168659f3477de708fe6cadd587590bf3684b1f0c4aa16eaadfb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72e57bbe5bc8ee77",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Peter Jackson의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72e57bbe5bc8ee7740aa153986f0edbe9bc50b80151421eff070fba9201f5258"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2b6979f2037f163b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Aki Kaurismäki의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b6979f2037f163bc1bdd52c4aba0dd8c7878b6d8fb2486c7313905712dafe0f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d61783b5f6ba5dc9",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 각본상에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d61783b5f6ba5dc9f178101f5a637400bbf499ff54d431f549a062042681b1e0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "575fb80aafc1ad3b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Kamila Andini의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "575fb80aafc1ad3bb0a454b4ead6b4ae66d13876947ab55d2ada3b99663069da"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7ca790fb5ef3152c",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금종려상과 유럽영화상 작품상이 인정한 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7ca790fb5ef3152cb6ac360a003a204e73dc957e0c8d57a65ea5ae4732cff7fc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e6aeb65cf8b4c737",
+  "field": "text",
+  "lang": "ko",
+  "text": "독일영화상 최우수 장편상이 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "e6aeb65cf8b4c737d4b13cc4daf38195c00e8b5bd554b94b659809a97fe53407"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7bfb51deb00dd444",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 BFI 영국 영화 100선에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7bfb51deb00dd44403afd5919f67fcdcea0dd591541fb97b342f8586775bd439"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9e1ffb6c68c90523",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프랑수아 트뤼포의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e1ffb6c68c90523d6ec3dc37b4a6a9c0c6457fa3b4ef59eb611f410f63024cf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a59b3b45e1637919",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jonathan Glazer의 작가 계보로 다시 값을 매긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a59b3b45e16379190cfe603fc9668d8f3aed05c2e3d2099b56b2faa1b92f0246"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "40e23e372599e860",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Cyril Schäublin의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "40e23e372599e860d68ed800b473d07d5477db54866740e45ffd4dc35a69c37b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4f50468dc4c67fb9",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 대만 뉴웨이브.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f50468dc4c67fb9e9bdca4533d00a5124b9c06c907644cbe03fe7739f0d9fdc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1597323349d3822d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 왕빙의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1597323349d3822d42445364ae553be9d0637f23d7854e85c8077f97f8b45024"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8692f82a8fd8e0ec",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Damián Szifron의 정전에 오른 작업이 떠받치는 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8692f82a8fd8e0ec05c6d7bcbf546c7eb0513b21d02a7c4e5b4f73db809720ff"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "41463e454d35b799",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 뉴 퀴어 시네마.",
+  "model": "claude-opus-5",
+  "source_sha256": "41463e454d35b79983a8b0a8374f097ebb065ed25f2451282d307393c59a4f01"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4f81b7884af4bb5e",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 독일영화상 최우수 장편상에 올랐고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "4f81b7884af4bb5eff600fa4303b14cb196b48debcf78128e3de0025fcdd81f1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6d1e44fbfd1c2a60",
+  "field": "text",
+  "lang": "ko",
+  "text": "볼피컵 남우주연상과 전미비평가��원회 베스트 10이 기린 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "6d1e44fbfd1c2a60d8eeb2fc0dea06697ad176fcf114403adb5f951021517c46"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ec43e62834a71a24",
+  "field": "text",
+  "lang": "ko",
+  "text": "필름페어상 작품상이 기린 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "ec43e62834a71a247b6626c595d9d3688ad2cc6d3ab407dcc689854e74383b22"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2d6bf74e1bfa71c8",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 여우주연상에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2d6bf74e1bfa71c8f818a4ae794828eca0196ab1c5c1e2921e4897984e1c199e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d1e3fe13204be4ff",
+  "field": "text",
+  "lang": "ko",
+  "text": "뉴 커런츠상이 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "d1e3fe13204be4ff9079d5cbddb763b8420f11d6dc0e134dc108fa7df7626e8b"
+ }
+]

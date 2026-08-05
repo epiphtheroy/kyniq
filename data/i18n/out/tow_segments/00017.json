@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e99932a37078d7cc",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Santiago Mitre의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "e99932a37078d7ccc8d98142530cf7074696565059348441e52f523cc67745d0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6a16137391d3cfb7",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Picture Oscar와 Best Film이 인정한 영화. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "6a16137391d3cfb717e152093c9984629913a4eb88ce7c47bf75dd0ad7e338b3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8cea3a0d0f40d332",
+  "field": "text",
+  "lang": "ko",
+  "text": "New York Times 21세기 베스트와 WGA Best Adapted Screenplay에 오른 작품. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "8cea3a0d0f40d332d8912aafd9fd63314fb83137e33a051df4a9f0517564149a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d05026c28277bc65",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor와 Best Actress가 인정한 영화. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "d05026c28277bc653161808e43ae889de3a4955b5d498bedaa8a43cddacb705d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e55e2ed1535fe55a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 왕가위의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "e55e2ed1535fe55a77983d18bca9b787086ff5dadb3f30b4b2c5f1c329184d4c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b6c3feb5fdb81177",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 하마구치 류스케의 정전 반열 작업이 떠받치는 작품. 대중에게는 거의 알려지지 않음",
+  "model": "claude-opus-5",
+  "source_sha256": "b6c3feb5fdb8117769e8b61ce551d2926b1731798f1706312857f65b6385fd53"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c00b7c2bf0dd66db",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 지아장커의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "c00b7c2bf0dd66dbadf54f6764537adc315a97bf5158fb0a3bbf087cc1c2344c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9b4fb37033b35442",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Polish School.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b4fb37033b3544229c2221487597d382d5e253cb7c1a17c5e2226317704edf2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "28e26d4e89e1b3a6",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Horse 100 Greatest Chinese-Language Films에 오른 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "28e26d4e89e1b3a665ed84d7696a2d889ba2e16d63f1ed03309ce8557d0eef4e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d8690e4fa74b13e0",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Athina Rachel Tsangari의 작가 계보를 통해 재평가됨.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8690e4fa74b13e0407f2af25f501cab32dec810bd32fd449d054ca6d693ac88"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "05dd65fb5ced777a",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion과 César Award for Best Film에 오른 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "05dd65fb5ced777a86bc0360baad8c030133ac2e3ad09278171c9f26149d07ad"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c74063d127056c41",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 있는 작품. TSPDT 1,000 Greatest Films와 Golden Globe Best Motion Picture Drama에 올랐고, 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "c74063d127056c4109bac114d3c6b89b5fa3fcc28efb7b89231961dd4183f244"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c16c22a92f412a75",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films와 Saturn Award Best Film이 인정한 영화. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "c16c22a92f412a751a2e1409daf22329b212da9a7e034521ad2301d8dee5b2a6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9ef728805692ac13",
+  "field": "text",
+  "lang": "ko",
+  "text": "Canadian Screen Award for Best Motion Picture와 NYFCC Best First Film에 오른 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "9ef728805692ac138842d6337d708df80b3833dc1f18da7839ec529f288ca292"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0d8c373e8ed33952",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Society of Film Critics Best Picture와 Golden Globe Best Motion Picture Musical or Comedy가 인정한 영화. 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "0d8c373e8ed33952f396f9efe62ebd3651956cc3e5f1e070b55894ba1f4a5574"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "97874d1485cfeb19",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Director와 Golden Globe Best Motion Picture Drama가 인정한 영화. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "97874d1485cfeb190303d60b4109f61538567bc2ca0e2e186493c3426a5f3c86"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ff404df06a3dd87c",
+  "field": "text",
+  "lang": "ko",
+  "text": "TIME All-Time 100과 National Film Registry에 오른 작품. 대중에게는 거의 알려지지 않음",
+  "model": "claude-opus-5",
+  "source_sha256": "ff404df06a3dd87cd67a4bc4685fce6794df14f40cf995848476a85641db8feb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6bfc90fe59a2dfc0",
+  "field": "text",
+  "lang": "ko",
+  "text": "Volpi Cup for Best Actress와 National Board of Review Top Ten Films가 인정한 영화. 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "6bfc90fe59a2dfc046a139a0d1524cfaa621e62a7db8d85c9675058fea23d144"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "697b3e6fec3b6ef6",
+  "field": "text",
+  "lang": "ko",
+  "text": "Jury Prize와 Grande Prêmio do Cinema Brasileiro for Best Film에 오른 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "697b3e6fec3b6ef6cb6fa3542834975457f5be8c07eeb9796379080dfcda8475"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1d31956fee904f01",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 있는 작품. TSPDT 1,000 Greatest Films와 Golden Shell에 올랐고, 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "1d31956fee904f01a7566f914d8ede889915349a618b89a8a87db1c4449aa821"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "54d3b135c7a0bfab",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Alejandro Gonzalez Inarritu의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "54d3b135c7a0bfabfd69949237b06cdb5250b79cc84cc8fffb87d08b1f09af0e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f1382273e59a6adb",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 봉준호의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "f1382273e59a6adbfd92fbcc4f8f7f0fa41c0abacd60ab933eaa8d1e5247df82"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b3f51c74f66a37e6",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Soviet Montage.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3f51c74f66a37e682e690a275f3ba78a03951b991c17b378023b7d69de82e3a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "04bb46f6ecd3314c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Kantemir Balagov의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "04bb46f6ecd3314c43769c1fec69640b766f32c1eb50640c8f7b34b473e097a6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4d617fff9b561d1b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Oliver Hermanus의 정전 반열 작업이 떠받치는 작품. 대중에게는 거의 알려지지 않음",
+  "model": "claude-opus-5",
+  "source_sha256": "4d617fff9b561d1b2959b5c4db3937e16a5fb6ea671e5a3236ba126ed8acea7b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9136e68273a52e07",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Kaouther Ben Hania의 정전 반열 작업이 떠받치는 작품. 대중에게는 거의 알려지지 않음.",
+  "model": "claude-opus-5",
+  "source_sha256": "9136e68273a52e07c606c4c12211e899616b175fbce3f655cef8e6a3bbd35071"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63be26195d27d379",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Kamila Andini의 정전 반열 작업이 떠받치는 작품. 대중에게는 거의 알려지지 않음.",
+  "model": "claude-opus-5",
+  "source_sha256": "63be26195d27d37929cd8a801c7f5363a3aeae1c9e9bbec6d28af6a714872791"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9ce9deb39d4a5280",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Dea Kulumbegashvili의 작가 계보를 통해 재평가됨.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ce9deb39d4a5280370cace3371abb545b7e7ee61422a9717a572464823b2083"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "969c1e10f08670c4",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Society of Film Critics Best Picture와 WGA 101 Greatest Screenplays에 오른 작품. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "969c1e10f08670c419ee2be4dbeb34814e1f6760d5ed3bd9105445e9ceb7118b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b2f3b7edd04411a9",
+  "field": "text",
+  "lang": "ko",
+  "text": "People's Choice Award와 Best Original Screenplay가 인정한 영화. 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "b2f3b7edd04411a9d3dcd0e2b61cc756de24112faf6d195feacb0dcdb31d3ab0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9ea1017e76f60a62",
+  "field": "text",
+  "lang": "ko",
+  "text": "New York Times 21세기 베스트에 오른 작품. 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "9ea1017e76f60a62febeae9f470c8723945e6495d65c8d5892a7ed65f5b0b121"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "19ee8f8c821ab83b",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Screenplay와 Best Actress에 오른 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "19ee8f8c821ab83b68cf48598fe31fa2934548bda2d39cf0a16ea9647fd61d94"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9d78d5350a8d7244",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Italian Neorealism.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d78d5350a8d72445a1150b873942db6e45e085f8d0edf6af4b27167a9e60d00"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "24eff385e3d83e88",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC 100 Greatest Films Directed by Women과 National Board of Review Top Ten Films에 오른 작품. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "24eff385e3d83e885fd2f3ef0d669922561e5b67261b16366486f1139381c514"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3ba6236892c4df19",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Director와 Best Actor에 오른 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "3ba6236892c4df191268ad6770a177597db07e6a2449e5d36f2e92897e9a42d3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "605b59ae00c70492",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Andrea Arnold의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "605b59ae00c70492c7904c6f36acbe2a5043025663e94645e2246d30c104333c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "095a5ec28e11849c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Ciro Guerra의 정전 반열 작업이 떠받치는 작품. 인지도는 중간.",
+  "model": "claude-opus-5",
+  "source_sha256": "095a5ec28e11849c64344dbfb22b73ab29177bbd665753fe5a38ce9b3b179ffd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5ed444b958e516d1",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Lion for Best Director가 인정한 영화. 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "5ed444b958e516d1a524362d50243ebfba14079776497dd0689d395f319d958d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d49eed318fc4e48a",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Cinema Novo.",
+  "model": "claude-opus-5",
+  "source_sha256": "d49eed318fc4e48a384427deb80662661a886653f726491fc40291bfd77635e3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "37d3b3f57531d711",
+  "field": "text",
+  "lang": "ko",
+  "text": "New York Times 21세기 베스트와 IndieWire Best Films of the Decade에 오른 작품. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "37d3b3f57531d71184a7a786179dff22684c98efe0492cbd0ed8cdb8a59740f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5afd7e778a95a416",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Ryan Coogler의 작가 계보를 통해 재평가됨.",
+  "model": "claude-opus-5",
+  "source_sha256": "5afd7e778a95a4163367431ccd53047e1e6d8c06bddd7c085a47b87b49887d18"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e7af6d695368619a",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actress와 New York Times 21세기 베스트에 오른 작품. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "e7af6d695368619a714e05b9b2083d60346fcf426677778403088632f466c389"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f7b5680432eb198d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Saturn Award Best Film에 오른 작품. 대중적으로 대단히 유명",
+  "model": "claude-opus-5",
+  "source_sha256": "f7b5680432eb198dfe39e1e37a1effa45ea676dedb8823c946fb581b61d6ac98"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "37f612a93480f9ad",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Eskil Vogt의 정전 반열 작업이 떠받치는 작품. 대중에게는 거의 알려지지 않음",
+  "model": "claude-opus-5",
+  "source_sha256": "37f612a93480f9add7ae148498802668371a35e2e5df40b12bdf80c013e7123e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5625c6255fb155ad",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Horse Award for Best Feature Film과 Asian Film Awards Best Film에 오른 작품. 대중에게는 거의 알려지지 않음",
+  "model": "claude-opus-5",
+  "source_sha256": "5625c6255fb155ad132271d2d630fbc32b1ac6697e51a82beaab82e180f66b59"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e1590fc6f5659bd2",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Globe Best Motion Picture Musical or Comedy와 WGA Best Adapted Screenplay가 인정한 영화. 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "e1590fc6f5659bd26de0d59bcfabbe0e748fe11363e3c1110cb59cd3b24277f4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7270815fb6fcdff9",
+  "field": "text",
+  "lang": "ko",
+  "text": "Guldbagge Award for Best Film에 오른 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "7270815fb6fcdff908056119fcc2584fde22c6d96c83595246e3e61eb4fc9f64"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "42a8c2e2193c2e10",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Alex van Warmerdam의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "42a8c2e2193c2e103dfda894fef1b31aa976795f30e1b5d72107de718428a8aa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d96107b2ff380145",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 John Crowley의 정전 반열 작업이 떠받치는 작품. 인지도는 중간",
+  "model": "claude-opus-5",
+  "source_sha256": "d96107b2ff380145da7584566dc0dadb40d1151d6839ce6ec40428e316cb8ab2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "062328c85bd9d03b",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actress와 BBC 100 Greatest Films Directed by Women에 오른 작품. 널리 알려짐",
+  "model": "claude-opus-5",
+  "source_sha256": "062328c85bd9d03bf7aff2fa338649ed0f5a62d1bfb0dde5c2fe9688d37c3e14"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-was-always-a-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서부를 신화가 아니라 장부로 읽는다. 회계와 자본, 순환의 기록으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b61745b1ed3f80ad1e30962eba703c8ab015d95d5a049f45b3f65d7eaebb157"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-face-as-buried-affect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무표정은 평온이 아니다. 붙잡혀 갇힌 채 부인된 감정이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e33c519d96f4a89367f16468555fdb7d4c4ba1f6a7868f77eed72325c3601a9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-frame-of-muybridge-s-motion-study",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연속사진의 낱장으로 되돌아가 멈춰 선 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "870e824ce4c33f7827d83082d101942c5a34aac96a506cbb3a731a9df0a793af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-frame-smuggled-into-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 제 사진적 토대를 배반할 때. 정지가 움직이는 이미지를 파고든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88c389c5b63bc4cad7b3467d6d2811596236d8d5274a9c8db50764ea1be77b47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-frame-that-indicts-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정지한 이미지가 움직이는 이미지에 반란을 일으킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6e1ade8f5d7231315096005cf7542d67735ba55a12bbf376b694ee0646f0eda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-or-crushed-drive-toward-the-inorganic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "씨앗, 청동, 껍데기. 멈춤으로 돌아가려는 이끌림.",
+  "model": "claude-opus-5",
+  "source_sha256": "06f0b5577d07388e09c9c32239485d6a5d9a0d2c88a3de2f42c6b9da25ba1242"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-surface-that-won-t-release",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서리와 눈과 얼음, 끝내 내주지 않는 영화의 미학.",
+  "model": "claude-opus-5",
+  "source_sha256": "09e39905785a1b4389323bccef67e1a0f026188240e6eea2c0fb73fbeb7ece64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-wastes-faked-in-temperate-soundstages",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 번도 얼어본 적 없는 기후에서 제조한 북극의 황량함.",
+  "model": "claude-opus-5",
+  "source_sha256": "260c3576e1c8d79a1f8d464036386659259914679c916ab406620d591309d64e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-world-as-externalized-interior",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눈에 갇힌 풍경이 대신 말한다. 안에서는 달아날 수 없는 것을.",
+  "model": "claude-opus-5",
+  "source_sha256": "be0f47eddcaa6356c58d4127e828cb81f5a9e56d99689ebf68fc4994c517a2eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-functionary-who-pleads-mere-procedure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평범한 유능함이 관료화된 해악의 알리바이가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c10af4a25f884efb804e389d971edee1e48be70e4f3c525226c48d866578bd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-functionary-who-refused-the-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "체제의 톱니바퀴가 그 규칙 안에서 반체제가 되는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "3036575d77e7c1fb8f1b0230f54fceaf32af7b93016bf0a05275d17d411c03e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-funeral-as-engine-not-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도 의례가 기계로 전용된다. 무죄와 주권을, 파괴와 망각을 찍어내는 기계로.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcf22da6c58b89aa6a7bd6a7138bc11772ca1b521fef3c6a5fe0f8fe80ccbc29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-future-as-contested-property",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예언과 예측, 빼앗고 소유해야 할 자산.",
+  "model": "claude-opus-5",
+  "source_sha256": "20001a54d7d9959066a09d1a25f144011b8e5ac453cff1161558b990404eb8af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-future-held-forever-out-of-reach",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유예가 곧 구조다. 도착은 끝없이 미뤄지고 끝내 오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ff99c9d4a7331e075c2de435ce992597caa4f61604b7a21c40d21315d7ff700"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-future-that-cannot-be-survived",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "앞을 향하던 시간의 화살이 무너지거나, 폐지되거나, 공포가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb1cc291ca751036b4249143113d766fa0b2d74543b4e04ffe1165134521ea29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-galaxy-s-spent-frontier-as-desert-ruin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "《Star Wars》의 사막은 제국이 다 써버린 것들의 기념비다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08fe50c507544f669def88ba339dd69e7c861c27b050bf98c57140776e06e821"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gallery-artist-smuggles-the-white-cube-in",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스티브 매퀸이 미술관의 화면을 서사 영화 안으로 들여온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa7ea9d2762ed11d5ec85819859e9faedabdcb315581a2c8a8e0a1fa1e152286"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gambler-who-bets-his-salvation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도박은 고백이자 기예이며, 구원을 향해 뻗은 파멸의 손이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7eb62a3a48a20d43fe03df51a3c342c72ed5f420d664d9aaf4fdf8c37d1e11e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gambler-who-mistook-math-for-grace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "확률이 우연과 구원의 신학이 되려다 실패한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d7affcd584b65a0ffd413db28633fd3d1ba9e32fbee245257967ecf78f053c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-game-whose-ending-solves-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결정적인 전환 한 번, 혹은 지움 한 번이 구조 전체를 푼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb6922acd5d53a7ded254a0636e080bb1eb155c912e2d6add4763bef4522d9a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-game-whose-rules-you-cannot-read",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'게임'이란 판돈도 규칙도 경계도 플레이어를 배신하는 틀의 이름.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4b0f2c5b3e5200009643cf5e54f4c709d1ac65088c958488e534eadda8acd0b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gamesman-who-mistook-board-for-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 게임의 논리를 현실 그 자체로 착각한 전략가.",
+  "model": "claude-opus-5",
+  "source_sha256": "46c7e33e0dcc4e5f0d6783f66299f3d3e167bb3d89937072064449a6fd91c7e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gang-as-counterfeit-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "청년 집단이 주권 질서를 비추고, 흉내 내고, 끝내 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6e59ae7b22ff3235af181f8639b5f22561b2f4bb9a80843b3934d64459c2c7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-as-class-disavowal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작업복과 제복을 걸쳐 계급을 부인하거나 지워버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42a687ec1359e8b4b1d913dbe12bede11efce01601aa096a212743024280c0cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-as-contested-algerian-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베일과 하이크, 여성의 몸과 국가가 맞붙는 전장.",
+  "model": "claude-opus-5",
+  "source_sha256": "914f75b110f314d0adec1306a0f3d8c24ad7bc9f9021b02095e4ad4476da5ae3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-that-refuses-to-assimilate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계급과 젠더와 순응의 규범에 맞서 봉기하는 옷.",
+  "model": "claude-opus-5",
+  "source_sha256": "91ba260848c03d1084c1fe8419002343c055187766f11ea5886235c3572e292e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-worn-as-borrowed-selfhood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "옷이 정체성을 대신하고, 계약을 대신하고, 연기하는 자아를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad334f3f97ff68407222db490918edfdc14c233ca862f6a61dbeb82ee5d6979d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gate-where-moral-order-collapses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실도 구원도 넘지 못하는 어떤 상태, 그 문턱의 이름.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec7feb7be7cd5fe08447c8a42c06349c08291787fff6ac9dae1f3038b2a0a08f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gaze-that-implicates-its-watchers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평가의 응시(gaze)와 독해가 도로 비평가를 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca753b37e6f2b4592198e682d74d43fb6a5e40098041ffe07452b04c27a762bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gaze-that-turns-on-its-master",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보는 쾌락이 뒤집혀 소유와 감시, 적대적 인수가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20ca744147d75ced97452d3a10561e16d7aa0c78ff4e870a01d07f1c74cdfdd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genitive-that-cannot-choose-a-father",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아들과 아버지를 잇는 호칭이 그 유대를 고정하기를 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c30d28724ead9e674103edaafe9b7dfa212ba66c94cc287f24241f4a0dcf5c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genius-who-fled-the-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경지를 스스로 버린다. 무대에서 물러나는 그 순간이 참된 계시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8af64287938fe0e773a53a648c538b5443106327ac5e3fac21376f9aaf75821d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genius-who-wrote-faster-drunk",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금지된 재기와 통찰을 밀어 올리는 엔진, 취기.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8ed4738480dad0de6251aeef7a0a1da4f9983118ad8d45b1552ffec7b8f9945"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genocidal-sentimentalist-who-did-the-math",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔과 필연의 가면을 쓴 차가운 인구 계산, 그것이 타노스다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e05f3bd54b8329ed76415159218d3ea38d239863facb35dafb02e7ded6b9fe1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-apologizing-for-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평적 인정을 좇는 형식은 결국 정당성을 구걸하고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "23de214f9abbe7643dd401023b6c2643d434bc402dccf14f953ef4ba83471d19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-knows-it-is-a-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 제 공포의 문법을 스스로 부르고, 구원을 거절한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab4a6fb3ebc85371f7dc2a3ef0e07e38aa505ab564a03f5384cff2ba2a9940aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-mask-that-launders-the-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르라는 이름표가 영화의 진짜 얼굴을 가린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fed524e8e7099a75058733283a12ee360acb4fa251b0b21fd01f96af34b7206b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-taxonomy-that-couldn-t-hold-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평의 범주가 담아내지 못한다는 사실, 그것이 곧 이 영화들의 의미다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d42e3de9c18a7d441e09877a9b9b485225f9a1a3e793d6e2524717afb9374ff6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-that-backdated-its-own-birth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 의미는 그 영화가 세운 정전(正典)이 뒤늦게 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f71fbcbe9f4601f523aa3019121fbe9db0d999afdd1a5c488afb2081d0483d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-that-survives-only-as-its-own-elegy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 형식이 제 죽음을 노래로 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0a0f492e1c28b103f72a98689ab4d4d506974febc6d5afc74119b93ee7a1be0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-wearing-another-genre-s-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공포의 뼈대 위에 세운 코미디, 드라마 옷을 입은 공포.",
+  "model": "claude-opus-5",
+  "source_sha256": "01fd892e95df56327795a52c133908caccc1e9d54df62772bb510151174afa37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genteel-thief-as-class-acquittal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가진 자의 절도는 평범하고 점잖고 무죄해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4531c4c2b78edf11d3b041a26493dd01e6aba3ceac4f444d502d9a0c38446057"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gentle-killer-without-cruelty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력이 다정하고 고요해진다. 악의도 절망도 빠진 채.",
+  "model": "claude-opus-5",
+  "source_sha256": "123339da7000748cb85531f51547ee12389648f3ea2333cc5277565d3843eed5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gentle-mask-over-sovereign-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "품위와 자애와 부드러움, 지배가 쓰는 가면.",
+  "model": "claude-opus-5",
+  "source_sha256": "389f40e83cc09fbd5a713a431b950381eac5a41e93328e1129739061b41faa5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-geometric-prison-with-no-exit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "건축이 곧 간수다. 그 형태가 곧 형벌이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfee004f78e415227f689cdc46bd7886c1dd712319d87c56059c8a7191627ff4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-german-landscape-as-suppressed-historical-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 독일의 지형이 묻어둔 민족적 병리를 비추는 스크린이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f34aa5fd9c62e3d654329c0c7aa38138ffb01b3f43c71de92e9c350e915cb41b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-german-nation-read-through-its-wounded-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다치고 재건되고 파묻힌 민족의 살, 그렇게 알레고리가 된 독일 현대사.",
+  "model": "claude-opus-5",
+  "source_sha256": "805532472fe16808fe4bacb6ded7414fd776e4378cd6050133d37caadea33e10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-german-past-smuggled-into-every-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독일 영화의 창작자들은 자국의 역사를 고발하지 않고서는 아무것도 찍지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f82de584163f717299db1c4672272c994ba38d48f1294c115a93f7d2e26fe558"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ghost-as-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유령은 원혼이 아니다. 부인된 욕망과 죄책과 범죄가 몸을 얻은 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fbbcde47b1e9efdd7603237ad24dab12c721b2ba152188dd3ae59b017159419"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ghost-is-grief-wearing-a-title",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 제목이 유령을 다시 부른다. 눈에 보이게 된 애도라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b2ae2458e11b00e08454c96dce653e5249b1e7127786a3962913aa4ba5283e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-economy-hidden-inside-the-cash-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공물과 선물과 비공식 교환이 돈 밑에서 그림자 시장을 돌린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b102375c2462cdb198444fcc48ac63a36cfb756c0bf2f01fba33aeffaaf3c3e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-outside-the-logic-of-trade",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌려줄 수도, 청할 수도, 갚을 수도 없는 선물.",
+  "model": "claude-opus-5",
+  "source_sha256": "eae6d49657cd4072ae35577cea961f67fe651391cdb474bd33a50acab0093932"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-annihilates-its-giver",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "준다는 것은 스스로 허물어지는 일. 자기 지움으로서의 희생.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6625202fb2d4a2b3db80bf7b88ba769d7772431014e720934bc0a28760e4642"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-cannot-be-repaid",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주는 일은 묶는 일이다. 갚을 수 없는 빚만이 참된 사랑이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24f86de4a972ed35818eba255f8af15781656d643f5f3578db709dfe1fac67bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-is-secretly-an-affliction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "천재성은 선물이 아니라 상처로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0749b16207e85e3abbde791a40be0b3781901ae1a70f5c775fe4ce0774655e77"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-sustains-the-settled",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증여의 경제가 토박이들의 무기력과 안락을 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "544c6d4811f5fc10c91fe8dc41c5753faa2cafda4cab1a6c81576d5d5bd9209b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gilded-cage-for-caged-daughters",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아름다운 벽 안에 갇힌 소녀들. 감시받고 장식된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3860495253cbacb59cf5c2ed4131bbc87a4d5dfa64a0c03c5f06599ed332d198"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gilded-past-as-screen-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "향수의 정체는 방어막이다. 상실을, 혹은 고발을 가리는.",
+  "model": "claude-opus-5",
+  "source_sha256": "db70af185dce69f0ab1875b26a50abedd12fad0defe07a1d721de3803562a37b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-as-simone-weil-mystic-of-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 나타나지 않는 신에게 신앙을 붙들어 맨 여성 구도자.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdc9fac99f5c7721b76f237246e4e56a4d3b14004203bb27da42c7d73a49ea80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-curated-into-an-icon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛나는 여자들이 틀에 담기고, 소비되고, 방부처리된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e50ee138acc759c28c76db157678d23f6b203defd58ea4567f9ea1bc9df0e6e4"
+ }
+]

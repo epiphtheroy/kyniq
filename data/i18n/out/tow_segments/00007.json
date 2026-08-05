@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "79936d54622548fb",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Best Film과 National Board of Review Top Ten Films에 오른 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "79936d54622548fbe3a606d6a3879fb0c45facf00ee979063f6f1d9990ae69e4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "316bae492f83107a",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 감독상을 받은 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "316bae492f83107ae7f89b5312747355fdbaec2a4ef88111f8a6c33c38c12866"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ba59258b9c3f6218",
+  "field": "text",
+  "lang": "ko",
+  "text": "Sight & Sound 비평가 투표와 TSPDT 1,000 Greatest Films에 오른 정전의 핵심, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "ba59258b9c3f621861122eef1e05bb988e07fdb5442513fd958178d590d1a2ec"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dc2328c86c7462cf",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 페드로 알모도바르의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "dc2328c86c7462cf7f0840901d92d379f9a9a94243482c2ed57c93528876eade"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7955c8e486ad63ec",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Left Bank",
+  "model": "claude-opus-5",
+  "source_sha256": "7955c8e486ad63ece09497b712e10a47ca97ca4be2c33ee419ac2e9ed399022d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "316042a7e98690b5",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IE",
+  "model": "claude-opus-5",
+  "source_sha256": "316042a7e98690b5c787c9d1368ff238a282ee5b6b4932e5e74f0cc016b04074"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "73a79d00f288cbeb",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 파올로 소렌티노의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73a79d00f288cbebd7149f6c2ab79dda76659430b040a27538283e94caf299cf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1962a73fd226d1d2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 크리스토퍼 놀런의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1962a73fd226d1d2ed94ac0399ac795872debea4622a1d467656544ba29f27fb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a3e8a1b55a7b7a48",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 쿠엔틴 타란티노의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3e8a1b55a7b7a485110a20d9ee320abf5ae8f6a0108dba00c2bd419b9b776d3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "20105b9b9463ecda",
+  "field": "text",
+  "lang": "ko",
+  "text": "Saturn Award Best Film을 받은 작품, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "20105b9b9463ecda87a796d0bd607d499dbc576793871eb32b6bcb7e24518fc0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ac42b0ae3b8b1bc5",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 장피에르 다르덴의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac42b0ae3b8b1bc58be2116fc766d0da79744f558136fef899fc791c4b68608f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3a1be1f3429656ad",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 소피아 코폴라의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a1be1f3429656ada774b3da3998a962aade87327f270bfce8d9d96e6f1ba3ff"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1d9d49a1b3db1bb6",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films에 오른 정전의 핵심, 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d9d49a1b3db1bb687b151e10c15c8e6c330435ed2ea1f39acfe9b2810ef416b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8f3d20e73f0ad988",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 캐스린 비글로의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f3d20e73f0ad988010aae7bd314da1dd1feb1435a97bf3aa62964fb931db711"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f8a8cdaa0f88d533",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속 가치를 높게 매긴 작품(Value 71/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8a8cdaa0f88d53398816ac9bdcf29e9b5863612b9679570c19c630d3813a010"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "24ce2905b5c7507f",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: TH",
+  "model": "claude-opus-5",
+  "source_sha256": "24ce2905b5c7507f842781aefe469c5eaafd60fd7171255766e1a51a92c3558c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b81895c77fd91e45",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 프랑수아 오종의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b81895c77fd91e45d02b564420c23d792065197482e650e4ae1d7c3a1f3b818c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dcc61edad4abeb15",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 세르게이 로즈니차의 정전화된 작품 세계가 떠받치는 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "dcc61edad4abeb15be4cbccba5eed261105ea3f77c4501c7b44915c22f118ebf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9cc3149d4dcb3e35",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Prix로 인정받은 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9cc3149d4dcb3e35d5b2ec4499e70c37c658d45f1cf672c99bb67ea6c64878d1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "42e6f9fe45688a12",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 아쉬가르 파르하디의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42e6f9fe45688a12bc5a8e0754b306278a86f7628d769d79cbab7f86555fd5b4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "836ed723042e8b9d",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Jury Prize에 오른 정전의 핵심, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "836ed723042e8b9d6f43b2a2e881adec1efd757102e8a40414273671dd651f5f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "84e512f30f5439d9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 지아장커의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84e512f30f5439d98e9004811ff4ef87586a02fc2f98b591a395f1ea99c66ea5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e7979b57d76ba1d7",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: TR",
+  "model": "claude-opus-5",
+  "source_sha256": "e7979b57d76ba1d7c0f62c0693fb91291b788560227b62fd3d0fedff0735915a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ae19119acd621aee",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 리들리 스콧의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae19119acd621aee1be31c1c78c8fc6bae6c06126d6b4d3472f8b5f5c9204264"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "eb05d027936e3539",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 더글러스 서크의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb05d027936e353998e41d028fb477ffe9c40fffc8225005470c16b6727ae6c4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "769b3408e3cbe193",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 안드리아 아널드의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "769b3408e3cbe19386d40ea99cd325ea9e8d682288efbc76356ccb280f0ccd76"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9300fa3ad7f48c36",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 제인 캠피언의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9300fa3ad7f48c36074cf9b2eed3ae9a50db983c1ec16e139a8da953485f6d6f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fc5a268627675b30",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 지속 가치를 높게 매긴 작품(Value 66/100), 일반 관객에게도 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc5a268627675b30b72139985d0a586d20a8046a13b5b96da79afaa13cc86194"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "24e22254011725d0",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 션 베이커의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24e22254011725d0f5fc0c5b3b9912128f8919959599bd96d26cfb8ccf8b2d37"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9a9cc4c3082267a2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 토마스 빈터베르의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a9cc4c3082267a25cb16df8b6931604857cf31115925747a20890c764ba5b53"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "11817df768838916",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Rooster Award for Best Picture로 인정받은 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "11817df768838916383dffd0966f7451ba38b9ad18b9801e47b1d1483dbfccae"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "09657dec23b92d80",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 존 카펜터의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09657dec23b92d80c0095b8c23ebe2dcdd68f7e32f62d25d0fc7a154dcfc94a5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0204f169ba9edf8b",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Romanian New Wave.",
+  "model": "claude-opus-5",
+  "source_sha256": "0204f169ba9edf8b17e794b52f83d71e45625d18787a3287f0f69e6b50d55c6e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "494be4791d51bed2",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear로 인정받은 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "494be4791d51bed257bb507fd0915942bbf84ba3f676551513960d44c426ad6b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ff845fc2e2f47c26",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 스티븐 소더버그의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff845fc2e2f47c269d54dd2b1c12c3a13550e0af5aeb98aa4386b3c04e4adc8f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f0f897b543fa8985",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 WGA: 101 Greatest Screenplays에 오른 정전의 핵심, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f0f897b543fa898569a6e8401a406a17b4ab93ff92883765cfff76394f782430"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d8ffbe921bdc8cfc",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 호소다 마모루의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d8ffbe921bdc8cfc59cb314d1059c65bbfc0107ba8ad5b4c3c7815db7a4c93bd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2572a6595a803402",
+  "field": "text",
+  "lang": "ko",
+  "text": "100 film italiani da salvare로 인정받은 작품, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "2572a6595a8034026c6c45b0c680563a70e879d974c185752a5e601dd89c115c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "45f38ebf9cf72125",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 미하엘 하네케의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "45f38ebf9cf721258bc98428ba0177f2496e7b70bd74e2adccdb563fdd85f3c4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8c6415ba7a2f42d5",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 이마무라 쇼헤이의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c6415ba7a2f42d5186816e9103c9b260e13b15e6ec811f6e7fc439f6b040654"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0696d2393e0c8e6f",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die로 인정받은 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0696d2393e0c8e6f3f2b442b2069d6c6c93d4c279aaea210fc0234262dc252eb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "00acf0e9adf32dcd",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 기타노 다케시의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00acf0e9adf32dcd6563815b6d719628eca0674ccf0a495f053297696548e401"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d8278bcdc709b3ae",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 National Board of Review Top Ten Films에 오른 정전의 핵심, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "d8278bcdc709b3ae60e0f4e7338b79398a1e63113fd7e2b6011673bff6176788"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1048a1b96217df9c",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Japanese New Wave",
+  "model": "claude-opus-5",
+  "source_sha256": "1048a1b96217df9cd4f9ad1528e9059e6192c56abed5a9146cb9317fc59a3863"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "dfa7e6b307a46fc8",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Best Film에 오른 정전의 핵심, 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "dfa7e6b307a46fc87f7a696789c50f201ac30a4b23e1691b0147f97ce2eab506"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "77472e21b01dea25",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 구로사와 기요시의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77472e21b01dea25eb449c11d968cdaa03dfddf2ec92fa205869407833029c26"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a245d15bce71e78b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 토드 헤인스의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a245d15bce71e78bc9db7f1ecfafd878580385ef88084b10c0611ce1177f8b5d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d338dacd026e9da6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 자크 리베트의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d338dacd026e9da6c37483439e23a1e7f4f4825ebed368fac496790dad088e77"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bc2e70859e7affdf",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 스티븐 소더버그의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "bc2e70859e7affdf0795f3930f4aff5f2b7bde37a98575cda0926c584f406a53"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1a94d1b46652650c",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 1,000 Greatest Films와 Kinema Junpo All-Time Best Japanese Films에 오른 정전의 핵심, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1a94d1b46652650cb58b8b9f1f0e6dd55524396051ccfce978604d3a2bc2897c"
+ }
+]

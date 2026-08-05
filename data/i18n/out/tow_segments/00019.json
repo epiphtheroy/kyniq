@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a628b4d246d51629",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Prix, Golden Horse 100 Greatest Chinese-Language Films에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "a628b4d246d51629c2239284374279ebcd282b13f669b09328482dd1223ef94b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "81ccf2f4421c04ba",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 엘리아 술레이만의 작가 계보에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81ccf2f4421c04bac806bf5d1fde58b98301aca69fea967994b302789e14e1b6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "03c1db2e9747bac6",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die, TIME's All-Time 100에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "03c1db2e9747bac6e72c3cd7574c3259dbb8e66d5884bfc0b17e2448fefbd35c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ea6ce4a433a52d02",
+  "field": "text",
+  "lang": "ko",
+  "text": "David di Donatello 작품상과 남우주연상을 받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ea6ce4a433a52d02303c4ee571b49ac1205c0d9ca6fefa8ca2767202d1004707"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7029b66aed2286bf",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA 각본상과 National Board of Review Top Ten Films가 기린 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "7029b66aed2286bfadadbf82bb54fc96a31f0b12b44bd7ecbed2206bd69f52c1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7a27722347fbfc66",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die, National Film Registry에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7a27722347fbfc669c2b74af654a78e5252acea2a86d93cf760a9a73955e8cf3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d2d1082c8c993298",
+  "field": "text",
+  "lang": "ko",
+  "text": "Ariel Award 작품상이 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d2d1082c8c993298a9a6a3daa86b54e6f86752d9e6a18b06ed15aaf7106c9d88"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0de89e658d505e31",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 빅토르 에리세의 작가 계보에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0de89e658d505e3129926ddf8e170b248658d8dbf106634aeb8706d59555de73"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8fcde325e9dece0a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 니콜라스 빈딩 레픈의 작가 계보에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fcde325e9dece0ace478331e26778d1408f0ab1c9ac69ca17393f3b38f6cdd2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "40b00b161b5fdec4",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 여우주연상이 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "40b00b161b5fdec4e2840733a84cb4a9ee0bdafb74df2d1e06ba02346bdaab0d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ede43e907939a5e5",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Society of Film Critics 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ede43e907939a5e54c8e21e743320825aa7d5bf05d234f8df97e90ea38f2fed6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "38809d908800a596",
+  "field": "text",
+  "lang": "ko",
+  "text": "TIME's All-Time 100에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "38809d908800a5962bac8fd602659f47e6c96cd88c756e536449746d4e19c971"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f22c5854a06e2224",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Ariel Award 작품상에 이름을 올렸다. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "f22c5854a06e2224174f8037872bca381eef8d5007a587cffd472193c3facbc8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "35fe26bc7f905578",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Golden Globe 드라마 작품상에 이름을 올렸다. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "35fe26bc7f90557832bad70c595248ae070f58ff985fce702ef74475d720e556"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "160795a3a5489c97",
+  "field": "text",
+  "lang": "ko",
+  "text": "People's Choice Award가 기린 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "160795a3a5489c97246508fc2da9294e39fde7663645a83c2808b91ec3d952f7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6736f05f44d5e96d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Horse 100 Greatest Chinese-Language Films, BBC: 100 Greatest Foreign-Language Films에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6736f05f44d5e96d1e9ae5f44612bbe9b80703ebe6a4f24ca365f05ff11acb81"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ce2d558e485b941b",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century, IndieWire Best Films of the Decade에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "ce2d558e485b941b44a5a12bd4707d6848a36764dc1352e209c4b481247a8007"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1082eacc80c72207",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 세미흐 카플라노을루의 정전화된 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1082eacc80c72207568fefbc326e604e0fad0ae2897fa0373bd189bb3601caa7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "721a2eb96ba250e5",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Eagle Award 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "721a2eb96ba250e59a83ed90f101f594c2ba30dc24bf6adfb8efac6ccea7120e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "53c041ec913fedb1",
+  "field": "text",
+  "lang": "ko",
+  "text": "BFI Top 100 British Films와 National Board of Review Top Ten Films가 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "53c041ec913fedb17d50f3eab52d68ad2318c7036a359ef83ca1ee66bd269288"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "033ab69f2e924b08",
+  "field": "text",
+  "lang": "ko",
+  "text": "AACTA Award 작품상이 기린 영화. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "033ab69f2e924b08c9ed3ae9f4b1d70efcb6cd997784311fadb8ee0d3333690b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5fc51d04e7ad5a85",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 시로 게라의 정전화된 작업이 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5fc51d04e7ad5a8597ff5187d4817fabf1c45aadc6cc9226df896bae0de351c0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e24adb3a9e34c84b",
+  "field": "text",
+  "lang": "ko",
+  "text": "César Award 작품상과 여우주연상에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e24adb3a9e34c84bf3aaf28b2d0340b0bad79bbba00f827e2f7bfd8031ce14fd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "156fb6be2400832d",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: New French Extremity.",
+  "model": "claude-opus-5",
+  "source_sha256": "156fb6be2400832dcefc9401f4b2a80bde1851efbdbee5ce6c7e68e435c6e2df"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a3ceb5d9e8325094",
+  "field": "text",
+  "lang": "ko",
+  "text": "Jury Prize, Bodil Award 덴마크 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a3ceb5d9e8325094fb7bcfab4bec2d5baf70d0d8371f98965632231bb046c381"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3f8f5d8ac1518d09",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 샘 레이미의 작가 계보에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f8f5d8ac1518d09606a73ddea278aa428ff243a81a141bdae18f4c5c00744e7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "98590d01cc2b2e81",
+  "field": "text",
+  "lang": "ko",
+  "text": "Grand Jury Prize, Asian Film Awards 작품상에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "98590d01cc2b2e817fe0aa49f1117a025b9d1113218b698ef5732831af400b67"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0facf5c22d23572f",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Canadian Screen Award 작품상에 이름을 올렸다. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0facf5c22d23572f3245553a3af472347222747917e4271507d63c9d4d853648"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "28e6dc79ff499f88",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 아키 카우리스매키의 작가 계보에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28e6dc79ff499f88f457b661c4f09e2a2641f0bf70549597cd06fc69f7c77659"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "799af0a7012e7814",
+  "field": "text",
+  "lang": "ko",
+  "text": "Volpi Cup 여우주연상, BBC: 100 Greatest Films of the 21st Century에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "799af0a7012e78146c2c8e6839761c1b934c9593019fbd0d3484ac8ffb81007c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "714ca374d579fbfa",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion과 Nika Award 작품상에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "714ca374d579fbfac9f58e85b903c2d44f05ac6b4c53615593a8b8b93c5a6def"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3f67e0fd165263f2",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear 심사위원대상, Étalon d'Or de Yennenga에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "3f67e0fd165263f224d293aa74543d6a15de1a31b7838b498fa98bbdd50ce0e1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6bd8c274b2f10976",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear 주연상, Gdynia Golden Lions 작품상에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "6bd8c274b2f10976a6d44d403ee073903d0d30efe78bb7b43e06469ec7602789"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a65dcc9bef50be72",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA: 101 Greatest Screenplays, National Film Registry에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a65dcc9bef50be727ab30cb73d9a8336d0d405ad3e645101bf4f8efcc3f597d1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f5108515562bb81a",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films of the 21st Century, TIME's All-Time 100에 오른 작품. 일반 관객에게도 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f5108515562bb81af26b91593891584d558e5d48e3ca0f40c9b259fc57074e71"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "26410d327b885d49",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear와 The Guardian: 100 Best Films of the 21st Century에 오른 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "26410d327b885d49006db8dc02a02ba4e0184c856ca48f9bc67acc38a5231106"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4c11da33ffb0d2d2",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 아쉬가르 파르하디의 정전화된 작업이 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "4c11da33ffb0d2d2edf033bec2b83048179e5059d8267697c3dc52c7dc86d183"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e09dbbc9eaf70432",
+  "field": "text",
+  "lang": "ko",
+  "text": "New York Film Critics Circle 작품상, National Board of Review Top Ten Films에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e09dbbc9eaf7043269ede45983d19ab8323c8afe929736a1c8c26218de819b8f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "74b463f00546c30c",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore 측정값이 유난히 높은 영화(Value 82/100). 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74b463f00546c30c4b35cc6ccfd408deb63141d633f400f261ac239acf5da9e5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b11d3f66b9ee520f",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: NL",
+  "model": "claude-opus-5",
+  "source_sha256": "b11d3f66b9ee520f7f93e560d697f34d585c88dc8f06bdf89320bf9d4ca9d1f0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "612ac3b325fec569",
+  "field": "text",
+  "lang": "ko",
+  "text": "Tiger Award가 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "612ac3b325fec569cf804ddb1e2c94d2a11df369a4ea4d133c08516a32382f8a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9fba9f11cc78f5a4",
+  "field": "text",
+  "lang": "ko",
+  "text": "Guldbagge Award 작품상, IndieWire Best Films of the Decade에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9fba9f11cc78f5a494c06af762548a0701a7e2748aea3178546c062ef030615a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7e8ae4d3252c8c47",
+  "field": "text",
+  "lang": "ko",
+  "text": "작품상과 감독상이 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7e8ae4d3252c8c477491a2bead7c72e98389a0f94c44030e3bc21df10ea072fd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a79e93fea60af189",
+  "field": "text",
+  "lang": "ko",
+  "text": "뉴욕타임스 21세기 베스트, IndieWire Best Films of the Decade에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a79e93fea60af1890cb9d6b4bdf027932dfa218b361af986c7f27da1371895b2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8e022c34905e6d89",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 노아 바움백의 작가 계보에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e022c34905e6d89541a52b3d3910bbbddbee2cee81c33ea9e07ecac5ff805f9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2d2b0687a8dcbad6",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 레니 에이브러햄슨의 정전화된 작업이 떠받치는 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2d2b0687a8dcbad60702cff5d12ca28c5e4da0eba06461fe3dc2b9134ad24e26"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "439556f446743dfd",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Lion에 오른 작품. 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "439556f446743dfd5c9fb5b72921ea50fa58278ef8236a02808de4a697563619"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "104c546e792b929e",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Film Registry, National Board of Review Top Ten Films에 오른 작품. 어느 정도 알려져 ��다",
+  "model": "claude-opus-5",
+  "source_sha256": "104c546e792b929ed1d69ed48c911b009d490ee6f407aa21e588a5d6ae3a6465"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b59c661cfc9e83de",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 카림 아이누즈의 정전화된 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "b59c661cfc9e83deb63b638969852161d48d08069c842602264f45751ff4f10b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ddbd7bec0e48a25c",
+  "field": "text",
+  "lang": "ko",
+  "text": "AACTA Award 작품상, National Board of Review Top Ten Films에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ddbd7bec0e48a25c8ab2d1010bd4a8f40790843cdc0450fdb78d9e472fe1bb62"
+ }
+]

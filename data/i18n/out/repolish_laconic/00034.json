@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-that-refuses-its-own-continuity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "컷이 공간과 시간의 정합을 꿰매는 대신 찢어놓는다. 무기로 쓰이는 편집.",
+  "model": "claude-opus-5",
+  "source_sha256": "55ce6570d076ef1a5a88d9561d9b8b0fecd70edec10ab55042636f1d9f3a8b1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-that-renders-time-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "움직임과 몽타주가 시간의 몸을 얻는 순간. 시간이 눈에 보이게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8207675289abdc1a712bac1c4ccdfcb10dad0dc100931e584ab2e28d4c1f9c24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-editing-that-becomes-the-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 의미를 쓰는 것은 빛이 아니라 몽타주다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cc79163d3eb73d5babf5d19b0b980158514f6628bc7958bed49af663d3a25b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-effortless-surface-over-bleeding-feet",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우아함으로 보이는 춤. 그 밑에는 아무도 보지 않는 몸의 대가가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64fb7d37d7878cd9224cb1294fd5831d3ed039cbdf5e232b5311775d7b8f2d5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-egg-as-sealed-vessel-of-belief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "깨지지 않은 껍질 안에 온전히 담긴 것. 알은 믿음이거나 가치이거나 자본이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "988a36106f5b2e8ea398734386cb1e54caac0675654966e700bccf2b09cc1f10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-elegy-that-invents-its-lost-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도가 슬퍼할 대상을 스스로 지어내거나 뒤늦게 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a21a81b4976de5274f50341633ade5ece636f25b0138a453272585d4d12ec6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-elemental-real-that-shatters-the-symbolic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "언어의 그릇을 넘쳐흐르는 거대한 자연력. 라캉이 말한 실재(the Real)의 형상.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ce2c5eb54944a9e48dcaec87bde11f7b9e87e576c04b7cce7cb6a1540eaf7f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-elevated-horror-alibi-for-critical-shame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공포를 점잖은 예술로 세탁해주는 찬사.",
+  "model": "claude-opus-5",
+  "source_sha256": "de8b9c761f4cfe694c866090885748ec78f0bb40342d8edaf3dfe05b02a16db1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ellipsis-as-secret-editing-grammar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보여주지 않은 것이 영화의 진짜 뜻을 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e68f39a22a33566a1405c707d2cdb94845997dd5ca67d9ad2329f0f32326844d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empathy-machine-as-cultural-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 공감의 기계라는 주장. 미덕이 아니라 불안한 자기진단으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9209a2aacc80dde736147ecc431d59dfac4501c697fd3730892a977493d87464"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empire-built-on-addictive-sand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력이 딛고 선 것은 희소한 채굴물 하나. 그것 없이는 하루도 버티지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cc740bbcab9b4f53ea5291b2e47f4da7fbc0e22a2baee2a102bb2e6644da1fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empire-that-returns-to-speak",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민의 죄가 되돌아온다. 몸으로, 조각상으로, 낯설어진 분신으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "36d925db51a5b83d07f3b11a88a0ab3d8638eabc118025abf120113cc72904aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-emptied-face-as-engine-of-grace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "브레송의 무표정한 모델들, 잘려나간 신체의 파편들. 그것이 성스러움을 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3088ab63c099df8a060a372ab91baef1798a0ba280c59fc9228707338a9b0ed4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-american-landscape-as-predator",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "텅 빈 땅. 영화의 진짜 위협은 무심한 그 지형이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb7f9c1bb72e9a2624031dc9094d3c20b53c90160439dd2c460d14f5a63a77b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-frame-as-withdrawn-presence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미지 속 공백이 말한다. 그 공백이 영화의 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "068ba2406c3132f926b211ba11f5d3839806a80d5cd8834aa1c823dc619a154a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-house-as-demographic-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빈 집이 곧 장부다. 줄어들고 늙어가는 일본 인구가 거기 적혀 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43a26ead93fa1a05e017eafdc82117de01983bf9112d45b7d160997026c90b8c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-room-borrowed-from-ozu",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 정적이 오즈의 필로 숏과 빈 프레임을 거쳐서 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cac8ed18c4ecb58679783a613a8452532ed775535d8717d1b70974ea49ff0ae9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-tower-as-capital-s-vertical-void",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고층 건물을 금융화된 공허로 읽는 시선. 자본이 수직으로 세운 벽.",
+  "model": "claude-opus-5",
+  "source_sha256": "9557418369a805fed2d8a7688ecaeab30a299f5cbcda41bf3ab308db404b0170"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-enclosed-house-is-the-empire-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집 한 채가 식민과 신분과 제국의 질서 전체를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6acc0ac71e8f5ab2615bef47cdd672485b769311130958f80cee7c4d4a22a15f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-enclosed-interior-as-spain-s-political-settlement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 실내를 프랑코 시대와 그 이후의 통치술에 대한 알레고리로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51216441a7819dcd78d2a0049e461a69d8db19e676c31d59fcaaefd3f2fc296f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-endgame-as-terminal-diagnosis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'엔드게임'이라는 말. 한 시대, 한 질서의 종막을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d42e7a081dd18a84606881365a813ecfefabcc67d2a76a3b1979b20776c785b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-authors-its-own-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "억지스럽거나 열려 있는 결말. 그 결말 자체가 영화의 진술이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0afa602ac6f0f11271fc3f15690e66697c53eaafcce43e191719893ec6b6e1ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-detonated-in-the-opening-frames",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 죽음을 앞당겨 써버린다. 자기 서스펜스를 자기가 죽이는 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a70b6c4387e00d43e7f7203081ae749cf0848a700bf1471c6f575552faf1221"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-misread-to-escape-the-inescapable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 내민 문턱을 견디지 못한 비평이 종결이나 절망을 덧씌운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76873bde09364e497fbaad821034f110fc80b1bce1627a0a4b3ad84861dc7048"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-that-confesses-its-own-impossibility",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝맺지 않는 끝. 영화가 할 수 있는 가장 정직한 고백.",
+  "model": "claude-opus-5",
+  "source_sha256": "23883fc82a3349ecf3e59f09376ce69e3b1b0749800a18828e48be2c2c270fdf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-that-is-a-door-not-a-stop",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝이 아니라 반쯤 열어둔 문으로 읽히는 결말.",
+  "model": "claude-opus-5",
+  "source_sha256": "b522f613bce042e387d5094805fd0bafe3b1c9db5d3904abc0cabac187d6cd71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engineer-who-wrestles-the-apocalypse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불과 공허와 폐허를 상대로 즉석에서 구원을 짜맞추는 기술자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d42f93e2ce1d08250d22a7f3bc6aece0d8f464c10ecf91cda1714600fb8ff9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engineered-survivor-of-a-failed-experiment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기를 만들어낸 실험보다 오래 살아남은 피조물.",
+  "model": "claude-opus-5",
+  "source_sha256": "885443040015d80b636a7c06448993a3838899acba5f5c90fdcf21a089d5c4a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engineering-of-manufactured-consent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "설득의 기계. 믿음이 의도적으로 제조되는 공정이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bfa86ef1864146e2e0476c09ce320f170cf52fdd2dde0638a520dc34f1406e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-english-address-wearing-another-realm-s-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영국의 건축물에 이국의 권좌, 혹은 스러져가는 권력의 자리를 맡긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3aad95f4fda3ba45f337fad36eea6ad13e71084c435fb98e43b73263cdea5cab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-english-edgeland-as-map-of-the-mind",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "습지와 하구와 평원. 마음과 사회의 지형이 바깥으로 나와 펼쳐진 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0833f616c817d11b4dd4738336e4f870dc138f995e1b8a433ca986e14d0e4794"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-english-landscape-as-buried-counter-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지방의 풍경을 런던이 억눌러둔 목가적 무의식으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dae9e7f28d4bf14c1b8783d6b010d425abab825eaaeeca097aea00353c415b52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engulfing-sea-womb-of-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "품어 삼키는 바다. 헤엄쳐 되돌아가는 어머니의 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "242f4a39668bfa2566fa0d8ec38242597fd472028104f35ab6b64af69d08db9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ensemble-as-manufactured-democracy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "캐스팅과 연기법이 먼저 있고, 영화가 그리는 평등한 공동체는 거기서 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8612c095966553533e133d092773bbe91d797e8bc617f9cb006792bca7541ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-epic-conjured-from-the-render-farm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신화적 장대함의 정체는 기업 스튜디오에서 조립된 디지털 제작물.",
+  "model": "claude-opus-5",
+  "source_sha256": "d33f95ffaf39314552bc4ce6a5a3b222fe9ce8008cbbd166f0cbcdb7a15db68d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-era-that-demanded-its-own-mood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 시대가 바로 그 정서를 원했다. 그래서 상찬받은 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "06dde046c296584cbb5bf600ca9a542dfaef9328e30e53d88bc1c85f6f1c81c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-erased-indigenous-body-of-arendelle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애니메이션 속 노르웨이. 지워진 원주민에 대한 뒤늦은 참회로 다시 칠해진 땅.",
+  "model": "claude-opus-5",
+  "source_sha256": "c160b3412b81c275c5d6fe750838d45c08ba60555dcab7e3f0e8d57a2166c69f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-errand-as-the-death-drive-s-calm-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시시한 심부름 하나가 면허가 된다. 표정 없이, 애도도 없이, 파멸을 향해 가는.",
+  "model": "claude-opus-5",
+  "source_sha256": "290f414681c28f09027ae87fba837eaa0887007081721d228a3d7defe2201dfa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-estate-that-refuses-its-own-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 그려놓은 자기 초상을 거절하는 집.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc8c6eb1a5283d1e6197b888c22c0b6ff57a537224d8f9a8713ac755559e21b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eternal-forest-is-a-working-landscape",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영원할 것 같던 신화의 숲. 실은 관리되고, 사라지고, 지어낸 지형이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ef678028b9370ce04b6d245bc1f12bf1e63d00f67b509f8a6c5ea5b201b8a27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eternal-return-made-visible-in-a-single-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영원회귀가 사물 하나, 몸짓 하나로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "783b9be63b1dd33d8afef1e8da4d2dbc602c874e1d3b4562f4cf577b60fd28cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ethics-of-the-filmed-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라가 고통 앞에 머무는 순간, 보는 사람도 함께 연루된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2f9dbd13e99a66d9045bb4a858faf1dfb70815f975da06a2e9e2da6ae2f746d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ethnographer-becomes-the-specimen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관찰자의 거리가 무너진다. 연구하던 눈이 연구당하는 몸이 되는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe07e79590f584c2ea6f726bd896c6e6879d154bf0be8e292f0c72764f27a34e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ethnographer-caught-in-his-own-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥에서 지켜보던 자가 사건의 당사자가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cf6de672cfb7f09f90b805f07e783a9cea63a89394ce1950754a6ef74de8573"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eucharist-reinvented-as-profane-sacrament",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성체와 성혈의 예식이 자리를 옮긴다. 살로, 음식으로, 가짜 신앙으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d0a697e628f385582a7ca2c8dfd05ed480d690975ba12c56a7567af435c8964"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eulogy-for-the-still-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아직 죽지 않은 이를 앞에 두고 치르는 장례.",
+  "model": "claude-opus-5",
+  "source_sha256": "eacb668b169efac3d55f84167b1cc7fab9fefd3dba265db81e650662a9717836"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-euphemism-that-buries-the-politics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아름답다는 말로 의미 읽기를 거부하는 비평.",
+  "model": "claude-opus-5",
+  "source_sha256": "da40f3de1be0f7afaf4377c683e6aff12462714fb1ceda83793f714ebff8f120"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-european-festival-crowning-its-own-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상은 영화에 가지 않는다. 유럽이 자기 이미지에 주는 보상으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0d2e157d2190b3c23d895af9db4c6bf606dcf54ecf6830aea6e0d4e493e63e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-european-migr-s-honest-love-of-hollywood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국 장르에 진심으로 헌신하면서 구세계의 형식을 몰래 들여온 대륙 출신 감독들.",
+  "model": "claude-opus-5",
+  "source_sha256": "28150d2aa15635fda2ed1e54c2c1326531fc5d8ab558083e97af58e33108ffe3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-event-that-never-became-past",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목격할 수도 붙잡아둘 수도 없는 사건. 영화는 그 주위를 맴돌 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27cbfb5755dcb9aa1e6080cad4198d1e1d5efba473b2957f1fcfa0446fd88fcf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-everyday-object-as-instrument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살림살이의 소음이 구체음악(musique concrète)이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc988be632d7ac412f783ea973c78ccf5549320d18446e2f48da525b72fdb2b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-execution-staged-as-sacred-liturgy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 내리는 죽음을 순교의 의례로 찍는다. 교수대는 제단이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b286541a2c01ac4b36a1687b9a24f048f08a13085c245e0f4be3666c45a65aca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-executioner-who-feels-the-weight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음을 집행한 자가 그 값을 대신 짊어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3fb34a5b8d18e69875669e278f30808b5891b514e6de3a123450050bcf324ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-exile-s-cold-eye-on-his-banishers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쫓겨난 자의 시선은 차갑다. 자신을 내몬 계급을 그 눈이 정확히 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "438c983dde6f696911fb137cb24adad8e0fdb9ab18f1a9303faad65673c4aef4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-exiled-director-filming-his-own-displacement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작가의 유배가 작품마다 주제 안쪽에 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38fc5e82cb6f88e5d0e62230de98127a28f7f2acd2fa587e62efe6d03bbc2bd1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-exit-that-forecloses-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠남은 탈출이 아니다. 망명이고, 정치적 항복이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cb78dbd8ba785877bc2f70e08a7d4f94505b389e2e2062992746a9f459cb7f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-explorer-who-chose-the-void-over-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌아올 수 없는 지점을 지나서까지 밀고 간 소명.",
+  "model": "claude-opus-5",
+  "source_sha256": "60144e7e2c53078fa23af9d5c5b654917494b8c3042435ce3442993d155c1f54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-explosion-as-the-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭발. 눌려 있던 진실과 욕망과 역사가 한꺼번에 터져 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f2d246513c5ac2e649969052207f79cc0136aa5aa64e146877826b9cfdbf5d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eye-as-the-film-s-wound-and-lens",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다친 눈, 결함 있는 눈. 그 눈이 영화 전체의 광학이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26bc4865b8683d501b2646bac57a0013bbab89271f0574b30ec989b455e557fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eye-as-the-symbolic-order-refused",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도려내진 눈, 이름을 붙이는 눈. 그 눈이 곧 법이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f4f8758bea0abde506ee4452032a367aa49c14f9e1cc1ea20897c0708019e27"
+ }
+]

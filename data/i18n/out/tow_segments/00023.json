@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9569b499f569b5ee",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC 21세기 위대한 영화 100편과 고섬 어워드 작품상에 이름을 올린 작품. 대중적으로도 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9569b499f569b5eeac90df3003cc2e310258bf57bb8c0c41c67bba1a8a6ab7f3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cea76564b1d68e6c",
+  "field": "text",
+  "lang": "ko",
+  "text": "은곰상 감독상과 여우주연상을 받은 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "cea76564b1d68e6c5120a97593aa7a89cd336091c3283549482160f53d3f132a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63003c25c7ca6b22",
+  "field": "text",
+  "lang": "ko",
+  "text": "청룡영화상 작품상과 아시안 필름 어워드 작품상을 받은 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "63003c25c7ca6b22f740287a9502cdd43377b5fa6057f294af817da120b85976"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b57b02346cd17c0c",
+  "field": "text",
+  "lang": "ko",
+  "text": "봉준호 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b57b02346cd17c0c90ef8923b2525e60a6cb76e4f33f9a6cc11dca89c1c2831e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e1d4f996e4035b87",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독상을 받고 죽기 전에 봐야 할 영화 1001편에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e1d4f996e4035b87a1ba5969cba0b1e963b7dea86170489db3b93bb80b4bb8d6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "360835dbed630eec",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상을 받고 가디언 21세기 최고의 영화 100편에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "360835dbed630eecf8de9962fcab652a8b952f1ae6f6f0a0b43ea652378b3540"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5503c1755372053a",
+  "field": "text",
+  "lang": "ko",
+  "text": "비평가 리스트와 작가 계보에서 인정받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5503c1755372053ae1c4a3d0f551fbb7441edf40c12a65139469e0a9dd8e3c34"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "524f2133526681aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상을 받고 죽기 전에 봐야 할 영화 1001편에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "524f2133526681aa5593a98b361c6b52cdeced13594d9de795abb8d65457d3b6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0fc650d506fbdca7",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 위대한 영화 1,000편에 오르고 그랑프리를 받은 정전의 핵심. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0fc650d506fbdca731c2ecfc41224e8489faf4cb68921a01ef738afff0a32e27"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "565ae066d240d473",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: NIGERIA.",
+  "model": "claude-opus-5",
+  "source_sha256": "565ae066d240d4739cc784e9b9acdfc2d9d70927d5c14cd758576517ed88d791"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f1a3fda1e1352985",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상을 받고 BFI 영국 영화 100선에 오른 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f1a3fda1e13529851a482372bb36eb47b39362fe8891ff26e08f613ff7405d5c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7937681276f347ab",
+  "field": "text",
+  "lang": "ko",
+  "text": "아시안 필름 어워드 작품상을 받은 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7937681276f347ab9ecb8378299b278048591e26fe756c0a0daf35ce70d3680d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6074693cb34d2f45",
+  "field": "text",
+  "lang": "ko",
+  "text": "짐 자무시 감독의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6074693cb34d2f45b6965263fcc00ae188e9fd03a5c664d56ad8eaebc03b7b72"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c0cf8e6501024fa7",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 키네마 준포 2000년대 베스트가 기린 영화. 대중적으로도 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c0cf8e6501024fa7e4ec9ea67957ae0ff79e142a319df07971b62ed691a8475b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0fd1c57d8fabc79a",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상을 받고 가디언 21세기 최고의 영화 100편에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0fd1c57d8fabc79a719ee6ca54cbd9fbac3dc1882b179cf21decbd3960010d09"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f711305e6edce050",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 측정한 값이 각별히 높은 영화(Value 83/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f711305e6edce0507928c335996d4bbcb3bb0e91a00e8564242b130394e843c3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6e524ba0343d51e6",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 AACTA 작품상을 받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6e524ba0343d51e6d904a015341bff3d2e18d6ec54d215edd98a084317b7324c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e0651fc48139b6d1",
+  "field": "text",
+  "lang": "ko",
+  "text": "자파르 파나히 감독의 정전화된 작업 전체가 떠받치는 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e0651fc48139b6d12059e4c75fbfd02b97d3f65e04ca65280ab21e6759547e57"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5b40df5e34d1e594",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 위대한 영화 1,000편과 인디와이어 10년의 베스트에 오른 정전의 핵심. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5b40df5e34d1e5942b42150006106e9e21c625d7de0946a8271b6ea1b416d0f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e9764b2c26401a9f",
+  "field": "text",
+  "lang": "ko",
+  "text": "국제장편영화상과 각본상을 받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e9764b2c26401a9f13fa391b8a17faae50d257b05f14ab9cc8034b4c428f485d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0dee6be6e95385b9",
+  "field": "text",
+  "lang": "ko",
+  "text": "청룡영화상 작품상과 백상예술대상 작품상이 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "0dee6be6e95385b95fb7109b73cb4f60a1edad1cc0287601ed89a60ebfbf03b1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "825133095abfa2aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 키네마 준포 올해의 영화상을 받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "825133095abfa2aa32fa7470b9983adbb5c29dfa8a3595a56e4479a32707f790"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2ff1b45c7762d7a2",
+  "field": "text",
+  "lang": "ko",
+  "text": "아카데미 작품상과 황금사자상을 받은 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2ff1b45c7762d7a282b5b65120207d86d97c51b306a521967c0da700eee626f0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4b13ef9ac62435e0",
+  "field": "text",
+  "lang": "ko",
+  "text": "라브 디아즈 감독의 정전화된 작업 전체가 떠받치는 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "4b13ef9ac62435e00c953d678532061df409e03442e5be0c867e102b17c9fa1c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "111aa133c966f285",
+  "field": "text",
+  "lang": "ko",
+  "text": "베르너 헤어초크 감독의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "111aa133c966f285e84deaf8084002eec45ff1f2be2675293377f6a2668a973d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "184876088ac1bf59",
+  "field": "text",
+  "lang": "ko",
+  "text": "Die wichtigsten deutschen Filme와 TIME 올타임 100에 오른 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "184876088ac1bf5964aae9b9e7b1de477c85c5f7704e59840721ee7b23ac17e8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d6e9d0c91d57c7c2",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CH",
+  "model": "claude-opus-5",
+  "source_sha256": "d6e9d0c91d57c7c2ea7df2b375ff3e259de3c8d861e73b463f3e09417121cfca"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9f8c6bb70462c00b",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 위대한 영화 1,000편과 전미비평가위원회 톱 텐에 오른 정전의 핵심. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "9f8c6bb70462c00b2adebce419dbc316ef790b01e0495057fd841bd671c001cb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f498dfedc71f09ba",
+  "field": "text",
+  "lang": "ko",
+  "text": "은사자상 감독상과 백상예술대상 작품상을 받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f498dfedc71f09baaa6d54c9b7a284c93c20f595a8f665d2b5c50dd15ab38c66"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5f3f86e575a9b4f1",
+  "field": "text",
+  "lang": "ko",
+  "text": "베네딕트 에를링손 감독의 정전화된 작업 전체가 떠받치는 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5f3f86e575a9b4f1cd7ba6b469d816594ba974c5c433a4ba0379f4de081f41db"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "562e96d026263ae2",
+  "field": "text",
+  "lang": "ko",
+  "text": "하니 아부아사드 감독의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "562e96d026263ae26f0f5e9595e4545892db433f1a0941b21bff6af89e27fe5a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "483c4b7339355deb",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상을 받고 BBC 여성 감독이 만든 위대한 영화 100편에 오른 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "483c4b7339355debafcc33b4ced1eee10da1123114eb19240f50379eb544e111"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72815168625fe724",
+  "field": "text",
+  "lang": "ko",
+  "text": "다미안 시프론 감독의 정전화된 작업 전체가 떠받치는 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "72815168625fe724f504f8c1138c1c7bc0d6e931be76d241ef9e6adced4f61d9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "79ae09c22d0e25be",
+  "field": "text",
+  "lang": "ko",
+  "text": "에릭 마티 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79ae09c22d0e25beefdd4af078d6377eb0f8beadf6467010f59e6bdaa0c82198"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c097580dfcdde025",
+  "field": "text",
+  "lang": "ko",
+  "text": "신도 가네토 감독의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c097580dfcdde025b8746d3838df62efec1ac051de1ae61a6afd8a9af21d6640"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d8fbd4a5dc01f1aa",
+  "field": "text",
+  "lang": "ko",
+  "text": "다카하타 이사오 감독의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d8fbd4a5dc01f1aa27b2cd9f1c0ccee6cbb8395a0f8b790b9bad027f21c13be6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "65c103af7fff82ca",
+  "field": "text",
+  "lang": "ko",
+  "text": "Caimán 스페인 영화 100선이 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "65c103af7fff82ca8fba7558c9e3a7b5b46c25fcd18a0d0413e586e4b98e06ad"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2e010b8bb0ad46ee",
+  "field": "text",
+  "lang": "ko",
+  "text": "Sight & Sound 비평가 투표에 오르고 황금사자상을 받은 정전의 핵심. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2e010b8bb0ad46ee16780b90a369e979561abbe06cc43e3d20a3700424481676"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "551a324e6102894e",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 초현실주의 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "551a324e6102894e747f8d81af3848a64d518dc6d9d5616e0e3d4cb8fbae20d1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e6b318b4dd4c5f12",
+  "field": "text",
+  "lang": "ko",
+  "text": "일본 아카데미상 최우수 작품상을 받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e6b318b4dd4c5f12fc64fe2cab16839ac7d8b86d2217815cfb68f7725790253b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "832cee3f7488eee9",
+  "field": "text",
+  "lang": "ko",
+  "text": "세사르 디아스 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "832cee3f7488eee951d7245ce5f40c1b7e58a1543a446463cfe57953013872f0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f0055d6ea527720a",
+  "field": "text",
+  "lang": "ko",
+  "text": "전미비평가협회 작품상과 미국작가조합 각색상이 기린 영화. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f0055d6ea527720a6e6bb3a938ffd1d4210c92bee8ba6012f63a2bb9f1dfe194"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2507fd6a252e649d",
+  "field": "text",
+  "lang": "ko",
+  "text": "고야상 작품상과 남우주연상을 받은 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2507fd6a252e649dadbebfb410931aacee7745a78bac6f4b89dc4bccc056c003"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "afefe1818908d776",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 위대한 영화 1,000편과 Caimán 스페인 영화 100선에 오른 정전의 핵심. 대중적으로도 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "afefe1818908d776e3866a3a517a7bf9b4cda014eae4909ffb7849a56530c70c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c7ba213583a700fc",
+  "field": "text",
+  "lang": "ko",
+  "text": "TSPDT 위대한 영화 1,000편과 미국작가조합 각색상에 오른 정전의 핵심. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c7ba213583a700fc6c558a655b16c53565283fa88f5fd857c8efcb184e19f2e8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ae4a93da9c0af0ec",
+  "field": "text",
+  "lang": "ko",
+  "text": "하니 아부아사드 감독의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ae4a93da9c0af0ec9e169b70f0e79939d9ba4c8eed3376cad41ec9f409b65e70"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b6828ed23bb239f0",
+  "field": "text",
+  "lang": "ko",
+  "text": "구스 반 산트 감독의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b6828ed23bb239f0167f07b9ad62a8d7cb99a7a2a0356077ea6213c221e6279d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f2ebc34343016c68",
+  "field": "text",
+  "lang": "ko",
+  "text": "전미비평가협회 작품상�� 뉴욕타임스 21세기 최고작에 오른 작품. 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "f2ebc34343016c684b60e482bbf27b61ca8c1239198f63546f5b351608c38833"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "074f962a58801f7c",
+  "field": "text",
+  "lang": "ko",
+  "text": "반종 피산타나쿤 감독의 정전화된 작업 전체가 떠받치는 작품. 대중에게는 덜 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "074f962a58801f7ce30420749ba76feb87c1e70e3035d9b3c888dcade580e877"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "297177a622f2e5f5",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금종려상과 심사위원대상을 받은 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "297177a622f2e5f559cee5dd41f5490496ef6ece6bfba7c31103b673c5876a2e"
+ }
+]

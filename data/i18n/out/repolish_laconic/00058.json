@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rehearsal-that-devours-the-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연습과 시늉이, 정작 그것이 떠받쳐야 할 진짜 행위를 밀어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ee9b1d785d4b99d35137dde4b6119632257f43ae3442311af844593a3889d26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rehearsal-that-stands-in-for-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부인된 욕망이 스스로에게 허락하는 유일한 말. 연습.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f18da84350081b29c76dff838895583e22a737ed75f8358a44f276edcdfeade"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reluctant-crown-and-its-sickness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "왕이 될 자가 되찾으려는 왕좌, 바로 거기에 독이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14a588758a56240f23923b8ff9794e9be294dde0ce087d71ee21e94bbb6ed6fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-remake-as-cultural-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 나라가 무엇을 감히 다시 만드는가. 거기서 그 나라의 불안이 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9416672f40a4e59802fd593ddf5554d29ded7f5ad777e19430a4837278b904f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-remote-control-that-edits-reality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손안의 기계가 채널이 아니라 세계를 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f52ccc248fe4a43aaefa5d038a0bd234fa0a06b014bf822db5dc0294928ae59c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-removed-wig-as-unmasked-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변장이던 머리를 벗기면 정체가 드러나거나, 아예 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09ce75615051a95c663bb6d8670e0af2c76ec712c270e3964002f323ba304c24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-render-farm-as-confession-of-its-limits",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기법 하나하나가 스튜디오의 연장이다. 무엇까지 그려낼 수 있었고 무엇은 아직 아니었는지를 실토하는.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd1c382fa992782bcf9cc5f5fdbb3a6e38690dc049b91f11c4f4940e3b16b451"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-renounced-genre-pleasure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기대하던 한 방, 그 효과를 끝내 주지 않는 것. 그 유보가 곧 주장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "844c93b60ecc3f1cdadae86719ad93985b5f6af19d9308caf16829bd899bb0be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-renunciation-of-power-s-bargain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "등을 돌린다. 권력에 대한 금욕적 불응.",
+  "model": "claude-opus-5",
+  "source_sha256": "aad8186520d9af99e46092db88e6ac699eae6c8c0d36a1ee7acabc5e68166f81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repeated-climb-as-recurrence-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다시 오르는 비탈에 새겨진 것 — 영원회귀, 버팀, 또 한 번 견디는 시험.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8a58dc62fa89a0cbfcf92cd7e56ff9958f66feb7dff09fb5d8aab74fdd98938"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repeated-night-as-liturgy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식탁 하나에 밤 셋. 같은 사건을 의례로 다시 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de69d1799e1f54ee02ddf6038a332033a2ff7d103127f5bc1e2dec92284c0705"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repetition-compulsion-as-death-drive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프로이트적 반복. 놀이가 아니라 끝내 다스릴 수 없는 것을 기어이 다시 무대에 올리려는 충동이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "068d03e17e4264a4a834ca6359ed47cebb772331f5a479a8e9cd6236799e0a94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reporter-devoured-by-her-own-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자신이 취재하는 화면 밖에 끝내 머물지 못하는 여성 기자.",
+  "model": "claude-opus-5",
+  "source_sha256": "64a75b71f0bdff017627e46e2119ae09513f286b18cedfda00f1023733981b33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reporter-who-became-his-own-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기록하던 자가 목격자와 대상 사이의 선을 지운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1f85f6a716edbe43f968973c29a010e63b52fb2b055f6592189c5d7bceb1880"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-erupts-as-physical-matter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부인당한 것이 몸을 얻어 돌아온다. 뱀으로, 바다로, 썩어가는 것으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5714221ae65a73869f7ff72cee675584b294b18634201301e6b014f7a8c2b6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-ground-of-bengali-self-regard",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바드랄로크의 양심이 끝내 다 보지 못하는 변두리의 사람들.",
+  "model": "claude-opus-5",
+  "source_sha256": "f85474882c18b6a0792f6aaf9c98211da06b9c25260362c4a10142e864cf755f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-jungle-returns-to-devour-its-conqueror",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밀어낸 야생이 그 자리에 세운 문명을 도로 가져간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7a35b521ca113acccf3073d7832b3960fb66f9098ba2a06b3525aa6658eebe6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-returns-as-inscribed-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표면의 사소한 디테일 하나를, 억압된 것이 구체적 꼴을 얻어 올라온 자리로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "361b5711c7629b732fae9d9d9ef093486c4a1678f74a1e88231a0943d96b9ac2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-returns-as-weather",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻어둔 감정이 바깥으로 터진다. 폭풍으로, 얼음으로, 경련하는 살로.",
+  "model": "claude-opus-5",
+  "source_sha256": "70a0fee98b7fcfacdc65a3a77ad7202086412c1084e6cf14d6dcf34459207ee6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-returns-wearing-a-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻어둔 것이 낯익은 얼굴을 하고 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13c85c054a0f99ead353cc6304efd168033f9be2f6bdaa15dd917bbab636d5e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-sacred-returns-to-claim-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻힌 신성이 모독당한 몸을 뚫고 솟아올라 그 몸을 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4889d7bc56ca5c029507aaa7d2b81d94934dfa06a6919b8206ca50697b4d2a33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repression-that-returns-to-punish",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짓밟힌 욕망과 묻어둔 죄책감이 삼키러 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3fd8c734c7119deb697d5750f53308dd95c90f434ef5f316a2df9bf98573eac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reproduced-image-kills-the-aura",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계로 찍어낸 복제가 원본에서 신성한 현존, 즉 아우라(Aura)를 빼앗는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b454a44edf51576baba2862e634d6a2be910f472d0d778f6aaabc46fc82c2ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reproductive-body-as-state-frontier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "출산과 임신을 권력의 도구로 관리하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3491b0da144dcf148c1dffb0a71232212fc693711148286f5d63e259ef912839"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-republic-of-women-built-by-subtraction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자를 치우거나 묻어야 세워지는 여자들의 공동체.",
+  "model": "claude-opus-5",
+  "source_sha256": "21821f57cec5df33a291f56acb34ec60ba60b6cc03f972633c25b4b496db7f89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-republic-s-body-read-as-occupied-territory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프랑스라는 국민의 몸. 관통당하고, 부인되고, 정착민에게 점령당한 것으로 그려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab4486e1bb5330f34255e50405f94e583d3af5655acdceb3d113a18a217b44c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-republic-that-voted-its-own-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 손으로 자기를 폐기하는 합법적 기계장치, 민주주의.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b07850670032cd162a11e99b3b51c2455ffd54f06ff48e6c1ed50da8e556a99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rescue-that-stands-in-for-justice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 사람을 구하는 일이 한 민족을 해방하는 일을 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59c5507227bf00b2aafc508c4bf9c09ac971ca827d664e9d1d68a6bb46a37518"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-restaging-that-heals-by-wounding",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "트라우마를 다시 연기한다. 반복이 곧 치료이자 극복이자 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fed2cca2a02748b963b20c67609324d9801730ff1b5f06633a1f771d99c9ae1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-restored-object-that-withholds-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무언가를 손보거나 놓아주는 일. 차마 들어서지 못하는 슬픔이 그리로 흐른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be3692ce4842e770ae01a6a4135f87c5f01a38be478f3d181453be55da6ad0ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-restraint-as-the-vow-of-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수갑과 밧줄과 끈. 사랑이 맺는 강제의 계약.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2fbf2075faae7065b265a93615daaaea6bfa268c5a95f319356fdc1461e1f38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-retail-floor-as-class-conscription",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시장이라는 건축물이 산업예비군을 징집하고 분류한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74abfdf3abf20f0b9902de502c0584bd1feee6a5815ddf9af455aebecc08a975"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-10",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻히고 승화되고 폐제(Verwerfung)된 것이 보이는 화면으로 되돌아와 터진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1fd2d4a376b28c952c335147036485a5d92ecddb526e310d86dd8027942c3e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-as-cinematic-gesture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸짓 하나, 혹은 형식적 동작 하나가 억압된 것으로 터져 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2dd37d2146ad67e806fd9d85ab9ffd251b7c4ff2f326dffb0983c846df81e0c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-as-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻어둔 외상이 다시 떠오른다. 불쑥 끼어드는 침입으로, 섬광으로, 말실수로.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c8991cce521d4a99565acbbadd2970c28d83e02e18f70017b444f197bc3c020"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-made-literal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻힌 진실이 손에 잡히는 꼴로 되떠오른다. 장치로, 필름으로, 몸의 행위로.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e1364222d2daa9504725ed3012f84ed0d07183f2e1eaa3db1dc553a4aa6faf4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-wears-a-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻어둔 것이 자리를 옮겨 돌아온다. 변장한 채, 혹은 대리물의 모습으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d42741876a7d33e52308aa940f8b8cf24b2828d187423d0637534e711d47ea1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-what-coupledom-forecloses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결혼이 부인한 진실은 아이와 이웃과 남을 통해 터져 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72418b09fb69e656d6ed7f91cbce9ba965b87c0a53e677fbd6839ddf9e3be828"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-what-was-swallowed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "삼켜진 몸이 소화되기를 거부하고 도로 올라온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8dadec52d4b84322a48d61d79a7e43af6a7dc1fd4f1ecc40e6761f2b59bfab06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-that-names-an-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "되풀이되는 것은 공백이다. 아버지도 출구도 끝내 오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "031ca4495ed1e46c0d1f820f1dd9b5185c71120c18fa386e43a5d77be36b947c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-returned-daughter-as-repressed-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대리 딸의 형상으로 떠오르는, 봉쇄된 모성의 소망.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0123460b445be009ea3121ff1034f80d7a646444baff742221b1632066195c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reversibility-of-drowning-and-baptism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물에 잠기는 일은 새로 지어지는 일이기도 하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5719cda35fcd452c0e2c4ac84a948d838c223f6e1b364cc7646dc230168de336"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-review-that-eulogized-cinema-at-its-triumph",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평론가들이 흥행작에 왕관을 씌운다. 그 작품이 죽인다는 매체를 애도하면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bf471aab4d83741d335a7beb3ccc2920b32c936430a7e21c9796ee8c166e8a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reviews-that-mistook-the-real-center",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엉뚱한 표적을 겨눈 비평이 정작 드러낸 것은 비평 자신이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "021bf17262a84460c3e2af4378f336dddc984861b4e4356d3e1bb2fb3c97d05c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-revolt-that-completes-capital-s-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "깨부순다고 하면서 그 질서를 고스란히 재생산하는 봉기와 코뮌.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1e9dcd9e9dda4ab8583abe3d1688bbda8ba47a34b1f067f8ea558ea5de4f812"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-riefenstahl-body-in-sunlit-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "건강한 육체를 떠받드는 파시즘 미학이 대중 스펙터클에 몰래 실려 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "194805fa0347e0f7c372c45e4a0ba8958fa02b282c8a84793312c0d836424e80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-not-to-be-known",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 찾지 못한 부모가 지켜내는 것, 알려지지 않을 권리.",
+  "model": "claude-opus-5",
+  "source_sha256": "33a73bfd277493475e2ed61e0ec9f2f34eadb875bfd249f17a5e28b364b21d3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-be-believed-and-who-withholds-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제대로 본 증인이 미친 사람으로 몰려 신뢰를 잃는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a059e0f15895e73251e1da859bd4beab113e48175c2b26bdd1b472b3b09b821a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-be-repaired",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버려진 기계를 교체가 아니라 수리를 받아 마땅한 존재로 다시 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b19f21ec72849eeb8350e1e2363e2a6c90e6447af37e4896807d98ab01952eb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-disobey-the-command",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄이, 혹은 양심이 정언명령에 반란을 일으킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d2e1cebeb98eefc1bbf71a4cf72a9ce00a997ccf89654ec34ca15f84164024a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-dwell-as-contested-property",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주거와 퇴거와 무단점유. 누가 이곳에 살 수 있는가를 두고 벌이는 싸움이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5e63fea0f3a4b85b7bb5a6b73d838ab9bfdff7688a5823917fe8ddc54b8ecc7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-mourn-seized-as-sovereign-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬퍼하고 이름 부르고 묻는 일이 관할권이 된다. 국가가 다투고 살아남은 자가 되찾는.",
+  "model": "claude-opus-5",
+  "source_sha256": "543a8bb8fad802efe24acbdae6f7aba6cff7d94df8b4e18cb4af45bdb88bcc1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-refuse-the-social-contract",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소비사회에서 빠져나갈 권리를 주장하자 폭력이 답으로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "703dea9d3d05afa5fc78bbc50f861855aa77cb6eb51f59d8b2205ede0c035170"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ring-as-agent-not-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "반지는 사로잡고 찾아내고 짓누른다. 그저 껴지는 물건이 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "add0d770e11200818d6d3ea40bf1bcf13ccd27e1fe6b49edc90c29469440c353"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ringing-that-summons-the-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전화가, 종이 울린다. 거절할 수 없는 부름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22241de968e87c80bcc2926c8f5fd12cada995618702f044025bed59bea3c29f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ringing-that-unmakes-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이명. 정체성이 무너지는 소리가 들린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0aca03c7540bc9ae57626df57b511e0e449f4e0f17686057447959e53e2e6778"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rite-that-names-its-agent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "퇴마를 신조가 아니라 행위로, 나아가 윤리로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4381e5c2cea9ee5192fed93f5b928ca821ebd23d25bdca0eb57cc7b2e30cff3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rite-that-wears-the-wrong-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장례와 잔치가 가면을 바꿔 쓴다. 애도가 은폐가 되고, 뒤집힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f85f2f2e437b8a779ed65d0a4886aebfc51d8ca1f9d235bc088ed5220f9d1ff3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ritual-act-as-defense-against-the-void",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강박적 몸짓이 집어삼켜짐을 막아선다. 무너지지 않으려고 쌓아 올린 반복이라는 방패.",
+  "model": "claude-opus-5",
+  "source_sha256": "c50bcd6520804ba480973da3b5b26d902b7f6f0eacfdf4a789322e97071c39a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ritual-that-outlives-its-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의례를 지탱하던 믿음도 목적도 죽었는데, 의례만 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66bf55790d5d82760d9c1e07627ee55d3d0bc7c23fea379a99aa1b19649b9937"
+ }
+]

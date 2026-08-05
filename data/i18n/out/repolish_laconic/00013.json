@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "poverty-made-the-single-room-a-virtue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쥐꼬리 예산과 촉박한 일정. 밀폐된 공간은 그렇게 표현의 필연이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91e6ab090a67e3a04ba255f8bc3baeebd91a37c96d71defa28fc2fd48def4f8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "power-as-the-diversion-of-flows",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물길을 쥔 자가 땅과 계급을 쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9223ecd6bd625bcee30fc38f786b6de9819afdd8abca0cf6be3091aef686c49a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "practical-effects-confessing-cgi-s-anxiety",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만져질 듯한 피와 점액을 내세운다. 디지털 인공물에 던지는 반박으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "274ceb996942586216b086deca6872d951dcd61cb21b5e6122676bd57c71a6e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "practical-flesh-against-the-cgi-tide",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라 앞에서 직접 만들어내는 기예, 디지털 효과에 맞선 저항.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d39192034adefca68a70cdcb27e552887a4990a786fa10450b4989735cbe63f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "practical-weight-as-the-proof-of-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸으로 받아낸 스턴트가 영화적 믿음을 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b4e5cadcbd2c1617d512dea01942a4de270d27167e87345f5ac85e89a93d021"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "praise-word-as-critic-s-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'고요하다', '절제됐다' 같은 찬사어. 고발당하는 쪽은 영화가 아니라 평론가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94a6bbca9d5d2fdb8c5423ae1548e4bfe588713f986e09d0681fc1a1446b8038"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "praised-for-the-wrong-thing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엉뚱한 미덕을 기리느라 진짜 미덕을 무디게 만드는 찬사.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab80485c529eb40b34df1ac2490b50e07dd3e3af5b4d9ffaa6ea2d8ac87bb6c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pre-mourning-one-s-own-expendability",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 자를 분류하거나 지켜보는 여자. 자신은 버려질 존재가 아니라고 우기는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "107218041861a1c509cf46dfa004bc0c045b7182246bf1ec60b8146bf014fa65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "predation-dressed-as-cosmic-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "먹이사슬에 신학의 옷을 입힌다. 강자가 약자를 삼키는 일이 거룩해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdf0210f0f4a841920c8d28618301497ee824411990ba12a01edcb54657656b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "premiered-into-its-own-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 그려낸 바로 그 상황 한복판으로 개봉한 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "db05303a9f2806ccbf3a61a7c5b1eafcca678cac4ed37eb1672b1a0adf974afe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "private-care-indicts-the-state-s-abdication",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 사람이 베푼 다정함. 아이를 버린 체계는 그 앞에서 부끄러워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58f8a0957cb8547ee9cc68315e9ab71e2d6a8994c606c3085f583e7c80c84ebb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "privatized-sovereignty-of-the-employment-contract",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사장의 지시서와 외주 시설이 곧 새로운 영주권(領主權)이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2db1e8deb9cd72aa8cade1fdf12b4099b727e11f87617f7820fbe0e7af3e565"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "procedure-as-the-film-s-true-protagonist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장치를 굴리는 것은 사람이 아니라 절차다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90053de110608184d77e60aa8e69f89d0e388963364b3629082c03a123719ae0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "property-as-the-only-real-substance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주제는 사랑도 예술도 아니다. 소유다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df81452031554329e30a189b484a118af8e70686795d165a7b263c29ffa561fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "property-worn-as-skin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망과 소유가 한 몸으로 붙는다. 소유권을 살갗처럼 입은 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "de51969951c87d2082d9ec03ce3322587fd6722dff7c587689de7a34e7cb2908"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "prophecy-as-the-tyrant-that-devours-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미리 안다는 것이 살아 있는 시간을 무너뜨린다. 그리고 예언된 폭정의 씨앗을 스스로 뿌린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d14b323e6de3491b4c5c51a54693efa7950ec38cd0ab32e9b09f2d0577e4460"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "provincial-paris-in-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파리가 아닌 곳이 파리인 척한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48d0ff2a4568843778a67d4f0c6a93c3dbd0bb94768396b9cab92f0781a85904"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "publishing-as-duty-beyond-consequence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보도해야 한다는 당위가 사람이 치를 대가를 앞지른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88210baee01a8d444bde34d384f9deabbf5da0c7b23ade2d74e760551f0e72d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "purity-as-the-thing-marked-for-destruction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성스러움은 처녀를 요구한다. 부서져야 거룩해진다는 조건과 함께.",
+  "model": "claude-opus-5",
+  "source_sha256": "442d78c7d951c6ea9b57f6c220cb83f1d530107bc1201d5847f10db00cc8da1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "purity-that-engineers-consent-to-annihilation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정화를 내건 이데올로기가 학살에 대한 동의를 제조한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b2a1eda882d35d5a6a4e1274512cece35f530f94a69ca12c5731e768838d7dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "qu-bec-s-mundane-ground-as-the-real-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 뜻을 짊어지는 것은 지방의 심심한 풍경과 간판이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fdbb55b2a19282d53e5909d236ea4efd4525f80d6ceeb5c9fba2eadce6cc1ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "quarantine-as-the-state-s-manufactured-emergency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "봉쇄선은 거짓말이다. 벌거벗은 생명 위에 주권을 얹어주는 거짓말.",
+  "model": "claude-opus-5",
+  "source_sha256": "901d26ee0cdc75f746a75ad227e52586f9c6cb33edb8d86b66c0b49fe6a8353a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "radical-honesty-as-moral-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝까지 말해버린 진실. 구원하는 대신 터진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cda54889601c4675c7b9cc0878c4806f2a0a1d0b2ed64a477de2105f7e49f76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "rain-as-the-indifferent-verdict-of-nature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간의 갈망을 심판하고 굴절시키고 끝내 단죄하는 비.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5924cf6f7e2ebb8934fdd2ea7e73a996f95484ca820831b6b1bda8d355492b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "read-through-bash-s-walking-poetics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하이쿠의 무상(無常)과 떠도는 개구리로 읽어낸 동아시아 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "836cdd102d73d448eeee1eecc041aed3ea3b6da636e368bc6893f7ded827c007"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "read-through-the-1992-la-riots",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불타는 로스앤젤레스의 연기를 통과시켜 읽는 작품들.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac190e67acc311a33da12c1f8cee68b61e9e9034854890c57804cfad14041a27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reading-french-cinema-through-its-political-date",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 영화가 한 정치적 균열을 암호로 논평한다는 독법.",
+  "model": "claude-opus-5",
+  "source_sha256": "044130654574075148c57211f144026201315240a438fea80d59c065e3cca781"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reagan-era-sexual-panic-diagnosed-on-screen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "1980~90년대 보수적 성적 공포. 영화가 그 부검 보고서로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ceae9b84affd8ab82a7a58066850d241212a32d5b180aa76cad715163e5cd6ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reagan-s-america-filmed-as-its-own-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "80년대 호황의 꿈. 그 위로 자신이 부정한 부패가 그늘을 드리운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "415f1f344b67aa84091f72012ed72e850ea98192904d769883321c21555a3964"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-carceral-walls-playing-the-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 감옥과 도시의 담벼락이 한 사회의 양심을 통째로 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "252775a5a50a08451874062600de519d625f8910242f0e4815a53a114727b84b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-deprivation-bleeding-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 굶주림, 진짜 감금. 묘사와 조건의 경계가 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52dc843e2c4929971dae31e988e5e2d85adce5357047d70d66e55c3a42d2078b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-roman-stone-as-pre-loaded-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이탈리아 실제 로케이션이 빌려온 권위와 물려받은 공포를 얹어준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9b3358c5da34857641aada4405c0b8c79c9f22c9cee2a59ce6bbf8d3ecf92d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-time-as-the-refusal-of-the-cut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몽타주라는 지름길을 마다하고 벌어들인 지속.",
+  "model": "claude-opus-5",
+  "source_sha256": "cab1c91155a59f2e6b7311812fc96fbbe40024b97790cef90beba0c34b086879"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "realism-as-the-orthodoxy-that-polices-the-poor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형식이 불편하다는 비평. 그 안에 노동계급의 삶을 심사하는 미학적 문지기가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "deb7fdceedbe6c17665f666e659f2b2e537e5c214df508e8e934124c1a29e045"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "realism-bought-by-outsourcing-the-making",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독이 통제를 놓아버린 자리에서 다큐멘터리적 진실 효과가 생겨났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aec3247dd0a1823ffbedbf546e163f8d4a62e2e47208f1b25bccbb998a42d092"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reality-runs-on-game-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계의 바탕은 놀이다. 규칙은 대놓고 기계적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f91b84f9dbb39a4e1b71ca3244e2e8a37543108158d4b66a41f5229bf9d63a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reality-runs-on-stagecraft",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계 자체가 무대 기계와 이음매로 지어져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16b15b400b6c2aaa4b9c3e6b2604b8d67d7ec6bd50d929f57f402e37af3f84d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reason-as-the-mask-of-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유창한 말과 합리적 논변이 괴물 같은 악의 연장이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3c754cd91d64c1d51a8457f146d765869b8bff29595b31dd0117718c5894e95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "recognition-withheld-personhood-denied",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보여야 존재한다. 영화는 그 봄을 끝내 내주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f6a73f1e4942d39fa8712f4d0c104d0988f618375c0493edf106df5566e6a8b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "red-as-the-blood-the-image-cannot-otherwise-show",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "붉은색이 상처를, 감각을, 보여줄 수 없는 것을 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ac6027bde5360955506ea3bfd5abf2285a44969b06b78aaccea5e771c29bc9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "red-as-the-substance-that-surfaces-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진홍이 화면 위로 배어 나온다. 억눌린 판결이 그렇게 눈에 보이게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12b5328194674f5477f72d0c63fc85b6e759863c18b1e3ffec2af5ab04988283"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusal-as-the-birth-of-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "처음으로 진심을 담아 뱉은 아니오. 거기서 도덕적 자아가 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c025e2ac9dd96872c6560a74307982652eecb48c526c8a5e85274baeb1fd25b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusal-as-the-soul-s-last-defiance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "운명에, 죽음에, 체념에 맞서 인물이 내놓는 아니오.",
+  "model": "claude-opus-5",
+  "source_sha256": "eec909441a3fecbc12db315384706d6fba75d7f8657f6e36cdb24b65a93621f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusal-as-the-world-s-stubborn-facticity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아니라고 말하는 순간 현실과 육체와 전통이 제 고집을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "887151e6f44d0654253d16341b1b7639ce60ff9a54f79e70c566ffaf77780c17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refused-flesh-as-a-sacred-offering",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학대하거나 부정한 몸이 거룩한 요구로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04e5bd980f82824515433d2b3f3e59a119c52e384587ae4e62baed4b41100d16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusing-the-father-s-bread-and-firm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유산이 내밀어진다. 상속자는 그것을 도로 뱉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bed88bb97f606e199a6d36b15f2398866f70c1ddc8c9b81c537f63a17208c2a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusing-the-image-to-sharpen-the-ear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면을 지우고 검은 밤을 남긴다. 관객은 그렇게 듣는 법을 배운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcda639e3a6aef4705b444fff18ee9a88639d58508ba859ed7d97507043571d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "rehabilitation-exposed-as-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교정하겠다던 그 계급을 되레 찍어내는 감금 장치.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c2f213453b36d174ba2abbd811e7ea850a1406c918173be7e633c91725c1626"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "rehabilitation-versus-retribution-fought-on-one-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사형수의 몸 하나. 법의 두 영혼이 거기서 싸운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6cfbd7c2191129c20a0a313c369cf1e735669a207e6f53e76d2438f4139a0a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "released-into-the-prophecy-it-filmed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닥쳐올 감시의 시대를 섬뜩하리만치 앞질러 본 영화로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "292190ba3c2414697ed8d35328b6b44bcc3307a5af4602cc567c5ccea39a9ea8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "religion-born-from-the-child-s-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재난 속에서 아이가 성스러운 것을 지어내거나 몸소 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d6b8fec1593868ff5f068e86e0f77b94c1f71b5c4e7a57457cf7e4320fd03f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "renunciation-as-self-defeating-virtue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "원칙을 지키려 물러섰다가, 지키려던 그 선을 배반하고 만다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb21b864417b5d9f0a4775cb56431e3b0f6309b4f5ee90c581d347a7852b867e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "renunciation-as-the-categorical-imperative",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보편적 의무를 지키려 욕망을 접는 연인.",
+  "model": "claude-opus-5",
+  "source_sha256": "154a12c1f1e2647dca95632fac795785ad65f6db36b38541c2eccb130b392364"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "repetition-compulsion-as-the-film-s-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음 충동이 영화 전체를 다스리는 논리로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "222005cb236eef99b9fd5f631e6353f30381693317dad93bca7ae1a70c972d90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reproductive-labor-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "삯 없는 살림과 돌봄. 그것이 이 세계를 굴리는 숨은 경제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca17a08a95caba0b735fd4c5086eceb4f2b95ba8277c816e27209bc9ab8ff978"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reproductive-labor-privatized-as-romance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가정과 짝짓기가 여자의 몸이 감당하는 무급 노동을 가려준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86085fb56d6374156d16a60932b6a50637c7492a1187b00e11eefa9b01560c8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "respectability-as-self-protective-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평판과 예의범절, 자기 자신을 막아내려 걸치는 갑옷.",
+  "model": "claude-opus-5",
+  "source_sha256": "5383f594816617f802ad62f8b3cafd49bf34e15c8ab1340f6121abeac8c8094c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "respectability-as-the-bourgeois-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문명의 겉면이 계급과 쇠락과 실재를 덮는 갑옷 노릇을 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86448d87a2a6f5ff6ba01b1da312db2a4b8f0c5f9c523bac6bcc29056b176d9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ressentiment-mistaken-for-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시기와 원한이 미덕이나 헌신으로 낯을 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "604c75682f120c4b0bb5a6f40b604942561847743546f1c9411815d666e0b57c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "resurrection-as-curse-not-miracle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "환멸을 부르는 귀환. 다시 살아남이 기적이 아니라 논리로, 저주로, 계시로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f67a571355fa9649b2b3c28dc213dc9535cb449c2b26d5b919c6d86d13447e7"
+ }
+]

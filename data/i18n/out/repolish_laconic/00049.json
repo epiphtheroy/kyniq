@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monster-is-the-built-environment-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내면도 없고 악당도 없다. 사람이 사는 공간 자체가 적으로 돌아설 뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "4933a868d92c0563cc6d1938fc08cab84c6a4e243bd12454ed7881f6361a1e4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monster-sustained-by-belief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모두가 그 이야기를 하고 모두가 알기 때문에, 오직 그래서 존재하는 공포.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fd22993ff44c42c4692f74ec9e07d47e85950bed5cef4fbde19bb49047c82b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monster-withheld-by-necessity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예산이 모자라 감췄든 기계가 고장 나 감췄든, 그 감춤이 영화의 신학이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79398fcdd7b86c829664696fc01cffd823be58eb853d5beb47d794d9a8c14529"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monster-withheld-is-the-monster-within",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 화면에 나오지 않음으로써, 괴물이 처음부터 우리였음이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcf50ab33b551507bde2a6c86cbde2c9312f00fe964278ebe4ef1ce05ba96cd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monument-built-from-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 참극을 암호로 새긴 증언. 그것이 건축이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c8fdbb5514154e5621c93b41c522b5d8ca486f4a91b1181ac6276bb61ce90aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-monumental-set-raised-on-a-pauper-s-budget",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "없는 살림에서 불러낸 스펙터클. 규모 자체가 가난이 부리는 오기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b7779ae96d7939af6c838ceda427740ad46cad68f418d839ad93feeed67228b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-moral-man-outliving-his-age",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "윤리적 인물은 제 시대보다 오래 산 시대착오다. 타락한 세상에서 지쳤으되 신의를 버리지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6250faca45359d197e175b987596731aa7790768fbe55c3d2822c86ed16db78a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-moral-philosophy-turned-guillotine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "추상적인 윤리 원칙이 힘없는 자들 위로 집행될 때, 그것은 잔학이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46648806963d6423a9a029be8a7694b593d5f5f46e0abad7d664ebc1126cc1d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-morning-written-script-that-loops",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그날 아침에 쓰는 홍상수의 집필법. 반복을 돌리는 엔진이 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0a1201db47ccbe8f801d53114ea84290352347531eaaf08ae6a85da31390336"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-motel-as-america-s-disposable-non-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "길가 모텔에는 스쳐감과 불안정, 계급조차 없는 미국식 연옥이 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4546389722076c645720253a47114ab7282189583cbb8351be3ff8633339f2a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-as-abject-to-be-expelled",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주체가 되려면 어머니의 몸을 없애야 한다. 그러나 끝내 다 밀어내지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc043807f61b6d9b43b4b3287ff1a8cba123a54783be89bb8632848abffe68aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-as-devouring-engulfing-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아를 집어삼키는 전(前)오이디푸스적 힘, 그것이 어머니의 살로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2794e0c05e7971b6e50d9e9c564809ece7809d79369521bcc32ac0dab45f0733"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-as-pre-oedipal-dyad-refusing-separation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어머니와의 융합. 말로는 풀리지 않는 상처다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4bacf1670bfc124cff907caf7b6f16ed9a386199dcd2be5bad00fee408e962d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-as-the-lover-s-hidden-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결혼에서, 배우자에게서 되풀이되는 모성 이마고(imago). 욕망의 정체가 거기서 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e168ddccbf9997df5b50fc218e341b304588721170b9fc00bc7847d9831c60f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-as-the-nation-s-lost-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 어머니가 분단된 나라의 애도 대상이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84f13156803c829e8b81996267800f5bd3241b7d381471a2b5912dbbe395ab05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-curated-as-preserved-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠난 부모를 유물처럼 모셔둔다. 상실에 맞서 쟁여두는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0bfbc95f1a5b98ee203b8129c63175c2a32a00c5d9bb1f2d3697d5c54c028b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-pays-the-father-s-debt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지가 실패한 값을 사회는 여자에게 청구한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d510fc2bfacc2176850c4b526020a76f9686bc4c8c37c62662c88eca2feca70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-s-repressed-returns-through-her-child",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어머니가 묻어둔 상처는 자식의 증상으로, 혹은 자식이 떠나는 여정으로 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78466ff5f4794356efb7473bd2003d246093386fa9209b46357f0ba54ff6ca2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-stretched-to-breaking",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝없이 늘어나는 몸. 일하는 어머니에게 요구되는 불가능한 노동의 형상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "23e3b3f202a5a25f780dfbd53658f24ecca67658bc2814a61d27b3f30a805028"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-the-lover-must-reduce-or-survive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망하던 여자가 모성적 대상으로 되살아나고, 주인공은 그것을 감당하지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56d9611a3ce77bb3b01f13f5c6f5fd0f14a7d4c4b9fcf34b73c552be3da5d448"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-tongue-renounced-as-self-severing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모어를 버리는 일은 조용히 어머니를 죽이는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f17ed3005531733033e9cdf3612d26842b787aff9176302a490f5ce1f31c09b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-who-abandons-as-negative-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠나는 어머니. 그 떠남이 희생으로, 양가감정으로, 뒤집힌 돌봄으로 다시 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32a55b491071f8d051f82b0cc65cb4383bbb47967a27e20d895d6efaa90a62f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-who-authors-her-child-s-doom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모성애가 굳어 자식을 절멸시키는 각본이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68222ada1f13b0ee71733641790bbf5679a4319da37c0c493202acef95344a8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-who-overrides-the-child-s-will",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이의 뜻을 꺾고 아이에게 좋은 쪽을 택하는 돌봄.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a055e5a7b00d6d234c551c0ec358b431bc414abf5585776042f9729bc18636e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-who-refused-the-role",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어머니가 아이를 버린다. 실패가 아니라 자기 삶을 쓰는 일로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60298478e48d27d3c8a48740c9b96e9ba78d8f127c34481bd2c2d56a40583c43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-who-refuses-the-symbolic-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법에서, 언어에서, 문화의 재생산에서 물러서는 일. 모성을 그렇게 다시 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55f53f0420df2ee941964e795ea415e23e51bb9c840ef6001d898e196ace8055"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mother-who-stayed-by-surrogacy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 아이에게, 혹은 흠 있는 누군가에게 옮겨 붙은 모성애.",
+  "model": "claude-opus-5",
+  "source_sha256": "520b6adc50a2d7b63d7639fb054197638945fcc3dc2b6b2509c60276c4f3afa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-motiveless-kill-as-freedom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이유 없는 살인이 자유를 증명하는 실존적 사건이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b308bea3867f0f170cdd4cf7bfeb8cf0c44151765e902aee3fa5db7577fc8896"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mountain-as-mind-not-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정상은 지형이 아니다. 내면의 상태다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5c74e13427e8d52130606c030ae8ad8248bdd7f41f10be30763e5f0d6a54e21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mourner-who-becomes-the-lost-beloved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도를 거부한 자리. 놓아주지 못한 사람이 자아를 덮어쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e10c9accbf93db5d9ed7ac1ccd0a97dcf5ca372964ce65a23c2e92f148761f7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mourner-who-cannot-locate-the-loss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 붙일 수 없는 대상을 향한 슬픔. 그것이 우울이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07082d9f29754daad85860f9aa2e58300a00ffa8b515185021a5fd41d0100ded"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mourning-a-nation-cannot-complete",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻기를 거부한 슬픔. 나라 전체가 그것으로 짜여 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdc489656d5046fa9ba531ebbfefe66f38b4b85193ece5ed5dd2dbec102f63d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mouth-that-devours-naming",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'죠스'가 가리키는 것은 무는 짐승이 아니라 그 아가리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f356f057735484cd4377c645f4fc51d55625322e8a457082a2bc918496476f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-movida-cooling-into-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알모도바르의 무정부적 활기가 여러 편을 지나며 비가와 상실로 식어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ff4aa3dd556e69734981782d79c6965045c9cffb20e0d85deea803d1ea56d3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-movie-brats-rebel-against-the-auteur-seventies",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예술영화의 엄숙함에 대드는 반란으로 연출된 블록버스터 장인술.",
+  "model": "claude-opus-5",
+  "source_sha256": "51474756af93cf7bda1bea0678149315618c9081852063b4e195bb3fc206da5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mud-beneath-the-economic-miracle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전후 일본의 번영은 묻어버린 고통 위에 세워졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2ea8c44b09444b88d59974e71fd386b616a59b756423adec5656f7f7877f538"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-multi-speed-camera-choreographs-slow-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임 레이트를 바꿔가며 죽어가는 몸을 영화적으로 새로 발명한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6b601340d417e4f8f7479875e51517e04bfe4ce3ab8527453705eef37ba4372"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-multiplex-generation-s-prestige-address",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "발리우드가 멀티플렉스로 옮겨가면서 새로운 영웅, 세련된 영웅이 가능해졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c3b3c721c2edc4a5930ada7f20649c6d4556a467c007c4c59275d696a6afb34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mundane-israeli-interior-as-allegory-of-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평범하기 짝이 없는 실내가 곧 국가로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91603c338e79d22fc478634abadf4afe7dc2a9039700e48473a31a2816757cbc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mundane-locale-as-apocalypse-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계의 종말은 펜실베이니아 서부의 흔한 장소들에서 벌어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f73ae87f0e0feb971f4860940521d50794089d5770351ca4603baedc5af39ad4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mundane-place-disguised-as-hell",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔한 실제 장소나 세트가 악몽 같은 내부를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b55defd66c0c10214d4f85f9d087e5249c9ebb6a52bfee0949cb137170a02e03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mundane-system-as-hidden-tribunal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일상적인 행정 장치가 실은 진짜 심판자였다는 뒤집기.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bc30c075275ad91a94a9bbfe68a15446c62590d4fbf067bdf826ef251e54c39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-murder-authored-by-the-cut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인자는 아무 짓도 하지 않는다. 범행을 저지르는 것은 편집의 이음매다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f79224f3aa3aa9f3203be841c86a0681a1a9a7e07a3ea5894d766a5ef7ce6151"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-murder-that-lives-only-in-replay",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실은 사건에서 떠오르지 않는다. 되돌려 볼 때 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37bb2582325a8844b9a175653877cabc8ecf7bddb7c79773293409ad7d47f94d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-murdered-mother-who-returns-to-damn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어머니를 죽이려던 욕망은 억눌렸다가 파멸과 광기로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "329bd49d9442e63626453bf68135c402ee4c52ac2698360b017163c9e6aea926"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-murderer-as-dante-s-infernal-architect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연쇄살인을 단테의 지옥을 따라 내려가는 안내된 하강으로 연출하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "e21a4dba7cea57f9c8634f2c2e411a371dd133a144afdd1a6b5a16c69b648362"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-murderer-who-documents",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인자가 서류를 남기고, 찍고, 감시한다. 양심의 자리를 관료제와 기록이 차지한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50cc2b34b2aa2ed23eaf08609b86a265e29f207253112321cd68685dd9bdf8e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-muse-reduced-to-circulating-currency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영감도 이미지도 순수한 교환가치로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c0fd5247e30fcf333b75aee9b0de717e1d7831ffe80b10ea6e69873314054a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-museum-steps-as-proletarian-altar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밀려났던 자들이 고급문화의 신전을 점거해 제 용도로 바꿔 쓴다",
+  "model": "claude-opus-5",
+  "source_sha256": "55aff670b046b5888d161e0d7be90fc6b02c9cd55673d8ffd6e9111abd84918d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-music-bursts-in-as-grace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "난데없이 터지는 음악. 성스러움이 소리로 침입한 순간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e15d405c82f4e74fb210ccfe4b69a2db79a9e78ee8b1723ac8cdf8f58e93e92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-music-timed-to-manufacture-the-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장치로서의 음악. 리듬이 강탈극을, 프랜차이즈를, 뮤지컬을 설계한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ed11202994229ab8153a6e794470fec84a5d655942682f2c0775b85178159e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-music-video-eye-choreographs-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프로모 영상으로 단련된 눈이 액션을 짠다. 움직임은 춤처럼 다뤄진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ae1a47a98700959837e4817552707e1ac01b35a0361f93cbe53cedc0b789a72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-music-video-idiom-smuggled-into-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장편 영화가 뮤직비디오의 문법을 물려받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e78ec1b887e8c679702c311f0163402c0a727244dd3270157e50f9efe2dd0412"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-musical-as-cinema-s-self-flattering-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상과 정전(正典). 할리우드가 제 쾌락에 스스로 후한 점수를 주는 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b697235954bdb87ba97ccb26f67bf002eba36f06c671b53e818d65ee8e31ebeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-musician-who-plays-the-ruins",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악기 하나가 홀로 울린다. 포위와 잔해와 학살을 마주하고서.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7a6f22cbcd5889b634a8d686ef11bca54bb046b45a2a9d7ecdafada6510d7a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-musician-who-stops-or-repeats-the-phrase",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연주가 멎거나 같은 악구를 맴돈다. 필멸의 한계가 거기서 형상을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7aed7370b078e25ea0c4c66cd73a45ee508241d948db4973e94b1bfaf94b5705"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mute-who-speaks-through-a-surrogate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리 없는 자들에게 두 번째 입이 생긴다. 빛이거나 새이거나, 붙잡힌 이미지.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c7137ec268072a871dc18ac7f51f96247545134df3040d4f3dec90ed8ade3fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mute-whose-only-voice-is-craft",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그는 말하지 못한다. 대신 그가 만든 것이 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a055c6c00b623203f35c64128ed60d58b7c97462d4d2b1c5d5ec7b01190ba983"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mute-witness-as-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증언될 수 없는 것을 기록하는 쪽은 말이 아니라 침묵이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30b34e063cef33929f03e15d18c64ab4d4ca41c46504092a9413917633144ec4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-muteness-that-symptomizes-a-foreclosed-origin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "침묵과 부서진 말. 입에 담을 수 없는 내력을 몸이 대신 고백하는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f77452a2ff6c131e6913e2e041758113cf90eb89f029b5bda0d295ca00a7036"
+ }
+]

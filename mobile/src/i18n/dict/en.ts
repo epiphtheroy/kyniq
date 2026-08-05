@@ -120,6 +120,9 @@ export const en = {
   "onboarding.setupNamePlaceholder": "Name it — e.g. Home, Travelling",
   "onboarding.servicesNone": "No streaming services on record for this country yet.",
   // Content language — the third axis, independent of country
+  "you.appLanguage": "App language",
+  "onboarding.uiLanguageTitle": "App language",
+  "onboarding.uiLanguageBody": "The language the app itself speaks — buttons, labels, everything you read here. It follows your device by default.",
   "onboarding.languageTitle": "Film titles in…",
   "onboarding.languageBody": "Films are shown and searched by their release title in this language. Nothing to do with your country.",
   "onboarding.languageNote": "Titles come from TMDB’s official release titles, never a machine translation — where a film has none, English stands. The app itself stays in English.",

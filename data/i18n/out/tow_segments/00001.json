@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1660a9a2f7f7d7e1",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 오른 데다 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "1660a9a2f7f7d7e114d6956c5273e9d5287eb5e9072d765ccf6f391948bdcdf7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "547e09aba0ae445c",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "547e09aba0ae445c2cab9f39e41c1ced95f5b68c5cee9fe600dd0a9be6b69036"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "60b1c188f80948d4",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: AR.",
+  "model": "claude-opus-5",
+  "source_sha256": "60b1c188f80948d40fbe35c3e70163d1fa10bf7ae37323c0f0bd4d330cd5caae"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8de66f8a11d596f0",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 72/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8de66f8a11d596f07a9b3b9e0b432b31003c4a8b90ae0c57f94483d4c7ed2e65"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9d51fa9cd1aeee7a",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 선정한 영화. 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "9d51fa9cd1aeee7aff354523c47a603fab1ffe1f848a862f037bd00fd51c7fc1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "902d3b8f89b88bd8",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 70/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "902d3b8f89b88bd84b2dc02a780beff413a0c99c2ea3facc40c9584c5738c8fd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e5aea9cddfbc6c1d",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 74/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5aea9cddfbc6c1dd9192b2865a926bc256b0cd649b9f56303f48667180e784c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "45d5d805fe22f7b5",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: KR",
+  "model": "claude-opus-5",
+  "source_sha256": "45d5d805fe22f7b5e565c3c1cec7a90d8895432b42e6ca912f320bb400974828"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cc82ddd7d372d3df",
+  "field": "text",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc82ddd7d372d3df4f5cfa59f1169bea4a748efe264765668d0d1b793e9ff6f3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d5567438a7e05bfa",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "d5567438a7e05bfa53c083d853f89e400cae141c67160a2652eadb8e7e57805e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "92dc51c3948fd596",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 64/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92dc51c3948fd5966131a403e74c0943929ab0d05191a43d4e4dae4d884e93dd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ec6626593afe23f6",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 61/100). 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec6626593afe23f663a82f9e3e66155d8c7deded0fb42936c451ae32e20cd669"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "097962c9eb0f03f2",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: SE.",
+  "model": "claude-opus-5",
+  "source_sha256": "097962c9eb0f03f2ba31ec1cfb37dbcd720daf9619d3c31596593f67d9be80c4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b3f769557638a3af",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "b3f769557638a3af03e1d14a0759da2d415c7c5e2c0b8b00cbcefce0d2b444db"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4152773bef590196",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IR",
+  "model": "claude-opus-5",
+  "source_sha256": "4152773bef59019634bbac7dfef174f4e181a898ce63fc71e9db8db9e4db0260"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "43c8592edb5c7d93",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: RU.",
+  "model": "claude-opus-5",
+  "source_sha256": "43c8592edb5c7d9343c9145189c5bce75a2755b10d5d8bc6b05eb04793560e6b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d4f0f1ae24e5c2dd",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 John Ford의 작가 계보를 통해 값이 다시 매겨졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4f0f1ae24e5c2dd12f186855d515240e3348fe62179e9e1d91527617b2af4cf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7eb97cce2243b005",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: HK.",
+  "model": "claude-opus-5",
+  "source_sha256": "7eb97cce2243b005d173307fe735e4e6a3d7ecc1d9d3a66e286d37fea1f933bb"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b01ceb367fa4f262",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b01ceb367fa4f2620652ef940599c8e7d35dac34a5d8f7bb4d280cfc7ec4cc70"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "8c2e361a3c44b1ee",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 감독 투표에 올랐고 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "8c2e361a3c44b1eece42a64b10d7a2070e8f4b9a0909ec0740d3ca8db576b530"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b062296307a583c2",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 66/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b062296307a583c2c70d5830a292a825496a2c4e463dd9f71fc58dbf88091e1c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1975b4da35d27b71",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "1975b4da35d27b71a0cd5ce459b58f54ddba616808d777a756e17b18356fc244"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6aafa0b22b6d32a5",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: TW",
+  "model": "claude-opus-5",
+  "source_sha256": "6aafa0b22b6d32a5e6d6096393f2b0bdcaa766d1b4e1d761b9f68a44e0c26e57"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "52d8a1cc97338a27",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: DK",
+  "model": "claude-opus-5",
+  "source_sha256": "52d8a1cc97338a270e974a752b743dc2ea6c98133a982d360cd30ec3eaacaf3f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2fdf2871f036fff2",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films가 인정한 작품. 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2fdf2871f036fff28005b2dabd0f46b7a35a3bb18ed369ec0b155a6971dee6c6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ba26d2bd7b6b262f",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IE.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba26d2bd7b6b262fcba4024151d66f0a24e452243d1655a7428a1166bd75f023"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "919bdca85b2eb6c7",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: BE",
+  "model": "claude-opus-5",
+  "source_sha256": "919bdca85b2eb6c742afe1a4a606fc929fb1d9a3703d6bf1f3eb0a8ffba453f7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f198fdae90cba93e",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 60/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f198fdae90cba93e81ae845e41f9ced2eebfa7b76b02601aa856f2e00f36a2c8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "34eafdacf3dcfd32",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 75/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "34eafdacf3dcfd32f24da67d8d35c3912bfd7a154ed38b81bb1df83681e31d47"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ca49b39113c81df5",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: ES",
+  "model": "claude-opus-5",
+  "source_sha256": "ca49b39113c81df5b48fa52003b713e71ca58f63bba6fa04c0935104febe0057"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2337d410b820645a",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: CA",
+  "model": "claude-opus-5",
+  "source_sha256": "2337d410b820645a4dcdcefe61ce65c5db0f6d4c0a83f9f4f88894c270c4082f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e206cd4244998d5d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Alfred Hitchcock의 작가 계보를 통해 값이 다시 매겨졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e206cd4244998d5d71462c12ab5e2d14418ffda92f3414a50ee8b0f73be1ae3e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5a157cf234856757",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: IN",
+  "model": "claude-opus-5",
+  "source_sha256": "5a157cf23485675770e69f6ea81c234db124cd34210962f48f8bbfed236abef6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b72c6549b9ee2327",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 66/100). 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b72c6549b9ee2327ff310e08ede101811c446a61aec43abec9e495db083f6aa3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "00c465bb2388532f",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 감독 투표에 올랐고 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "00c465bb2388532fe86845b876e9430e726811bbc257db80a7768e1c1be7a63f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2bf4f8ead4cc7507",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: HK",
+  "model": "claude-opus-5",
+  "source_sha256": "2bf4f8ead4cc75077e7173178a4d6a7ea80049212565e4eae7fa3ccc53b155b2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3d76b8618636da6e",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 69/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d76b8618636da6e666192d34d44d2738f7074916f5c8b4b51c44dda725a72cf"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3688bd7ac4432861",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: SE",
+  "model": "claude-opus-5",
+  "source_sha256": "3688bd7ac443286147124e118248a0d0ed168e0f45d813656fdceb6653ce4de0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c70efffa3b84b67f",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: New Hollywood",
+  "model": "claude-opus-5",
+  "source_sha256": "c70efffa3b84b67fadb38da5c8f576ab981aeb0d29ba72b89285b7763b049abe"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "107c8d18e290f546",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 76/100). 일반 관객에게는 거의 알려지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "107c8d18e290f546f970fffbac39b2e530039041228e05d35c54e480412a577c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "833adf2e43763429",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 AFI's 100 Years…100 Movies에 올랐고 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "833adf2e437634297a129a031af9cd3bfbcc086caff7ca6d1cc4a2b96bef97aa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d285e01b7cfb0be5",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: French New Wave",
+  "model": "claude-opus-5",
+  "source_sha256": "d285e01b7cfb0be51ca9a8584ce96000b27fd43949f7947f5a03b86c833fc78c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d69f6219be431a0d",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가 정전: AT.",
+  "model": "claude-opus-5",
+  "source_sha256": "d69f6219be431a0d5d2f2cad60c8bd5314db3348b61973893a18b217aa6485c6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d1bb089c8c9375a0",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Japanese Golden Age",
+  "model": "claude-opus-5",
+  "source_sha256": "d1bb089c8c9375a018ea1a6eb8af8eae3f1a8420719e12449b1f58263936c8f5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fa056cbf7fe4198c",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 61/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa056cbf7fe4198c7a20659ba9f14870b4cb41f172cdcc3e74768340a4f9fb01"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c307ff6b403cb31e",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 62/100). 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c307ff6b403cb31ee933290930b75ba2f59161eb4054c85ab85d8968c905576f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cf2efac9bd68bb22",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 67/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf2efac9bd68bb22c8f8da34c4bae2773713566406ec5ca2f78d856a65da51c3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "90a2f0e0c07a4a8a",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 65/100). 어느 정도 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90a2f0e0c07a4a8ac3226d6ee8ed33747815fd503a95767811198f20f69984d4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "794abd28048729e9",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 63/100). 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "794abd28048729e9d3e37733f9d20931a52bd3d9b0cee420f8e58517590e6216"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "66579430307e2736",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Iranian New Wave",
+  "model": "claude-opus-5",
+  "source_sha256": "66579430307e2736497f148951f6ac89378be615c81edbde6dcdd1a5ffbfb8cf"
+ }
+]

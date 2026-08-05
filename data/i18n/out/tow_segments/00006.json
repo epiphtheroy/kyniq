@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2ebe5f91c16b9a51",
+  "field": "text",
+  "lang": "ko",
+  "text": "BBC: 100 Greatest Films Directed by Women에 오른 작품이며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2ebe5f91c16b9a51dd46c8cd0c04290de5c0844e9b6b66bca2c422158b852e60"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d6fc369e21a1276e",
+  "field": "text",
+  "lang": "ko",
+  "text": "Kinema Junpo All-Time Best Japanese Films에 오른 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d6fc369e21a1276e915cd1212d97e00ccd236dbf02b816e6471693fb5ff60a7a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7ef21fa4a9cb286a",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films Directed by Women에 올랐으며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "7ef21fa4a9cb286a07f3fdd1beb9cdf43e999a4394ac1875a802e554789092a4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "89ec7e4d2d087396",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Bernardo Bertolucci의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89ec7e4d2d08739601ddc4950ff9f9def5e5d805bc3eb56f706447e6377db248"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "f7781326fa259be8",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jia Zhangke의 정전에 오른 작업이 떠받치는 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "f7781326fa259be89d0df5acbf0149a6861bce3b4d57d2b15a5d41dcb50b2eb4"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b6f2090148bce5cb",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century에 오른 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b6f2090148bce5cbb7a837dc9ec9fd9e28bb4b904502bb6bd975073dcde9f8a7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "60651c88e7482788",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치를 높게 매긴 영화이며(Value 60/100), 일반 관객에게 대단히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60651c88e74827880d5aac30b4e57404c01c8358ee82c93e0d5c45523208cac6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1f867dc9d1082868",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Screenplay에 오른 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1f867dc9d108286895973deb6006aa2f85b9fc996b3d2cd37e771d790235886c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cf4baf7d4534e8df",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Edward Yang의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf4baf7d4534e8df23270cb009fe90c40078b4d2cf4bb35a36c87b4338de4cc7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3587c85c09010f08",
+  "field": "text",
+  "lang": "ko",
+  "text": "BFI Top 100 British Films가 기린 영화이며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "3587c85c09010f08779db8e5aac393bb5beff33284d1dbee37c27482a3e3fb95"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a936d2f00d46a4d5",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 TIME's All-Time 100에 올랐으며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a936d2f00d46a4d5d01d0c4ed3b50fb731abdb1a8f0552b278776fb85d82ac24"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "996d97442d14995e",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 AFI's 100 Years…100 Movies에 올랐으며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "996d97442d14995edfe22c3e6b0c00f4d6727747189fc64cdb78de6de8e28afd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "12caaac06fab7fd0",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 Grand Prix에 올랐으며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "12caaac06fab7fd0325471695a0cfdae12b4d2170e0d3aedb661384608b48a40"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cc3fda61f02ad914",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jacques Audiard의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc3fda61f02ad9143b1ae08ef5bbcaf89b3d51f735cbd302946ecb564ce66289"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72feec3a5e096043",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Krzysztof Kieślowski의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72feec3a5e09604313dfe4fb6ef40cedc1c837b4117808b0a2560f866f65f5ef"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4f8109be8eddefec",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 오즈 야스지로의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f8109be8eddefecc470edf82ef0f8aead053469f034fd4d64c67f30528eae5e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "791c7e91ef95b695",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Screenplay에 오른 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "791c7e91ef95b695253940a82c350c9e375ad4b3e6743725d747ced64c1a7eb1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ae8c5224cbc1deea",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Nuri Bilge Ceylan의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae8c5224cbc1deea0e070261bcd8a667b5ce32fbc9f5a27f6ca73c773302c322"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b5c54d4e35430398",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear Grand Jury Prize에 오른 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b5c54d4e35430398e22e365d0d5d29cc669e625675941cc6b63f40dbe97aa017"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cb2dcd490581efd4",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Christian Petzold의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb2dcd490581efd4b6984427add3a94ac8d26e1ddf44491d7c6a4f0ecd3597fd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1257e445d4e0692b",
+  "field": "text",
+  "lang": "ko",
+  "text": "Golden Shell에 오른 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1257e445d4e0692b1b99dce87bdcd794b34ea9d9008c86a768f0fd8027c1c3be"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1a737dea079cdb89",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 James Cameron의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a737dea079cdb89fe0325892fea3e2396de689347e1e1b83d768e871cf9e9ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9bfa3a955ffd6df9",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Pedro Almodovar의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bfa3a955ffd6df93a47853aadabbf2ceb20756beb726ce7ebf678b82df57ffa"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ca7544218834ec2d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actress에 오른 작품이며, 일반 관객에게는 거의 알려지지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "ca7544218834ec2df553b824580651090d72c9cfa4d6efbfcf5333dab409f178"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "475b5ca8e35e13c3",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치를 높게 매긴 영화이며(Value 68/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "475b5ca8e35e13c3495d98f49c427ae3a2d341acb35bc15c47d2520cfa45c2dc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c4078ce875a0acd0",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore가 오래가는 값어치를 높게 매긴 영화이며(Value 74/100), 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4078ce875a0acd0cc82aabcdc567f76385a1ac557da947740bdeb8e3c6294ba"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7f73b4632c8c809e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jacques Becker의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f73b4632c8c809e4d3bbc952c3c8b0dd5de974838890acbeb29941c7df6c8d0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "59ae51d331b41168",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Terrence Malick의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59ae51d331b41168458901e607e42db77c7102d5c98c8ed99606e5119cf295a2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "57718903e8ef7b8d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Silver Bear for Best Director에 오른 작품이며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "57718903e8ef7b8d6efb0187fdd946baba97e2c7818a5584fe3ecc219e0c2882"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3a4dd2b83cc05e9e",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Richard Linklater의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a4dd2b83cc05e9eab246886334f44395d558f8af5401ee15644146282d58fe1"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "0b7e6c94b923688d",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Hal Ashby의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b7e6c94b923688d930bbaf1987c0d43dec0055dfd4a6f6b635ddf743e3de53a"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c864f071785965da",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Nicholas Ray의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c864f071785965da96fddf2796de383f60f13e057a70cfbbc97992520d28415d"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c60dfc5da2db1b5b",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Apichatpong Weerasethakul의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c60dfc5da2db1b5b3130e18427109bd95b177486ea965fec29d046806e297d04"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "716cf21d893822ba",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 Silver Bear for Best Leading Performance에 올랐으며, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "716cf21d893822ba435df42f5aea70a611aab3ab0f423b2f3a72810fefed8613"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6ad38e31630aac91",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 Best Film에 올랐으며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6ad38e31630aac91f01026666d39ea427d73db859d76967a823b22713ca91952"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6eb9a3adba97417f",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 Best Actress에 올랐으며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "6eb9a3adba97417f7d9af06a25911b96881987302dc421fa1e2a3fcf56341667"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5f03f44e69b3ae4a",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Alfonso Cuarón의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f03f44e69b3ae4a29e6a46509d1eaee5ff423025c28e52fcf7cc7f75c01d316"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "40f738760f708b82",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, Sight & Sound 감독 투표와 TSPDT's 1,000 Greatest Films에 올랐으며, 일반 관객에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "40f738760f708b824853a755ea0e83118d30dc462cd4e606d6e0740b5465eda5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "35823f0b855603ae",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Agnes Varda의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35823f0b855603aeb37fd21aeb527e7c996b9fb25f1e3b9fe2363e1f2456053b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e2115bd43ab4e103",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Carl Theodor Dreyer의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2115bd43ab4e103982980cb52064cad50993ead9c77f384210928410aa39add"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3e937b08148f33ca",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Jim Jarmusch의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e937b08148f33ca6eee2ca032f57fba367eb657c54a6b59de739cbae191e36e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d87ee2cd0c57fac4",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Guardian: 100 Best Films of the 21st Century와 IndieWire Best Films of the Decade에 오른 작품이며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d87ee2cd0c57fac4a7e0160074c8b230d468f9de3854d9437447f6721c19ec02"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cac97ae50b8a55a5",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Andrey Zvyagintsev의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cac97ae50b8a55a58dc08e4dfe721f6bad6e9d11499a67853bce59a8b29ffb89"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e8c0be8775784291",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 일본 황금기.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8c0be8775784291bb3b49b1aea245b31f44dfc084f67ee8ea07bd5afb166079"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "018f0f0de7fd5ace",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actress가 기린 영화이며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "018f0f0de7fd5ace1be2801d4f2782db9a8326036dbf296e585c66566e68d465"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5d9366c0d545001c",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Theo Angelopoulos의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d9366c0d545001cbc72ed2a46e1fbcb449f6e7ce01e447dc39aa9a164e8850f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "fa115604f3cee4c7",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 Agnieszka Holland의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa115604f3cee4c7c72a3373c29a512d04805e2c20a48f587e0920c561cf0344"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63bac9ea674a6336",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 뉴 저먼 시네마.",
+  "model": "claude-opus-5",
+  "source_sha256": "63bac9ea674a6336baea143272397f41af785b81930d45938747ea6fb42ed625"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "81534d60c6a16c5a",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 Cahiers du Cinéma: 100 plus beaux films du monde에 올랐으며, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "81534d60c6a16c5aad262043d4378660b865a942f1eedba6650cf757fc5f60f3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "6782719e41b381b7",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독 David Fincher의 작가 계보 안에서 다시 값이 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6782719e41b381b78e507641d42b4f03336f3ecba6b7965dd22ca7f634519dcc"
+ }
+]

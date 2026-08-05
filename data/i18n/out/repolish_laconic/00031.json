@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-camp-filmed-as-pastoral",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학살의 터를 고요한 들판으로 찍는다. 그 고요가 곧 고발이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59b516f6043a2a77f2d37196be0959e106275f7c90f041a4764afa57cb380974"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-disguised-as-duty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입대, 복수, 임무. 스스로를 지우러 가는 길들.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a459d8ce6c6ff96d9d2d6ffad8ae980ad7fa2dd2a39812e8cb1422791e0024c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-disguised-as-oceanic-womb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물속, 바다, 수영장. 기원으로의 귀환을 가장한 타나토스(Thanatos).",
+  "model": "claude-opus-5",
+  "source_sha256": "ede81a86d4c16f9c0653c019e262a9a766dc4d3e61d5f4774e907e6df2ae97f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-made-audible-or-material",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쉿 하는 소리, 숨, 알루미늄. 죽음 충동이 감각의 몸을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "603fc9600ef79d8cfaa0c0350407a1139051962e5b6940152666bf2157bf0c35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-of-endless-invention",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강박적 반복을 희극으로 올린다. 그리고 창조의 자살로.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2d01461b9ebcae7ca01d663678dc0bc4a2e53c8228cb3d0d550b884a3885848"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-of-the-image-maker",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독이든 예술가든, 제 손으로 자신을 파멸까지 몰고 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "148bf10fae062ffbbbeed0b110b067262c280d55cef7b10bf0aa103ebb02a2fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-reaches-its-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목표에 닿는 순간이 곧 소멸이다. 성취의 얼굴을 하고 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2721593aeb85319c8afa92355ed78c7ea6daa2197857380e694696f99160f462"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인물이든 체계든 패턴이든, 그 밑에서 반복강박이 벗겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0463596413675d6318a6d70e2855b60304d92eb738f56d89c494f7f953d08472"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-disguise-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "총, 미소, 몸짓. 진정성과 의무와 자아의 가면을 쓴 타나토스.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0f793c26497fa65e56cefeae27fa2038d0c1020eb7a3849889cb9493ed1f230"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-disguise-3",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다른 사물, 다른 행위, 다른 장르에 몰래 실려 오는 치명적 강박.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9350dd4b9d22573571807459fced4477f1f3976f316e13d619f8ed148e7eef0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 해석이든 죽음 충동을 위장한 그릇에 담아 사람 꼴로 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd6f05ba91fd27ad715c2fa1843e3463b5f4e9527f02f05fd2a8c480d29aeffd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-mask-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자꾸 되돌아가고 자꾸 삼킨다. 프로이트의 죽음 충동이 그렇게 변장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a117526af32010ae807486c764cbd472299778c741deab9003773a2d48ccb07"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-romance-s-costume",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑은 의상일 뿐. 진실은 죽음으로 향하는 강박이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dfb96927f4ccbaf79537c47ed4a3baf2849d41242d7c476868b4b96c3ff45af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wears-a-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기파괴가 밖으로 나온다. 살로, 보철로, 몇 번이고 겨눠본 총으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e82b4cc3e5437a73811869932a204277c073410597d49507dedcd369a25ee87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wears-a-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자유라 부르고 예의라 부르고 체념이라 부르는, 스스로를 무너뜨리는 강박.",
+  "model": "claude-opus-5",
+  "source_sha256": "d87d2bdc1655519d9d7096969203f9f279de79ca78b2696a1dee4ff8361c3c19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-that-frees-the-hero",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "록키가 올라서려면 스승이나 라이벌 중 하나는 죽어야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "839637d9020a4be179353074027343282af306cc64ff43f8031ea21c1218f5d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-the-cut-refuses-or-doubles",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서사가 감당 못 한 죽음을 편집이 처리한다. 감추거나, 쪼개거나, 짝지어서.",
+  "model": "claude-opus-5",
+  "source_sha256": "86f21561d3404e62c9bc274f8e5eb11b22c48175650273067426921a4490aa20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-debt-that-outlives-the-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민의 수탈은 고리대와 저당으로 살아남는다. 대금업자의 장부는 닫히지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04bffdc53308b15cca0d5d3f816b0c4af3ac6e929fb4bcb4a4cc352d6e0a7c41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-debt-that-was-never-about-money",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갚을 액수가 아니다. 물려받은 것, 죄, 그리고 속박이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f1c0f94e32aa648d4c74df68f0b6cdb449c86d457e2842b6d0bd668455881d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-debut-read-backward-through-later-masterpieces",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "첫 작품은 그것이 예고한 천재 덕분에만 정전(正典)에 든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e55207e695a58b43f49eb23c1b27c9f7f9713b3aed178cfbbd0a5ebc2ae0f776"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-decipherer-who-cannot-stop-solving",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "답을 쫓는 강박. 그 답이 쫓는 자를 먹어치운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e45e83a2ed4a7aaddb7c0e3f1f70e6ea7b01b458b7bfa638506ff79bedead71b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-decomposing-jack-who-indicts-the-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 잭이 돌아와 살아남은 자의 죄책감을 심문한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b256f5d17522518865ceddb10cbb9968e58f4efc397c9ef68f8c3f2befd753ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-decorated-surface-is-delusion-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짜인 양탄자, 동화 같은 들판. 내면이 장식된 허구로 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a2d8e69fee995f9c87db40508c6840bc69eca7d146c9b7ea1c8f5b017055977"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deer-as-the-wild-crossing-the-threshold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간이 밀어낸 자연을 짊어지고 짐승이 문턱을 넘어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ebfad54ae0faf9b5f2756a41d3c9cf8a83236fa08b551c84f7136157aba60f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-defaced-face-as-repression-s-material-trace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "긁히고 번지고 망가진 얼굴. 트라우마가 눈에 보이는 형태로 남은 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "0225cfe9750d4faa98ddaf472f848153b5204821b48c441e928a85e4448df4c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-defeat-we-agreed-to-call-a-miracle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "패배에 다른 이름이 붙는다. 안도, 허락, 혹은 구원의 후퇴.",
+  "model": "claude-opus-5",
+  "source_sha256": "51c959b2b52543b2b86f7f99d25e1d99d48cf18b3e46f45d5b07f71052acefa9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-definite-article-that-erases-the-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 앞에 붙은 'The'가 사람을 벗겨낸다. 남는 건 상징뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a1b240fb5b22675e7be0d63a1260163c180d5b49093cf34ebf213752dd23629"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-degraded-image-as-necromantic-channel",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아날로그가 무너진 자리가 죽은 자의 통로다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7602031f829ade2ac50acc0b8951753eb0454ed56a65568337ae8ea0bc73a15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deliberate-absence-where-music-should-be",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음악이 들어와야 할 자리를 비운다. 그 침묵이 하나의 진술이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69b2eb88bdf49f9a876d27fd3b8ae390aec739f6638b3b7e1babbdfd7e0f2d11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deliberation-room-where-one-dissent-turns-the-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 방. 끝까지 버틴 한 사람이 다 정해진 합의를 뒤집는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52bd3caf419516c3ba74e361ab57c5ad5d9484f94afef9a88a3f82709e847480"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demand-for-an-answer-as-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결말을 달라는 관객의 갈증, 그것을 문화의 병으로 진단한다",
+  "model": "claude-opus-5",
+  "source_sha256": "4f75703e326e930d4061843cfeaf324dc18d48db6b9427341042f6216385a228"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demand-for-meaning-is-the-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해석하라는 요구가 요구한 자에게 되돌아온다. 진단서가 되어.",
+  "model": "claude-opus-5",
+  "source_sha256": "00cddb5a94dc50e60135c7939c31935231b3754ee0b04b5887ea5acd7ae08726"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demand-to-be-the-other-s-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타자가 원하는 그 대상이 되고 싶다는 갈망.",
+  "model": "claude-opus-5",
+  "source_sha256": "977f7e5009ef86e410bb5d986772f8833cecfe8288ed0b32867617cbc66baa5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demimonde-doubles-the-boardroom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밤의 세계가 자본 권력의 거울로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bd764c72642bb8f6e63d956d39a7174388f0fa57600f942a5b0a406b7bc7200"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demiurge-who-builds-to-destroy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허물기 위해서만 짓는 창조자-신.",
+  "model": "claude-opus-5",
+  "source_sha256": "76000a5f2e63e9e7686b3a0ae39dff35bad6a4be8f0f8885043d73941dfdbc3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demobilized-soldier-as-silent-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전역한 병사가 되돌아온다. 하인으로, 얼굴로, 억눌린 군복으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "a43db05d041bdb60509b27f2e3eaf123e382f4b5a00ab388e50541dca151221a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demon-as-externalized-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도하는 자가 부인한 상처를, 괴물이 대신 소리 내어 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecca6e73325aed187174aca840cdd589f05a5ed87939371de01c6b1195cbb4b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-departure-as-the-only-authentic-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠나기, 그만두기, 거부하기. 자기기만에서 달아나는 일이 곧 사르트르적 진실함(bonne foi)으로 연출된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68f3a65c68d1895fb77aa5931e8a12263cbd1e37ffe503e3fff61fa627b8c800"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dependent-wife-s-only-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈이 없으니 남는 건 의심과 감사뿐. 그것이 여자의 유일한 무기가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cd1c9262e58862f50c90b9dd10aa3b7e4fd83ae038d0629aef7a09fe53a4432"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-depression-filmed-as-cosmos",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폰 트리에의 절망. 임상 기록이자 우주적 스펙터클로 무대에 오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64a91202a9bb6c138cd8b9bc9adbb663bf8f7af33dc220ca844c82ce1da41e14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-descendants-cast-to-reclaim-their-own-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그려진 민족의 후손을 배우로 세운다. 허구가 증언이 되고 보존이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d404dffc68939a953db8f4eb31f4357de1f60a9b575ccb069cbb828259e7b76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-descent-as-drowned-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동굴이든 분화구든, 살아남은 자가 끝내 빠져나오지 못한 참사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c8939c994138f83fd1109671fa796bc20cd51bb731ce41f540d4c25b7084235"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-desert-as-civilization-s-vanishing-point",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모하비의 황무지에서 제국이 무너지고 지워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ba12b8e6888eb0645efd61bcb7a6a4cebb99882b7316bbdc1ff9162307af030"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-desert-conscripted-as-another-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "메마른 땅이 국가를, 성지를, 분쟁 국경을 대신 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df1e88c4f51bb1d1d6552a129493e2938652875a9313c96afdf6fffe8f040456"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-desert-that-hides-the-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남서부의 풍경, 원자력이 자란 감춰진 요람.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d53d8ce849926a269bb0cdcc12c1c0e5cd935dbb81dcf957f825a3a0fa3dc9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-despised-made-the-only-saviors",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원은 오직 버림받은 자, 입에 올리지 못할 자를 통해서만 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9a3b3bf67b9f353eba781ad4731e568eca7e64aee1083405af0c5e0ee0041e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-story-turned-against-its-own-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르가 제가 낳은 탐정을 삼키고 조롱하고 주저앉힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "646bb59b38247fa4bbece742f0e1f2fdfbd402cfd05995b8c3c9a4764035b8e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-who-investigates-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현장이 안쪽으로 돌아선다. 수사관이 곧 용의자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "498869481b00fa20bfe7183024a610807c5e96d039564de59b2b43e09c01ba19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-who-solves-but-cannot-deliver-justice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "답은 나온다. 정의만 구조적으로 유보된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c6f0c272cabcb3db021cc2388ef373d8782bd2b364b82d9210969741a20ec9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-who-solves-the-case-and-loses-the-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사건은 닫히고 세계는 무너진다. 승리가 곧 상처인 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "92d2423602b65f2c831e548ab5efc623b8f25ab654ac4f2ecfdccd05978289d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-device-that-speaks-the-father-s-penance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보청기는 들리는 사죄다. 동시에 소리를 참지 못하는 신의 표식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4d8535f963e5e908c9b6a201eaf9f65364fa7d7e279a26d72151f19f38499b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devil-wears-a-borrowed-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악은 부인된 것, 천사 같은 것, 사라진 것의 얼굴을 빌려 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aebd23984fce283baea2b9883f8e67d2942e7602467598758fd3ec406a4c2e90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devotee-who-mistakes-obsession-for-grace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스토커가 문턱에 선 금욕의 신비가로 다시 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ec7a4bc05af1bbf84bf2f52f9bcd7ef36781e49b06b7384ae842b21d3ed98a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devouring-eye-that-consumes-its-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보는 것을 먹어치우는 굶주림, 그것이 시선이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44c8dc486cb57a6e4760d167cbe9c64ca1834274f7a78a532b52ebb53e2ed198"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devouring-or-devoured-maternal-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집 안의 여자들이 돌아온다. 억눌린 것으로, 먹히는 살로, 먹는 살로.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7bc17223281d7dce0648a3bffcca6db4ded6726eba73ee64863a8f5ba773db8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diagnosis-that-manufactures-its-own-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제정신과 광기는 체제가 먼저 지어낸 판정이다. 그러고는 발견했다고 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca8a441bc785fa0533cbe754528c06bd98ee94181b215ed41dc15c537ca0c864"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diarist-of-pure-observation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "판결하지 않고 욕망과 세계를 적어 내려가는 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9d23c3c129f95a8bcd72ca81c7cb06426fb56dacf823a351a182003ee629690"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diarist-who-lives-truer-on-the-page",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쓰는 자리에서만 자아가 정직해진다. 유일한 고해실인 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da8e9631bbd7bd12a20cbb0bd8a5781c5197003c92ef340fbef99fb2e8b387a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diarist-who-wrote-to-be-found",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지워지지 않으려고 감춰 쓴 기록. 아직 오지 않은 독자를 기다린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93bb05139056f6c75113ea029a2dc97482afbabc4ad2b55d8896c7f4d79e4631"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dichotomy-of-what-is-in-our-control",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 독해든 인물을 다시 빚는다. 통제할 수 있는 것만 다스리라는 스토아의 원칙으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "59a5826ccb353f29997c39aeb1685138e9cc24425dfc0c9ec35f20c467132230"
+ }
+]

@@ -61,6 +61,10 @@ for (const f of readdirSync(DIR).filter((f) => f.endsWith(".json")).sort()) {
       lang: r.lang || LOCALE,
       text: r.text,
       model: r.model || "claude-fable-5",
+      // Staleness anchor: the hash of the English the translation was made from.
+      // The 2026-07-17 corpus shipped without it, which is why nothing could tell
+      // that an English edit had orphaned its Korean. Carry it whenever present.
+      ...(r.source_sha256 ? { source_sha256: r.source_sha256 } : {}),
     };
     byPk.set([row.entity_type, row.entity_key, row.field, row.lang].join("\u0000"), row);
   }

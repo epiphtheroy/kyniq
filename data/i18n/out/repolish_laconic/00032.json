@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dictatorship-spain-was-forbidden-to-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프랑코 시대의 기억을 장르 안에 숨겨 들여와 망각에 맞서 파낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "caf897e3e2adc16458f97d8a7f19e6f0cddef6ee0f776eebfa6a54d1cebdbca7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diegetic-lyric-spoken-from-inside-the-mind",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면에 뜬 글자나 흘러나오는 노랫말이 주인공의 속마음이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0241cdb25c8d943bf8e4507e646f128188bb8123df4ac32a71c32eea0fe750b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diego-rivera-mural-of-massed-labor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 없는 손들이 모인 리베라의 벽화. 영화를 그렇게 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbc37b0e249bcb52c7c84e62b27dff497507c2ea853a33ee14cb1fd582b1c4d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dinner-table-as-tribunal-of-civility",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "환대가 곧 법정. 식사가 손님을 심문한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5544536ef97f70ebb3f1b95614591296f30c9aa2beae174fa828974f919bbacb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dinosaur-as-sold-merchandise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "괴물의 진짜 몸뚱이는 기념품점이고 무기이고 상품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85061e2fdcddbcdd2e87dfa0bc8c065d6c1779f670ee6201aa38c691064ace01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dinosaur-as-the-medium-s-own-eulogy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "브라키오사우루스가 모습을 드러내는 순간, 이 서사는 자기가 죽인 것을 애도한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "219cc652877bf003f743261c6cd67a02e299674b9e3050fb6414f0fdf9bdb590"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diogenes-with-his-lantern-unlit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 만나지 못할 정직을 찾아다니는 냉소적 구도자.",
+  "model": "claude-opus-5",
+  "source_sha256": "f47b442ddca17557fa174b042dbc4d1342cf8b1157e00051124b4c05212b62ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diplomat-as-talleyrand-in-velvet",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정권이 바뀌어도 살아남는 권력의 매끄러운 중개인. 매력 밑에 차가운 술수가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07fa789c612b4f78f9cbefd869d6c5b96686eece45be3a90de47ddf95c2679a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-as-a-painter-of-feeling",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독을 화가로 다시 세운다. 한 지방을 그리며 마음의 날씨를 옮기는 화가로.",
+  "model": "claude-opus-5",
+  "source_sha256": "140fca4e30244c73b4a729ec068ae093acf2ce0a436dbc77840b7fcfd849bc86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-as-choreographer-of-crowds",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타티는 사람들의 움직임을 춤처럼 짠다. 작가는 그 인파 속으로 녹아 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c630949e672d35cf19cf656f6610093b927436ef6af40a79c27f7d998036b163"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-cast-as-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독을 화면 안에 세우는 순간, 영화는 자기를 되비추는 자서전이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "203ce314b6513193d2b39667fc4797061b240f40a237fd72e9843bba53d39008"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-filmed-the-real-heat-into-the-actor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기의 붕괴는 연기가 아니었다. 촬영 현장의 조건이 그것을 벌어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f1ea7624c952e11a52408457de0643dcdbb8482b0434ffe41eddeaaa2bd38e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-filming-his-own-penance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떻게 읽어도 결국 한 편의 속죄. 감독 자신의 속죄로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77deb6c8eb6f653208a1715fcc365801a97d475acfc02489837845fb3c17aaf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-banishment-authored-as-confessional-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유배와 파문이 영화의 고백하는 형식 자체에 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f1085cd70dfed413d5c2b71d3023e40f98e2c72d02860372c8db52eb176d2b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-biography-read-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "건의 해고, 유배, 작별. 화면 밑에 깔린 작가의 사연으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21df790f940b491bfc17eeed9764949aacb1573ea4758fd9ed72a153e5e61084"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-lost-world-restaged-in-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라진 과거를 흑백 촬영으로 다시 세운다. 개인의 것이거나 한 나라의 것이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "af72193c305c5bc4fcaf25a35c2cfa56b647dec418dda64a961a94e694fe8831"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-obsessive-method-becomes-the-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기교가 강박이 되면 만드는 과정이 곧 영화의 주제가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e616fca2f53fe564e25c9f5a8cd7e89177a81210c74ead713de1e9bd922f9892"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-real-house-as-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제로 사람이 사는 집, 흔히 감독 자신의 집이 극 중의 집으로 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57d265362ec2a396d29604be846aafd26b44c8244e5ed3f47927e8815d7edbb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-smuggled-into-his-own-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베리만의 영화는 몰래 그린 자화상이자 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c09a62804481eba7469ec70c2eb67e586d9c26486800c91ee70c81f112fc1352"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-filmed-his-own-cage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 것을 통제하던 사람이 통제 불능의 기계를 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "942e2c77e18837cba4300743f774d8d9347b02e29409bf5f4a1efb83da90de29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-refuses-sovereign-detachment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임 바깥 안전한 자리에 머물기를 거부하는 시선.",
+  "model": "claude-opus-5",
+  "source_sha256": "6872a7ec3a429f69db6942a9f3e4c569fb9a11f1dc3225f0b04d51458ad6fe4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-scores-his-own-poverty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미니멀한 신스의 불안. 가진 것 없는 살림살이가 내는 소리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0dbe0d3ac93427058afac75be67f7795cb447340ca70d149df1fa47ab396ea69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-stopped-making-films",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기예를 버리고 떠난 창작자들. 그 그만둠을 지켜보는 영화들이 그들을 되비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fe1aa8b413b350cf7c4bde08fd1e9c2ff635ef406dae733617a176675215bcb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disabled-body-claiming-its-right-to-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장애를 연민이나 돌봄이 아니라 욕망으로 다시 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "804dc9f0eb66f73781af06454e27635d33d52ea6a0d010ca6147a6d5c34976b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disappeared-erased-from-the-record",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무서운 것은 죽음이 아니다. 증거가 지워지는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e19a56f087c15ab501c2fe4c9fdeb9d818b0eb78263ea37cf7827d65b35393e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disavowed-crime-against-the-origin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차마 범죄라 부르지 못할 근원을 없애버리기.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfd43dab301227134fcc212b9f0471320ebdd6fde703cdc2e62c2c09a5944937"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disavowed-self-returning-to-be-killed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "억눌린 것이 바깥으로 튀어나와 돌아오고, 결국 죽어야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f47737f9cc581ce547fd6d9386ea54cf1f3dc34c9e2dabb29c8ee5da1df8ed4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discarded-body-that-judges-its-discarders",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "궁핍이 쓸모없다며 내쫓은 자. 그가 이 영화의 도덕적 진실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bc928bcee6998b15241c059c4a8ee4f1e1d720a033f9897e3c1a7bf938854ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discarded-remainder-reclaimed-as-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상이 버린 것. 그것이 영화의 진짜 주제이자 존엄이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b611e57c0f96ec8683826294e2ee92bff9160e61c8ea34f444c27486f5be090"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disciple-who-murdered-to-become-the-icon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스승을 죽이거나 제 이미지를 죽이는 일, 그것이 곧 저자됨이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4904657afeaa4e2f5c7e4eef0eee2e87eac70cfd2458b2008ac05d2f8c408890"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disciplinary-blow-as-social-reproduction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매질은 몸을 위계와 계급 속으로 입문시키는 절차다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e3331efdca196a36bf8e89240afa1db63e3e265e7c1a9e1a952449a838e7f6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disclaimer-that-indicts-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공식적으로 진실을 밝힌다는 그 행위가 은폐하려던 범죄 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d758a44c6981e1956c9f5e5054ce016b6458da0fde7154d6e9b6709e08cc19ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discourse-reenacting-the-film-s-thesis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평이 쏟아낸 말들, 그것이 작품의 진짜 주제였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ae672d6a97b9e22834aa898c6d6c7739ddc257faba3346e80a9eabd35eb9f23"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discourse-that-confesses-what-criticism-cannot-touch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수용을 둘러싼 논쟁이 비평가들의 감춰둔 불안과 허용치를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e867c8ae821799c6b229a68f1af979998a2031a1cc71d4a7a1b633adbf0a8911"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disembodied-voice-that-governs",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸 없는 목소리가 세상을 다스리고, 고백하고, 단죄한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d65da728c883ee20e06e6d2ccd0159619ab1084277741077e3ea1dcccc8244a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dish-as-class-war-made-edible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상에 오른 음식이 누가 누구를 섬기는지를 그대로 적어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b7e7c3081a6591081406c6d0c18269b4f95cc07178b542a109f937b4c9f4d5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dismissal-that-indicts-the-dismisser",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평의 경멸이 도리어 비평가를 향한 영화의 고발이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f8f6104b3be3f3213a8547054b37c1e23b2c297c2db56583f50d05ea4663bb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-displacement-that-makes-abuse-sayable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "외상은 다른 형식을 빌려야만 겨우 이름을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1fe666e0a0acf289aea348954ac27fb7d090ad282aae38e2f986d0950665086"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disposable-woman-made-unspeakable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소모품 취급받는 여자의 몸. 계급과 복수가 만들어낸, 입 막힌 사상자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a284e86edf5f88e518b6d6ee68e748f01ca8718b5c0c0829d74f255b651f2bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disreputable-genre-exhumed-against-the-algorithm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 착취 장르를 되살린다. 스트리밍 시대에 일부러 거는 판돈으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "02fc1b5071d17acb411fb92106465be57f5844dece115891fb0906f5822feb77"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dissolve-as-death-and-dissolution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "겹쳐 사라지는 디졸브. 소멸과 죽음이 눈에 보이는 형태다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46a541e59dfe74dda26fd1d65704129e27c7fe55e52a2b9dbbd9d2239b9387ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-distant-camera-that-refuses-to-touch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거리 자체가 바라봄의 윤리 문법이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2219af983904dc20f65d87de5a64c334ed4f9ce1b0b9155e855171e7f17d91fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-distributor-s-cut-as-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국판 재편집은 스튜디오가 무엇을 두려워했는지 실토한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "444bdeb1a06e5586650648732a4dc6d38aeeba96478057898053a30fb4f1fde1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diver-who-sought-the-depths",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물속으로 내려간다. 수련이거나, 다시 떠오름이거나, 돌아오기를 거부함이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "51803482332ab6768ded3e640bc23a316968f0622d5978ace2ded73d939fb2c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-divided-frame-as-confession-of-doubt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면을 쪼갠다는 것은 한 장의 이미지로는 진실을 담을 수 없다는 자백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b222c8c09abd7a4484e76e9ba0ce86fd0d5415bbf470b3f8a72e8c05039923db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-divine-line-usurped-by-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진노와 심판과 복수. 신의 몫이던 것을 인간이 빼앗아 제 것으로 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82e9a257cb31feaf1cba4bc661ef6601b618b219b548c2a717472ce81316b5af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doctor-as-modernity-at-the-feudal-gate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의사가 도착한다. 새로운 역사의 질서를 통째로 짊어지고.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b3652d18fa6d6fe8ff922d459c98a79d87300ff99c6a1219f4d51de7abd923e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doctrine-of-election-in-secular-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예정설이 학교로, 공장으로, 가정으로 몰래 스며든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7da337587a8252269730b232fe67084a775a967b4af3492c92c168b4c9da59e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-document-outliving-its-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음에 맞서려고 남긴 기록. 기억을 거꾸로 되짚어 만든 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "15e23ad4ad0f19de4a3624116798f227d777987211950426c6fd71f7414af787"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-eye-smuggled-into-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구를 찍되, 마치 눈앞에서 관찰한 현실인 것처럼.",
+  "model": "claude-opus-5",
+  "source_sha256": "14368eba647753991f3c104dcb8e2ed99a837572e85f94cb26ecdc7dbf4484fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-inside-its-own-event",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절정이 벌어지는 자리에서 카메라는 증인이 아니라 공범이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf6928535e49842a424973cedd5d3d687e7854dd94644f3bd88e3b0bcbb21008"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-s-broken-promise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "논픽션이 제 진실 주장의 죽음과, 혹은 그 불가능과 마주 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c73e128fbff98ef8e1d94bf8579457d9af16ac79a47eb7bb89430335b59b7902"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-that-shows-its-own-strings",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구를 진짜로 만들려고 제 장치를 일부러 드러내는 논픽션.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c97f13925fe1e4d9f8d12a962650045c1fe792038619e60786dadc011c5641c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-town-as-total-institution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 담으려던 사람들까지 삼켜버리는 기업 도시의 논픽션.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce2eee7c85db5fafd0255455c08fb80b83e5860116fd6e3244a3192cca8724eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-tuned-to-the-attention-market",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "논픽션의 형식을 미디어 경제의 박자에 대어 재본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6962e06115d235027e8b3aeb3f3e07a9dc561dc5ea60bb35be3bf40fcced403"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dog-as-hidden-meaning-bearer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "개 한 마리가 영화가 스스로를 해독하는 암호가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70753b2333a5bd609a78c320e256dbfe9d5ffa099da7cfff98165548250842b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dog-as-the-last-honest-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간이 내던진 진실을 짐승이 대신 쥐고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b206d1bfb78d547157bc3e0a971d7b5be1f6d95d2c7c9b5bc62833c4b6b42689"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doll-as-the-hidden-truth-of-the-human",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재를 품은 쪽은 꼼짝 않는 인형이다. 인간은 그저 흉내 낼 뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "45f310121808e3d7722a86de5e2b0082413563aaa592e5f0049daf084cacab6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doll-as-vessel-for-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손으로 만든 물건이 유골함이 되고, 영혼이 되고, 슬픔이 부리는 살인 대리인이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45af4ca115215c527fe92de3a277a398461f6ab0081c38fc8b6b1aa6043c4bf0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doll-s-house-that-watches-its-maker",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미니어처를 짓다가 결국 제가 지은 집에 갇힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "786b85187f478485c4b5c891817f66b2b3b2cbd235b489f69c012a74d4139a44"
+ }
+]

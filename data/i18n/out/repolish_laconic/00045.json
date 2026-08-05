@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-le-de-france-in-mythic-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 프랑스 풍경이 허구의 에덴, 혹은 황야인 척한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3ab0d0dc4984a5d0a5c79ff8c573e61ce21e66e4bedba48b81fa0d82017b9aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-leap-taken-before-the-ground-appears",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알기도 전에, 증명되기도 전에 저지르는 행위. 그것이 믿음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7cc7af3e80486c75f9bfd5bb24a2879f28f33278bd8c7074e331f36bbc6fa84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lecture-as-philosophical-alibi",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무대에 올린 토론과 이론이 결국 말하는 자의 자기변호다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6b46f432245a5b759007f11a38fd71a0341c8e94f901c61edef7d05c740fd44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ledger-that-demands-settlement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도덕적 빚은 결국 맞춰야 할 계정이다. 갚기 전에는 닫히지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6779a9fe1b13ed2c8dbb0912ec15e942d6b74854d267ef0334c2bc7d9557a7d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ledger-that-sums-what-love-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "친밀함에 공리주의 계산을 들이대는 순간, 계산하는 자의 정체가 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddfe6bd4fa656e5a6cc0a00cb961c73bb8a296a4d3d50fd09847aade679c773f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ledger-where-bare-life-is-counted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남는 일이 더는 줄일 수 없는 최소치의 산술이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d9eadfa19fc2f689e43967799c6d7f79dd7a283b70b709824fcf2b58338e5dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-leisure-that-is-already-the-massacre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우아한 의례를 찍는데, 화면에 담기는 것은 대량 학살의 씨앗이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ff81b8a28835019e7d818e12b0b815974f0071b0df6ab995396b999244b9616"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-as-the-eye-of-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민자의 측량하는 시선으로 다시 읽히는 광학 기구.",
+  "model": "claude-opus-5",
+  "source_sha256": "3bc09b598ed541a0ce721770e661c5bcc0413444499c2772119daf22b33ef3b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-as-witness-to-suffering",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라가 쇠락과 표류를 기록하는 윤리적 증인이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbbb29d42e9dac17bcb860f8dceb0e36b37c8452fa37e52916ec9147da32ae37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-lowered-to-a-child-s-eyes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라 높이를 아이의 눈에 맞춘다. 광학이 곧 윤리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "659a0afffd1580513cd74abe022eee0fe17b1e0db2316accf256a890864932ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-made-a-witness-at-the-siege",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹의 현장에 바싹 붙은 핸드헬드. 시민이 기자가 되는 거리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f576a589f1c91666dc9959c55a77dfc7cb4c4d24b8ced2c3583246f22578beb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-becomes-a-gaze",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라의 광학이 바라보고 판단하고 욕망하는 눈으로 변한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "445623f8360d15c8331849f0d42198fc7ec98a60b8fd80bcc97afd30911b3401"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-confesses-its-own-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라가 스스로를 고발한다. 포식자이자 관음자, 침해자로.",
+  "model": "claude-opus-5",
+  "source_sha256": "35cd917493e0a81de5f010d5f05e217c738af7c566762c38fc22f96bd47f6a26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-dethrones-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광학적 왜곡이 권위를 벗긴다. 군림하는 시야는 허락되지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bc4f9813218a850a3ea5bb36e3856c9df105b0173a4b356094e7ceef57e3f7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-distorts-to-tell-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억과 역사를 두고 벌이는 반(反)리얼리즘의 고백, 렌즈의 수차(收差).",
+  "model": "claude-opus-5",
+  "source_sha256": "92517845411decb0d255c20ae2f13033b7e5e527699c8b46cb70a812db5bcdbe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-indicts-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈와 천장이 함께 뒤틀려 도덕적, 심리적 압박의 도구가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f09ef0baec19f2b811bee97dc0bb36782276695176de311da666ee2b29680236"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-is-a-character-s-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광학 장치가 이야기 안으로 들어와 실제 시각 기관이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27b6d755d1a58d4ba253491df8df546a678ad0e9dd57848c0e4f471b0a230639"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-worn-as-armour-against-the-gaze",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "견딜 수 없는 시선을 튕겨내는 방패로서의 안경.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c3ce33e266b6ccd1e44e103007e3e03a79ce03779d55844e076957de4cf8acf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letdown-was-the-genre-speaking",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관객의 실망은 장르가 일으킨 면역 반응이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76b6fa976e09873b8cfb9f36fb30c8b5ea7460e345d474bb757e2e4a339c7307"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lethal-real-inside-the-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기 속의 그 장면은 실제로 감행된 위험한 행위였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d1cd262905c233bf8423cb2a5ebe83bdd1aa35ced796556398f75ae676372e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-archive-of-the-silenced",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력이 지운 이들의 장부, 편지.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fc85f3506e9783c1a3b0dfe2f5e896da34b3861f741ba9851ccb54093b594ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-civic-infrastructure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주고받은 편지가 그물을 짜고, 그 그물이 국가와 사회가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f299dc6e73b63a8350b055bd1689126858e11c0ff3e0a8e1df7aa5f0998bd8c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-ontology-of-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편지를 쓴다는 것은 제 존재를 써 내려가는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60d316ac03b7a8b59660e499ad2e5d86e5a823e0cd059ce4f198624b7623be49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-refusal-of-the-instantaneous",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손글씨는 읽음 확인에 매달리는 즉각적 욕망의 경제를 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7eb5e2cbe324650f89655b9577367077804396628e68597f166129b33f24d63f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-levitating-body-as-wish-reality-forbids",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 뜨고 날아오른다. 중력이 끝내 허락하지 않는 소원의 극화.",
+  "model": "claude-opus-5",
+  "source_sha256": "09f7401d83aab89f5b03c7bbec507b425b5220f92f97caf17baa341dd8fa0f2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liar-bound-by-his-own-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 손으로 세운 정언명령(kategorischer Imperativ)에 복종하는 거짓말.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0034b266f080be383aa223a1bbc620d4a7040a3309e0ec10a72b59d93a61410"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liar-whose-lies-become-a-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓말이 감추는 수단이 아니라, 살아낼 수 있는 유일한 진실이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bae50eb3fb7facd1b0d40623b38b27bff3f738acbc6ee675fb1a5ebc584210f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liberal-verdict-as-self-absolution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보는 사람의 안락을 쓰다듬어 주는 진보적 독해.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a422ac5b55ed4be2298ceeffea75f9f1203bd3cf06e82ae64b35708aab2acac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liberation-that-liberated-no-one",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성 혁명을 해방이 아니라 애도로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8eb52e8b24c68b09482be22832f4788fa8bb04998f361ae20078b780abd0f08a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lie-that-constitutes-the-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓말이 은폐가 아니라, 손에 쥘 수 있는 유일한 현실이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d49305cd373c70719214cd116afce988157a0b15663bafb00c301c6eaf7d7aa2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lie-that-refuses-to-stay-buried",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바닥에 깔려 있던 거짓이 떠올라 고백을 요구한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30f60dfe24ed05a109e5b7200a43284ff133627467d79b490f59b8d66385bbf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lie-the-critics-needed-to-believe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'실화'라는 딱지. 알리바이거나 신화거나, 치명적인 오독이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "614b639636bd22474f4338f339e075fda595b7634c9ecc1cce00ba53646d8703"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-life-authored-by-others",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남이 서술해 주어야만, 남이 붙인 기호로만 존재하는 자아.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ee9c2aecc9691c9d7f3f8b3633b187d6bcf86cb6ff32c5967bb643077ed80fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-life-rewritten-as-inscription",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전기는 거부된다. 여자는 오직 텍스트로, 구성으로, 글로만 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63a777d3bc29762b00374b90082bfd3c77a4c3f7f7fd90cfceeae9ef1ce85343"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-light-that-sustains-and-destroys-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "램프와 불꽃과 등대. 정신분석적 환상과 이성적 환상이 함께 비치는 스크린.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc97a9b0b9abb44f81750b3022528c96f3973db39990424a163ef0b1ce611915"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-light-under-which-hidden-selves-appear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유령 같은 빛이 금지된 것을 보이게 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4381da99147f45eef4a358421352e17627c87508af902b7859d6b34928515440"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lighter-that-incriminates-its-owner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라이터 하나가 주인을 살인에 묶는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d747a1c9187d8387af7ea4f0200e70624c1f682e827115d7be48d0046fc515d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-limitation-that-bought-honesty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기술이 가난했기에 고백이 허락되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fdd4cbf0109e764c63012fa25ae2a55b5d542662c4b074d5f81297190f42a19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lip-reader-as-surveillance-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입술을 읽는 행위. 영화가 제 엿보기를 스스로 실토하는 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e6fdf322431057043b82e766a7a4c318d5e492bba0a0af6ab715b27bb8c4ead"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-listener-who-cannot-be-automated",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계로 대체되지 않는 귀 하나가 이야기 전체를 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bae7752c315d741d24d5720555d68d5566a7b44888bcc93d95db8ea195af12d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-are-the-haunting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "출몰하는 쪽은 유령이 아니라 살아 있는 여자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e32d174d37ffbe200b8ffeebbcea6055c2510441b8674d2ea2560128dd9d8ce2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-body-drawn-from-flesh-not-cartoon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애니메이션이 촬영된 몸과 얼굴과 움직임에서 리얼리즘을 훔쳐 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a103b6aa62e3fe0673023b201ca08c420e09b5780830c326d8bb2b8bc0c6d6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-body-enthroned-as-monument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살이 조각상이 된다. 벌거벗은 삶은 받침대 위에 올라가거나, 누군가에게 소유되거나, 그 아래 감춰진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7900a351bd9ae00081c0e531f64bd9180687c806e0aa7667ad95186990af567"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-line-as-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔들리는 선묘가 눈에 그대로 드러나고, 그 선이 곧 영화의 논지다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebe5e028f2026cacb935446d674bc85dc3f2d472a5357eebbadf8fe262b4b1f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-who-visit-their-lost-childhood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시간이 접히면서 현재가 사라진 과거와 마주 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "016c06b1cb124d65d660e2a9ae12ee0e4fbf6a2c682d3a2d808c1287c667a184"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-local-landscape-cast-as-apocalypse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호주의 실재하는 어느 장소가 세계의 끝을 대신 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aac88b2377b94e307d5300154569bd53457fac9e16eb0be3c34b0e4b9b930f7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-location-standing-in-for-the-forbidden-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍을 수 없는 장소를 대신 떠맡은 실제 지리.",
+  "model": "claude-opus-5",
+  "source_sha256": "94546d64c7dfc293d5256aa129aaa85249d72d9953e57e2ad0a3145fd95a72d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-location-that-killed-its-filmmakers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처가 새겨진 바로 그 자리에서 상처를 찍는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "175b235b4e3efebc605004827476c32aeaa35016ecdd1b160aa662ee05665834"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lockdown-encoded-as-domestic-interior",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "팬데믹기 영화들은 닫힌 집을 읽는다. 피난처이자 우리, 그리고 디오라마로.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d535a7eecb028fef76552948e93f3594a78b4a17428a081ebedeae96effeee7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lockdown-shot-through-our-own-screens",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "팬데믹을 찍는다. 빛나는 유리 뒤에서 매개된 삶으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b6b6119086cdda8d9c1caaa713104e1249427757a982980b115e2f2f19d2153"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-locked-threshold-as-domestic-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잠긴 문이 갇힌 몸들 위에 권력을 행사한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7726b5bca35bedc85d04e2b8ed533d4f19d009dd3c023ebf8895f2a94e3d58ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lone-red-against-the-drained-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑백 속에서 붉은 점 하나가 터진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9670c85952a0e50856c6a1f8e608c5989795e76cf0bfd239e8cdfdfd0fea919"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lone-woman-reading-the-institution-s-case",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "직관은 조직을 앞지르는데, 정작 그 조직이 직관을 빨아먹는다. 여성 수사관의 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6644ddb6f3b1f35fd26be7d3f2912d5f38b7b9810614855757fe0848229fbc94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-odds-bet-on-a-doomed-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사형수가 제게 내려진 판결을 걸고 도박한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3509edfac5cdb7df38d6d7af4a716b08d8c5b6af17dde5a6796c569daab72551"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-a-withheld-cut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끊지 않은 숏은 하나의 거부다. 그 거부가 의미를 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c784d5d0ff18a0e4e78664192dac8a5a6832595d8af83f01eb398cefa185283a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-congealed-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기다림이 만질 수 있는 물질이 될 때까지 찍어낸 지속(durée).",
+  "model": "claude-opus-5",
+  "source_sha256": "528f65c10f50e1a38a8caafab65933bed210ffc5c46c25cd045d46488c1cb0ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-director-s-calling-card",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "새 작가의 등장을 알리는 명연의 한 숏.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ad7aa35dafc360d95c5b579515a8ecb0e6040296012913e3a6b52b6f1c3302c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-disciplined-labor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끊기지 않는 숏을 다시 본다. 소진시키고 안무되고 짜내는 노동으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "57e1eacadd9ed1c0c83a1f10da8a440e4a127b632d27b799b97be2aa06bf5970"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-honest-duration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끊기지 않은 진짜 시간이 관객에게 믿음과 연루와 감정을 강요한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d45dc1d8ab620481511f6fea1ac295b40bce0d1bc432795e8e309724491f4052"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-inherited-tarr-bequest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끊기지 않는 숏에서 타르가 물려준 인내와 공포를 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c47b3fb09c610c5d01f60d2a74ae2f58f542a8abf081bb5c5d79e1266c889e81"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "simone-weil-s-attention-as-affliction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주의를 성스럽고 치명적인, 위안이라곤 없는 극단까지 밀어붙이기.",
+  "model": "claude-opus-5",
+  "source_sha256": "92b2cc2ba24b3f80cf55983ae9633565c42b6c8971ceba9620fa4468d46df5f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sin-as-the-only-road-to-grace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원에 이르는 길은 하나뿐이다. 죄를 짓고 그 벌을 받는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "4caa186ba249fe12050e836666115cf385265d94b5f84a03e1146d635d6c36df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sincerity-misread-through-the-irony-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진심을 공식으로, 냉소로, 심지어 제 자신을 비꼬는 농담으로 잘못 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce738f255195cccdf5a2d31969af36fa576f66b214e427f66c1c32b03c27c51d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sisyphus-without-a-summit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제자리로 돌아오는 노동. 끝내 정상을 넘지 못하는 바위.",
+  "model": "claude-opus-5",
+  "source_sha256": "b60ab6f8bc0bd4e0bf4eb59baacd21739bd25386c50451a1e704da0523cd8fac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sketch-logic-smuggled-into-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코미디 스케치의 구조를 호러와 비극, 살육의 무기로 벼려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0ea6b868141499c8357ac54f11d0aa1f381127217530b6583488e4b42029414"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "skin-as-apocalyptic-surface",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 몸의 표면, 거기서 신학과 공포를 읽어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "723318dd6a02de1adbe5ca7b6b3078b86b1ff9e702e1bee546e576be25614db3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slaughter-staged-as-beautiful-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대량 살상을 화려하게, 축제처럼, 미학적으로 취하게 만드는 볼거리로 연출하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c4847d3bdad8fe323985ed4ed2c17a84469dce1b6aa7ef845538b4e8cf47cfe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slavery-as-the-hidden-logic-of-commodity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 영화를 다시 살아난 플랜테이션의 장부로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f73d6335f1ad5c5b5bd8fe1b7e35c0d704fbe4f579c61fb66db7313de2262fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slow-motion-as-the-aestheticizing-of-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "늘어진 시간이 폭력을 볼거리로, 고발로, 고백으로 바꿔놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2d133dcb6e7d6470aa884eb04b1c6bf44c32c77fe2a9caf009e39ff6ce941ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slowness-as-excision-not-decoration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드레이어의 느린 걸음은 장식이 아니다. 드라마를 일부러 덜어낸 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe81fad3ad66709c3fdfa62209405ad8423ca6230d93857d80a8b0690b473f97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slowness-as-festival-alibi",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예술영화의 '느리다'는 딱지, 실은 비평의 방어기제.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c4e745016ad9a7fb51007887993d6835fa402afd1d6ab2e7e43567197aec051"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "smallness-as-moral-spiritual-geography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대도시의 반대편. 소박한 장소를 윤리와 영성의 풍경으로 새기는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2921ac32bb0e3c17f557505b68ab994c7f43c74e14605cccf13c3a00142eb67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "smashing-property-to-free-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물질적 안락을 신나게 때려 부수는 것, 그것이 해방의 연출법이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dde2d0fbb28e5e6258cb0444e980832e7614e111bf21b2195211a97b2cf4600f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "smut-demanded-indictment-delivered",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제작자가 요구한 건 살덩이였다. 작가가 몰래 돌려준 건 비판이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e86e439a4632f9b6458413c385393679ba79dba89fa865a5f14949ca944ab29c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "soderbergh-as-his-own-crew",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독이 직접 손댄 기술, 그 자체가 영화의 의미가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58b3c7d45a3d4c6ec601a6dbe4d689dd184783e14951c8c707b9f239f1f50200"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "solidarity-as-scarcity-s-unaffordable-counter-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계급의 의리에 값이 매겨진다. 체제가 결코 허락할 수 없는 사치품으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "76ebe541819765a0a9d466996ec7e863c73d79fa63323258fad897389601ea24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-as-audible-politics-of-the-land",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악기 편성에 식민의 역사와 장소, 소속이 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68ba0fff9471d26a275335a7caf5c4e13d91c60ec66e8b616cf4819e33fd1f6b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-as-the-eye-that-cannot-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라 대신 사운드트랙이 지각하는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "6577c35533158545d06584a6d0ebc21b57cce3c9cdfdfa5116e92e4465c7c4c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-as-the-story-s-hidden-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미지가 감추거나 부인한 의미를 빽빽한 소리의 풍경이 대신 실어 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e07893f4467cb710819963cbbd49632c7ff127bb1bbc204f69387497250fb39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-design-as-the-secret-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 서술하고 세우는 쪽은 이미지가 아니라 소리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e128509ae618405f259d836601563126e6796f520d557d7ffd19c1631bdc7d7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-as-the-processing-of-bodies",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 하는 일이라곤 서류로 한 사람을 지워버리는 것뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "dec5b0fe3348d8d99262f0a034cc6e50c0d6fae4faaa0309ea6f57a170f069b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-decides-who-lives-as-bare-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽여도 무방한 벌거벗은 생명 위에 군림하는 주권의 예외 상태.",
+  "model": "claude-opus-5",
+  "source_sha256": "23a5d3a0e738d4fb58b21874c02746babe5eae26575779a426b1fe97718dec09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-is-the-power-to-decide-the-exception",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슈미트의 주권자는 법 바깥에 선다. 법을 멈춰 세우고 정당한 폭력을 독점한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6abea4c1ee014553c3fb1e2acb350a6de3b713cd983f9661d948f16ced3db35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-that-punishes-the-future",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "선제 권력은 범죄가 벌어지기 전에 칠 권리를 주장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "811a0738f53788a2fd30a790f489ed448e6de63d764c64752825911f3ef67d1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-withdrawn-into-private-hands",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁도 방위도, 국가만이 쥐던 폭력의 독점권까지 사영화(私營化)된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39baf36e55a3d8449a4d4d4f4fff8068cea0ac66a59249325a0e8277cb24a75f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spain-s-unspoken-wound-bracketed-by-two-births",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프랑코 시대의 상처를 새 생명의 탄생으로 봉합하는 역사적 액자.",
+  "model": "claude-opus-5",
+  "source_sha256": "08ffcaa7c378ce9ed2f73d4c0509a22f8a1d698528f200368369f30d89621cf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spectacle-engineered-against-industry-marginalization",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변방의 영화가 봄베이라는 중심을 끌어내리려 범인도적 스케일을 쌓아 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d4febbac76d21704ec2753a2383e949f0687050f98c56e20e27d704246f7cf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spectatorship-mistaken-for-citizenship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "군중은 제가 무력해지는 광경을 구경하며 그것을 참여라 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afee0e268a23a0af6a19997d73163b742b6506229ca13801baa7a30c8023b97b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "speech-aimed-at-the-unanswering",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "답이 돌아올 리 없는 곳에서도 부름은 멈추지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "196d65bfdd262836186b8ea49b80d5f877c7daf624216d7bc8a49a9d81113e66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "speech-as-instrument-of-power-and-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리와 언어를 지배와 배제, 절멸의 무기로 휘두르기.",
+  "model": "claude-opus-5",
+  "source_sha256": "74735b2b5edf4d777b3215e05637cbe9ac2e3d48f612254d05d5db80008074e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spielberg-atones-for-his-own-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만든 이가 제 손으로 지은 경이의 기계를 뉘우친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09bcca20080cbb37bc9e400c8c38eddd8ecef24d0ae196268e8a0ac91cdf0043"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "splatter-as-eruptive-punchline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피를 코믹 타이밍에 맞춰 설계한다. 솟구치는 핏줄기가 곧 개그의 펀치라인.",
+  "model": "claude-opus-5",
+  "source_sha256": "30974ec33d83338960071712e10871ad9515bdcf662f27756aedb6370a033a65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "splicing-memory-against-the-state-s-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사적인 필름 한 통이 체제의 기록 독점을 깬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90995e9ae538bffd74e46a9b0c38bac52dd2ccb313a8920ae90b6e835497cddc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stardom-demands-a-human-sacrifice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하나가 떠오르려면 하나는 불태워져야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a965ad7dd01601bcfecfe3484cdab1591f0fb48d44676a0eaf11c9beb3f124a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "statecraft-as-aesthetics-death-as-bureaucracy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력은 스펙터클로, 그리고 죽음을 처리하는 행정으로 행사된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd5a33a36502463bada4f21685e9e4fe1a21e27b5a7a5bc6d28fe6bbf7d3f912"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-as-refusal-of-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멈춰 선 고요한 쇼트, 슈퍼히어로 영화에 맞서는 방법론.",
+  "model": "claude-opus-5",
+  "source_sha256": "15ce68f3265278aadcb11a36fb4c5a994e752e5600dd70129a26393fd93f4e86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-as-stateless-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엘리아 술레이만의 굳은 몸이 부동(不動)을 무표정한 저항으로 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dfe9540a05100f25a8d178810d81518fa566157d1ac7b66ea6f6bd05261ce85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-as-the-camera-s-withheld-gesture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버티는 정지가 작가의 서명이 되고, 거부가 되고, 움직임 직전의 팽팽한 전주가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38b4fab865ff6acbe3c050d0b58f25d346693365a5f5cc1735353c7373d3fda3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-engineered-by-subtraction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절제를 더해서 쌓은 연기가 아니다. 덜어내서 남긴 연기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec30f124676437b199f77f4d79d33027a20d57bae1c75f63ffef52d65afc987d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "strange-named-not-feared",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목 속 '낯선'이라는 말, 두려움이 아니라 징후이거나 치유다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5e038566627196d4a44aa58ca0faab81387c37c72f8eddbdd7fb0ea04f7a106"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "subjectivity-built-by-subtracting-sound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내면은 화면이 아니라 사운드 믹스에서 만들어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3035baa9cd26adc69ed7e0a6c154499ed93fc051a290a83de93387bf26b352f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suffering-that-refuses-comparison",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처에는 순위가 없다. 형벌은 집단 전체로 무너져 내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ffdea71f43ca2e24f35c217a5453f33089831576cf7228a41ccd0843d531178"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suicide-as-the-last-free-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파멸이 예정된 자가 죽음을 움켜쥔다. 제 손으로 쓸 수 있는 마지막 문장이라서.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a406ce91d225318a6d80c0841dce94263e58011731b82f010a72d4ba43bad59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sun-ra-s-cosmos-as-black-refusal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지상의 흑인 역사에서 달아나기 위해 불러낸 아프로퓨처리즘의 저 너머.",
+  "model": "claude-opus-5",
+  "source_sha256": "a91d9a3135c7ccedf32a41f54be01955c25cf64a61bcd53464be7cb816812979"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "surveillance-as-the-sin-of-wanting-to-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "본다는 것은 신의 자리를 탐하는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c6f5a7225003f9dddd4eb0f4f45f5544bbf99f80b0860680bb78031ee860c10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "surveillance-as-the-state-s-tender-embrace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시가 돌봄으로, 고백으로, 공기처럼 자연스러운 것으로 둔갑한다. 통제의 부드러운 얼굴.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d5f36408953fbf6d488780d4850d2c1e0f0c7dbc07c8651f10290f8c57e064f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "surveillance-mistaken-for-intimacy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지켜보는 일 말고는 그 시대에 사랑을 말할 문법이 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "186b4c1e3dfb6158822f57342211ba448956f6ddfb91b85f76fcec51e39a5b0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-as-accident-never-as-merit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재난에서 살아남는 건 우연이다. 지혜나 영웅심의 탈을 쓴.",
+  "model": "claude-opus-5",
+  "source_sha256": "66ae6a59e229a1354632a98a0f433fd76180b2c81e605cab3f6aaba17d05bccd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-bought-by-passing-the-curse-on",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "산다는 것은 내 운명을 남에게 떠넘기는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2135e753ebe7c26aaf05254da2801e8f6a9dc45035f3f0e7d4148cdecb1ac440"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-itself-as-the-moral-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그저 버티는 것, 그것이 최고의 윤리가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07c9b805353baaa30de55f1bb754b57a4620b9088607e40559b56f6a557cc737"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-reduced-to-the-grain-of-rice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전투와 전쟁을 먹는 일의 헐벗은 경제로 다시 그리기.",
+  "model": "claude-opus-5",
+  "source_sha256": "baaa40852ead9523cba08d0a288e78c30b595986e9db9187902db29c97fc5990"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-bred-from-manners-not-mystery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "긴장은 수수께끼가 아니라 예법과 의례적 절제에서 자라난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f810978037573c3e70ac5b96056771d22bb2cd22ed07f9a251af10b0bf5fb01a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-cut-into-being-not-shown",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "긴장을 낳는 건 볼거리가 아니라 편집의 이음매다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3b32fb4901d215976900c1e7362b57027679c85239c617e94c4cc5c840054f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-earned-by-real-bodily-risk",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위험이 실제였기에 공포도 진짜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94e2c465fe0ce2b64bef57d55979d56a0dd74f236ac3062f7a118ad0d12809dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-engineered-by-who-knows-what",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 무엇을 아는가. 앎을 나눠주고 붙들어 두면서 공포를 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e17fdcbc0e23de9c241468b8599e7065597552a7a4fe4625c122fc27de16999b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "symmetry-as-the-architecture-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면의 균형은 아름다움이 아니다. 눈에 보이는 강제의 형식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f14d06ce9adbb605b2069585dde5a23dd486e01df6fa0dcb36436d0cf4fb92d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "taipei-filmed-in-the-rubble-of-its-own-erasure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폐허와 철거, 사라져버린 땅으로 찍힌 대만의 도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fbeff374632cc086595bca168fbbfa3fbff2e20e20166ce758ea2d595d51099"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "talk-engineered-as-anti-spectacle-doctrine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로메르의 도덕 이야기들. 거기서 대화는 영화적 볼거리를 작정하고 거부하는 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64ec03eb4e6a18280c6fc66c5828cc04f0da8d1010cf940551012d8a35a6a0b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tanizaki-s-shadows-against-the-neon-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라지는 그늘을 애도한 다니자키 준이치로, 그를 통해 읽는 도쿄.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1e14bd443f76a98aa7c9d53448756f2de20fe2cf86149cbdc146020cb136255"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "technical-flaw-as-spiritual-signature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광학적 결함을 은총의 흔적으로 다시 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f2b60c1c2d821ae849df7824c9fbea04229f81749abd7321143c8a65a4a1d6f"
+ }
+]

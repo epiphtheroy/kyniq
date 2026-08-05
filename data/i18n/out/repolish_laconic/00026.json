@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-is-its-own-spin-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제도의 파사드이자 인프라로 읽히는 로스앤젤레스.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d11814bad4b34bc59ee63048839ed2ee1fc17b13882b63f91f357a2814205b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-named-as-devouring-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 걸린 대도시가 어머니-유기체로 변해 제 주민을 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "016b81cc77ccfb5dd746d3957fd01c601e383d8a81575ee790910fe7389a32a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-named-for-its-sin-not-its-map",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지명은 지리가 아니다. 도덕을 판별하는 인식의 틀이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e01a04dcefedb48593214a22be7c33b93527225e417f7290c0cb27eed3fc258"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-read-on-the-handover-s-eve",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 영화든 1997년의 소멸을 예행하는 홍콩으로 풀린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66d48be3e08fb38031db2e3d06f5c1ee75a5a48a6d6c09190fa4a833fd8c3837"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-rebuilt-on-a-soundstage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엉뚱한 곳에 선 스튜디오 안에서 다시 지어진 실재의 장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "433e0382e451163f49a92daa086b18c02634240cdb343f48545430d1ab13dc80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-rendered-as-vertical-geometry",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비탈진 도시 지형이 공간을 짜는 하나의 우주로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8ac72053b78195b9442158c764b992993725948cf09a20d314e18c15c503c7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-reverts-to-wilderness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시의 격자가 무너져 정글로, 섬으로 되돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89862d8cccccce319ad11783a023c81218bff1d21e334da7c5cc867f0a4524c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-s-color-drained-to-mark-its-vanishing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "곧 사라질 지리를 위한 애가, 빛깔을 빼는 방식으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "fec42192f6d4226f60863eed1a86a15bce5ddc412ac39984abacd4ff4f45bed1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-still-healing-from-the-wave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재난에 할퀸 일본의 도시들이 영화의 조용한 청자이자 고해 신부가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c3df267bcd32813dc3c0383ba842bf301f60e6d145b63fb2de3afdf3676e212"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-studio-built-never-outdoors",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누아르의 L.A.는 사운드스테이지가 만든 것이다. 우리는 그걸 날씨와 장소로 착각해 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b2bffc18b524dd0d97edb07e69d02713a763140e4a0593358c638945d0df942"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-cannot-play-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 도시가 금지된 탓에, 테헤란은 딴 곳에서 찍히거나 아예 나오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fb86aed3e9a36ba165d49231c7cbb96efbf3464ce8b51141ffa31046b63983a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-counts-souls-as-numbers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시의 질서는 사람을 통계로 줄인 뒤, 그 데이터를 운명으로 착각한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4681d2c131a92870b5496738f29834c49ca2e04f9d5186dfa019c46eab48808"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-damns-its-own",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안에 든 자들에게 이미 떨어진 판결, 그것이 장소다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9eac4f174a08a1d747ba4c785eb4439e5abf5be7f0272293238e3ebd10e75887"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-doubled-for-another-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소가 분장을 하고 다른 이름의 장소를 사칭한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86e2e65fcfd50bcbfb5e83996eb013ab14db0b7ce7699e525208b9e679637e04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-filmed-its-own-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맨해튼은 네크로폴리스로, 폐허로, 하늘 위까지 증식하는 시체로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73e17b7c6bbf65015acb53f99e4a43f3d6cfe80125d6a03388668ea457afa66e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-names-and-indicts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름만으로 한 사내에게 유죄를 선고하는 장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "f13330e23024f7a660fcff6ffe93e86362854aa681bc28bc84ecf523b673119c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-never-lets-you-arrive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차들이 가로지르는 난개발. 목적지는 끝없는 이동 속으로 미뤄진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f64508df592f76ed970f8136b1b2c042d0922d235a7682f03a5df3166869486a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-plays-another-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "LA 일대의 실제 지리가 몰래 들어와 상상 속 어딘가를 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1d9387085c3d7273669b16195e76f96771ccede38488c74f50438dd6f585c14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-refuses-its-own-map",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시 공간이 제 지리를 부인하고 하나의 논증이 되는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "728d57efcd84ff1c39485964ceeeec4980f64e66997292df3e31284b7a6ba7e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-refuses-to-be-a-postcard",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 파리는 미로가 되고, 옥죔이 되고, 배제가 된다. 금빛 전경은 끝내 오지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "171389e025aec3dbb8e2d4ea1a07195fe1701c1429145cba2ce33034b0a39e9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-refuses-to-stage-its-past",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마르세유를 마르세유 그대로 찍는다. 시대극의 낭만도, 덧씌운 역사도 그 앞에서 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a775b82eaebf305c3818c1b3f608239e72bcf4322ba37cfc7bbbf8fd539df87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-sells-the-right-to-belong",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거처도 자리도 상품이 되고, 몸은 그 상품에서 밀려난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2945e559b5b53006bba910226cf57e3b9e0fc0684d8644b23735cca27b5cf1f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-worn-as-a-person",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람의 형상으로, 혹은 하나의 자아로 육화된 장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "4696253ea6c9ba59b7345526be771f0bf560258c3fbca92d59980a53192b0c69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-worn-as-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대역으로, 우리로, 밀수품으로 찍히는 실제 도시들.",
+  "model": "claude-opus-5",
+  "source_sha256": "51012f5876d2a950676239303220d0812d0f2187a3437deda8c58ff3afd1875a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-civic-festival-hiding-a-sacrifice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 의례가 그 화려한 행렬 밑으로 폭력을, 이교의 제의를 들여온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0798bf74bc3e4890bb28f347e9fc2baaca02ad456aa2a4e6d803587bd9275dd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-civil-war-films-cannot-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레바논의 내전은 허구로, 다른 지리로, 대리 법정으로 밀려난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2aeb5488001b48911ca562b46b7dc2502755cd4188ecda079cf3d3671eef547b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-civilization-built-atop-a-buried-corpse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "번영은 땅에 묻힌 죽음 위에 서 있다. 그 질서는 끝내 아래를 보지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78e2b1f10fa44611f76f957952ef6dd14235c28fe7952c67a86c9c65f64fff86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clergy-who-indict-their-own-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성직자가 검사석에 선다. 피고는 자기네 신이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "caf25a6e93287c043c859027b145a7daee38e8ff021ee743c78daf5e18aa3abd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clerk-who-dreamed-past-the-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸막이 안의 직장인. 그 내면은 대차대조표 바깥으로 흘러넘친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f6a610a05ab1ea204c7226bfa466ee16a55645801ea09d9ffd5635fbf282202"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clerk-who-keeps-the-quiet-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무표정하게 장부를 적는 관료들, 말해지지 않은 황폐를 그 표정 뒤에 감춘 채.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d0046a45e0fd9dc629822133eafe5f24a0ee2c5bafbcb18e068c2560a359906"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clock-as-author-and-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명령하고 선고하는 것은 플롯이 아니라 째깍이는 계수기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da9b8e8c27d9fea7d17997166041595e0243a27e01e69f8560b533a39e553e83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clock-whose-hands-were-removed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바늘이 뽑히거나 남에게 징발된 시계. 척도를 잃은 시간.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d220805fe3b417d6c0084a9e8a8fb915a7f5eee2ed6da9887215d71bd61cad8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cloister-that-burns-with-forbidden-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성스러움의 껍질이 벗겨지면, 제 이름 부르기를 두려워하는 욕망이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac95f88e2a9f247b4c4b8efe6fc3e3a8a6be1d4699b64d2a93e41180de21f73b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-close-up-as-moral-instrument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "클로즈업된 얼굴이 각성을, 그리고 심판을 강요한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5593f2dc39ebc6d9f3bb1e2744c2f5f9aa9076c18199b15bf8361481a42e733"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-circuit-with-no-exit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "루프가 스스로 제 이름을 말한다. 삼키기만 하고 놓아주지 않는 회로.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5b5643bae87b2f4e1be84adb58567dec3d0444d2627b536fe8861506836a449"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-institution-as-coming-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학교는 수용소의 예행연습 무대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1104ead4d28114f9e6efe749b5d0270ac2f4c3df6e97832b3e1f8f2dc0c7e8f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-loop-with-no-engineered-exit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠돎이 덫으로 주저앉는다. 의지로는 풀리지 않는 덫.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca843deabf855298c97420ce2f84804715dcae79b99c95d2bf856ae711972d41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-universe-that-cannot-prove-the-outside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임 바깥의 현실을 무엇으로도 확증할 수 없는 유아론(唯我論)의 세계.",
+  "model": "claude-opus-5",
+  "source_sha256": "99873b2f015468b3439b0ef3ce96019c5322e7c5385d57b1bfc73b493bbb4f88"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closet-as-apparatus-of-passing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벽장이 프레임 전체를 짜고, 숨김의 대가까지 짠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c85f5abb46f83075f50f289c75e1892f0c48a0068cbcad431a256d9906b35d83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closet-as-architecture-of-unspeakable-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감춰진 퀴어성이 공간과 옷과 침묵의 뼈대가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5991c14ff54a8b9bdb2d235300f454ad657cb5f3707c9437eebb17b2455de423"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closet-as-regime-disclosure-as-force",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가시성과 아우팅을, 벽장이라는 강압의 건축을 통해 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f33143243b2118f36e5c16b7922eb86c17bab1cec99add32430c3a0fc96049d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clue-that-betrays-the-search",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쫓던 물건이 알려 준다. 그 추적이 애초에 틀렸다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "5148daabfe323d7487e7056ca9792d6175fe878b7f6594878a4c75bfbf0a8c96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clumsy-zoom-as-visible-improvisation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "홍상수의 어설픈 줌은 그날 아침에 장면을 쓴 손을 그대로 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7637cca1c3b3b0dcd1c4483aaebf25d6fd3ae15a305def2d3f65a68163ef2a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clutch-that-cannot-release-the-lost-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "움켜쥔 손. 놓기를 거부하는 트라우마다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb7ba244dea23353f1abb711939de495e466d829658ceedc570e335c60096590"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coach-who-plays-through-another-s-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코트에서 쫓겨난 자가 대리자를 조종해 이긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18fb200c109b3508065c55e99a432ce8ba2f984d1e391a1132fed2bb361c668b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coalfield-as-buried-national-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "탄광이라는 채굴의 현장에 탈식민 인도 국유화의 폭력이 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d39ce23f90a2f5a006747f8edb16d512282884668ce49485a318f13ac078cb27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coalition-of-the-disposable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버려진 자들이 손을 잡는다. 상대는 국가이고 제국이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52ec1ee36588ff8c8be4d9d96706dc8704366c1abd3eaa5c88f3980baf03664c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coast-as-membrane-between-worlds",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다른 세계로 넘어가는 문턱, 뉴잉글랜드의 지형.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ce7192c298afda82202f004c51830056400dd6f71d8306bb336c55046e5cd2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cockpit-as-the-soldier-s-sealed-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "캡슐과 조종석은 참전 군인의 자아다. 벙커에 갇히고, 상처 입고, 갑주를 두른.",
+  "model": "claude-opus-5",
+  "source_sha256": "eec5455ce39abb08fbec10f786a361955b9f372b2727fdfec75e51a0b4ae772c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coda-as-alibi-against-whitewash",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지웠다는 비난을 미리 막으려 덧붙인 결말.",
+  "model": "claude-opus-5",
+  "source_sha256": "005abf3e2056f528928f12041e2dce2205701a404a478ba324103237b1ac7820"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-devours-its-keeper",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맹세가 칼날을 돌려 맹세한 자를 벤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "555ec1fd71873247a42cb8d2220fe9723e23fa2bc6fa9783b6308a361b615223"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-governs-what-may-be-shown",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리 내어 읽히는 규칙 하나가 검열이 곧 이 영화의 문법임을 폭로한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fb220e54078294d41c787786395ebdb62ee2c16ff8468afa2cd7772689a260a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-pays-nothing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아무 보상도 없기 때문에 오히려 지켜지는 신조.",
+  "model": "claude-opus-5",
+  "source_sha256": "41a950aa8fb9b81f78daf700a67564b95c4508bbfb4dcf7afe46515fe7b00000"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-reads-its-reader",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "암호를 손에 넣는 순간, 암호에 사로잡힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9ef88216d2b533fbc976444ec1e99422b7ab8863b3fdddc1e8d769699e17af6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-codebreaker-outlawed-by-the-state-she-saves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "천재의 노동이 바쳐지는 곳은, 그 노동자를 범죄자로 모는 권력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c857f1fb3d1d10a209d9d4995d8b9ca6072e0c1fceaf1b36ef5dc258cb42d8b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coens-adapting-as-argument-with-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코엔 형제의 원작 충실도는 그 형식 자체에 내리는 판결이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ca9ae9b39c276f262413ebd956b2b7083aa1fc6f44e1f76ba4e612529334ac7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coens-filming-their-buried-midwest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르의 표면이 녹아내리면 형제가 기억하는 고향이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be6c4bed5390c9c818f324f3efd11defb30ef3ca5ce7a6c4893c736015ce25c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coin-that-refuses-to-circulate-as-money",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교환가치가 빠져나간 화폐. 신성한 표지로, 상징으로 되돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb17ed9963bc1fdf97e0840479a76474f5d76fa5065c248fc343d9d594822f9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coined-tongue-as-quarantine-against-sincerity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어낸 은어가 밀폐된 방언이 되어 감정을 바깥에 세워 둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7af6e5db13593629b32e39b73cb89cd6e7871a8c1af2f51a965004ba58e41d15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cold-arithmetic-that-spends-the-vulnerable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공리(功利)의 계산이 단 하나의 생명을 전체 장부에 태워 없앤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e7a8627d851184d9646e5cc8cf25d4a22eb3149871b4840caaaee953ad21de2"
+ }
+]

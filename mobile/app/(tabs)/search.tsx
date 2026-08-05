@@ -32,6 +32,7 @@ import {
 import { Appear, Dots, SkeletonRail, SkeletonRows } from "../../src/components/motion";
 import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
+import { decadeLabel, genreLabel } from "../../src/i18n/tokens";
 import { api } from "../../src/lib/api";
 import { useLocalTitles } from "../../src/lib/titles";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
@@ -372,7 +373,7 @@ export default function SearchScreen() {
         contentContainerStyle={{ gap: sp.s2, paddingHorizontal: sp.s4, paddingTop: sp.s2 }}
       >
         {GENRES.map((g) => (
-          <Chip key={g} label={g} active={sel.genres.has(g)} onPress={() => pickGenre(g)} />
+          <Chip key={g} label={genreLabel(g)} active={sel.genres.has(g)} onPress={() => pickGenre(g)} />
         ))}
       </ScrollView>
       <Ui
@@ -391,7 +392,7 @@ export default function SearchScreen() {
         {DECADES.map((d) => (
           <Chip
             key={d.label}
-            label={d.label}
+            label={decadeLabel(d.label)}
             active={sel.decades.has(d.label)}
             onPress={() => pickDecade(d)}
           />

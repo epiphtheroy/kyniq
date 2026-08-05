@@ -43,7 +43,7 @@ import { Serif,
   Ui,
   Wordmark,
 } from "../src/components/ui";
-import { ALL_EDITIONS, CONTENT_LANGS, type ContentLang } from "../src/editions";
+import { ALL_EDITIONS, CONTENT_LANGS, UI_LOCALES, type ContentLang } from "../src/editions";
 import SignInPanel from "../src/components/SignInPanel";
 import { SkeletonScreen } from "../src/components/motion";
 import { t } from "../src/i18n";
@@ -75,7 +75,7 @@ const STEPS = ["welcome", "account", "edition", "taste"] as const;
 type Step = (typeof STEPS)[number];
 
 /** Steps reachable by deep link that are NOT part of the funnel progress track. */
-type SideStep = "language";
+type SideStep = "language" | "uiLanguage";
 type AnyStep = Step | SideStep;
 
 /** One completed segment of the step track — the Lava fill sweeps across it. */
@@ -114,7 +114,8 @@ type LegacyStep = "country" | "services";
 
 function isStep(s: string | undefined): s is AnyStep | LegacyStep {
   return (
-    s === "edition" || s === "country" || s === "services" || s === "account" || s === "language"
+    s === "edition" || s === "country" || s === "services" || s === "account" || s === "language" ||
+    s === "uiLanguage"
   );
 }
 
@@ -210,6 +211,8 @@ export default function OnboardingScreen() {
         ? t("onboarding.editionTitle")
         : step === "language"
           ? t("onboarding.languageTitle")
+          : step === "uiLanguage"
+            ? t("onboarding.uiLanguageTitle")
           : step === "taste"
             ? t("onboarding.tasteTitle")
             : t("auth.title");
@@ -283,6 +286,7 @@ export default function OnboardingScreen() {
         <StepEdition onNext={() => (editOne ? finish() : void editionDone())} />
       ) : null}
       {step === "language" ? <StepLanguage onNext={finish} /> : null}
+      {step === "uiLanguage" ? <StepUILanguage onNext={finish} /> : null}
       {step === "account" ? <StepAccount onDone={() => void accountDone()} /> : null}
       {step === "taste" ? <StepTaste onDone={finish} /> : null}
     </Screen>
@@ -728,14 +732,69 @@ function StepEdition({ onNext }: { onNext: () => void }) {
 /* --------------------------------------------------------------- language */
 
 /**
+ * App language — the app's own words. Seeded from the device language on first
+ * run; this screen is the override. Separate from the content language below it:
+ * reading buttons in Korean and recognising a film by its Korean title are
+ * different needs, and a user may want either without the other.
+ */
+function StepUILanguage({ onNext }: { onNext: () => void }) {
+  const pal = usePalette();
+  const { locale, set } = usePrefs();
+  return (
+    <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 140 }}>
+        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
+          <Ui size={fs.x2} weight="600">
+            {t("onboarding.uiLanguageTitle")}
+          </Ui>
+          <Ui size={fs.sm} color={pal.muted} style={{ marginTop: sp.s2 }}>
+            {t("onboarding.uiLanguageBody")}
+          </Ui>
+        </View>
+
+        <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5, gap: sp.s2 }}>
+          {UI_LOCALES.map((l) => {
+            const on = locale === l.code;
+            return (
+              <Tactile key={l.code} onPress={() => set({ locale: l.code })} feedback="select">
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: sp.s3,
+                    backgroundColor: pal.surface,
+                    borderRadius: radius.md,
+                    paddingHorizontal: sp.s4,
+                    paddingVertical: sp.s3 + 2,
+                    borderWidth: 2,
+                    borderColor: on ? brand.accent : "transparent",
+                  }}
+                >
+                  <Ui size={fs.md} weight="600" style={{ flex: 1 }}>
+                    {l.label}
+                  </Ui>
+                  {on ? <Ionicons name="checkmark-circle" size={19} color={brand.accent} /> : null}
+                </View>
+              </Tactile>
+            );
+          })}
+        </View>
+      </ScrollView>
+      <BottomBar>
+        <GradientBtn label={t("action.continue")} onPress={onNext} />
+      </BottomBar>
+    </View>
+  );
+}
+
+/**
  * Content language — the THIRD axis (owner 2026-08-03), and deliberately not
  * tied to the country above it: someone in the US watching on US services may
  * still want films named in Korean.
  *
  * What it changes: the film's own release title, everywhere it is shown, and
- * what search can match. What it does NOT change: the app's own words. The
- * service is for viewers in English-speaking markets — they need to recognise
- * the film, not to read the buttons in another language (editions.ts UI_LOCALE).
+ * what search can match. What it does NOT change: the app's own words — that is
+ * the screen above (StepUILanguage).
  *
  * Titles come from TMDB's official release titles (migration 0121), never a
  * machine translation. Where a film has none, English stands.

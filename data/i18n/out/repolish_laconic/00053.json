@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-past-rendered-as-a-quoted-score",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억이 화면을 적신다. 소프라노로, 소나타로, 제 자신을 인용하는 음악으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e2213ee42fd58805be869152346f835fc985edb9786e788683900cb787f6e85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-past-rewritten-as-the-present-s-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배경은 그 해, 쓴 것은 다른 해. 그런 시대극.",
+  "model": "claude-opus-5",
+  "source_sha256": "1042d169f452911bef1c9acfd9934f28cfa556a7c37d0b9bceeac62827df9caf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pastiche-that-becomes-true",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모방임을 고백하는 순간에야 모방은 진실이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d9f2a1af3abd9014b26ee92e38148c03ed697aad7c1208940d100ba5608005c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pastoral-as-america-s-comforting-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목가적 풍경. 알고 보면 허약하거나 거짓된 국가의 약속.",
+  "model": "claude-opus-5",
+  "source_sha256": "9057a154ef395e7a675210c4ae44fd96845b31ab109b9d3b3a76638bc9eb5e6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pasture-was-always-a-slaughterhouse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "푸른 초원 아래 도살장 바닥이 깔려 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d70de33b567fa4bb34ae860391101cd2fe71cdbd6aa9f652428895e78e0379aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patient-camera-as-painter-of-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "느림을 회화적 정적으로 바꿔 읽기. 지속이 곧 구도가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56e46eb1b389e56dcd3dce42475e7d5a94d656c53cc3f9cc894ae60be1d1a165"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patriarch-s-decree-quietly-overruled",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가장이 권위를 내세우면, 그가 다스리던 식구들이 그것을 무너뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4eb2b3a8b4c2c7d4d08516578d0b1be3276a55a6842813f16c67b3ae8a37cf19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patriarch-who-privatizes-state-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 집안의 아버지가 국가만이 쥐던 공포의 독점권을 빼앗는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b725ead3e0b0a8093db91688cda1cea86cf1e5d318a76e64275d3308b694c20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patriarchal-name-made-object-and-rite",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벨트, 맹세, 악마. 유물이나 명명권으로 몸을 얻은 가부장제.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0e807689d46b84799d9fa14df11fafae5050c6eb8be30afc86267515d6aaa67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patron-who-caged-the-gift-he-loved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예술을 사랑하던 마음이 상해서, 만든 이를 손아귀에 쥐려 든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c65e806670bc7b0c1f3144ffe8d44d8d880a3e3ca3dd11fdec06daaac42f6f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-peace-that-is-war-renamed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'평화'라 부르지만 전쟁의 연장이거나 예외상태이거나, 이름만 바꾼 파국.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3f0225eb27eb2c5a78ac0b57632c1a1269ca2d2456e7574dd52c78537d12de8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-perfect-system-devours-its-architect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흠 하나 없는 이성의 설계가 자멸로 돌아선다. 그것을 지은 정신부터 벌하면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a34931ce39bbf14a0ee2b4ebd6680639bbf9fdc3963f6b61b09dc656c9aabc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-perfectionist-whose-beauty-requires-slaughter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예술가-신은 죽인다. 자신이 아름답게 다듬어온 형식을 완성하기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a498554d20a67b789b90e6d04dd638419c66d71274cc4f96eedbdb63ae0fa8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performance-rebuilt-in-post",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결정적 연기는 현장이 아니라 그 뒤 이미지 안에서 벌어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b422655dc830a5d2153bdfe17322d9750df648cf78a54de254bad4e2dea3df8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performance-that-becomes-binding-reality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수행된 행위는 실재를 재현하지 않는다. 실재를 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8234b5117c79e2a6416e07a86484e705437667080db3cec94f5d259c5ee6762f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performance-that-conceals-a-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무너지는 속을 가리는 가면으로서의 공적인 쇼맨십.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e75d72c58747ed67ff8a9e1d122a0df562322147c4057d58c25150ca024dd68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performer-who-cannot-stop-performing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무대에서 끝내 내려오지 못하는 강박적 쇼맨.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c27ad4f576339db9f6822008c2407242e41ed6c30f8a9cfad4edec7f05ba32c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performer-who-cannot-stop-performing-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배역이 삶으로 번져 연기가 강박이 되는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "24d6c020b781335960339a55928174a3459f2877740fe7c286958d21a69fc2c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performing-animal-as-capitalism-s-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "길들여진 짐승이 무대에 오르는 순간, 체제가 강요하는 쇼의 정체가 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "985bd8aa731a02eaf7dbbb393cf4403505df1b7b2fe97ada6712219ceb97b33a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-permitted-edge-of-the-sayable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이란의 변방, 곧 말할 수 있는 것의 경계선.",
+  "model": "claude-opus-5",
+  "source_sha256": "c66190f00d7a938cbec50f972908095922e59e87e78ea83394b53c80c30f2cc6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-perpetrator-s-privilege-of-forgetting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억할 자와 무심할 자가 죄의 선을 따라 갈린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56499f7ec773440d808efd7a40ada57e8b03c4ceed36a74f4f3b705986a9f885"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-persecutor-who-becomes-penitent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹을 저지르던 자가 타자의 부름에 응답하는 자로 돌아선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cc9d1c82e6a21557c8b277520816cc023ab5af210a5d7911a13b78560146b7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-person-named-who-isn-t-there",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목은 부르는데 영화는 끝내 내주지 않는 자아.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d10e3d6b0c617b2186da1c7f022347c582da020c18f15bfc1b9b29dd11fb5ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-person-reduced-to-an-account",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람이 숫자가 되고 계정이 되고, 쓰이다 버려질 도구가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af2bb999ea95bb3a07f74901acd6a1c17eb4f9c4cd0b798fe136858643d595ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-person-used-merely-as-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트적 죄. 사람을 목적으로 두지 않고 오로지 수단으로만 쓰는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "52fc49bbc2ae5cd17d4c00659edebfe993515d7990f90c7e73546c0b62eb0bf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-persuader-confesses-his-own-pitch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "20세기 중반의 세일즈맨들. 그들이 흘리는 것은 정체성마저 제조된 브랜드라는 사실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e439f4d6c6a72ad9a35b9e4731e8db0e918a55ca98b70609653dadbae843e61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pet-name-spoken-over-a-grave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 손으로 묻은 몸을 사회가 다정하게 줄여 부르는 이름.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bf21196fe00ec5146e3c1a2062867f88c5387249976f1d914c0d92c768a05ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-petal-that-justifies-the-sword",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꽃의 아름다움이 희생과 살육의 알리바이로 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a49d4a2114e6e645794c1ed7febd789f2f3ad27dea15eaed7209424c37ef17bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-petrol-station-as-fated-meeting-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "길가 주유소. 사랑과 운명이 거기서 만난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd943b49b4f452a95a85dcf875954a24982e4bab96785f135b1e1b939a09ebd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phallus-returns-by-other-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거세 불안은 사라지지 않는다. 몸으로, 무기로, 잘려나간 부위로 자리를 옮겨 돌아올 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e8473442c92eb2cc6d0715051541e1d81f874c0b02c3ff4a3c96017ed92cc13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phantom-pregnancy-as-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "확인되지 않은 임신, 혹은 지어낸 임신. 부인해온 것이 그것을 타고 말이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ce10607b06d47876a8467466ae6092c0d4bb040214d0633a85a5fa1729d2abf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pharmakon-cure-and-poison-as-one",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "약과 독이 같은 물질이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "161c76808821fcc98d09f0c6ddbacedd1904de7d83a9415bf3156990dd67e961"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phase-loop-that-reveals-by-repeating",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라이히식 미니멀리즘을 영화의 구조로. 위상이 어긋나며 반복이 계시에 이른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5659f1f7dea1479e93cb92c8c4dd23789394138bdb828697cbd8b32f338104cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-as-instrument-of-surveillant-control",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지켜보고 소유하고, 끝내 사적 영역을 없애버리는 기계.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef67136e16a7b26317ac81857cff0c3c9efde8e3d3753c46e26e7e87c440221e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-as-open-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아물지 않는 거절, 그 자리에 붙은 의수로서의 기기.",
+  "model": "claude-opus-5",
+  "source_sha256": "11db322eac0b13670b76845935008c200df8d95f89a8d93bd55b88db238a59f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-as-severed-umbilical-cord",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전화선은 이어준다. 상처를 내면서, 고립시키면서, 때로는 끝내 잇지 못하면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "edf24b318d5f2a4dfea3ad155571a27694849db5b03004ff2c1942755adefbf9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-seized-as-weapon-of-the-powerless",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빼앗은 카메라를 되돌려 겨눈다. 봉기의 대항영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "4058dbdfed69e87b9e2ba7528b805e6d3f073faa2187093afafbe8e38ac29c4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-as-buried-cause",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정지한 이미지 한 장이 플롯의 발단이 된 진실을 몰래 품고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51dc81634be04ddb1ad7eea60b03a402faf2a793b325b19779a7e3355bb85348"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-as-proof-of-being",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 존재론을 쥔 쪽은 사람이 아니라 이미지다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9efbb92ce9ff2b253f66090f4699b48adcc0d8ac1f2d9b1f82fb4d88cdc01e78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-indicts-the-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "망각에 맞선 증인이자 증거, 그리고 고발장인 사진.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ae89749f5eee0752fb6fa5a62d6f4b78fbaf09fc76a3a03939bb5184633e848"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-names-whom-the-watcher-refused-to-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥에서 온 사람이 그 사진을 읽자, 안에 있던 이들의 의도된 눈멂이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f99fb7256c68e31ef814b97a3c9d71bb1865cca3ab28cf089b2cae1e50c67faa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-outlives-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사진은 살아남고, 떠돌고, 조용히 서사를 다스린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19d3e1b4a6ce9adab403c19af5f96e06e850b7b142b47c876cedbdecc2d6cabb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-will-not-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거부되고 미뤄진 슬픔. 견딜 만한 거리에 묶어둔 그 슬픔이 곧 이미지다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7ef7f71fac39ba3f3872ee56cd6b9bb4e879cb2fa8a8e9a6eb02df436f0a9c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-s-eye-lights-black-skin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛나는 어둠을 경외해온 사진가의 눈. 흑인들의 다정함이 그 눈을 거쳐 화면에 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a321f1a94ed929f99133c3b7193f77629f67de87380cf7b32ccc9e43fe565ef2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-s-eye-that-withholds-narrative",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제일란의 프레임은 구도를 세우고, 자신이 바라보는 이야기는 내주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "283d8d999187e75310b61adc2e28b13f263d18167a4d00f6397d1c09693f662a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-who-could-not-reach-the-war",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카파의 형상. 흔들리는 렌즈와 한 몸이 된 전장의 증인.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe722e5d29fab7a6a1c44189949fa4816d78a3e308e5e1784fb6fa4650c2a42d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-who-witnesses-what-eludes-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독해마다 유령 같은 사진가가 불려 나온다. 다큐멘터리적 증인의 자리에.",
+  "model": "claude-opus-5",
+  "source_sha256": "f60d31c7c99f8f92222fb96a17de9c7640f8f9ec4afac35f7d6d078868833a33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-whose-frame-is-a-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍는 일과 쏘는 일이 같은 몸짓이 되는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0f8578e1d42e9ddbbb4c81b9f05fe8ee14256f3c6efc78e532630d962b8d529"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-physicist-who-recoiled-from-his-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파괴의 힘을 만든 자. 제 천재가 풀어놓은 것에 평생 시달린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3f0232444cb0ab6d013e6252a6a4fd13bedf140af91cb6d4a23dbd0d9b5ca95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pianist-whose-music-is-thwarted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피아니스트의 재능이 막히거나 사라지거나, 침묵을 강요당하거나, 예정된 무대에서 비껴난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a36b872a10ab736e5e0c7be975d71f0d9004602fbb984ba234a1ce2eeda1bfdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-piano-as-the-voice-of-a-silenced-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입으로 낼 수 없는 내면을 악기가 대신 울린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1414a4b7771c6bb1ee8a356191ac2e481c50c1e87728823958ef71a2f61505a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pickpocket-s-hand-as-stolen-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "훔치는 손. 거기서 절도는 은총이자 소명이고, 뒤바뀐 정체성이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5618ffb0b6d54fe57be82a9609a4863ce8dedb0168a7b92ee4d6b769a85cfd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-picturesque-region-that-conceals-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고즈넉한 고장이 감금과 살육의 체계를 대신 서 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af734561c94a0a4252393d7be1b97908ee88cce6b527e3ba15d9fd48e1d7abf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pig-as-self-disgust-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 짐승을 부르는 일은 곧 우리가 우리에게서 혐오하는 것을 부르는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32e9875ed5520935c2f1fd675d3ccf577909e92420e38869014418b797dba3e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pilgrimage-toward-an-empty-signified",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도착지가 부재이거나 소거이거나, 영영 미뤄지는 의미인 여정.",
+  "model": "claude-opus-5",
+  "source_sha256": "409adc824ab5b9dcae1e8f5dfcdc4a21f1336113c8cc8041727aa2dab0924a73"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pilot-who-loved-flight-more-than-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계와 한 몸이 된 비행사, 제 소멸을 향해 날아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b21c5b260808bc932647268439a175c9f8055aff6a55a43f1cee0dfdd4cb2532"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pinched-nose-as-recoil-from-the-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코를 쥐는 손. 사회적이든 육체적이든, 역겨움은 그렇게 몸으로 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95bb4132d0093b32fa980d0e951f05bebca804727b3fc2bbd460e0f02624bbf7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pinhead-sublime-withheld-and-diminished",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쪼그라들고, 부정되고, 끝내 깜빡이는 티끌만 해진 숭고(崇高).",
+  "model": "claude-opus-5",
+  "source_sha256": "a7d2c374599ff4958a14267db710174faa7d27cd8e19bdbccdff6fc8cf766486"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pirandellian-who-knows-he-s-authored",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기가 남이 써준 배역을 연기하는 중임을 아는 인물들.",
+  "model": "claude-opus-5",
+  "source_sha256": "63a76380004a67714cbf37a594fc748d049a9481f62efcfc145f19358e43b493"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-assembled-from-other-places",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 로케이션들을 이어 붙여 만든, 세상에 없는 지리.",
+  "model": "claude-opus-5",
+  "source_sha256": "c15490a33d8c3a9ee78a31a3dccf2d13728f1fd2e97027d18a3d9650825fea47"
+ }
+]

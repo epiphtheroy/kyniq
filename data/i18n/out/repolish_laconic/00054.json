@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-built-because-the-real-was-forbidden",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성소나 접근 금지 구역을 세트와 렌더로 지어 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc97136bfa9e4e0adbe6263708f55a3488a266855785b9990679542d36ac82cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-filmed-standing-in-for-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소가 다른 곳의 가면을 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d41fcd0803a682636a32fad1909bb03dbe799b0aecaf08f18b417aa4d17bdf9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-forged-on-a-foreign-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엉뚱한 나라의 스튜디오에서 통째로 불러낸 지역.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebca4fc81c0ab5d94d24dd5d91ab97c799866010fb0d2ae199df43576886881d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-name-as-edge-of-the-imaginable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 곧 짓밟힌 문턱을 부르는 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01afab85dff930434e6c63baa13158563c6102ed1cf501371becf7ad874b8349"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-name-that-names-no-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목과 배경이 부르는 장소를, 영화는 일부러 비우거나 위조한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7888d956e80a9297f4976650151afd4198d7594bd960c5f13ecbc0846ca64e6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-doubles-as-its-opposite",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어 올린 공간이 정체를 드러낸다. 무덤이거나, 가짜이거나, 의미를 캐내는 채석장.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c92804a041e1cb307e055ea2d5f22b5fbf1576016bbfe6c19ad74d406c69976"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-engulfs-its-people",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배경이 소화 기관으로 변한다. 인물은 삼키는 지형 속에 녹는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59247f07bc0b0548bd7dbc3ad4935727e7000e7e62584238199ca9d4e5b7afae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-is-anywhere-and-nowhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장소성을 일부러 지워 비장소가 된 화면 속 공간.",
+  "model": "claude-opus-5",
+  "source_sha256": "f527452ef7aa7b3055fc95ba59c4eded4f9b522703a3578ef03e17d82bc16ace"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-is-banishment-made-geography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장소가 유배를 대신하고, 세계는 추방의 지도로 다시 그려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4fa3e979e45e1830ee80a9fcd619d255d7a655db7510d97b14e4fea73e9b3ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-plays-another-that-forgot-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 지리 하나가, 이름을 피해 간 다른 곳을 대신 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26f8e8b8b14bb45f49dd3d50b0530969487f2ef979758338dc2fa560db32e43e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-stands-in-for-the-unfilmable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "역사가 직접 보여주기를 금한 땅. 그 대역으로 징발된 로케이션.",
+  "model": "claude-opus-5",
+  "source_sha256": "89b3b17cd7f02835aca5f2919be4caad65f77d076ae7fe2f3d059787e2ee9b24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-stood-in-for-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 로케이션 하나가 전혀 다른 지리로 위장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af470073f863587adc82600589ada947e0c284cecb064ec3eef1fcf924f34f5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-where-time-has-already-happened",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아낸 시간의 바깥, 혹은 그 이후에 놓인 풍경.",
+  "model": "claude-opus-5",
+  "source_sha256": "39cd5a38b1ae9c246f8a3b22264c01772f8220265bf7d1973fa5cfb5238457e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-whose-name-is-the-crime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한국의 풍경이 고발장이 된다. 지리 자체가 참극을 발설한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2e3d14f888a6c76e6540cec54723c7de8e37da3745a93acfa2004d2ed65878d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-you-find-but-never-re-enter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잃어버린 집, 혹은 유년. 돌아갈 수 없음을 못 박기 위해서만 복원된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ce897ddbad230d913c6e9386f03440246a5cace8847caf4152246c4fa4d9563"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pleasure-principle-versus-the-reality-principle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소망과 대가가 맞붙는 프로이트적 전장, 그것이 코미디다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dca9bd142152e59b529a63233ecc17fa1ce1fd27d0ead3a6813fd6948c9a8349"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-plot-as-disguised-theory-of-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르라는 표면 아래 숨은 논증. 돈과 유동성과 가치에 관한.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f339a079366aaa502dba2fe5ff482ece57406d904af489362032b66cfe4fa32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-plot-is-merely-the-clothesline",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "줄거리는 빨랫줄일 뿐이다. 볼거리와 개그가 거기 널린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "772c89d542a3f4b33e7261470e6e08694a8b3246aa5635e3022e6fe8fcb0bfde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-plural-that-dissolves-the-hero",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영웅은 집단으로 다시 짜이고, 홀로 선 구원자는 여럿 앞에서 지워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97b459057d6f4958b6f2053d5fc182a2bf6318f6c8c13cd3ec316b4ce8b23d8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poem-worth-nothing-and-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시장을 거부하는 시. 버려진 자만이 끝까지 품는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "773f6491109572fe6144042f7e62d71637f3c2cd696a44ae80124b0048f7ac03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-buried-by-his-own-apotheosis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사회는 예술가가 지닌 살아 있는 위협을 죽인 뒤에야 그를 성인으로 모신다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9abd7b9087d476d30c5d67e7737cd7d435bee61336ccd48f4eb5b9aeed53f55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-hidden-in-the-working-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "생업에 가려진 사람이 조용히 만들어내는 예술.",
+  "model": "claude-opus-5",
+  "source_sha256": "a37c250276d5cc74038cc862a4dcd1addf59be6898a97da236de2fdb5e7ca636"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-s-book-as-saboteur-of-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문학의 유물 한 권이 들어서자 부르주아 가정이 폭파된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8f2d2403329a76acad79fd357c2942bc690163c2cbebfc84f84e47e0e157454"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-who-loves-only-his-own-reflection",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "나르시시스트 오르페우스. 연인은 자기 자신이고 죽음은 거울이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "203ce99965588cb71cc33989bbb85b9aa19b803e84d52aff1b06897ff58e462f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-who-punctured-the-suburb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서정을 품은 침입자가 교외의 평온에 구멍을 낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e29460a0967f8df731046e64780529b25d9571729a5787d165b301ffda66478d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poison-that-is-also-the-cure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해쳐야만 낫게 하는 물질. 약인지 독인지 끝내 판정되지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f81cb20f54937329a7832b93d97561b2bd7b5f64222c19769a108b10301d66f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-police-as-the-only-integrated-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갈라진 사람들을 하나로 묶는 제도는 법뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0810d093d9bb13cf228022ccbf61b54bf4ba13caea78f7e2b7f2491934b23dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-polis-without-a-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정당한 권위가 사라진 자리에서 공동체가 스스로를 다스린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af9df5f09b387660a0aef39ec9b9a6d957c3aba3e1421c2d6ed731f326708a96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-polite-clerk-who-administers-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차분한 절차. 체계적 폭력이 쓴 웃는 가면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b5ff3d3f649ba33e24319199b6d7dc35e2439737d8fc407ad280573e1209817"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-politics-hidden-in-who-decides",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력은 누가 돈을 대고 누가 갖고 누가 정하는가로 옮겨간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e14fce8807f06d32866c6c4d9dae26511454a469d0ea660e4c3eec02d48e76f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-politics-of-disproportionate-sentencing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형량의 크기가 폭로한다. 이 체계는 가난한 쪽으로 기울어져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8994501f5c54e603e242f6b2496ac7d34a5748a4592a75902fc26f03f3d6094"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-politics-of-who-counts-as-a-person",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인격도 분류되는 것. 권력이 주기도 하고 빼앗기도 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f288d03fc69e2efba0ee14009c04217a4f66c3545993b7ac37c2220e518ccd2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-score-that-hides-the-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위협과 붕괴를 감춘 사운드트랙, 팝.",
+  "model": "claude-opus-5",
+  "source_sha256": "044c7324b78bd96f4a3a3d9008b43cbc80e8e1619ccdbbaba5a71d5a098e9eb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-song-as-mistaken-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "익숙한 노래의 사랑스러움 밑에 슬픔이 있다. 관객은 그것을 놓친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff810455fcdbb11db020269c5aceef42ecc55f1081c93c9b7e838083a904c64e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-song-as-secret-key",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "노래 한 곡, 주크박스에서 흘러나온 선율 하나가 영화의 숨은 해석을 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b167df227f5ef3d4b81ff14330d03286739b546668ec27ebd43ec92e97fa31e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-song-as-smuggled-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소모품 같은 라디오 음악이 전례가 되고, 대신 붙인 자아가 되고, 허락된 단 하나의 목소리가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12552b0018500d75e892f647c35d4ab20ad2a6da3787609e549597df37767219"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-soundtrack-as-moral-laundering",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매혹적인 음악이 범죄와 공모를 무구함으로 바꿔놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97097502186f404a2fee28295734bd21fbff121a3888277bc96d6a05f66cb595"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-port-town-as-occupation-s-open-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "외국 군대가 남긴 흉터로 찍힌 일본의 항구 도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1431f9dbffc2a925a172a5cf85d5fbc401a1ecbd2bedc847fb7cfacc11ddaf1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-possessive-that-confiscates-what-it-claims",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소유를 선언하는 제목의 문법. 알고 보면 환상이거나 덫이거나 거짓말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b8ef4d9e3921b0c2481d826bce0c76b6b02804933014c678750a94eede26e40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-possessive-title-that-indicts-ownership",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 붙은 소유격이 무대에 올린다. 누가 진짜로 누구를 가졌는가.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca5da53003d0950b70eaf396c10d640db37c33dbc6c8230cc7c9674eeb7ee61b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postcard-landscape-refuted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "햇살 좋은 관광지가 벗는 가면. 그 밑에는 배제와 박탈과 소외가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0eb4df79654f9adb8b5e9fc871def600a9740407a2855feda1eef71068ab6bb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postwar-comedy-that-soothed-britain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일링의 익살. 차마 이름 부르지 못한 불안에 국가가 발라둔 연고였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d09c21b7ed808a52df64333df2ac9bca60119f43b3c4a5cb60f1e07a575f5c64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postwar-miracle-read-into-every-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평범한 공간과 사물이 알레고리로 읽힌다. 빌려온 번영 위에 세운 국가 재건의.",
+  "model": "claude-opus-5",
+  "source_sha256": "60925f9565f1a187c5d8bd0d4c8abd52ae52683be5bc3e47da791103ea2e320d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postwar-threshold-that-re-sorts-the-returning-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계산대, 분수대, 뒷문. 평화가 약속의 몫을 다시 나누는 자리들이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f560363cc2a91f01dc3a540c9048efb29fba75161a4fcf978f51dc78b7532499"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-power-that-cannot-outrun-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지배의 환상은 하나같이 돌이킬 수 없는 한계 앞에서 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d3ba86f1ef22824bbef90c6cf71e5bbff78933be5193bae6470c5b9519df9cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-power-that-demands-its-own-judgment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위가 스스로를 시험하거나 면제하려고 판결을 연출한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df0603ed2fb0b5c8a665a30e9a2221f909eb96fe8d7808d7243a8cf0498daff9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-practical-effect-as-belief-made-physical",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라 안에서 이뤄내는 기술. 속임수가 아니라 인식론이자 육체로 쓴 논증이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c191de78d4b81c2bd621782a1696531ec632b3cce532c0d2cac797b0f2ee0b91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-practical-stunt-as-anti-digital-authenticity-wager",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 몸, 진짜 위험. CGI에 맞선 서약으로 연출한 스펙터클.",
+  "model": "claude-opus-5",
+  "source_sha256": "65a91096ffdf478372cc6f8480f173dc00280d23a6fe64119fb9b3202993313d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-for-gentleness-as-critical-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "온화함을 향한 평자들의 애정은 결국 자기 허기의 고백으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0216855cd9e22cbfef60c5845173de518081909d27994b6edb7e8c8253f74188"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-for-maturity-as-symptomatic-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평이 말하는 '성숙'. 영화의 미덕이 아니라 비평가의 소진을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ec33aeafaadf5bf776b41627d057d20da8c8b11de4ceae647d9d0459381ad34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-for-realism-as-a-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'리얼리즘'을 향한 찬사가 관객이 몰래 갈망하거나 두려워한 것을 실토한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de088a60b65b3c969f926f1df14075b931b72e249edbb919ea28ffba245e1e65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-confessed-critical-exhaustion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호평 사이로 평자 자신의 피로가 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e98e866cce95953675c9544374dec6d856b6389e008c5b003309f10568c27d6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-confesses-a-prior-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여성의 배역에 쏟아진 갈채. 거기 묻어나는 건 그것이 허락되었다는 데 대한 놀라움이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f0e341f90dd734ba4b4e2baafe010ef610a01cc6a627a84f4ac5cbef4486b41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-confesses-the-critic-s-appetite",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미학을 향한 갈채가 평자 자신의 시선과 허기를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "680f10b2dd3d47ab605a6d0acbbc311d8fc61bd7cee868f8abd265d0d057d993"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-indicts-the-praiser",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찬사로 위장한 자백. 매체를 향한 편견과 문지기 노릇의.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9a5b9957fa0b736c45d774197670de61f253148554963932c9f5d8f4990f8a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-indicts-the-praiser-2",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁영화의 '몰입감'을 향한 갈채가 관객 쪽의 죄스러운 증상으로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a430ec956eaa04857ecf239f23b226b5c059e0a1168d1260389e7db126b584ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-misses-the-point",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평론가들은 표면의 질감을 상찬하며 영화가 겨눈 고발을 비껴간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a77fb3cabcd0b9d9388556901bbef390445740e75bd21c0cae8de550404bb2a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-quietly-re-erases",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑인 예술을 가두는 의례로서의 정전화(canonization).",
+  "model": "claude-opus-5",
+  "source_sha256": "70aa5f0ef1ceea7aa6a6e76981af87c278090902843d2540d849ae712ccb71f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-reveals-its-own-reduction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손에 잡히지 않는 텍스트를 읽기 쉬운 알레고리로 눌러 펴는 갈채.",
+  "model": "claude-opus-5",
+  "source_sha256": "47cfdaf5c80f1eef9ef9cb1ce5eaee4c3d6e99d65a0543299e0f76c396272731"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-reveals-the-praiser",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평의 덕담이 실은 낮춰 잡은 기대의 고백이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "092a335f40502406526e1aea5e0bbb3bc163bed1e937e4784298b9d3033b54ca"
+ }
+]

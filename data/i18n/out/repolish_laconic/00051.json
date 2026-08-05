@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-carries-the-marriage-s-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부부가 입 밖에 내지 못한 애도를 대신 빨아들이는 사물.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cda699e8c0bca8a5bafefe1255ddc09e95c7b99ea614d844d3501a10ceb9b4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-hoards-value-it-cannot-use",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쓰지는 않는다. 돌리고 과시할 뿐인 물건들.",
+  "model": "claude-opus-5",
+  "source_sha256": "6564595e4b484e6f228d5f04d503943e37b534a091a96cf5ed7cabadc8adeee0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-keeps-time-s-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시계가 영화의 진짜 적수이자 심판이고, 숨은 동력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fad7c6b42865855d53bb40e433719abcdf9394efa4722f181ad8d5440c0979a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-will-not-be-mourned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔을 끝내지 않으려고 놓지 못하는 물건.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5e6f6bb5ff784d7e01a0d72a6f1bb126a9edc4f00bba4216d2a432a269ff2b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-with-an-address-that-locates-evil",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악에 주소가 생긴다. 숨길 수도, 찾아낼 수도 있는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ce66f169bd3e3ddd219d50102c175932a5bc24130aa77d471158cbdf5acb18a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-obscene-father-as-disavowed-underside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지가 돌아온다. 가족이 이름 붙이기를 꺼리는 음란한 찌꺼기로.",
+  "model": "claude-opus-5",
+  "source_sha256": "7decea234fbe669bcc3c9e54343e27a9155ac0399c96d6dd5ce8f92ce4a8006a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-observer-who-speaks-through-composition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "침묵과 화면 구성이 목격자의 유일한 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d4cc3ea3bd211330e4feff490153c7a79300ccf87df4d60a03cfb5f1c081ffb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-obsolete-medium-as-object-against-loss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버려짐과 죽음을 막아달라고 죽은 재생 매체를 부적처럼 쥐는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "c09a378f26d61593f4def3b69716ceaef0b9c1db750758611bec2e0fe5e6f061"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-occupation-filmed-in-its-own-tense",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분쟁의 살아 있는 현재 안에서 찍은 팔레스타인 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e66069d7a7867abfd1c47df16834eb82df926914118eea58ea3cf475d15034f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-occupation-memory-the-republic-suppressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공식적 망각을 거슬러 떠오르는 프랑스의 전시 과거.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a17ecb0e2bde2760528985815890d091cc3d8af35d8f23dfffa32648c671650"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-occupation-smuggled-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연합군 총사령부(SCAP)의 검열이 전후 일본 영화의 표면에 남긴 자국.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac53066c3626f57184589fe4e9110cb96f732caaad723dd0b60b39a0a195f8d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-odessa-steps-cited-across-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시퀀스 하나가 이후 모든 영화가 응답해야 할 형식이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5beb6d952b317bfc5dad35d72124f64f4923c52036d0c052efe0f4505af36266"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-odyssey-that-forfeits-its-ithaca",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "귀향이 끝없이 미뤄지거나 아예 거부되는 여정. 그것을 여정이라 부르기.",
+  "model": "claude-opus-5",
+  "source_sha256": "75cea220b6da0b4e3d5e7d274f0c4b5f71c351f4cef87bb77005702817b8e286"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oedipal-triangle-restaged-as-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족의 유대가 금지된 욕망으로 다시 쓰인다. 근친의 기운, 혹은 부모를 향한 에로스.",
+  "model": "claude-opus-5",
+  "source_sha256": "9736505cfbc6bcf596a73ebfac2998cb88e559dc2a2f9bb4734b10b73c3d8632"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-officers-obsession-with-the-victim-s-dress",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 죄를 부인하려고 고발자들이 옷 한 벌에 매달린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b435acf463eb76273180412ddbbaf4bc7caf58166bf23090d17b22e43efea32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-old-form-devoured-from-within",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르의 전통이 제가 품은 근대성에게 먹힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74e9924efbd885c26df0f14c99ac0fea8fe59dfdb7d0a22deaa3b2be3adce460"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-old-self-watching-its-young-footage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "늙어가는 몸이 화면에 되돌아온 제 젊음과 마주 앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fcdc60dddd146c3ce546d626cd131d7f1c4f6d5af81db579527039feb4ab8bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-old-world-faked-on-american-soil",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트장과 빌려 쓴 국내 로케이션에서 불려 나온 유럽의 광채.",
+  "model": "claude-opus-5",
+  "source_sha256": "035c3629c4498dfa8be3aed3e72b8fe074e507ecaa70de0432ef1367d97e6d03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-at-his-post-who-refused",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계 안에 서서 그 기계에 불복하는 보초.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d55b99cedf57877f1d88c246c6cf07f647f6a9a7e1cd435ea049891cf810faf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-behind-the-wheel-is-the-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "운전대를 쥔 자, 그 조종이 곧 영화의 의미다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32a1d6dba01999f4eb8c7676ab3167d1ee013c2292160625734799c05d86dd66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-denied-the-right-to-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬퍼할 권리조차 자격이 된다. 문턱에서 유보되는 시민의 몫.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aaeb7ec1f31c320326fbe8188024e02509e14e032b4b3b881d7c0db834335cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-lost-the-other-made-to-fit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이 하나를 잃고 다른 아이로 메운다. 가족을 굴리는 냉혹한 셈법.",
+  "model": "claude-opus-5",
+  "source_sha256": "45ed6fed5fd12ae0b847af0b0e84fca0be39e5862f45a363e8e8da2529930bf9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-saved-by-refusing-to-calculate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원은 셈하지 못하거나 셈하지 않으려는 자의 몫이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "abc6ad6274dfd586a639822c6e9fd465f36fad7af9ef806fe0a7ff67c180fdf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-aestheticized-his-own-dying",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 자가 제 죽음을 공연으로, 사진으로, 연극으로 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdfe53c0c8e3611dfcf0aad7a5188c09bfddc3bdb75d68ccbee6cf0e054aec19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-authors-another-s-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기 안의 누군가가 남의 삶 위에 펜을 쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c3b5dbfe5eac5440896669985a5ab8c4e4029555adb85dc251d96a4c637c6b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-bears-levi-s-numbered-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오직 고발하려고, 죽은 자를 헤아리려고 살아남은 증인.",
+  "model": "claude-opus-5",
+  "source_sha256": "83f3037235e0d7d7533a099eca3fbbe9a0aa5b38b6d37f28594df881f825638d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-decide-to-leave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "머물지 떠날지, 그 사이에 멈춰 선 욕망. 선택 자체를 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "debb07b5bb896dd27acc1b38e7668ca8427342c207c741cc37d16bb4b73517a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-hear-is-the-master-key",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "듣지 못하거나 말하지 못하는 인물이 영화 전체를 푸는 열쇠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a147fa633ac4ed155a69c6631fdfa61512f56bc12304922b2e26793a35cc6c79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-outlive-his-victory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남았다는 사실이 생존자를 죽인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fe0a8061ca961c59f6b0598d84c54ee6122f2ba72304e062d7ee1b5c77f8b2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-pull-the-trigger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "방아쇠를 맡은 자가 얼어붙는다. 총이 제 주인을 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9447c3e301a5afe76ae5fb630796f2512b88e2fe3ca69a8a9f682742ac2813d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-carries-another-s-burden",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 약함을 대신 짊어졌다가 끝내 물러나거나 내주어야 하는 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "b738c9565b457d4680d4266d4560095a8f941cb742c796571a7143341fe130c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-chooses-the-examined-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "원하고, 보고, 작정하고 살아내려는 실존의 용기.",
+  "model": "claude-opus-5",
+  "source_sha256": "248ac652e94a627292b6f827b15af989fecd26bc8cf59bfff2ce8e2d8ef3c8f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-chooses-their-own-terms-of-ending",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장애가 마지막 길을 스스로 정하는 주권으로 다시 놓인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80640e5bc5d5960fa611b60f03e5558895b2db1f4a4d3cac0b16fe30bf5c3243"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-chose-martyrdom-like-a-vocation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "믿음은 도망치지 않는다. 증인으로 죽으려고 그 자리에 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b32796843e3c32924ebb7fe4030150e1c9cf970250bbe4734bcef7946f2ba994"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-could-not-stop-moving",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결코 도착도 귀환도 못 하는 방랑자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "db3e19171b6152f4e0b5722fae516912a4862765114888d34722e0232954db96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-could-not-surrender",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "받아들일 수 없는 패배에 매달린 전후 일본의 인물들.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d746f6c565b9da077d42059b3a33c3a86d5b765e18db7657ffbc30874d7490e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-counts-to-quiet-the-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세고 또 센다. 강박이자 참회이며, 파멸 앞의 헛된 방어.",
+  "model": "claude-opus-5",
+  "source_sha256": "97e544b1c4f249af7be5e69276909e8407bf65f6054469edb5ae38e36bf3e7f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-crossed-and-could-not-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저편으로 넘어가 그대로 눌러앉은 병사들.",
+  "model": "claude-opus-5",
+  "source_sha256": "545db8347165830ab95a77dfd4529f48da2526580e4f2296b3627aef8df7c920"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-decoded-the-animal-tongue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짐승의 말에 능통해진 인물이 건널 수 없는 것을 건넌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "feea11348a77b95a7c1c41d894445517ee60636b3bc320c32b59b454a9df857f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-frees-by-abolishing-the-father",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가부장의 질서를 부수며 해방을 몰래 들여오는 아나키스트.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d6f18beac0afe3f9eddc13891ba3bdec0a78d38432046a02ba52a19bfa769f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-photographs-what-cannot-be-kept",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라지는 것, 잃은 것, 가질 수 없는 것을 찍는 사진가로 읽히는 인물.",
+  "model": "claude-opus-5",
+  "source_sha256": "f696d623f377db2607f9598656912ee6ce11c191d7ebae53f971abb1155d549c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-records-to-survive-connection",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "친밀함 대신 예술. 만드는 일이 방어막이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "40f1cb8b5b76ddaa0b48149162e1a2fdd6f7d85fe55025ab0959582104413fa8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-refuses-as-kantian-duty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결과에도 국가에도 굽히지 않는 도덕 법칙으로서의 거부.",
+  "model": "claude-opus-5",
+  "source_sha256": "30c717a2e395a1af988abf5aa83c570e63a506d9909ac82d50d3836e849ea786"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-refuses-the-calculus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다수를 위해 소수를 버리라 한다. 그녀는 아니라고 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "645a4cbe0c7ac01684e053601695887dc9a35fc38c5385bdd19a1d9c36251dc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-renounced-their-gift-as-vocation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "포기는 잃음이 아니다. 스스로 택한 거룩한 부름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a3fd21b7e78726b0cee53139dc0f6b3c7574504e84cec8dd5cda98adbdd5367"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-saw-the-curve-and-was-ignored",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제도가 보기를 거부한 위협을 홀로 그려낸 분석가.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4a40c3a445d09e0de54a16442d8308e4913b330f8da381c0a9c79975f271b7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-stands-in-for-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대속(代贖)의 희생. 붙잡힌 자를 풀려고 대신 내놓는 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c12fd5285e854f2c9bf02861ae268114e9205a74b5487ea984828e4d98ffbe3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-stays-and-is-doomed-by-staying",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "곁을 지킨 그 신의가 결국 자기를 무너뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b40f6dde3b06415a40d4d031f2d78c0428aa538893c656517b29046c7be320bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-survives-to-bear-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 자들은 죽은 이들의 침묵과 증언을 안고 계속 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb00cdaebc96401763eafca6abb8de12ad35457dd7cc166a916d8b4888b7ac35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-treats-a-person-as-mere-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트가 그어둔 바닥이 뚫린다. 한 사람이 도구로 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "479ddd8d8d082d8f1029dabd126557a2d177141255db59b5104c4767c9114b57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-walks-out-to-live",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 삶, 눌러앉은 삶. 그 자리를 떠나 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6543a005d622031c9026669c474ddca894b80005bf385cb726b2940e08fbc6d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-whose-testimony-was-not-believed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누구의 말이 믿기고 누구의 말이 안 믿기는가. 그 선으로 은밀히 짜인 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "12a143fd5c43a9664b8c4f1add74855f0238b205a8a8e75c0932b76f59906f80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-only-ethics-no-system-sanctions",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "질서가 벌하는 것 말고는 달리 대할 줄 모르는 선함.",
+  "model": "claude-opus-5",
+  "source_sha256": "66049954b2db4b76d3963d130173773361797f9a977384396bc4eb15ce8a34b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-capitalism-s-surplus-humanity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버려진 사람과 허물린 세계, 그것이 영화가 딛고 선 땅이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70eebd640edb5038cdfadfe275af89181a9570bee8550a523eaa85d49cb90c2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-the-preserved-summer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아가 돌이킬 수 없이 변하기 직전, 그 자리에 못 박힌 한 시절.",
+  "model": "claude-opus-5",
+  "source_sha256": "08112b4339b3bb5d08d5d280ee68f07fecc56f0afdf5442fb8ff27604bbda578"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-the-unburied-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도받지 못하고, 더럽혀지지도 못하고, 돌아오지도 못한 자들. 그 형이상학 위에 놓인 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "da7890fe69e5278e03959e1d6d83fe4167d8b1c680d3fc9b5c82693d7ff40afb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-what-cannot-be-undone",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤늦음, 이미 정해진 것, 되돌릴 수 없음. 그렇게 짜인 존재.",
+  "model": "claude-opus-5",
+  "source_sha256": "74b4f538354ea173639a1e447d88cd27be3919ecea6f949510abeb0ebce80daf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-underneath-the-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가장 밑바닥에 하나의 존재 방식이 깔린 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee9a03f6f785f631ed709e67b2b1416f45f07702684e571660947cbb63969917"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-road-as-class-lie-not-freedom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국식 이동 신화의 정체가 드러난다. 러닝머신, 압류, 계급의 덫.",
+  "model": "claude-opus-5",
+  "source_sha256": "02e413ca11fbb6dd0e2b1cb586c26e87f0f229524237f314f0469f3fc04195e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-road-as-robert-frank-s-disenchanted-america",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠도는 카메라가 로버트 프랭크의 사진 속 미국을 되짚는다. 낭만은 빠져나간 채로.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cc7554fc991de34e3819530097836105dfa923fead76f3c42aae166455b9627"
+ }
+]

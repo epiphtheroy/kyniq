@@ -13,6 +13,7 @@ import { Btn, Screen, Serif, Tactile, Ui } from "../../src/components/ui";
 import { Appear, ProgressBar, Pulse, SkeletonRows, SkeletonScreen, useCountUp } from "../../src/components/motion";
 import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
+import { useDbLabels } from "../../src/lib/dbLabels";
 import { api, me } from "../../src/lib/api";
 import type { NavActive, NavCatalog, NavDestinations, NavPickDest } from "../../src/types";
 import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -39,7 +40,7 @@ const FACET_TINT: Record<string, string> = {
 
 /** One destination card — facet-tinted rail + kicker, serif label, tinted progress.
  * Redesigned 07-29 (owner: the lists must look inviting — "선택하고 싶게"). */
-function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
+function DestCard({ d, onPress, label }: { d: NavPickDest; onPress: () => void; label?: string }) {
   const pal = usePalette();
   const tint = d.kind === "dir" ? brand.accent : FACET_TINT[d.facet ?? ""] ?? GOLD;
   const kicker =
@@ -72,7 +73,7 @@ function DestCard({ d, onPress }: { d: NavPickDest; onPress: () => void }) {
             {kicker.toUpperCase()}
           </Ui>
           <Serif size={fs.md} bold numberOfLines={1} style={{ marginTop: 2 }}>
-            {d.label}
+            {label ?? d.label}
           </Serif>
           <Ui size={fs.xs} color={pal.muted} numberOfLines={1} style={{ marginTop: 2 }}>
             {t("nav.filmsN", { n: d.total })} · {t("nav.leftN", { n: Math.max(0, d.total - d.seen) })}
@@ -164,6 +165,20 @@ export default function NavigatorTab() {
   const [catalog, setCatalog] = useState<NavCatalog | null>(null);
   const [catBusy, setCatBusy] = useState(false);
   const [catErr, setCatErr] = useState(false);
+
+  // Canon list names live in content_i18n (lineage_list/label) — one batched read
+  // for every key on screen, English wherever a translation is absent. Director
+  // destinations key on a director slug and simply miss, which is correct: a
+  // person's name is not translated.
+  const destKeys = useMemo(
+    () => [
+      ...(dests?.directors ?? []).map((d) => d.key),
+      ...(dests?.canon ?? []).map((d) => d.key),
+      ...(catalog?.lineages ?? []).map((d) => d.key),
+    ],
+    [dests, catalog],
+  );
+  const destLabel = useDbLabels("lineage_list", "label", destKeys);
 
   useEffect(() => {
     let alive = true;
@@ -317,7 +332,7 @@ export default function NavigatorTab() {
                     <View style={{ gap: sp.s2 }}>
                       {results.directors.map((d, i) => (
                         <Appear key={`dir:${d.key}`} index={i}>
-                          <DestCard d={d} onPress={() => openDest(d)} />
+                          <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
                         </Appear>
                       ))}
                     </View>
@@ -331,7 +346,7 @@ export default function NavigatorTab() {
                     <View style={{ gap: sp.s2 }}>
                       {results.lineages.map((d, i) => (
                         <Appear key={`lin:${d.key}`} index={i}>
-                          <DestCard d={d} onPress={() => openDest(d)} />
+                          <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
                         </Appear>
                       ))}
                     </View>
@@ -380,7 +395,7 @@ export default function NavigatorTab() {
                 <View style={{ gap: sp.s2 }}>
                   {dests.directors.map((d, i) => (
                     <Appear key={`dir:${d.key}`} index={i}>
-                      <DestCard d={d} onPress={() => openDest(d)} />
+                      <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
                     </Appear>
                   ))}
                 </View>
@@ -395,7 +410,7 @@ export default function NavigatorTab() {
                 <View style={{ gap: sp.s2 }}>
                   {dests.canon.map((d, i) => (
                     <Appear key={`lin:${d.key}`} index={i}>
-                      <DestCard d={d} onPress={() => openDest(d)} />
+                      <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
                     </Appear>
                   ))}
                 </View>

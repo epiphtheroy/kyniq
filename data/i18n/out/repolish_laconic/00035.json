@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eye-that-wounds-itself-for-looking",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관음증(scopophilia)이 제 눈을 벌한다. 보는 것이 죄가 되고, 실명이 그 형량이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff38467ec66bdbfa70b19a9b79e0dff5131e30a30dd2d966864a55a248589ed8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eyewear-that-encodes-ideology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안경과 렌즈, 곧 믿음과 허위의식의 광학.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6df39a8898ba7336b9038e032156dcfa21f6c422b67265c85f5407cbbf028d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-as-aging-manuscript",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "램플링의 얼굴을 읽는다. 이 영화의 본문은 거기 새겨진 마모다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0d32ab85ce8df1e0cd9765f539774c4061a97cb28e4fc0feb539239f8c6cea4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-as-detachable-lie",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "얼굴은 떼어낼 수 있는 가면이고, 정체성은 위조되는 표면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "465115b5a9bbe1d5e7b4bdb343f6e4d63908ec3090ce81679d030adc76254827"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-as-infinite-ethical-summons",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레비나스의 얼굴이 윤리를 요구한다. 그 요구는 지켜지거나, 거절당하거나, 아예 말살된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf166294ed20c241b9ada9c7c94605099fde61c0439fa7c65ba62db0a60848f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-detached-from-its-owner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "얼굴에서 떨어져 나온 정체성.",
+  "model": "claude-opus-5",
+  "source_sha256": "329f96a92391c62042a9d6f1280079dff93c60636e912b2cdb3285bb1381724d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-freed-from-its-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가면이 벗겨진다. 벗겨진다는 사실 자체가 핵심이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6760f5229f5bcdf1b9ea8d1dd187b93b4d891b5afc31e5f6aa90f84c2ab2cf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-one-cannot-bring-oneself-to-kill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레비나스적 윤리. 사랑하는 얼굴 앞에서는 마지막 일격이 내려지지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd87acbe29f9b248dc6fce89fa03a94ddbe814bd5b521ff8524bb3330e891a49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-that-disarms-judgment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "얼굴을 매만지는 손길 하나가 원한을 돌봄으로 바꿔놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d93299b67dc65eb4168c03686a3578d0a74275d8ec42a8caa7ff122a9a3d3ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-that-forbids-the-kill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레비나스의 타자(Autrui). 이데올로기보다 먼저, 인간의 얼굴이 죽이지 말라고 명한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "994b01cfb4ebb3ed2b258b3f46ca1885c16c4058d55642be03c766c2d2f7b56f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-that-foretells-its-own-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기억 속의 얼굴 하나가 자기 최후를 미리 적어둔 암호다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1807d0fbefb7a8051e6ecc760d69ce4be9d2c6e68a7736cc6a2043aa2e963257"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-withheld-to-make-conscience-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "얼굴을 보여주지 않는 것, 그것이 카메라의 윤리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0136ce784454b5d58cf729ebbf17f4e35e053e2cbdfb581a5e291c7df1fded5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faces-turned-away-in-northern-hush",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차가운 빛, 돌아선 얼굴들, 얼어붙은 우울.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fd50f56e955c2c4b20d014d429782b2e8b3ac0a24f43a2a7bc0e5bcfcbf56f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-factory-as-capital-s-hidden-abode",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "생산 현장을 읽으면 자본주의 잉여를 돌리는 엔진이 나온다. 늘 가려져 있던 엔진이.",
+  "model": "claude-opus-5",
+  "source_sha256": "852e000a2e609b4216e391f904171e70dd1ba59556fe0d1dc0779027df0400e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faculty-beauty-outlives-ethics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미(美)가 저를 다스려야 할 도덕의 눈을 삼켜버릴 때.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bffbd9f76213f3cf2b2c5494393d1c1c6dd4a883af5a80fffdae24b0630ac3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fade-to-black-as-mortal-punctuation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집의 암전. 영화 자신이 꺼져가는 심장 소리로 들린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d21916bad0ae50fb9791c290a7e03a9961a2cebced7d2146d5c3fd322164885"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-failure-that-was-audience-refusing-its-mirror",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흥행 참패를 다시 본다. 제 모습이 비친 거울 앞에서 문화가 움찔한 순간으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2aa87f227823c04a06520c2f50c6e0abfcc993a310e20c2990dbb3dcabb914f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fairy-tale-imposed-as-fate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동의한 적 없는 겁먹은 사람 위에 누군가 변덕스러운 운명 한 편을 얹어 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fc5de9aa34857be9c460b4f6191e85d201f4924a47591573ac7adf5b6f30b47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fairy-tale-priced-and-notarized",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신데렐라는 거래였다. 로맨스는 계약 조항으로 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ea0128d22cb56f224df85e42499ce2484ca3f23e2041d18dadb1539938b6ed4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faith-imposed-by-terror-and-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "종교와 제국이 한 몸의 정복 기계가 된다. 한쪽 바퀴는 공포, 다른 쪽은 장부.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d664b6e2b5f6133eab1f8568a5795c142df17e8cb9c8f54cf4df93fde745757"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faith-institution-as-the-state-s-instrument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교회를 다시 코드화하면 관료제, 심판정, 국가 장치가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3fc0bd315e8a903d6c799191a4fde2854238a96886d1defe9ba2d23bdcfaa50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faith-that-was-quietly-engineered",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누군가 설계했다. 종교는 그렇게 연출된 인공물로 무대에 오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "403969c01e7634cfda6359a8ce27a1f87f6aa4f9b463815ffa6f346f3766b07e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fake-footage-more-real-than-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광고나 본편 전 영상이 정작 본편을 압도한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75a5e1713820485c26281260ca0d7b5501d6251e77e345ce0b832ff38187dfad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fake-is-the-honest-one",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가장 작정하고 연기하는 자가 가장 진실하다는 역설.",
+  "model": "claude-opus-5",
+  "source_sha256": "e58e6e05feca1cc2ef1521e0572267969da35b5f19dfa74f3b907f641dfbf48d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faked-death-that-kills-the-persona",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꾸며낸 실종. 공적 자아를 죽이려면 그 수밖에 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "034e85b45de11143a2e064a1960bf248f5dee9064d34c3650e687b259db17dd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faked-symptom-that-forges-a-bond",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망의 징후를 꾸며내 상대를 붙들어 매기.",
+  "model": "claude-opus-5",
+  "source_sha256": "087d7ed522ac40f4daccd8e10085eb3ddcbacd36539f034ee375036c93b3089b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fall-as-death-drive-made-literal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떨어지는 몸. 죽음충동(Todestrieb)이 물리적 낙하로 실연된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "232eeaf094d7398accb7cc5adf7652325c902493d3dd0a90c23cf30265d42ebf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fall-withheld-only-the-falling-filmed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "약속된 하강은 끝내 바닥에 닿지 않는다. 영화는 공중에 머문다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fb5797c5b8009025a24829873bb2dca5e2088a01b4d6b1db9e503a4e0af32eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fallen-who-cannot-feel-the-fall",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 저주받았다는 것조차 감지하지 못할 만큼 깊이 저주받은 존재들.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7b06b0c31881177215b14bde862a7dbcdd8f359bea4e7b39f78f8a124faa166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-falling-garment-that-confesses-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "옷은 몸에 걸치는 비밀이다. 그 비밀에서 영화의 논리 전체가 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bbdbcb1c0d981350ea80a463b245a889bc642c18b8914bf5a50afdc767e105d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-engine-of-female-extraction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족을 다시 읽는다. 여자를 길들이고 뽑아 쓰는 기계로.",
+  "model": "claude-opus-5",
+  "source_sha256": "35c95b564245b2affa0a357e049ffdb79948287677b37630b7e85858b6e0e9e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-firm-with-a-faceless-master",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "혈연이라는 간판 뒤에 자본과 얼굴 없는 주인이 앉아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8161a1b19c8882b239c4bac10096ba0e87cfffa1bab00fc33ad80248b9579c42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-performance-in-bad-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구로 상연되는 가족. 그 허구는 굳어서 진실이 되거나, 사기로 들통난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13e4a7d69e29216208f15045e608f157fa9f14e811a089ed25af938605a0b35e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-republic-in-cross-section",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이 집 하나가 이슬람 공화국 전체의 오디션장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9ac6b6adb8435fe7e8d7b1cdaa5fac2d27cbe446cde4304be0cd6095b3d07c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-the-return-of-the-buried",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집을 세우려고 묻어버린 것이 돌아와 그 집의 혈연을 붙든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e363f441ff401547f6ea1785bb9d81b0c8577da662fc69b846eaba7d6999710e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-assembled-from-abandonment-s-wreckage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족은 고르고, 임시로 만들고, 애도하는 것이다. 그냥 물려받는 법이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "34f30e11a561e61b0aa2bc352515850b4e47427d2598afe4c243b858d4291db8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-film-contract-renegotiated",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위험 수위를 낮추거나 아예 어길 때, 이 장르가 아이들과 맺은 약속이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef863114357f4d2d250924c8a3e2398ac2490f851e8fe97d7922a7a447b0fdf9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-as-absent-law-programming-the-son",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라진 아버지가 돌아온다. 구조를 떠받치는 결여로, 유산으로, 증상으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcbc52d72ffee4c5ded4ad02cc4c120e5e81a9553641b873d007e35aea7d4135"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-as-superego-that-must-die",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지는 내면화된 법이다. 그를 죽여야만 비로소 애도가 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a4b3c0417b894be3d206156ca12d4a1510becb07ea3a7df8cf8cd3e75256904"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-as-total-architect-of-his-children-s-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가부장은 감시하는 조물주다. 그가 밀봉된 현실 하나를 통째로 설계한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1792126c2250fe87459cf13634629c2844d2b984f8d47494c48f11357bf56397"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-devoured-by-his-own-sons-betrayal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배신당하거나, 제 상속자를 집어삼키거나. 부권에 남은 길은 둘뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b63618123953627d6379efd4182471badf02a3711b784760c95697916af1f24d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-inherited-as-wound-not-gift",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부재하는 아버지, 온화한 아버지. 아들은 그것을 파멸의 유산으로 흡수한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55d4429d0865dffdee20ace0ea796cc0ccaadf29ed435d82a8f497c20ac0bd7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-one-cannot-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻히지 못한 아버지를 두고 복수와 슬픔이 엉킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1220199bf2f3a0eb892d07d3655c2b42d91177b7d2890ae2bc001e7d7f306aab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-one-must-kill-to-become",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽이고, 거부하고, 그래도 돌아오는 가부장. 부성은 상처의 다른 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99e39ba04632a8afc2e7c90849b68368c7427f7970feaf12c07b1809383f9e3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-reconstituted-from-found-matter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "없는 아버지를 다른 물질, 다른 사물로 다시 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6afd698240a65032a32615af92bdb2a9b6930474bec45226f47a03111d7b095"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-reconstructed-from-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 알 수 없는 아버지를 아이가 조���조각 맞춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "609c02ee1c7286c03bba7ff827f4f9b099b6f36d5fc8b27a9c51ce5004139543"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-returning-as-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부성적 권위는 모습을 바꿔 돌아온다. 무기로, 외설로, 주권자로, 유령으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "94f98bd35de03a000e4350bdce028ba619396c1d6ec724d59a22f0144dbba314"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-death-as-an-order-expiring",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지가 죽어간다. 낡은 남성 체제 하나가 그렇게 끝난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de297b735f0026ddbb29689ae9dd94003c00b03febcea30c7b3805d56641c97b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-grip-that-will-not-release",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가부장의 유산은 아들에게 걸린 채권이다. 벗어날 방법이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec5702270fe0729aada755a9e73e01e78dd6579d6615a49b525e1a93d6626121"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-name-refused-or-foreclosed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름이 기입되지 않는다. 아버지의 이름(Nom-du-Père)이 상징계 문턱에서 막힌 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9bbf8ee2f61d78a63c994d9625be59d68d091a7e1ef97804b7bb8e0c7da26d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-sins-run-in-the-pines",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시안프랜스식 혈통 비극. 아들이 물려받는 것은 아버지의 운명이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cc6d38a62b89c432452f03d70f2fb5121d7c13c67e2cf45ed3144466550397b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-war-refused-mid-combat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "싸움을 거부하는 한 번의 행동으로, 대물림되던 아비의 폭력이 끊긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "913f3e2893cc26a649389106754b8362448b13e11706d49a4d23aff064c7fc00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-cannot-answer-back",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부성은 이미지로, 부재로, 대답 없는 부름으로만 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "474e7026e9a2a026ccbbb338a7cd5355fe417e1723addd6abf1bf362eb6d27b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-cannot-bless-the-son",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지의 사랑은 아이에게 닿지 않는다. 아끼거나, 달아나거나, 엉뚱한 데로 새거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "902dcf96d32ccb17e9c5433ede01373033243de5ab609849aa5050e937726866"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-cannot-bury-the-child",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도하는 부모가 죽은 아이를 되살린다. 아니면 끝내 놓아주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd87fa143e4f653b4ad24ac4d8a260a7bc3a5010713e1d2da2332ab379a0c66d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-devours-the-daughter-he-loves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부성애가 소유와 통제로 굳는다. 딸의 욕망이 무서운 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b0a15194f7ab47dee80797722d908f07d6bb7700a34a7a521e3cfe7db66e330"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-is-never-faced",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지가 있는 자리는 부재, 한 통의 편지, 용서받지 못한 도약뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "959f28eed890e236618951548caa87d4c441bc5cbb08196fe65d23d20f57e43b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-is-the-state-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집 안의 가부장, 곧 체제의 축소판.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb5b51a26963d1a9c4ab17c4d3a992d58a0aa2ff7faa5c716bb9b2c02c2fcd0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-loves-by-withdrawing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지는 자기를 덜어내며 사랑한다. 죽음으로, 비켜섬으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c4cfdef3f8589bdb63a233e70e13f4d0e372b575fab7d5c6104b05aea7a18db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-must-be-slain-to-found-the-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "원초적 아버지를 죽인 자리에서 그를 대신할 질서가 열린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86f62e493d9e7c2011d73727e725896840b81b9b7d64404af76971ead7ec1aec"
+ }
+]

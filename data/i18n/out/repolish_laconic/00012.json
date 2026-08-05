@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "no-freedom-no-guilt-no-goodness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도덕적 지위에는 능력이 필요한데, 정작 상황이 그 능력을 앗아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f3908b13691a0476a4206c060211b556cca2d3e21ca8bd61be4d535c24a995d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "no-self-beneath-the-performance-or-costume",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성은 표면뿐이다. 변장을 벗겨도 아래엔 아무것도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00f60c2c2bc0e6085b51eabcc0eea3d2ed2b3f39cfc2f04927613f12ed998fc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nostalgia-as-the-west-s-self-absolution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감상적인 회상이 식민과 파시즘의 과거를 그리움으로 세탁한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de1dc02f7aac4da47c06321a5397ed3cfeb55b8b503cf02c02dc92c084b673ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nostalgia-s-beauty-as-moral-anesthetic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "따뜻한 색조가 마취제가 된다. 화면이 담은 부정의에 무뎌지는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "950c4e25cc3907589a69708b1bfdabb5e65d32ae04d77b0881f0abb31521f8b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nothing-is-real-until-it-is-seen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "존재를 증명하는 건 관객, 모니터, 조회수뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "56a464ea686d482e9f5b184f1728492b15ca32c3b63aef89e942dc0c38d1b5ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "o-keeffe-s-bleached-west-as-sacred-emptiness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뼈와 공허. 오키프가 그린 회화적 신화를 통해 잡히는 사막.",
+  "model": "claude-opus-5",
+  "source_sha256": "1089772a48d7b566b208a110f3928d558947e012f666b3099403b001a4c1fc75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "oakland-as-decaying-promised-land",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쇠락의 기념비이자 부서진 에덴으로 찍힌 베이 에어리어.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ba7ca0e36263c87c82dec6d9cc03df99d35ff0331dd65c5100f0a781367bff5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "obsolescence-as-a-mode-of-being",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 주제는 제 세계에 추월당한 거장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa4188f676944f0a44df43d98f22e9d01920ca999b3f3680a68cc21fdb4e8f26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-actor-acting-against-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배우 한 사람을 장치로 둘로 나눠 자아를 극화한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05e34d6ea7015fb6291b375bf4644995fffc1ef3f760d2cad0017a244c02ebaf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-actress-two-women-the-split-psyche",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "배우 하나를 겹쳐 둘로 만든다. 갈라진 채 차마 마주 볼 수 없는 내면을 밖으로 꺼내기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "7942cf7f39e1d8fa890b04e13197e46933da9ab4fb756ce21d39b9cd40d5639a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-block-made-to-carry-a-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도시의 한 블록이 모든 것의 제유(提喩)로 징발된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91c563e50ce8634855b79c2b4752aafb808acaebe459cb04d8b8e4440dd4fac5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-city-cast-as-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소가 제가 아닌 곳을 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfd5e1bf7f5d4f5360299fd449a37b1caa40b216a6ec73d00da18b74e6388d8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-day-dilated-into-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짧게 압축된 시간이 내면의 오디세이 전체로 부푼다. 조이스의 방식.",
+  "model": "claude-opus-5",
+  "source_sha256": "f032316ac67ca431e01d63f45f1a9f8bb1d13e4c8da26a9c7ca6eaa9102aef9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-geography-wearing-another-s-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재의 땅이 흉내 내는 것은 신화 속 다른 곳. 그 자리를 대신 채운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b166cea2a27545bc6fb1d3e766a624c76c7e57365cb7ee7a915c724990dc3324"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-honest-place-in-an-untrustworthy-paris",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파리에서 단 한 곳, 피난처이자 진실이 되는 장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "98f755169142c01c225f8169bae754ae1a7a41e509edd445d7154ce2bc9f176b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-land-wearing-another-s-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 나라가 아닌 나라로 찍히는 땅.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd87faeb31675587e28adf5298ab0695e75134fdcba70f16059341850149f712"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-pavement-stands-for-the-whole-society",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평범한 장소 하나에 사회질서 전체가 응축된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a9556f92ac585983b8cb724f36ae6a6145c2056a3f13dcc7e34937c90bef3ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-war-s-rubble-standing-in-for-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 전쟁의 지형을 빌려 다른 전쟁을 다시 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fc4aa5466d8630b2d5023893c42faf2f448292a1116286a29f2edd003037214"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "opacity-as-the-subaltern-s-last-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "읽히지 않는 것. 힘없는 자에게 남은 유일한 권력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c330f897871af78c0a53b086a9bb41a66bd1d6b3776a45baad210384c25d610f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "oregon-cast-as-the-frontier-s-bitter-end",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서부로 향하던 꿈이 상해버리는 자리를 연기하는 태평양 북서부.",
+  "model": "claude-opus-5",
+  "source_sha256": "71d0c155c4e72b92b8a913c3eaf09f66ef8e3da354a32f5e9dc2cdc9df1d16d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "orpheus-who-cannot-refuse-the-backward-look",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오르페우스의 법칙. 돌아보는 순간, 되찾으러 내려간 것을 잃는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5f859baf3e5a8cd8d2356f2cbf00e243dd177f56f6106b9c1ac0e82ad5ab1a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "osaka-as-tender-anchor-for-the-unreal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오사카의 토속적인 거칢이 그 품에 든 환상과 여린 감정을 땅에 붙들어 맨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30ebf47e3f5e10489104910f9f1650372b4ede52bd6857bf1de90db829ab0f19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "overlapping-talk-as-engineered-spontaneity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연출 아닌 척 연출된 수다. 삶으로 위장한 규율이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "beedd1a2be43a4e4661be7512d209990ce90fff43ea705bb065c8fb1ff92108f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ozu-s-color-was-an-industrial-loan",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그의 색채는 순수한 작가적 비전에서 오지 않았다. 후원사와 경쟁 스튜디오에서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a50b9a970247c9c672feedf52e9c9c398924870776b13b81b7637bbd639349de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pain-as-the-only-proof-of-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아바타와 추상뿐인 세계에서 진짜임을 증명하는 것은 상처다.",
+  "model": "claude-opus-5",
+  "source_sha256": "225319832c52a88681b66d41a9a740147852658e5a68650cbba120b260916630"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pain-conscripts-the-one-who-feels-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 고통을 느끼는 순간 의무에 징집된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02e09c6593de8c643e1642a76f2fd297a75504030bcb218f5514372c51ec8e80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pain-refined-into-surplus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고통을 뽑아 쓸 수 있는 경제로 가공하는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "03ca452b3e5419a7f2133a73372ffe7488b1597d73f0be1237ab07025e0cff4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "paradise-photographed-as-a-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재앙이 바로 아래에서 조용히 기다리는 곳, 거기서 찍은 목가.",
+  "model": "claude-opus-5",
+  "source_sha256": "29f4d94e1a0db96285be62fd78b9b3d38c47b543fbc88a70df9500d6073800de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "paris-drained-to-anonymous-non-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로맨스의 수도가 아무 특징 없는 통과 공간으로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9400c0d6e02c9055f4c4c36c6c945f0cd7ef85a8afa05cdcefd55bb4d99919e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "paris-faked-built-elsewhere-to-be-erased",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로케이션에 세운 유령의 파리. 철거를 예정에 두고 지어진 도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "767d02b1916bc5f27dcd63540c5c3dbcd4c7a8c920d9a3c8d10ef13a531a6a3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pascal-s-wager-staged-as-theology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "믿음을 신의 존재에 건 내기로 다시 짠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e14b5f35df4d7a251f5c116ff7601bdd75052db9e8ce7f3a05f14674f0802e7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "passion-as-sacred-suffering-named",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 '수난(passion)'이 육체의 고통과 신앙의 초월을 한 단어로 붙여놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5afa7cf97bc0e46377d5469a67914f7ad68e8bb9e4b96f2c1f26126b0c8dbfd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pastel-wrapping-on-disposable-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부드러운 표면이 동의를 제조한다. 인간을 조용히 폐기하는 일에 대한 동의를.",
+  "model": "claude-opus-5",
+  "source_sha256": "fad3116d39544002294c19246673666b026d8f33bdff40ae075a38279739d984"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patience-weaponized-for-theatrical-shock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아껴둔 시간이 매복을 위한 용수철처럼 장전된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e09e4cb3abb1e4e1c44c760cb4e10903af45bc1b4079de50d41cb8f21eef1333"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patriarchal-sovereignty-over-the-daughter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지와 제도가 한 여자의 몸과 미래와 목소리를 다스린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "023eca460162631fa3faec9da7ab326a17cf070896cd9e3750584ebfc6600beb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patriarchy-as-a-self-consuming-function",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남성 질서의 정체가 드러난다. 치명적이고 텅 빈 기제 하나.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb6a8beaaee1a7e637f333ab8768c020cc707c6507c3fe2cd2d0313f71eb6d9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patriarchy-encoded-in-the-frame-s-atmosphere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남성의 권위는 공기로 살아남는다. 배경음으로, 폐허로, 사람을 잠재우는 환경으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb39c81b0543dfdb0754dae746800a078e3c5a9654a39dd73e79709efbcb3fec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "penance-without-the-absolution-it-begs",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사면해줄 수 없는 신과 교회를 향해 바치는 고백.",
+  "model": "claude-opus-5",
+  "source_sha256": "810896252779dc33a6aa986f73a544ba6265a0d637783b58be0c4776bc411564"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "penury-forced-the-ear-to-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈이 없어 소리가 눈의 몫까지 떠맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddf86aa4ce104d0aa66ab790962c8bbe45cab6a4075fc6ce0fb8d3c63914b68f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "perfection-chosen-as-self-erasure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자신을 완성하는 일이 곧 자신을 지우는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d66b696d794000f3e227f205dd431e22dd878e0c37c2497e99bd9a0ca3a5751"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "performance-as-survival-under-threat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남으려면 위조해야 한다. 위험이 요구하는 그 자아를.",
+  "model": "claude-opus-5",
+  "source_sha256": "06b600ef650cbc944c448e137db0678439d3ddedeb4fb0deb52bcf76f380ecea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "performance-devouring-the-person",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간보다 연극과 인형과 장식을 떠받든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc5ff1e1e22332f901d1c3b075dc01f373792d123a11fdd3c1a5264c30595c76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "personhood-conferred-against-the-law-s-denial",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람이라는 지위를 주권 권력이 내주기도 하고 거두기도 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05399ded98013736b9f496f740a6d1c06dde47b85e31e11ce853aca3d821c627"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "persons-as-means-never-as-ends",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트의 인간성 정식(定式)이 시험받고, 어겨지고, 끝내 거부된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e03c9ec33267a3e43dfd53e6af56446c7c215ee91b1ad1258e4f35fc61e8f71a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pessoa-s-trunk-of-multiplied-selves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아가 이명(異名)들로 갈라진다. 읽히지 않은 채 겹겹이 쌓인 이름들.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca80781ad4d8737767f8a3d74831438e9344233b3f6c2896b4e42c48bc4f2f35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "philadelphia-city-of-brotherly-love-betrayed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름은 우애를 약속하는데, 도시는 그 약속을 지키지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91c90fd7d60ef9961ea91874f99b991b9fdc4b5e5da00387a67f25568f880d38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pi-as-the-irrational-that-resists-mastery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 된 상수가 풀리지도 굴복하지도 않는 진리를 형상화한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ff5da389fc3c6339069eca489db9b1acbfc0db3968736aa193b8a0e8d44d6b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pinochet-smuggled-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독재자가 돌아온다. 어떤 인물로, 흡혈귀로, 저승의 왕으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "739182f135e63c6ea46c574f44a779ab2346c46f8784a86266aecd74217256c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "play-as-the-anaesthetic-against-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "놀이가 상처를 마비시키거나, 피할 수 없는 끝을 미룬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dea52e26e980bb95fe3449c5f282e8df6394a054c27e72b994178661a47a2ee6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pleasure-built-on-hidden-extraction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "중심이 누리는 즐거움의 값은 보이지 않는 주변부가 몰래 치른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "326ea906fd2abb4729c7a274689db3a0a5ffba38c06011776a18c9a2b43d3acc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "plotlessness-promoted-to-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "플롯을 거부하는 것, 그 자체가 주장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b13bf98ef696268ab6dbc9a3c38c9822bea8d804958a0955be86dd09db16e867"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "poetry-as-the-logic-defeating-axiom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이성이 증명도 포섭도 못 하는 것에 시가 이름을 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a65e77baa881f62d3793a734df5c267e1c4a64542ed06f8bcb6861616b098a20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pop-as-the-era-s-carbon-layer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "노래가 퇴적층처럼 영화의 연대를 새기며 시대와 국민 정서를 지도로 그린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e488959dab3311ea54277fedde2c21f26c44be9ea9e6f218162518c61a818b69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pop-image-as-the-only-reality-left",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빌려온 미디어 아이콘이 자리를 메운다. 사라진 진짜 자아 대신.",
+  "model": "claude-opus-5",
+  "source_sha256": "3af4901d5e1706f312cfe0a5a4b3f7f2331e1770169b3237fe14e40741618077"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "possessing-the-dead-without-decay",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도가 요구하는 썩음을 막으려고, 시신을 온전한 페티시로 붙잡아둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "690e49e7992155dcd8f388361e0e89d0f19c1442db779acd521aa8791cb12948"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "possession-as-the-film-s-hidden-contract",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재산과 임대와 소유권이 은밀히 모든 것을 다스리는 논리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78e378f8aaf887b65d69143564a74e66e163647ebb22b96d2c919cb63f5c5516"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "post-soviet-russia-as-unlivable-architecture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 잔해가 공간으로 찍힌다. 시민이라는 자격까지 삼켜버리는 공간.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8390ee71886f6725e635e17752ff5529d2579bd6265f05d8e176a2198454141"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "postwar-japan-as-a-body-sweating-out-its-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "패전국을 하나의 몸으로 그린다. 썩었거나, 점령당했거나, 빚에 짓눌린 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "b044e98903bee702069af9bea87f8f842cf982dac33c9107b0a5f67e50b8edf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "postwar-japan-re-litigating-its-own-pacifism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일본이 헌법의 전쟁 포기를 스스로 심문한다. 그 심문이 곧 영화의 무대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7cb8e5aa4e425b5cde9fd9683c347a599dcbb31a56436ea9d127ef35062741f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "postwar-japan-s-disavowed-inheritance-in-a-child",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사생아 혹은 분신 같은 아이가 나라의 억눌린 역사를 짊어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a071e6afaa527f54a9887afac238b5f308d9d76e2481df087e4aa70f431d23ca"
+ }
+]

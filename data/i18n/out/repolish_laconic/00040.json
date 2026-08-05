@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-s-body-as-negotiable-currency",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어른들의 경제 안에서 소녀의 여성성에 값이 붙는다. 거래되고, 수집된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6195ffad5485767aff28033c4cf2398a5cd4ecd6ae4364960e7f280f95c51bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-who-catalogs-coming-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "젊은 여자가 상실을 목록으로 만들고 이름 붙인 뒤, 문을 닫아버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5972c4611c63b68da1e72a17833b80537cc0d77682145a791efa61d17a4ac8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-who-refused-the-world-s-plot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주어진 운명을 따져 묻거나 끝내 거절하는 젊은 여자.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd57a23880071b3d2206ee521fdcd62f3312a5de075c41f4100b1d7586984ff6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-garage-that-houses-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자의 진짜 약한 곳을 매만지고 벼리는 투명한 성소.",
+  "model": "claude-opus-5",
+  "source_sha256": "c94d742634f648013808377b2c1140c9e64bdbd1e2adea509f009150915c2959"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-tank-as-cage-of-display",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수족관과 유리 진열장. 갇힌 몸이 감금의 전시물이 되는 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d0f22f7f5fdfec254ec4cb30eb8c77a1004ce909a68e6aa4c65ab8a978bee02"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-cannot-be-faced",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "투명한 칸막이 하나로 고백이 오가고 정체가 드러난다. 혹은 끝내 마주 볼 수 없다는 사실만 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94ee178939fe2a92390e1874835a4676193748d6c0f73e75e4dcbf50a02d8c31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-damns-those-who-watch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가두고 드러내는 유리창. 인물은 결국 제 파멸을 구경하는 자리에 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67d20c9e05253e42da859762f6562fa74dfdc55489b4eb25c87e6a4132897426"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-hides-instead-of-reveals",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "투명함이 은폐의 무기가 된다. 비쳐 보이는 표면일수록 더 많이 감춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bbfaeaebf8c94f6436613f729dd2925097ae97ae40f06598d5f084e4e250df9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-mediates-and-cuts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아와 욕망과 세계 사이에 놓인 유리. 통과시키는 막이면서 동시에 가로막는 벽이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a301650637f806ae817e28318bcbe864495542a257fe6b6807e3d24401015f7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glenn-gould-algorithm-of-control",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "규율은 허약한 체계다. 몸이 반란을 일으키면 부서진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c67cfa34644f76768d7eef9cfa67df07bb20fb9ba81d8e809a3e10728615b7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glenn-gould-recording-as-hidden-key",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바흐를 대위법으로 파고들고, 낭만을 걷어내고, 순서를 다시 짠 굴드. 그를 통해 읽는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "c56469d061c561a15068bcd86c98d3ebff7296df53d0765de68349a913ca0a66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glitch-as-body-refusing-assimilation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면이 깨진다. 표식을 진 몸이 정상의 소속을 거부하는 순간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5253206c04acd8745e64f4a07ca16df72198230c7f7a5ecf5e36615bbd7bab69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glitch-as-the-suppressed-truth-s-eruption",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고장은 오류가 아니다. 체계가 숨겨온 고백이 표면으로 터져 나오는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e03cf4a024c15289f90f2890718a73e873a93d2f06fe2a01adaf0eec7c8e96b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glowing-box-that-annihilates-its-beholder",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛나는 상자 안에 숭고(崇高)가 들었다. 여는 자를 파괴하는 숭고다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2aa6b82a472ba50ccf9ae102efed7edf5b2bca7b8d83a4711c88bea03608a40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-in-the-machine-made-literal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "데우스 엑스 마키나를 해부한다. 신의 개입이 몸을 얻거나, 지워지거나, 기계가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0dcc93f28bf8f48c13d8f68350de0fb5841e3dcf4d17213c3d960698d5f1afe9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-of-negative-theology-known-by-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 붙일 수 없고 볼 수 없으며 견딜 수도 없는 것. 오직 그 불가능으로만 규정되는 존재.",
+  "model": "claude-opus-5",
+  "source_sha256": "958f6d1008a1b1b07ca456c627ec36ec64b88b85469825249a2c50fb5804773e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-the-costume-lets-pass-unseen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변장이 통한다. 아무도 초라함 속에 위대함이 있으리라 생각하지 않으니까.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6c257a8125d2c7731039bc39610662ca9698f0c47a30f44215ee2afab9cbc0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-who-has-withdrawn-from-the-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신은 구조적 부재로 거기 있다. 답하기를 거부하는 침묵으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "57eb16aba644a77275e9c4f861bcc47906a5188072aec636dd6d5c0f3d6434b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-who-hid-his-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참극을 불러낸 자리에 신도 아버지도 입을 다문다. 생존자가 받는 대답은 그 침묵뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "666471d1489603bc1527fbce3806c9a6e0406a5aebf3515678c839d7ba0e7295"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gold-standard-that-circulates-toward-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "귀한 물건 하나가 손에서 손으로 건너간다. 끝에 가서는 사람을 죽인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93a999c0c35369582437f9fbe3c55bde41f4bb281f23b3ef023414ab1c27c911"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gold-that-returns-to-the-wind",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보물이 흩어진다. 부(富)란 환영이었고 오래가지 않는다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b83b1722dbb5a4d6789b11a5692b4ddc657480684ce14893fadc35901868fd1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-goldberg-repetition-with-a-difference",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "굴드의 두 녹음이 변주의 영화를 여는 열쇠가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b0ad80c5872c4064dfb4f1a3b84d7b00e5e8ffeb5f092a89b4e35c495a49f25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-golden-body-reveals-the-hidden-sacrifice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "황금이 구원과 부활 아래 묻힌 희생의 진실을 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d157f0ec1c5aca89bbb793b1c82333ea36428b1488cf9d2cc9ed9e26e14204f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-golden-lion-as-western-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베네치아의 최고상. 서구가 동양에게, 혹은 제 자신에게 바라는 모습에 왕관을 씌운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f918203948b858c0083ea0759799ac02057973fab7f92158c2764a05ecec516"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grace-that-was-never-earned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원은 품삯이 아니라 선물로 온다. 쌓은 공적인가, 값없이 주어진 자비인가.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6a1ee83016cccb683897a37f20fe314c10835ffd9caa0c4b39dfa68022a0d78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gratuitous-act-as-proof-of-freedom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동기 없는 행위. 오직 제 자신만을 근거로 삼기에, 그 자아가 자유롭다는 증거가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3980e637bbf5a184c951fccdd3002f68b957bfe69231f1ba7cafc1f75e311d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grave-reopened-as-ethical-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 자를 파내는 일이 곧 도덕의 중심에 놓이는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "756f8d18d336c1d0fc9fcb8f0f0fd24eb8d9f6862ddaca67c3907852c5536b3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-great-house-as-america-s-disavowed-aristocracy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저택은 물려받아 깨끗이 세탁한 자본의 몸이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d809d54b825300782e9e60a39fb0ade477907c83ecbc1674cee787da85ce75c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grenade-as-inherited-honor-s-detonation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 수치가 제 논리를 따라간다. 종착은 자기파괴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d824bb964b5d7c701dfabe0dbb04e6c9c363bb480b2fce912699d22860fa27c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grid-is-the-state-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공간을 가르는 격자. 관료의 권력, 규율의 권력, 권위주의 권력이 몸을 얻은 형태다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f67c40dc631fb655943453ddf173c896ffba7fd625f8fae657927acb7c94bbcc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grief-that-curdled-into-melancholia",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도를 거부하면 슬픔이 곪는다. 동일시로, 박해로, 폭력으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9ca7275fa34134cb1c3cba7592c2a7cd8df50eadd4dbfbbd93499a4e700199d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grief-that-refuses-its-catharsis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "풀리지 않는 애도. 미뤄지고 딴 데로 옮겨가고 끝내 버틴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e950a21809a97ed6a0ebd145c6e0d4fc791b6b5f4dc78f7b8d640cc061b5a41e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grotto-as-colonial-wunderkammer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "약탈해 온 진기한 것들. 그 수집은 뒤집힌 제국의 진열장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2c9a066c256828d123b2be5ec10224d4523747035993cfe57b7118e73e825c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ground-names-what-lies-buried-beneath",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표면과 땅을 가리키는 제목. 정작 감추는 것은 그 아래 묻힌 진실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c64a8f2667ec95b2fddb4f45a47c0454f4bfde3d1d3c7de7c8854bccc2c0c4a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ground-that-mires-the-dream",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "북이탈리아의 풍경은 늪이다. 탈출도 욕망도 거기서 익사한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f56a3989fd8b825e63f1238f1e847d8e14bd26eb3124b8c17da0faedaf182e27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-guest-who-devours-the-host",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문을 열어 맞이한 그 자리가 제 파멸로 들어서는 입구였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4361a370b608c3d45eccebc5a0d8647854b1fe2d5aa1c5576e37ab463b3edd70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-as-the-monopoly-on-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "총을 쥔 자가 죽일 권리를 쥔다. 인가받은 권리를.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a5f4c434e3671a5588097a277bc775c9a9e075f89e48f724bca08ef438ac8ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-as-the-only-authentic-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모두가 자기를 속이는 세계에서 진실을 말하는 것은 방아쇠뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc8de4cd741dd8ea052ec042c3b33b30272d9487969f11ce3ac6994a139f583d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-as-the-phallus-he-cannot-possess",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "총을 남성성으로 읽는다. 모자람을 메우려는 것이거나, 끝내 손에 넣지 못하는 것이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd6527b370394dd02594fda9751d0a0bc5e94c9c87fa86258ce821900836f090"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-that-authors-the-plot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "총은 소품이 아니다. 영화를 푸는 해석의 열쇠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c2118b91ee4d844801247e58165fc2188eaaab8c3410e8ee12da38d06da4a39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gunshot-that-explains-the-whole-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 발이 울린다. 그 주변의 모든 것이 소급해서 해독된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5276f5000346bc3684f0da588dc95a0bae26453c832f2681ee25491934d5db8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-habit-as-the-order-s-death-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수도복을 읽으면 제도 자신의 데드마스크가 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbc5262cfb32393466ea14fbe6dd59a761a3fa51836c6a9af66a9b0aa727830b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hacksaw-as-instrument-of-moral-self-authorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자르는 칼날 앞에서 양심은 제 손으로 주권의 법을 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "feaf0baf91d8f69430577ec5b82888eba7d687f9f7ddbda028afbba797750c22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hag-is-her-own-future-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마녀는 여주인공이 부인한 늙은 자기 자신이다. 되돌아��.",
+  "model": "claude-opus-5",
+  "source_sha256": "5db351bcb3c484053d0b7d910ccc1caa4c87ccfefda4ba15cf5fc36a4e65316f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hairpin-that-returns-the-buried-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작은 장신구 하나가 애도하지 못한 것을 몰래 실어 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b6ff0dfdbc582642deda91f4b2ea615f2f80315dde24d782c9bdc2d3a46ffb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hallucination-as-the-only-honest-narration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미지가 거짓말을 하고, 그 자리를 환상의 진실이 차지한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0c19c014eebef5562faa240d74ba638d024c136de0231e0189b748fa1c039ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-drawn-line-as-felt-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손으로 그린 공정과 초당 프레임 수. 거기서 감정이 눈에 보이는 것이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d53f72904c09da25bac8f17b0bffd149baf36d38277b2bd68030f952c366da95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-drawn-line-defies-the-render-farm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "컴퓨터 애니메이션의 독점에 맞서는 저항으로 그려지는 전통 수작업.",
+  "model": "claude-opus-5",
+  "source_sha256": "276a04884566882d4fbe3d46132c2035563c254a9df75d170b336337d24bd8a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-drawn-smudge-against-the-render",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드러난 소묘의 흔적. 디지털의 완벽함을 겨눈 무기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d36b4f343bb006a9467581f4b4f236966706b03036d80179e18a5956035c8bce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-that-disowns-its-own-deed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강요당했다고, 배역이었다고, 초대받았다고 한다. 어떤 알리바이도 공모를 지우지는 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c40ceee1733abc78552ecfad72ac83a0b61eb594da9f8a83cfddfed1e59d985"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-that-knows-what-the-self-won-t",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마음도 법도 자아도 부인하는 진실. 그것을 실어 나르는 것은 손이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43c7074c30de65c18a0038cb81e42385a10617e783b7a82af36f35801109701e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-that-stands-for-the-severed-whole",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손 하나에 매달린다. 잃어버린 몸을 애도하려고, 혹은 없던 일로 하려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9706b9dff747e6dcbdd055d4078ad3aba161232b86ecc43b19f9b5b20521ea7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handheld-camera-as-conspirator-not-voyeur",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "너무 가까이 다가선 카메라가 관객을 공모자로 징집한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "029fe941ccc53c583c7bec8c6132fbb8d8a14b7c3e8309c097d0e460a0e5261d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handheld-rig-welded-to-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라가 인물에게 들러붙어 그의 신경계가 되어버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b3caca026009c5cc28b687e7d4226976b03247651523ae5ab134dd881da58bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handmade-craft-as-moral-ontology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "느리게 손으로 만드는 일. 그것이 곧 영화의 윤리이자 형식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08d4e4818d3d4fc6123f7052daad1b7ee50de9696518d1bac7647a7f15873342"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handmade-smudge-against-the-render-farm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스톱모션은 흠집을 감추지 않는다. 디지털의 이음매 없는 매끈함에 대한 작정된 반란이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5854ca847d2017c087a32bd1e1b3e10f41451dec21e8eb13a4122f307107ba27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hands-that-betray-what-the-self-conceals",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입이 말하지 않는 진실을 피아니스트의 손이 말해버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f30d9c7fcfa38b07671a6c076f3a94cf790638360450b1d50673a76f699c9307"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hands-that-wash-the-unconfessed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입이 끝내 말하지 않는 죄. 몸은 손을 씻고 또 씻는 것으로 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3348b231b7f412b80afe3596667e4ffccb6cdd5377db1d8a3df409862bdd6c61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hat-as-detachable-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모자를 자아로, 영혼으로, 붙잡히지 않는 주체로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "28b07fe49ff3ef90d81a9ea333ccfea359d1b43cc5fdf090448ed791b7a83fee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-treating-his-own-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치료사가 맡은 환자는 실은 자기 자신이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85304243ecbe568a9d072c203e8be8b7e47170d85c33207ed5119507b3da827b"
+ }
+]

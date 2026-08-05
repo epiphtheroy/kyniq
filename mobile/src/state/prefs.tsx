@@ -8,10 +8,11 @@ import {
   UI_LOCALE,
   editionForCountry,
   isContentLang,
+  isUILocale,
   type ContentLang,
   type UILocale,
 } from "../editions";
-import { deviceRegion, setLocale } from "../i18n";
+import { deviceLocale, deviceRegion, setLocale } from "../i18n";
 import { api } from "../lib/api";
 import { supabase } from "../lib/supabase";
 
@@ -29,9 +30,10 @@ export type EditionPreset = {
 export type Prefs = {
   country: string;
   locale: UILocale;
-  /** What language films are NAMED in. Independent of `country` and of the UI,
-   *  which stays English (editions.ts UI_LOCALE). Drives the TMDB title
-   *  projection and the multilingual search RPC (migration 0121). */
+  /** What language films are NAMED in. Seeded from the UI language on first run
+   *  but independent after that — a user can read English chrome and still want
+   *  Korean titles. Drives the TMDB title projection and the multilingual search
+   *  RPC (migration 0121). */
   contentLang: ContentLang;
   /** Saved country+services pairings, most recently used first. */
   presets: EditionPreset[];
@@ -72,13 +74,14 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
       try {
         const raw = await AsyncStorage.getItem(KEY);
         if (raw) {
-          // Force the UI language regardless of what an older build stored —
-          // devices that already ran the KR edition must come back in English.
           const parsed = JSON.parse(raw) as Partial<Prefs>;
           const saved = {
             ...defaults,
             ...parsed,
-            locale: UI_LOCALE,
+            // Stored value wins (an explicit Settings choice), otherwise follow
+            // the device. Unknown codes fall back rather than reach a dictionary
+            // we do not ship.
+            locale: isUILocale(parsed.locale) ? parsed.locale : deviceLocale(),
             // An unknown code would be handed to the RPC as a column suffix that
             // does not exist — fall back rather than trust storage.
             contentLang: isContentLang(parsed.contentLang) ? parsed.contentLang : DEFAULT_CONTENT_LANG,
@@ -87,10 +90,17 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
           setLocale(saved.locale);
           setPrefs(saved);
         } else {
-          // First run: detect the storefront country (availability scope only).
+          // First run: storefront country for availability, device language for
+          // chrome. Content language follows the UI unless the user splits them.
           const ed = editionForCountry(deviceRegion());
-          setLocale(UI_LOCALE);
-          setPrefs({ ...defaults, country: ed.country, locale: UI_LOCALE });
+          const loc = deviceLocale();
+          setLocale(loc);
+          setPrefs({
+            ...defaults,
+            country: ed.country,
+            locale: loc,
+            contentLang: isContentLang(loc) ? loc : DEFAULT_CONTENT_LANG,
+          });
         }
       } catch {
         // fall through with defaults

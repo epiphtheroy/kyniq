@@ -98,3 +98,7 @@ mobile/android/
 /극상글/
 /병치/
 /세계 영화/
+
+# Korean localization: English extracts are regenerable from the DB
+# (worker/i18n-extract.py). Translations in data/i18n/out ARE committed.
+data/i18n/src2/

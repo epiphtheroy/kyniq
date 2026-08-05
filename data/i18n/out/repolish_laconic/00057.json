@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-town-repainted-into-a-dream",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멀쩡히 굴러가던 도시에 덧칠을 입힌다. 현실은 오래 못 갈 무대장치가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac5ab2c668db3bd88f6a016dbb755114f63a6fec7f6800cfd28335762ee5351c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-town-worn-as-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 일본의 장소를 끌어다 한 번도 거기 없었던 것을 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb564ac405a1901fa10581c26581c62c20ce00deb4fef5c9374676ba5c78a2ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-village-that-plays-the-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 실제 마을 하나가 기억을, 나라를 대신 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a0c8352af0c698be123e94f5be8d84cfa6f133ecd1d8ec5dad4df071e7e7430"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-villain-is-the-system",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 붙은 악당은 미끼다. 죽이는 쪽은 제도다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b505f0b4d24118cee3af88034ec253628fe4546c9c2c513dfd84e691452fa925"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rebellion-is-the-system-s-own-design",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "반항도 자유의지도 각성도 기계가 찍어낸 부품일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df4a15d16d490a9d51ffeb0fb697f2f81974a00a488ed2d2c8322160000409ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-as-adult-self-diagnosis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평단의 찬사를 어른들이 제 불안을 털어놓은 말로 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6237350e0eceae4a69843ff20a61837e17427f2effa88a79d81dc8f3ee1cea2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-as-proof-of-the-thesis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "격분한 비평가가 영화의 진단을 자기 몸으로 재연한다. 본인만 모른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a21701fcb5daa74a9e7e0478d4dcb6cd51849ddf08d87833f873300b310d86ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-as-the-film-s-hidden-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카타르시스든 매듭이든, 비평가가 굶주린 그것이 정작 읽어야 할 본문이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1def94bf3fe27015a5fa035187640cc01770241db04ed9839ebed4d9876cca9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-became-the-real-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 둘러싼 말들이 영화를 밀어내고 본문 자리에 앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e47ee3e7fb66f3c5eed512dd4c895dfdb1a5f82215b0f34a908ed7b1428abf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-discourse-as-cultural-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관객이 영화를 두고 떠드는 방식에 시대의 불안이 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88cccd15bb7c7b8fb1995fb6e702931ee8f71e06522fa88eb9ab1dd123705e0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-history-as-the-real-text",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "당혹, 그리고 뒤늦은 재평가. 그 궤적이 영화의 참뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bcb7695b75d188dec30d7809b54c69d1ddabc6a4cc1de096cf1df082e4cc20f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-reveals-the-critic-s-bias",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드니의 '소품'을 대하는 비평의 반응이 정작 비평가 쪽 편견을 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33e9a88365b57aade882bdaad4ea702371212c04bd67a186ec236aa4f8ee0b71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-absolved-the-nation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관객은 제게 필요한 딱지만 읽어 갔다. 고발은 끝내 읽히지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b64cb5925c158e454691849c1ae843d65ba8550badcabdf7f3fca6ff52434d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-became-the-text",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥의 반응이 영화의 명제를 바깥에서 증명해 버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf8687fd00cb51e97438eacc0d6a2bba15e724a3f6caacca986949173a760655"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-confessed-franchise-exhaustion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평의 반응 자체가 증상이다. 대중은 이미 시리즈에 지쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "473226795826980ccdbfa6bf8bacd18c902e1d0e2bd2afc9e2bb9d06fd6dddab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-diagnosed-its-own-hunger-to-heal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 치유라 부르며 칭송하는 관객. 감정을 병으로 다루는 문화가 거기서 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e4435c082cb138c2d570f4986bffdf7ce0cc454e5f48cbc616dd734ee059b6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-exposed-genre-snobbery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르물의 성공에 놀라는 순간, 비평가는 제 편견을 자백한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9043ecdc00107d826d9b8eb38ebea9b16b8d69bd51eefff0b4642579a8a9187"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-indicts-its-critics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정사 장면에만 매달리는 시선. 들통나는 쪽은 영화가 아니라 보는 자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a1cf39aafcd55c1809954cf8c22d0faf0134ef94008f6288258049c4c1b941e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-missed-the-murderer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 저지른 진짜 잔혹, 진짜 죄. 비평은 그쪽에서 눈을 돌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2154441cfcc98cae65f4547d6f0ea630b67dea7cea7f7cd0e683d6f22f91e735"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-reenacts-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해석하려 드는 비평의 반사신경, 그것이 곧 영화가 미리 파둔 함정이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f2ba8c3ea264f9b61273d06e1571fae1124a24098e3d53c2c28750a58565b97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-tamed-the-dish",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찬사는 가장 날카로운 대목만 남기고 발라 먹는다. 그렇게 영화가 순해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "975e5899cec36c6d8405663e898ddd6508d2021d0056af295fb3bb96b1713e22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recession-rendered-as-drained-color",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "채도가 빠진 화면. 2008년의 붕괴가 눈에 보이는 형태로 읽히는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "09b59cbf5103d2e950b77256d84783271ef89a702d5e849171f612643c01cde4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reckoning-s-refusal-of-spectacle",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르가 요구하는 판결도, 요구하는 유린도 내주지 않는 포스트-미투 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "69a45a8755c64bda1b5659d34ce976579aff7cb409c63d553dfaac6c7fd32a2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reclaimed-body-made-visible",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드러낸 몸. 보일 권리를 두고 벌이는 싸움에서 그것은 정치적 선언이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d9a8eba5fa30a834f8c8b03c9e6804ac716df5800b4721770441b3dedaa784f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recluse-who-writes-the-world-from-solitude",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "방 하나에 틀어박혀 세계를 지어내는 은둔의 예술가.",
+  "model": "claude-opus-5",
+  "source_sha256": "7dc76aaadf469eb30047841f0d95475d116b6a55327ef615f359ebe43eb06996"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recorded-image-that-disputes-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영상 기록이 죽음과 다툰다. 정말 죽었는지, 끝인지, 지어낸 것인지.",
+  "model": "claude-opus-5",
+  "source_sha256": "266a813636900ce2feb780c94372bd1058886c62c4907a9845aea8b73f0688b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recorded-voice-that-outlives-its-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말한 사람은 없는데 목소리만 남아 죽음에 버틴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8057b3945831b8105a9b2d1c9243976cfa6867e353f34597ab1ce89d6d6352b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recorder-that-holds-what-no-person-can",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기 테이프가 고해신부이자 대리 청자이자 죽은 자의 입이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c74862c04286734bbff83da8b243e71bbdb84d1daa5a279dcb392476adc4860"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-apparatus-as-sole-honest-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주워온 화면, 방송된 화면. 영화에서 믿을 만한 이미지는 그것뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8ab6a8b782ec033f3c1df1a2500d4c3528958d89ae267b150af9f0608a622aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-as-forensic-rorschach",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "듣는 자마다 제 욕망과 제 증거를 얹어놓는 소리 조각.",
+  "model": "claude-opus-5",
+  "source_sha256": "936f50734a6246ae57df577f39878df9e27fb8586e4d9526b334ed4a96c30d95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-as-the-film-s-buried-origin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 전체가 음성 기록 하나를 중심으로 공전한다. 묻힌 채로.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a2a10edbe16cea4c1605305eedfeb6b75b6004007f022e180d07dde90cead30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-device-that-consumes-its-owner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가젯이 된 카메라는 상품이다. 그것이 담아내는 삶을 되먹는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "351cd83abe2ad29d38e724c5ea7096e5ff8d9fb5403dc408c71a6194d0d33052"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-that-indicts-its-keeper",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "붙잡힌 소리와 신호가 체제 스스로의 자백이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45f91fcfbd410cde23431816fe1ae72e521ff68b4ff051a6537237e9bee2c7f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-that-judges-its-speaker",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재생과 보관. 되돌아 듣는 자아를 그것이 심판한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bd1383172e031d95046937139f21b957ce6f0b83035c42a82ff60516ca9358f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-that-speaks-instead-of-records",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "재생은 중립적 문서가 아니다. 그 자체로 하나의 발화, 수행하는 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2891024c272b6bf65fcbeb05e7ef2898b05733eb169a80b6c389a9cf368b6e5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-records-that-indict-without-consequence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기록은 죄를 보존한다. 어떤 법정도 벌하지 않을 죄를.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc437c95cfdd7a036ff20239dd175d4a3e0b9a1a73aec63b7bb434665bb57a10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recurring-song-as-repetition-compulsion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌아오는 선율. 집단의 상처든 잃어버린 낙원이든 끝없이 되감긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24b7dc276ad06ac06c6e89e63ddaa29c27d29042856480227f7113cd8a03385c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-red-object-holds-what-words-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장면이 눌러둔 감정의 나머지를, 살림살이 하나가 대신 떠안는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88ebd8a26cc3c0a8bdb3be7df5d3d0355b4402509c38feb3a1c3846d774dbfe2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-red-pen-that-savors-the-sin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "단속하던 권력이 제가 단속하는 그 죄를 더 좋아한다는 사실을 알아차린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b377aaa7877bb6418d181aed6a733e49f6bbdb39f421755c98eda93dfdfb0fd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-redemption-reading-as-critical-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구원의 서사는 텍스트에 있던 게 아니다. 씌워진 투영이라는 진단.",
+  "model": "claude-opus-5",
+  "source_sha256": "e81fa52c57ca922a83b2b8c891044df5aa188cbe5010abe1fb1cee1b9634d053"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reduction-to-almost-nothing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "덜어내고 덜어낸 영화. 베케트의 헐벗은 무대와 최소한의 말에 가까워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "762ce3003a4e6633636c8153bff1a86b8fa57fdfc22bfe6fe96c5ef75dd37b0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reformer-who-frees-nations-not-women",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "추상은 해방하고 곁의 연인은 가둔다. 자유주의적 이상의 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "c30680c4aacd7a993c537a59591cf89027d11fd2f3933bd22a3466bd5d37c362"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refuge-that-is-secretly-a-border",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안식처의 정체는 국경이었다. 다투는 땅이거나, 거짓이거나, 지도 위 실재이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "cae98cd2eac7b7867a509bce78674d1fe3d79f36ee216df40d546e67a01095f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refugee-rendered-as-economic-figure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "망명을 상품으로, 선물로, 물신이 된 교환으로 고쳐 놓기.",
+  "model": "claude-opus-5",
+  "source_sha256": "86fe4e067613f34a37ec8520c30935e492a33854b17e6ceeab010383dfba320f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refugee-who-speaks-to-disappear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "터전을 잃은 증인에게 고백은 곧 자기를 지우는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a08db6671d3f651427a0102e2bde9966d2967f02a2ef11fd8ec977c87ff64ded"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-as-kantian-defense-of-personhood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아니오, 라고 말하는 순간 자아는 목적이 된다. 수단이기를 그만둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eaac458cc580361662e988c2c18cd6c35b356442367a8a01fd2b860c429ea837"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-forgiveness-as-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "용서를 거두는 것. 상처 입은 자에게 남은 마지막 권력 주장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f7878e717f4be83424de951c3b2b8660f80c6720bc7ba2142193161d1d9ec34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-the-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타자의 얼굴을 부인하는 일, 그것이 최초의 폭력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e518f4743b3fb5a98814046e01801ddf861d87434d2951a7b7dbd9c68c8f9940"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-the-inherited-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 살과 물려받은 이름을 거부하며 되찾는 자기.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b2edbf2558947acf26daaddc5c7af78cb347ed5a6536528b6f5dcecd33dfd11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-the-wager",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "판에서 아예 발을 뺀다. 폭발이든 자살이든, 순수한 부정.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f97163df0b50745c18fe1a66127f16dc50666cc47d6b736d6bf16fa5c637e7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-becomes-the-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주어진 배역을 사양하는 것. 주인공이 하는 가장 정치적이고 가장 윤리적인 행동이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30191e910586d07f9a17e5e9ecd34e0a39f30247c366b3f7ab67b7875f27b75c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-keeps-one-s-hands-clean",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "썩은 수를 두지 않는 것, 그것이 정치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "675f35a582b1eba967e3f9e973fb2f923038fb44a5886ba8bd6db21d96180abc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-names-whose-privacy-the-law-protects",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 여자가 입을 다물자 드러난다. 침묵할 권리는 누구 몫인가.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ead80becf99d0da7b38be98695f93c912cb821d7d46c3579207f11982879d4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-refuses-liberation-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내밀어진 탈출에도, 구원에도 아니오.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bad224633e0b738e11c7e034d94cc4e6e54ce276c71a6d390280854947c5dff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-to-become-one-s-assigned-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다듬어지고 홍보되고 예정된 정체를 물리치는 일. 그것이 진짜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae7cd551280af37c34708d516ca2d2302a44768f8d71882cdb4e828b126a614b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-to-marry-as-structuring-negation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 혼사를 거절하는 한 번의 선택이 영화의 형태를 전부 결정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "002af1c5679d4cca719b836ab3f080cd0a70a8a8e7a6b8e4c2497bea05487625"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-to-name-her-is-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 불리지 않는 이름. 빈자리가 아니라 구조 그 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32aaa981783f6288b252cf35e3101d86913f23c3ee696943e0bcd8c9a115d196"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-regime-dying-inside-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위주의 질서가 숨을 거두던 시점에 찍힌 영화로 읽히는 작품들.",
+  "model": "claude-opus-5",
+  "source_sha256": "be57aec82829b3871ab2b6d172424b03e68704f38e87ebef68af3f6a045aa76b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-region-filmed-somewhere-else-entirely",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 지방의 고딕을 엉뚱한 땅에서 불러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01e7bab4ccf56deed8dd8bd330bc0b529623d72c3c1c30d78785a9b89f9b69a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rehearsal-method-as-hidden-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하마구치는 제 리허설 방식을 영화의 구조 안으로 몰래 들여놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ade86f70371138d852e7fd190ff94939f4bab25662e0044713314e941a9e64c"
+ }
+]

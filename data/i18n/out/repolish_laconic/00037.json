@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-run-on-video-game-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "리스폰과 세이브 파일, 콘솔의 존재론(ontology)이 서사를 다스린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c43da46ab9cb6cde8ab11bf6c4bdd5810bbfa632087550a8739985a1d6208a46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-s-secret-engine-is-ontology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평가는 어떤 영화든 표면 아래에 '숨은 존재론'이 있다고 반사적으로 짚는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ee61431fd5011bcebab7ce97bad4b982ace4a8a0d76fb6f13680b37bf48dafb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-s-suppression-vindicated-its-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금지와 비방이야말로 작품이 원하던 증거다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7edc9fccc5c01d001806dfdc34c6f892be058e9a76c400fe66d199673cb68ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-scored-as-its-own-elegy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음악, 흔히 작곡가 자신의 것이 죽음과 유보의 사운드트랙이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaa8bc35c19e95005eb9025935360d3be390b9e558e141ecf7330174842019cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-secretly-about-its-own-authorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "플롯은 표면일 뿐, 진짜 주제는 누가 이것을 썼는가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4bff171cb3d644ff80a4495bad3ccb03749b5298a24f3e98715c3260afcb4b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-stock-as-buried-era",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입자가 곧 연대기다. 사라진 시대를 되살리는.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa38c36215e89c9ae2aeb6611f380e7eff3fcb3a65f499397d83cdff071f5182"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-autopsies-its-own-looking",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "본다는 행위 자체를 해부대에 올리는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "28ac8c9a300163f1a59c6340811c986425fd28cccd2e431e451e5bc1f74e68f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-confesses-its-own-authorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품이 안에서부터 제가 지어진 것임을 실토한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7375c3c288bcee25f7128835cd61d37682ee4039d59ea2c72af833a3689462b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-confesses-its-own-lying",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "믿을 수 없는 화자를 세워 스스로의 거짓을 폭로하는 서술.",
+  "model": "claude-opus-5",
+  "source_sha256": "26064d3d0a8be5fc84dee768e8cee0811f6142f1ec69ab0189182f3960080c06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-did-real-science",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미래의 설계를 디자이너가 아니라 연구자에게 맡긴 제작.",
+  "model": "claude-opus-5",
+  "source_sha256": "405b47b2b3d8081bf3ee6090b3fba65bbe69d9ef3567d65a219a1517ca63e8e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-eludes-its-own-captor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저를 붙잡으려는 장치에서 달아나는 살아 있는 것, 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "3649448359329b751eeff1f3fbb77ead6b7d6bf34739c5baf7ff84b1d788286f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-ends-only-in-dawn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동틀 녘을 지평으로 삼은 통로로서의 밤.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e75e6559a966fa563b1573bf34f4f49910473982aabe951472255fa16764ed1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-forced-the-rating-to-mutate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력이 너무 과해서 검열 제도가 그 앞에서 휘어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2d272140e2a4c65ed3d893224be422616a88d9a601124daf5f64bc535097b39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-indicts-its-own-viewer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호명도 대면도 스크린 바깥, 관객을 향한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6ecaf9e68b401dd4f27cef0aabfee2d039c6b184f6aabcfb7dd220b90060326"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-is-its-own-advertisement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알든 모르든 제 자신을 광고하는 상품, 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "61ff563bfd05bd08b4ee9ea9004ddf4d1ff45109ae64768ed4b9ca5015088bbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-listens-back",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리가 배경음이기를 그치고 듣는 주체가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6bfcda07ec4eca28ccc00bd0883711e0a0e8abf026e7225f6fb73c1ff2741f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-names-itself-and-confesses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목과 후일담에서 영화가 제 인공성을 털어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "278e16df668f54bb0a8a206fa0b22be9db774232299cc5fe311d9280d4b9609d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-puts-god-on-trial",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품마다 신정론(神正論)이 상연된다. 소환된 신, 변호받는 신, 어깨를 으쓱하는 신.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d6a12f5020a07908535a8feac07262de92f84d9e6263dfe935cccdbddb49a0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-reads-its-own-letters",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 쓰이는 중인 글자로 지어졌음을 고백하는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1a86fad843ccec57c79bed083b8de6a4ba76f9219c2998d6b3c3354733da499"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-reads-its-own-release-date",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작품이 터져 나온 그 정치적 순간이 곧 해독의 열쇠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3903f26bad1e121bc2afdcccc082a0c1a6dbe2dd732c00c1d05982ad42952c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-repeats-to-reveal-its-shape",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구조의 되풀이가 의미의 은밀한 설계도다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d2b593a0d94321f5d9a4758c8c2dc3bfca4b99add4782cf4f3c5f26ea6a71aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-rests-on-sound-as-agent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리는 신호가 아니다. 다스리는 힘이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c9e8c80368de7180337eceb3e74e51d19f7438669af01f7dcda6af3b2ccaba2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-that-watches-itself-die",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화가 꺼져가는 제 이미지에 임종의 눈길을 준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8037beb12e70a085ded62359881ef880c447a9ea9af1963f4a3065ee2c308401"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-the-censor-accidentally-authored",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "금지가 형식이 되고, 제약이 영화를 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83ed05fd2adc5a32f17c0ed0a44d826d8452b7972470a40582d8bb27d4c4465f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-was-born-in-the-edit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미는 현장이 아니라 컷에서 태어난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7e6021478c4ca34adfb2bc9de289582a3cbf03ace810d03642e62b6e2c759d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-whose-hidden-ontology-is-liturgy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서스펜스든 장르든 결국 의례(儀禮)로 녹아들고, 그 의례가 진짜 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1d4f53081bfddb3566f6efceec1e21be053d9629943a6152c4cdd4b30dcf5ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-written-each-morning-on-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대본 없이 매일 짜내는 즉흥, 그것이 영화를 낳는 구조",
+  "model": "claude-opus-5",
+  "source_sha256": "e069333a589ad40b1a8b3c5e3d8929594f9b3a14f002ab16497d377a649b7064"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-yoked-to-a-painter-of-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "독해마다 영화 한 편을 빛이 녹아내리는 화가와 짝지운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdfa80941d83ae58891894c0602461f7f927ca4548f6966e191d3041f37b5e37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-filmmaker-who-refuses-to-conclude",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감독은 기록하고 받아내고 선언한다. 판결만은 내리지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec6381da4a381521d0392f42a7a6d4f525214538442fd813adc9421c2393db10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-final-boy-as-slapstick-martyr",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고문 속에서 저도 모르게 몸으로 웃기는 생존.",
+  "model": "claude-opus-5",
+  "source_sha256": "42ed29ab02eea30670278596ff6029769b7fda9cdbf8379771cfaaafe7c84ab1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-final-reel-that-allegorizes-cinema-s-own-eras",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결말이 상연하는 것은 영화의 역사적 살해, 또는 그 변호.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd26fdc7526818250fd86b1609b18f5ab4c1ba737db73ea275dc4beb54a9fac6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fine-print-as-debt-bondage-reborn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계약과 시장을 다시 쓰면 구빈원의 노역장이 되고, 중독자의 거울이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c20c78d2ee23411f61ed2a5e1b52ffdffb75fb14d4cf9a7aa82a6a7c3ac71c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-finished-film-as-scar-of-its-chaotic-making",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "왕가위의 즉흥이 부른 위기들이 화면 표면에 그대로 남아 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fec4db0c4104d05003d92ab7c2ccee36144a2da282aee047ad53c0104f9146cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fire-that-refuses-to-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유품을 태우는 일은 애도가 아니라 멜랑콜리다. 상실을 쟁여두는 파괴.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bc69725326c192715662b7778c43b905d779f9accd2f8951435b43ee64cbe7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fire-you-are-forbidden-to-cross",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불꽃은 이름을 가진 문턱이다. 그리고 희생자는 혼자 건너기를 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "067b4bc3822ebff12daa4d9b55c3f83d198bce7cbc00c651995af0861bfd60f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fish-that-names-a-lost-innocence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 든 물고기 한 마리가 빠져나가버린 것을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a804258741a7e26d80d7eba2d2a674adac6bfb98587f288e44767bbccd96c92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fixer-as-the-firm-s-outsourced-conscience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력을 관리하라고 고용된 남자가 그 권력의 도덕적 찌꺼기로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bee00cc8d28eacc6a684c3347843edc627fabb044b4847e9928aa8acae58557"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flat-voice-as-affect-drained-away",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감정 없는 내레이션. 비워졌거나 풀어헤쳐졌거나, 치명적으로 고요해진 자아의 신호다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcff688cb5c52364fdd584bfe0a4f10dd25d896b757f28cc6d8174073bacb55c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flattened-voice-that-releases-feeling",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밋밋하고 중립적인 발화가 오히려 깊이를 불러내는 정밀한 악기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e88bff1cdcfb49a02440ca997009bd191b91da7ea501f8e97d2e397465ddeee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flesh-reforged-as-commodity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상품의 논리 아래 다시 빚어지고 낙인찍혀 팔려나가는 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac7c84eaf9dd238aa2b816b732d488b2165bffbac54a51a91d6348551725a845"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flesh-that-betrays-its-owner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 제 주권을 주장한다. 반란하거나, 아예 자아를 모른 척하거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "b90ff7ac0c119552374d26b3c5d13d9e6a63296d08ba030a831d20575e3d46f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flesh-that-betrays-the-myth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정신이 뭐라 하든 전설이 뭐라 하든, 제멋대로 움직이는 몸이 그것을 무너뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fbbf4e8d2543d133e4fd808e26f4164a1ee6e0322aac160e48b0af8873656db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flesh-that-turns-to-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "생체기계와 한 몸이 된 육체. 살은 장치가 되고 공포는 설계가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f3ae0f5ab247c0b3b8dec2e88e1a1d162f781ae34400223f3dafa5d69e04d43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flier-who-refused-to-be-cargo",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "땅에 묶이지도, 진급하지도, 짐칸에 실리지도 않겠다는 조종사.",
+  "model": "claude-opus-5",
+  "source_sha256": "3227b48dc1bca7c6d0894d410abf2cc90e07429c369208240b6606edbc2936e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flight-from-the-father-one-becomes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도주의 정체는 이것이다. 제가 닮아가는 아버지로부터 달아나기.",
+  "model": "claude-opus-5",
+  "source_sha256": "14ee80866e7a06fb9513eea04e915b813e80f05eb4eebc25721673d83d292a4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flood-that-speaks-through-fable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카트리나의 범람이 신화로, 알레고리로, 기이한 연대기로 옮겨 앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2967ae23aaae7fcaccbf75b309e420d306ebe98d8fb830a01f242cc24188ccf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flop-reborn-as-sacred-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "극장에서 죽었다가 사후 유통을 거쳐 정전(正典)으로 되살아난 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "23d14400885fa6c99920b6c242837edcf2ef0a1bf489415232c2bd30ca13ce58"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flop-that-indicts-its-audience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흥행 실패를 다시 읽는다. 진심을 못 알아본 관객 쪽의 실패로.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7fa6a832ee4115f8ad4ed9e05600de92759d7b0490d4150861a9c57021d122c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flop-that-outlived-its-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흥행에서 졌다는 사실이 훗날 그 영화의 논지를 입증한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bf03f69a95b1df4e0ef5458f81a9b1729d0f7eb3cec3499d2c10110ca42b343"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flop-time-recanonized-as-scripture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참패한 영화들, 훗날의 시간이 걸작으로 다시 분류한.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcc1e3db08d6a740249477f795c6262ef4dbf22ca30f1e9e0e4f715f47561337"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flower-and-the-fire-made-one-word",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피어남과 무너뜨림을 하나의 살아 있는 힘으로 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae7b98716cc530030bca3ac0bd28fae522318cd557241a57d5355fbebe016681"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-flower-that-indicts-the-forgetful-reader",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꽃 한 송이에 진실이 적혀 있으나, 남자는 그것을 읽지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5068926929897647b111ab3e8db2dc9389de528dc2f49f9b1e7b079413f49196"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fly-as-crushable-small-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상이 후려치고 삼켜버리는 그 작음, 벌레가 그것을 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f56ce4615a59840acf145e2e92dce0f1b4fe79390e4f72a9e9231e2486b0f710"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-foe-as-disowned-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악당이란 주인공이 되어서는 안 될 그것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c59b33565f53bd0073e5a806fb0dcaf0fb485df832e7f8bff17c12bc0d408e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fog-as-bracketed-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대기가 흐려지는 순간, 현실은 현상학적으로 괄호에 묶인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3c21103b3dfce52609160f4e457ab68e34b3003a100ebabc6045173e3bcff35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fog-as-conscience-not-obstruction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "안개는 시야가 아니라 도덕의 매질이다. 죄책과 모름과 풀리지 않은 것이 거기 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "843032ce7c5a4d8d74b8b860070aeabfddefee303b29d410efb200f7e60fd452"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fog-as-manufactured-deniability",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가려진 시야는 정직한 불확실이 아니다. 설계된 핑계다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2a653f126801a0fc76cb86f4d146ca6b187c7a493d4726364d0a3363b60317b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-foliage-that-speaks-a-hidden-grammar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꽃잎과 잎사귀가 이 영화의 은밀한 구문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "330b6e20eec25e791c155c0dfe1c2420b578a9cdf145489716666a1f60d7bb0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-folklorist-who-becomes-the-folklore",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "민속을 채집하던 자가 그 민속에 삼켜진다. 혹은 그 문화가 그를 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af64f9ab0998f00919658be8a1aee5b6fafdd2e4dac4a9c43f8427428510301a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fool-who-alone-sees-truly",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자유롭게 보고 옳게 보는 자는 오직 성스러운 바보뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1574d2e79aed87caf632248d9287023c3d2fe5e963a653eb83893ca29912b737"
+ }
+]

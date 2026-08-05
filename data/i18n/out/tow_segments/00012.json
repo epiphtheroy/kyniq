@@ -1,0 +1,452 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d365e52a71f4166c",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상과 은곰상 주연상에서 인정받은 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "d365e52a71f4166cb52bdff597aefda270a1ee750c2063657bb9930e5527ed94"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bce42ca40de95a71",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Anurag Kashyap의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "bce42ca40de95a7101f0f44d4acd072ee5f2807bc0dc223edf260a319e8c4925"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da825f4c1ea6b1f2",
+  "field": "text",
+  "lang": "ko",
+  "text": "Canadian Screen Award for Best Motion Picture가 예우한 영화, 널리 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "da825f4c1ea6b1f22daa34a34ca8c80fbfd14ff10d86c8d099b949ed60c41c30"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5816971f212d4463",
+  "field": "text",
+  "lang": "ko",
+  "text": "Najlepsze filmy polskie에 오른 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "5816971f212d44635e232e2feea3a800ab4c7e30b07d4274015e893d8ba86b06"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "42a1b0ed4312709a",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Richard Linklater의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "42a1b0ed4312709a76995a22f4cfce0e529d7e5fb310f861826db20ca1042216"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "858dfdd2b9d1b4bc",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor와 Golden Globe Best Motion Picture Drama가 예우한 영화, 일반 관객에게 대단히 유명한",
+  "model": "claude-opus-5",
+  "source_sha256": "858dfdd2b9d1b4bc05bc6936a91d618fd4094ab940d51a891e8bb87d1ac46b55"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bd53a3a6e142396c",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: New Hollywood.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd53a3a6e142396ce9a715a4cc69976820afbbc3128c802587bd742d537617b3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d9310d464d635dab",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA Best Original Screenplay가 예우한 영화, 널리 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "d9310d464d635dabb00030ae46051bc19cdda1764e888922fdb02de5b430fbef"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5c20123fb27dd643",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Terry Gilliam의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c20123fb27dd6435aa968da57a1e7e461ab684df92688b1621bc885a1f49674"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2669953de54de139",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA Best Original Screenplay에 오른 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "2669953de54de139e29e00c5a45e6d7d0ae77b80b533d9e20cd5f2e5827f22d0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b78f523c661e6b84",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Pedro Almodóvar의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "b78f523c661e6b84c1af0415b77fb60e05cc920af6e780c19c2aab585168a3e8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c69e0ca19a9193ca",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Nanouk Leopold의 정전화된 작업 세계가 떠받치는 작품, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "c69e0ca19a9193cac04771792f5e025b9571b564b3f8c10c5921201de4de577b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "70ae6d831ae0559d",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Francois Ozon의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "70ae6d831ae0559dc9a71e6aa27741247d190aa607387469bb24d1442ea1b769"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "10c2a39f6a3118fd",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Luca Guadagnino의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "10c2a39f6a3118fd555cd9960f0d6d1fb25e731f1c20507544e38cc30a365a03"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5b41ff75703aa7b2",
+  "field": "text",
+  "lang": "ko",
+  "text": "Gdynia Golden Lions for Best Film에 오른 작품, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "5b41ff75703aa7b230e717252dce8204fdbaff021f7eeda5f0504e0e16ce8626"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c3d0a0ad42d94a32",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Nadine Labaki의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d0a0ad42d94a32fb47e2e514865a8009a47b185f8632f29bb7a10f89f14e96"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "16f39f39825bd4ce",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Actor와 1001 Movies to See Before You Die에 오른 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "16f39f39825bd4ceb65879bf1b776912876ca8341113b88330d9796e772a0ec8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a08e4f60e0db6844",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상과 Abraccine: 100 melhores filmes brasileiros에 오른 작품, 널리 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "a08e4f60e0db684430e32755108f535ef7febd1227b65460a4d84bc0dd7a4ec7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "715d45354f7eae43",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Kelly Reichardt의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "715d45354f7eae43460bfc759305448b1e51d8fbd9bd585ed567ef7350762c7f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2d7500b4af24ed82",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 은곰상 감독상에 올랐고, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "2d7500b4af24ed82b710a43f689dc1d2646b7804b2dbcb24dc9e0b02105521dc"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b213f33a1b262951",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Poetic Realism.",
+  "model": "claude-opus-5",
+  "source_sha256": "b213f33a1b262951921389d8ab336b6b4527c1102e6fcfc4e27a11ba2fda3b53"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ec9f40b611c1da7b",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Aida Begić의 정전화된 작업 세계가 떠받치는 작품, 일반 관객에게는 거의 알려지지 않은.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec9f40b611c1da7b11d7cf080ed7ee11fd3a6ea694e7e71786b02fad881baaef"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "49c216a36b46ab8c",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Caimán: 100 mejores películas del cine español에 올랐고, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "49c216a36b46ab8cc37b0742a4ed3de032e7ec15ef68e6d5f08a0017e5174092"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "00ce55205af31e4c",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Grand Prix에 올랐고, 일반 관객에게 대단히 유명한",
+  "model": "claude-opus-5",
+  "source_sha256": "00ce55205af31e4cea1aef75d1fbae0f3a30206bb3539ae25c8ffa9b71ed95ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3674765a6cab2348",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Olivier Assayas의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "3674765a6cab2348dbd8794b9b1a356bc1016e3db5e915f83ae3a0d202e8670b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4fbde8d363b25f92",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films Directed by Women에 올랐고, 일반 관객에게 대단히 유명한",
+  "model": "claude-opus-5",
+  "source_sha256": "4fbde8d363b25f921747635bc2fa232ba4211aa5d0686f5fa7c8fd38cb1b8d03"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1948f78d3dd91932",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Amy Heckerling의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "1948f78d3dd91932dab13003a21c901e0c931a88417669422bf8c95048abe3a5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b7924741a99f533a",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Paweł Pawlikowski의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7924741a99f533a63a1ebf4b9988777530c8862b9a4d0ba4393884a1971d5c3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63787045d173b71b",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Jan Komasa의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "63787045d173b71bad314e9a2395ff4a796ee98cdc168a53e0df27e4185bfa2e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b8f9ba275d1bd567",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 New York Film Critics Circle Best Film에 올랐고, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "b8f9ba275d1bd567d1e1dd55a5dfee15763c9aa63c12b8f69f9c4564b5ef85db"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a95cd57678947f9c",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 David Cronenberg의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "a95cd57678947f9ce61d6bab7084c085c5229a6f2c735629f90df81fc3825189"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cf59ad163390115e",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 오시마 나기사의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf59ad163390115eb164f9e2bbfc50e293a549472bae04d797a94b47914021cd"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72bb0a7b9cd55e09",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Kinema Junpo All-Time Best Japanese Films에 올랐고, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "72bb0a7b9cd55e092f453553683eb02cae5c680c45cb2af3f3983a348e1c2520"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "87e5d8f470c3d2e4",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 George A.의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "87e5d8f470c3d2e420a717156c9046c45d0a51bf8aa8109713574cba52022133"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ac3b1c0f17d4f061",
+  "field": "text",
+  "lang": "ko",
+  "text": "Romero의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac3b1c0f17d4f061ee747da0219d6a04ecb8988af47eccee0f76206f1d159414"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "77cf1598f7fb52fc",
+  "field": "text",
+  "lang": "ko",
+  "text": "1001 Movies to See Before You Die와 Cahiers du Cinéma: 100 plus beaux films du monde에 오른 작품, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "77cf1598f7fb52fc0bb3ce222ee076cf1796d7b31f66eafdb7a9a21a350a75e2"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4f8e6afb4f100dcc",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: Japanese New Wave.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f8e6afb4f100dcc06f460b5d49a4b0f945f2c52e414a960c2e6bbccd3a16171"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "78840fbfb3f5f346",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Original Screenplay에 오른 작품, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "78840fbfb3f5f3464e4dc6db249d0c0e4ee3040c8d3c1a4b7b30f6b01b88cd37"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7c9c684958e6df4f",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 장원의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c9c684958e6df4f0d37b82fdaa207f46edb6d6b7f3e79c87c5e544b79b35e9c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5487f86c44a15d34",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Sacha Polak의 정전화된 작업 세계가 떠받치는 작품, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "5487f86c44a15d3475d0d2d32d0a13ba16dc1946d0cb0fa1c40da3f4bf767f20"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c3e6cc1a81c057a6",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Golden Leopard에 올랐고, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "c3e6cc1a81c057a67a5952ca46211e6263e34e144d89afe646f56abd62331f98"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9da7f03450f1063d",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best Original Screenplay와 National Board of Review Top Ten Films가 예우한 영화, 일반 관객에게 대단히 유명한",
+  "model": "claude-opus-5",
+  "source_sha256": "9da7f03450f1063d7edbaa3d28b9a0cd4543e6735fd56bda04239bf1ee5817f0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7c9db5b13d4ff3c5",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Radu Jude의 정전화된 작업 세계가 떠받치는 작품, 일반 관객에게는 거의 알려지지 않은",
+  "model": "claude-opus-5",
+  "source_sha256": "7c9db5b13d4ff3c587a415a0a46c4a665977eaecdb67b619fbd8e77fe9ca82a9"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b29d186ac65a069a",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Best Adapted Screenplay에 올랐고, 널리 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "b29d186ac65a069ab9b0fe0f28cc83d45813215892c967b3f0dbee5af5beaa29"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e87fe9a22062d4d1",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Best Original Screenplay에 올랐고, 일반 관객에게 대단히 유명한",
+  "model": "claude-opus-5",
+  "source_sha256": "e87fe9a22062d4d127a71c3b06167a985cb849a9e4e281b2c3202ed5b37ac244"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da38a899ce9176e4",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 François Ozon의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "da38a899ce9176e417ad334ae6e3b133cf7502b6fa70a2cbe539671832204e5b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "36106014b9a386c4",
+  "field": "text",
+  "lang": "ko",
+  "text": "National Board of Review Top Ten Films에 오른 작품, 일반 관객에게 대단히 유명한",
+  "model": "claude-opus-5",
+  "source_sha256": "36106014b9a386c47a39d57647d582f794f5ebe9f6ad6cf3b3d356f39e858d81"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c27319a908dad43e",
+  "field": "text",
+  "lang": "ko",
+  "text": "Best International Feature Film과 Best Screenplay에 오른 작품, 널리 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "c27319a908dad43e7b633c7fc4212e22b8786b23b4612e09d46868bd250c576e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ed46882f42580ea3",
+  "field": "text",
+  "lang": "ko",
+  "text": "Kinema Junpo Award for Best Film of the Year에 오른 작품, 어느 정도 알려진",
+  "model": "claude-opus-5",
+  "source_sha256": "ed46882f42580ea33a3486f34738bba468c33372eee473b15df186d8dbfaf7f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "50184bfba5d8a27a",
+  "field": "text",
+  "lang": "ko",
+  "text": "작가 Tim Burton의 계보를 통해 다시 값이 매겨진.",
+  "model": "claude-opus-5",
+  "source_sha256": "50184bfba5d8a27a269d249a8c750985601a5a0f1e6475b5500e45f9c44855be"
+ }
+]

@@ -13,7 +13,10 @@
 //   CONTENT_LANGS  — WHAT LANGUAGE the films are named in. Drives the TMDB title
 //                    projection (films.title_<loc>, migration 0121) and the
 //                    multilingual search RPC. Independent of country entirely.
-//   UI_LOCALE      — the app's own chrome. Stays English (see below).
+//   UI_LOCALES     — the app's own chrome. Follows the device language, and
+//                    Settings can override it. Separate from CONTENT_LANGS
+//                    because reading buttons in Korean and recognising a film
+//                    by its Korean title are different needs.
 //
 // Adding a country = one entry in EDITIONS. Adding a content language = one
 // entry in CONTENT_LANGS + the `_<loc>` columns + a backfill run. Anything more
@@ -103,10 +106,27 @@ export function langLabel(code: ContentLang): string {
 }
 
 /**
- * The app's UI language. Owner directive, reaffirmed 2026-08-03: **the app is
- * English.** The service is for viewers in English-speaking markets, so a
- * Korean-reading user does not need the whole app in Korean — they need to
- * recognise the film. That is what CONTENT_LANGS is for, and it is why the two
- * axes are separate constants rather than one setting.
+ * Fallback UI language when the device asks for one we do not ship.
+ *
+ * History: this constant used to pin the whole app to English (owner directive
+ * 2026-08-03). That directive was reversed 2026-08-06 — one binary, localized at
+ * runtime: the device language picks the dictionary, and Settings can override
+ * it. See HANDOFF-한국어화-구독번역-실행.md §4.
  */
 export const UI_LOCALE: UILocale = "en";
+
+/** UI languages we actually ship a complete dictionary for. */
+export const UI_LOCALES: { code: UILocale; label: string }[] = [
+  { code: "en", label: "English" },
+  { code: "ko", label: "한국어" },
+  { code: "es", label: "Español" },
+  { code: "ja", label: "日本語" },
+];
+
+export function isUILocale(v: string | null | undefined): v is UILocale {
+  return !!v && UI_LOCALES.some((l) => l.code === v);
+}
+
+export function uiLocaleLabel(code: UILocale): string {
+  return UI_LOCALES.find((l) => l.code === code)?.label ?? "English";
+}

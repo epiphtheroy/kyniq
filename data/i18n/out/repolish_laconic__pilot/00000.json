@@ -1,0 +1,47 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-label-as-critical-flinch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코미디라 부르면 그 영화가 겨눈 고발을 피할 수 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d49d29c65ae6d1d7f42592e8d6674d679bd7f22b8cbaa83a5067d4b81bcb11f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-audited-as-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도덕 질서가 정의가 아니라 장부로 굴러가는 세계.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cd54df97ead45e3e49eb88cfb0130b823997e16753ccc4e3c36d1c54f701d5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-market-colonizing-the-last-refuge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자본 바깥이어야 할 자리까지 자본이 밀고 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b6f5f16719b0d1ee7ab18efaebd9740d7f07458c4f1bdb6a162236740b97d64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-that-outlives-its-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바벨스베르크라는 실체. 역사를 짓고, 위조하고, 끝내 되갚는 장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "857edbe95925f650e56dfc6967bdc4ec80bca91c0d3ac0fc92861df48177fc34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duty-and-flourishing-cannot-be-reconciled",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "칸트의 의무와 아리스토텔레스·에피쿠로스의 삶, 그 사이는 끝내 메워지지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff96d0d03367b09db26c5ee09f4895d576ca28542b89bfc590014995e7be43f5"
+ }
+]

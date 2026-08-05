@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "atrocity-filmed-as-ordinary-weather",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔혹이 스펙터클이 아니라 공기가 되는 자리. 흔하고, 물려받은 것이며, 그냥 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0144edc1eab41412eb49d4ca4b50ea6cb9ae5120b2f3e45f194cc824dd1882e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "atrocity-staged-as-public-entertainment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력과 억압을 구경거리로, 안무로, 대중의 오락으로 상연하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "7021e7da9170f5f771a1f55c294b726af25a91b1685883666dc861ddde019595"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "attention-as-quiet-ethical-practice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작은 것을 오래 들여다보는 일. 그 자체가 윤리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87e41c384a93e80e381e12c1e87c7b6159220c05bfd318762292838f68bbff69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "austerity-as-refusal-of-television-grammar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작은 화면의 미학에 맞서 벼려낸 절제.",
+  "model": "claude-opus-5",
+  "source_sha256": "43a30d168bb7573699c6e7309e892a394d65be658a6b98efd3c7ea64458222e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "austerity-britain-read-through-its-walls",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영국의 궁핍은 집과 건물에 새겨진다. 공간이 곧 암호다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88eb9fd3fbb9bf87907d848eb1cfe535858a668b70259dd2f1751655f6a43e8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "austin-as-the-city-that-plays-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오스틴의 실제 지리, 그것이 이 영화의 숨은 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17a9d60a57c1ab9dc4bfae5fc48d72239d475a5dcdbfc90be00fc92febe44d35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authentic-being-chosen-over-mere-self-preservation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하이데거적 본래성(Eigentlichkeit). 유한함을 끌어안고, 안전하고 편한 출구를 마다한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fd85e638acb0c166c27972fb54fd0edf7860a48d943e3879a0d16c13d774e3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authentication-as-the-film-s-true-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜인지 확인하는 행위. 영화의 진짜 드라마는 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e307a010dd25a37acb7bec7f9bb819aaaf42c498c4b8bea6916dfd0e4ce5f3c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-as-the-lie-that-damns-you",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'본래적인 것'은 덫이다. 자기기만이고, 끝내 배신당할 제안이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6aac5fdc9d9afcb0247c7af4229d59f180d84930b06df5e78f0aa6b4c01303ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-as-the-marketplace-s-anxious-fetish",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 허위를 두려워하는 산업이 '진짜'를 상품으로 판다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dec273acaa9f97ebcf0e23ef606585f5739b3bd3e7fc2f0a137c71b8b849a7a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-is-already-a-brand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜는 입을 열기도 전에 제조되고 홍보되고 팔려나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd89651cd39bd3538c75f2ca4d683bf07fd76c77125e195458f9d9877995ff2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-purchased-in-real-danger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈가 겁에 질리도록 실제 위험을 연출한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca1decaedb1b040897e2ff49acf39a12fa1c73327da65bf671ddd20d20944a60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authoring-meaning-at-the-existential-crossroads",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벗겨질 대로 벗겨진 인간들. 자기기만 대신 자유의 불안을 고른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "687e1e1d7aa267d4680a581b7399f30554ebaa97f4f958290f9ad2b8102efda5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authority-as-manufactured-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력을 정당화하는 것은 동의가 아니라 연출된 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b050c5573326f8bf303ce757587c45ec7e885df9ad6e9b60270a9ef2e91713e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authority-manufactured-by-the-stilled-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멈춘 구도와 설계된 정지에서 불려나오는 권력.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b8f0882cb3ce1efdbc4734439453808c0d18bef387e952ad0f2e1d226e9994b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authorship-split-across-two-collaborators",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두 몸으로 갈라진 하나의 자아. 공동 창작을 그렇게 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4482442aa0d2414d643392e7a6dabacbb548dfba22098738682a4634d724865"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authorship-surrendered-to-the-filmed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다큐멘터리 작가가 저자의 자리를 넘긴다. 피사체에게, 우연에게, 주워온 필름에게.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfd06f1864a7de5c1bf12db1001ddd99e91fd3a428abb042be538a68e8a2cf91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "autofiction-anointed-as-the-sanctioned-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평이 자기소설가에게 관을 씌운다. 시대가 축복한 양식이라며.",
+  "model": "claude-opus-5",
+  "source_sha256": "f80dfab4c25d83a0fa1d21f20d738901a29ea129124d502fb2e202227d2540dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "awe-engineered-from-underexposure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "통제된 어둠, 색, 원시적인 광학 속임수. 경이는 그렇게 제조된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "932c6b343595eab27584feacd053d1d54e526d7b70f6d83a5bad77c409c9e6ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bach-as-the-sublime-denied-to-the-damned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바로크 성음악이 표시하는 은총. 하위 프롤레타리아는 거기 들어설 수 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc262270b2d1d989721e8813998766ef50d8de25011fe4321b4c06267a89dfc7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bad-faith-renamed-as-fate-or-destiny",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'운명'이라는 말. 선택을 세탁하는 거짓말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63c00203bc1d995addc766b5b99b43560d49453fdbfd908187c57e07d7880613"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bartleby-s-heirs-the-politics-of-refusal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "\"그러지 않는 편을 택하겠다\"던 멜빌의 필경사. 주인공들은 모두 그의 후예로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf53422808c7aa08b8b1c582743badb57f6664daee3f40b02bcb72ef634530ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-as-the-aestheticization-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "복종과 위계와 질서를 아름다운 형식으로 빚어내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "0644292ab215e8e84e26aaee8065e10b1f43bbe41b75db75944980c4468b226b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-as-toxin-without-antidote",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해악과 부패와 잔혹에서 떼어낼 수 없는 아름다움.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c8620994d67c699172ca8e5b392c2cbbb5b394643814f12353a250dd85d2ee7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-awarded-to-bury-the-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표면의 아름다움에 쏟아진 갈채가 영화의 정치적 고발을 덮는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa05d712c10fd9689a11553327edfe6ed666049e9e553c010e72bcb2d5e888a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-bought-with-another-s-subtraction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아름다워진다는 것은 누군가에게서 그만큼 덜어내는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cc54a49cc60f2acd33fca0eaa342869faab41c29eee4631d3d62c869d4beef1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-canonized-to-disavow-the-perversion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평이 표면의 우아함을 떠받든다. 작품 안쪽의 도덕적 부패를 덮으려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c7e6d081354dc987be3dd8610581535d889f64fe2967efa1884c180eaffe21a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beckett-s-stilled-pendulum",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빙빙 도는 여정이 우스꽝스러운 정지 상태로 붙들린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "168fe3234059e71a44dc483cbe568cdbd12d5404595f363df07f99ba6b145ae8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beckett-s-tramps-who-cannot-leave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 자리를 뜨지 못하는 짝, 혹은 무리. 좌초한 채 티격태격한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5fb5a1069a502d76284ec1d8f417980091fa480e3bc8482441a4d431344d0da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "becoming-the-enemy-you-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인공이 부인한 욕망이 살을 얻은 것. 그것이 적대자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b94451fa1d427cd0ea4435b3736d10b79da00aa990670fb5c0d23b0e661aee2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beijing-filmed-as-its-own-demolition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "철거 한복판에서 찍힌 수도. 매 프레임이 앞당겨 부르는 애가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb35b26c038cad8b5bc4ac8a02d34e6af9bc72b94f6fb50a6674aadb36d17aa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "being-toward-death-as-authenticity-s-only-door",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음을 향한 존재. 하이데거에게 필멸성은 본래적 실존으로 가는 유일한 문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c20e2df50e68805f292924c99af28ef59ddc035d7335e88cbc6e47875f402279"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "being-watched-as-redemption-or-damnation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스타덤과 감시가 보이는 자아에게 약속하는 것. 구원 아니면 파멸.",
+  "model": "claude-opus-5",
+  "source_sha256": "36a6ec9df6be460ab16949481c6fe09121a77c3584b087ecaee17deaec7a2128"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "belated-crowning-of-a-local-fury",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "특정한 분노에 대한 대답으로 뒤늦게 도착한 보편적 영예. 초점은 이미 옮겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "935c6df5965321ec5c3d201808ba2c2a43954155f563c9a6742878dcaaff94a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "benevolent-tyranny-disguised-as-mercy-or-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄이라 부르고, 보호라 부르고, 어쩔 수 없다고 부르는 지배.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9ca972bfda060fa8f25613b74a71c4a51460f6e24772b5a405b50e329463967"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bergsonian-duration-against-clock-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 떠받치는 것은 짜인 사건도, 지금 이 순간도 아니다. 베르그송적 지속(durée), 살아낸 흐름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab1319114207d58220c3e00951267281623c6b62064cbdf8bd6a330ac2d04723"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "birth-filmed-as-bodily-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "생식을 비체(abject)로 상연하기. 자궁이 곧 공포다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d1d5f258bd0b6fe4ea03ff20c07e03291447b87838d2be88a4b9fb279049124"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-as-an-argument-not-a-style",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑백은 양식이 아니라 논쟁이다. 색채의 충만함과 현재를 겨눈.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fd121b8dd1d84cc12761b4b60a781ad57b651d49dd653f21825c8cf1fb998dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-as-the-solo-auteur-s-budget",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흑백이 곧 서명이 된다. 혼자, 적은 돈으로 찍었다는.",
+  "model": "claude-opus-5",
+  "source_sha256": "73836fb2a957bcac642f55b62116b10a7b889d1eba8e3567afe70d92c158aabc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-as-the-truer-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "색을 빼는 일이 기억하는 일이 된다. 도덕의 문제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96a4dfa00578f0071a6f08197119c3e20d4b457ee2d215f8a627d889c562056d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-born-of-accident-not-intent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제약이, 검열이, 실패가 데려온 흑백. 그러다 의미로 굳는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9a5a008ad796e4c969f920840a94594bbbc462d9a56b6f68284763bae61270d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-stardom-smuggled-through-white-genre-machinery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "백인 코드로 짜인 상업 장르물에 소울과 흑인의 존재를 몰래 들여놓기.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8b63be5ddf758772d930f2d30ba21d8e90a6886de2d2dd5ea843636cdbcd6a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blackmail-as-privatized-patriarchal-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자들이 더는 입 밖에 내지 못하는 규칙. 협박이 대신 강제한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56cd0a5999ce6017bdd5f067d072492e1dfdc88f927d5304a97ade89d984d025"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blackmail-as-the-underclass-s-only-property",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쥐고 있는 비밀 하나. 빼앗긴 자에게 남은 유일한 상속 재산이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67d2b27247fcb5ac8053b0bed9c13b9e864bed393cd169a22ef5fd22450c0649"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blindness-as-the-eye-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보지 못하는 눈이 체제의 감춰진 진실을 붙든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06cd172bb918ef50a009f7ef2639ad9d7adf4b454b35235fd2756d095649f6c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blood-as-biopolitical-supply-chain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피가 인프라가 된다. 혈액은행, ��액줄, 특권, 그리고 뽑아내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "84da8954e08270d7a8a1d104a2d189dcd8e769ce5fccbccb7b9150f457983171"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blood-as-sacrament-profaned-into-appetite",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤집힌 성찬. 거룩한 피가 갈증이 되고, 전염이 되고, 살의 친교가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f82fa3c05e53dc447e52ab20ce1241e6151a474687aad238ab6487da4b0866a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blood-purity-as-the-law-of-belonging",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "마법 사회의 위계는 혈통과 등록과 소속의 자격으로 굴러간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6dce4ca49e57721cad15be6f41eea97017c590b2b88b6b5e28212a3719dbcf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blue-as-the-film-s-hidden-thermometer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑 이야기가 몰래 재는 온도. 색이 그것을 암호로 적는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e890ed25c76e9ef9b0ac53d6bcec4e087ff2e49613fb1941fad95dd9064ab54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bodies-drawn-in-schiele-s-tortured-line",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해부도처럼 놓인 육체. 드러나고, 뒤틀리고, 말라가고, 일그러진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce027a9cc87ebfeefc66b87d30bab4e799338f7874bfba5ab760cd3b42a5c416"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bodies-worn-like-garments",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입었다 벗는 옷으로서의 살갗과 자아.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad45c6e5a3f5bf7233cbaf5dfe7522a6756866b673e4449a301d0d394b2af887"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boredom-as-the-door-to-freedom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목적 없는 따분함이 열어주는 것은 감옥이 아니라 해방이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ef3c083dd7fd3016446c17e9b7018e043968988ac208db9bcb969ab6f2b6a73"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boredom-as-the-last-luxury-of-privilege",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "특권층의 권태를 두고 \"지루하다\"고 말할 때. 그것은 놀고먹는 부에 내리는 계급의 평결이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "656890c7c4947c3958f70554052ab2716f0bd827498721d2192709d25030668f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boredom-wielded-as-a-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인공의 손에서 따분함은 정복과 지배의 연장이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30006da2bb990390ab278eb1ed8f2dd04e38019403e7636f8eb34e7b3205c7a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "borges-as-the-liar-s-patron-saint",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "믿을 수 없는 서술에 관을 씌우려 불러오는 무한한 날조.",
+  "model": "claude-opus-5",
+  "source_sha256": "04f6489a50f384b5be83e3122f668061c62b3e0427d6e228002b19203d7f35a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "borges-s-unforgettable-forged-past",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "심어졌거나 지워지지 않는 기억. 보르헤스가 말한 완전 기억의 저주다.",
+  "model": "claude-opus-5",
+  "source_sha256": "257bf05e0bd1edb0871129345797e3ed709088a3774f1462dc71af6e7999efaa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "born-at-the-threshold-of-the-consumer-web",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대중 인터넷이 밝아오던 그 시점에 못 박힌 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "57170263c329d1e7d0c35385048f65d52f3ebc89dbc94421324c4056b5549ba0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "born-from-the-headline-s-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기록으로 남은 실제 참극이나 스캔들. 허구가 거기서 곧장 흘러나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d18d615c57d5ee2f349344a91a4ee794303648f70aa9c840651f508ee5cabdd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "borrowed-civic-architecture-as-engine-of-belief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 제도의 공간이 그 안에서 벌어지는 사회적 허구를 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c86c16e9656a123c5246b980ad5c1547222258aa330bdeb68cee11c3db02cde3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boston-s-real-geography-as-class-destiny",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 동네와 교구와 강. 그것이 벗어날 수 없는 운명의 지도가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bacec88d7ccf57c0a06bd83c6132657bf7b9cbcc9c91583872a57d695000d603"
+ }
+]

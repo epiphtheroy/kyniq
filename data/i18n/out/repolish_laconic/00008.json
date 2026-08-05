@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "greece-as-beautiful-backdrop-for-civilizational-rot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "햇빛 쏟아지는 낙원. 실은 한 질서가 썩어가는 압력실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "466f37a6a680e3ec3b52336aca13955d53f95466a3578617ae296a613223975c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "greece-is-always-somewhere-else-in-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'그리스'는 언제나 대역이다. 그 대역인 사실이 곧 의미다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a6f64161260789d69949d2f20581ac68358b158c8f5a4a80435b272656b7d4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "greek-ruins-as-mirror-of-the-decaying-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고대의 폐허에 비치는 것은 사그라지는 사랑과 무너지는 자아다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65575143418b1288c02f23273de424a283688d5af2d9c8b2ce564bc9556aa982"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "green-named-in-the-title-erased-on-screen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목은 초록을 약속하고, 화면은 끝내 그 색을 내주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5002a8605ae4a6b0aebded05baae130fceaef1d694eb623b612d2e3756ac256"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-as-an-object-with-mass",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상실이 사물이 된다. 무게가 있고, 주위를 끌어당기는 사물.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c5808d833129753ba56ee3e7171f365338d76dec7750d2cae66e87e241d937e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-as-the-disavowed-death-drive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도를 거부하면 그것은 죽음과 반복을 향한 강박으로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f447adf9119ab91c314325ba32dd8c6621ccea82bd51aaebb384761e68fc7ca0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-frozen-into-relentless-drive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도할 수 없는 애도. 그 자리에서 멈추지 않는 전진이 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e63cd354087ec7b354c6652b213a8cbe0797981f2ae4c41fe02a6ee4f35f2696"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-given-a-form-without-a-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔은 문법으로, 사물로, 표정으로 옮겨 담긴다. 감정을 담는 그릇.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d20fae23c29b48c46b3a5b3696f827e6eb0b433722aba3a7bfa8a1e545588d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-has-no-tense",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤엉킨 시간 순서. 그것이 애도의 문법이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3065e288d5c86a160f5fb08aaf80a41615d1555f46f2429f69a94e2ef5a65300"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-reassigned-to-the-private-ledger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공동체가 함께 지던 의무가 이제 홀로 남은 사람의 몫으로 넘어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "acf10be00043b9692c7a63c29ed0d7b41baf34acb384533dd20ad41ce6c2d6d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-reengineered-into-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔을 유체로, 운동량으로, 풀어야 할 공학 문제로 바꿔놓기.",
+  "model": "claude-opus-5",
+  "source_sha256": "d78c72d936d84d99ddd74acdb3422e39466b4fa6f81cf02ae30033909de5b742"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-sublimated-into-empire-building",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도하지 못한 아내가 도시가 되고 전쟁이 되고 정복이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3a734281e541cb9b3185311829342a42a007307df035dd2747250c45d927a80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-worn-as-another-s-borrowed-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도는 실명(實名)의 시인, 전쟁에서 살아남은 그 사람을 통로 삼아 흐른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d71e04c9ed8fdee077f84985adcfd36799aedc01fa6d2742f191e816e553ec7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "guilt-as-a-permanent-cosmetic-surface",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "걷히지 않는 속죄. 씻기지 않고 드러나기만 하는 죄.",
+  "model": "claude-opus-5",
+  "source_sha256": "f70ed6de9a7574745ee4299be290c7d832cc0dd6d22b16910e9b6c54cc65104a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "guilt-conserved-in-a-closed-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도덕적 부채는 돌고 돌 뿐 사라지지 않는다. 장부에 적힌 죄.",
+  "model": "claude-opus-5",
+  "source_sha256": "40f43d51341d0d27df5ce68800b461257eae86f4f536dd93ebd57101b4bb51c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hair-and-veil-as-the-concealed-female-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "머리카락을 덮고 벗기는 일, 곧 젠더화된 몸의 정치.",
+  "model": "claude-opus-5",
+  "source_sha256": "22d188e2841c24470c63ce66f9840271d8c0c065388f02e445bd1f164d8a41af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hair-as-the-shape-of-borrowed-selves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 환상이 되기 위해 쓰는 가발과 투구.",
+  "model": "claude-opus-5",
+  "source_sha256": "7516ed321d85fc667bb373965821d26c9173011abba77c3e606eb01fe5670eb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hammersh-i-s-empty-light-set-in-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "덴마크 화가의 잿빛 실내, 그 적막을 영화가 이어받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "412ec0a27ce510d3514628a39f39bb3b480856d68441b06f8eff673f7aa144a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hands-as-the-site-where-labor-is-read",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "손을 읽으면 노동이 읽히고 값이 읽히고 빼앗긴 몫이 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9462e0e824367dae973c5c0a719fa54abe29d19aa2e7ef7adbf6071e98729b6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "he-sentences-himself-before-the-world-can",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죄를 스스로 집행한다. 바깥의 어떤 법정보다 먼저.",
+  "model": "claude-opus-5",
+  "source_sha256": "8995ae62d3a2516297a6c2523df5f00855c4932bdf47f287799295abcb4636b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "heaven-and-hell-share-one-address",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도덕의 우주가 스캔들 같은 좌표 하나로 무너져 내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8738c54b65be74400a74bc2692270decd83f74d6315197da54cb25162b06d5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "heaven-as-a-neurological-event",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내세는 뇌 안에서 닫힌 채로 완결되는 논증이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96c2fd59f8c5f39f596574d1164ff90d4cea8fce003db7738f3f76fdd9144823"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hell-is-a-government-office",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관료제가 곧 우주론이다. 오타 하나, 민원 창구 하나, 사람을 죽이는 자막 한 장.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad3ca0db7f666d5d92acff04511a02e4ca62cb309c7b1100105de9253ffd86d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "her-silence-is-the-argument-not-the-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자의 침묵은 결여도 상처도 아니다. 그가 쓴 하나의 입장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47617853e8df684ac819cf73d0ffa5ba7b1f508d29d5fc1609def7d23f834901"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "history-as-accident-not-design",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거대한 사건을 돌리는 축은 운명도 변증법도 아닌 우연이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "209bd5ab875a12741e6f5dd985a06080793f9aa88509e7dc79d17e7e0900f186"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "history-as-medium-not-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "역사를 기록된 사건이 아니라 질감으로, 소망으로, 텅 빈 지속으로 다루는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "96c793a9549a380580630d5de0c435819a4ee054f59f8a32c0145efd7a147830"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "history-bleeding-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위기의 그해가 제작 과정 안으로 스며들어 제 이름을 새긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c9ad7ae0791526387cdf853d51622230316f297e6ce58a60c794a8e50ee8255"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hokusai-s-wave-set-in-motion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가나가와 대파도가 다시 움직인다. 살아 있고, 속을 알 수 없는 바다로.",
+  "model": "claude-opus-5",
+  "source_sha256": "a749334e894de8e6d56bc77e1489317fac4f74fa5be0428d59c4fd4e21ba806f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hollywood-s-disowned-unconscious-beneath-the-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로스앤젤레스의 지형은 제가 꾼 꿈의 억압된 뒷면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe08928c29201c25eeb08de014aa1c8eed917225655351e1f61b160377c075c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "honest-capitalism-in-miniature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작은 세계 하나. 자본주의가 숨김없이 그린 제 초상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfc378cafa34437c0d07a52b75d1a5a5195c606b96b40df7d46b8540f7810e17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "honesty-as-a-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잔인하게 뱉거나 끝내 삼킨 진실. 치유하는 것보다 더 많이 벤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84320727945a59fefa63380c7a8949de8e8a9aa911ceebd90b7fe473a3cedc6d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hong-kong-filmed-as-its-own-demolition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라지는 도시를, 사라지는 그 순간에 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6867c82c943cefb45c6bfbe22738aeaf3150a54ba189057c539c103ee7cfe7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "honor-as-property-polices-the-woman",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명예는 소유물이고, 그 소유물은 여자의 몸과 처신에 부과된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1819fec43f47d1e7d3f89881f752988e93a2dec5d586f3312bc703c40ec08e6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hopper-s-lonely-american-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에드워드 호퍼의 화폭으로 읽는 영화. 고독을 깎아내는 황량한 빛.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7d92ecc692f957d683d894fc5952084078f06a820a6da71940d738356fe0763"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "horror-as-inheritance-that-cannot-be-escaped",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저주는 대물림된다. 상속자는 제가 두려워하던 바로 그것이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a881980ca1b6fde1b85504173b2eacb6bdcdcd238a26921e642019f6e935f1cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "horror-as-the-wage-of-surplus-labor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자본주의가 내버린 인간들이 돌아온다. 괴물로, 구경거리로, 빠져나올 수 없는 덫으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "3898c8a25d5b40247525b8a3e6c692ccca13ef7d8dfb1e83004c64fee3e95e63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "horror-authored-by-the-craftsman-not-the-monster",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공포를 설계하는 것은 괴물이 아니라 감독과 디자인이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "408a0f350843d31ad3dd786fe23e9cbd3a49a8b167c62ddcebb373c06b195798"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hospitality-that-outranks-the-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무방비한 얼굴이 환대를 명한다. 법 너머에서, 때로는 법에 맞서서.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb3449e00653c9de7d8bec9891b5f51e86db66e361117aa366a98742f7b945d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hostility-as-defense-against-inner-lack",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공격성은 갑옷이다. 허기와 공포, 무감각을 가리는.",
+  "model": "claude-opus-5",
+  "source_sha256": "341693b75be2dc69cf9e73c03281324c6d45f326a04561ede6c73ffe13fc8f00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ignorance-as-the-engine-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알았다면 손이 굳었을 일을, 모르기 때문에 해낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b71d56e710af18fede73af23e55589bc0fda238d32448423c12bb269e98dd887"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "immanence-and-transcendence-in-dialogue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두 인물이 철학적 입장으로 육화되어, 영화 내내 서로 논쟁한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6107fb64f20572fde7f8a9ca45764a17a51c2f01e302c074019e51edaa8006cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "immigration-processed-as-alien-bureaucracy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타자와의 만남이 서류와 처리 절차로 옮겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3da956e805fa31a93cb5d6a13359ae862c4caa7ebe043659f6e1bb6220d1636"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "impermanence-as-the-world-s-true-ontology",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사건도 플롯도 아닌, 덧없음 위에 세운 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bf384925f3d48e031f222751e8947bedbfc17f44ef34820a155022e257ac411"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "impotence-as-the-engine-of-male-cruelty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처 입은 남성성이 지배로, 투사로, 처벌의 구경거리로 자리를 옮긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9802b341b6a83cdf0dae245bf3f226ccedd246b57d7b91244ff715f2d0c9890c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-against-the-franchise-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대본에 없던 한순간이 기업의 예정론에 반란을 일으킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "febceab0a7939cb572951ff9308e124d8658ef4b7c726ba021ac0b2dc452e6fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-as-the-engine-of-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대본 없는 테이크 하나에서 영화의 구조가 자라난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25100b7e1cfbac5d3f7862061648a31df912a75361a9d7c4a3210ee44780c0d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-as-the-soul-without-a-script",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 정신에게 정직한 형식은 즉흥 연기뿐이라는 듯이.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3e9f789e14f15cae3cc575089d4f02f939d2bf59646a775179e13d22609267"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-mistaken-for-documentary-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대본 없이 찍는 일이 진정성��� 이르는 유일한 길로 둔갑한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "931c718ed9c4c08a78839bfb5345d669a2e40af167860bc1d94ed1f39f47190f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvised-biography-as-the-engine-of-authenticity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "원고가 아니라 즉흥으로 지은 인물. 배우가 그 내면 자체가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aefbf25009bf2dff05d9c9664fb738584c6c224e9b5d5cd408a361dbdcf3abad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "incoherence-as-auteur-s-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엉망인 자리가 표시한다. 비전이 짓눌리고 싸움이 붙었던 지점을.",
+  "model": "claude-opus-5",
+  "source_sha256": "a811906b4aa90eedd2df3d296682982e97ed0ce27da2eddab0dfa2f54ed712eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "incoherence-as-the-viewer-s-genre-hunger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "따라갈 수 없다는 비난. 고발당하는 쪽은 영화가 아니라 비평가의 기대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8de58e52e54ddc5ecab30a40e87d4124d10458b64c9018d049ab06bcb7f88aaf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "indonesia-as-stage-for-its-own-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 인도네시아의 장소가 꾸며진 잔혹극의 무대로 다시 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ae39476845a50e148cf6a624c37c3ad1bca82b2f7663df3bb7dbc6912f96bef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "inertia-as-the-strenuous-refusal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가만있기, 계획 없음, 아무것도 안 하기. 실은 힘주어 붙드는 거절이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c0b59af558b635cae9d24789abc1ab3e8784920909c41c15409dd63ffdc74b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "infinity-as-the-name-without-an-exit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 불러내는 무한은 약속이 아니라 감옥이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e84f8fe65515e9cf2b405f8a1ed5ccc0c954267d096cbcb8ffec2df15d2a7a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "inheritance-as-biological-sentence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "성격은 고르는 것이 아니라 물려받는 것. 포식하는 물질로.",
+  "model": "claude-opus-5",
+  "source_sha256": "82acd2ee84346c80a14b924eb7ae6559458dd1d78ac3f3d5aec26c1de1b80bf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "innocence-as-the-word-that-accuses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 '순수'는 묘사하지 않고 고발한다. 부인이 죄를 불러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "108ec76a359e92596a785b23262b81e8e56acd423155a3cecc352b247fb86a99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "instrumental-reason-as-engine-of-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이성이 수단을 다듬는 데 몰두하다 인간이라는 목적을 잊을 때.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0fe086ab7c2829d6ed7c69c5d2d36c0eac6efee0fd2a0ae8c8fd64e5a40107c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "insurgency-turned-on-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저항이 제 수단을, 제 무기를 스스로 먹어치운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e42939c630116038df3bb0eb7e54809f2ca39332601a554e8d0adad9b504d95e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "intimacy-as-performance-or-purchased-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누군가 보라고 연출된 가까움. 혹은 진열대에서 사 온 가까움.",
+  "model": "claude-opus-5",
+  "source_sha256": "40356d2879bff3982a6356a926c5e908ea700d310b372230e11ab288b81114f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "intimacy-improvised-at-a-shared-table",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 밥상과 대본 없는 순간이 촬영장의 친밀함을 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfa047673ce1ed0e66511e000b269050385236539e61e857f20c58f24d584e55"
+ }
+]

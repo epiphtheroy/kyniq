@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-who-cannot-heal-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 병에서 달아나려고 남의 병을 고치는 의사.",
+  "model": "claude-opus-5",
+  "source_sha256": "1498edb0afa50b0a648949e092dcb3327f9eed384bfd872b6678a79584f43bf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-who-cannot-save-confronts-mortality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음 앞에서 아무것도 못 한다는 사실이 곧 의사의 소명이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff60f3739175ee96f252a50cc7a8f4fb16a38da871c25b788e579d9a8351ac14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-who-took-up-the-sword",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의술을 버린 의사. 반란으로 가거나, 썩어가거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "15122f3f1581e8c4995e251063125551b6427c5ca85a1b7130893f0e924224d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heartland-wearing-another-city-s-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오하이오와 그 언저리가 다른 곳인 척하거나, 낯선 로케이션으로 읽히는 경우.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fd80c00a36f79d2159f3e49759c209da03457e40d1044fccdd14a43bc03911b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heavenly-edifice-made-by-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계와 매트, 미니어처로 지어 올린 숭고(崇高)의 건축.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9cf1d1983631a5331bb6ae81719fa18db03995c243caadc80c00c3178e57adb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heimlich-curdling-into-the-unheimlich",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아늑하던 집이 안에서부터 낯설어지고, 끝내 적이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4aca948bb2e290f15882f668a39d55eb73d46212609bd783ec655a71133c392"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heimlich-turned-unheimlich-at-home",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "친숙한 집안이 괴물 같은 낯섦으로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8fb481e9999b8b04aec22a90924e2eb5ba99abd378087233993358ec7f259b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heir-as-the-system-s-inherited-rot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사회의 밑바닥 부패가 살을 얻은 자리, 특권층 자제.",
+  "model": "claude-opus-5",
+  "source_sha256": "d94bddb5054fa75aac1caa2b50ef5e6bbc402eff656ab6fb1a42bc9e4bc952bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heir-who-smashed-the-inherited-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아비를 죽이고 가면을 부순다. 짓누르는 핏줄을 치료하려다 실패한 처방.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ef9cabb3b6a04f3787fe656f8a3178ecd43b75a6cdb9c8c6123e00572eff988"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heiress-as-faded-recluse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 재산이 기벽과 고립, 쇠락으로 굳어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57737245500b348208f9d81191bb75d13bb5dc90ab78843d34f923efb0c8e4e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heist-as-theatre-devouring-its-performer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강도짓은 흥행물이고 범인은 거기 소진되는 주연이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9edd58d44bf9b4122a64ef9def757aa3fa4ae756a84c323e9f2ef7c9cc597bb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heist-as-wage-labor-by-other-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈이 모든 관계를 매개하는 세계에서, 강도는 프롤레타리아의 노동으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bdc85a2caeb284ba94895ba6d2b3d5a8c365b2923163d14c7b07c26de623a66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heist-where-the-loot-is-never-money",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정작 훔친 것은 만질 수 없거나, 쓸모없거나, 아무것도 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50fe0dc97211feee3651ff3d8fe320dc75e66a5179701b40994314fb561f872e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-breath-beneath-the-surface",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물속에 잠기고 숨을 참는 일. 상실의 예행연습.",
+  "model": "claude-opus-5",
+  "source_sha256": "932033815bf613d12b8cd26de953063b624626acbabae4fa7f2fd8a2d8c1704b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-frame-and-the-composer-who-refused-to-resolve",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멈춘 화면과, 끝내 종지(終止)를 내주지 않는 음악의 결합.",
+  "model": "claude-opus-5",
+  "source_sha256": "172dda533dc968f5870fe46ea152bdf63ed9c5462f23717b3e62c3cdfbcb88fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-frame-s-pointed-stillness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "움직이지 않겠다는 거부가 그대로 발언이 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "be959bbdf0588b7baae847451e3fbc104eb2f0b210e3782a912c40c678030463"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-shot-as-ethical-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "컷을 넣지 않을 때, 지속은 윤리적 요구가 되는 동시에 공모가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b64a74124fe9b68b6c8621215fcb66e086d8b59789c2e49c4e0eedfa2f7f1034"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heretic-names-the-inquisitor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 배교자는 고발당한 쪽이 아니라 고발한 쪽이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f16faba05d8bbd25eee33a7aecfde641ba2d2bf96ad10950ef4af0e3f8c80a5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heritage-brand-sabotaged-from-within",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시대극 프레스티지 영화가 제 향수와 포장된 영국성에 칼을 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "983c466a901ee60ad83aec7af78e3d57c120bcccb6f4a8c554ccdee7f31f1993"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hermit-at-walden-pond",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소로식 자립과 은둔을 불러내 긍정하거나, 거꾸로 뒤집는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55bcd38a81c388d696820da8079520a174a6e412c11f46c708684a7e807c83bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-america-manufactured-to-need",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평은 증상을 영웅으로 잘못 읽었다. 문화는 제가 필요한 인물을 왕좌에 앉혔을 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3254688a6ec301d10e8e53955cf407e9010a59c0284a38ebe680ace5a3889a32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-and-villain-made-each-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악당과 주인공은 서로가 서로를 쓴 거울 속 논변이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c03ef235b812eb2c26adc031f3d2df9e8a56df136ca6d8174658c36decd9e51b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-the-mob-misreads-as-threat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지켜주려던 바로 그 사람들 손에 몰매를 맞는 수호자.",
+  "model": "claude-opus-5",
+  "source_sha256": "6092fae14b477cd3bd59d4897b1bb314b69cec971603782a6bdac98c6289f71d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-cannot-learn-himself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자신을 못 읽으니 상황도 못 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5eaaa376becf55da472bcda8b0767ba58fff54f0527b037c09fbe3cb48bcc4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-doubts-he-is-the-hero",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 영웅됨이 정말 제 것인가. 위기는 거기서 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42aa5cf0c76fee63398ebbcdaf2b268da5be2e3f79e7d400d6112bb0548a7863"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-refuses-to-resolve",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물려받은 딜레마를 푸는 대신 손을 놓아버리기.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ffd24018a91ca2483c01e75edb7d9029d23f657bd316c6b5b8084e945cbab65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-saves-only-his-own",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사적인 울타리 안쪽으로 쪼그라든 구원.",
+  "model": "claude-opus-5",
+  "source_sha256": "be41b0e457cbb97e671a32c3a03e530799b3b8ba2a407e74aaa41aaed469b9b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-whose-heroism-is-self-erasure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영웅이 된다는 건 사라진다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a871d7cd3f8f1fce1790771fe758a5c4ddb06194cde4eead1a67974e79646c6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heroine-held-under-by-design",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그녀의 잠, 그녀의 건너감. 그녀를 가두려고 설계된 장치들.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecfbe757596a025ca5011a0ab824ca8a4d7e4750b644d128448e82446e41c6cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hidden-master-signifier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위는 그 출처가 감춰져 있는 동안에만 힘을 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29a26a8560627444c256e566796362f3aabf76631a16d6b7cc312d0a88b97921"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hidden-ontology-that-replaces-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "로맨스 밑에는 그 자리를 대신 차지한 본질이 하나씩 몰래 깔려 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5d4ffd569965c1f4060a17ca4cd6f8bc1ba6691ca8918249a2e1ead7b83f2fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highbrow-label-as-critical-alibi",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고급이라는 딱지는 저급한 쾌락을 즐긴 비평가의 민망함을 가려준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7564dc97056a74d406f95b3b68624289a2fdbd31b47cdc8e7a4631034a7a3aa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highsmith-sociopath-in-borrowed-skin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연구하고 흉내 내다가 조용히 지워버리는, 차갑고 도덕 바깥에 선 사칭자.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2fe595c363fc90fd88dd70fc658d735d1c58800fba5719d5f99cd43ed79d769"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highway-as-a-sorting-map-of-who-may-move",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "검문소가 된 길. 누가 움직여도 되는지를 권력이 정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06f4e6fd486cd44ce917318bd9d4ad20ebc9fba84e7ccd3198bfe3641ce97b4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highway-as-abattoir-of-civilization",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오스트레일리아의 도로 위 죽음을, 안무된 자동차 도살로 찍어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "926e998ba615c4fd15630acaada10f41104abda22802ed5b851b737f01f462ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highway-that-refuses-arrival",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국의 길은 도착할 목적지가 아니라 벗어날 수 없는 조건이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffa06b961ec3e68767ba036e1e9383c6ad7e1900acde66d3c6afc814bebeeb10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-history-a-nation-agrees-not-to-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 기억이란 함께 잊기로 한 것, 그리고 죽은 자들이 부르는 만가.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f1dd2e6cef584b0bea579a3ec4c3bfa60b42bb29407007a9e1b6c6fca94b1a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hit-that-mistook-spectacle-for-justice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관객이 도덕적 심판으로 착각하고 끌어안은 카타르시스의 폭력.",
+  "model": "claude-opus-5",
+  "source_sha256": "324ca0fa9dd08f2eaa1fc5b8cba14edab99d7ba43c6573b1aa82b4bd7733eb2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hive-that-eats-the-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "군체(群體)가 곧 개인의 해체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7e72c2fa63d842c06646bed9267e216d60ce7f46bde974afa29c57ea688e7fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hoard-as-wound-that-cannot-heal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강박적으로 쌓는다. 슬픔과 결핍, 채워지지 않는 허기가 물건이 되어 쌓인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba19cc34037450c00ecc845be15a21567ddc62845f585bb1950708437651e19d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hoarded-treasure-as-doomed-class",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부(富)가 몸을 얻었고, 그 정치체는 배신과 죽음으로 썩어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afae8aa47339580a22328bd198b8f37a8d97e734038acbe0d8a605cfc9b0f437"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hoarder-whose-collection-outranks-its-keepers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "병으로서의 수집. 사제보다 더 잘 아는 큐레이터.",
+  "model": "claude-opus-5",
+  "source_sha256": "f45d8ba6dd64dbec54a9ec8b343b1af1e7f0684d22e500f6e61f000be93127c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hole-as-wound-and-passage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "트라우마가 찢어놓은 자리이자 빠져나갈 통로인 구멍.",
+  "model": "claude-opus-5",
+  "source_sha256": "29037a53099a0032a27467619d3eba67b5ac14763ea39c8ef39938337e9c43fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hollow-center-where-meaning-should-be",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인공이든 설정이든, 남들이 의미를 채워 넣는 텅 빈 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "de5a5643f7d23ff2a28efec3d5e38cbcbc5f6665ab67c4764c7f76e4b14cf7f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hollow-front-concealing-the-real-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눈에 보이는 악당은 숨은 지배가 내세운 빈 얼굴이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ca972c76e5ada26a33a4d47b573cd110af391d4c22e383f95e7411113665f5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-holy-fool-whose-idiocy-sees-truer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바보의 텅 빈 얼굴이 멀쩡하다는 세상의 광기를 들춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "572d27df0a29e1d6cf0ca9e1e4c8e02e4f555714a5e58bf7c69400cfdbb3c825"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-holy-hoisted-as-mockery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤집히거나 조롱당한 성사(聖事). 애초에 그 땅이 거룩하지 않았다는 고백.",
+  "model": "claude-opus-5",
+  "source_sha256": "23dee8b5e321dff6710f64213412ad4ae1d6dd92c238cbbb8c012b0e7a1d8e64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-holy-stage-hosting-a-secular-tragedy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세속의 슬픔을 올리려고 빌려 쓴 성소.",
+  "model": "claude-opus-5",
+  "source_sha256": "7167219b707a5206269350ad94b6ba418f960ae97b19698bdb8a475481a306c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-homage-alibi-that-disarms-critique",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오마주라고 부르��� 순간, 그 영화의 어둡고 날 선 주장은 무장 해제된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15e7ebe98820d632c0809248585934574967d0cf5b3902eb687536ac28bd9644"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-as-hidden-factory-of-domestic-labor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가정이란 것의 껍질을 벗기면 강요된 생산이 나온다. 성별로 배정되고, 대개 보이지 않는.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc4593dfc1d201283473fe1e656d599bdfab70422111df87adbe16ad90408d77"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-as-tender-prison",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄도 집의 구조도, 다시 보면 감금이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7099426cc4e2c6689982582df7d36a7e7f2330029f52a32aaf5caa522ad44ab0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-as-the-true-battlefield",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공적 영역이 없다고 우기는 폭력을 집 안이 대신 짊어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "764c37be88e44c7ad2cf9a7c922dc4b9906f8ff5fa71efeca04a8b2e964b97dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-counties-dreamed-america-or-magic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영국 스튜디오가 제 나라 땅 위에 이국과 환상을 불러 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8ba6fd162c7752596d737f225f7fd11c7d73a413a44f32dc683490d2f924799"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-homeless-drifter-in-precarity-s-gap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집 없는 남자가 결코 가질 수 없는 집 주위를 맴돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "503145d1933f3750eea0941178ce6ba13bba4bf34eb5d05829584970ec9f42ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hometown-dissolved-into-invented-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 지방 소도시를 허구로, 기억으로, 어디에도 없는 곳으로 다시 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf8686be964a4824d01d66daa6f10edd3f5a838f1e1d668df90d110407be8979"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hometown-seen-only-from-exile",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠나고 나서야 비로소 읽히는 고향.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5ee8519d9297937621fb03943ffcf3b3c1287aa4c0f35ffc37e9c324f25b226"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-honest-lie-that-tells-the-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓이라고 밝힌 거짓만이 진실이 설 수 있는 유일한 바닥이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bb1ca60ce5193f37476f1da608e9daed693c3e71251585ecd418b9d8657ed2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-honor-code-that-kills-its-keepers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명예의 규범을 읽으면, 그것에 충실한 자를 갈아버리는 기계가 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ebaa6253f4566840f2da5c997f972bb1293972c8ef9d5fb3ece72bba4e63162"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hook-as-barbed-object-of-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갈고리, 굽은 살덩이가 된 결여.",
+  "model": "claude-opus-5",
+  "source_sha256": "380ff5cc5bc9bbadb9a4b889222ae7263b5e2a7834311003ef682181144e8064"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horror-auteur-inside-the-franchise-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제임스 완의 작가성(auteurism)이 기업 스펙터클의 요구와 흥정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "408f511603dda07ee0646dd420eb7c4040d8f5ccef77f40799d003fe79e7dcf8"
+ }
+]

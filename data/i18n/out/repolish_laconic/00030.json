@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crowd-that-only-watches",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구경꾼으로 쪼그라든 사회. 끼어들기를 거부함으로써 잔혹을 허락한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80458ecf0f348d550c5437f9cf1400ac6a17f661d674e2bc3ed0028ae5eccb84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crown-backdated-to-steal-neorealism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기원 신화라는 이름의 절도. 누가 먼저였는지를 우기며 경쟁자와 껄끄러운 뿌리를 지운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6b202c91164d67f49d89a545f196b21f0f2398205ed12c4a81d223142e1d6f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cruelty-in-the-cultivated-phrase",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세련된 연주가 가학의 수단이 될 때.",
+  "model": "claude-opus-5",
+  "source_sha256": "85645f4e4f94f38b29771518bce733225d8fe42bd94d683040ae625ebc8bca28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cult-reception-that-domesticates-the-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤늦게 붙은 명성이 공포도 트라우마도 슬픔도 안전한 오락으로 헹궈낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4d0edb5fe3c7002a2598d0b6f5ec5dcff72674c8ae204b68efe783a103885e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cult-screening-is-the-real-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미는 화면이 아니라 심야 상영의 의례 쪽에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "558d6dd81b98c0f5a42fa3f0f58fc715428e095f98757468e74bdeab49cdfe5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cult-that-needs-collaborative-decoding",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "팬덤의 주석 기계가 영화의 진짜 사후생이 되는 경우.",
+  "model": "claude-opus-5",
+  "source_sha256": "8270c613340f827d5939cb27d0d8f0a2ab8041c4e26d7ad41d90f1ae565c5e2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-curated-analog-loft-as-rent-on-the-past",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한물간 물건을 소유하는 일이 후기자본주의의 취향 퍼포먼스로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f85826d4a04eaef9cf80103ffbbdce8002de8a3acb2834467a4423f84f6eb6a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cure-that-requires-an-audience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치유에는 구경꾼이 필요하다. 증상은 중심을 차지하려는 흥정이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0f1a8bd0ed262d04e7e4bac3ea37cf5068e33f432fb04208ad9a3889b7ac069"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-curse-as-causality-without-cause",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불운은 물리 법칙도 죄값도 아닌 상징의 법을 따른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "310ef7a8c6026a3013976b64792c0a44a1b392b7dad6555a585bef7b804e7569"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-curse-is-the-system-that-bears-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "초자연의 껍질을 쓴 구조적 조건, 저주를 그렇게 읽어내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0c555f777595123639de088b966095ab677ca5b2172d46dec10a5e3b1a14012"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cursed-toy-as-reagan-era-consumer-panic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인 장난감이 그 시대의 상품 광풍을 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f58ffa9e33bb019743c308c493473252d6f7f4902578cb1314934be877f4a330"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-custodial-institution-as-sanctioned-predator",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고아를 보호해야 할 제도가 도리어 그들을 기르거나 사냥한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52b20ac10326b829f1c92c241a5feaa563f66a23298b68be273d67445a9c2962"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-as-involuntary-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과거를 앞세워 현재를 기습하는 편집.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab04651ecadfe9dad8f4a7f9f2e59a76d84a4ebcc6d2893e474ce265c21dc9ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-as-mortality-inscribed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집 자체가 죽음과 상실의 형식이 되는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "0287aaac88ec8fe6d9fc8baae2fd2a20b0f6f989a82e7f5f736056eb7e547a2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-as-statement-not-stitch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집을 봉합이 아니라 발화로. 연속성을 일부러 찢어 뜻을 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69ffe051bfd7438644878a2e88f89a0d2c666cf820bceee93dbdd22347b3f03d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-itself-confesses-refuses-signs",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집이 곧 의미다. 폭력도 서명도 거부도 거기서 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "936a2fb8d975f9cc78017e226fe66f3742e0239a6ea796af0df7462a3427f72b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-itself-is-the-death-drive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지속과 대상을 지워버리는 반복강박, 그것이 편집이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9acf8145d8d4b3cc428210a6cc7e2ddf94ccd85c3b966c37af2dfc59dd5e790a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-abolishes-its-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 비추던 거리를, 제가 비추던 주체를 녹여버리는 칼로서의 편집.",
+  "model": "claude-opus-5",
+  "source_sha256": "974e551f6e84365d15c234674033dd365d3d14ba280f90b37c9715f6438637b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-dances-what-bodies-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 무용수도 해낼 수 없는 안무를 몽타주가 대신 춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9db57e80b885aaf25e3f3244ae7f62c4ce5b7177333c8ead9c2db10a149b5b38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-knows-it-was-severed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부뉴엘식 절단은 미완성이 아니다. 잘렸음을 아는 파열이다",
+  "model": "claude-opus-5",
+  "source_sha256": "ee4d601d06cc434fdccb39f0b0391a54c7fef3f9d5990d519564f921aa83d45b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-obeys-the-beat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집이 서사의 논리를 버리고 리듬과 타악에 몸을 맡긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b49a88d66a012aedbb29295c10f8178c2b89e1e70da2e2ddd074abf192c72ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-performs-the-embrace",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 화면에서 이루지 못한 친밀함을 편집이 대신 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8711a42b53c70c371820599c1d6624c147049d2b63160f29ea9dfc2984f2608"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-withholds-the-climax",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력이 으레 내주는 볼거리를 거부하는 데 쓰인 편집.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9588024e3e6e0106370ebfd06c4bd025dc307aabc8233f2987e85fd5b6a4f26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cyborg-that-refuses-pure-information",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살은 기계에 들러붙는다. 혼종은 끝내 데이터가 되어주지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29697e386fbde12ad913577748f06a67871c92722016e5793dd400fd3d28133a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-damaged-object-as-wounded-survivor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부서진 물건 하나, 넋 나간 눈빛 하나가 입 밖에 못 낸 전후의 상처를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36663d8734af67fd4efced91eca5792ecedea3d4659734afd875be4c77386dd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-damning-letter-as-buried-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쓰인 말이 원한을, 군중의 진실을, 혹은 쓴 사람의 멈춰버린 자아를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e14949c9cbe5b5a0fce715f44d447ed815bc11de902ae5f4ff84232ba6ab46af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dance-as-compulsion-to-repeat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도할 수도 그려낼 수도 없는 상처로 몸짓이 자꾸 되돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55083555da4a89c867d2080160b5fb05a052026333e536cb2293bd111a43125b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dance-as-the-film-s-secret-self-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연출된 춤 한 대목이 영화가 제 형식에 대해 내놓는 가장 정직한 고백이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93d22965c6b804ad5c328573b60e62603ebf219d1a3f5c5bbf3e3dc8d1122372"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dancer-who-refused-to-stop",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 놓아주지 못하는 강박이자 항거이자 빙의로서의 춤.",
+  "model": "claude-opus-5",
+  "source_sha256": "3be3465d2d1b9fff04a522f89f1f5f8b6ae787b3649e619925e06a3ad3191dcd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dardennes-form-as-ethical-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다르덴 형제의 자연주의 기법은 곧 그들의 도덕 장치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1eadd8e38f0eaa1b0a9351d695eb1221e45aeb0e56368bd58f7237e7f2779b8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daredevil-outrun-by-his-own-myth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전설이 앞질러 가버린 스턴트 라이더. 그 전설을 몸으로 감당해야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b153d45a03806a47885f086c8a80160d4e4bed0dbd56c7470d9d23b6af97ab04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dark-that-names-the-unknowable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "앎의 한계를 가리키는 형상, 어둠.",
+  "model": "claude-opus-5",
+  "source_sha256": "5dc16a0a63101d69f25878d56048083ba1e8a0dc58040183df59057130ea1dbe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-date-that-devours-the-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "달력에 찍힌 표식 하나가 제가 눌러둔 이야기를 통째로 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7db866a8836863bdc7f33b64526ccd072ebc76658b4190d0b51102e9be7cfbef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughter-as-the-unmournable-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "나이 든 여자가 차마 마주하지 못하는 것을 젊은 여자가 몸으로 떠안는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfb7f70ce8f1823afc2d6a3cc3c6864b291acc12db4d2c99b904ebfbaf774f30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughter-decoding-the-parent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부모의 잔혹함을, 부모의 우주를, 부모의 부재를 자식이 읽어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "551d53ca617138322183edd7499678394b16f178bc3a315d92d5715eb295b672"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughter-married-off-to-bury-the-father-s-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결혼이란 부모가 인정하지 않은 근친의 애정을 남에게 떠넘기는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fd4082377430cf98cc008bb9071b5fc680ca04cc9216791431dc0921141fc7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughters-who-refuse-the-inherited-sentence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갇힌 딸들이 몰락한 세대를 향한 살아 있는 거부가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "735f94a2fecbab963f3e995c152f5bf1d49473f7635ba9e8a8337b8aff8121fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-address-the-living-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그가 프레임을 깨고 말을 거는 이유는 하나. 그의 이야기는 이미 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97a916a557f33284cc8be0dd7d51ea4fa4a93c3f93232f92f70d5ed0639e4c45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-are-carried-not-buried",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "묻히지 않은 시신이 남의 여정을 굴리는 동력이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00b750919083e351e567055d6918ea50a912fcf7122dc2d29bf7d9727b22fa43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-are-spoken-never-speak",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "산 자가 침묵한 죽은 자의 입을 빌려 결국 자기를 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "170a0a5fed0eae1a49358c42a7b6938f45e50b7516f58bbe772b6d1655c6e38e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-are-the-only-honest-narrators",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실이 서는 유일한 자리, 죽은 뒤의 목소리.",
+  "model": "claude-opus-5",
+  "source_sha256": "13f98fb9ee31b19ce5536c383f43cea172c96a10ea769cd11a30f402b748ff06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-composer-conducting-from-beyond",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과거에서 온 유령이 영화의 음악에 들러붙는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a9ef50cc831accedd84a702250ec0838a5c6ee000defe32b229d90d3a17d9ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-conscript-us-into-duty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시신 하나가 산 자를 묶는 윤리를 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46d8c5ce6a3ef2f6a8f7287237c798e7379daf6cfa55db2f8205aab0a4948738"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-devoured-to-defer-the-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애도를 거부한 대가로 잃어버린 몸을 문자 그대로 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59e349b0db8e9ddc872bc817a4191b83747d7ed78a2edbc010dac0a0f462382c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-factory-plays-the-future",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허물어진 산업 부지가 문명 그 자체의 주검을 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c2d17db39f2604d189f6fe27cfc23783e13a8e9eedf61116944a549c6efbca9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-father-who-governs-from-beyond",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 아버지는 사라지지 않는다. 명령하는 초자아로, 목소리로, 조종하는 손으로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cd84384ef1b68e40711613f327cf47b8db38a7fa72aaca632f1942edb0d99cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-king-who-is-the-real-protagonist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 왕이 산 자의 이야기를 떠돌며 방향을 쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d95e6e0d1aa31205cd9a043d643383969a780c5e5d924a9dfd27ca7e62ea8129"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-mother-rebuilt-as-machine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잃어버린 부모의 자리를 기술이 차지한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3f1f56b9c286f130187b3d8563d493dcf85013d90ce5632aa7d9c5a5d1742cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-place-filmed-as-if-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 폐허와 유령 도시가 허구의 숨을 얻어 되살아난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bb89523c2860df8ae3f31a6e64dc62ab7e6422ac8cdc613694da15dc0138919"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-return-to-postcolonial-shores",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민의 사후에서 돌아온 이주자의 유령이 산 자 곁을 맴돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "029c655538857aecd335a97fac9b0e50e640f9297e413f87f3394bc76759e1f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-speak-through-the-telephone",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계 한 대가 잃어버린 목소리, 부재하는 목소리의 통로가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cf36c7da03411c61ba2cfe186e53b0848a4d63a2ef17acb4e7b4784dc025168"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-who-linger-because-mourning-failed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유령은 슬퍼할 줄 모르는 문화가 앓는 증상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c81756542170a7c52e6213f3a7a584af89333efb82271da3c1fb9ac247028b4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-who-narrate-mexico",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전지적 목소리가 산 자의 플롯 옆에서 나라의 사망자를 하나하나 호명한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7269a3b3ccbd2ef5b2576f598af0f360436477ea807dd039c035086b46245de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-wife-as-license-to-kill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔이 무기가 되고, 잃은 여자가 남자의 폭력에 면허를 내준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fb43147ea3ec427f50ec38e67fdc3e8a8827a91ddd5478d6ea191cde862280f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-wingman-who-comes-back",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "구스의 죽음이 살아남은 아들의 몸을 빌려 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6d46398efb666685acc6bf183f5011fa030fe290b0661dae493c12fb7648e12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deadpan-inheritor-of-buster-keaton",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "술레이만의 말없고 굳은 몸. 망명지에 도착한 키튼의 희극 가면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2ddae061e211ce2a305acb1bb2434d797b6353e9ff97185014c22dcea69eae7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deadpan-mask-against-the-abyss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "키튼의 돌 같은 얼굴이 생존으로, 공포로, 종말을 버티는 힘으로 다시 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70b6bf6d95dc1dd5ea39de332bedab9c8947560308df464be440e7e77cb6e915"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deadpan-that-defuses-catastrophe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표정 없는 얼굴 앞에서 종말도 기계도 우주적 위협도 힘을 잃는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0566d36234f226a493af62f4e86b37f940c5b06f636335abce4cd829cd8d6d63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deaf-man-who-heard-symphonies",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잃어버린 청력이 역설적으로 내면의 음악이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "094eaae91c763ab8e5b2b931bd0319dd05e60c40d54e285b95f8b0bf4dfae265"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deaf-who-perceive-what-hearing-misses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "농(聾)은 결핍이 아니다. 듣는 귀가 놓치는 것을 잡아내는 다른 지각이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fb2b53f2c0fce4aafd82d90d0a227ab7bdc32c5127e328c98b55d7891305c95"
+ }
+]
