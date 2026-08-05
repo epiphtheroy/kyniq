@@ -89,18 +89,28 @@ export function dealJourney(
   scored.sort((a, b) => a.d - b.d);
 
   const n = scored.length;
+  // Films already dealt to a nearer axis. On tiny eligible sets the floored band
+  // boundaries collide, so without this the same poster could land in two or three
+  // columns; excluding what's taken keeps every card distinct.
+  const chosen = new Set<string>();
   const bandPick = (lo: number, hi: number, seedOffset: number): OdyStation[] => {
     const band = scored.slice(Math.floor(n * lo), Math.max(Math.floor(n * hi), Math.floor(n * lo) + 1));
     // within the band prefer canon/prestige, but shuffle for variety on re-deal
     const ranked = band.sort((a, b) => (b.s.pr ?? 0) - (a.s.pr ?? 0));
     const head = ranked.slice(0, Math.min(ranked.length, perAxis * 4));
-    return shuffle(head, seed + seedOffset).slice(0, perAxis).map((x) => x.s);
+    const pick = shuffle(head, seed + seedOffset)
+      .map((x) => x.s)
+      .filter((s) => !chosen.has(s.s))
+      .slice(0, perAxis);
+    for (const s of pick) chosen.add(s.s);
+    return pick;
   };
 
-  return {
-    basis: useTaste ? "taste" : "starter",
-    stable: bandPick(0, 0.18, 1),
-    adventure: bandPick(0.4, 0.62, 2),
-    frontier: bandPick(0.85, 1.0, 3),
-  };
+  // Deal nearest axis first so its picks claim priority; farther axes then draw
+  // from what's left. (Band definitions are unchanged — only the overlap is removed.)
+  const stable = bandPick(0, 0.18, 1);
+  const adventure = bandPick(0.4, 0.62, 2);
+  const frontier = bandPick(0.85, 1.0, 3);
+
+  return { basis: useTaste ? "taste" : "starter", stable, adventure, frontier };
 }

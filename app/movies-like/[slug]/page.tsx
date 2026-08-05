@@ -94,7 +94,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = recs.length
     ? `The ${recs.length} films closest in pattern to ${film.title}, ranked by shared tropes and taste-vector proximity: ${recs.slice(0, 5).map((r) => r.film.title).join(", ")} and more — each with the evidence for why it's kin.`
     : `Films similar to ${film.title}.`;
-  const meetsBar = (await filmMainIndexable(slug, { visible: film.visible })) && recs.length >= 3;
+  // Raised 3 → 6: a "movies like X" page with only 3 recommendations reads as thin
+  // (Google left them "crawled – not indexed"). A fuller ranked list of ≥6 kin with
+  // evidence is a real answer page. Thinner ones noindex to reclaim crawl budget.
+  const meetsBar = (await filmMainIndexable(slug, { visible: film.visible })) && recs.length >= 6;
   return {
     title,
     description,

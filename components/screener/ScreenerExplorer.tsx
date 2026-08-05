@@ -492,6 +492,9 @@ export default function ScreenerExplorer({
       {/* The page that is on its way, in the shape it will land in. A filter
           change keeps the old rows up instead (they are still true until the
           new ones arrive) — only an append has nothing to show. */}
+      {/* The page that is on its way, in the shape it will land in. A filter
+          change keeps the old rows up instead (they are still true until the
+          new ones arrive) — only an append has nothing to show. */}
       {loading && rows.length > 0 ? <SkFilmRows count={4} label="Loading more films" /> : null}
       {rows.length < total ? (
         <div className="scr-more"><button onClick={() => fetchPage(false)} disabled={loading}>{loading ? "Loading…" : `Load more (${rows.length}/${total.toLocaleString("en-US")})`}</button></div>

@@ -7,8 +7,8 @@
  * optimistically via RLS. Logged-out → /login. (migration: save_layer_user_films_and_saves)
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
+import { requireAuthEvent } from "@/lib/conversion/bus";
 
 type Ctx = {
   ready: boolean;
@@ -24,7 +24,6 @@ function sb() {
 }
 
 export function UserSavesProvider({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
   const [ready, setReady] = useState(false);
   const [uid, setUid] = useState<string | null>(null);
   const [set, setSet] = useState<Record<string, true>>({});
@@ -50,7 +49,7 @@ export function UserSavesProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const toggle = useCallback((entityType: string, entityRef: string) => {
-    if (!uid) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return; }
+    if (!uid) { requireAuthEvent({ ctx: { kind: "save", verb: "save" }, decl: { v: "save", slug: entityRef, kind: entityType } }); return; }
     const k = keyOf(entityType, entityRef);
     setSet((prev) => {
       const next = { ...prev };
@@ -64,7 +63,7 @@ export function UserSavesProvider({ children }: { children: React.ReactNode }) {
       }
       return next;
     });
-  }, [uid, router]);
+  }, [uid]);
 
   const value = useMemo<Ctx>(() => ({
     ready, uid,

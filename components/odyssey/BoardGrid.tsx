@@ -10,9 +10,11 @@
  * seen) actually thins the tiles; the Seen/Watchlist/On-my-services toggles tint
  * matching tiles. Hover for a bubble, click for a side drawer.
  */
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useUserFilms } from "@/components/UserFilmsProvider";
+import { useConversion } from "@/components/conversion/ConversionProvider";
+import { mtEvent } from "@/components/mtTrack";
 import type { OdyAvail, OdyMap, OdyStation } from "@/lib/odyssey/types";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -22,6 +24,9 @@ const EMPTY: ReadonlySet<string> = new Set();
 type Scale = 100 | 500 | 1000 | 2000;
 type SeenMode = "all" | "only" | "exclude";
 type SortMode = "score" | "year";
+// Imperative handle for the hover bubble — the grid calls these on pointer moves
+// instead of lifting cursor position into state (which would re-render every tile).
+type TipHandle = { show: (s: OdyStation, x: number, y: number, seen: boolean) => void; hide: () => void };
 
 const SCALES: Scale[] = [100, 500, 1000, 2000];
 // Target poster width (px) per scale — fewer films → bigger posters. Columns are
@@ -30,10 +35,19 @@ const TARGET_W: Record<Scale, number> = { 100: 132, 500: 92, 1000: 76, 2000: 62 
 const GAP = 4;
 
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
+// Inline "link button": an in-context AuthSheet trigger that reads as a text link.
+// Board CSS is out of scope here, so the link affordance is styled inline.
+const LINK_BTN: React.CSSProperties = {
+  background: "none", border: 0, padding: 0, margin: 0, font: "inherit", cursor: "pointer",
+  textDecoration: "underline", textUnderlineOffset: "2px", fontWeight: 700,
+};
 
 export default function BoardGrid() {
   const uf = useUserFilms();
   const seenSet = uf?.seenSlugs ?? EMPTY;
+  // Nullable by design: if the ConversionProvider isn't mounted, we fall back to
+  // the plain /login link so the readout is never a dead end.
+  const conv = useConversion();
 
   const [map, setMap] = useState<OdyMap | null>(null);
   const [avail, setAvail] = useState<OdyAvail | null>(null);
@@ -47,11 +61,13 @@ export default function BoardGrid() {
   const [yearMin, setYearMin] = useState(1900);
   const [yearMax, setYearMax] = useState(NOW);
   const [genre, setGenre] = useState<number | null>(null);
-  const [hover, setHover] = useState<{ s: OdyStation; x: number; y: number } | null>(null);
   const [open, setOpen] = useState<OdyStation | null>(null);
   const [boardW, setBoardW] = useState(1200);
 
   const wrapRef = useRef<HTMLDivElement | null>(null);
+  // The hover bubble is driven imperatively (see BoardTip): pointer moves write
+  // straight to its DOM node, so panning the grid never re-renders the tiles.
+  const tipRef = useRef<TipHandle | null>(null);
 
   useEffect(() => {
     fetch("/odyssey/map.v1.json").then((r) => r.json()).then(setMap).catch(() => {});
@@ -85,6 +101,12 @@ export default function BoardGrid() {
   useEffect(() => { try { localStorage.setItem("ody.cc", country); } catch {} }, [country]);
   useEffect(() => { try { localStorage.setItem("board.scale", String(scale)); } catch {} }, [scale]);
   useEffect(() => { try { localStorage.setItem("board.seen", seenMode); } catch {} }, [seenMode]);
+
+  // A signed-out visitor sees an in-context join invitation in place of the seen
+  // count; count that it surfaced (once per page — mtEvent dedupes on path|name).
+  useEffect(() => {
+    if ((uf?.ready ?? false) && !uf?.uid) mtEvent("nudge_shown:board");
+  }, [uf?.ready, uf?.uid]);
 
   const byId = useMemo(() => new Map((map?.stations ?? []).map((s) => [s.s, s])), [map]);
   const availCC = useMemo(() => (avail ? avail[country] ?? {} : null), [avail, country]);
@@ -133,21 +155,26 @@ export default function BoardGrid() {
     return clamp(Math.round((boardW + GAP) / (t + GAP)), 4, 40);
   }, [boardW, scale]);
   const posterW = Math.max(1, Math.floor((boardW - GAP * (cols - 1)) / cols));
-  const imgSz = posterW <= 100 ? "w92" : posterW <= 165 ? "w154" : "w185";
+  // Tiles are small, but hovering scales a poster 2.2× (board.css), so the source
+  // must cover the zoomed size, not the tile: floor at w185, w342 for the big scale.
+  const imgSz = posterW <= 110 ? "w185" : "w342";
 
   const onGridMove = useCallback((e: React.MouseEvent) => {
     const el = (e.target as HTMLElement).closest("[data-slug]") as HTMLElement | null;
     const slug = el?.dataset.slug;
-    if (!slug) { setHover(null); return; }
+    if (!slug) { tipRef.current?.hide(); return; }
     const s = byId.get(slug);
-    if (!s) { setHover(null); return; }
+    if (!s) { tipRef.current?.hide(); return; }
     const wrap = wrapRef.current?.getBoundingClientRect();
-    setHover({ s, x: e.clientX - (wrap?.left ?? 0), y: e.clientY - (wrap?.top ?? 0) });
-  }, [byId]);
+    // Imperative: no setState here, so the tile list never re-renders on move.
+    tipRef.current?.show(s, e.clientX - (wrap?.left ?? 0), e.clientY - (wrap?.top ?? 0), seenSet.has(s.s));
+  }, [byId, seenSet]);
   const onGridClick = useCallback((e: React.MouseEvent) => {
+    // let modified clicks (new tab / new window) follow the tile's real href
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || (e as React.MouseEvent).button === 1) return;
     const el = (e.target as HTMLElement).closest("[data-slug]") as HTMLElement | null;
     const slug = el?.dataset.slug;
-    if (slug) { const s = byId.get(slug); if (s) { setOpen(s); setHover(null); } }
+    if (slug) { const s = byId.get(slug); if (s) { e.preventDefault(); setOpen(s); tipRef.current?.hide(); } }
   }, [byId]);
 
   const anyHl = hlSeen || hlWatch || hlAvail;
@@ -163,7 +190,11 @@ export default function BoardGrid() {
 
   if (!map) return <div className="board-loading">Charting the board…</div>;
   const genres = map.genres ?? [];
+  const ready = uf?.ready ?? false;
   const signedIn = !!uf?.uid;
+  // Personalized highlights need a resolved, signed-in library; while auth + the
+  // user_movies paging is still resolving we don't yet know, so treat as pending.
+  const noLibrary = ready && !signedIn;
 
   return (
     <div className="board-root">
@@ -198,16 +229,28 @@ export default function BoardGrid() {
 
       <div className="board-readout">
         <div className="board-seencount">
-          {signedIn ? (
+          {!ready ? (
+            <>Counting what you've seen…</>
+          ) : signedIn ? (
             <>You've seen <b>{seenInSurvey.toLocaleString()}</b> of <b>{survey.length.toLocaleString()}</b> on this board</>
+          ) : conv ? (
+            <>
+              <button type="button" className="accent" style={LINK_BTN}
+                onClick={() => conv.openAuth({ ctx: { kind: "claim", surface: "board" } })}>
+                Sign in
+              </button>{" "}
+              to see how many of these <b>{survey.length.toLocaleString()}</b> you've watched — your canon lights up.
+            </>
           ) : (
             <><Link className="accent" href="/login?next=/board">Sign in</Link> to see how many of these <b>{survey.length.toLocaleString()}</b> you've watched</>
           )}
         </div>
         <div className="board-hl">
           <span className="board-label">Highlight</span>
-          <button className={`board-tog seen${hlSeen ? " on" : ""}`} onClick={() => setHlSeen((v) => !v)}>Seen</button>
-          <button className={`board-tog watch${hlWatch ? " on" : ""}`} onClick={() => setHlWatch((v) => !v)}>Watchlist</button>
+          <button className={`board-tog seen${hlSeen ? " on" : ""}`} onClick={() => setHlSeen((v) => !v)}
+            disabled={noLibrary} title={noLibrary ? "Sign in to highlight what you've seen" : undefined}>Seen</button>
+          <button className={`board-tog watch${hlWatch ? " on" : ""}`} onClick={() => setHlWatch((v) => !v)}
+            disabled={noLibrary} title={noLibrary ? "Sign in to highlight your watchlist" : undefined}>Watchlist</button>
           <button className={`board-tog avail${hlAvail ? " on" : ""}`} onClick={() => setHlAvail((v) => !v)}>On my services</button>
           <select className="board-sel" value={country} onChange={(e) => setCountry(e.target.value === "KR" ? "KR" : "US")} aria-label="Country">
             <option value="US">US</option>
@@ -238,7 +281,7 @@ export default function BoardGrid() {
           ref={wrapRef}
           style={{ ["--cols" as string]: cols, ["--gap" as string]: `${GAP}px` }}
           onMouseMove={onGridMove}
-          onMouseLeave={() => setHover(null)}
+          onMouseLeave={() => tipRef.current?.hide()}
           onClick={onGridClick}
         >
           {displayList.map((s) => {
@@ -249,10 +292,14 @@ export default function BoardGrid() {
             const ring = hlSeen && seen ? "r-seen" : hlWatch && watch ? "r-watch" : hlAvail && availOn ? "r-avail" : "";
             const cls = ["bcell", hasLit && !lit ? "dim" : "", ring].filter(Boolean).join(" ");
             return (
-              <div key={s.s} className={cls} data-slug={s.s}>
+              // real link → keyboard-focusable + screen-reader named ("link, Title (year)");
+              // a plain click or Enter opens the in-page drawer (onGridClick preventDefault),
+              // ⌘/ctrl/shift-click follows the href to the film page in a new tab.
+              <a key={s.s} className={cls} data-slug={s.s} href={`/film/${s.s}`}
+                aria-label={`${s.t}${s.y ? ` (${s.y})` : ""}${seen ? " · seen" : ""}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`${IMG}/${imgSz}${s.p}`} alt="" loading="lazy" draggable={false} />
-              </div>
+              </a>
             );
           })}
           {displayList.length === 0 ? (
@@ -260,18 +307,7 @@ export default function BoardGrid() {
           ) : null}
         </div>
 
-        {hover ? (
-          <div className="board-tip" style={{ left: Math.min(hover.x + 12, (wrapRef.current?.clientWidth ?? 800) - 220), top: hover.y + 12 }}>
-            <b>{hover.s.t}</b> <span>{hover.s.y ?? ""}</span>
-            {hover.s.d ? <div className="d">{hover.s.d}</div> : null}
-            <div className="m">
-              {hover.s.v != null ? <span className="v">TakeScore {hover.s.v}</span> : null}
-              <span className="a">{"▲".repeat(hover.s.c)}</span>
-              {seenSet.has(hover.s.s) ? <span className="s">✓ Seen</span> : null}
-            </div>
-            <div className="go">Click for details →</div>
-          </div>
-        ) : null}
+        <BoardTip ref={tipRef} wrapRef={wrapRef} />
       </div>
 
       <div className="board-legend">
@@ -279,7 +315,7 @@ export default function BoardGrid() {
         <span className="lg watch">Watchlist</span>
         <span className="lg avail">On my services ({country})</span>
         <span className="lg-note">
-          For a taste-driven next film, <a className="accent" href="/journey">The Journey</a> has the answer.
+          For a taste-driven next film, open <a className="accent" href="/journey">For You</a>.
         </span>
       </div>
 
@@ -295,6 +331,54 @@ function yearOpts() {
   return out;
 }
 
+// The hover bubble lives here, isolated from the grid. Its node is always mounted;
+// show()/hide() write position straight to the DOM (no re-render at all), and the
+// content only re-renders when the pointer crosses into a different tile — so
+// moving across up to 2,000 tiles never reconciles the tile list.
+const BoardTip = forwardRef<TipHandle, { wrapRef: React.RefObject<HTMLDivElement | null> }>(
+  function BoardTip({ wrapRef }, ref) {
+    const elRef = useRef<HTMLDivElement | null>(null);
+    const curSlug = useRef<string | null>(null);
+    const [data, setData] = useState<{ s: OdyStation; seen: boolean } | null>(null);
+
+    useImperativeHandle(ref, () => ({
+      show(s, x, y, seen) {
+        const el = elRef.current;
+        if (el) {
+          const w = wrapRef.current?.clientWidth ?? 800;
+          el.style.left = `${Math.min(x + 12, w - 220)}px`;
+          el.style.top = `${y + 12}px`;
+          el.style.display = "block";
+        }
+        // Content only changes when the hovered film changes — not on every pixel.
+        if (curSlug.current !== s.s) { curSlug.current = s.s; setData({ s, seen }); }
+      },
+      hide() {
+        curSlug.current = null;
+        if (elRef.current) elRef.current.style.display = "none";
+        setData(null);
+      },
+    }), [wrapRef]);
+
+    return (
+      <div className="board-tip" ref={elRef} style={{ display: "none" }} aria-hidden="true">
+        {data ? (
+          <>
+            <b>{data.s.t}</b> <span>{data.s.y ?? ""}</span>
+            {data.s.d ? <div className="d">{data.s.d}</div> : null}
+            <div className="m">
+              {data.s.v != null ? <span className="v">TakeScore {data.s.v}</span> : null}
+              <span className="a">{"▲".repeat(data.s.c)}</span>
+              {data.seen ? <span className="s">✓ Seen</span> : null}
+            </div>
+            <div className="go">Click for details →</div>
+          </>
+        ) : null}
+      </div>
+    );
+  },
+);
+
 function Drawer({ s, map, availCC, country, onClose }: {
   s: OdyStation; map: OdyMap; availCC: Record<string, string[]> | null; country: "KR" | "US"; onClose: () => void;
 }) {
@@ -302,8 +386,31 @@ function Drawer({ s, map, availCC, country, onClose }: {
   const st = uf?.get({ slug: s.s });
   const rating = st?.rating ?? 0;
   const lineById = useMemo(() => new Map(map.lines.map((l) => [l.id, l])), [map]);
+  const panelRef = useRef<HTMLElement | null>(null);
+
+  // On open, remember what had focus, move focus into the panel, and restore it on
+  // close so keyboard/SR users return to the tile they came from.
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const prev = document.activeElement as HTMLElement | null;
+    panelRef.current?.querySelector<HTMLButtonElement>(".bd-x")?.focus();
+    return () => prev?.focus?.();
+  }, []);
+
+  // Escape closes; Tab is trapped within the panel so focus can't fall behind the scrim.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { onClose(); return; }
+      if (e.key !== "Tab") return;
+      const panel = panelRef.current;
+      if (!panel) return;
+      const f = Array.from(
+        panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+      ).filter((el) => el.offsetParent !== null);
+      if (f.length === 0) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
@@ -311,7 +418,7 @@ function Drawer({ s, map, availCC, country, onClose }: {
   return (
     <>
       <div className="board-scrim" onClick={onClose} />
-      <aside className="board-drawer" role="dialog" aria-label={s.t}>
+      <aside className="board-drawer" role="dialog" aria-modal="true" aria-label={s.t} ref={panelRef}>
         <button className="bd-x" onClick={onClose} aria-label="Close">×</button>
         <div className="bd-head">
           {s.p ? (
@@ -346,13 +453,13 @@ function Drawer({ s, map, availCC, country, onClose }: {
         ) : null}
 
         {availCC?.[s.s]?.length ? (
-          <div className="bd-avail"><div className="bd-lbl">Streaming ({country})</div>{availCC[s.s].join(" · ")}</div>
+          <div className="bd-avail"><div className="bd-lbl">On my services ({country})</div>{availCC[s.s].join(" · ")}</div>
         ) : null}
 
         {uf ? (
           <div className="bd-actions">
             <button className={st?.seen ? "on" : ""} onClick={() => uf.toggleSeen({ slug: s.s })}>{st?.seen ? "✓ Seen" : "Seen"}</button>
-            <button className={st?.watchlist ? "on" : ""} onClick={() => uf.toggleWatch({ slug: s.s })}>{st?.watchlist ? "＋ Watchlist" : "Watchlist"}</button>
+            <button className={st?.watchlist ? "on" : ""} onClick={() => uf.toggleWatch({ slug: s.s })}>{st?.watchlist ? "✓ On watchlist" : "＋ Watchlist"}</button>
             <div className="bd-stars">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button key={n} className={rating >= n ? "on" : ""} aria-label={`${n} stars`} onClick={() => uf.rate({ slug: s.s }, rating === n ? 0 : n)}>★</button>

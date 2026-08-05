@@ -572,9 +572,9 @@ export default function OdysseyGalaxy() {
           onMouseLeave={() => { drag.current = null; setHover(null); }}
         />
 
-        <div className="odg-axis odg-axis-x">← 과거 · 세대(시대) · 현재 →</div>
-        <div className="odg-axis odg-axis-y">취향·성향</div>
-        <div className="odg-hint">가로=시대 · 세로=취향 · 스크롤 확대 · ⌘/Ctrl+드래그로 기울여 길 보기 · 영화를 누르면 그 노선이 켜집니다</div>
+        <div className="odg-axis odg-axis-x">← Past · era · Present →</div>
+        <div className="odg-axis odg-axis-y">Taste</div>
+        <div className="odg-hint">Across = era · up–down = taste · scroll to zoom · ⌘/Ctrl-drag to tilt and see the roads · click a film to light its line</div>
 
         {hover && hover.st.s !== sel?.s ? (
           <div className="odg-tip" style={{

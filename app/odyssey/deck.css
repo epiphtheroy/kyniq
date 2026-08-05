@@ -44,13 +44,15 @@
   gap: clamp(14px, 3vw, 40px); flex-wrap: wrap; padding-bottom: 4px; border-bottom: 1px solid #241d13; }
 .deck-seen { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 120px; }
 .deck-pile { position: relative; width: 116px; height: 78px; }
+/* --i is 0..8; centre the fan on index 4 (matches the 9-poster cap in
+   MetatakeDeck.tsx) so the widest spread stays inside .deck-inner's overflow. */
 .deck-pile-img {
   position: absolute; left: calc(50% - 15px); top: 4px; width: 30px; height: 45px; object-fit: cover;
   border-radius: 3px; border: 1.5px solid rgba(255,255,255,.18); box-shadow: 0 3px 7px rgba(0,0,0,.5);
-  transform: translateX(calc((var(--i) - 6.5) * 13px)) rotate(calc((var(--i) - 6.5) * 3deg));
+  transform: translateX(calc((var(--i) - 4) * 13px)) rotate(calc((var(--i) - 4) * 3deg));
   transition: transform .3s;
 }
-.deck-seen:hover .deck-pile-img { transform: translateX(calc((var(--i) - 6.5) * 15px)) rotate(calc((var(--i) - 6.5) * 2deg)) translateY(-3px); }
+.deck-seen:hover .deck-pile-img { transform: translateX(calc((var(--i) - 4) * 15px)) rotate(calc((var(--i) - 4) * 2deg)) translateY(-3px); }
 .deck-pile-empty { border: 1.5px dashed #3a2f1e; border-radius: 6px; }
 .deck-seen-label { font-size: 12px; color: #a89e8c; }
 .deck-seen-label b { color: #f0c04b; font-weight: 800; font-size: 15px; }
@@ -102,7 +104,7 @@
   background-size: 220% 100%; animation: deck-shim 1.4s ease-in-out infinite;
   animation-delay: calc(var(--i) * 130ms); }
 @keyframes deck-shim { 0% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
-@media (prefers-reduced-motion: reduce) { .deck-skel { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .deck-skel, .deal-front { animation: none; } }
 
 /* flip cards */
 .deal-card { perspective: 1100px; }
@@ -125,7 +127,10 @@
 }
 .deal-back-mark { font-size: 30px; color: rgba(var(--axg, 199,154,58), .85); text-shadow: 0 0 16px rgba(var(--axg,199,154,58),.6); }
 .deal-front {
-  transform: rotateY(0deg); background: #0c0a07;
+  transform: rotateY(0deg);
+  /* shimmer until the poster <img> paints over it — no flat-black flash while loading */
+  background: linear-gradient(100deg, #17120c 28%, #241d14 50%, #17120c 72%);
+  background-size: 220% 100%; animation: deck-shim 1.6s ease-in-out infinite;
   border: 1px solid rgba(255,255,255,.1); box-shadow: 0 10px 26px -12px rgba(0,0,0,.7), 0 0 0 1px rgba(var(--axg,0,0,0),.0);
 }
 .deal-card:hover .deal-front { box-shadow: 0 16px 34px -12px rgba(0,0,0,.8), 0 0 22px -4px rgba(var(--axg,227,18,11),.5); }
@@ -143,6 +148,8 @@
   position: absolute; top: 6px; right: 6px; display: flex; flex-direction: column; gap: 4px; align-items: flex-end;
   opacity: 0; transition: opacity .16s; }
 .deal-card:hover .deal-actions, .deal-actions:focus-within { opacity: 1; }
+/* Touch devices have no hover — the Seen/Watchlist/Rate controls must always show. */
+@media (hover: none) { .deal-actions { opacity: 1; } }
 .deal-act {
   width: 24px; height: 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,.35);
   background: rgba(12,10,7,.72); color: #fff; font-size: 13px; font-weight: 800; cursor: pointer; line-height: 1;

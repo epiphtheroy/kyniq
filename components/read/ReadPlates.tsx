@@ -12,6 +12,7 @@ import {
 } from "@/lib/urls";
 import { Card, SectionHead } from "@/components/curious/ui";
 import BroadcastCard from "@/components/BroadcastCard";
+import JoinCard from "@/components/conversion/JoinCard";
 
 /**
  * "Keep exploring {film}" — the dark bottom plate block shared by every
@@ -254,6 +255,12 @@ export default async function ReadPlates({
               <Link className="rd-cta__btn" href={filmUrl(film.slug)}>Read the full Metatake analysis of {film.title} →</Link>
             </div>
           </div>
+        </div>
+
+        {/* ── Join invitation — a distinct light card on the dark band, set in its
+            own row so it reads as an intentional invitation, not a broken plate ── */}
+        <div style={{ margin: "28px 0" }}>
+          <JoinCard variant="film" source="readplates" />
         </div>
 
         {/* ── Keep exploring: every other surface the film has ── */}

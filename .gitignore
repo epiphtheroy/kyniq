@@ -71,7 +71,11 @@ crm-handoff/_batches/
 data/i18n/src/
 
 # mobile app (Expo)
-mobile/node_modules/
+# No trailing slash: with one, the pattern matches a DIRECTORY only, and a
+# node_modules SYMLINK (what a git worktree needs to reuse the real install)
+# sails straight past it into a commit — pointing at an absolute path on one
+# machine, which is a dangling link in every checkout that is not that machine.
+mobile/node_modules
 mobile/.expo/
 mobile/dist/
 mobile/web-build/

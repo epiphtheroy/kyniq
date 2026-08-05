@@ -5,6 +5,7 @@ import { cachedLocationsEligibility } from "@/lib/locations";
 import { Card, SectionHead } from "@/components/curious/ui";
 import BroadcastCard from "@/components/BroadcastCard";
 import { playlistExists } from "@/lib/tvExists";
+import JoinCard from "@/components/conversion/JoinCard";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -124,6 +125,10 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
               <Link className="rd-cta__btn" href={`/director/${slug}`}>Explore everything on {director} →</Link>
             </div>
           </div>
+        </div>
+
+        <div style={{ margin: "28px 0" }}>
+          <JoinCard variant="director" source="directorplates" />
         </div>
 
         {shown.length + filmCards.length >= 1 ? (

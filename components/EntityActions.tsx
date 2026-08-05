@@ -8,8 +8,8 @@
  */
 
 import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
+import { requireAuthEvent } from "@/lib/conversion/bus";
 
 function sb() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -17,7 +17,6 @@ function sb() {
 
 type Kind = "follow" | "like";
 export default function EntityActions({ entityType, entityId }: { entityType: "film" | "figure" | "meta_take"; entityId: string }) {
-  const router = useRouter();
   const [uid, setUid] = useState<string | null>(null);
   const [followed, setFollowed] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -50,7 +49,8 @@ export default function EntityActions({ entityType, entityId }: { entityType: "f
   }, [entityType, entityId]);
 
   const toggle = useCallback(async (kind: Kind) => {
-    if (!uid) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return; }
+    // Anon → in-context sheet (no replay: entities key on UUID, not a slug — user re-taps signed in).
+    if (!uid) { requireAuthEvent({ ctx: { kind: "save", verb: "follow" } }); return; }
     const on = kind === "follow" ? followed : liked;
     if (kind === "follow") setFollowed(!on);
     else { setLiked(!on); setLikes((n) => Math.max(0, n + (on ? -1 : 1))); }
@@ -60,7 +60,7 @@ export default function EntityActions({ entityType, entityId }: { entityType: "f
     } else {
       await c.from("user_pins").insert({ user_id: uid, entity_type: entityType, entity_id: entityId, kind });
     }
-  }, [uid, followed, liked, entityType, entityId, router]);
+  }, [uid, followed, liked, entityType, entityId]);
 
   if (!ready) return <div className="ea ea--ph" aria-hidden="true" />;
 

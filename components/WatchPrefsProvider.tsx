@@ -15,16 +15,22 @@
  *     starts at the defaults and storage is applied in an effect. `ready` says
  *     whether that has happened; consumers gate their first fetch on it rather
  *     than firing once with defaults and again with the truth.
- *   · LOCAL-FIRST — localStorage is the source of truth. Signed-in users get a
- *     mirror into user_prefs (the same row the app writes and the availability
- *     push worker joins on), which is how a setting made on the phone shows up
- *     in the browser and back again.
- *   · The mirror writes ONLY country_code/provider_ids. `locale` and
+ *   · LOCAL-FIRST — localStorage is the source of truth. A signed-in viewer also
+ *     gets their country+services mirrored to TWO server stores, because two
+ *     already exist and they serve different readers:
+ *       me_services / me_set_services (migration 0114) — the web account store
+ *         the room and the navigator read. This provider is now its ONLY writer;
+ *         the Marquee used to write it directly.
+ *       user_prefs (migration 0106) — what the phone app and the availability
+ *         push worker join on. Writing it is what makes a setup chosen in the
+ *         browser show up in the app, and the other way round.
+ *   · The user_prefs mirror writes ONLY country_code/provider_ids. `locale` and
  *     `push_enabled` in that row belong to the app's push delivery — an upsert
  *     that omits them cannot clobber them.
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
+import { loadAccountServices, saveAccountServices } from "@/lib/conversion/services";
 import {
   DEFAULT_WATCH_PREFS,
   WATCH_PREFS_KEY,
@@ -94,7 +100,8 @@ export function WatchPrefsProvider({ children }: { children: React.ReactNode }) 
   }, []);
 
   // Server mirror, read once: a first visit in this browser inherits whatever the
-  // phone (or another browser) already knows.
+  // account (or the phone) already knows. The web account store wins over
+  // user_prefs when both answer — it is the one a member edits on this site.
   useEffect(() => {
     if (!ready || !virgin.current) return;
     let alive = true;
@@ -104,6 +111,18 @@ export function WatchPrefsProvider({ children }: { children: React.ReactNode }) 
       const { data: auth } = await c.auth.getSession();
       const uid = auth?.session?.user?.id;
       if (!uid) return;
+
+      const acc = await loadAccountServices();
+      if (!alive) return;
+      if (acc && (acc.country || acc.providers.length)) {
+        setPrefs((p) => ({
+          ...p,
+          country: acc.country?.length === 2 ? acc.country.toUpperCase() : p.country,
+          providers: acc.providers.length ? acc.providers : p.providers,
+        }));
+        return;
+      }
+
       const { data } = await c
         .from("user_prefs")
         .select("country_code, provider_ids")
@@ -136,21 +155,26 @@ export function WatchPrefsProvider({ children }: { children: React.ReactNode }) 
       try { localStorage.setItem(WATCH_PREFS_KEY, JSON.stringify(next)); } catch { /* ignore */ }
       virgin.current = false;
       // Mirror the availability axis when there is a session; a no-op otherwise.
+      // Both stores or neither: a viewer whose room and whose phone disagreed
+      // about their own services would have no way to tell which one is lying.
       if (patch.country !== undefined || patch.providers !== undefined) {
         (async () => {
           const c = sb();
           const { data: auth } = await c.auth.getSession();
           const uid = auth?.session?.user?.id;
           if (!uid) return;
-          await c.from("user_prefs").upsert(
-            {
-              user_id: uid,
-              country_code: next.country,
-              provider_ids: next.providers,
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: "user_id" },
-          );
+          await Promise.all([
+            saveAccountServices(next.country, next.providers), // fault-soft by design
+            c.from("user_prefs").upsert(
+              {
+                user_id: uid,
+                country_code: next.country,
+                provider_ids: next.providers,
+                updated_at: new Date().toISOString(),
+              },
+              { onConflict: "user_id" },
+            ),
+          ]);
         })().catch(() => { /* local prefs already stand */ });
       }
       return next;

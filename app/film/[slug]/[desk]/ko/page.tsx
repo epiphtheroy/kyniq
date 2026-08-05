@@ -163,7 +163,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots(true),
+    // Same essay-length bar as the EN desk page — thin readings noindex (prune to grow).
+    robots: pageRobots(data.essay.minutes >= 3),
   };
 }
 

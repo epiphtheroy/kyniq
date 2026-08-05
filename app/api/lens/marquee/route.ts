@@ -31,6 +31,7 @@ export async function GET(request: Request) {
   const csv = (k: string) => (searchParams.get(k) || "").split(",").map((s) => s.trim()).filter(Boolean);
   const prov = intArr("prov");
   const countries = strArr("watch_countries");
+  const madeIn = (searchParams.get("made_in") || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
   const genres = csv("genres");
   const dir = searchParams.get("dir");
   const mode = searchParams.get("mode") === "exclude" ? "exclude" : "only";
@@ -43,12 +44,7 @@ export async function GET(request: Request) {
     p_q: searchParams.get("q") || null,
     p_year_min: num("year_min"),
     p_year_max: num("year_max"),
-    // Production country ("Made in"), lowercase ISO2 — compared against
-    // curation.film.country_code, the same column cinecodex_countries counts.
-    // Was hardcoded null, which silently dropped the filter for signed-in users
-    // with Hide-seen on: the only difference between the two paths must be the
-    // seen exclusion.
-    p_country: (searchParams.get("made_in") || "").trim().toLowerCase() || null,
+    p_country: null,
     p_max_cost: 100,
     p_sub: {},
     p_ts_min: num("ts_min"),
@@ -65,6 +61,12 @@ export async function GET(request: Request) {
     p_genres: genres.length ? genres : null,
     p_dir: dir === "asc" || dir === "desc" ? dir : null,
     p_include_rent: searchParams.get("include_rent") === "1",
+    // Production countries ("Made in"), lowercase ISO2 — curation.film.country_code,
+    // the column cinecodex_countries counts. Migration 0132. This path used to
+    // send p_country: null unconditionally, so the filter silently vanished for
+    // signed-in users with Hide-seen on; the only difference between the two
+    // paths must be the seen exclusion.
+    p_countries: madeIn.length ? madeIn : null,
   });
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json(data ?? { total: 0, rows: [] }, {

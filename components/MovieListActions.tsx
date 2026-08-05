@@ -7,15 +7,14 @@
  * Logged-out clicks route to /login. (migration: save_layer_user_films_and_saves)
  */
 import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
+import { requireAuthEvent } from "@/lib/conversion/bus";
 
 function sb() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
 export default function MovieListActions({ filmId }: { filmId: string }) {
-  const router = useRouter();
   const [uid, setUid] = useState<string | null>(null);
   const [seen, setSeen] = useState(false);
   const [watchlist, setWatchlist] = useState(false);
@@ -39,9 +38,9 @@ export default function MovieListActions({ filmId }: { filmId: string }) {
   }, [filmId]);
 
   const need = useCallback(() => {
-    if (!uid) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return true; }
+    if (!uid) { requireAuthEvent({ ctx: { kind: "save", verb: "seen" } }); return true; }
     return false;
-  }, [uid, router]);
+  }, [uid]);
 
   // Persist the full row, or delete it when nothing is set.
   const persist = useCallback(async (s: boolean, w: boolean, r: number) => {

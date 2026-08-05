@@ -45,6 +45,7 @@ import MovieListActions from "@/components/MovieListActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
+import JoinCard from "@/components/conversion/JoinCard";
 import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
 import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
@@ -1235,6 +1236,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
           ))}
 
+          <JoinCard variant="film" source="film-catalog" />
+
 
           {/* Modern chrome parity with the Tier-1 main (2026-07-15): prev/next film nav
               + the E-E-A-T provenance footer. NOT the Byline (it says "drafted by
@@ -2057,6 +2060,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             theme={`A chapter-by-chapter audiovisual reading of ${film.title} — figures, misreadings, reception and its map, played over the film's images.`}
           />
         ) : null}
+
+        <JoinCard variant="film" source="film-main" />
 
         <div className="df-seq">
           <SeqNav locale={locale} kind="film" id={film.id} />

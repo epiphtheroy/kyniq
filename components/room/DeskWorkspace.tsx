@@ -23,6 +23,7 @@ import ICard from "./insp/ICard";
 import KV from "./insp/KV";
 import { useRoomActions } from "./useRoomActions";
 import MiniWorld from "./MiniWorld";
+import ActivationChecklist from "./ActivationChecklist";
 import { STR } from "./strings";
 import { NAV_ITEMS } from "@/lib/room/nav";
 import { num, IMG185, IMG342, tierOf, chipsOf, type WwiRow, type NavHistRow } from "@/lib/room/format";
@@ -318,6 +319,9 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         </div>
       ) : null}
 
+      {/* "Get set up" ladder — self-hides once import + services + 3★3.5+ are done */}
+      <ActivationChecklist ratedHigh={data.ratedHigh} seenCount={num(data.nav?.n_watched) ?? 0} />
+
       {/* ═ TONIGHT — what should I watch? ═ */}
       <section id="tonight" className="dk-sec">
       <div className="dk-sechd">
@@ -378,25 +382,30 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           {STR.empty.desk}
         </FormingCard>
       ) : today ? (
-        <div className="today" role="button" tabIndex={0} onClick={() => openRec(today, todayKept)}
-          onKeyDown={(e) => { if (e.key === "Enter") openRec(today, todayKept); }}>
+        <div className="today">
           <span className="tpo" style={today.poster_path ? { backgroundImage: `url(${IMG342}${today.poster_path})` } : {}} />
           <div style={{ minWidth: 0 }}>
-            <div style={{ fontSize: 10.5, letterSpacing: ".12em", color: "var(--sub)" }}>TONIGHT</div>
+            {/* Opener: a real button whose hit-area is stretched over the whole card
+                (.tt-open::after) so clicking the poster/title still opens the inspector,
+                while the chips and Keep/Seen/Another below remain independent controls. */}
+            <button type="button" className="tt-open" aria-label={`Open details for ${today.title}`}
+              onClick={() => openRec(today, todayKept)}>
+              <span style={{ fontSize: 10.5, letterSpacing: ".12em", color: "var(--sub)" }}>TONIGHT</span>
+            </button>
             <div className="tt ser">{today.title}</div>
             <div className="tsub">{today.year ?? "?"}{today.director ? ` · ${today.director}` : ""}</div>
             <div className="twhy" style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               {todayChips.map((c, i) => c.href
-                ? <Link key={i} className={`rsn ${c.cls}`} href={c.href} onClick={(e) => e.stopPropagation()}>{c.label}</Link>
+                ? <Link key={i} className={`rsn ${c.cls}`} href={c.href}>{c.label}</Link>
                 : <span key={i} className={`rsn ${c.cls}`}>{c.label}</span>)}
               {todayFit != null ? <span className="mono" style={{ fontSize: 11.5, color: "var(--sub)" }}>{STR.row.fit} {Math.round(todayFit)}</span> : null}
               {todayDelta != null && todayDelta >= 2 ? <span className="mono" style={{ fontSize: 11.5, color: "var(--canon)" }}>+{Math.round(todayDelta)} NAV</span> : null}
               {today.avail?.state === "on" ? <span style={{ fontSize: 11.5, color: "var(--sub)" }}><span className="availdot on" /> {today.avail.provider ?? STR.row.streaming}</span> : null}
             </div>
-            <div className="tact" onClick={(e) => e.stopPropagation()}>
-              <span className="actbtn pri" onClick={() => keep(today)}>{todayKept ? `✓ ${STR.row.kept}` : STR.row.keep}</span>
-              <span className="actbtn" onClick={() => seen(today)}>{STR.row.seen}</span>
-              <span className="actbtn" onClick={another}>Another</span>
+            <div className="tact">
+              <button type="button" className="actbtn pri" onClick={() => keep(today)}>{todayKept ? `✓ ${STR.row.kept}` : STR.row.keep}</button>
+              <button type="button" className="actbtn" onClick={() => seen(today)}>{STR.row.seen}</button>
+              <button type="button" className="actbtn" onClick={another}>Another</button>
             </div>
           </div>
         </div>
@@ -481,7 +490,7 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         <div className="dk-card dk-card--map">
           <div className="dk-cardhd">Where your films took you</div>
           {data.geoDots?.length ? <MiniWorld dots={data.geoDots} /> : <div className="emptyins">Seen films pin the world.</div>}
-          <div className="dk-cardft"><span className="sub">{data.geoDots?.length ?? 0} pins · your films</span><Link className="dk-btn" href="/locations?lens=mine">Open the world map →</Link></div>
+          <div className="dk-cardft"><span className="sub">{data.geoDots?.length ?? 0} pins · your films</span><Link className="dk-btn" href="/room/locations">Open the world map →</Link></div>
         </div>
         {/* directors — faces, not labels */}
         <div className="dk-card">
@@ -526,11 +535,12 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
               const shown = session.reRated[f.slug] ?? f.rating;
               const isLoved = shown != null && shown >= 4.5;
               return (
-                <div className="pcard" key={f.slug} onClick={() => openTape(f)}
+                <button type="button" className="pcard" key={f.slug} onClick={() => openTape(f)}
+                  aria-label={f.date ? `${f.title} · ${f.date}` : f.title}
                   title={f.date ? `${f.title} · ${f.date}` : f.title}>
                   <span className="ppo" style={{ display: "block", ...(f.poster_path ? { backgroundImage: `url(${IMG185}${f.poster_path})` } : {}) }} />
-                  <div className="pst">★{shown ?? "—"}{isLoved ? <i className="ti ti-flame" style={{ color: "var(--red)", marginLeft: 3 }} /> : null}</div>
-                </div>
+                  <span className="pst">★{shown ?? "—"}{isLoved ? <i className="ti ti-flame" style={{ color: "var(--red)", marginLeft: 3 }} /> : null}</span>
+                </button>
               );
             })}
           </div>
@@ -545,7 +555,7 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           <div className="errcard"><i className="ti ti-alert-triangle" />{STR.common.errorLoad}</div>
         ) : (
           <div className="dk-card dk-card--nav" role="button" tabIndex={0} title={STR.shell.navChipTitle} onClick={openNav}
-            onKeyDown={(e) => { if (e.key === "Enter") openNav(); }}>
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openNav(); } }}>
             <div className="dk-cardhd">Portfolio</div>
             <div className="dk-navrow">
               <span className="dk-navbig">NAV <b>{navV ?? "—"}</b> <span className="dk-tier">{tier}</span></span>

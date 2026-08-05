@@ -79,7 +79,7 @@ function metaOf(d: PickDest): string {
     case "dir": return `Director · ${d.seen}/${d.total} watched · ${d.total - d.seen} to go`;
     case "lineage": return `${FACET_EN[d.facet ?? "other"] ?? d.facet ?? "List"} · ${d.seen}/${d.total} watched · ${d.total - d.seen} to go`;
     case "decade": return d.seen > 0 ? `Top TakeScore by year · ${d.seen} already logged` : "Top TakeScore by year";
-    case "sub": return "Best on your services · before they leave";
+    case "sub": return "Best on your services right now";
   }
 }
 
@@ -141,9 +141,12 @@ export default function NavigatorPicker({
 }) {
   const [q, setQ] = useState("");
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-  // film→lists from /api/navigator/lists (debounced)
-  const [apiFilm, setApiFilm] = useState<ApiFilm | null>(null);
+  // film→lists from /api/navigator/lists (debounced). The API merges lists from the top TWO
+  // title matches, so we keep both to attribute the heading honestly (a classic and its remake
+  // share a title). `pending` gates the empty state so it can't flash during the debounce.
+  const [apiFilms, setApiFilms] = useState<ApiFilm[]>([]);
   const [apiLists, setApiLists] = useState<ApiList[]>([]);
+  const [pending, setPending] = useState(false);
   const acRef = useRef<AbortController | null>(null);
 
   const query = q.trim();
@@ -186,22 +189,28 @@ export default function NavigatorPicker({
       .map((x) => x.c);
   }, [catalog, query, searching]);
 
-  // Debounced film→lists lookup. Same-origin fetch (CSP-safe), aborts stale calls.
+  // Debounced film→lists lookup. Same-origin fetch (CSP-safe), aborts stale calls. `pending`
+  // stays true from the keystroke until THIS query settles, so the empty state can't flash during
+  // the debounce; `live` drops stale writes (and stale pending clears) on the next keystroke.
   useEffect(() => {
-    if (query.length < 2) { setApiFilm(null); setApiLists([]); return; }
+    if (query.length < 2) { setApiFilms([]); setApiLists([]); setPending(false); return; }
+    setPending(true);
+    let live = true;
     const t = setTimeout(async () => {
       acRef.current?.abort();
       const ac = new AbortController();
       acRef.current = ac;
       try {
         const r = await fetch(`/api/navigator/lists?q=${encodeURIComponent(query)}`, { signal: ac.signal });
-        if (!r.ok) return;
+        if (!r.ok) { if (live) setPending(false); return; }
         const j = (await r.json()) as { films: ApiFilm[]; lists: ApiList[] };
-        setApiFilm(j.films?.[0] ?? null);
+        if (!live) return;
+        setApiFilms(j.films?.slice(0, 2) ?? []);
         setApiLists(j.lists ?? []);
-      } catch { /* aborted or offline — keep the instant name filter */ }
+        setPending(false);
+      } catch { if (live) setPending(false); }
     }, 250);
-    return () => clearTimeout(t);
+    return () => { live = false; clearTimeout(t); };
   }, [query]);
 
   const empty = directors.length === 0 && canon.length === 0;
@@ -219,28 +228,40 @@ export default function NavigatorPicker({
           type="search"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search lists — or a film, to find the lists it's on…"
+          placeholder="Search lists, or a film title…"
           aria-label="Search lists or a film"
+          autoCorrect="off"
+          autoCapitalize="none"
+          spellCheck={false}
+          enterKeyHint="search"
         />
 
         {searching ? (
-          <>
-            {apiFilm && apiLists.length ? (
+          // aria-live so screen-reader users hear results update (or that a search found nothing)
+          <div aria-live="polite">
+            {apiFilms.length && apiLists.length ? (
               <>
                 <div className="np-sect">
-                  Lists containing “{apiFilm.title}{apiFilm.year ? ` (${apiFilm.year})` : ""}”
+                  Lists containing {apiFilms.map((f) => `“${f.title}${f.year ? ` (${f.year})` : ""}”`).join(" or ")}
                 </div>
                 {apiLists.map((l) => catalogCard({ slug: l.slug, label: l.label, facet: l.facet, film_count: l.film_count }, activeKey))}
               </>
             ) : null}
-            <div className="np-sect">
-              {nameHits.length ? `Lists matching “${query}”` : `No lists match “${query}”`}
-            </div>
-            {nameHits.map((c) => catalogCard(c, activeKey))}
-            {!nameHits.length && !(apiFilm && apiLists.length) ? (
-              <div className="np-emptycard">Nothing found. Try a country, movement, award, canon — or a film title.</div>
+            {nameHits.length ? (
+              <>
+                <div className="np-sect">Lists matching “{query}”</div>
+                {nameHits.map((c) => catalogCard(c, activeKey))}
+              </>
             ) : null}
-          </>
+            {/* a true empty state only once the lookup has settled — never during the debounce */}
+            {!nameHits.length && !(apiFilms.length && apiLists.length) ? (
+              pending ? (
+                <div className="np-sect">Searching…</div>
+              ) : (
+                <div className="np-emptycard">Nothing found. Try a country, movement, award, canon — or a film title.</div>
+              )
+            ) : null}
+          </div>
         ) : (
           <>
             {resume ? (
@@ -268,7 +289,7 @@ export default function NavigatorPicker({
             ) : null}
             {canon.length ? (
               <>
-                <div className="np-sect">Canon &amp; lists in progress</div>
+                <div className="np-sect">Canon &amp; lists — continue or start</div>
                 {canon.map((d) => card(d, activeKey))}
               </>
             ) : null}

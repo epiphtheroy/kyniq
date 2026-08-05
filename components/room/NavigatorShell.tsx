@@ -38,7 +38,7 @@ export default function NavigatorShell({
   resume?: { label: string; href: string; kind: string } | null;
 }) {
   return (
-    <div className="nav-shell" data-mode={drive ? "drive" : "pick"}>
+    <div className="nav-shell" data-mode={drive || notFound ? "drive" : "pick"}>
       <aside className="nav-rail">
         <NavigatorPicker
           directors={rail.directors}

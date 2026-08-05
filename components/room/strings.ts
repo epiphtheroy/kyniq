@@ -105,7 +105,7 @@ export const STR = {
   },
   /** Honest empty states per instrument (spec §3.x — unlock numbers stay explicit). */
   empty: {
-    desk: "No log yet — tap a star above to open your position. Recommendations unlock at 3 films rated ★3.5+.",
+    desk: "No log yet — tap a star above to open your position.",
     screener: "The screener needs a sample of your taste — rate 3 films ★3.5+ and candidates appear with reasons.",
     slate: "Your slate is empty — Keep films from the Screener and they queue here.",
     ledger: "No entries yet — find a film above and tap a star. Rating implies seen.",

@@ -6,8 +6,8 @@
  * Logged-out → /login. (migration: save_layer_user_films_and_saves)
  */
 import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
+import { requireAuthEvent } from "@/lib/conversion/bus";
 
 function sb() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -17,7 +17,6 @@ type Variant = "heart" | "bookmark";
 export default function SaveButton({
   entityType, entityRef, label = "Save", labelOn, variant = "bookmark",
 }: { entityType: string; entityRef: string; label?: string; labelOn?: string; variant?: Variant }) {
-  const router = useRouter();
   const [uid, setUid] = useState<string | null>(null);
   const [on, setOn] = useState(false);
   const [ready, setReady] = useState(false);
@@ -40,12 +39,12 @@ export default function SaveButton({
   }, [entityType, entityRef]);
 
   const toggle = useCallback(async () => {
-    if (!uid) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return; }
+    if (!uid) { requireAuthEvent({ ctx: { kind: "save", verb: "save" }, decl: { v: "save", slug: entityRef, kind: entityType } }); return; }
     const next = !on; setOn(next);
     const c = sb();
     if (next) await c.from("user_saves").insert({ user_id: uid, entity_type: entityType, entity_ref: entityRef, kind: "save" });
     else await c.from("user_saves").delete().eq("user_id", uid).eq("entity_type", entityType).eq("entity_ref", entityRef).eq("kind", "save");
-  }, [uid, on, entityType, entityRef, router]);
+  }, [uid, on, entityType, entityRef]);
 
   if (!ready) return <span className="svb svb--ph" aria-hidden="true" />;
   const icon = variant === "heart" ? (on ? "♥" : "♡") : (on ? "🔖" : "+");

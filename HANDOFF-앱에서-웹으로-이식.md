@@ -90,7 +90,15 @@
 ## §0.6 진행 상태 — §2의 "설정" 절반 이식 완료 (2026-08-04)
 
 오너 지시: **"모바일 Tonight의 설정 로직을 웹에도. 개인설정에 자국어 제목 설정과
-내보기 설정이 있어야 한다."** 브랜치 `feat/discovery-feed`, 미커밋.
+내보기 설정이 있어야 한다."**
+
+🚩 **브랜치 주의**: 이 §0.6 이후 작업은 **`feat/watch-prefs`(= `origin/main` 기반)**에
+있고 staging에 올라간다. 처음엔 `feat/discovery-feed`에서 만들었는데, 그 브랜치는
+**main보다 40커밋 뒤이고 라이브 기능을 지우고 있었다** — `ConversionProvider`(가입
+전환 시트), 설정의 뉴스레터 동의, 마퀴의 **계정 서비스 미러**(`me_services`,
+마이그 0114). 그대로 배포했으면 프로덕션이 되돌아갔다. 그래서 main 위에 다시 얹었고,
+그 과정에서 **계정 미러의 주인을 `WatchPrefsProvider` 하나로** 합쳤다(아래).
+§0.5(모션)는 여전히 `feat/discovery-feed`에만 있고 main에는 없다.
 
 앱이 먼저 푼 문제는 필터가 아니라 **축의 분리**였다(`mobile/src/editions.ts` 주석).
 웹에는 그 저장소 자체가 없었다 — 스크리너와 마퀴가 각자 `mt-watch-prefs`에 자기
@@ -98,7 +106,7 @@
 
 | 이식한 것 | 어디에 | 앱 원본 |
 |---|---|---|
-| **축 3개 저장소**(country·providers·contentLang + 저장 셋업·hideSeen) | `components/WatchPrefsProvider.tsx` + `lib/watch-prefs.ts`, 루트 레이아웃에 배선 | `src/state/prefs.tsx` |
+| **축 3개 저장소**(country·providers·contentLang + 저장 셋업·hideSeen) | `components/WatchPrefsProvider.tsx` + `lib/watch-prefs.ts`, 루트 레이아웃에 배선. **서버 미러 2곳의 유일한 필자**: `me_set_services`(0114, 웹 계정·룸이 읽음)와 `user_prefs`(0106, 앱·푸시 워커가 읽음). 읽기는 계정 우선 → user_prefs 폴백 | `src/state/prefs.tsx` |
 | **내보기 설정 = 국가+서비스 한 화면**(국가 바꾸면 그 나라에 없는 서비스는 조용히 제거) | `components/watch/WatchSetup.tsx` → `/settings#watch` | `app/onboarding.tsx` StepEdition |
 | **저장된 셋업**(국가+서비스 쌍, 한 번에 교체) | 위 + 마퀴 바의 `My setups` 셀렉트 | 앱의 `EditionPreset` |
 | **자국어 제목**(TMDB 공식 개봉 제목, 영어 폴백) | `lib/useLocalTitles.ts` + `components/watch/TitleLanguage.tsx` → `/settings#titles`, 마퀴 바의 `Titles:` | `src/lib/titles.ts` · 마이그 0121 `film_titles_for_slugs` |
@@ -131,14 +139,17 @@
 
 | 이식한 것 | 어디에 | 서버 |
 |---|---|---|
-| **제작국 필터** (편수 표기·많은 순) | 마퀴 바 `Made in: …` | 기존 `cinecodex_ranked(p_country)` **그대로**. 목록은 이미 있던 `cinecodex_countries`(스크리너와 같은 모집단, 소문자 ISO2) |
+| **제작국 필터** (복수선택·편수 표기·많은 순) | 마퀴 바 `Made in` 팝오버 | **마이그 0132** — `cinecodex_ranked`/`_mine`에 `p_countries text[]` 추가. 목록은 이미 있던 `cinecodex_countries`(스크리너와 같은 모집단, 소문자 ISO2) |
 | **TakeScore 상위 100/500/1000** | 마퀴 바 `Top N` (Sort 옆) | 없음 — 순서를 바꾸는 게 아니라 **멈추는** 것이라 클라이언트에서 자른다 |
 
-- **웹은 병렬 병합을 안 했다.** §2.3이 열어둔 선택지 중 **단일 국가**를 골랐다.
-  이유는 정직성이다: 앱의 BFF는 국가당 300행으로 자르는데, 웹은 `total`과 "더 보기"가
-  화면에 있어서 잘린 풀이 **전체인 척**한다. 미국만 2,150편이다. 복수 선택은
-  `p_countries text[]` 마이그레이션이 들어오는 날 정확하게 가능해진다(그날까지는
-  거짓말을 안 하는 쪽).
+- **병렬 병합은 안 했다 — 서버가 배열을 알게 했다(0132).** §2.3이 열어둔 선택지 중
+  앱의 BFF 방식(국가당 300행 팬아웃+병합)은 웹에서 거짓말이 된다: `total`과 "더 보기"가
+  화면에 있는데 풀이 잘려 있으면 **전체인 척**한다(미국만 2,150편). 필터를 **세는 쿼리
+  안에서** 하면 total도 페이징도 정확하다. 인자는 마지막·default null이라 기존 호출자
+  (스크리너·앱 BFF·저장된 뷰)는 전부 그대로 동작한다. 대소문자는 SQL에서 눕힌다
+  (`curation.film.country_code`는 소문자 저장, 'JP'는 0건으로 조용히 매칭될 자리였다).
+  🚨 **배포 순서**: PostgREST는 인자 이름으로 함수를 고르므로 **마이그 먼저, 프론트 나중**.
+  적용 검증(08-04): jp=362 · jp+kr=624 · 'JP'+kr=624 · 빈 배열=6,978(무시) · 기존 호출자 6,978.
 - **Top-N은 렌더만 자르면 안 된다.** 자르는 건 화면인데 페이징은 계속 돌면,
   안 자란 목록 뒤에서 카탈로그 전체를 훑는 요청이 흐른다 —
   [[qa-agents-tripped-own-waf]]가 남긴 교훈. 그래서 **요청 자체를**
@@ -146,7 +157,9 @@
   ("Stopped at the top 100 — 2,671 more match these filters").
 - 🚨 **`/api/lens/marquee`의 `p_country`가 하드코딩 `null`이었다.** Hide-seen을 켠
   로그인 사용자만 제작국 필터가 조용히 사라졌을 것이다. 두 경로의 유일한 차이는
-  "본 영화 제외"여야 한다 — `made_in` 인자를 추가해 맞췄다.
+  "본 영화 제외"여야 한다 — `made_in` CSV → `p_countries`로 맞췄다.
+- 0132 이전에 저장된 뷰는 `madeIn`을 **문자열**로 들고 있다. `applyCfg`가 문자열도
+  받아 배열로 승격한다(타입은 `string[]`이라 `unknown` 경유).
 
 **남은 §2**: "내 취향" 영구 opt-in(웹은 `/room`의 λ 다이얼이 대응물).
 
