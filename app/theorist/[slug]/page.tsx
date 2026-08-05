@@ -61,7 +61,8 @@ function load(slug: string) {
   return unstable_cache(
     async () => {
       const supabase = db();
-      const { data: th } = await supabase.from("theorists").select("id, name, blurb").eq("slug", slug).maybeSingle();
+      const { data: th, error: thErr } = await supabase.from("theorists").select("id, name, blurb").eq("slug", slug).maybeSingle();
+      if (thErr) throw thErr; // a failed query is not a missing row
       if (!th) return null;
       const { data: rd } = await supabase.rpc("theorist_readings", { p_slug: slug });
       const readings = (rd as Reading[] | null) ?? [];

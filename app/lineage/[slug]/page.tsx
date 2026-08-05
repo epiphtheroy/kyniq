@@ -56,10 +56,11 @@ function load(slug: string) {
   return unstable_cache(
     async () => {
       const supabase = db();
-      const { data: list } = await supabase
+      const { data: list, error: listErr } = await supabase
         .from("lineage_lists")
         .select("slug, label, facet, description, country, tier, film_count, source, external_ref")
         .eq("slug", slug).maybeSingle();
+      if (listErr) throw listErr; // a failed query is not a missing row
       if (!list) return null;
       const { data: films } = await supabase.rpc("lineage_list_films", { p_slug: slug });
       const rows = (films as LineageFilmRow[] | null) ?? [];

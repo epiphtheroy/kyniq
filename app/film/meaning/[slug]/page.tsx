@@ -47,11 +47,12 @@ type Reading = {
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const { data: film } = await supabase
+  const { data: film, error: filmErr } = await supabase
     .from("films")
     .select("id, title, slug, year, director, director_slug, visible, backdrop_path, poster_path, tmdb_id")
     .eq("slug", slug)
     .maybeSingle<{ id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; visible: boolean; backdrop_path: string | null; poster_path: string | null; tmdb_id: number | null }>();
+  if (filmErr) throw filmErr; // a failed query is not a missing row
   if (!film || !film.visible) return null;
 
   const { data: figRows } = await supabase

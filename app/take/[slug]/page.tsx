@@ -47,11 +47,12 @@ type RowR = Row & { rel: number; surp: number };
 
 async function load(slug: string) {
   const supabase = db();
-  const { data: mt } = await supabase
+  const { data: mt, error: mtErr } = await supabase
     .from("meta_takes")
     .select(`id, slug, title, laconic, thesis, seo_phrase, genres, created_at, updated_at, raw_concept,
       theory_family:theory_families(name, slug), theorist:theorists(name, slug)`)
     .eq("slug", slug).eq("status", "published").eq("kind", "reading").maybeSingle();
+  if (mtErr) throw mtErr; // a failed query is not a missing row
   if (!mt) return null;
 
   const [{ data: takeRows }, { data: ranks }, { data: edges }] = await Promise.all([

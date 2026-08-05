@@ -45,10 +45,11 @@ type FigLink = { slug: string; label: string };
 
 async function load(slug: string) {
   const supabase = db();
-  const { data: film } = await supabase
+  const { data: film, error: filmErr } = await supabase
     .from("films")
     .select("id, title, slug, year, director, runtime, poster_path, backdrop_path, imdb_id, tmdb_id, visible")
     .eq("slug", slug).maybeSingle();
+  if (filmErr) throw filmErr; // a failed query is not a missing row
   if (!film) return null;
   const filmId = (film as { id: string }).id;
   const [{ data: wpRow }, { data: ratRow }, { data: codex }, { data: figRows }, { data: vidRows }] = await Promise.all([

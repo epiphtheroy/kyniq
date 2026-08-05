@@ -79,13 +79,15 @@ const loadMetaTakes = unstable_cache(
 
 async function load(slug: string, figureSlug: string) {
   const supabase = db();
-  const { data: film } = await supabase
+  const { data: film, error: filmErr } = await supabase
     .from("films").select("id, title, slug, year, director, director_slug, poster_path, visible")
     .eq("slug", slug).maybeSingle();
+  if (filmErr) throw filmErr; // a failed query is not a missing row
   if (!film) return null;
-  const { data: figure } = await supabase
+  const { data: figure, error: figureErr } = await supabase
     .from("figures").select("id, label, kind, description, created_at, updated_at")
     .eq("film_id", film.id).eq("slug", figureSlug).maybeSingle();
+  if (figureErr) throw figureErr; // a failed query is not a missing row
   if (!figure) return null;
 
   // Everything below keys off figure.id (or nothing at all), so it goes out in

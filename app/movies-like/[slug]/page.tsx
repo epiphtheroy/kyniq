@@ -35,10 +35,11 @@ type Rec = {
 
 async function load(slug: string) {
   const supabase = db();
-  const { data: film } = await supabase
+  const { data: film, error: filmErr } = await supabase
     .from("films")
     .select("id, title, slug, year, director, director_slug, poster_path, backdrop_path, visible")
     .eq("slug", slug).maybeSingle();
+  if (filmErr) throw filmErr; // a failed query is not a missing row
   if (!film) return null;
 
   const { data: aff } = await supabase
