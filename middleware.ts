@@ -250,22 +250,28 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   // APIs have their own guards). Fail-open throughout: any doubt → allow.
   if (!pathname.startsWith("/api")) {
     const ua = request.headers.get("user-agent") ?? "";
-    if (ua && !GOOD_BOT.test(ua)) {
-      if (BAD_UA.test(ua)) return forbidden();
 
-      // Sitewide backstop. The per-route ceilings above each had to be added
-      // after that route was the one that fell over — /search, then /credits,
-      // then figure pages on 2026-08-06. This one does not need to know which
-      // route is next: no human reads a page a second for a minute, so a /24
-      // sustaining that is sweeping, whatever it is sweeping. Search and
-      // citation bots are exempted above, so indexing is never slowed.
-      const burstPrefix =
-        request.headers.get("next-router-prefetch") === "1"
-          ? null // a reader's link prefetches, not a sweep — see the throttle block
-          : ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip"));
+    // Sitewide backstop — deliberately OUTSIDE the good-bot exemption.
+    //
+    // The crawl that took the site down on 2026-08-06 was Applebot (9,651 hits in
+    // 12 hours) and YandexBot (4,699), both of which GOOD_BOT exempts. A ceiling
+    // that skips the bots actually crawling us is not a ceiling. Googlebot, for
+    // scale, managed 520 in the same window and will never come near this.
+    //
+    // Being on the good list means we never 403 you. It does not mean you may
+    // take the site down: 429 + Retry-After asks a crawler to slow down and,
+    // unlike a 404 or a noindex, never drops a URL from the index.
+    if (request.headers.get("next-router-prefetch") !== "1") {
+      const burstPrefix = ipToPrefix(
+        request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")
+      );
       if (burstPrefix && throttled("burst", burstPrefix, BURST_MAX_PER_MIN)) {
         return tooMany("burst");
       }
+    }
+
+    if (ua && !GOOD_BOT.test(ua)) {
+      if (BAD_UA.test(ua)) return forbidden();
       const prefix = ipToPrefix(
         request.headers.get("x-forwarded-for") ??
           request.headers.get("x-real-ip")
