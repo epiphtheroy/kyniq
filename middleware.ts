@@ -133,6 +133,10 @@ const forbidden = () =>
 // the one people actually link to, so it must not be caught here.
 const FIGURE_PATH = /^\/(?:[a-z]{2}\/)?film\/[^/]+\/figure\/[^/]+$/;
 
+/** Auth round-trip ceiling. Also the abort deadline on the fetch itself — see
+ *  the client below for why racing a promise is not enough. */
+const AUTH_TIMEOUT_MS = 3000;
+
 const hitLog = new Map<string, number[]>();
 const THROTTLE_WINDOW_MS = 60_000;
 const SEARCH_MAX_PER_MIN = 20; // a person types a handful of searches a minute
@@ -309,6 +313,20 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
+      /**
+       * Abort the auth fetch, do not merely stop waiting for it.
+       *
+       * The Promise.race below caps how long WE wait, but the losing promise
+       * keeps running: supabase-js retries a failing /auth/v1/user internally,
+       * and on 2026-08-06 that meant 34 retries per request against an already
+       * saturated auth server — 1,054 AuthRetryableFetchError in the middleware
+       * alone. The guard meant to protect the site was quietly multiplying the
+       * load on it. A signal ends the attempt for real.
+       */
+      global: {
+        fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+          fetch(input, { ...init, signal: AbortSignal.timeout(AUTH_TIMEOUT_MS) }),
+      },
       cookies: {
         getAll() {
           return request.cookies.getAll();
@@ -336,7 +354,6 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   // blockedPrefix above: on timeout, treat the request as unauthenticated —
   // admin/CRM/auth-required routes redirect to login (never a 504), and public
   // authed navigation just skips the session refresh for this request.
-  const AUTH_TIMEOUT_MS = 3000;
   let user: Awaited<
     ReturnType<typeof supabase.auth.getUser>
   >["data"]["user"] = null;
