@@ -61,14 +61,24 @@ const opening = (text) => text.trim().slice(0, 8);
 function sentenceLens(text) {
   return text.split(/(?<=[.!?。])\s+/).map((s) => s.trim().length).filter((n) => n > 0);
 }
+/** Collapse to one row per PK, last file wins — the same rule the loader applies
+ *  (scripts/load-content-i18n.mjs). Requeue corrections are written as rq-* so
+ *  they sort after the originals; without this the superseded row is still on
+ *  disk and would be counted, and re-audited as a violation it no longer is. */
+function collapseByPk(rows) {
+  const byPk = new Map();
+  for (const r of rows) byPk.set(`${r.entity_type}\u0000${r.entity_key}\u0000${r.field}\u0000${r.lang}`, r);
+  return [...byPk.values()];
+}
+
 const pct = (n, d) => (d ? (100 * n / d).toFixed(1) : "0.0");
 
 function auditCorpus(name) {
   // Name etymology glosses every character on purpose — that is the content.
   const glossCap = name === "dfacts_meaning" ? 12 : 2;
   const dir = join(OUT, name);
-  const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
-  const rows = files.flatMap((f) => JSON.parse(readFileSync(join(dir, f), "utf8")));
+  const files = readdirSync(dir).filter((f) => f.endsWith(".json")).sort();
+  const rows = collapseByPk(files.flatMap((f) => JSON.parse(readFileSync(join(dir, f), "utf8"))));
   if (!rows.length) return null;
 
   const srcName = name === "tow_assembled" ? "tow" : name;

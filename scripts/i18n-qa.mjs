@@ -91,8 +91,13 @@ const dirs = readdirSync(OUT).filter((d) =>
 
 const summary = [];
 for (const dir of dirs) {
-  const rows = readdirSync(join(OUT, dir)).filter((f) => f.endsWith(".json"))
-    .flatMap((f) => JSON.parse(readFileSync(join(OUT, dir, f), "utf8")));
+  // one row per PK, last file wins — matches the loader, so a requeue correction
+  // is what gets graded rather than the reject it replaced
+  const byPk = new Map();
+  for (const f of readdirSync(join(OUT, dir)).filter((f) => f.endsWith(".json")).sort())
+    for (const r of JSON.parse(readFileSync(join(OUT, dir, f), "utf8")))
+      byPk.set(`${r.entity_type}\u0000${r.entity_key}\u0000${r.field}`, r);
+  const rows = [...byPk.values()];
   if (!rows.length) continue;
   const srcName = dir === "tow_assembled" ? "tow" : dir;
   const srcPath = join(SRC, `${srcName}.json`);
