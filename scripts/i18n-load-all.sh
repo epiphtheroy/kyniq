@@ -5,8 +5,13 @@
 # one step a session cannot do for itself. Idempotent (upsert by PK): safe to
 # re-run, safe to run while later corpora are still translating.
 #
-#   ! zsh scripts/i18n-load-all.sh          # load
-#   ! zsh scripts/i18n-load-all.sh --dry    # count only, no writes
+#   ! zsh scripts/i18n-load-all.sh            # load
+#   ! zsh scripts/i18n-load-all.sh --dry      # count only, no writes
+#   ! zsh scripts/i18n-load-all.sh --gentle   # 250-row chunks, 1.5s apart
+#
+# ⚠️ After the 2026-08-06 saturation incident: use --gentle on a database that is
+# still recovering. ~22,500 rows then take about 2.5 minutes instead of seconds,
+# which is the right trade when the site has just been down.
 set -u
 export PATH="$HOME/.local/node/bin:$PATH"
 cd /Users/jerryje/Developer/MetaTake

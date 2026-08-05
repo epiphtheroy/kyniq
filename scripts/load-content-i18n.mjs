@@ -15,6 +15,7 @@
  *   node scripts/load-content-i18n.mjs --locale ko                 # all data/i18n/content/ko/*.json
  *   node scripts/load-content-i18n.mjs --locale ko --dir <path>    # a specific dir
  *   node scripts/load-content-i18n.mjs --locale ko --dry           # parse + count only
+ *   node scripts/load-content-i18n.mjs --locale ko --gentle        # pace the write (recovering DB)
  */
 
 import { readFileSync, existsSync, readdirSync } from "node:fs";
@@ -26,7 +27,11 @@ const arg = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : nu
 const DRY = args.includes("--dry");
 const LOCALE = arg("--locale");
 const DIR = arg("--dir") || (LOCALE ? join("data/i18n/content", LOCALE) : null);
-const CHUNK = 500;
+const CHUNK = Number(arg("--chunk") || 250);
+// Pacing between chunks. Default 0 (as before), but a recovering database wants
+// the write spread out — see the 2026-08-06 saturation incident. --gentle is the
+// preset for "the site just fell over; do not be the second wave".
+const SLEEP_MS = args.includes("--gentle") ? 1500 : Number(arg("--sleep-ms") || 0);
 
 if (!LOCALE) { console.error("--locale is required"); process.exit(2); }
 if (!DIR || !existsSync(DIR)) { console.error(`dir not found: ${DIR}`); process.exit(2); }
@@ -99,5 +104,6 @@ for (let i = 0; i < rows.length; i += CHUNK) {
   await upsert(chunk);
   n += chunk.length;
   console.log(`  · upserted ${n}/${rows.length}`);
+  if (SLEEP_MS && n < rows.length) await new Promise((r) => setTimeout(r, SLEEP_MS));
 }
 console.log(`[content_i18n:${LOCALE}] done: ${n} rows.`);

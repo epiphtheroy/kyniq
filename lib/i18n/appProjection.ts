@@ -9,7 +9,9 @@
  *  Fallback is always English (P2): a missing row, an unknown locale, or a dead
  *  table yields the English value, never a blank.
  */
-import { loadLabels, dbLabel, type LabelMap } from "./dbLabel";
+import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
+import { dbLabel, type LabelMap } from "./dbLabel";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "./locales";
 
 /** Narrow an arbitrary `?locale=` query param to a locale we actually project. */
@@ -21,26 +23,68 @@ export function appLocale(raw: string | null | undefined): Locale {
 
 export const isProjected = (locale: Locale) => locale !== DEFAULT_LOCALE;
 
-/** Batch-load every entity type a film payload needs, in one pass. */
+/**
+ * One query per screen, not one per entity type.
+ *
+ * The obvious shape is a loadLabels() call per type, but a film payload needs
+ * four and a director two, and this table is read on every localized request.
+ * Every type on a screen keys off the film slug or the director slug, so a
+ * single `entity_type IN (…) AND entity_key IN (…)` returns a small superset in
+ * one round trip. After 2026-08-06 the database gets the cheaper shape by
+ * default. Cached 1h like loadLabels, and every failure yields an empty map so
+ * the caller falls back to English rather than breaking.
+ */
+async function screenLabels(locale: Locale, types: string[], keys: string[]): Promise<LabelMap> {
+  if (!isProjected(locale) || !types.length || !keys.length) return new Map();
+  const entries = await unstable_cache(
+    async (): Promise<[string, string][]> => {
+      try {
+        const { data, error } = await anon()
+          .from("content_i18n")
+          .select("entity_type, entity_key, field, text")
+          .eq("lang", locale)
+          .in("entity_type", types)
+          .in("entity_key", keys);
+        if (error) return [];
+        return ((data ?? []) as Row[]).map((r) => [
+          `${r.entity_type}|${r.entity_key}|${r.field}`,
+          r.text,
+        ]);
+      } catch {
+        return [];
+      }
+    },
+    ["content-i18n-screen-1", locale, types.join(","), keys[0] ?? "", String(keys.length)],
+    { revalidate: 3600 },
+  )();
+  return new Map(Array.isArray(entries) ? entries : []);
+}
+
+type Row = { entity_type: string; entity_key: string; field: string; text: string };
+
+const FILM_TYPES = ["invitation", "tow_comment", "director_portrait", "director_fact"];
+const DIRECTOR_TYPES = ["director_portrait", "director_fact"];
+
+/** Every label a film payload needs. One map — `pick` disambiguates by type. */
 export async function filmLabels(locale: Locale, slug: string, directorSlug: string | null) {
   if (!isProjected(locale)) return null;
-  const [invitation, tow, portrait, facts] = await Promise.all([
-    loadLabels(locale, "invitation", [slug]),
-    loadLabels(locale, "tow_comment", [slug]),
-    directorSlug ? loadLabels(locale, "director_portrait", [directorSlug]) : emptyMap(),
-    directorSlug ? loadLabels(locale, "director_fact", factKeys(directorSlug)) : emptyMap(),
-  ]);
-  return { invitation, tow, portrait, facts };
+  const keys = directorSlug ? [slug, ...factKeys(directorSlug)] : [slug];
+  const map = await screenLabels(locale, FILM_TYPES, keys);
+  return { invitation: map, tow: map, portrait: map, facts: map };
 }
 
 /** Director-screen entity types. */
 export async function directorLabels(locale: Locale, directorSlug: string) {
   if (!isProjected(locale)) return null;
-  const [portrait, facts] = await Promise.all([
-    loadLabels(locale, "director_portrait", [directorSlug]),
-    loadLabels(locale, "director_fact", factKeys(directorSlug)),
-  ]);
-  return { portrait, facts };
+  const map = await screenLabels(locale, DIRECTOR_TYPES, factKeys(directorSlug));
+  return { portrait: map, facts: map };
+}
+
+function anon() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  );
 }
 
 /** director_fact rows are keyed `<slug>#<n>` so one bad fact can be re-queued
@@ -51,8 +95,6 @@ function factKeys(slug: string): string[] {
   for (let n = 1; n <= 40; n++) keys.push(`${slug}#${n}`);
   return keys;
 }
-
-const emptyMap = async (): Promise<LabelMap> => new Map();
 
 /** Project one field, English in / localized out. */
 export function pick(
