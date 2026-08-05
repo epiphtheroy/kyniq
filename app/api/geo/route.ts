@@ -57,21 +57,45 @@ export async function GET(req: Request) {
   if (mode && mode !== "overview") return bad("invalid mode");
 
   const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+
+  /**
+   * An empty map is a legitimate answer here; a failed query is not. Reading only
+   * `.data` collapsed the two, and this response is cached for ten minutes and
+   * served stale for an hour — so on 2026-08-06 one timed-out RPC put an empty
+   * array in front of every visitor's map long after the database had recovered.
+   * The home map was blank and nothing in it looked broken.
+   *
+   * 503 instead: an error is never cached, and the map retries rather than
+   * drawing a world with no places in it.
+   */
   let rows: unknown = [];
-  if (film) rows = (await db.rpc("film_geo", { p_slug: film })).data;
-  else if (director) rows = (await db.rpc("director_geo", { p_slug: director })).data;
-  else if (country) rows = (await db.rpc("country_geo", { p_slug: country })).data;
+  let err: unknown = null;
+  let where = "overview";
+  if (film) ({ data: rows, error: err } = await db.rpc("film_geo", { p_slug: film })), (where = "film");
+  else if (director) ({ data: rows, error: err } = await db.rpc("director_geo", { p_slug: director })), (where = "director");
+  else if (country) ({ data: rows, error: err } = await db.rpc("country_geo", { p_slug: country })), (where = "country");
   else if (bbox) {
     const parts = bbox.split(",").map(Number);
     if (parts.length !== 4 || !parts.every(Number.isFinite)) return bad("invalid bbox");
     const [w, s, e, n] = parts;
     if (w < -180 || e > 180 || s < -90 || n > 90 || w >= e || s >= n) return bad("bbox out of range");
-    rows = (await db.rpc("geo_bbox_json", { p_w: w, p_s: s, p_e: e, p_n: n, p_limit: 4000 })).data;
+    ({ data: rows, error: err } = await db.rpc("geo_bbox_json", { p_w: w, p_s: s, p_e: e, p_n: n, p_limit: 4000 }));
+    where = "bbox";
   } else if (mode === "overview") {
-    rows = (await db.rpc("geo_overview_sample_json")).data;
+    ({ data: rows, error: err } = await db.rpc("geo_overview_sample_json"));
   } else {
-    rows = (await db.rpc("geo_overview_json", { p_limit: 30000 })).data;
-    if (!Array.isArray(rows)) rows = (await db.rpc("geo_overview", { p_limit: 5000 })).data; // fallback
+    ({ data: rows, error: err } = await db.rpc("geo_overview_json", { p_limit: 30000 }));
+    if (!err && !Array.isArray(rows)) {
+      ({ data: rows, error: err } = await db.rpc("geo_overview", { p_limit: 5000 })); // fallback
+    }
+    where = "full";
+  }
+  if (err) {
+    console.error(`[api/geo] ${where} failed`, err);
+    return NextResponse.json({ error: `geo(${where}) upstream failure` }, {
+      status: 503,
+      headers: { "cache-control": "no-store" },
+    });
   }
   return NextResponse.json(rows ?? [], { headers: { "cache-control": "public, max-age=300, s-maxage=600, stale-while-revalidate=3600" } });
 }
