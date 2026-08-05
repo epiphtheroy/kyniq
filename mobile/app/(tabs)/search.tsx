@@ -196,7 +196,11 @@ export default function SearchScreen() {
     const id = seq.current;
     const query = q.trim();
 
-    if (!query) {
+    // Hangul composes jamo-by-jamo, so an in-flight syllable reaches onChangeText
+    // as a bare compatibility jamo ("ㅎ" on the way to "한"). Those never match a
+    // title, and /search is the heaviest function in the fleet — so let the
+    // composition finish rather than pay a round trip for a keystroke.
+    if (!query || /^[\u3130-\u318F]+$/.test(query)) {
       setRows([]);
       setTsMap(new Map());
       setTierMap(new Map());
