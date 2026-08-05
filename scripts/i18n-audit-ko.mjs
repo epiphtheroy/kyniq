@@ -64,6 +64,8 @@ function sentenceLens(text) {
 const pct = (n, d) => (d ? (100 * n / d).toFixed(1) : "0.0");
 
 function auditCorpus(name) {
+  // Name etymology glosses every character on purpose — that is the content.
+  const glossCap = name === "dfacts_meaning" ? 12 : 2;
   const dir = join(OUT, name);
   const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
   const rows = files.flatMap((f) => JSON.parse(readFileSync(join(dir, f), "utf8")));
@@ -88,7 +90,7 @@ function auditCorpus(name) {
     if (dashes > 2) reasons.push(`대시${dashes}`);
     const glosses = (t.match(/\([A-Za-z一-鿿][^)]{0,40}\)/g) || []).length;
     glossTotal += glosses;
-    if (glosses > 2) reasons.push(`병기${glosses}`);
+    if (glosses > glossCap) reasons.push(`병기${glosses}`);
     const s = src.get(r.entity_key);
     if (s?.en && s.en.length > 40) {
       const ratio = t.length / s.en.length;

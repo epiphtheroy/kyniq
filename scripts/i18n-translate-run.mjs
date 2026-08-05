@@ -130,7 +130,7 @@ function unquoted(s) {
     .replace(/'[^']*'/g, " ");
 }
 
-function lint(en, ko, { longForm = false } = {}) {
+function lint(en, ko, { longForm = false, glossCap = 2 } = {}) {
   const errs = [];
   if (!en?.trim()) return errs;
   if (!ko?.trim()) return ["빈 출력"];
@@ -140,7 +140,7 @@ function lint(en, ko, { longForm = false } = {}) {
   const dashes = (ko.match(/—/g) || []).length;
   if (dashes > (longForm ? 2 : 1)) errs.push(`대시 ${dashes}개`);
   const glosses = (ko.match(/\([A-Za-z一-鿿][^)]{0,40}\)/g) || []).length;
-  if (glosses > 2) errs.push(`병기 ${glosses}회 (최대 2)`);
+  if (glosses > glossCap) errs.push(`병기 ${glosses}회 (최대 ${glossCap})`);
   if (en.length > 40) {
     const r = ko.length / en.length;
     if (r < 0.22) errs.push(`너무 짧음 (${r.toFixed(2)})`);
@@ -217,6 +217,9 @@ const system = [charter, GOLDEN, VOICE[CORPUS] || ""].join("\n\n---\n\n");
 let items = JSON.parse(readFileSync(join(SRC, `${CORPUS}.json`), "utf8"));
 const isRepolish = CORPUS.startsWith("repolish");
 const longForm = /invitation|portrait/.test(CORPUS);
+// Name etymology IS per-character glossing — the voice asks for it, so the cap
+// must not punish it. Anywhere else a gloss is seasoning and 2 is plenty.
+const glossCap = CORPUS === "dfacts_meaning" ? 12 : 2;
 
 if (REQUEUE) {
   // Re-translate only what the audit or QA pass rejected. The ledger already
@@ -275,7 +278,7 @@ async function runBatch(batch, idx) {
       for (const it of batch) {
         const ko = byKey.get(it.entity_key);
         if (ko == null) { problems.push(`${it.entity_key}: 누락`); continue; }
-        const errs = lint(it.en, ko, { longForm });
+        const errs = lint(it.en, ko, { longForm, glossCap });
         if (errs.length) problems.push(`${it.entity_key}: ${errs.join(", ")}`);
         rows.push({ entity_type: it.entity_type, entity_key: it.entity_key, field: it.field,
           lang: LANG, text: ko, model: MODEL, source_sha256: it.sha256 });
