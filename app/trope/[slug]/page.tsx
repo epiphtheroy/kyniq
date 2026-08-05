@@ -64,10 +64,11 @@ const MATURITY: Record<string, [string, string]> = {
 
 async function load(slug: string) {
   const supabase = db();
-  const { data: t } = await supabase
+  const { data: t, error: tErr } = await supabase
     .from("meta_takes")
     .select("id, slug, title, laconic, thesis, seo_phrase, maturity, trope_kind, film_count, member_count, cohesion, created_at, updated_at")
     .eq("slug", slug).eq("kind", "figure_type").eq("status", "published").maybeSingle();
+  if (tErr) throw tErr; // a failed query is not a missing row
   if (!t) return null;
   // Members ranked live in the DB (cosine of take↔trope embeddings) — never baked,
   // so trope rebuilds and new readings re-rank on the next revalidate.

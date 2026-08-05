@@ -102,6 +102,20 @@ const forbidden = () =>
 //                     the slug's trailing id is the only input, so the URL space
 //                     is effectively unbounded.
 //
+// Added 2026-08-06 after a saturation incident took the site down (34% error rate
+// over 90 minutes):
+//
+//   /film/[s]/figure/[f]  421 of 997 gateway timeouts — 42%, the largest single
+//                     source. It is the most expensive page we serve: eight to
+//                     ten mostly-sequential round trips (films, figures, takes,
+//                     sm_concepts, take_traditions, meta_takes, figure_type_members,
+//                     figure_taxonomy, siblings, related). Its URL space is film ×
+//                     figure over 18,381 figures, so a sweep never repeats a URL
+//                     and ISR never gets a second visit to serve from cache.
+//
+// The ceiling is 10/min because reading a figure is a slow act — you open one and
+// stay. Opening ten in a minute is already machine behaviour.
+//
 // KEYED ON THE /24, NOT THE IP. The previous per-IP key never fired once (zero
 // 429s across 22,800 /search requests a day) because a crawler spread over a
 // subnet looks like many distinct visitors. A /24 is the same unit the bot
@@ -115,10 +129,20 @@ const forbidden = () =>
 // 429 + Retry-After is deliberate. Every major crawler answers it by slowing
 // down, and unlike a 404 or a noindex it never removes a URL from the index —
 // the same principle as the fail-closed work in lib/filmGate.ts.
+// /film/<slug>/figure/<slug> only — the film page itself is far cheaper and is
+// the one people actually link to, so it must not be caught here.
+const FIGURE_PATH = /^\/(?:[a-z]{2}\/)?film\/[^/]+\/figure\/[^/]+$/;
+
+/** Auth round-trip ceiling. Also the abort deadline on the fetch itself — see
+ *  the client below for why racing a promise is not enough. */
+const AUTH_TIMEOUT_MS = 3000;
+
 const hitLog = new Map<string, number[]>();
 const THROTTLE_WINDOW_MS = 60_000;
 const SEARCH_MAX_PER_MIN = 20; // a person types a handful of searches a minute
 const CREDITS_MAX_PER_MIN = 30; // a person opens a few crew pages; a sweep opens hundreds
+const FIGURE_MAX_PER_MIN = 10; // a reader opens one figure and stays; a sweep opens the catalogue
+const BURST_MAX_PER_MIN = 60; // sitewide backstop — one page a second, sustained, is a machine
 const THROTTLE_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
 
 function throttled(bucket: string, key: string, max: number): boolean {
@@ -201,19 +225,28 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     return NextResponse.next({ request: { headers: request.headers } });
   }
 
-  // Throttle the two expensive route families before anything else pays for them.
+  // Throttle the expensive route families before anything else pays for them.
   // Bare /search (no query) is left alone — it renders no search at all — and so
   // is the /credits index, which is one cached page rather than a per-person fetch.
   {
-    const wantsSearch = pathname === "/search" && !!request.nextUrl.searchParams.get("q");
-    const wantsPerson = pathname.startsWith("/credits/");
-    if (wantsSearch || wantsPerson) {
+    // Next.js prefetches almost every <Link> in the viewport (1,188 of them in
+    // this codebase, 3 opted out), so one person scrolling a grid fires dozens of
+    // requests in seconds and would trip any of these ceilings. Crawlers never
+    // send this header — it is the one signal that separates "a reader arrived"
+    // from "something is sweeping us", and without it these limits would 429 real
+    // people on the catalogue pages.
+    const isPrefetch = request.headers.get("next-router-prefetch") === "1";
+    const wantsSearch = !isPrefetch && pathname === "/search" && !!request.nextUrl.searchParams.get("q");
+    const wantsPerson = !isPrefetch && pathname.startsWith("/credits/");
+    const wantsFigure = !isPrefetch && FIGURE_PATH.test(pathname);
+    if (wantsSearch || wantsPerson || wantsFigure) {
       const prefix =
         ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")) ??
         "anon";
 
       if (wantsSearch && throttled("search", prefix, SEARCH_MAX_PER_MIN)) return tooMany("search");
       if (wantsPerson && throttled("credits", prefix, CREDITS_MAX_PER_MIN)) return tooMany("credits");
+      if (wantsFigure && throttled("figure", prefix, FIGURE_MAX_PER_MIN)) return tooMany("figure");
     }
   }
 
@@ -221,6 +254,26 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   // APIs have their own guards). Fail-open throughout: any doubt → allow.
   if (!pathname.startsWith("/api")) {
     const ua = request.headers.get("user-agent") ?? "";
+
+    // Sitewide backstop — deliberately OUTSIDE the good-bot exemption.
+    //
+    // The crawl that took the site down on 2026-08-06 was Applebot (9,651 hits in
+    // 12 hours) and YandexBot (4,699), both of which GOOD_BOT exempts. A ceiling
+    // that skips the bots actually crawling us is not a ceiling. Googlebot, for
+    // scale, managed 520 in the same window and will never come near this.
+    //
+    // Being on the good list means we never 403 you. It does not mean you may
+    // take the site down: 429 + Retry-After asks a crawler to slow down and,
+    // unlike a 404 or a noindex, never drops a URL from the index.
+    if (request.headers.get("next-router-prefetch") !== "1") {
+      const burstPrefix = ipToPrefix(
+        request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")
+      );
+      if (burstPrefix && throttled("burst", burstPrefix, BURST_MAX_PER_MIN)) {
+        return tooMany("burst");
+      }
+    }
+
     if (ua && !GOOD_BOT.test(ua)) {
       if (BAD_UA.test(ua)) return forbidden();
       const prefix = ipToPrefix(
@@ -260,6 +313,20 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
+      /**
+       * Abort the auth fetch, do not merely stop waiting for it.
+       *
+       * The Promise.race below caps how long WE wait, but the losing promise
+       * keeps running: supabase-js retries a failing /auth/v1/user internally,
+       * and on 2026-08-06 that meant 34 retries per request against an already
+       * saturated auth server — 1,054 AuthRetryableFetchError in the middleware
+       * alone. The guard meant to protect the site was quietly multiplying the
+       * load on it. A signal ends the attempt for real.
+       */
+      global: {
+        fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+          fetch(input, { ...init, signal: AbortSignal.timeout(AUTH_TIMEOUT_MS) }),
+      },
       cookies: {
         getAll() {
           return request.cookies.getAll();
@@ -287,7 +354,6 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   // blockedPrefix above: on timeout, treat the request as unauthenticated —
   // admin/CRM/auth-required routes redirect to login (never a 504), and public
   // authed navigation just skips the session refresh for this request.
-  const AUTH_TIMEOUT_MS = 3000;
   let user: Awaited<
     ReturnType<typeof supabase.auth.getUser>
   >["data"]["user"] = null;

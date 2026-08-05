@@ -31,6 +31,10 @@ const load = cache(async (slug: string): Promise<{ pl: PlaylistMeta; entries: TV
     sb.rpc("tv_watch", { p_list: slug, p_program: null }),
     sb.from("tv_playlists").select("slug,title,dek,kind,axis,cut,href,n_films,n_segments,total_ms").eq("slug", slug).maybeSingle(),
   ]);
+  // Either leg failing must not read as "this playlist does not exist" — that
+  // 404 gets cached and tells crawlers to drop a real URL.
+  if (watchRes.error) throw watchRes.error;
+  if (plRes.error) throw plRes.error;
   const entries = ((watchRes.data as { entries?: TVEntry[] } | null)?.entries ?? []) as TVEntry[];
   const pl = plRes.data as PlaylistMeta | null;
   if (!pl || !entries.length) return null;

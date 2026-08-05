@@ -102,7 +102,8 @@ function load(slug: string) {
     async () => {
       const supabase = db();
       // Primary: SM concept registry (security-definer RPC resolves variant slugs).
-      const { data: head } = await supabase.rpc("sm_concept_head", { p_slug: slug });
+      const { data: head, error: headErr } = await supabase.rpc("sm_concept_head", { p_slug: slug });
+      if (headErr) throw headErr; // a failed lookup is not an unknown concept
       const h = (head as { resolved_slug: string; name: string; native: string | null }[] | null)?.[0];
 
       // Readings-corpus vocabulary (the pre-unification /concept data) — used as

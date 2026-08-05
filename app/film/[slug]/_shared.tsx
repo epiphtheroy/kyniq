@@ -253,10 +253,17 @@ function digestWdHonorLabels(wd: WdHonor[], lineageWordSets: Set<string>[]): str
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const { data: film } = await supabase
+  const { data: film, error: filmErr } = await supabase
     .from("films")
     .select("id, title, original_title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, wikidata_id, tmdb_extra, created_at, visible, is_analyzed")
     .eq("slug", slug).maybeSingle();
+  // A failed query returns data:null too. Reading only `data` turns a database
+  // timeout into "no such film" → notFound() → a 404 that ISR then caches for an
+  // hour. That is what happened on 2026-08-06: real films, Parasite among them,
+  // served 404 to crawlers after the saturation had passed. Throwing instead
+  // yields a 500 — uncached, and it tells a crawler to come back rather than to
+  // drop the URL. Same guard as film_sentences_for below.
+  if (filmErr) throw filmErr;
   if (!film) return null;
   if (film.is_analyzed === false) {
     // Tier-2 catalog record: still surface the ambient data we DO have (no figures/readings).

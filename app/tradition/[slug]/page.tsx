@@ -35,7 +35,10 @@ function load(slug: string) {
   return unstable_cache(
     async () => {
       const supabase = db();
-      const { data: school } = await supabase.rpc("theory_school_detail", { p_slug: slug });
+      const { data: school, error: schoolErr } = await supabase.rpc("theory_school_detail", { p_slug: slug });
+      // Without this, a timeout yields zero rows, falls through to the crosswalk,
+      // returns null and 404s a real tradition — then ISR keeps that answer.
+      if (schoolErr) throw schoolErr;
       const rows = (school as SchoolRow[] | null) ?? [];
       if (rows.length > 0) {
         // Reel for the video hero: films across all the school's concepts.
