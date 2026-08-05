@@ -23,6 +23,7 @@ const OUT = join(ROOT, "data/i18n/out");
 const PROMPTS = join(ROOT, "data/i18n/prompts");
 const LEDGER = join(ROOT, "data/i18n/ko-run-ledger.jsonl");
 const STOP = join(ROOT, "data/i18n/.stop");
+const RQDIR = join(ROOT, "data/i18n/requeue");
 const MODEL = "claude-opus-5";
 const LANG = "ko";
 
@@ -37,6 +38,7 @@ const LIMIT = arg("--limit") ? Number(arg("--limit")) : null;
 const TAG = arg("--tag", "run");
 const CONC = Number(arg("--concurrency", 3));
 const DRY = has("--dry");
+const REQUEUE = has("--requeue");
 if (!CORPUS) { console.error("--corpus required"); process.exit(2); }
 
 // ── corpus voice addenda ──────────────────────────────────────────────────
@@ -203,7 +205,17 @@ let items = JSON.parse(readFileSync(join(SRC, `${CORPUS}.json`), "utf8"));
 const isRepolish = CORPUS.startsWith("repolish");
 const longForm = /invitation|portrait/.test(CORPUS);
 
-if (SAMPLE) items = diverseSample(items, SAMPLE);
+if (REQUEUE) {
+  // Re-translate only what the audit or QA pass rejected. The ledger already
+  // holds these keys, so the normal resume filter would skip them — this path
+  // deliberately ignores it and overwrites the batch file for those keys.
+  const files = [join(RQDIR, `${CORPUS}.json`), join(RQDIR, `${CORPUS}.qa.json`)].filter(existsSync);
+  if (!files.length) { console.log(`nothing queued for ${CORPUS}`); process.exit(0); }
+  const keys = new Set(files.flatMap((f) =>
+    JSON.parse(readFileSync(f, "utf8")).map((r) => r.entity_key || r.k)).filter(Boolean));
+  items = items.filter((i) => keys.has(i.entity_key));
+  console.log(`requeue: ${items.length} items flagged by audit/QA`);
+} else if (SAMPLE) items = diverseSample(items, SAMPLE);
 else {
   const done = doneKeys(CORPUS);
   const before = items.length;
@@ -219,6 +231,8 @@ console.log(`${CORPUS}: ${items.length} items in ${batches.length} batches (chun
 if (DRY) process.exit(0);
 
 const outDir = join(OUT, `${CORPUS}${SAMPLE ? "__" + TAG : ""}`);
+// requeue writes files named rq-* so they sort AFTER the originals; the loader
+// collapses duplicate PKs with last-file-wins, so the correction is what lands.
 mkdirSync(outDir, { recursive: true });
 
 let okCount = 0, failCount = 0, outTok = 0, cacheR = 0, bi = 0;
@@ -257,7 +271,7 @@ async function runBatch(batch, idx) {
         retryNote = `직전 시도에서 아래 문제가 검출됐다. 해당 항목을 고쳐 전체를 다시 출력하라:\n${problems.slice(0, 20).join("\n")}\n\n`;
         continue;
       }
-      const file = join(outDir, `${String(idx).padStart(5, "0")}.json`);
+      const file = join(outDir, `${REQUEUE ? "rq-" : ""}${String(idx).padStart(5, "0")}.json`);
       writeFileSync(file, JSON.stringify(rows, null, 1));
       logLedger({ ts: new Date().toISOString(), corpus: CORPUS, tag: TAG, batch: idx,
         status: problems.length ? "ok_with_warnings" : "ok", keys: rows.map((r) => r.entity_key),
