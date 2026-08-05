@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import { DIGESTS, CATEGORY_LABEL, type Digest } from "@/lib/discoveries/digests";
+import { DIGESTS, CATEGORY_LABEL, DISCOVERIES_ENABLED, type Digest } from "@/lib/discoveries/digests";
 import "./discoveries.css";
 
 // Fully static: the digest list is a compile-time import, so this page is
@@ -131,6 +132,10 @@ function DigestBlock({ d }: { d: Digest }) {
 }
 
 export default function DiscoveriesPage() {
+  // Paused (lib/discoveries/digests.ts). notFound() rather than a redirect or a
+  // noindex: the page is not somewhere else, and leaving it reachable would show
+  // a three-week-old single digest as if it were the current state of the work.
+  if (!DISCOVERIES_ENABLED) notFound();
   return (
     <>
       <SiteNav />

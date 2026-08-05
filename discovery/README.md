@@ -1,5 +1,13 @@
 # discovery/ — 신생 영화 사이트 스캐너 (P0)
 
+> ⏸ **일시 중단 (오너, 2026-08-05).** 스캔 크론은 **설치돼 있지 않고**(설치했다가
+> 같은 날 제거), `/discoveries`와 그 RSS는 **404**다 —
+> `lib/discoveries/digests.ts`의 `DISCOVERIES_ENABLED = false`. 푸터 링크·사이트맵
+> 항목도 뺐다. 코드·다이제스트·스캐너는 그대로 두었으니 재개는 두 동작이다:
+> ①플래그를 `true`로 ②`./install-discovery-schedule.command` 실행(원하면).
+> ⚠️ `--no-llm` 실행도 도메인을 seen 처리한다 — 점검용으로 돌리면 그 날짜는
+> 분류 없이 소진되므로, 되살리려면 `state/seen.json`에서 해당 날짜를 지워야 한다.
+
 정본 스펙: 루트 **`HANDOFF-발견피드.md`** (§6 파이프라인·§7 검토 플로우). 이 디렉토리는 `hourly/poller/` 레이아웃을 복제한 형제 프로젝트다 — **`hourly/`는 건드리지 않는다.**
 
 ## 무엇을 하나

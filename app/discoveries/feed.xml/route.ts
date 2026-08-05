@@ -1,4 +1,4 @@
-import { DIGESTS } from "@/lib/discoveries/digests";
+import { DIGESTS, DISCOVERIES_ENABLED } from "@/lib/discoveries/digests";
 
 // RSS feed for Discoveries (/discoveries). Static array, no DB. One item per
 // weekly digest. Mirrors app/updates/feed.xml.
@@ -14,6 +14,9 @@ function escapeXml(s: string): string {
 }
 
 export async function GET() {
+  // Paused with the page (DISCOVERIES_ENABLED) — a feed that outlives its page
+  // is how a reader keeps a dead subscription.
+  if (!DISCOVERIES_ENABLED) return new Response("Not found", { status: 404 });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
   const items = DIGESTS.slice(0, 50)
     .map((d) => {

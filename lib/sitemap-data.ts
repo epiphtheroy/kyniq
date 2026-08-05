@@ -106,7 +106,6 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/about` },
     { url: `${siteUrl}/app` },
     { url: `${siteUrl}/updates`, lastmod: LATEST_UPDATE_DATE },
-    { url: `${siteUrl}/discoveries` },
     { url: `${siteUrl}/film` },
     { url: `${siteUrl}/strong-misreadings` },
     { url: `${siteUrl}/tropes` },

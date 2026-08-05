@@ -20,6 +20,19 @@
 // candidate list) → THEN verify each by opening it → then keep only the clean
 // ones here.
 
+/**
+ * OFF (owner, 2026-08-05): the surface is paused, not deleted — "다음에 다시 열
+ * 수는 있지만 당분간 서비스 하지 않으려 합니다."
+ *
+ * One digest (Jul 18) with no scanner running behind it is a page that says the
+ * project stopped, which is worse than no page. So the route and its feed 404,
+ * the footer link and the sitemap entry disappear, and everything else — the
+ * digests, the components, the scanner — stays exactly where it is.
+ *
+ * To reopen: flip this to true. Nothing else to remember.
+ */
+export const DISCOVERIES_ENABLED = false;
+
 export type DiscoveryCategory =
   | "criticism" | "journal" | "news" | "festival" | "venue"
   | "archive" | "podcast" | "education" | "database" | "curation";
