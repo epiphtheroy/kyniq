@@ -1,0 +1,4502 @@
+[
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.tonight",
+  "field": "text",
+  "lang": "en",
+  "text": "Tonight",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a7adbce0a68cbd30601e51e6a9735d95d69c2637bde758a56c313c74c5a8bcc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.search",
+  "field": "text",
+  "lang": "en",
+  "text": "Search",
+  "model": "seed-from-bundle",
+  "source_sha256": "49c266baaaa70981ea188fa714d5c40cf13830d786a861c9943ae0d26a7f3fe9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.map",
+  "field": "text",
+  "lang": "en",
+  "text": "Map",
+  "model": "seed-from-bundle",
+  "source_sha256": "be176b0015c424b78e9f343f8bc3014a7a701cc2eb9000b6acbc04d67dbecb8f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.my",
+  "field": "text",
+  "lang": "en",
+  "text": "My",
+  "model": "seed-from-bundle",
+  "source_sha256": "8ed6791bdf3d61a1e6edcbb253979b0a6bef7f3d99dda0fb49cffe96923514b6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.watch",
+  "field": "text",
+  "lang": "en",
+  "text": "Watch",
+  "model": "seed-from-bundle",
+  "source_sha256": "a71e757324467ccfe2ae90f483fd759eff5378e6afcfcce4c620de929b3f2dd8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.watchlist",
+  "field": "text",
+  "lang": "en",
+  "text": "Watchlist",
+  "model": "seed-from-bundle",
+  "source_sha256": "eff2ec588be1b85759993b66f24e699b078c449bf9a410243bcac53d841e75f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.watchlisted",
+  "field": "text",
+  "lang": "en",
+  "text": "Watchlisted",
+  "model": "seed-from-bundle",
+  "source_sha256": "2c223e8f5b2ea8d0ad2045a2136566ddb4ef25f3a5f7883ee491b46c2e94843b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.seen",
+  "field": "text",
+  "lang": "en",
+  "text": "Seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "8894cf30aed05a787922b8da70ce6ec4e86879ac21f97fbf78a2da27bdae2b20"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.share",
+  "field": "text",
+  "lang": "en",
+  "text": "Share",
+  "model": "seed-from-bundle",
+  "source_sha256": "29887a5ff9846ccc23327565a07e17fa6dcaea6211f1898ae825f84ae38f4223"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.retry",
+  "field": "text",
+  "lang": "en",
+  "text": "Retry",
+  "model": "seed-from-bundle",
+  "source_sha256": "942087cc2d41e01304b7195558d093d10c72af8e838c7556d6a02d471ee71852"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.back",
+  "field": "text",
+  "lang": "en",
+  "text": "Back",
+  "model": "seed-from-bundle",
+  "source_sha256": "76900f1bfd16c8d4dd3d25e6f46638d7165aee23883ccea6bfe071c514421769"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.skip",
+  "field": "text",
+  "lang": "en",
+  "text": "Skip for now",
+  "model": "seed-from-bundle",
+  "source_sha256": "b58eb52c8810b97857e264ea9de45f7bd7edb754bb0edad30ffab78ff027c45e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.done",
+  "field": "text",
+  "lang": "en",
+  "text": "Done",
+  "model": "seed-from-bundle",
+  "source_sha256": "11a6767d5674c7e45f7e00dc525762275b3a48491ad6045427d2609cc496c516"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.continue",
+  "field": "text",
+  "lang": "en",
+  "text": "Continue",
+  "model": "seed-from-bundle",
+  "source_sha256": "31fbef162594de01bab0cd525c51f74de7bcb15063029fa1a54b2cf5944c80d8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.invitation",
+  "field": "text",
+  "lang": "en",
+  "text": "An Invitation",
+  "model": "seed-from-bundle",
+  "source_sha256": "76822cc80fd6dce3b23a0412b7d02e1c45ee5ba881fab5f895219a1de11ddc23"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.readOn",
+  "field": "text",
+  "lang": "en",
+  "text": "Read on",
+  "model": "seed-from-bundle",
+  "source_sha256": "333210b0c0f550cac0961d0609dbf99682ceb50d43982e7adca356c9db2c6bcc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.showLess",
+  "field": "text",
+  "lang": "en",
+  "text": "Show less",
+  "model": "seed-from-bundle",
+  "source_sha256": "94ea9b1d33a02975ea6b71d6cf87d461a48de07869c047b5daeb1654e9d539f8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.fullPage",
+  "field": "text",
+  "lang": "en",
+  "text": "The full page on Metatake",
+  "model": "seed-from-bundle",
+  "source_sha256": "d618465306e5e321d463cf36a03ee54161f4af10256350e475e219a8a13d2ca4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Metatake TV",
+  "model": "seed-from-bundle",
+  "source_sha256": "5a29f6d34d04fd0fd5461c04cd9aa8aab786b74e9a32be1cb0c77269dc755acb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvWatch",
+  "field": "text",
+  "lang": "en",
+  "text": "Watch this film's programme",
+  "model": "seed-from-bundle",
+  "source_sha256": "7addd6f8b2d7c87f2b0484fa188f261b4e5e5ae1102415a03d3c9976be698195"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvMeta",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} segments · {min} min",
+  "model": "seed-from-bundle",
+  "source_sha256": "4423bb32981bd621b217b371a2867de5fbdf4c51ae0c35449f74cde9b0ab4eaf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvLists",
+  "field": "text",
+  "lang": "en",
+  "text": "Also playing in",
+  "model": "seed-from-bundle",
+  "source_sha256": "82caaa9a8f01929109b724ec0e9ff328680f3628cab42d04f4ed5b9762d0fa2c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.fullPageSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Essays, readings, reception — everything we hold on this film",
+  "model": "seed-from-bundle",
+  "source_sha256": "d490856ffc83dca769bee8ae06a34ddf1c3961f93107f0da037a3380babb1ca0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.whereToWatch",
+  "field": "text",
+  "lang": "en",
+  "text": "Where to watch",
+  "model": "seed-from-bundle",
+  "source_sha256": "842e10fb4af20ffd207296b2e66d3bff0e40a307048e319bb9bbd02c362e4f50"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.onYourServices",
+  "field": "text",
+  "lang": "en",
+  "text": "On your services: {names}",
+  "model": "seed-from-bundle",
+  "source_sha256": "53f6fe5ee5996a37417c50a75845efa4a2a8bbe4b4634d9e2b252cf0d46413a3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.notOnYourServices",
+  "field": "text",
+  "lang": "en",
+  "text": "Not on the services you subscribe to — the options below are rentals or other providers.",
+  "model": "seed-from-bundle",
+  "source_sha256": "3aff67e1dc6e3414c652af87e2d16485f28bee35c92d1389b91a9970f60bb8ec"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.yourService",
+  "field": "text",
+  "lang": "en",
+  "text": "YOURS",
+  "model": "seed-from-bundle",
+  "source_sha256": "c57fd8c642e37233e317374a491722bfb3a00ed1d67a65533efdb5a9d6580f44"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.allWaysToWatch",
+  "field": "text",
+  "lang": "en",
+  "text": "Every way to watch, with prices",
+  "model": "seed-from-bundle",
+  "source_sha256": "b61eff4a985baf2b3caba3cbb74101cfc2cd089ef2b2ebce656ecf16ade70b7c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.lineage",
+  "field": "text",
+  "lang": "en",
+  "text": "Lineage",
+  "model": "seed-from-bundle",
+  "source_sha256": "044baaecb29f0ce77d582f324df49dfd8f0e6cd196dff481024a864bda77b048"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.locations",
+  "field": "text",
+  "lang": "en",
+  "text": "Locations",
+  "model": "seed-from-bundle",
+  "source_sha256": "95c61170318a2851165109a8116a27a9ec36ef96bcfb0a8c211de5d568435655"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.openInMaps",
+  "field": "text",
+  "lang": "en",
+  "text": "Open in Google Maps",
+  "model": "seed-from-bundle",
+  "source_sha256": "7f22a63520741d076023264107214d65661b8febfce790b85dd88e6c34516047"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f5c1c15d39ba85cb61f5319ce0e12d5ec0ced7bbecf0f3387a049e4f05dfcd6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreValue",
+  "field": "text",
+  "lang": "en",
+  "text": "Earned value",
+  "model": "seed-from-bundle",
+  "source_sha256": "0d24a5ce8196835eadaf55e2b569e65143a9530fa4dff31268dd5223f2c6a303"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreValueSub",
+  "field": "text",
+  "lang": "en",
+  "text": "what a serious viewer keeps — higher is better",
+  "model": "seed-from-bundle",
+  "source_sha256": "9234e1768ba0907ccf8776ad2369684b6bbe1e87f3465dfd437dcccd74214656"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreCost",
+  "field": "text",
+  "lang": "en",
+  "text": "Entry cost",
+  "model": "seed-from-bundle",
+  "source_sha256": "03b0cffcfd7d303b7502ee76524cbe7e9d3112d96e671148694099e9829e0c5e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreCostSub",
+  "field": "text",
+  "lang": "en",
+  "text": "what it takes to unlock — a price, never a merit",
+  "model": "seed-from-bundle",
+  "source_sha256": "5d3775177f0af7e786f1ce6c63cfa4de6602ece31050870bacc0759d537ad245"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreRisk",
+  "field": "text",
+  "lang": "en",
+  "text": "Risk",
+  "model": "seed-from-bundle",
+  "source_sha256": "0711a8d636e4c068ae59fa80c03ad68e7bd9fe473c1f9248fd2cf3716e3fb715"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreRiskSub",
+  "field": "text",
+  "lang": "en",
+  "text": "how it can go wrong — lower is safer",
+  "model": "seed-from-bundle",
+  "source_sha256": "2fdeba7022b36a6596687130258de0d4d9dda40d2f2ff7ad53c465c088f3b7ab"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreFormula",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore = Earned value − Risk. Entry cost is a difficulty, not a demerit.",
+  "model": "seed-from-bundle",
+  "source_sha256": "20bac4d716ba95625de7a19bcf3d1af9b432a028720d836a0d4cb81dbdec6509"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreFormulaN",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore = Earned value − Risk, and lands at {ts}. Entry cost is a difficulty, not a demerit.",
+  "model": "seed-from-bundle",
+  "source_sha256": "b58bf086896ce2f625b5ec506e5bbe5d505be5d94516cdeeaa51bf8c2c5ead13"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreHonors",
+  "field": "text",
+  "lang": "en",
+  "text": "The value is earned: this film sits in {n} canons and awards — listed under Lineage below.",
+  "model": "seed-from-bundle",
+  "source_sha256": "afed71c50955dfab11e2880ec2ffa187af020917af33fbff8cfd4464109b5843"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreFull",
+  "field": "text",
+  "lang": "en",
+  "text": "How the score is built",
+  "model": "seed-from-bundle",
+  "source_sha256": "1c9c57f3a3fab81d0248aa17bad7851c561437d17a557da096cf50c89d5483a3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.expandMap",
+  "field": "text",
+  "lang": "en",
+  "text": "Larger map",
+  "model": "seed-from-bundle",
+  "source_sha256": "d7218b6f2cd04dc9c09d595437eb3901334eb9ef32118ad71d89f11c264fe728"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.allLocations",
+  "field": "text",
+  "lang": "en",
+  "text": "See all {n} locations on the map",
+  "model": "seed-from-bundle",
+  "source_sha256": "aceb5746ab5bc8a7ce7e20d1e13ed9d0e7ba27498fd84682ce8b527cba053f68"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.theLife",
+  "field": "text",
+  "lang": "en",
+  "text": "The Life",
+  "model": "seed-from-bundle",
+  "source_sha256": "53d34431b3a2718b659a94de5caf8329aeede2f54a9d7842759a1b5ce9393464"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.notStreaming",
+  "field": "text",
+  "lang": "en",
+  "text": "Not streaming in {country} right now",
+  "model": "seed-from-bundle",
+  "source_sha256": "b02a9832658efc035468137f09871a73ef5bcf847a1d31309e78e76b0a4f4abf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.notStreamingHint",
+  "field": "text",
+  "lang": "en",
+  "text": "Add it to your watchlist — we'll notify you when it arrives.",
+  "model": "seed-from-bundle",
+  "source_sha256": "d7a2f31b80db73edb2c8bc48bbc8069b39cc92f7b67bc2cc7cd703418db520da"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.directedBy",
+  "field": "text",
+  "lang": "en",
+  "text": "Directed by",
+  "model": "seed-from-bundle",
+  "source_sha256": "783deb1acce9bbba971697a6cc2f6c2f6ab8b5ebc4d35fd2b3ed3d55ebb3e017"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.flatrate",
+  "field": "text",
+  "lang": "en",
+  "text": "Subscription",
+  "model": "seed-from-bundle",
+  "source_sha256": "4999c6c6c7badf456f5b0053b09a2076bdb2391a09ab10c9064a680f8f9a0b30"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.free",
+  "field": "text",
+  "lang": "en",
+  "text": "Free",
+  "model": "seed-from-bundle",
+  "source_sha256": "f411a1fb62758b4c54690d0a702b4955b54dd22115416fa7b1ce51b4a084818d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.ads",
+  "field": "text",
+  "lang": "en",
+  "text": "Free with ads",
+  "model": "seed-from-bundle",
+  "source_sha256": "bc72a6381772666fb894f4d43ec0b1c7f1420f04c536802593f7a1263faab332"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.rent",
+  "field": "text",
+  "lang": "en",
+  "text": "Rent",
+  "model": "seed-from-bundle",
+  "source_sha256": "f0268cb9100a01813311eb653821e8bcccaa3ec90e0d8e3023f8c1d841b6956a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.buy",
+  "field": "text",
+  "lang": "en",
+  "text": "Buy",
+  "model": "seed-from-bundle",
+  "source_sha256": "64e3cb0e4960ba69298843d481376d1ce7b92cd43cf70e61a982da651c0335f3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "attribution.justwatch",
+  "field": "text",
+  "lang": "en",
+  "text": "Streaming data powered by JustWatch",
+  "model": "seed-from-bundle",
+  "source_sha256": "83cba08ecd0b637c5a165aa811145a904d6042c1ebf0726f024df2bebbdfaf20"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "attribution.tmdb",
+  "field": "text",
+  "lang": "en",
+  "text": "Film metadata and images from TMDB",
+  "model": "seed-from-bundle",
+  "source_sha256": "0e8216a01ddcbe69e676fafd1515c1eb31bacbae319c6acaff47c9af82c0500b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.credits",
+  "field": "text",
+  "lang": "en",
+  "text": "Credits & data sources",
+  "model": "seed-from-bundle",
+  "source_sha256": "34d8d749e259a94cc6cf162fc8804640bb44c0edf7eb347baf1ddaa2f9ed72fa"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.creditsSub",
+  "field": "text",
+  "lang": "en",
+  "text": "TMDB · JustWatch · Wikidata — where the data comes from",
+  "model": "seed-from-bundle",
+  "source_sha256": "8f04cf222411d72feef2dafb007291b824311045179ac7c5163cd1290f8dc8d5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.whereToStart",
+  "field": "text",
+  "lang": "en",
+  "text": "Where to Start",
+  "model": "seed-from-bundle",
+  "source_sha256": "86a32a92ca13dec37912eb33a03b769073cc77dade07358a75bdbb371dd9d9a2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.theSelection",
+  "field": "text",
+  "lang": "en",
+  "text": "The Selection",
+  "model": "seed-from-bundle",
+  "source_sha256": "ae2465206ce543ca745c9ea247dfd0c90f4ff2da3abc3c842ff374da69d1d5bb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.filmography",
+  "field": "text",
+  "lang": "en",
+  "text": "Filmography",
+  "model": "seed-from-bundle",
+  "source_sha256": "b6be662b7c8a8884ae0c0f8bfdd4215c63702eeb34e20418dbfdf3581ef775e2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.whosNext",
+  "field": "text",
+  "lang": "en",
+  "text": "Who's Next",
+  "model": "seed-from-bundle",
+  "source_sha256": "bab229d0651c6b0a4569c3cd1a92fb6926e3ebad9a830674c4b451c1a70bc169"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.theLife",
+  "field": "text",
+  "lang": "en",
+  "text": "The Life",
+  "model": "seed-from-bundle",
+  "source_sha256": "53d34431b3a2718b659a94de5caf8329aeede2f54a9d7842759a1b5ce9393464"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.onYourServices",
+  "field": "text",
+  "lang": "en",
+  "text": "on your services",
+  "model": "seed-from-bundle",
+  "source_sha256": "92d263463b9a7b5876cb26b0b5928c65a8c4871e62dc521b7c0cc30d14c1181f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.placeholder",
+  "field": "text",
+  "lang": "en",
+  "text": "Search films, directors…",
+  "model": "seed-from-bundle",
+  "source_sha256": "6540b02b6df135db2a33c2016ea46fae15c305c36a1af3afd93ed80328a20c6e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.empty",
+  "field": "text",
+  "lang": "en",
+  "text": "No results in the Metatake canon.",
+  "model": "seed-from-bundle",
+  "source_sha256": "892229e878d38a971acc7e1d397619fc32c3f3d45e1abb659bf626528579c305"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "browse.empty",
+  "field": "text",
+  "lang": "en",
+  "text": "No films match these filters.",
+  "model": "seed-from-bundle",
+  "source_sha256": "e8d1d837059862d4e062fceb1a20f314dcf0b9700133f193c1d2d78977d0edda"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.notInCanon",
+  "field": "text",
+  "lang": "en",
+  "text": "Not in the Metatake canon yet",
+  "model": "seed-from-bundle",
+  "source_sha256": "5304cadd54f5341a559bc7ffd88594419b04aa76f34fb6532696b242a644176d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.searchWeb",
+  "field": "text",
+  "lang": "en",
+  "text": "Search the full site",
+  "model": "seed-from-bundle",
+  "source_sha256": "b44a8d5c35cb69351d686d137e67a6bf4868d0d1fca664e80264b683cc1f749a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Tonight",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a7adbce0a68cbd30601e51e6a9735d95d69c2637bde758a56c313c74c5a8bcc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.subtitle",
+  "field": "text",
+  "lang": "en",
+  "text": "The best films on your services — scored for cinephiles.",
+  "model": "seed-from-bundle",
+  "source_sha256": "4d9403606b43acfbd1d1e519c452e4cedc5ab27690b19c09918bcd65feddf60b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.hideSeen",
+  "field": "text",
+  "lang": "en",
+  "text": "Hide seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "bf441620888fbedd0ce4af23322f3d82dd5466979de3aefe291c8c94f13c9c49"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.empty",
+  "field": "text",
+  "lang": "en",
+  "text": "Pick your streaming services to see tonight's best.",
+  "model": "seed-from-bundle",
+  "source_sha256": "1bb3184029d55bfbb97a3bcd417fb4267036550e1873c8ba15e040fae9da364f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.pickServices",
+  "field": "text",
+  "lang": "en",
+  "text": "Choose services",
+  "model": "seed-from-bundle",
+  "source_sha256": "0002ef9ed37bdf52e6108d9a1632d77f349a086c81dc3256a15de75fd6034dc6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.myServices",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} services",
+  "model": "seed-from-bundle",
+  "source_sha256": "522d3a3f0bca936bdc11b56f17c6882d75efaec6c5ea8406d14fcb7efaa9f1b7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.nearMe",
+  "field": "text",
+  "lang": "en",
+  "text": "Near me",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a28bd76f65fa66905b81023838763bb19bb15432b0bebb443079f7e1d06e1ac"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Locations",
+  "model": "seed-from-bundle",
+  "source_sha256": "95c61170318a2851165109a8116a27a9ec36ef96bcfb0a8c211de5d568435655"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.watchlist",
+  "field": "text",
+  "lang": "en",
+  "text": "Watchlist",
+  "model": "seed-from-bundle",
+  "source_sha256": "eff2ec588be1b85759993b66f24e699b078c449bf9a410243bcac53d841e75f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.seen",
+  "field": "text",
+  "lang": "en",
+  "text": "Seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "8894cf30aed05a787922b8da70ce6ec4e86879ac21f97fbf78a2da27bdae2b20"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.settings",
+  "field": "text",
+  "lang": "en",
+  "text": "Settings",
+  "model": "seed-from-bundle",
+  "source_sha256": "74a883a037bc227f91891ab654a753d3a99f31ab06ae5b5d2b6e594a692b41f8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.country",
+  "field": "text",
+  "lang": "en",
+  "text": "Country",
+  "model": "seed-from-bundle",
+  "source_sha256": "701d021d08c54579f23343581e45b65ffb1150b2c99f94352fdac4b7036dbbd5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.language",
+  "field": "text",
+  "lang": "en",
+  "text": "Language",
+  "model": "seed-from-bundle",
+  "source_sha256": "a4fe65264ef7dbb38d104b1e81eb3350f3142f3d16f32bdec39b1d9b42c1b8d1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.services",
+  "field": "text",
+  "lang": "en",
+  "text": "My services",
+  "model": "seed-from-bundle",
+  "source_sha256": "3ea3edc6a32611d885a17687c1575aa6675d4d8e955b1be5e5c3fbdf255780ab"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.notifications",
+  "field": "text",
+  "lang": "en",
+  "text": "Notifications",
+  "model": "seed-from-bundle",
+  "source_sha256": "788011833a5a0f22db90c91e8eb7bd8e9f5cd423354ff5ef8c338e7895f44ba9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.notifyArrivals",
+  "field": "text",
+  "lang": "en",
+  "text": "Notify me when watchlisted films arrive on my services",
+  "model": "seed-from-bundle",
+  "source_sha256": "310eb1b5d73093e3a1c88b9fa50b28624768fc967301a060b4139617d0e83596"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.notifyUnavailable",
+  "field": "text",
+  "lang": "en",
+  "text": "Not available on Android yet — this turns on when push delivery ships",
+  "model": "seed-from-bundle",
+  "source_sha256": "83081de8b9754357adc7384a0fc67964bed93e7dcd1ecc1e970d880f35190369"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.account",
+  "field": "text",
+  "lang": "en",
+  "text": "Account",
+  "model": "seed-from-bundle",
+  "source_sha256": "7e1b0d5641f2640ce9a953ec231eea2c27a2a7633f7d3c273e5735e2b30c10b7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.signIn",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in",
+  "model": "seed-from-bundle",
+  "source_sha256": "bfd402b2f6f3812529b55596136d3a11c51616317e3b1cd999928e2d4eae7d3f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.signOut",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign out",
+  "model": "seed-from-bundle",
+  "source_sha256": "48f0d3d397d49f135f116d947a805b49f084f637154a8e9913e7233a11dc16a0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.deleteAccount",
+  "field": "text",
+  "lang": "en",
+  "text": "Delete account",
+  "model": "seed-from-bundle",
+  "source_sha256": "a2e20a33570001ae083b4667b54c433a7246897eba226b258a680cf46089c0b0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.deleteAccountConfirm",
+  "field": "text",
+  "lang": "en",
+  "text": "This permanently deletes your account and your film ledger. This cannot be undone.",
+  "model": "seed-from-bundle",
+  "source_sha256": "839180a1c597eb6edf4ddddda37a6ac458eb9473c704f657b2733b8212bdc544"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.signInHint",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in to sync your watchlist with metatake.net",
+  "model": "seed-from-bundle",
+  "source_sha256": "89844e5431788fa73d5b885223166f1ef4fa021b09fa496e0416fee733430332"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.emptyWatchlist",
+  "field": "text",
+  "lang": "en",
+  "text": "Films you watchlist appear here.",
+  "model": "seed-from-bundle",
+  "source_sha256": "1d2c7de26b3490b5b70a62342c2be63f3a88535a19be03e59496bb4410c3f62e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.emptySeen",
+  "field": "text",
+  "lang": "en",
+  "text": "Films you mark as seen appear here.",
+  "model": "seed-from-bundle",
+  "source_sha256": "8734ee5403894284d710cbd4cdfb1f7bd46a5e7d9a44019d33bf83018b18d268"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.countryTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Where do you watch?",
+  "model": "seed-from-bundle",
+  "source_sha256": "9629aa2b52cb868ee9b659af42ce4f3c971503554acd617c041dab83145aa855"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.countryBody",
+  "field": "text",
+  "lang": "en",
+  "text": "Availability, prices and Tonight's ranking follow your country.",
+  "model": "seed-from-bundle",
+  "source_sha256": "2394bd0800bb0e42fd15f694e03ae69b2d8316b8202d633f7561475eefdcdead"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.servicesTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Your streaming services",
+  "model": "seed-from-bundle",
+  "source_sha256": "60fbe757573edd4cc2ee00068811fdb5a0a1a0878a37496d3b55e99f12ad494f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.servicesBody",
+  "field": "text",
+  "lang": "en",
+  "text": "Pick the services you subscribe to.",
+  "model": "seed-from-bundle",
+  "source_sha256": "034b29aa58bc8e0527559418060e4088b22d862e1ed494257f9bcfffafc39c7a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.accountTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "One ledger, everywhere",
+  "model": "seed-from-bundle",
+  "source_sha256": "c7134f7d3959d44bed8d4c66049555503d52ada4f905a12a4f8bff9694381984"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.accountBody",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in to keep your watchlist and Seen ledger in sync with metatake.net.",
+  "model": "seed-from-bundle",
+  "source_sha256": "fee4f6a959cd62f94f06031b1e8e90104938c5e099a596476c1bd58fcb39c651"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.editionTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Where do you watch?",
+  "model": "seed-from-bundle",
+  "source_sha256": "9629aa2b52cb868ee9b659af42ce4f3c971503554acd617c041dab83145aa855"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.editionBody",
+  "field": "text",
+  "lang": "en",
+  "text": "Pick your country, then the services you have there. Availability and Tonight follow it.",
+  "model": "seed-from-bundle",
+  "source_sha256": "d42a0fd18513c99c54752be9612a1d5d4e7fc8e74612457c8ab15cbf61171fdd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.savedSetups",
+  "field": "text",
+  "lang": "en",
+  "text": "Saved",
+  "model": "seed-from-bundle",
+  "source_sha256": "b5c120b316c237a0deab3140267aebedba61947d3ae268d708a53d5be119e9fb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.changeCountry",
+  "field": "text",
+  "lang": "en",
+  "text": "Change",
+  "model": "seed-from-bundle",
+  "source_sha256": "c0bf75bd78bf9572596720d596bd5a20a5b9145cde0fe50dec1e783cb184d69b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.saveSetup",
+  "field": "text",
+  "lang": "en",
+  "text": "Save this setup",
+  "model": "seed-from-bundle",
+  "source_sha256": "af22e663b70b99acd019ec56c078c74572ac63aebe8f821507b4b1bedc1cdcb7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.setupNamePlaceholder",
+  "field": "text",
+  "lang": "en",
+  "text": "Name it — e.g. Home, Travelling",
+  "model": "seed-from-bundle",
+  "source_sha256": "823bc5d450058fd59df2895ab4a43fb3f3f8a5f9d3cbc45ed5bef5b21fc3b8a9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.servicesNone",
+  "field": "text",
+  "lang": "en",
+  "text": "No streaming services on record for this country yet.",
+  "model": "seed-from-bundle",
+  "source_sha256": "ba43a4815d5bbabf27afd7834b8d44dceb435e3e622fe0d55fb14a041b1cf4cc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.appLanguage",
+  "field": "text",
+  "lang": "en",
+  "text": "App language",
+  "model": "seed-from-bundle",
+  "source_sha256": "b8352b44a588721c19f491395bd2841fe6f32d25633be40b7a7e0d7d482726d5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.uiLanguageTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "App language",
+  "model": "seed-from-bundle",
+  "source_sha256": "b8352b44a588721c19f491395bd2841fe6f32d25633be40b7a7e0d7d482726d5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.uiLanguageBody",
+  "field": "text",
+  "lang": "en",
+  "text": "The language the app itself speaks — buttons, labels, everything you read here. It follows your device by default.",
+  "model": "seed-from-bundle",
+  "source_sha256": "c487869bc8f4cd2be62696b60874ff9b9d89a850c4f87734e3d671f47fb68d2f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.languageTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Film titles in…",
+  "model": "seed-from-bundle",
+  "source_sha256": "aa37f18eac636bc1723de98a3da4e64b5ac9293a54cc148ff2d3b8ac2d7d0d8b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.languageBody",
+  "field": "text",
+  "lang": "en",
+  "text": "Films are shown and searched by their release title in this language. Nothing to do with your country.",
+  "model": "seed-from-bundle",
+  "source_sha256": "62a26ce35e87bf62b448e755b8b35014a5af54a144f0f26a8885d9e0c620dcb4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.languageNote",
+  "field": "text",
+  "lang": "en",
+  "text": "Titles are TMDB's official release titles, not machine translations. Films without one keep their English title.",
+  "model": "seed-from-bundle",
+  "source_sha256": "2b7ab9cc83453a6d00e39923d6975cff7e82fe5ef2152ed127bbbe0ae74fe9d1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.save",
+  "field": "text",
+  "lang": "en",
+  "text": "Save",
+  "model": "seed-from-bundle",
+  "source_sha256": "1509f561f2416598629b886ad7d3c05a7e221e4e0675c84bbff4ee6d9e03913d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.language",
+  "field": "text",
+  "lang": "en",
+  "text": "Film titles",
+  "model": "seed-from-bundle",
+  "source_sha256": "4ed0d178eabb742ceec4dc5e6dced3af439855bd80c320f27a8f011d3e7bb61d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.email",
+  "field": "text",
+  "lang": "en",
+  "text": "Email",
+  "model": "seed-from-bundle",
+  "source_sha256": "969ccbd3cf6300ecd5c880459d81ae9027df7517563184a1b8b15282db230621"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.sendLink",
+  "field": "text",
+  "lang": "en",
+  "text": "Send magic link",
+  "model": "seed-from-bundle",
+  "source_sha256": "eecdb042105cd4eaf97adebf5500a443ad1b3c03f4e14af63769a70733e14c52"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.linkSent",
+  "field": "text",
+  "lang": "en",
+  "text": "Check your inbox — tap the link to sign in.",
+  "model": "seed-from-bundle",
+  "source_sha256": "ec79594a25ece1ca6e34683b4819c56f55aeb2ee148c0c272decc86896a6c333"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.signInApple",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in with Apple",
+  "model": "seed-from-bundle",
+  "source_sha256": "396d40caca74206aee484fdcffd4fff758c6f9772a17724388e815b72fe31fd1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.signInGoogle",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in with Google",
+  "model": "seed-from-bundle",
+  "source_sha256": "1dbcee6824432178cc78fb788a641916632604e164350ba5df29375d365f31fa"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Log in or sign up",
+  "model": "seed-from-bundle",
+  "source_sha256": "38f519b7da68e9b92411375fdd79148fb8fd36bd8c51dfcc72f8c5ac1731b070"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.welcome",
+  "field": "text",
+  "lang": "en",
+  "text": "Welcome to Metatake",
+  "model": "seed-from-bundle",
+  "source_sha256": "dea319e5f871748566db45ec5469f0ee3a79fb3279ebf5c7d4459ada92515cb1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.welcomeBody",
+  "field": "text",
+  "lang": "en",
+  "text": "One account for the app and metatake.net — your watchlist travels with you.",
+  "model": "seed-from-bundle",
+  "source_sha256": "d8fa064e657e8c9982d5191301a9b2cab36a66b965eee0fddd62fdca0b8f5562"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.or",
+  "field": "text",
+  "lang": "en",
+  "text": "or",
+  "model": "seed-from-bundle",
+  "source_sha256": "7175517a370b5cd2e664e3fd29c4ea9db5ce17058eb9772fe090a5485e49dad6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.continue",
+  "field": "text",
+  "lang": "en",
+  "text": "Continue",
+  "model": "seed-from-bundle",
+  "source_sha256": "31fbef162594de01bab0cd525c51f74de7bcb15063029fa1a54b2cf5944c80d8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.continueApple",
+  "field": "text",
+  "lang": "en",
+  "text": "Continue with Apple",
+  "model": "seed-from-bundle",
+  "source_sha256": "340ac4c3fd1f01233e46a45276a529a4fa607074b0efe745ffc11f9cf152d27c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.continueGoogle",
+  "field": "text",
+  "lang": "en",
+  "text": "Continue with Google",
+  "model": "seed-from-bundle",
+  "source_sha256": "cce937e891444a7417c696cdd80c0eed11deb383f3c42bdb8b591d5dfcaa398e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.continueEmail",
+  "field": "text",
+  "lang": "en",
+  "text": "Continue with email instead",
+  "model": "seed-from-bundle",
+  "source_sha256": "524b2ffd69d1ed40cd46256a6f49afc3d163c6e7a53f460ad5b702e5cf21a3be"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.password",
+  "field": "text",
+  "lang": "en",
+  "text": "Password ({n}+ characters)",
+  "model": "seed-from-bundle",
+  "source_sha256": "f3b0dd122814c8ae6a847425e0bc691dde0bdd050b09a1c53fdd4feae8c96d1e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.emailCodeInstead",
+  "field": "text",
+  "lang": "en",
+  "text": "Email me a code instead",
+  "model": "seed-from-bundle",
+  "source_sha256": "7dc10b917b0a94681586996630c43408bd86a814858a90f953c8ca4fc76e16db"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.backToOptions",
+  "field": "text",
+  "lang": "en",
+  "text": "Back to all sign-in options",
+  "model": "seed-from-bundle",
+  "source_sha256": "66859a18f86cbbac100d30569b70eb9981ca890eae58330d2b48e8023efa689c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.confirmSent",
+  "field": "text",
+  "lang": "en",
+  "text": "Check {email} to confirm your address, then sign in.",
+  "model": "seed-from-bundle",
+  "source_sha256": "e88f536eccddd9a678dd260749ecc364b74d5b92337c0317b21093496485caff"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.errWrongPassword",
+  "field": "text",
+  "lang": "en",
+  "text": "That email and password don't match. Check them, or use a code.",
+  "model": "seed-from-bundle",
+  "source_sha256": "0747953acd222608d5b77226a63b27fd1a5f0883a040b5142ec59999dadd7362"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.errAlreadyRegistered",
+  "field": "text",
+  "lang": "en",
+  "text": "That address already has an account — sign in with its password, or use a code.",
+  "model": "seed-from-bundle",
+  "source_sha256": "f4a98cd5177a6257f70d1f4bc481f3528fdb695f6a43fc84d58071c4868aec59"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.errUnconfirmed",
+  "field": "text",
+  "lang": "en",
+  "text": "Confirm your email address first — check your inbox.",
+  "model": "seed-from-bundle",
+  "source_sha256": "7c9174a39c6a9a092f5a27e6fc85146c509673f5aa758dc7f3e5e403e132890c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.errGeneric",
+  "field": "text",
+  "lang": "en",
+  "text": "That didn't work. Try again, or use another sign-in option.",
+  "model": "seed-from-bundle",
+  "source_sha256": "d6f326ee9aafb2563ba390c985209c2e4c74ef866db6fcb2d886339c4dbb6367"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.appleError",
+  "field": "text",
+  "lang": "en",
+  "text": "Apple sign-in didn't complete — try again, or use email.",
+  "model": "seed-from-bundle",
+  "source_sha256": "a7f31e00db84e345d5419c32a67914c30073631a16aaf6790f9568c593e31cba"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.watchNow",
+  "field": "text",
+  "lang": "en",
+  "text": "Watch now",
+  "model": "seed-from-bundle",
+  "source_sha256": "42f3cc7b5f71ab139b86daece3f701aae9e0d8ba9af3a346b7eef15f33a40c90"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.codeSent",
+  "field": "text",
+  "lang": "en",
+  "text": "We emailed a {n}-digit code to {email}",
+  "model": "seed-from-bundle",
+  "source_sha256": "9b6483d57687fe3613ec91b39f8570ff83feeb3912e7b1a2100f595f79442f8a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.codePlaceholder",
+  "field": "text",
+  "lang": "en",
+  "text": "{n}-digit code",
+  "model": "seed-from-bundle",
+  "source_sha256": "d67de168bb62a37b5ff581e72516bb48073ae05a778c4d928349c5f3d9cbb9c6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.verify",
+  "field": "text",
+  "lang": "en",
+  "text": "Verify",
+  "model": "seed-from-bundle",
+  "source_sha256": "eea2745e2867a6772adc3e813211e6ce7b6ebd312d7e84a7c1b1aa2f8c75fd4b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.resend",
+  "field": "text",
+  "lang": "en",
+  "text": "Resend code",
+  "model": "seed-from-bundle",
+  "source_sha256": "b97457409ab5b37583a33dd26321b6953943d3739abbc63a008f9f93e9c8dd10"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.changeEmail",
+  "field": "text",
+  "lang": "en",
+  "text": "Use a different email",
+  "model": "seed-from-bundle",
+  "source_sha256": "b7337027ef1f69f1eaddc6b43c61bae574afc35e83bc73cc61a4406f64b1387f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.codeError",
+  "field": "text",
+  "lang": "en",
+  "text": "That code didn't work — check it and try again.",
+  "model": "seed-from-bundle",
+  "source_sha256": "f75ef49c54e446cae157228f4dfa841715408446ce57bbd2aaf3b7d37e7f1157"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.emptyFiltered",
+  "field": "text",
+  "lang": "en",
+  "text": "Nothing left to show tonight.",
+  "model": "seed-from-bundle",
+  "source_sha256": "2f77462ae07f8565fc312af06e876839a94a2cfe48426c2bdc0ddbb48fb9579a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.pins",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} pins",
+  "model": "seed-from-bundle",
+  "source_sha256": "4b894f84b02d0ece248c3207b350da696c9321d45896984161aabaca2ca67521"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.showAll",
+  "field": "text",
+  "lang": "en",
+  "text": "All films",
+  "model": "seed-from-bundle",
+  "source_sha256": "da84fb50422a4d8066f6345323d3851946d38418eb8e33490d8656a7b9098128"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.onlyThisFilm",
+  "field": "text",
+  "lang": "en",
+  "text": "Show only this film's locations",
+  "model": "seed-from-bundle",
+  "source_sha256": "0ce3de2c8696926fcff502200b418711a4816f70d5f17fc628d821ad6542165e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.backToFilm",
+  "field": "text",
+  "lang": "en",
+  "text": "Back to film",
+  "model": "seed-from-bundle",
+  "source_sha256": "b78c42480d56cfbcbeada73f44f4020ebe8a21133a9d1d0864ef7516cd5ffa30"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.noFilmPins",
+  "field": "text",
+  "lang": "en",
+  "text": "No mapped locations for this film yet.",
+  "model": "seed-from-bundle",
+  "source_sha256": "812ba6601b4b8fcbdfa60f4759c4e2a92886fde1dc05e5666f435f07399b919c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.openFilm",
+  "field": "text",
+  "lang": "en",
+  "text": "Open film",
+  "model": "seed-from-bundle",
+  "source_sha256": "346e1eb0109567e9bb253f55a6cb6736a20eadc267da6e4b3a3ff5e0e1e02035"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.webUnavailable",
+  "field": "text",
+  "lang": "en",
+  "text": "The filming-locations map runs in the iOS app — this browser preview can't render it.",
+  "model": "seed-from-bundle",
+  "source_sha256": "fbaa5d9e6fcee34c2821d19ba4f8ad030737f955891efdfb4b81f4f3f88973fe"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.expoGoUnavailable",
+  "field": "text",
+  "lang": "en",
+  "text": "The filming-locations map needs a native build — it can't run inside Expo Go. Every other tab works here.",
+  "model": "seed-from-bundle",
+  "source_sha256": "4c06ed007babf6d18a77f0cc8aa5e4caf466e7e82d6aa53c6c48174229061b7e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "common.cancel",
+  "field": "text",
+  "lang": "en",
+  "text": "Cancel",
+  "model": "seed-from-bundle",
+  "source_sha256": "19766ed6ccb2f4a32778eed80d1928d2c87a18d7c275ccb163ec6709d3eb2e27"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "common.soon",
+  "field": "text",
+  "lang": "en",
+  "text": "Soon",
+  "model": "seed-from-bundle",
+  "source_sha256": "cf0ee3547a4e51a52304eb720431ff5a38bf9561d8a1537953d6ddfc9edb04ce"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "common.showAll",
+  "field": "text",
+  "lang": "en",
+  "text": "Show all {n}",
+  "model": "seed-from-bundle",
+  "source_sha256": "5dc0c2bcbf791208fc3ae36f491fe1b14e99793ee556cafd8a21b0ccec2519ea"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "common.showFewer",
+  "field": "text",
+  "lang": "en",
+  "text": "Show fewer",
+  "model": "seed-from-bundle",
+  "source_sha256": "255beb6510e7827d37ec1cd22d080f910888ae00f29374dd9545c8b3d1fce43a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "notfound.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Not found",
+  "model": "seed-from-bundle",
+  "source_sha256": "e3ebaa16dd9d9b9fc107c42183fb6cf9d22927e1af03dbbdfa0ccc38e4e4ac31"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "notfound.body",
+  "field": "text",
+  "lang": "en",
+  "text": "This page doesn't exist.",
+  "model": "seed-from-bundle",
+  "source_sha256": "fc5f05beb0a4ccaabc98d818b46a835058996dfe300a9fc6203773dccdf48475"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "notfound.back",
+  "field": "text",
+  "lang": "en",
+  "text": "Back to Tonight",
+  "model": "seed-from-bundle",
+  "source_sha256": "0eace297a33697bacb687bdd0c5f3ea5429dc32d1065889db2fb92451fd87233"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "error.network",
+  "field": "text",
+  "lang": "en",
+  "text": "Couldn't reach Metatake. Check your connection.",
+  "model": "seed-from-bundle",
+  "source_sha256": "7d6bfecb237f096505ba733872c0dbe0a86ce444963237dfdc3b6362d0451fda"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "loading",
+  "field": "text",
+  "lang": "en",
+  "text": "Loading…",
+  "model": "seed-from-bundle",
+  "source_sha256": "ba3bbbe10d8bef66441c88536ce7b8e724e2829b59a3da658654f4961cd61ae5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.explore",
+  "field": "text",
+  "lang": "en",
+  "text": "Explore",
+  "model": "seed-from-bundle",
+  "source_sha256": "3b73900b8d29f963dece78edd4bd9529d855e50f2a3fcc39b3d66cd657630905"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.shelf",
+  "field": "text",
+  "lang": "en",
+  "text": "Shelf",
+  "model": "seed-from-bundle",
+  "source_sha256": "338c8ac89226e2ed9ceb32ee44d43a1f1d9651c2bed9e8d15612405bea5ccfd6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.navigator",
+  "field": "text",
+  "lang": "en",
+  "text": "Navigator",
+  "model": "seed-from-bundle",
+  "source_sha256": "565540f07b964bc252f71e8691b68be36a388ec5e175379dd46fc6dcef80fb18"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.you",
+  "field": "text",
+  "lang": "en",
+  "text": "You",
+  "model": "seed-from-bundle",
+  "source_sha256": "08b041935798fbf6fd6ff51099ffedb140a475889986d14f5559ff8e7fc571dd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.want",
+  "field": "text",
+  "lang": "en",
+  "text": "Want to see",
+  "model": "seed-from-bundle",
+  "source_sha256": "ddbabf8d1d1e31e411f082f10aba63f8da67caf02f2771cac4b6432042ba1e4f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.pass",
+  "field": "text",
+  "lang": "en",
+  "text": "Pass",
+  "model": "seed-from-bundle",
+  "source_sha256": "ebdf8cc00bc4d9ceee633c56c63b49955769a92ca060825c9b08e4af61326e2b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.seenIt",
+  "field": "text",
+  "lang": "en",
+  "text": "Seen it",
+  "model": "seed-from-bundle",
+  "source_sha256": "012bda07495334dea7868c40217326d620a3fdb43c108d8d5e5ca41b4b9f3481"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.undo",
+  "field": "text",
+  "lang": "en",
+  "text": "Undo",
+  "model": "seed-from-bundle",
+  "source_sha256": "a8283ade31856f71220db0e6f60a257c6889dc4dad0f275f66ad44b9ed9bf8d5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.passed",
+  "field": "text",
+  "lang": "en",
+  "text": "Passed",
+  "model": "seed-from-bundle",
+  "source_sha256": "436fe71bb9561f0596161c4d50c7b23327b4189acaf63dc89f4f9205b67a7528"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.removed",
+  "field": "text",
+  "lang": "en",
+  "text": "Removed from your queue",
+  "model": "seed-from-bundle",
+  "source_sha256": "63c5536aaea2b5491008b047721df95a6f3d20a45bd0b61074131640df4971c5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.kept",
+  "field": "text",
+  "lang": "en",
+  "text": "Added to your queue",
+  "model": "seed-from-bundle",
+  "source_sha256": "de77c493adbc2b1c84e410cda64de7f6e80a9982e9e890367b8ab6c62a92c44e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.seenMarked",
+  "field": "text",
+  "lang": "en",
+  "text": "Marked as seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "6ea3d186469e6298ef60d0787cefacd05dcb26452b2736aede90e5ec09f79620"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.restore",
+  "field": "text",
+  "lang": "en",
+  "text": "Restore",
+  "model": "seed-from-bundle",
+  "source_sha256": "a76e13b9839270eb73ed11417f7d8acca55df0ad52065799361631d0fff74f27"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.passedSession",
+  "field": "text",
+  "lang": "en",
+  "text": "Passed this session",
+  "model": "seed-from-bundle",
+  "source_sha256": "08161ab6d1323754f2cbc0eae2ba071c8d5dc8c44f0b6709d9b2f28340249bd7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.yourRating",
+  "field": "text",
+  "lang": "en",
+  "text": "Your rating",
+  "model": "seed-from-bundle",
+  "source_sha256": "68548b47e72ee1a5dfe74c1618518bd1dba9232703da81536f59551b5619389f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "judge.signInToKeep",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in to keep your judgments",
+  "model": "seed-from-bundle",
+  "source_sha256": "954f718df3502bd00867bd71ed41c0ec22a6dd707b337dda99ba621a1fbfe1e2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "rate.title",
+  "field": "text",
+  "lang": "en",
+  "text": "How was it?",
+  "model": "seed-from-bundle",
+  "source_sha256": "a0058cbb1682a472758b6f92915ce2a307950451f72e9cf852440caebb676b0f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "rate.skip",
+  "field": "text",
+  "lang": "en",
+  "text": "Skip",
+  "model": "seed-from-bundle",
+  "source_sha256": "28d03596d24eeb4eab2d6fe21ca1cb95be7cb1fa6f92933db05e2cc4f4cdfa06"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "rate.hint",
+  "field": "text",
+  "lang": "en",
+  "text": "Drag across the stars",
+  "model": "seed-from-bundle",
+  "source_sha256": "af413d85dc0ae0649b2a0fb05283a0e2bc7019feb3dc9aca94d8d4ee693f381e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "rate.saved",
+  "field": "text",
+  "lang": "en",
+  "text": "Saved",
+  "model": "seed-from-bundle",
+  "source_sha256": "b5c120b316c237a0deab3140267aebedba61947d3ae268d708a53d5be119e9fb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "rate.notSeen",
+  "field": "text",
+  "lang": "en",
+  "text": "Not seen after all",
+  "model": "seed-from-bundle",
+  "source_sha256": "b9de9fc767794156000678dd2ff2cef48c33f227f38d803da5199f77aee0de82"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "rate.rate",
+  "field": "text",
+  "lang": "en",
+  "text": "Rate",
+  "model": "seed-from-bundle",
+  "source_sha256": "45b63ffd01af7b9ce4da03810274e580fcc47f382dc476dc50089006feb8de89"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "verdict.find",
+  "field": "text",
+  "lang": "en",
+  "text": "Find",
+  "model": "seed-from-bundle",
+  "source_sha256": "822b2ae4542bc74b8fccf9ec3e08408d33d35b919101760dc27e1ea7822f1818"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "verdict.aligned",
+  "field": "text",
+  "lang": "en",
+  "text": "Aligned",
+  "model": "seed-from-bundle",
+  "source_sha256": "370c4c1eb2cda5519d6adb16e1e1e95663696863d911494e5ec88500fb773cf0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "verdict.letdown",
+  "field": "text",
+  "lang": "en",
+  "text": "Letdown",
+  "model": "seed-from-bundle",
+  "source_sha256": "480793392e9140d31e0afcf82bf59cd6c38584c86e08b77350b255c90f2d18e9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.forYou",
+  "field": "text",
+  "lang": "en",
+  "text": "For you",
+  "model": "seed-from-bundle",
+  "source_sha256": "143134f9392545a25774f24d42306752bcbbb7ea18ee8cffd69fb5b7388eec06"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.whatToExpect",
+  "field": "text",
+  "lang": "en",
+  "text": "What to expect",
+  "model": "seed-from-bundle",
+  "source_sha256": "7ef84dcd839c5fcfd660cf1d2745ded3006020dd13eec30a41824344b5f01422"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.kindredSeen",
+  "field": "text",
+  "lang": "en",
+  "text": "You've seen {n} kindred films",
+  "model": "seed-from-bundle",
+  "source_sha256": "852e6222bcc59ee609f5cadc3d10467569e03d8289badb6f43fa0313889bd090"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.sharedThreads",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} shared threads",
+  "model": "seed-from-bundle",
+  "source_sha256": "fd7756fa7bd14a20604176bdd5de5c1137ee96a3225365c7c1813c6f9890f15d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.rankOf",
+  "field": "text",
+  "lang": "en",
+  "text": "#{rank} of {total}",
+  "model": "seed-from-bundle",
+  "source_sha256": "8171f4c02f84da8d2da38bc4adf777bc7cc2276ac27c2542832970a7ac7e4e2a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "preset.onMyServices",
+  "field": "text",
+  "lang": "en",
+  "text": "On my services",
+  "model": "seed-from-bundle",
+  "source_sha256": "8b2c3a2ffa518d68ade5363be9f9849aada773afe6e61a6f2d7f0a37e714edaf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "preset.safeBet",
+  "field": "text",
+  "lang": "en",
+  "text": "Safe bet",
+  "model": "seed-from-bundle",
+  "source_sha256": "6c379e698c9d9cc2ca92c3364d7645ffd01c301758f34e0ff922e97a12cd1eb1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "preset.hiddenGems",
+  "field": "text",
+  "lang": "en",
+  "text": "Hidden gems",
+  "model": "seed-from-bundle",
+  "source_sha256": "0650c15c81cb1dd66875febeb587045fde55f0b5672faea7c64c0448594bebd7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "preset.freshCentury",
+  "field": "text",
+  "lang": "en",
+  "text": "Fresh century",
+  "model": "seed-from-bundle",
+  "source_sha256": "a52aed1b2bb52994033e2f993cc065505d50a4754d1fe289b2e8fc4b9bc2edfd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "preset.ninety",
+  "field": "text",
+  "lang": "en",
+  "text": "90 in 90 min",
+  "model": "seed-from-bundle",
+  "source_sha256": "a094181d3b80073132556a096ca848e0b926e00738121fa6fa6a6a1db25ebbf5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "preset.boldPick",
+  "field": "text",
+  "lang": "en",
+  "text": "Bold pick",
+  "model": "seed-from-bundle",
+  "source_sha256": "2627a52f223cc281a32b050ca96e38dc677353d2d2025d03c21badb20f5626a5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.deckCleared",
+  "field": "text",
+  "lang": "en",
+  "text": "Deck cleared — loosen a filter for more.",
+  "model": "seed-from-bundle",
+  "source_sha256": "c79c6bf9ec7429cc11484f1d845e565741eb50ca861e4eb9973e652fc9ae43c3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.swipeHint",
+  "field": "text",
+  "lang": "en",
+  "text": "Swipe right to keep, left to pass",
+  "model": "seed-from-bundle",
+  "source_sha256": "87f4b242f4768ff455445002793558a16632959edaa1f5cd60d47241a0a15261"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "shelf.title",
+  "field": "text",
+  "lang": "en",
+  "text": "You",
+  "model": "seed-from-bundle",
+  "source_sha256": "08b041935798fbf6fd6ff51099ffedb140a475889986d14f5559ff8e7fc571dd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "shelf.signedOut",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in to build your shelf.",
+  "model": "seed-from-bundle",
+  "source_sha256": "aef549307c685b6e4b45ec09861d9d3d945b05022367c5df0335069e1add99e4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.stats",
+  "field": "text",
+  "lang": "en",
+  "text": "{seen} seen · {queue} to watch · {rated} rated",
+  "model": "seed-from-bundle",
+  "source_sha256": "fff4f65a5d822a5d112d9cb7ce2705305e3731e84e1b51bd729861fd08c9a361"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.tab.watched",
+  "field": "text",
+  "lang": "en",
+  "text": "Watched",
+  "model": "seed-from-bundle",
+  "source_sha256": "1ca8c1c0de6fce0f4d13389a8e4a4cb646a316516fc7efbc9c734fc6026fcc75"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.tab.queue",
+  "field": "text",
+  "lang": "en",
+  "text": "Watchlist",
+  "model": "seed-from-bundle",
+  "source_sha256": "eff2ec588be1b85759993b66f24e699b078c449bf9a410243bcac53d841e75f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.tab.rated",
+  "field": "text",
+  "lang": "en",
+  "text": "Rated",
+  "model": "seed-from-bundle",
+  "source_sha256": "227db2d1eec368c9422ec2f4083b1bb9db59e81be52acf0a88bba14b903c177a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.tab.passed",
+  "field": "text",
+  "lang": "en",
+  "text": "Passed",
+  "model": "seed-from-bundle",
+  "source_sha256": "436fe71bb9561f0596161c4d50c7b23327b4189acaf63dc89f4f9205b67a7528"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.recent",
+  "field": "text",
+  "lang": "en",
+  "text": "Recent",
+  "model": "seed-from-bundle",
+  "source_sha256": "690dbe9dc0993c4256683738fc3fd541cfa96f60d299be33343615dd58179d93"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.added",
+  "field": "text",
+  "lang": "en",
+  "text": "Added",
+  "model": "seed-from-bundle",
+  "source_sha256": "6b02e0d363a4af1c95eef50364bb0202c8b250aa05a48a69e68fd7787b4b0632"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.waiting",
+  "field": "text",
+  "lang": "en",
+  "text": "Waiting",
+  "model": "seed-from-bundle",
+  "source_sha256": "6e293a8c009e001103199768f7bcbea1729c59f9fc1ef2748958757f47ab99ed"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.rating",
+  "field": "text",
+  "lang": "en",
+  "text": "My rating",
+  "model": "seed-from-bundle",
+  "source_sha256": "4f7e83106db174a754af212db43303200c7008bdd29893eac7e17e12a7da214f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.ts",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f5c1c15d39ba85cb61f5319ce0e12d5ec0ced7bbecf0f3387a049e4f05dfcd6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.year",
+  "field": "text",
+  "lang": "en",
+  "text": "Year",
+  "model": "seed-from-bundle",
+  "source_sha256": "89f6832560dec0b7f8721d1fe3ba0b5036a5d1464ce4339bb16c3e1485bfec34"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Title",
+  "model": "seed-from-bundle",
+  "source_sha256": "7e8cd2056da73a7fefb6cd91f4e5d199d08d9058c517b9a2476b1b520324d674"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.gap",
+  "field": "text",
+  "lang": "en",
+  "text": "Finds",
+  "model": "seed-from-bundle",
+  "source_sha256": "e0c3d922cd87ef5c01a06ad185afa17f045555c4f152baf2f1b6b98b3411f1aa"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.sort.services",
+  "field": "text",
+  "lang": "en",
+  "text": "On my services",
+  "model": "seed-from-bundle",
+  "source_sha256": "8b2c3a2ffa518d68ade5363be9f9849aada773afe6e61a6f2d7f0a37e714edaf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.empty.watched",
+  "field": "text",
+  "lang": "en",
+  "text": "Nothing marked seen yet. Judge a film and it lands here.",
+  "model": "seed-from-bundle",
+  "source_sha256": "bcedb397a862dbec3524248c0eee2a0648f2bd62b03544bdc499b38f04b16b33"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.empty.queue",
+  "field": "text",
+  "lang": "en",
+  "text": "Nothing on your watchlist yet.",
+  "model": "seed-from-bundle",
+  "source_sha256": "5e9fd82c12935aca2355a694bb543ab58fbcf06d1edf21eeaa14d11625d9330b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.empty.rated",
+  "field": "text",
+  "lang": "en",
+  "text": "Rate what you’ve seen — your own scale, right next to the TakeScore.",
+  "model": "seed-from-bundle",
+  "source_sha256": "13bd8f658d11c10a3f23f00cc6b9c6fb28e4cc50ced6659fbccdfa27901cb184"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.empty.passed",
+  "field": "text",
+  "lang": "en",
+  "text": "Nothing passed on yet.",
+  "model": "seed-from-bundle",
+  "source_sha256": "2fe096dac9958f517a9e1b6e5f321fc2487b0efa8b36bb024d6710955a9737ff"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.verdictLine",
+  "field": "text",
+  "lang": "en",
+  "text": "{find} finds · {aligned} aligned · {letdown} letdowns",
+  "model": "seed-from-bundle",
+  "source_sha256": "fba04c44079403c73886e5aaacd1c6fc6ba783705bb884202a61c7059865ee15"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.import",
+  "field": "text",
+  "lang": "en",
+  "text": "Import",
+  "model": "seed-from-bundle",
+  "source_sha256": "2cff9baabf56ca002610e113bc94deb6ededddfc3c130365b6e88ed5195bf774"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.restore",
+  "field": "text",
+  "lang": "en",
+  "text": "Restore",
+  "model": "seed-from-bundle",
+  "source_sha256": "a76e13b9839270eb73ed11417f7d8acca55df0ad52065799361631d0fff74f27"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.tab.lists",
+  "field": "text",
+  "lang": "en",
+  "text": "Lists",
+  "model": "seed-from-bundle",
+  "source_sha256": "308d5a0903f2c5714ec7774808fc9a67b92c602a01a69b2084b05bdb2f6ae699"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.empty.lists",
+  "field": "text",
+  "lang": "en",
+  "text": "No saved lists yet — star a collection in Explore and it lands here.",
+  "model": "seed-from-bundle",
+  "source_sha256": "c54abdfa915095a4a9178a34904245e7dec1f40199985d7ee735729699a3f347"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.save",
+  "field": "text",
+  "lang": "en",
+  "text": "Save list",
+  "model": "seed-from-bundle",
+  "source_sha256": "6dfcb92faa7c26dd33b5bce41c9e79d1981e64b4a226cc65ead5419bdd05608d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.saved",
+  "field": "text",
+  "lang": "en",
+  "text": "Saved",
+  "model": "seed-from-bundle",
+  "source_sha256": "b5c120b316c237a0deab3140267aebedba61947d3ae268d708a53d5be119e9fb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.addAll",
+  "field": "text",
+  "lang": "en",
+  "text": "Add all to watchlist",
+  "model": "seed-from-bundle",
+  "source_sha256": "cf87425500b5ad4912767a4602344c7ebb832b4e0609e58f15228dc39bcc9293"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.addingAll",
+  "field": "text",
+  "lang": "en",
+  "text": "Adding…",
+  "model": "seed-from-bundle",
+  "source_sha256": "c6de6f45c827f464b161b668ae93192ce4e6585c4029d8dd71795cbd7f922719"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.addedN",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} added to your watchlist",
+  "model": "seed-from-bundle",
+  "source_sha256": "4a76d3bfcab4e4fa8c8151716599c322216c68f2e6f6aa3bac763f218109ec5e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.addFailed",
+  "field": "text",
+  "lang": "en",
+  "text": "Couldn't add this list to your watchlist.",
+  "model": "seed-from-bundle",
+  "source_sha256": "56e7e6eb946c919fe9a1a10954474d7d2e5cccc8593f25e11051d29db2c296b3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.drive",
+  "field": "text",
+  "lang": "en",
+  "text": "Drive it",
+  "model": "seed-from-bundle",
+  "source_sha256": "dde8462fb563c6ea87431e503be25b88901562010dd0749f457c32b58ebfd558"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.seenOf",
+  "field": "text",
+  "lang": "en",
+  "text": "{total} films · {seen} seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "6fd70a399c65af902491ae484da355c35f896880e9d616b8757ad2806fb9da7c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.onMetatake",
+  "field": "text",
+  "lang": "en",
+  "text": "{shown} of {all} on Metatake",
+  "model": "seed-from-bundle",
+  "source_sha256": "b1309dbba29d6f9270cae574ddfbf2b39995f74fd33df8be67f402f77ee3e04d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.seenN",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "35a4730c03cec4ac082aa9d1575cfb50e2bdad5b22436c3be7cd94ddf5c31611"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "list.matchedOf",
+  "field": "text",
+  "lang": "en",
+  "text": "{matched} of {all} on the published list are matched to a film page — this canon is still being ingested.",
+  "model": "seed-from-bundle",
+  "source_sha256": "c6ea583ab557af17a9117a27b1d0af384c4b04c491462eb91873a573ef4699b2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.journeyTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Toward a thousand films that move you",
+  "model": "seed-from-bundle",
+  "source_sha256": "7fedebf0921864f9d5e7c36cdf626cac9c9702f917e22808839b28e3a442daf1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.journeyBody",
+  "field": "text",
+  "lang": "en",
+  "text": "A life of watching should leave behind more than a thousand films that moved you deeply. Metatake keeps that ledger — start it with the ones you've already seen.",
+  "model": "seed-from-bundle",
+  "source_sha256": "b2506584c80f4e9882408ba87601647895005d338b1086819141c99ffd8249ff"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.journeyCta",
+  "field": "text",
+  "lang": "en",
+  "text": "Import your film history",
+  "model": "seed-from-bundle",
+  "source_sha256": "60f7796ae378c203ea9f07aa15e0f65bbaf7993ede789e3722cbf21d55ef8b50"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "you.journeyCtaSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Letterboxd · IMDb · Netflix · Watcha — years of watching, in minutes.",
+  "model": "seed-from-bundle",
+  "source_sha256": "03ff20cef0e2c6689c18624ee6851e3eeb8802d7c06895454d0157929ecde7b1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "age.fresh",
+  "field": "text",
+  "lang": "en",
+  "text": "Fresh",
+  "model": "seed-from-bundle",
+  "source_sha256": "f810b66877419ce9b8019ac042f0fc6127162d05cd1f6a74d319c81311ee7259"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "age.aging",
+  "field": "text",
+  "lang": "en",
+  "text": "Aging",
+  "model": "seed-from-bundle",
+  "source_sha256": "90dd095da6be9e4c755eac57dc8d59073723d13db6f4e68e1ab98dca98ae4316"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "age.stale",
+  "field": "text",
+  "lang": "en",
+  "text": "Stale",
+  "model": "seed-from-bundle",
+  "source_sha256": "40c9e59c5e152b0ae9affc84d8461c29b75a7709e4506307eeedf246b526014e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.takescore",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f5c1c15d39ba85cb61f5319ce0e12d5ec0ced7bbecf0f3387a049e4f05dfcd6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.newest",
+  "field": "text",
+  "lang": "en",
+  "text": "Newest",
+  "model": "seed-from-bundle",
+  "source_sha256": "d15efa178cf65ae16596a270671aa320bc9d2a5f18d78ecc5d479f73b3ffd51e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.oldest",
+  "field": "text",
+  "lang": "en",
+  "text": "Oldest",
+  "model": "seed-from-bundle",
+  "source_sha256": "505dc450753e546ecbef6830acea257dc35d0d5303d8e76d0d605a7997a10a42"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.alpha",
+  "field": "text",
+  "lang": "en",
+  "text": "A–Z",
+  "model": "seed-from-bundle",
+  "source_sha256": "f9f6c8502eb0f6c9c0e9e7dca88d078e0d7fcc6d910ff6328dbf83b86bd92f19"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.top100",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore top 100",
+  "model": "seed-from-bundle",
+  "source_sha256": "14d6fdeff90d331bee0fc7bb63ce2a0aa9440dfc8412dcdf8868175d5a9fb07f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.top500",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore top 500",
+  "model": "seed-from-bundle",
+  "source_sha256": "ede373b8b804bed56ddd04c592eef641e2f5e6c78451190dbd2d7a5c694c0925"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.top1000",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore top 1000",
+  "model": "seed-from-bundle",
+  "source_sha256": "cfa88a4f98f71b3406b29f2b4ee389f00ea671cbd7e85ba0c0dde82038dc183c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "sort.label",
+  "field": "text",
+  "lang": "en",
+  "text": "Sort",
+  "model": "seed-from-bundle",
+  "source_sha256": "bec69036aa27e7fab7d44cad3909477b76631c39ba46fd7841ea71aae7e5a735"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "era.label",
+  "field": "text",
+  "lang": "en",
+  "text": "Years",
+  "model": "seed-from-bundle",
+  "source_sha256": "b68ca0811f132f73edc68e9d3bebb288ef036c1fef8aabe6d2c63a2b6bfa859c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "era.all",
+  "field": "text",
+  "lang": "en",
+  "text": "All years",
+  "model": "seed-from-bundle",
+  "source_sha256": "a0f09510650034a044386b5c601342a2430df6e4665a7d39792d4542681d4edb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "era.since",
+  "field": "text",
+  "lang": "en",
+  "text": "{y} and newer",
+  "model": "seed-from-bundle",
+  "source_sha256": "4849257bf1946fcd4bafd8257c087427a4304259bab618437ded722f78774711"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "era.sinceShort",
+  "field": "text",
+  "lang": "en",
+  "text": "{y}+",
+  "model": "seed-from-bundle",
+  "source_sha256": "6250ca12c3c771a0d03e8e57052bf7fc47236044a390761a7b575147d9f70893"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "origin.label",
+  "field": "text",
+  "lang": "en",
+  "text": "Country",
+  "model": "seed-from-bundle",
+  "source_sha256": "701d021d08c54579f23343581e45b65ffb1150b2c99f94352fdac4b7036dbbd5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "origin.any",
+  "field": "text",
+  "lang": "en",
+  "text": "Any country",
+  "model": "seed-from-bundle",
+  "source_sha256": "85bdc795356151d9bcd4a1640ca2bc1f80caad3f23c62cd3a19cf495cd92d57c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "origin.nSelected",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} countries",
+  "model": "seed-from-bundle",
+  "source_sha256": "2b61366dd6e5d6561708258bdb152d2374eb698ef40233505ab407bf5391b315"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "origin.filmsN",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} films",
+  "model": "seed-from-bundle",
+  "source_sha256": "d5eba5df976cd0f2bcb43b2234a481fc312ba0b174fe5a0a696d7ce41799904b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "taste.chip",
+  "field": "text",
+  "lang": "en",
+  "text": "My taste",
+  "model": "seed-from-bundle",
+  "source_sha256": "27af04b101bf563dcd53fcf4a104899aa942d7d2bd81e2de51ca0034faebf589"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "taste.on",
+  "field": "text",
+  "lang": "en",
+  "text": "Ranked for you",
+  "model": "seed-from-bundle",
+  "source_sha256": "0c2e66d3aac8798d85304d98a5ccacf4d45a1a4d497f677e3a2f7b0ede536fea"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "taste.off",
+  "field": "text",
+  "lang": "en",
+  "text": "Ranked for everyone",
+  "model": "seed-from-bundle",
+  "source_sha256": "665e3e92c6084e8a900868d7e3f7b629b7624222b269842777e5b990e2af6750"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.browse",
+  "field": "text",
+  "lang": "en",
+  "text": "Browse",
+  "model": "seed-from-bundle",
+  "source_sha256": "3227aa9666253f7a736509074fb83bc4d47b19582faaa0233f228746de29217a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.genres",
+  "field": "text",
+  "lang": "en",
+  "text": "Genres",
+  "model": "seed-from-bundle",
+  "source_sha256": "3561abfe8067f3c1cdec6de4240f041af78d44a6ba619deee9e1d0735fe73e1e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.decades",
+  "field": "text",
+  "lang": "en",
+  "text": "Decades",
+  "model": "seed-from-bundle",
+  "source_sha256": "610bb32768d60111e36ad64c6e59b4a48b131b239a3edd99d5935700bd7071ad"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.forYou",
+  "field": "text",
+  "lang": "en",
+  "text": "For you — nine films",
+  "model": "seed-from-bundle",
+  "source_sha256": "b13bfde052601817ffd70dcac795b52907749cd48bf078785d9ab736530efc1d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.collections",
+  "field": "text",
+  "lang": "en",
+  "text": "Collections",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f9feade761d22f340a4de9c586f222aa74658351faadc8365335bc3c548ba71"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.locations",
+  "field": "text",
+  "lang": "en",
+  "text": "Filming locations",
+  "model": "seed-from-bundle",
+  "source_sha256": "06a6b00981a19573da371959ee5775a26fb488fff350aaec86f3578f6bb39b8f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.locationsSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Every place these films were shot — including the ones near you.",
+  "model": "seed-from-bundle",
+  "source_sha256": "9031ea09ac8960913bb973d89eaac5404a49d6e5d424e2a9caa4d4445e34229b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.collectionsSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Canons, prizes, national cinemas — pick one and drive it",
+  "model": "seed-from-bundle",
+  "source_sha256": "d7f7325a4db08620bbcdcf96f53f57d49bed697715706f8849a4828391b712b6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.listsCount",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} lists — canons, prizes, festivals, national cinemas",
+  "model": "seed-from-bundle",
+  "source_sha256": "ff57aca91f05d300b28e3e00fa4c68827f83f1ea7d820ddc9585bce18c012633"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.seeAllLists",
+  "field": "text",
+  "lang": "en",
+  "text": "See all {n} lists",
+  "model": "seed-from-bundle",
+  "source_sha256": "eabbf95cc57db0cc7c7d0afe19ec44fe6a8fb21baef3df843efce15afc4f8deb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.tryExample",
+  "field": "text",
+  "lang": "en",
+  "text": "Try “{q}”",
+  "model": "seed-from-bundle",
+  "source_sha256": "c98f078f0c8b1e4243a9a7190b3c128a5af82002293531d19f5fd02b75eff9a1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.forYouSub",
+  "field": "text",
+  "lang": "en",
+  "text": "A hand dealt from what you've seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "ee02850f16b12181b1ca84d94d2190f9988d227b1692e379d8def8703f362122"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.dealAgain",
+  "field": "text",
+  "lang": "en",
+  "text": "Deal again",
+  "model": "seed-from-bundle",
+  "source_sha256": "1c83b7352e4508334ea2e619fd893c56e442805d06e681b1326c7104d871f310"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.dealStarterNudge",
+  "field": "text",
+  "lang": "en",
+  "text": "Dealt from the canon for now — log or import films you've seen and this hand tunes to you.",
+  "model": "seed-from-bundle",
+  "source_sha256": "73e42f962378e92ff90722ddab82417bf98d3e61532ad62d2d251347119ce75a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.stable",
+  "field": "text",
+  "lang": "en",
+  "text": "Stable",
+  "model": "seed-from-bundle",
+  "source_sha256": "90ee305714d7103317705bfffd734c654b78807e5a0f51fcc61bc1d81105ebd1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.stableSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Dead-centre of your taste",
+  "model": "seed-from-bundle",
+  "source_sha256": "bdbd3454f0886a0a99502871da43bc6bbc26eada4bb7f49596670e655189a80a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.adventure",
+  "field": "text",
+  "lang": "en",
+  "text": "Adventure",
+  "model": "seed-from-bundle",
+  "source_sha256": "9a3c16424750cbde029c47e059f219dc64d8943ac4073a1cc5bc9accd979fc17"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.adventureSub",
+  "field": "text",
+  "lang": "en",
+  "text": "A step past the familiar",
+  "model": "seed-from-bundle",
+  "source_sha256": "35f0bff8a3d52ef5265eeccf0064358e68e1dfb1c321aa933ca76b7f64570779"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.frontier",
+  "field": "text",
+  "lang": "en",
+  "text": "Frontier",
+  "model": "seed-from-bundle",
+  "source_sha256": "85db431492aa2e8672e93f4ea7acf10c88b97b867b0d373107af63dc4880f041"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.frontierSub",
+  "field": "text",
+  "lang": "en",
+  "text": "A different world entirely",
+  "model": "seed-from-bundle",
+  "source_sha256": "70d53dd28e88b1fd37a1119f425ea5693a1db382d24be0cac257224dee394170"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.webCardSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Essays, rankings, filming locations — the full archive",
+  "model": "seed-from-bundle",
+  "source_sha256": "98ae54970c08af69f862ad23f31c38b99f98a73e1068578a1cf3fc9ceff405bd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.tasteTitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Seen any of these?",
+  "model": "seed-from-bundle",
+  "source_sha256": "fd2ab92d980fdf46a67e18c32106ae7ddd3b10078b246ca7dd74da5e3362f8f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.tasteBody",
+  "field": "text",
+  "lang": "en",
+  "text": "Tap what you've watched — recommendations and your journey start working immediately.",
+  "model": "seed-from-bundle",
+  "source_sha256": "147e9be059f291422dc9ffdd1f8e8ffff558b79b263d704c98320c3dff3ef01b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Welcome",
+  "model": "seed-from-bundle",
+  "source_sha256": "0e2226b5235f0ff94a276eb4d07a3bfea74b7e3b8b85e9efca6c18430f041bf8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.tagline",
+  "field": "text",
+  "lang": "en",
+  "text": "Decide what to watch tonight.",
+  "model": "seed-from-bundle",
+  "source_sha256": "e9ffd80c22cd5efd4c0d99314cf91b5a23881d69cc467a58b1a10f77a9aec437"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p1t",
+  "field": "text",
+  "lang": "en",
+  "text": "What to watch, decided",
+  "model": "seed-from-bundle",
+  "source_sha256": "bd090b76259a15d4552c9e7e2c7e5f043798198b5e11c5fa8fd8396ffaa0d9f5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p1b",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore, a spoiler-free critical lead, and one bar to settle tonight's pick.",
+  "model": "seed-from-bundle",
+  "source_sha256": "bdc8eec4d469c3d4009e2efd33999e08f3765892700a38d7f98a6d558f834979"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p2t",
+  "field": "text",
+  "lang": "en",
+  "text": "A queue that stays alive",
+  "model": "seed-from-bundle",
+  "source_sha256": "b49e2f6d3600e8f1857d86f6b101117b5a6a6ff8692465973209bd259236a216"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p2b",
+  "field": "text",
+  "lang": "en",
+  "text": "What you keep meets your streaming services — and ages honestly until you decide.",
+  "model": "seed-from-bundle",
+  "source_sha256": "ce5575d52afa5fe1af611bba679af218584b12057720c77de1fa4b1e147a8a39"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p3t",
+  "field": "text",
+  "lang": "en",
+  "text": "Walk into the films",
+  "model": "seed-from-bundle",
+  "source_sha256": "640ef1daa2794a6b94d62a654b4c7fef49aeaa2c6f972ec1e58ffab24cf851a8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p3b",
+  "field": "text",
+  "lang": "en",
+  "text": "17,000 filming locations on a map, including the ones near you.",
+  "model": "seed-from-bundle",
+  "source_sha256": "169f9886f7d46956543d238736b04a9f3b16fd63274f5aec6246e1615aecea5a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.start",
+  "field": "text",
+  "lang": "en",
+  "text": "Get started",
+  "model": "seed-from-bundle",
+  "source_sha256": "61e8d44ad423a4a0951b21b9d11440a1c23a881fe79335c367f63be251c64800"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.googleError",
+  "field": "text",
+  "lang": "en",
+  "text": "Google sign-in isn't available yet — try email instead.",
+  "model": "seed-from-bundle",
+  "source_sha256": "e58e6ef3c6d0f994d0af8390a4eecd6bfa22ba1e93a2acf7e7b40790dabdad57"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Bring your film life",
+  "model": "seed-from-bundle",
+  "source_sha256": "e35615059934a8ed51cb03b0e5ca910ccd9c4ea5d7d1404b8c642128515db452"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.subtitle",
+  "field": "text",
+  "lang": "en",
+  "text": "Import your ratings and watched history from the services you already use. We never see your passwords — you sign in on each service's own page.",
+  "model": "seed-from-bundle",
+  "source_sha256": "ff19dec3090d00526e7181886143eb178f73037bcca71184b76e9d5f865f2a25"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.idle",
+  "field": "text",
+  "lang": "en",
+  "text": "Import",
+  "model": "seed-from-bundle",
+  "source_sha256": "2cff9baabf56ca002610e113bc94deb6ededddfc3c130365b6e88ed5195bf774"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.awaitingFile",
+  "field": "text",
+  "lang": "en",
+  "text": "Pick the file",
+  "model": "seed-from-bundle",
+  "source_sha256": "ec62d43c917bd3e914b9f8bbfc3eb5f66f6074cdc90591a72c61a21519918e5f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.awaitingCollect",
+  "field": "text",
+  "lang": "en",
+  "text": "Collect the export",
+  "model": "seed-from-bundle",
+  "source_sha256": "a763a3974afceefd62ee160c5de9fddcd26b1d206fd158c993abfa7371a22347"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.importing",
+  "field": "text",
+  "lang": "en",
+  "text": "Importing…",
+  "model": "seed-from-bundle",
+  "source_sha256": "c01c4324f1fa14fc76957936626e11a5150c24e748dbd08cc46848dfcbe37d00"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.done",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} films imported",
+  "model": "seed-from-bundle",
+  "source_sha256": "107e72db99e28a74e8be5783c73b61c6efd6e37e2667689be165297b1f8da30a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.error",
+  "field": "text",
+  "lang": "en",
+  "text": "Didn't work — try again",
+  "model": "seed-from-bundle",
+  "source_sha256": "e21d2912d52d3b24a7a96bd1cb1031f147ecc353e3098523c99230b69fdccd2b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.openExport",
+  "field": "text",
+  "lang": "en",
+  "text": "Open the export page",
+  "model": "seed-from-bundle",
+  "source_sha256": "1bcf2a6519b702439387a854948390cfdbe31c37dbca453aecd68388f0775164"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.openCollect",
+  "field": "text",
+  "lang": "en",
+  "text": "Open imdb.com/exports",
+  "model": "seed-from-bundle",
+  "source_sha256": "66c2a1e2a3ce0acb4213ed8ba7243eb4dd642632c9e3ebbdb4496bafcc1baf3d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.pickFile",
+  "field": "text",
+  "lang": "en",
+  "text": "Choose the file",
+  "model": "seed-from-bundle",
+  "source_sha256": "4a5dfb3736fcb30b611c6a6d4774f25cbbd233d64b89b954ecd7a7e0b78bd2b3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.paste",
+  "field": "text",
+  "lang": "en",
+  "text": "Paste your ratings",
+  "model": "seed-from-bundle",
+  "source_sha256": "fcad807d392b67ec441ec7bead30f2a81ef0c91731df8909165d7b0eafe1e236"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.banner",
+  "field": "text",
+  "lang": "en",
+  "text": "Got your {service} file?",
+  "model": "seed-from-bundle",
+  "source_sha256": "831f217b5ced2b06a550c32bda60e009b87c88714dbd477f23b85f7d6214074c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.bannerCta",
+  "field": "text",
+  "lang": "en",
+  "text": "Pick it",
+  "model": "seed-from-bundle",
+  "source_sha256": "94239c298fe6053491a42a2ab6c923d7bdbb8e88c95cd1dabff316cae9e150a3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.letterboxd.s1",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in at letterboxd.com — the page opens in Safari",
+  "model": "seed-from-bundle",
+  "source_sha256": "3adb4e101c3f174453277a9430d3e7026a894f8180b636f798a60c49779bc397"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.letterboxd.s2",
+  "field": "text",
+  "lang": "en",
+  "text": "Tap “Export your data” — a ZIP downloads instantly",
+  "model": "seed-from-bundle",
+  "source_sha256": "fb9721f19af6729896f2f020ab3fe9a13ad37c2aa426ac83d025a0dc7930436f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.letterboxd.s3",
+  "field": "text",
+  "lang": "en",
+  "text": "Come back here and pick the file from Downloads",
+  "model": "seed-from-bundle",
+  "source_sha256": "3550a0d86ea18e1dbf1578fefa8c0155e5cd6587ab633fc15b9432001571ff2c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.s1",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in at imdb.com and open Your ratings",
+  "model": "seed-from-bundle",
+  "source_sha256": "6b341ec9b5965d3e2d6a888765dad05b5e2d310aef6791878e00c2311d2f80a6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.s2",
+  "field": "text",
+  "lang": "en",
+  "text": "Tap ⋮ → “Export” — IMDb prepares your file",
+  "model": "seed-from-bundle",
+  "source_sha256": "cbb7e61d74ee8ad3d334e66a4f0ac9f793d17e2bf013dca73d2884244fc83491"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.s3",
+  "field": "text",
+  "lang": "en",
+  "text": "Collect the CSV at imdb.com/exports, then pick it here",
+  "model": "seed-from-bundle",
+  "source_sha256": "c433e01e738b3b4411c8e37e57ca3390e97ccee18da64e4e15db59272504c6f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.wait",
+  "field": "text",
+  "lang": "en",
+  "text": "IMDb usually takes a few minutes. Import another service while you wait — everything merges.",
+  "model": "seed-from-bundle",
+  "source_sha256": "0159546d707ca6346bc8bbd013503bed5cc0c753cb1bca389ec8d9879419623f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.s1",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in at netflix.com in Safari — the Netflix app has no history screen",
+  "model": "seed-from-bundle",
+  "source_sha256": "1f32d3d52d3fab41d6ac207bdd59d2537e35b8426db5a4e763f686d6d86043c9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.s2",
+  "field": "text",
+  "lang": "en",
+  "text": "Scroll to the bottom and tap “Download all”",
+  "model": "seed-from-bundle",
+  "source_sha256": "a164a6dca619c58226e8691e7c03a5dc352161efb71d1d0fd36237afbb980769"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.s3",
+  "field": "text",
+  "lang": "en",
+  "text": "Come back and pick NetflixViewingHistory.csv",
+  "model": "seed-from-bundle",
+  "source_sha256": "954497762b355b4ec3075a40436ccd4b76cac2f5d3cd16e3f5775013764f2c8e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.note",
+  "field": "text",
+  "lang": "en",
+  "text": "Netflix exports titles and dates only — there are no ratings to bring.",
+  "model": "seed-from-bundle",
+  "source_sha256": "9a491b9b4b250c2092a860f8b9b7f41d3394c0ac24523072e3ee5dea92304598"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.s1",
+  "field": "text",
+  "lang": "en",
+  "text": "Set your profile public for a moment: Profile → Settings → visibility",
+  "model": "seed-from-bundle",
+  "source_sha256": "dfac19f5154b0772d53e86e8a84722f0b21d914829faca438fe00e9f710520f3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.s2",
+  "field": "text",
+  "lang": "en",
+  "text": "Open your ratings page, scroll to the very bottom, Select All, Copy",
+  "model": "seed-from-bundle",
+  "source_sha256": "9e7e6a17eb04dfe2e95718b0cc63fef5067dc7aef7ffb11dca8761f5b2447712"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.s3",
+  "field": "text",
+  "lang": "en",
+  "text": "Come back and tap Paste — we'll read it right off your clipboard",
+  "model": "seed-from-bundle",
+  "source_sha256": "c9d2a889a398114597fb0b776a76fad9c063c81d4245c2be35590e53179b5a7c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.revert",
+  "field": "text",
+  "lang": "en",
+  "text": "Done? You can switch your profile back to private now.",
+  "model": "seed-from-bundle",
+  "source_sha256": "b75fd8af95e8273d901627e047c1fcf4df757f60466549001b89ed5ac1c16b9c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.reading",
+  "field": "text",
+  "lang": "en",
+  "text": "Reading the file…",
+  "model": "seed-from-bundle",
+  "source_sha256": "d905ae652ee4bcfbd711965622dd216295e8773e4458334f4eafc4dc34f37110"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.matching",
+  "field": "text",
+  "lang": "en",
+  "text": "Matching titles…",
+  "model": "seed-from-bundle",
+  "source_sha256": "0df0476751085c5ce18428479bb6128d184d4bd632747443fa136880b3893333"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.writing",
+  "field": "text",
+  "lang": "en",
+  "text": "Writing your ledger…",
+  "model": "seed-from-bundle",
+  "source_sha256": "16cf3cb90f8587496312350b07a216495cd0cda195bc1e85a5346f35b8150d9e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.slow",
+  "field": "text",
+  "lang": "en",
+  "text": "Bigger histories take a little longer — keep the app open while it works.",
+  "model": "seed-from-bundle",
+  "source_sha256": "0c2074d2e69cfabacb506cc151addcf5b7475c303208d45e40d1f32a7ed087ac"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.done.title",
+  "field": "text",
+  "lang": "en",
+  "text": "In your shelf",
+  "model": "seed-from-bundle",
+  "source_sha256": "577e8927ae552846dcf3ce4cb7fb0e2733148a773e478c2409a21962ff8c346f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.done.line",
+  "field": "text",
+  "lang": "en",
+  "text": "{films} films · {ratings} ratings",
+  "model": "seed-from-bundle",
+  "source_sha256": "0064575b119dfb8e838339892116be8ecfb311bd4dd03ab6e47d9a07771fd52e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.done.finds",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} Finds discovered in your history",
+  "model": "seed-from-bundle",
+  "source_sha256": "bdbeffba154ff24eee1fd964eacc30d8b3f8765dcdb10a213eb3fe50bbd2f7c3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.unmatched",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} titles to match together",
+  "model": "seed-from-bundle",
+  "source_sha256": "9b9f2f893c33683380058f42d31db253ec1c544c6099bfde02d793663a00a165"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.unmatchedHint",
+  "field": "text",
+  "lang": "en",
+  "text": "We couldn't match these automatically — clean, honest leftovers. Tap one to search.",
+  "model": "seed-from-bundle",
+  "source_sha256": "56e677241357ed7b74df011fefe510e0f7265a75f716e9af9b93b6fafd1afeb4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Bring your film life",
+  "model": "seed-from-bundle",
+  "source_sha256": "e35615059934a8ed51cb03b0e5ca910ccd9c4ea5d7d1404b8c642128515db452"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.sub",
+  "field": "text",
+  "lang": "en",
+  "text": "Letterboxd · IMDb · Netflix · Watcha — your history, imported in minutes.",
+  "model": "seed-from-bundle",
+  "source_sha256": "66418b862d00fdfa37946ae0b37866433aadb0f867831bedb4c65fdbea9a6204"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.onboarding",
+  "field": "text",
+  "lang": "en",
+  "text": "Bring your history in one go",
+  "model": "seed-from-bundle",
+  "source_sha256": "b7fcdcd60fbcc5298269ef59dc61d6424d6e1365378c1df1a2cbd6a2429a2375"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.onboardingSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Letterboxd, IMDb or Netflix — import the whole export instead of tapping posters.",
+  "model": "seed-from-bundle",
+  "source_sha256": "43bd60f1dcfe6fa45d39008d172147c3c13820114c348db67d0bd26eb43ccc22"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.empty.signedOut",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in first — imports write to your own ledger.",
+  "model": "seed-from-bundle",
+  "source_sha256": "84fee305bf23e53c301fe4e66b1387dc49cb085b21f94b4674943c8f64181a27"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.pitch",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in once — we pull your ratings and watched films automatically.",
+  "model": "seed-from-bundle",
+  "source_sha256": "86ec306f87d7c72e643a5ef8f8b1cdb09be350eaee2d74af85a317c1706c5dcd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.connect",
+  "field": "text",
+  "lang": "en",
+  "text": "Connect {service}",
+  "model": "seed-from-bundle",
+  "source_sha256": "90af8c699b876e65cb575aecfa9b4001ab9476dccd259b0b40d0512bf18747d7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.syncing",
+  "field": "text",
+  "lang": "en",
+  "text": "Syncing…",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a046cc90ab0a981f95cbf2c9c609309e0cfda272d8c01fdffecdb8286877e91"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.syncNow",
+  "field": "text",
+  "lang": "en",
+  "text": "Sync now",
+  "model": "seed-from-bundle",
+  "source_sha256": "885e8f48bd70af10c21ee1046c5762dae06945145bf5c95885648e4ac308c0bf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.disconnect",
+  "field": "text",
+  "lang": "en",
+  "text": "Disconnect",
+  "model": "seed-from-bundle",
+  "source_sha256": "acfc5be785a9bb3da11c9f05adb69bd5633096f09002aa44813a1b3207e912ad"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.comingSoon",
+  "field": "text",
+  "lang": "en",
+  "text": "Coming soon — {service} sign-in is being set up",
+  "model": "seed-from-bundle",
+  "source_sha256": "b63218abe5f6845c68aadb4fe37cdd5053c8ee5c22adee0ec8d6a5031fe60472"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.lastSynced",
+  "field": "text",
+  "lang": "en",
+  "text": "Synced {date}",
+  "model": "seed-from-bundle",
+  "source_sha256": "c2e4ea5b5a25d12b3547be657a287042c5cf9a959e0f0eebc4da7676732fbffb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.connecting",
+  "field": "text",
+  "lang": "en",
+  "text": "Connecting…",
+  "model": "seed-from-bundle",
+  "source_sha256": "72021eb70e91b4d58254586a8519393a281eb830c165bf1ec42a5057d425bcaf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.syncing",
+  "field": "text",
+  "lang": "en",
+  "text": "Syncing your library…",
+  "model": "seed-from-bundle",
+  "source_sha256": "3560dc6fc0f39aec47e89f6eda6a12c1f1e080376f589ecaa1020b7684837bea"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.title",
+  "field": "text",
+  "lang": "en",
+  "text": "Still importing",
+  "model": "seed-from-bundle",
+  "source_sha256": "5fcf6c581491e16f1366b66cb5f4ab9d4cb4663d2cc9cc63121bd3f9b8f0a4f0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.body",
+  "field": "text",
+  "lang": "en",
+  "text": "It keeps going if you leave — nothing is cancelled. Come back to Connect and the summary will be waiting.",
+  "model": "seed-from-bundle",
+  "source_sha256": "388eaa4da1be1f130e8c5cafacf3452c81b18733ae30c1a2d6f8661a070024fe"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.stay",
+  "field": "text",
+  "lang": "en",
+  "text": "Keep watching",
+  "model": "seed-from-bundle",
+  "source_sha256": "fea850b766fc95dac75ff9d7eb86ccbab00f51fbd50f3e219dac9a760f908904"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.go",
+  "field": "text",
+  "lang": "en",
+  "text": "Leave it running",
+  "model": "seed-from-bundle",
+  "source_sha256": "ce11e2121f880d20b1fe155f4899beb30b177eb2fe01a6f79c67adc1a5f982a2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.title",
+  "field": "text",
+  "lang": "en",
+  "text": "The Navigator",
+  "model": "seed-from-bundle",
+  "source_sha256": "fce52c651cf52a80d5cab4f25843bc1418164f86789d015e2393fa388be6e0b1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.tagline",
+  "field": "text",
+  "lang": "en",
+  "text": "Turn-by-turn to your destination",
+  "model": "seed-from-bundle",
+  "source_sha256": "b3d29e8ffb62819d6a9ac6bc9daff0a52825fff234f61bda441679bfbf8298af"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.next",
+  "field": "text",
+  "lang": "en",
+  "text": "Next",
+  "model": "seed-from-bundle",
+  "source_sha256": "1ff57a29d7c9d11bdf61c1b80f2b289b44c1ea844824d4b94a0d52b6ba5fc858"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.then",
+  "field": "text",
+  "lang": "en",
+  "text": "Then",
+  "model": "seed-from-bundle",
+  "source_sha256": "0597f441dcca7c9bb0a79da4d94d03c523c031a3384009afff47ac1fd1a72b95"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.remainingTime",
+  "field": "text",
+  "lang": "en",
+  "text": "Time remaining",
+  "model": "seed-from-bundle",
+  "source_sha256": "864927fe11e01252ec4c72b4e1169934aa95eb06074800d4a5fb96fa347bb3f7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.filmsN",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} films",
+  "model": "seed-from-bundle",
+  "source_sha256": "d5eba5df976cd0f2bcb43b2234a481fc312ba0b174fe5a0a696d7ce41799904b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.pace",
+  "field": "text",
+  "lang": "en",
+  "text": "~{n} wk at your pace",
+  "model": "seed-from-bundle",
+  "source_sha256": "654de305c6d3e22a2b25cfc6f28475557725c8448d637fb348d0db3fb8e7e959"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.traveled",
+  "field": "text",
+  "lang": "en",
+  "text": "Traveled",
+  "model": "seed-from-bundle",
+  "source_sha256": "1bef01f9d698a78534e8a1099761b3c7800e259e8604f19cb93c6c39ab455504"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.remainingLane",
+  "field": "text",
+  "lang": "en",
+  "text": "Ahead",
+  "model": "seed-from-bundle",
+  "source_sha256": "a8f94e9869fad501623408d902d674faa68eb82f7358c3285a3cfeb888860d40"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.behindN",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} behind you",
+  "model": "seed-from-bundle",
+  "source_sha256": "425e01e4e08a56a087df6defefed2210b373f0550304da135ce270c320cb5edc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.coverage",
+  "field": "text",
+  "lang": "en",
+  "text": "{pct}% on your services",
+  "model": "seed-from-bundle",
+  "source_sha256": "5866caf1a35325a9c56b46b30b5baa5af297a1f37ea8c617f9e19aab04a34997"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.playNow",
+  "field": "text",
+  "lang": "en",
+  "text": "Play now",
+  "model": "seed-from-bundle",
+  "source_sha256": "154637061a5c5b9f619cae6166240f56f0a41e7896691f72bf07ef94752f0c54"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.rent",
+  "field": "text",
+  "lang": "en",
+  "text": "Rent",
+  "model": "seed-from-bundle",
+  "source_sha256": "f0268cb9100a01813311eb653821e8bcccaa3ec90e0d8e3023f8c1d841b6956a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.notOnServices",
+  "field": "text",
+  "lang": "en",
+  "text": "Not on your services",
+  "model": "seed-from-bundle",
+  "source_sha256": "aace82c16d194f9464282c06bbcd1d855c3c6a229805ccc11fd12c46650e3171"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.leavingSoon",
+  "field": "text",
+  "lang": "en",
+  "text": "Leaving soon",
+  "model": "seed-from-bundle",
+  "source_sha256": "0bd5d822e4411a614598957bb9425124b79813a3f002ad8d18daadca1ca2f84b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.prefFewest",
+  "field": "text",
+  "lang": "en",
+  "text": "Fewest",
+  "model": "seed-from-bundle",
+  "source_sha256": "eb09c9ddadde6ad6108359327b32367da555c4b73f35b2336abf21e8f942e8f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.prefFastest",
+  "field": "text",
+  "lang": "en",
+  "text": "Fastest",
+  "model": "seed-from-bundle",
+  "source_sha256": "7ef7a92e55a79eba7fe99d9be3e7a3f97aec159fb8fee35be7c76b7cfd516955"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.prefNoTolls",
+  "field": "text",
+  "lang": "en",
+  "text": "No tolls",
+  "model": "seed-from-bundle",
+  "source_sha256": "3da09b9b1e5b820715814a25bb96022b63fc0d8f992fdeb8e572f64d207a1a7b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.markSeen",
+  "field": "text",
+  "lang": "en",
+  "text": "Mark seen",
+  "model": "seed-from-bundle",
+  "source_sha256": "64fbc1142cf3296ebaec64d0c265b3bdfaf2630b100bc2d42ebb0b1028a2868d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.skip",
+  "field": "text",
+  "lang": "en",
+  "text": "Skip this turn",
+  "model": "seed-from-bundle",
+  "source_sha256": "f0a215812934218d7d0f0ed0d183be791efc5464f5b7298300c75ea285d60ad1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.destination",
+  "field": "text",
+  "lang": "en",
+  "text": "Destination",
+  "model": "seed-from-bundle",
+  "source_sha256": "293d404a500f5f9a149916d810ff4f4231bd5d6ecd25eb0f55a867e2095eca48"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.arrived",
+  "field": "text",
+  "lang": "en",
+  "text": "You've arrived",
+  "model": "seed-from-bundle",
+  "source_sha256": "b6c288c525bc4dffe57ae5099e196360d0dd40169940731786e3bb62253186a6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.arrivedSub",
+  "field": "text",
+  "lang": "en",
+  "text": "{label} complete · {n} films",
+  "model": "seed-from-bundle",
+  "source_sha256": "4ce0de8c54ab576c14e322d67df0ea7b71236b2187ed3b371e31c8cfdb838324"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.toll1",
+  "field": "text",
+  "lang": "en",
+  "text": "1 rental",
+  "model": "seed-from-bundle",
+  "source_sha256": "430b222ae6337e85d2a2f0664f7913bc97a4574d54db8185ab457de1c1dd6999"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.tollN",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} rentals",
+  "model": "seed-from-bundle",
+  "source_sha256": "e8af87b9b805a228c4d7ed631de5651021fcbe2a4b90bb2a1b6e71b9cbee855d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.rerouting",
+  "field": "text",
+  "lang": "en",
+  "text": "Rerouting…",
+  "model": "seed-from-bundle",
+  "source_sha256": "7675a72bfd2bbbd584071119cc4e2791e85ee9d2889ac035ed14dbeba6a7413b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.empty",
+  "field": "text",
+  "lang": "en",
+  "text": "Sign in and start watching to chart a route.",
+  "model": "seed-from-bundle",
+  "source_sha256": "eed8d6dce9ff3459edac2dc9e5b1bbc9f6885dec6f468eb1d2a80abc5b3b0b00"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.whereTo",
+  "field": "text",
+  "lang": "en",
+  "text": "Where to?",
+  "model": "seed-from-bundle",
+  "source_sha256": "3c418889218a9098a6be2079213758054db4f9ad43697bf8ce998ed1aaeccc6c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.whereToSub",
+  "field": "text",
+  "lang": "en",
+  "text": "Pick a destination and your films become a route — one turn at a time.",
+  "model": "seed-from-bundle",
+  "source_sha256": "cd70a03005c716189775082206c8d8496fb9fb9605d13ac882ba22c637eae076"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.sectDirectors",
+  "field": "text",
+  "lang": "en",
+  "text": "Director conquests — good to continue",
+  "model": "seed-from-bundle",
+  "source_sha256": "a8a434e529f09d025a535f1f6ae29e1e9ea5e815eccee7a353278d71d1ce57ea"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.sectCanon",
+  "field": "text",
+  "lang": "en",
+  "text": "Canon & lists",
+  "model": "seed-from-bundle",
+  "source_sha256": "1c19cfbcf758b91aad92cce2fe7a7caf3e05ac692c8179c15e72877557d7dfdb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.leftN",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} left",
+  "model": "seed-from-bundle",
+  "source_sha256": "198163801628fa8cc6f6cf84fb7488bb1cfc45c3b59db0a433b2b718e3adf582"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.tryKubrick",
+  "field": "text",
+  "lang": "en",
+  "text": "Try Kubrick →",
+  "model": "seed-from-bundle",
+  "source_sha256": "6a478ace5e993b11c51164f02428403fa4a3fc00593edea7132b8de0ead580e1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.pickEmpty",
+  "field": "text",
+  "lang": "en",
+  "text": "No journeys in progress yet. Log or import a few films and canon & director destinations appear.",
+  "model": "seed-from-bundle",
+  "source_sha256": "f9befeda9c6dfed9470e529567311ce0156d5e3d1aa592463d6b66b420bbbe2a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.searchLists",
+  "field": "text",
+  "lang": "en",
+  "text": "Search directors & lists",
+  "model": "seed-from-bundle",
+  "source_sha256": "251e15e43b859b34dc40e30d9697df9eba65ef460cca9cc69c331621e2eb6530"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.searchEmpty",
+  "field": "text",
+  "lang": "en",
+  "text": "No journeys match.",
+  "model": "seed-from-bundle",
+  "source_sha256": "cc220e19db1143d4864fc0805b8dff4d64dd11779be504463c55de2283bb7f0b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.drive",
+  "field": "text",
+  "lang": "en",
+  "text": "Drive →",
+  "model": "seed-from-bundle",
+  "source_sha256": "6803a25f5867ac7c7ab79f0e1d56f2cb34016a0e2928af3e596e5a923bafed81"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.moreDetails",
+  "field": "text",
+  "lang": "en",
+  "text": "Details",
+  "model": "seed-from-bundle",
+  "source_sha256": "45989de49fb7f66dfe17a8fc26f3a02c7abcd74f7e8e6cf9f39fa0e3775780df"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.familyConquest",
+  "field": "text",
+  "lang": "en",
+  "text": "Director conquest",
+  "model": "seed-from-bundle",
+  "source_sha256": "1479378b2b33a310efabd8fccdbbd1b8c009a8bd682384b2cd584039474b58c0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetCanon",
+  "field": "text",
+  "lang": "en",
+  "text": "Canon",
+  "model": "seed-from-bundle",
+  "source_sha256": "7780172200243361b7df50624840b088e1a043688ca3c74e4b6c44a644667276"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetCritics",
+  "field": "text",
+  "lang": "en",
+  "text": "Critics' picks",
+  "model": "seed-from-bundle",
+  "source_sha256": "486b624794b1c509652da514676de6cdf2f4f3b87ba5c854f0543f04f18ad609"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetFestival",
+  "field": "text",
+  "lang": "en",
+  "text": "Festival",
+  "model": "seed-from-bundle",
+  "source_sha256": "590c214a54235c344806f1ae2dd0668c37343cf2743b0088f37da3b51ef81e2e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetAward",
+  "field": "text",
+  "lang": "en",
+  "text": "Awards",
+  "model": "seed-from-bundle",
+  "source_sha256": "669a46138d69d7c12f52f82ccde4385630ece1947fc7e3a382b371d4aed02f28"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetNational",
+  "field": "text",
+  "lang": "en",
+  "text": "National canon",
+  "model": "seed-from-bundle",
+  "source_sha256": "66f6ac4e7cf52b2598ca4370f0b248cc3602605d7b3271417c4344e1cd185f75"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetList",
+  "field": "text",
+  "lang": "en",
+  "text": "List",
+  "model": "seed-from-bundle",
+  "source_sha256": "6f202f54a7b2d8fe42aa804eabe48ef900cdf73a74c570a47fd1b1a4920a051d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.resumeKicker",
+  "field": "text",
+  "lang": "en",
+  "text": "Continue your drive",
+  "model": "seed-from-bundle",
+  "source_sha256": "9ad908089109aabd451962da439cf385d86e63987d7935d7274e6ec36a390c75"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.resume",
+  "field": "text",
+  "lang": "en",
+  "text": "Resume →",
+  "model": "seed-from-bundle",
+  "source_sha256": "b425b425e2f48d5323d2b60f75b9ecceed632bea6ec2f5b6265f3a5cfe6d16f4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.takescore",
+  "field": "text",
+  "lang": "en",
+  "text": "TakeScore",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f5c1c15d39ba85cb61f5319ce0e12d5ec0ced7bbecf0f3387a049e4f05dfcd6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.now",
+  "field": "text",
+  "lang": "en",
+  "text": "Now",
+  "model": "seed-from-bundle",
+  "source_sha256": "fe18013d93d22f4f2a70344d30c00fe62d2ef29189ae5d25ccbda81fbd9c92b0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.ts",
+  "field": "text",
+  "lang": "en",
+  "text": "TS {n}",
+  "model": "seed-from-bundle",
+  "source_sha256": "d19a27446124e499cf22ee40abb5ffebd1c5b0d0b2c6a61654e983e4de2f17c5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.open",
+  "field": "text",
+  "lang": "en",
+  "text": "Open →",
+  "model": "seed-from-bundle",
+  "source_sha256": "1d2902ca81b6d2db8f1406f23b6555d0594f857b5f15a68a8c1bfe332af4995d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.durHM",
+  "field": "text",
+  "lang": "en",
+  "text": "{h}h {m}m",
+  "model": "seed-from-bundle",
+  "source_sha256": "8726ff1aab2a4e6914279915324443eb3573c148199acb66b23a19a74ba27577"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.durMin",
+  "field": "text",
+  "lang": "en",
+  "text": "{m}m",
+  "model": "seed-from-bundle",
+  "source_sha256": "7998930982af2136cb5d57fa7b9a82fec97b0084ccd027acd26a3bd6d81cbeb9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.offmap",
+  "field": "text",
+  "lang": "en",
+  "text": "{n} off-map · placed by lineage",
+  "model": "seed-from-bundle",
+  "source_sha256": "07cc582db981e6276088348a94f5da86e0c0fb3832bf422403c4633f6121a081"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.recenter",
+  "field": "text",
+  "lang": "en",
+  "text": "Recenter",
+  "model": "seed-from-bundle",
+  "source_sha256": "8445e797af7f95ade7d6217dd64cd352606142152fff407972d91bbd6ef6359c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.close",
+  "field": "text",
+  "lang": "en",
+  "text": "Close",
+  "model": "seed-from-bundle",
+  "source_sha256": "7d9eb7acb13e24625c404401d8e88b2350e32162455885f18276cf802f7701ed"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.back",
+  "field": "text",
+  "lang": "en",
+  "text": "Back",
+  "model": "seed-from-bundle",
+  "source_sha256": "76900f1bfd16c8d4dd3d25e6f46638d7165aee23883ccea6bfe071c514421769"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.share",
+  "field": "text",
+  "lang": "en",
+  "text": "Share this journey",
+  "model": "seed-from-bundle",
+  "source_sha256": "1d0a94ffdd314e8e08b0a29d4dcdce6b68a022817424342c20d52360cb5fb227"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.zoomIn",
+  "field": "text",
+  "lang": "en",
+  "text": "Zoom in",
+  "model": "seed-from-bundle",
+  "source_sha256": "0e47f09a748fa1321dbaee5c8983f8e8f2880b1212956fb4f21ae9d60b88a8b2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.zoomOut",
+  "field": "text",
+  "lang": "en",
+  "text": "Zoom out",
+  "model": "seed-from-bundle",
+  "source_sha256": "bc7b631a689b45ca5c51923515d31eb3597b2d9b129d88d0dbee066ee5c35453"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.stepsHead",
+  "field": "text",
+  "lang": "en",
+  "text": "Remaining route",
+  "model": "seed-from-bundle",
+  "source_sha256": "a3812368d726614ffaf05de0b1838e70ca7858a61c0b0cef1650263be296f308"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.shareArrived",
+  "field": "text",
+  "lang": "en",
+  "text": "🏁 Finished {label} — {n} films, charted with the Metatake Navigator.",
+  "model": "seed-from-bundle",
+  "source_sha256": "b18368de138600d6bfcef6e261d70b01085e1474be2a12e351730b0ece018fe4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.shareDrive",
+  "field": "text",
+  "lang": "en",
+  "text": "🧭 On the road to {label} — {n} films to go on the Metatake Navigator.",
+  "model": "seed-from-bundle",
+  "source_sha256": "d5f918931a2250014b252ef0103fb7e2b149e722012afc66eb408a7a45b72a26"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.tonight",
+  "field": "text",
+  "lang": "ko",
+  "text": "오늘 밤",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a7adbce0a68cbd30601e51e6a9735d95d69c2637bde758a56c313c74c5a8bcc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.search",
+  "field": "text",
+  "lang": "ko",
+  "text": "검색",
+  "model": "seed-from-bundle",
+  "source_sha256": "49c266baaaa70981ea188fa714d5c40cf13830d786a861c9943ae0d26a7f3fe9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.map",
+  "field": "text",
+  "lang": "ko",
+  "text": "지도",
+  "model": "seed-from-bundle",
+  "source_sha256": "be176b0015c424b78e9f343f8bc3014a7a701cc2eb9000b6acbc04d67dbecb8f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tab.my",
+  "field": "text",
+  "lang": "ko",
+  "text": "내 서재",
+  "model": "seed-from-bundle",
+  "source_sha256": "8ed6791bdf3d61a1e6edcbb253979b0a6bef7f3d99dda0fb49cffe96923514b6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.watch",
+  "field": "text",
+  "lang": "ko",
+  "text": "보러 가기",
+  "model": "seed-from-bundle",
+  "source_sha256": "a71e757324467ccfe2ae90f483fd759eff5378e6afcfcce4c620de929b3f2dd8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.watchlist",
+  "field": "text",
+  "lang": "ko",
+  "text": "찜하기",
+  "model": "seed-from-bundle",
+  "source_sha256": "eff2ec588be1b85759993b66f24e699b078c449bf9a410243bcac53d841e75f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.watchlisted",
+  "field": "text",
+  "lang": "ko",
+  "text": "찜함",
+  "model": "seed-from-bundle",
+  "source_sha256": "2c223e8f5b2ea8d0ad2045a2136566ddb4ef25f3a5f7883ee491b46c2e94843b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.seen",
+  "field": "text",
+  "lang": "ko",
+  "text": "봤어요",
+  "model": "seed-from-bundle",
+  "source_sha256": "8894cf30aed05a787922b8da70ce6ec4e86879ac21f97fbf78a2da27bdae2b20"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.share",
+  "field": "text",
+  "lang": "ko",
+  "text": "공유",
+  "model": "seed-from-bundle",
+  "source_sha256": "29887a5ff9846ccc23327565a07e17fa6dcaea6211f1898ae825f84ae38f4223"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.retry",
+  "field": "text",
+  "lang": "ko",
+  "text": "다시 시도",
+  "model": "seed-from-bundle",
+  "source_sha256": "942087cc2d41e01304b7195558d093d10c72af8e838c7556d6a02d471ee71852"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.back",
+  "field": "text",
+  "lang": "ko",
+  "text": "뒤로",
+  "model": "seed-from-bundle",
+  "source_sha256": "76900f1bfd16c8d4dd3d25e6f46638d7165aee23883ccea6bfe071c514421769"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.skip",
+  "field": "text",
+  "lang": "ko",
+  "text": "나중에 하기",
+  "model": "seed-from-bundle",
+  "source_sha256": "b58eb52c8810b97857e264ea9de45f7bd7edb754bb0edad30ffab78ff027c45e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.done",
+  "field": "text",
+  "lang": "ko",
+  "text": "완료",
+  "model": "seed-from-bundle",
+  "source_sha256": "11a6767d5674c7e45f7e00dc525762275b3a48491ad6045427d2609cc496c516"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "action.continue",
+  "field": "text",
+  "lang": "ko",
+  "text": "계속",
+  "model": "seed-from-bundle",
+  "source_sha256": "31fbef162594de01bab0cd525c51f74de7bcb15063029fa1a54b2cf5944c80d8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.invitation",
+  "field": "text",
+  "lang": "ko",
+  "text": "An Invitation",
+  "model": "seed-from-bundle",
+  "source_sha256": "76822cc80fd6dce3b23a0412b7d02e1c45ee5ba881fab5f895219a1de11ddc23"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.readOn",
+  "field": "text",
+  "lang": "ko",
+  "text": "이어 읽기",
+  "model": "seed-from-bundle",
+  "source_sha256": "333210b0c0f550cac0961d0609dbf99682ceb50d43982e7adca356c9db2c6bcc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.showLess",
+  "field": "text",
+  "lang": "ko",
+  "text": "접기",
+  "model": "seed-from-bundle",
+  "source_sha256": "94ea9b1d33a02975ea6b71d6cf87d461a48de07869c047b5daeb1654e9d539f8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.fullPage",
+  "field": "text",
+  "lang": "ko",
+  "text": "메타테이크 전체 페이지",
+  "model": "seed-from-bundle",
+  "source_sha256": "d618465306e5e321d463cf36a03ee54161f4af10256350e475e219a8a13d2ca4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvTitle",
+  "field": "text",
+  "lang": "ko",
+  "text": "메타테이크 TV",
+  "model": "seed-from-bundle",
+  "source_sha256": "5a29f6d34d04fd0fd5461c04cd9aa8aab786b74e9a32be1cb0c77269dc755acb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvWatch",
+  "field": "text",
+  "lang": "ko",
+  "text": "이 영화의 프로그램 보기",
+  "model": "seed-from-bundle",
+  "source_sha256": "7addd6f8b2d7c87f2b0484fa188f261b4e5e5ae1102415a03d3c9976be698195"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvMeta",
+  "field": "text",
+  "lang": "ko",
+  "text": "{n}개 세그먼트 · {min}분",
+  "model": "seed-from-bundle",
+  "source_sha256": "4423bb32981bd621b217b371a2867de5fbdf4c51ae0c35449f74cde9b0ab4eaf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.tvLists",
+  "field": "text",
+  "lang": "ko",
+  "text": "함께 편성된 리스트",
+  "model": "seed-from-bundle",
+  "source_sha256": "82caaa9a8f01929109b724ec0e9ff328680f3628cab42d04f4ed5b9762d0fa2c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.fullPageSub",
+  "field": "text",
+  "lang": "ko",
+  "text": "에세이·독해·수용사 — 이 영화에 대해 우리가 가진 전부",
+  "model": "seed-from-bundle",
+  "source_sha256": "d490856ffc83dca769bee8ae06a34ddf1c3961f93107f0da037a3380babb1ca0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.whereToWatch",
+  "field": "text",
+  "lang": "ko",
+  "text": "어디서 볼까",
+  "model": "seed-from-bundle",
+  "source_sha256": "842e10fb4af20ffd207296b2e66d3bff0e40a307048e319bb9bbd02c362e4f50"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.onYourServices",
+  "field": "text",
+  "lang": "ko",
+  "text": "내 서비스에 있습니다: {names}",
+  "model": "seed-from-bundle",
+  "source_sha256": "53f6fe5ee5996a37417c50a75845efa4a2a8bbe4b4634d9e2b252cf0d46413a3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.notOnYourServices",
+  "field": "text",
+  "lang": "ko",
+  "text": "구독 중인 서비스에는 없습니다 — 아래는 대여이거나 다른 제공사입니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "3aff67e1dc6e3414c652af87e2d16485f28bee35c92d1389b91a9970f60bb8ec"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.yourService",
+  "field": "text",
+  "lang": "ko",
+  "text": "내 서비스",
+  "model": "seed-from-bundle",
+  "source_sha256": "c57fd8c642e37233e317374a491722bfb3a00ed1d67a65533efdb5a9d6580f44"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.allWaysToWatch",
+  "field": "text",
+  "lang": "ko",
+  "text": "모든 시청 방법과 가격 보기",
+  "model": "seed-from-bundle",
+  "source_sha256": "b61eff4a985baf2b3caba3cbb74101cfc2cd089ef2b2ebce656ecf16ade70b7c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.lineage",
+  "field": "text",
+  "lang": "ko",
+  "text": "계보",
+  "model": "seed-from-bundle",
+  "source_sha256": "044baaecb29f0ce77d582f324df49dfd8f0e6cd196dff481024a864bda77b048"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.locations",
+  "field": "text",
+  "lang": "ko",
+  "text": "촬영지",
+  "model": "seed-from-bundle",
+  "source_sha256": "95c61170318a2851165109a8116a27a9ec36ef96bcfb0a8c211de5d568435655"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.openInMaps",
+  "field": "text",
+  "lang": "ko",
+  "text": "구글 지도에서 열기",
+  "model": "seed-from-bundle",
+  "source_sha256": "7f22a63520741d076023264107214d65661b8febfce790b85dd88e6c34516047"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreTitle",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f5c1c15d39ba85cb61f5319ce0e12d5ec0ced7bbecf0f3387a049e4f05dfcd6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreValue",
+  "field": "text",
+  "lang": "ko",
+  "text": "획득 가치",
+  "model": "seed-from-bundle",
+  "source_sha256": "0d24a5ce8196835eadaf55e2b569e65143a9530fa4dff31268dd5223f2c6a303"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreValueSub",
+  "field": "text",
+  "lang": "ko",
+  "text": "진지한 관객에게 남는 것 — 높을수록 좋습니다",
+  "model": "seed-from-bundle",
+  "source_sha256": "9234e1768ba0907ccf8776ad2369684b6bbe1e87f3465dfd437dcccd74214656"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreCost",
+  "field": "text",
+  "lang": "ko",
+  "text": "진입 비용",
+  "model": "seed-from-bundle",
+  "source_sha256": "03b0cffcfd7d303b7502ee76524cbe7e9d3112d96e671148694099e9829e0c5e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreCostSub",
+  "field": "text",
+  "lang": "ko",
+  "text": "열어보는 데 드는 값 — 흠결이 아니라 가격입니다",
+  "model": "seed-from-bundle",
+  "source_sha256": "5d3775177f0af7e786f1ce6c63cfa4de6602ece31050870bacc0759d537ad245"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreRisk",
+  "field": "text",
+  "lang": "ko",
+  "text": "위험",
+  "model": "seed-from-bundle",
+  "source_sha256": "0711a8d636e4c068ae59fa80c03ad68e7bd9fe473c1f9248fd2cf3716e3fb715"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreRiskSub",
+  "field": "text",
+  "lang": "ko",
+  "text": "어긋날 수 있는 정도 — 낮을수록 안전합니다",
+  "model": "seed-from-bundle",
+  "source_sha256": "2fdeba7022b36a6596687130258de0d4d9dda40d2f2ff7ad53c465c088f3b7ab"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreFormula",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore = 획득 가치 − 위험. 진입 비용은 난이도이지 감점이 아닙니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "20bac4d716ba95625de7a19bcf3d1af9b432a028720d836a0d4cb81dbdec6509"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreFormulaN",
+  "field": "text",
+  "lang": "ko",
+  "text": "TakeScore = 획득 가치 − 위험, 그래서 {ts}입니다. 진입 비용은 난이도이지 감점이 아닙니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "b58bf086896ce2f625b5ec506e5bbe5d505be5d94516cdeeaa51bf8c2c5ead13"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreHonors",
+  "field": "text",
+  "lang": "ko",
+  "text": "가치는 근거가 있습니다: 이 영화는 {n}개의 정전·수상에 올라 있고, 아래 계보에 나열돼 있습니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "afed71c50955dfab11e2880ec2ffa187af020917af33fbff8cfd4464109b5843"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.scoreFull",
+  "field": "text",
+  "lang": "ko",
+  "text": "점수가 만들어지는 방식",
+  "model": "seed-from-bundle",
+  "source_sha256": "1c9c57f3a3fab81d0248aa17bad7851c561437d17a557da096cf50c89d5483a3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.expandMap",
+  "field": "text",
+  "lang": "ko",
+  "text": "크게 보기",
+  "model": "seed-from-bundle",
+  "source_sha256": "d7218b6f2cd04dc9c09d595437eb3901334eb9ef32118ad71d89f11c264fe728"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.allLocations",
+  "field": "text",
+  "lang": "ko",
+  "text": "촬영지 {n}곳 지도에서 보기",
+  "model": "seed-from-bundle",
+  "source_sha256": "aceb5746ab5bc8a7ce7e20d1e13ed9d0e7ba27498fd84682ce8b527cba053f68"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.theLife",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Life",
+  "model": "seed-from-bundle",
+  "source_sha256": "53d34431b3a2718b659a94de5caf8329aeede2f54a9d7842759a1b5ce9393464"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.notStreaming",
+  "field": "text",
+  "lang": "ko",
+  "text": "지금 {country}에서 스트리밍되지 않습니다",
+  "model": "seed-from-bundle",
+  "source_sha256": "b02a9832658efc035468137f09871a73ef5bcf847a1d31309e78e76b0a4f4abf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.notStreamingHint",
+  "field": "text",
+  "lang": "ko",
+  "text": "찜해 두세요 — 내 서비스에 들어오면 알려드립니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "d7a2f31b80db73edb2c8bc48bbc8069b39cc92f7b67bc2cc7cd703418db520da"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "film.directedBy",
+  "field": "text",
+  "lang": "ko",
+  "text": "감독",
+  "model": "seed-from-bundle",
+  "source_sha256": "783deb1acce9bbba971697a6cc2f6c2f6ab8b5ebc4d35fd2b3ed3d55ebb3e017"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.flatrate",
+  "field": "text",
+  "lang": "ko",
+  "text": "구독",
+  "model": "seed-from-bundle",
+  "source_sha256": "4999c6c6c7badf456f5b0053b09a2076bdb2391a09ab10c9064a680f8f9a0b30"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.free",
+  "field": "text",
+  "lang": "ko",
+  "text": "무료",
+  "model": "seed-from-bundle",
+  "source_sha256": "f411a1fb62758b4c54690d0a702b4955b54dd22115416fa7b1ce51b4a084818d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.ads",
+  "field": "text",
+  "lang": "ko",
+  "text": "광고형 무료",
+  "model": "seed-from-bundle",
+  "source_sha256": "bc72a6381772666fb894f4d43ec0b1c7f1420f04c536802593f7a1263faab332"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.rent",
+  "field": "text",
+  "lang": "ko",
+  "text": "대여",
+  "model": "seed-from-bundle",
+  "source_sha256": "f0268cb9100a01813311eb653821e8bcccaa3ec90e0d8e3023f8c1d841b6956a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "kind.buy",
+  "field": "text",
+  "lang": "ko",
+  "text": "구매",
+  "model": "seed-from-bundle",
+  "source_sha256": "64e3cb0e4960ba69298843d481376d1ce7b92cd43cf70e61a982da651c0335f3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "attribution.justwatch",
+  "field": "text",
+  "lang": "ko",
+  "text": "스트리밍 데이터 제공: JustWatch",
+  "model": "seed-from-bundle",
+  "source_sha256": "83cba08ecd0b637c5a165aa811145a904d6042c1ebf0726f024df2bebbdfaf20"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "attribution.tmdb",
+  "field": "text",
+  "lang": "ko",
+  "text": "영화 메타데이터·이미지 출처: TMDB",
+  "model": "seed-from-bundle",
+  "source_sha256": "0e8216a01ddcbe69e676fafd1515c1eb31bacbae319c6acaff47c9af82c0500b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.credits",
+  "field": "text",
+  "lang": "ko",
+  "text": "출처 및 데이터 제공",
+  "model": "seed-from-bundle",
+  "source_sha256": "34d8d749e259a94cc6cf162fc8804640bb44c0edf7eb347baf1ddaa2f9ed72fa"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.creditsSub",
+  "field": "text",
+  "lang": "ko",
+  "text": "TMDB · JustWatch · Wikidata — 데이터가 오는 곳",
+  "model": "seed-from-bundle",
+  "source_sha256": "8f04cf222411d72feef2dafb007291b824311045179ac7c5163cd1290f8dc8d5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.whereToStart",
+  "field": "text",
+  "lang": "ko",
+  "text": "Where to Start",
+  "model": "seed-from-bundle",
+  "source_sha256": "86a32a92ca13dec37912eb33a03b769073cc77dade07358a75bdbb371dd9d9a2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.theSelection",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Selection",
+  "model": "seed-from-bundle",
+  "source_sha256": "ae2465206ce543ca745c9ea247dfd0c90f4ff2da3abc3c842ff374da69d1d5bb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.filmography",
+  "field": "text",
+  "lang": "ko",
+  "text": "필모그래피",
+  "model": "seed-from-bundle",
+  "source_sha256": "b6be662b7c8a8884ae0c0f8bfdd4215c63702eeb34e20418dbfdf3581ef775e2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.whosNext",
+  "field": "text",
+  "lang": "ko",
+  "text": "Who's Next",
+  "model": "seed-from-bundle",
+  "source_sha256": "bab229d0651c6b0a4569c3cd1a92fb6926e3ebad9a830674c4b451c1a70bc169"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.theLife",
+  "field": "text",
+  "lang": "ko",
+  "text": "The Life",
+  "model": "seed-from-bundle",
+  "source_sha256": "53d34431b3a2718b659a94de5caf8329aeede2f54a9d7842759a1b5ce9393464"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "director.onYourServices",
+  "field": "text",
+  "lang": "ko",
+  "text": "내 서비스에서",
+  "model": "seed-from-bundle",
+  "source_sha256": "92d263463b9a7b5876cb26b0b5928c65a8c4871e62dc521b7c0cc30d14c1181f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.placeholder",
+  "field": "text",
+  "lang": "ko",
+  "text": "영화·감독 검색…",
+  "model": "seed-from-bundle",
+  "source_sha256": "6540b02b6df135db2a33c2016ea46fae15c305c36a1af3afd93ed80328a20c6e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.empty",
+  "field": "text",
+  "lang": "ko",
+  "text": "Metatake 정전에는 결과가 없습니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "892229e878d38a971acc7e1d397619fc32c3f3d45e1abb659bf626528579c305"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "browse.empty",
+  "field": "text",
+  "lang": "ko",
+  "text": "이 필터에 맞는 영화가 없습니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "e8d1d837059862d4e062fceb1a20f314dcf0b9700133f193c1d2d78977d0edda"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.notInCanon",
+  "field": "text",
+  "lang": "ko",
+  "text": "아직 Metatake 정전에 없는 작품",
+  "model": "seed-from-bundle",
+  "source_sha256": "5304cadd54f5341a559bc7ffd88594419b04aa76f34fb6532696b242a644176d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.searchWeb",
+  "field": "text",
+  "lang": "ko",
+  "text": "사이트 전체에서 검색",
+  "model": "seed-from-bundle",
+  "source_sha256": "b44a8d5c35cb69351d686d137e67a6bf4868d0d1fca664e80264b683cc1f749a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.title",
+  "field": "text",
+  "lang": "ko",
+  "text": "오늘 밤",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a7adbce0a68cbd30601e51e6a9735d95d69c2637bde758a56c313c74c5a8bcc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.subtitle",
+  "field": "text",
+  "lang": "ko",
+  "text": "내 서비스의 최고작 — 시네필 기준으로 채점.",
+  "model": "seed-from-bundle",
+  "source_sha256": "4d9403606b43acfbd1d1e519c452e4cedc5ab27690b19c09918bcd65feddf60b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.hideSeen",
+  "field": "text",
+  "lang": "ko",
+  "text": "본 작품 숨기기",
+  "model": "seed-from-bundle",
+  "source_sha256": "bf441620888fbedd0ce4af23322f3d82dd5466979de3aefe291c8c94f13c9c49"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.empty",
+  "field": "text",
+  "lang": "ko",
+  "text": "스트리밍 서비스를 고르면 오늘 밤의 최고작을 보여드립니다.",
+  "model": "seed-from-bundle",
+  "source_sha256": "1bb3184029d55bfbb97a3bcd417fb4267036550e1873c8ba15e040fae9da364f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.pickServices",
+  "field": "text",
+  "lang": "ko",
+  "text": "서비스 고르기",
+  "model": "seed-from-bundle",
+  "source_sha256": "0002ef9ed37bdf52e6108d9a1632d77f349a086c81dc3256a15de75fd6034dc6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "tonight.myServices",
+  "field": "text",
+  "lang": "ko",
+  "text": "서비스 {n}개",
+  "model": "seed-from-bundle",
+  "source_sha256": "522d3a3f0bca936bdc11b56f17c6882d75efaec6c5ea8406d14fcb7efaa9f1b7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.nearMe",
+  "field": "text",
+  "lang": "ko",
+  "text": "내 주변",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a28bd76f65fa66905b81023838763bb19bb15432b0bebb443079f7e1d06e1ac"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "map.title",
+  "field": "text",
+  "lang": "ko",
+  "text": "촬영지",
+  "model": "seed-from-bundle",
+  "source_sha256": "95c61170318a2851165109a8116a27a9ec36ef96bcfb0a8c211de5d568435655"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.watchlist",
+  "field": "text",
+  "lang": "ko",
+  "text": "찜 목록",
+  "model": "seed-from-bundle",
+  "source_sha256": "eff2ec588be1b85759993b66f24e699b078c449bf9a410243bcac53d841e75f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.seen",
+  "field": "text",
+  "lang": "ko",
+  "text": "본 작품",
+  "model": "seed-from-bundle",
+  "source_sha256": "8894cf30aed05a787922b8da70ce6ec4e86879ac21f97fbf78a2da27bdae2b20"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.settings",
+  "field": "text",
+  "lang": "ko",
+  "text": "설정",
+  "model": "seed-from-bundle",
+  "source_sha256": "74a883a037bc227f91891ab654a753d3a99f31ab06ae5b5d2b6e594a692b41f8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.country",
+  "field": "text",
+  "lang": "ko",
+  "text": "국가",
+  "model": "seed-from-bundle",
+  "source_sha256": "701d021d08c54579f23343581e45b65ffb1150b2c99f94352fdac4b7036dbbd5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.language",
+  "field": "text",
+  "lang": "ko",
+  "text": "언어",
+  "model": "seed-from-bundle",
+  "source_sha256": "a4fe65264ef7dbb38d104b1e81eb3350f3142f3d16f32bdec39b1d9b42c1b8d1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.services",
+  "field": "text",
+  "lang": "ko",
+  "text": "내 서비스",
+  "model": "seed-from-bundle",
+  "source_sha256": "3ea3edc6a32611d885a17687c1575aa6675d4d8e955b1be5e5c3fbdf255780ab"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.notifications",
+  "field": "text",
+  "lang": "ko",
+  "text": "알림",
+  "model": "seed-from-bundle",
+  "source_sha256": "788011833a5a0f22db90c91e8eb7bd8e9f5cd423354ff5ef8c338e7895f44ba9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.notifyArrivals",
+  "field": "text",
+  "lang": "ko",
+  "text": "찜한 영화가 내 서비스에 들어오면 알림",
+  "model": "seed-from-bundle",
+  "source_sha256": "310eb1b5d73093e3a1c88b9fa50b28624768fc967301a060b4139617d0e83596"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.notifyUnavailable",
+  "field": "text",
+  "lang": "ko",
+  "text": "안드로이드에서는 아직 지원하지 않습니다 — 푸시 전송이 준비되면 켜집니다",
+  "model": "seed-from-bundle",
+  "source_sha256": "83081de8b9754357adc7384a0fc67964bed93e7dcd1ecc1e970d880f35190369"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.account",
+  "field": "text",
+  "lang": "ko",
+  "text": "계정",
+  "model": "seed-from-bundle",
+  "source_sha256": "7e1b0d5641f2640ce9a953ec231eea2c27a2a7633f7d3c273e5735e2b30c10b7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "my.signIn",
+  "field": "text",
+  "lang": "ko",
+  "text": "로그인",
+  "model": "seed-from-bundle",
+  "source_sha256": "bfd402b2f6f3812529b55596136d3a11c51616317e3b1cd999928e2d4eae7d3f"
+ }
+]

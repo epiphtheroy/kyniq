@@ -10,13 +10,14 @@ import {
   PTSerif_700Bold,
 } from "@expo-google-fonts/pt-serif";
 import { useFonts } from "expo-font";
+import { onOverrides } from "../src/i18n";
 // Navigation themes come from @react-navigation/native — expo-router only
 // re-exports them on some majors, and the direct import is stable either way.
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useColorScheme } from "react-native";
 import "react-native-reanimated";
 
@@ -47,6 +48,11 @@ export default function RootLayout() {
   useEffect(() => {
     if (error) throw error;
   }, [error]);
+
+  // Database string overrides arrive after first paint; t() reads them the
+  // moment they land, so the tree just needs a nudge to re-read.
+  const [, bumpStrings] = useState(0);
+  useEffect(() => onOverrides(() => bumpStrings((n: number) => n + 1)), []);
 
   useEffect(() => {
     if (loaded) SplashScreen.hideAsync();

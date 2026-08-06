@@ -1,0 +1,1370 @@
+[
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.browse",
+  "field": "text",
+  "lang": "ja",
+  "text": "ブラウズ",
+  "model": "seed-from-bundle",
+  "source_sha256": "3227aa9666253f7a736509074fb83bc4d47b19582faaa0233f228746de29217a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.genres",
+  "field": "text",
+  "lang": "ja",
+  "text": "ジャンル",
+  "model": "seed-from-bundle",
+  "source_sha256": "3561abfe8067f3c1cdec6de4240f041af78d44a6ba619deee9e1d0735fe73e1e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.decades",
+  "field": "text",
+  "lang": "ja",
+  "text": "年代",
+  "model": "seed-from-bundle",
+  "source_sha256": "610bb32768d60111e36ad64c6e59b4a48b131b239a3edd99d5935700bd7071ad"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.forYou",
+  "field": "text",
+  "lang": "ja",
+  "text": "あなたへの九本",
+  "model": "seed-from-bundle",
+  "source_sha256": "b13bfde052601817ffd70dcac795b52907749cd48bf078785d9ab736530efc1d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.collections",
+  "field": "text",
+  "lang": "ja",
+  "text": "コレクション",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f9feade761d22f340a4de9c586f222aa74658351faadc8365335bc3c548ba71"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.locations",
+  "field": "text",
+  "lang": "ja",
+  "text": "ロケ地",
+  "model": "seed-from-bundle",
+  "source_sha256": "06a6b00981a19573da371959ee5775a26fb488fff350aaec86f3578f6bb39b8f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.locationsSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "映画が撮られたすべての場所 — あなたの近くのものも。",
+  "model": "seed-from-bundle",
+  "source_sha256": "9031ea09ac8960913bb973d89eaac5404a49d6e5d424e2a9caa4d4445e34229b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.collectionsSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "カノン・賞・各国の映画 — 選んで走ろう",
+  "model": "seed-from-bundle",
+  "source_sha256": "d7f7325a4db08620bbcdcf96f53f57d49bed697715706f8849a4828391b712b6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.listsCount",
+  "field": "text",
+  "lang": "ja",
+  "text": "リスト{n}件 — 正典・受賞・映画祭・各国の映画",
+  "model": "seed-from-bundle",
+  "source_sha256": "ff57aca91f05d300b28e3e00fa4c68827f83f1ea7d820ddc9585bce18c012633"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.seeAllLists",
+  "field": "text",
+  "lang": "ja",
+  "text": "リスト{n}件をすべて見る",
+  "model": "seed-from-bundle",
+  "source_sha256": "eabbf95cc57db0cc7c7d0afe19ec44fe6a8fb21baef3df843efce15afc4f8deb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "search.tryExample",
+  "field": "text",
+  "lang": "ja",
+  "text": "例：「{q}」",
+  "model": "seed-from-bundle",
+  "source_sha256": "c98f078f0c8b1e4243a9a7190b3c128a5af82002293531d19f5fd02b75eff9a1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.forYouSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "観た映画から配られた一手",
+  "model": "seed-from-bundle",
+  "source_sha256": "ee02850f16b12181b1ca84d94d2190f9988d227b1692e379d8def8703f362122"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.dealAgain",
+  "field": "text",
+  "lang": "ja",
+  "text": "配り直す",
+  "model": "seed-from-bundle",
+  "source_sha256": "1c83b7352e4508334ea2e619fd893c56e442805d06e681b1326c7104d871f310"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.dealStarterNudge",
+  "field": "text",
+  "lang": "ja",
+  "text": "今はカノンからの配り — 観た映画を記録・インポートすると、あなたに合わせて調整されます。",
+  "model": "seed-from-bundle",
+  "source_sha256": "73e42f962378e92ff90722ddab82417bf98d3e61532ad62d2d251347119ce75a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.stable",
+  "field": "text",
+  "lang": "ja",
+  "text": "Stable",
+  "model": "seed-from-bundle",
+  "source_sha256": "90ee305714d7103317705bfffd734c654b78807e5a0f51fcc61bc1d81105ebd1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.stableSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "好みのど真ん中",
+  "model": "seed-from-bundle",
+  "source_sha256": "bdbd3454f0886a0a99502871da43bc6bbc26eada4bb7f49596670e655189a80a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.adventure",
+  "field": "text",
+  "lang": "ja",
+  "text": "Adventure",
+  "model": "seed-from-bundle",
+  "source_sha256": "9a3c16424750cbde029c47e059f219dc64d8943ac4073a1cc5bc9accd979fc17"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.adventureSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "馴染みから一歩先へ",
+  "model": "seed-from-bundle",
+  "source_sha256": "35f0bff8a3d52ef5265eeccf0064358e68e1dfb1c321aa933ca76b7f64570779"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.frontier",
+  "field": "text",
+  "lang": "ja",
+  "text": "Frontier",
+  "model": "seed-from-bundle",
+  "source_sha256": "85db431492aa2e8672e93f4ea7acf10c88b97b867b0d373107af63dc4880f041"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "axis.frontierSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "まったく別の世界へ",
+  "model": "seed-from-bundle",
+  "source_sha256": "70d53dd28e88b1fd37a1119f425ea5693a1db382d24be0cac257224dee394170"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "explore.webCardSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "エッセイ・ランキング・ロケ地 — アーカイブ全体",
+  "model": "seed-from-bundle",
+  "source_sha256": "98ae54970c08af69f862ad23f31c38b99f98a73e1068578a1cf3fc9ceff405bd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.tasteTitle",
+  "field": "text",
+  "lang": "ja",
+  "text": "観たことのある作品は？",
+  "model": "seed-from-bundle",
+  "source_sha256": "fd2ab92d980fdf46a67e18c32106ae7ddd3b10078b246ca7dd74da5e3362f8f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "onboarding.tasteBody",
+  "field": "text",
+  "lang": "ja",
+  "text": "観た作品をタップしてください — おすすめと旅が最初の画面から動き出します。",
+  "model": "seed-from-bundle",
+  "source_sha256": "147e9be059f291422dc9ffdd1f8e8ffff558b79b263d704c98320c3dff3ef01b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.title",
+  "field": "text",
+  "lang": "ja",
+  "text": "ようこそ",
+  "model": "seed-from-bundle",
+  "source_sha256": "0e2226b5235f0ff94a276eb4d07a3bfea74b7e3b8b85e9efca6c18430f041bf8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.tagline",
+  "field": "text",
+  "lang": "ja",
+  "text": "今夜観る映画を、ここで決める。",
+  "model": "seed-from-bundle",
+  "source_sha256": "e9ffd80c22cd5efd4c0d99314cf91b5a23881d69cc467a58b1a10f77a9aec437"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p1t",
+  "field": "text",
+  "lang": "ja",
+  "text": "何を観るか、すぐ決まる",
+  "model": "seed-from-bundle",
+  "source_sha256": "bd090b76259a15d4552c9e7e2c7e5f043798198b5e11c5fa8fd8396ffaa0d9f5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p1b",
+  "field": "text",
+  "lang": "ja",
+  "text": "TakeScoreとネタバレなしの批評リード、そして一つのバーで今夜の一本が決まる。",
+  "model": "seed-from-bundle",
+  "source_sha256": "bdc8eec4d469c3d4009e2efd33999e08f3765892700a38d7f98a6d558f834979"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p2t",
+  "field": "text",
+  "lang": "ja",
+  "text": "生きているキュー",
+  "model": "seed-from-bundle",
+  "source_sha256": "b49e2f6d3600e8f1857d86f6b101117b5a6a6ff8692465973209bd259236a216"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p2b",
+  "field": "text",
+  "lang": "ja",
+  "text": "保存した作品があなたの配信サービスと出会い、決めるまで正直に熟成します。",
+  "model": "seed-from-bundle",
+  "source_sha256": "ce5575d52afa5fe1af611bba679af218584b12057720c77de1fa4b1e147a8a39"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p3t",
+  "field": "text",
+  "lang": "ja",
+  "text": "映画の中を歩く",
+  "model": "seed-from-bundle",
+  "source_sha256": "640ef1daa2794a6b94d62a654b4c7fef49aeaa2c6f972ec1e58ffab24cf851a8"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.p3b",
+  "field": "text",
+  "lang": "ja",
+  "text": "17,000件のロケ地を地図で — あなたの近くも。",
+  "model": "seed-from-bundle",
+  "source_sha256": "169f9886f7d46956543d238736b04a9f3b16fd63274f5aec6246e1615aecea5a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "welcome.start",
+  "field": "text",
+  "lang": "ja",
+  "text": "はじめる",
+  "model": "seed-from-bundle",
+  "source_sha256": "61e8d44ad423a4a0951b21b9d11440a1c23a881fe79335c367f63be251c64800"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "auth.googleError",
+  "field": "text",
+  "lang": "ja",
+  "text": "Googleログインはまだ利用できません — メールでお試しください。",
+  "model": "seed-from-bundle",
+  "source_sha256": "e58e6ef3c6d0f994d0af8390a4eecd6bfa22ba1e93a2acf7e7b40790dabdad57"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.title",
+  "field": "text",
+  "lang": "ja",
+  "text": "映画の記録を持ってくる",
+  "model": "seed-from-bundle",
+  "source_sha256": "e35615059934a8ed51cb03b0e5ca910ccd9c4ea5d7d1404b8c642128515db452"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.subtitle",
+  "field": "text",
+  "lang": "ja",
+  "text": "使っているサービスから評価と鑑賞履歴を取り込みます。パスワードは決して預かりません — ログインは各サービス自身のページでのみ。",
+  "model": "seed-from-bundle",
+  "source_sha256": "ff19dec3090d00526e7181886143eb178f73037bcca71184b76e9d5f865f2a25"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.idle",
+  "field": "text",
+  "lang": "ja",
+  "text": "取り込む",
+  "model": "seed-from-bundle",
+  "source_sha256": "2cff9baabf56ca002610e113bc94deb6ededddfc3c130365b6e88ed5195bf774"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.awaitingFile",
+  "field": "text",
+  "lang": "ja",
+  "text": "ファイルを選ぶ",
+  "model": "seed-from-bundle",
+  "source_sha256": "ec62d43c917bd3e914b9f8bbfc3eb5f66f6074cdc90591a72c61a21519918e5f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.awaitingCollect",
+  "field": "text",
+  "lang": "ja",
+  "text": "エクスポートを受け取る",
+  "model": "seed-from-bundle",
+  "source_sha256": "a763a3974afceefd62ee160c5de9fddcd26b1d206fd158c993abfa7371a22347"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.importing",
+  "field": "text",
+  "lang": "ja",
+  "text": "取り込み中…",
+  "model": "seed-from-bundle",
+  "source_sha256": "c01c4324f1fa14fc76957936626e11a5150c24e748dbd08cc46848dfcbe37d00"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.done",
+  "field": "text",
+  "lang": "ja",
+  "text": "{n}本を取り込みました",
+  "model": "seed-from-bundle",
+  "source_sha256": "107e72db99e28a74e8be5783c73b61c6efd6e37e2667689be165297b1f8da30a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.status.error",
+  "field": "text",
+  "lang": "ja",
+  "text": "うまくいきませんでした — 再試行",
+  "model": "seed-from-bundle",
+  "source_sha256": "e21d2912d52d3b24a7a96bd1cb1031f147ecc353e3098523c99230b69fdccd2b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.openExport",
+  "field": "text",
+  "lang": "ja",
+  "text": "エクスポートページを開く",
+  "model": "seed-from-bundle",
+  "source_sha256": "1bcf2a6519b702439387a854948390cfdbe31c37dbca453aecd68388f0775164"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.openCollect",
+  "field": "text",
+  "lang": "ja",
+  "text": "imdb.com/exports を開く",
+  "model": "seed-from-bundle",
+  "source_sha256": "66c2a1e2a3ce0acb4213ed8ba7243eb4dd642632c9e3ebbdb4496bafcc1baf3d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.pickFile",
+  "field": "text",
+  "lang": "ja",
+  "text": "ファイルを選択",
+  "model": "seed-from-bundle",
+  "source_sha256": "4a5dfb3736fcb30b611c6a6d4774f25cbbd233d64b89b954ecd7a7e0b78bd2b3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.paste",
+  "field": "text",
+  "lang": "ja",
+  "text": "評価を貼り付け",
+  "model": "seed-from-bundle",
+  "source_sha256": "fcad807d392b67ec441ec7bead30f2a81ef0c91731df8909165d7b0eafe1e236"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.banner",
+  "field": "text",
+  "lang": "ja",
+  "text": "{service}のファイルは受け取りましたか？",
+  "model": "seed-from-bundle",
+  "source_sha256": "831f217b5ced2b06a550c32bda60e009b87c88714dbd477f23b85f7d6214074c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.bannerCta",
+  "field": "text",
+  "lang": "ja",
+  "text": "選ぶ",
+  "model": "seed-from-bundle",
+  "source_sha256": "94239c298fe6053491a42a2ab6c923d7bdbb8e88c95cd1dabff316cae9e150a3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.letterboxd.s1",
+  "field": "text",
+  "lang": "ja",
+  "text": "letterboxd.com にログイン — ページはSafariで開きます",
+  "model": "seed-from-bundle",
+  "source_sha256": "3adb4e101c3f174453277a9430d3e7026a894f8180b636f798a60c49779bc397"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.letterboxd.s2",
+  "field": "text",
+  "lang": "ja",
+  "text": "“Export your data”をタップ — ZIPが即ダウンロードされます",
+  "model": "seed-from-bundle",
+  "source_sha256": "fb9721f19af6729896f2f020ab3fe9a13ad37c2aa426ac83d025a0dc7930436f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.letterboxd.s3",
+  "field": "text",
+  "lang": "ja",
+  "text": "ここに戻ってダウンロードからファイルを選択",
+  "model": "seed-from-bundle",
+  "source_sha256": "3550a0d86ea18e1dbf1578fefa8c0155e5cd6587ab633fc15b9432001571ff2c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.s1",
+  "field": "text",
+  "lang": "ja",
+  "text": "imdb.com にログインし Your ratings を開く",
+  "model": "seed-from-bundle",
+  "source_sha256": "6b341ec9b5965d3e2d6a888765dad05b5e2d310aef6791878e00c2311d2f80a6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.s2",
+  "field": "text",
+  "lang": "ja",
+  "text": "⋮ → “Export”をタップ — IMDbがファイルを準備します",
+  "model": "seed-from-bundle",
+  "source_sha256": "cbb7e61d74ee8ad3d334e66a4f0ac9f793d17e2bf013dca73d2884244fc83491"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.s3",
+  "field": "text",
+  "lang": "ja",
+  "text": "imdb.com/exports でCSVを受け取り、ここで選択",
+  "model": "seed-from-bundle",
+  "source_sha256": "c433e01e738b3b4411c8e37e57ca3390e97ccee18da64e4e15db59272504c6f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.imdb.wait",
+  "field": "text",
+  "lang": "ja",
+  "text": "IMDbは通常数分かかります。待つ間に別のサービスを取り込んでも大丈夫 — すべて統合されます。",
+  "model": "seed-from-bundle",
+  "source_sha256": "0159546d707ca6346bc8bbd013503bed5cc0c753cb1bca389ec8d9879419623f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.s1",
+  "field": "text",
+  "lang": "ja",
+  "text": "Safariで netflix.com にログイン — Netflixアプリに履歴画面はありません",
+  "model": "seed-from-bundle",
+  "source_sha256": "1f32d3d52d3fab41d6ac207bdd59d2537e35b8426db5a4e763f686d6d86043c9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.s2",
+  "field": "text",
+  "lang": "ja",
+  "text": "一番下までスクロールして“すべてダウンロード”をタップ",
+  "model": "seed-from-bundle",
+  "source_sha256": "a164a6dca619c58226e8691e7c03a5dc352161efb71d1d0fd36237afbb980769"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.s3",
+  "field": "text",
+  "lang": "ja",
+  "text": "戻って NetflixViewingHistory.csv を選択",
+  "model": "seed-from-bundle",
+  "source_sha256": "954497762b355b4ec3075a40436ccd4b76cac2f5d3cd16e3f5775013764f2c8e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.netflix.note",
+  "field": "text",
+  "lang": "ja",
+  "text": "Netflixが出すのはタイトルと日付だけ — 評価はもともとありません。",
+  "model": "seed-from-bundle",
+  "source_sha256": "9a491b9b4b250c2092a860f8b9b7f41d3394c0ac24523072e3ee5dea92304598"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.s1",
+  "field": "text",
+  "lang": "ja",
+  "text": "プロフィールを一時的に公開へ: プロフィール → 設定 → 公開範囲",
+  "model": "seed-from-bundle",
+  "source_sha256": "dfac19f5154b0772d53e86e8a84722f0b21d914829faca438fe00e9f710520f3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.s2",
+  "field": "text",
+  "lang": "ja",
+  "text": "自分の評価ページを開き、最後までスクロール → すべて選択 → コピー",
+  "model": "seed-from-bundle",
+  "source_sha256": "9e7e6a17eb04dfe2e95718b0cc63fef5067dc7aef7ffb11dca8761f5b2447712"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.s3",
+  "field": "text",
+  "lang": "ja",
+  "text": "戻って貼り付けをタップ — クリップボードから直接読み取ります",
+  "model": "seed-from-bundle",
+  "source_sha256": "c9d2a889a398114597fb0b776a76fad9c063c81d4245c2be35590e53179b5a7c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.watcha.revert",
+  "field": "text",
+  "lang": "ja",
+  "text": "終わりましたか？プロフィールを非公開に戻して大丈夫です。",
+  "model": "seed-from-bundle",
+  "source_sha256": "b75fd8af95e8273d901627e047c1fcf4df757f60466549001b89ed5ac1c16b9c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.reading",
+  "field": "text",
+  "lang": "ja",
+  "text": "ファイルを読んでいます…",
+  "model": "seed-from-bundle",
+  "source_sha256": "d905ae652ee4bcfbd711965622dd216295e8773e4458334f4eafc4dc34f37110"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.matching",
+  "field": "text",
+  "lang": "ja",
+  "text": "タイトルを照合中…",
+  "model": "seed-from-bundle",
+  "source_sha256": "0df0476751085c5ce18428479bb6128d184d4bd632747443fa136880b3893333"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.writing",
+  "field": "text",
+  "lang": "ja",
+  "text": "台帳に記録中…",
+  "model": "seed-from-bundle",
+  "source_sha256": "16cf3cb90f8587496312350b07a216495cd0cda195bc1e85a5346f35b8150d9e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.slow",
+  "field": "text",
+  "lang": "ja",
+  "text": "記録が大きいほど少し時間がかかります — 処理中はアプリを開いたままにしてください。",
+  "model": "seed-from-bundle",
+  "source_sha256": "0c2074d2e69cfabacb506cc151addcf5b7475c303208d45e40d1f32a7ed087ac"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.done.title",
+  "field": "text",
+  "lang": "ja",
+  "text": "本棚に入りました",
+  "model": "seed-from-bundle",
+  "source_sha256": "577e8927ae552846dcf3ce4cb7fb0e2733148a773e478c2409a21962ff8c346f"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.done.line",
+  "field": "text",
+  "lang": "ja",
+  "text": "{films}本 · 評価{ratings}件",
+  "model": "seed-from-bundle",
+  "source_sha256": "0064575b119dfb8e838339892116be8ecfb311bd4dd03ab6e47d9a07771fd52e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.done.finds",
+  "field": "text",
+  "lang": "ja",
+  "text": "あなたの記録から発掘{n}本を見つけました",
+  "model": "seed-from-bundle",
+  "source_sha256": "bdbeffba154ff24eee1fd964eacc30d8b3f8765dcdb10a213eb3fe50bbd2f7c3"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.unmatched",
+  "field": "text",
+  "lang": "ja",
+  "text": "一緒に探す{n}本",
+  "model": "seed-from-bundle",
+  "source_sha256": "9b9f2f893c33683380058f42d31db253ec1c544c6099bfde02d793663a00a165"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.unmatchedHint",
+  "field": "text",
+  "lang": "ja",
+  "text": "自動で照合できなかった作品です — 隠さずお見せします。タップで検索できます。",
+  "model": "seed-from-bundle",
+  "source_sha256": "56e677241357ed7b74df011fefe510e0f7265a75f716e9af9b93b6fafd1afeb4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.title",
+  "field": "text",
+  "lang": "ja",
+  "text": "映画の記録を持ってくる",
+  "model": "seed-from-bundle",
+  "source_sha256": "e35615059934a8ed51cb03b0e5ca910ccd9c4ea5d7d1404b8c642128515db452"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.sub",
+  "field": "text",
+  "lang": "ja",
+  "text": "Letterboxd · IMDb · Netflix · Watcha — 数分で履歴まるごと。",
+  "model": "seed-from-bundle",
+  "source_sha256": "66418b862d00fdfa37946ae0b37866433aadb0f867831bedb4c65fdbea9a6204"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.onboarding",
+  "field": "text",
+  "lang": "ja",
+  "text": "履歴をまとめて取り込む",
+  "model": "seed-from-bundle",
+  "source_sha256": "b7fcdcd60fbcc5298269ef59dc61d6424d6e1365378c1df1a2cbd6a2429a2375"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.entry.onboardingSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "Letterboxd・IMDb・Netflix — 書き出しファイルをまるごと取り込めます。",
+  "model": "seed-from-bundle",
+  "source_sha256": "43bd60f1dcfe6fa45d39008d172147c3c13820114c348db67d0bd26eb43ccc22"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.empty.signedOut",
+  "field": "text",
+  "lang": "ja",
+  "text": "まずログインを — 取り込んだ記録はあなた自身の台帳に入ります。",
+  "model": "seed-from-bundle",
+  "source_sha256": "84fee305bf23e53c301fe4e66b1387dc49cb085b21f94b4674943c8f64181a27"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.pitch",
+  "field": "text",
+  "lang": "ja",
+  "text": "一度ログインするだけ — 評価と鑑賞済みの映画を自動で取り込みます。",
+  "model": "seed-from-bundle",
+  "source_sha256": "86ec306f87d7c72e643a5ef8f8b1cdb09be350eaee2d74af85a317c1706c5dcd"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.connect",
+  "field": "text",
+  "lang": "ja",
+  "text": "{service}を連携",
+  "model": "seed-from-bundle",
+  "source_sha256": "90af8c699b876e65cb575aecfa9b4001ab9476dccd259b0b40d0512bf18747d7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.syncing",
+  "field": "text",
+  "lang": "ja",
+  "text": "同期中…",
+  "model": "seed-from-bundle",
+  "source_sha256": "8a046cc90ab0a981f95cbf2c9c609309e0cfda272d8c01fdffecdb8286877e91"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.syncNow",
+  "field": "text",
+  "lang": "ja",
+  "text": "今すぐ同期",
+  "model": "seed-from-bundle",
+  "source_sha256": "885e8f48bd70af10c21ee1046c5762dae06945145bf5c95885648e4ac308c0bf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.disconnect",
+  "field": "text",
+  "lang": "ja",
+  "text": "連携を解除",
+  "model": "seed-from-bundle",
+  "source_sha256": "acfc5be785a9bb3da11c9f05adb69bd5633096f09002aa44813a1b3207e912ad"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.comingSoon",
+  "field": "text",
+  "lang": "ja",
+  "text": "近日対応 — {service}ログインを準備中です",
+  "model": "seed-from-bundle",
+  "source_sha256": "b63218abe5f6845c68aadb4fe37cdd5053c8ee5c22adee0ec8d6a5031fe60472"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.oauth.lastSynced",
+  "field": "text",
+  "lang": "ja",
+  "text": "{date}に同期",
+  "model": "seed-from-bundle",
+  "source_sha256": "c2e4ea5b5a25d12b3547be657a287042c5cf9a959e0f0eebc4da7676732fbffb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.connecting",
+  "field": "text",
+  "lang": "ja",
+  "text": "接続中…",
+  "model": "seed-from-bundle",
+  "source_sha256": "72021eb70e91b4d58254586a8519393a281eb830c165bf1ec42a5057d425bcaf"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.stage.syncing",
+  "field": "text",
+  "lang": "ja",
+  "text": "ライブラリを同期中…",
+  "model": "seed-from-bundle",
+  "source_sha256": "3560dc6fc0f39aec47e89f6eda6a12c1f1e080376f589ecaa1020b7684837bea"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.title",
+  "field": "text",
+  "lang": "ja",
+  "text": "まだ取り込み中です",
+  "model": "seed-from-bundle",
+  "source_sha256": "5fcf6c581491e16f1366b66cb5f4ab9d4cb4663d2cc9cc63121bd3f9b8f0a4f0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.body",
+  "field": "text",
+  "lang": "ja",
+  "text": "離れても処理は続きます — 中断されません。コネクトに戻れば結果のまとめが待っています。",
+  "model": "seed-from-bundle",
+  "source_sha256": "388eaa4da1be1f130e8c5cafacf3452c81b18733ae30c1a2d6f8661a070024fe"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.stay",
+  "field": "text",
+  "lang": "ja",
+  "text": "このまま見る",
+  "model": "seed-from-bundle",
+  "source_sha256": "fea850b766fc95dac75ff9d7eb86ccbab00f51fbd50f3e219dac9a760f908904"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "connect.leave.go",
+  "field": "text",
+  "lang": "ja",
+  "text": "そのままにして戻る",
+  "model": "seed-from-bundle",
+  "source_sha256": "ce11e2121f880d20b1fe155f4899beb30b177eb2fe01a6f79c67adc1a5f982a2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.title",
+  "field": "text",
+  "lang": "ja",
+  "text": "ナビゲーター",
+  "model": "seed-from-bundle",
+  "source_sha256": "fce52c651cf52a80d5cab4f25843bc1418164f86789d015e2393fa388be6e0b1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.tagline",
+  "field": "text",
+  "lang": "ja",
+  "text": "次の一本で目的地まで",
+  "model": "seed-from-bundle",
+  "source_sha256": "b3d29e8ffb62819d6a9ac6bc9daff0a52825fff234f61bda441679bfbf8298af"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.next",
+  "field": "text",
+  "lang": "ja",
+  "text": "次",
+  "model": "seed-from-bundle",
+  "source_sha256": "1ff57a29d7c9d11bdf61c1b80f2b289b44c1ea844824d4b94a0d52b6ba5fc858"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.then",
+  "field": "text",
+  "lang": "ja",
+  "text": "その次",
+  "model": "seed-from-bundle",
+  "source_sha256": "0597f441dcca7c9bb0a79da4d94d03c523c031a3384009afff47ac1fd1a72b95"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.remainingTime",
+  "field": "text",
+  "lang": "ja",
+  "text": "残り所要時間",
+  "model": "seed-from-bundle",
+  "source_sha256": "864927fe11e01252ec4c72b4e1169934aa95eb06074800d4a5fb96fa347bb3f7"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.filmsN",
+  "field": "text",
+  "lang": "ja",
+  "text": "{n}本",
+  "model": "seed-from-bundle",
+  "source_sha256": "d5eba5df976cd0f2bcb43b2234a481fc312ba0b174fe5a0a696d7ce41799904b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.pace",
+  "field": "text",
+  "lang": "ja",
+  "text": "今のペースで約{n}週",
+  "model": "seed-from-bundle",
+  "source_sha256": "654de305c6d3e22a2b25cfc6f28475557725c8448d637fb348d0db3fb8e7e959"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.traveled",
+  "field": "text",
+  "lang": "ja",
+  "text": "通ってきた道",
+  "model": "seed-from-bundle",
+  "source_sha256": "1bef01f9d698a78534e8a1099761b3c7800e259e8604f19cb93c6c39ab455504"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.remainingLane",
+  "field": "text",
+  "lang": "ja",
+  "text": "残りの道",
+  "model": "seed-from-bundle",
+  "source_sha256": "a8f94e9869fad501623408d902d674faa68eb82f7358c3285a3cfeb888860d40"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.behindN",
+  "field": "text",
+  "lang": "ja",
+  "text": "通過{n}本",
+  "model": "seed-from-bundle",
+  "source_sha256": "425e01e4e08a56a087df6defefed2210b373f0550304da135ce270c320cb5edc"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.coverage",
+  "field": "text",
+  "lang": "ja",
+  "text": "登録中のサービスで{pct}%",
+  "model": "seed-from-bundle",
+  "source_sha256": "5866caf1a35325a9c56b46b30b5baa5af297a1f37ea8c617f9e19aab04a34997"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.playNow",
+  "field": "text",
+  "lang": "ja",
+  "text": "今すぐ再生",
+  "model": "seed-from-bundle",
+  "source_sha256": "154637061a5c5b9f619cae6166240f56f0a41e7896691f72bf07ef94752f0c54"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.rent",
+  "field": "text",
+  "lang": "ja",
+  "text": "レンタル",
+  "model": "seed-from-bundle",
+  "source_sha256": "f0268cb9100a01813311eb653821e8bcccaa3ec90e0d8e3023f8c1d841b6956a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.notOnServices",
+  "field": "text",
+  "lang": "ja",
+  "text": "利用不可",
+  "model": "seed-from-bundle",
+  "source_sha256": "aace82c16d194f9464282c06bbcd1d855c3c6a229805ccc11fd12c46650e3171"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.leavingSoon",
+  "field": "text",
+  "lang": "ja",
+  "text": "まもなく配信終了",
+  "model": "seed-from-bundle",
+  "source_sha256": "0bd5d822e4411a614598957bb9425124b79813a3f002ad8d18daadca1ca2f84b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.prefFewest",
+  "field": "text",
+  "lang": "ja",
+  "text": "最短",
+  "model": "seed-from-bundle",
+  "source_sha256": "eb09c9ddadde6ad6108359327b32367da555c4b73f35b2336abf21e8f942e8f1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.prefFastest",
+  "field": "text",
+  "lang": "ja",
+  "text": "最速",
+  "model": "seed-from-bundle",
+  "source_sha256": "7ef7a92e55a79eba7fe99d9be3e7a3f97aec159fb8fee35be7c76b7cfd516955"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.prefNoTolls",
+  "field": "text",
+  "lang": "ja",
+  "text": "無料道路",
+  "model": "seed-from-bundle",
+  "source_sha256": "3da09b9b1e5b820715814a25bb96022b63fc0d8f992fdeb8e572f64d207a1a7b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.markSeen",
+  "field": "text",
+  "lang": "ja",
+  "text": "見たことにする",
+  "model": "seed-from-bundle",
+  "source_sha256": "64fbc1142cf3296ebaec64d0c265b3bdfaf2630b100bc2d42ebb0b1028a2868d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.skip",
+  "field": "text",
+  "lang": "ja",
+  "text": "このターンをスキップ",
+  "model": "seed-from-bundle",
+  "source_sha256": "f0a215812934218d7d0f0ed0d183be791efc5464f5b7298300c75ea285d60ad1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.destination",
+  "field": "text",
+  "lang": "ja",
+  "text": "目的地",
+  "model": "seed-from-bundle",
+  "source_sha256": "293d404a500f5f9a149916d810ff4f4231bd5d6ecd25eb0f55a867e2095eca48"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.arrived",
+  "field": "text",
+  "lang": "ja",
+  "text": "到着しました",
+  "model": "seed-from-bundle",
+  "source_sha256": "b6c288c525bc4dffe57ae5099e196360d0dd40169940731786e3bb62253186a6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.arrivedSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "{label} 制覇 · {n}本",
+  "model": "seed-from-bundle",
+  "source_sha256": "4ce0de8c54ab576c14e322d67df0ea7b71236b2187ed3b371e31c8cfdb838324"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.toll1",
+  "field": "text",
+  "lang": "ja",
+  "text": "レンタル1本",
+  "model": "seed-from-bundle",
+  "source_sha256": "430b222ae6337e85d2a2f0664f7913bc97a4574d54db8185ab457de1c1dd6999"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.tollN",
+  "field": "text",
+  "lang": "ja",
+  "text": "レンタル{n}本",
+  "model": "seed-from-bundle",
+  "source_sha256": "e8af87b9b805a228c4d7ed631de5651021fcbe2a4b90bb2a1b6e71b9cbee855d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.rerouting",
+  "field": "text",
+  "lang": "ja",
+  "text": "ルートを再検索します",
+  "model": "seed-from-bundle",
+  "source_sha256": "7675a72bfd2bbbd584071119cc4e2791e85ee9d2889ac035ed14dbeba6a7413b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.empty",
+  "field": "text",
+  "lang": "ja",
+  "text": "ログインして映画を観るとルートが描かれます。",
+  "model": "seed-from-bundle",
+  "source_sha256": "eed8d6dce9ff3459edac2dc9e5b1bbc9f6885dec6f468eb1d2a80abc5b3b0b00"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.whereTo",
+  "field": "text",
+  "lang": "ja",
+  "text": "どこへ行く？",
+  "model": "seed-from-bundle",
+  "source_sha256": "3c418889218a9098a6be2079213758054db4f9ad43697bf8ce998ed1aaeccc6c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.whereToSub",
+  "field": "text",
+  "lang": "ja",
+  "text": "目的地を決めると、観る映画がルートになり、次の一本を案内します。",
+  "model": "seed-from-bundle",
+  "source_sha256": "cd70a03005c716189775082206c8d8496fb9fb9605d13ac882ba22c637eae076"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.sectDirectors",
+  "field": "text",
+  "lang": "ja",
+  "text": "監督制覇 — 続けやすい",
+  "model": "seed-from-bundle",
+  "source_sha256": "a8a434e529f09d025a535f1f6ae29e1e9ea5e815eccee7a353278d71d1ce57ea"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.sectCanon",
+  "field": "text",
+  "lang": "ja",
+  "text": "カノン・リスト",
+  "model": "seed-from-bundle",
+  "source_sha256": "1c19cfbcf758b91aad92cce2fe7a7caf3e05ac692c8179c15e72877557d7dfdb"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.leftN",
+  "field": "text",
+  "lang": "ja",
+  "text": "残り{n}本",
+  "model": "seed-from-bundle",
+  "source_sha256": "198163801628fa8cc6f6cf84fb7488bb1cfc45c3b59db0a433b2b718e3adf582"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.tryKubrick",
+  "field": "text",
+  "lang": "ja",
+  "text": "キューブリックで体験 →",
+  "model": "seed-from-bundle",
+  "source_sha256": "6a478ace5e993b11c51164f02428403fa4a3fc00593edea7132b8de0ead580e1"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.pickEmpty",
+  "field": "text",
+  "lang": "ja",
+  "text": "まだ進行中の旅がありません。映画を数本記録またはインポートすると、カノン・監督の目的地が現れます。",
+  "model": "seed-from-bundle",
+  "source_sha256": "f9befeda9c6dfed9470e529567311ce0156d5e3d1aa592463d6b66b420bbbe2a"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.searchLists",
+  "field": "text",
+  "lang": "ja",
+  "text": "監督・リストを検索",
+  "model": "seed-from-bundle",
+  "source_sha256": "251e15e43b859b34dc40e30d9697df9eba65ef460cca9cc69c331621e2eb6530"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.searchEmpty",
+  "field": "text",
+  "lang": "ja",
+  "text": "一致する旅がありません。",
+  "model": "seed-from-bundle",
+  "source_sha256": "cc220e19db1143d4864fc0805b8dff4d64dd11779be504463c55de2283bb7f0b"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.drive",
+  "field": "text",
+  "lang": "ja",
+  "text": "運転 →",
+  "model": "seed-from-bundle",
+  "source_sha256": "6803a25f5867ac7c7ab79f0e1d56f2cb34016a0e2928af3e596e5a923bafed81"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.moreDetails",
+  "field": "text",
+  "lang": "ja",
+  "text": "詳細",
+  "model": "seed-from-bundle",
+  "source_sha256": "45989de49fb7f66dfe17a8fc26f3a02c7abcd74f7e8e6cf9f39fa0e3775780df"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.familyConquest",
+  "field": "text",
+  "lang": "ja",
+  "text": "監督制覇",
+  "model": "seed-from-bundle",
+  "source_sha256": "1479378b2b33a310efabd8fccdbbd1b8c009a8bd682384b2cd584039474b58c0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetCanon",
+  "field": "text",
+  "lang": "ja",
+  "text": "カノン",
+  "model": "seed-from-bundle",
+  "source_sha256": "7780172200243361b7df50624840b088e1a043688ca3c74e4b6c44a644667276"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetCritics",
+  "field": "text",
+  "lang": "ja",
+  "text": "批評家選出",
+  "model": "seed-from-bundle",
+  "source_sha256": "486b624794b1c509652da514676de6cdf2f4f3b87ba5c854f0543f04f18ad609"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetFestival",
+  "field": "text",
+  "lang": "ja",
+  "text": "映画祭",
+  "model": "seed-from-bundle",
+  "source_sha256": "590c214a54235c344806f1ae2dd0668c37343cf2743b0088f37da3b51ef81e2e"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetAward",
+  "field": "text",
+  "lang": "ja",
+  "text": "受賞",
+  "model": "seed-from-bundle",
+  "source_sha256": "669a46138d69d7c12f52f82ccde4385630ece1947fc7e3a382b371d4aed02f28"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetNational",
+  "field": "text",
+  "lang": "ja",
+  "text": "国のカノン",
+  "model": "seed-from-bundle",
+  "source_sha256": "66f6ac4e7cf52b2598ca4370f0b248cc3602605d7b3271417c4344e1cd185f75"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.facetList",
+  "field": "text",
+  "lang": "ja",
+  "text": "リスト",
+  "model": "seed-from-bundle",
+  "source_sha256": "6f202f54a7b2d8fe42aa804eabe48ef900cdf73a74c570a47fd1b1a4920a051d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.resumeKicker",
+  "field": "text",
+  "lang": "ja",
+  "text": "ドライブを続ける",
+  "model": "seed-from-bundle",
+  "source_sha256": "9ad908089109aabd451962da439cf385d86e63987d7935d7274e6ec36a390c75"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.resume",
+  "field": "text",
+  "lang": "ja",
+  "text": "再開 →",
+  "model": "seed-from-bundle",
+  "source_sha256": "b425b425e2f48d5323d2b60f75b9ecceed632bea6ec2f5b6265f3a5cfe6d16f4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.takescore",
+  "field": "text",
+  "lang": "ja",
+  "text": "TakeScore",
+  "model": "seed-from-bundle",
+  "source_sha256": "9f5c1c15d39ba85cb61f5319ce0e12d5ec0ced7bbecf0f3387a049e4f05dfcd6"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.now",
+  "field": "text",
+  "lang": "ja",
+  "text": "今",
+  "model": "seed-from-bundle",
+  "source_sha256": "fe18013d93d22f4f2a70344d30c00fe62d2ef29189ae5d25ccbda81fbd9c92b0"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.ts",
+  "field": "text",
+  "lang": "ja",
+  "text": "TS {n}",
+  "model": "seed-from-bundle",
+  "source_sha256": "d19a27446124e499cf22ee40abb5ffebd1c5b0d0b2c6a61654e983e4de2f17c5"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.open",
+  "field": "text",
+  "lang": "ja",
+  "text": "開く →",
+  "model": "seed-from-bundle",
+  "source_sha256": "1d2902ca81b6d2db8f1406f23b6555d0594f857b5f15a68a8c1bfe332af4995d"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.durHM",
+  "field": "text",
+  "lang": "ja",
+  "text": "{h}時間{m}分",
+  "model": "seed-from-bundle",
+  "source_sha256": "8726ff1aab2a4e6914279915324443eb3573c148199acb66b23a19a74ba27577"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.durMin",
+  "field": "text",
+  "lang": "ja",
+  "text": "{m}分",
+  "model": "seed-from-bundle",
+  "source_sha256": "7998930982af2136cb5d57fa7b9a82fec97b0084ccd027acd26a3bd6d81cbeb9"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.offmap",
+  "field": "text",
+  "lang": "ja",
+  "text": "地図外 {n}本 · 系譜で配置",
+  "model": "seed-from-bundle",
+  "source_sha256": "07cc582db981e6276088348a94f5da86e0c0fb3832bf422403c4633f6121a081"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.recenter",
+  "field": "text",
+  "lang": "ja",
+  "text": "再センタリング",
+  "model": "seed-from-bundle",
+  "source_sha256": "8445e797af7f95ade7d6217dd64cd352606142152fff407972d91bbd6ef6359c"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.close",
+  "field": "text",
+  "lang": "ja",
+  "text": "閉じる",
+  "model": "seed-from-bundle",
+  "source_sha256": "7d9eb7acb13e24625c404401d8e88b2350e32162455885f18276cf802f7701ed"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.back",
+  "field": "text",
+  "lang": "ja",
+  "text": "戻る",
+  "model": "seed-from-bundle",
+  "source_sha256": "76900f1bfd16c8d4dd3d25e6f46638d7165aee23883ccea6bfe071c514421769"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.share",
+  "field": "text",
+  "lang": "ja",
+  "text": "この旅を共有",
+  "model": "seed-from-bundle",
+  "source_sha256": "1d0a94ffdd314e8e08b0a29d4dcdce6b68a022817424342c20d52360cb5fb227"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.zoomIn",
+  "field": "text",
+  "lang": "ja",
+  "text": "拡大",
+  "model": "seed-from-bundle",
+  "source_sha256": "0e47f09a748fa1321dbaee5c8983f8e8f2880b1212956fb4f21ae9d60b88a8b2"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.zoomOut",
+  "field": "text",
+  "lang": "ja",
+  "text": "縮小",
+  "model": "seed-from-bundle",
+  "source_sha256": "bc7b631a689b45ca5c51923515d31eb3597b2d9b129d88d0dbee066ee5c35453"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.stepsHead",
+  "field": "text",
+  "lang": "ja",
+  "text": "残りのルート",
+  "model": "seed-from-bundle",
+  "source_sha256": "a3812368d726614ffaf05de0b1838e70ca7858a61c0b0cef1650263be296f308"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.shareArrived",
+  "field": "text",
+  "lang": "ja",
+  "text": "🏁 {label} 制覇 — 映画{n}本、Metatakeナビゲーターで走破。",
+  "model": "seed-from-bundle",
+  "source_sha256": "b18368de138600d6bfcef6e261d70b01085e1474be2a12e351730b0ece018fe4"
+ },
+ {
+  "entity_type": "ui",
+  "entity_key": "nav.shareDrive",
+  "field": "text",
+  "lang": "ja",
+  "text": "🧭 {label}への道 — 残り映画{n}本、Metatakeナビゲーター。",
+  "model": "seed-from-bundle",
+  "source_sha256": "d5f918931a2250014b252ef0103fb7e2b149e722012afc66eb408a7a45b72a26"
+ }
+]

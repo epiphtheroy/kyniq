@@ -13,6 +13,7 @@ import {
   type UILocale,
 } from "../editions";
 import { deviceLocale, deviceRegion, setLocale } from "../i18n";
+import { loadUIOverrides, resetUIOverrides } from "../i18n/overrides";
 import { api } from "../lib/api";
 import { supabase } from "../lib/supabase";
 
@@ -88,6 +89,7 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
             presets: Array.isArray(parsed.presets) ? parsed.presets : [],
           };
           setLocale(saved.locale);
+          void loadUIOverrides(saved.locale);
           setPrefs(saved);
         } else {
           // First run: storefront country for availability, device language for
@@ -95,6 +97,7 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
           const ed = editionForCountry(deviceRegion());
           const loc = deviceLocale();
           setLocale(loc);
+          void loadUIOverrides(loc);
           setPrefs({
             ...defaults,
             country: ed.country,
@@ -112,7 +115,12 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
   const set = (patch: Partial<Prefs>) => {
     setPrefs((prev) => {
       const next = { ...prev, ...patch };
-      if (patch.locale) setLocale(patch.locale);
+      if (patch.locale) {
+        setLocale(patch.locale);
+        // A language change needs its own override fetch.
+        resetUIOverrides();
+        void loadUIOverrides(patch.locale);
+      }
       AsyncStorage.setItem(KEY, JSON.stringify(next)).catch(() => {});
       // Mirror to server when a session exists (no-op otherwise).
       api
