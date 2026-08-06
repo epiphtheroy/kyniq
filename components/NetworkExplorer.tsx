@@ -106,6 +106,16 @@ export default function NetworkExplorer() {
         setLoading(false); busy.current = false;
         return;
       }
+      if (!k && m === "critical") {
+        // Grouped overview, no ego — the view the home's map band previews, so
+        // "Open Connections" lands on the same picture the reader just left.
+        setMode("critical"); modeRef.current = "critical";
+        const target: Target = { mode: "critical", ego: null };
+        const d = await fetchMap(target); setData(d);
+        setStack([{ id: "__all_critical", label: ALL_LABEL.critical, target }]);
+        setLoading(false); busy.current = false;
+        return;
+      }
       if (k && m === "directors") {
         setMode("directors"); modeRef.current = "directors";
         const target: Target = { mode: "directors", key: k };

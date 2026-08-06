@@ -11,6 +11,7 @@ import MyCinemaTeaser from "./MyCinemaTeaser";
 import SurpriseStage from "./SurpriseStage";
 import HomeLocations from "./HomeLocations";
 import NowPlaying from "./NowPlaying";
+import HomeNetwork from "./HomeNetwork";
 import ExploreLinks from "./ExploreLinks";
 
 /**
@@ -46,6 +47,9 @@ export default function HomeV2({ data, screenerTop = [] }: { data: HomeV2Data; s
       <HomeLocations />
       {/* 7 — Now Playing: the live layer (renders nothing until the first piece) */}
       <NowPlaying />
+      {/* 7b — The connection map, Grouped (paper-2). Lazy-mounted below the fold:
+              the graph never competes with first paint. */}
+      <HomeNetwork />
       {/* 8 — Explore: flat crawlable links (paper) */}
       <ExploreLinks />
       {/* Footer is rendered globally by app/layout.tsx (single unified site footer) */}
