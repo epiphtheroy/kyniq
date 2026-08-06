@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 import TVSingle from "@/components/TVSingle";
@@ -41,10 +42,23 @@ const load = cache(async (slug: string): Promise<{ entry: TVEntry; prog: Prog | 
 
 // A rotating slice of other broadcasts for the rail (deterministic per slug so ISR
 // caches cleanly). The default shelf is alphabetical; offset by a slug hash.
-const moreList = cache(async (): Promise<{ slug: string; title: string; film: TVEntry["film"] }[]> => {
-  const { data } = await db().rpc("tv_watch", { p_list: null, p_program: null });
-  return ((data as { programs?: { slug: string; title: string; film: TVEntry["film"] }[] } | null)?.programs ?? []);
-});
+// react cache() only dedupes WITHIN one request. This shelf is byte-identical for
+// all 1,794 broadcast URLs, and a crawler never repeats a URL, so before the Data
+// Cache went round it the whole shelf was re-fetched once per swept page. Keep the
+// react cache() for in-request dedupe and put unstable_cache underneath it for the
+// across-request win. Safe to nest this way round: nothing here runs inside another
+// unstable_cache callback, which is the case where the inner read gets bypassed.
+const moreList = cache(async (): Promise<{ slug: string; title: string; film: TVEntry["film"] }[]> =>
+  unstable_cache(
+    async () => {
+      const { data, error } = await db().rpc("tv_watch", { p_list: null, p_program: null });
+      if (error) throw error; // never cache a timeout as an empty shelf
+      return ((data as { programs?: { slug: string; title: string; film: TVEntry["film"] }[] } | null)?.programs ?? []);
+    },
+    ["tv-more-shelf-1"],
+    { revalidate: 3600 },
+  )().catch(() => []),
+);
 
 function totalMs(entry: TVEntry, prog: Prog | null): number {
   const summed = (entry.segments ?? []).reduce((s, x) => s + (x.duration_ms || 0), 0);

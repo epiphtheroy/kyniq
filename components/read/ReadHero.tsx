@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { createClient } from "@supabase/supabase-js";
 import StillHero from "@/components/StillHero";
 import ShareDock from "@/components/ShareDock";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
+import { hasBroadcast } from "@/lib/tvGate";
 
 /**
  * Dark film hero for the reading pages (desk essays, misreadings, Q&A).
@@ -63,15 +63,13 @@ export default async function ReadHero({
     : (backdropPath ? [backdropPath] : []);
 
   // Watch pill only when a published broadcast exists for this film (no /tv 404s).
-  let watchHref: string | undefined;
-  if (heroStills.length) {
-    try {
-      const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-      const { data } = await db
-        .from("tv_programs").select("slug").eq("slug", film.slug).eq("status", "published").maybeSingle();
-      if (data) watchHref = `/tv/${film.slug}`;
-    } catch { /* no watch link */ }
-  }
+  // Asked against one globally cached slug set rather than a per-film round trip:
+  // this component renders on every film read surface, and the per-film query was
+  // uncached and awaited alone, so it blocked the hero once per swept URL. See
+  // lib/tvGate.ts for why per-film caching cannot help a never-repeat sweep.
+  const watchHref = heroStills.length && (await hasBroadcast(film.slug))
+    ? `/tv/${film.slug}`
+    : undefined;
   return (
     <div className="cur rd-hero">
       <div className="rd-hero__in">

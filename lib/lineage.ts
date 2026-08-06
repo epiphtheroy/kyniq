@@ -206,7 +206,34 @@ export async function loadLineageEligibility(): Promise<LineageEligibility> {
   };
 }
 
+/* Per-instance memo, checked BEFORE the Data Cache.
+ *
+ * unstable_cache does NOT read its cache when it runs inside another
+ * unstable_cache callback — the inner function simply executes. This helper is
+ * called from exactly there: components/read/ReadPlates.tsx caches per slug
+ * (`["read-plates-3", slug]`, ~38,000 URLs) and asks for lineage eligibility
+ * inside that callback. A crawler never walks the same slug twice, so it misses
+ * every per-slug entry, and each miss re-ran loadLineageEligibility in full —
+ * film_lineage (10,545 rows) + lineage_lists + films (7,158 rows) paged a
+ * thousand at a time, about twenty round trips for one footer link.
+ *
+ * Observed 2026-08-06 in the Supabase API log as the same ~19-request table
+ * sweep repeating every 55 seconds against a one-hour revalidate that should
+ * have produced one an hour. lib/locations.ts already carries this memo for the
+ * same reason; lineage was simply missed.
+ */
+const ELIGIBILITY_TTL_MS = 60 * 60 * 1000;
+let eligibilityMemo: { at: number; value: Promise<LineageEligibility> } | null = null;
+
 /** Eligibility through the Data Cache — pages use it for link gates. */
 export function cachedLineageEligibility(): Promise<LineageEligibility> {
-  return unstable_cache(loadLineageEligibility, ["lineage-eligibility"], { revalidate: 3600 })();
+  const now = Date.now();
+  if (eligibilityMemo && now - eligibilityMemo.at < ELIGIBILITY_TTL_MS) return eligibilityMemo.value;
+  const value = unstable_cache(loadLineageEligibility, ["lineage-eligibility"], { revalidate: 3600 })()
+    .catch((e) => {
+      eligibilityMemo = null; // never hold a failure for an hour
+      throw e;
+    });
+  eligibilityMemo = { at: now, value };
+  return value;
 }

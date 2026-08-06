@@ -82,8 +82,15 @@ async function loadUncached(slug: string): Promise<Card | null> {
 // Per-slug Data Cache entry so the route edge-caches instead of hitting the
 // RPC per request (same pattern and reasoning as the film page's load()).
 async function load(slug: string) {
+  // revalidate MUST NOT be lower than this route's own `export const revalidate`.
+  // unstable_cache pushes its revalidate up into the ambient work-unit store when
+  // it is the shorter one (next/dist/server/web/spec-extension/unstable-cache.js,
+  // the `workUnitStore.revalidate = options.revalidate` branch), so a 300 here
+  // silently overrode the route's declared 3600 and made every one of the 6,701
+  // TakeScore pages regenerate twelve times more often than intended — on exactly
+  // the URL space crawlers sweep. Scores only move when the paid scoring run does.
   const cached = await unstable_cache(() => loadUncached(slug), ["takescore-film-card1", slug], {
-    revalidate: 300,
+    revalidate: 3600,
     tags: [`takescore-film:${slug}`],
   })().catch(() => null);
   if (cached) return cached;
