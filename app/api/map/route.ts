@@ -83,6 +83,18 @@ export async function GET(req: Request) {
   // "no-store", which made every home/network view pay the live 0.5–3s query
   // (the "map is slow" report, 2026-07-11).
   return NextResponse.json(enriched, {
-    headers: { "cache-control": "public, max-age=120, s-maxage=600, stale-while-revalidate=3600" },
+    /**
+     * One call to map_overview() reads 137,536 shared buffers — about a gigabyte,
+     * measured 2026-08-06. On a 2GB instance that single query evicts most of the
+     * cache, so every OTHER query then goes to disk: it is how the database fell
+     * over twice today at only ~44 requests a minute. The graph itself is derived
+     * from published takes and changes when the factory ingests, i.e. rarely, so a
+     * two-minute TTL was buying nothing and paying for it thirty times an hour.
+     *
+     * The real fix is the query (migration 0136); this keeps it off the origin
+     * meanwhile. Vercel appears to keep only the first directive, so max-age
+     * carries the weight and the rest is intent for any other cache.
+     */
+    headers: { "cache-control": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400" },
   });
 }
