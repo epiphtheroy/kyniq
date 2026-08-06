@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { notFound, permanentRedirect } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
@@ -43,7 +45,7 @@ function accessRecordFor(tmdbId: number | null | undefined): AccessRecord | null
 
 type FigLink = { slug: string; label: string };
 
-async function load(slug: string) {
+async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film, error: filmErr } = await supabase
     .from("films")
@@ -52,7 +54,7 @@ async function load(slug: string) {
   if (filmErr) throw filmErr; // a failed query is not a missing row
   if (!film) return null;
   const filmId = (film as { id: string }).id;
-  const [{ data: wpRow }, { data: ratRow }, { data: codex }, { data: figRows }, { data: vidRows }] = await Promise.all([
+  const [{ data: wpRow, error: wpErr }, { data: ratRow }, { data: codex }, { data: figRows }, { data: vidRows }] = await Promise.all([
     supabase.from("film_watch_providers").select("results, countries, fetched_at").eq("film_id", filmId).maybeSingle(),
     supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer").eq("film_id", filmId).maybeSingle(),
     supabase.rpc("cinecodex_for", { p_slug: slug }),
@@ -60,6 +62,12 @@ async function load(slug: string) {
     supabase.from("media").select("external_id, title").eq("entity_type", "film").eq("entity_id", filmId)
       .eq("status", "published").eq("kind", "video").order("position"),
   ]);
+  // The provider matrix IS this page. A timeout that arrives as `null` would
+  // render "not streaming anywhere" and the cache below would hold that wrong
+  // answer for the whole revalidate window — the same shape as the 404s the
+  // 2026-08-06 saturation baked in. The other four are decorative: a missing
+  // rating or figure list degrades the page, it does not misinform.
+  if (wpErr) throw wpErr;
   const cx = codex as { v: number; c: number; r: number } | null;
   const vids = ((vidRows ?? []) as { external_id: string | null; title: string | null }[]).filter((v) => v.external_id);
   const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
@@ -75,6 +83,28 @@ async function load(slug: string) {
     videos,
   };
 }
+
+/* Two layers, because they solve two different repeats.
+ *
+ * react cache() dedupes WITHIN one request: generateMetadata and the page body
+ * both call load(), Next runs them concurrently, and unstable_cache has no
+ * in-flight coalescing on a miss — so every cold render was paying this loader's
+ * six round trips TWICE.
+ *
+ * unstable_cache handles the repeat ACROSS requests. It cannot help a crawler
+ * sweep, which never asks for the same slug twice, but it is what turns a
+ * reader's revisit and every ISR regeneration into no database work at all.
+ *
+ * revalidate matches this route's own `export const revalidate` on purpose:
+ * a shorter value here would be pushed up into the page's work-unit store and
+ * silently drag the whole route's ISR window down with it.
+ */
+const load = cache((slug: string) =>
+  unstable_cache(() => loadUncached(slug), ["whereto-load-1", slug], {
+    revalidate: 1800,
+    tags: [`film:${slug}`],
+  })(),
+);
 
 /* ── The rule-based report: every fact below is read off the stored data ── */
 

@@ -79,11 +79,17 @@ const loadPlates = (slug: string) =>
   unstable_cache(
     async (): Promise<PlateData | null> => {
       const supabase = db();
-      const { data: film } = await supabase
+      const { data: film, error: filmErr } = await supabase
         .from("films")
         .select("id, title, slug, year, poster_path, backdrop_path, overview, director, director_slug, is_analyzed, visible")
         .eq("slug", slug)
         .maybeSingle<PlateFilm & { visible: boolean }>();
+      // A timeout arrives as {data:null,error} and used to be read as "no such
+      // film" — which returned null, and that null was then stored for an hour
+      // under this slug's key. The whole "keep exploring" block would vanish from
+      // a live film's page long after the database had recovered. Throw instead:
+      // the caller renders nothing this once, and nothing wrong is cached.
+      if (filmErr) throw filmErr;
       if (!film) return null;
       // Render the footer plates whenever the film's MAIN page is indexable — that
       // is Tier-1 (visible) AND promoted Tier-2 catalog records (visible=false but
@@ -165,7 +171,10 @@ export default async function ReadPlates({
   exclude?: string;
   artPaths?: string[];
 }) {
-  const data = await loadPlates(slug);
+  // Throw inside the cache so a failure is never stored; swallow it out here so a
+  // decorative footer can never 500 a page whose own body loaded fine. Same split
+  // as softLocationsEligibility in lib/locations.ts.
+  const data = await loadPlates(slug).catch(() => null);
   if (!data) return null;
   const { film, gates, questions, desks, daily } = data;
   const yr = film.year ? ` (${film.year})` : "";
