@@ -25,6 +25,7 @@ import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { fs, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -121,7 +122,20 @@ export default function DirectorScreen() {
     ),
   );
 
-  // No client-side lookup for this screen's prose: app/api/v1/app/director/[slug]
+  // "Where to start" — the one piece of this screen's prose the BFF does not
+  // carry. Keyed on "<director>#<film>", not "#<position>": three directors hold
+  // two complete pick sets each, so a position key put one film's reason under
+  // another's name.
+  const pickReason = useDbLabels(
+    "director_pick",
+    "reason",
+    useMemo(
+      () => (card?.picks ?? []).map((p) => (p.film_slug ? `${String(slug)}#${p.film_slug}` : "")).filter(Boolean),
+      [card, slug],
+    ),
+  );
+
+  // No client-side lookup for the rest of this screen's prose: app/api/v1/app/director/[slug]
   // projects the portrait, the name's meaning, the intro and every numbered fact
   // server-side — one batched content_i18n read behind a CDN-cached response.
   // Asking again from the app would be the same rows, per reader, straight at
@@ -268,7 +282,7 @@ export default function DirectorScreen() {
                   ) : null}
                   {startPick.reason ? (
                     <Serif italic size={fs.base} numberOfLines={3} style={{ marginTop: 2 }}>
-                      {startPick.reason}
+                      {pickReason(`${String(slug)}#${startPick.film_slug ?? ""}`, startPick.reason)}
                     </Serif>
                   ) : null}
                 </View>

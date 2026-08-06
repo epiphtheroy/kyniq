@@ -90,8 +90,12 @@ CORPORA = {
     # The Selection's "why start here" note. entity_key = "<director_slug>#<pos>"
     # rather than the film slug: the same film can be a pick for two directors,
     # and the reason is written about THAT director's path through it.
+    # Keyed on the FILM, not the position. Three directors (Ozon, Kieślowski,
+    # Almodóvar) carry two complete pick sets each — same pos, different films —
+    # so "<slug>#<pos>" collided and one reason overwrote the other. Verified
+    # unique: 1,033 rows, 1,033 distinct (director_slug, film_slug).
     "picks": dict(entity_type="director_pick", field="reason", sql="""
-        select p.director_slug || '#' || p.pos as entity_key,
+        select p.director_slug || '#' || p.film_slug as entity_key,
                p.reason as en, d.name as director,
                p.film_title as title, p.film_year as year
         from public.director_picks p

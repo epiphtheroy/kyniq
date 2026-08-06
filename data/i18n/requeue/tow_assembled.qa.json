@@ -1,0 +1,34 @@
+[
+ {
+  "k": "scent-of-a-woman-1992",
+  "accuracy": 5,
+  "terminology": 3,
+  "prose": 2,
+  "why": "'유명한 · 국가 정전' 관형절 미종결",
+  "corpus": "tow_assembled"
+ },
+ {
+  "k": "three-monkeys-2008",
+  "accuracy": 5,
+  "terminology": 2,
+  "prose": 3,
+  "why": "'Best Director' 미번역·인명 미음역",
+  "corpus": "tow_assembled"
+ },
+ {
+  "k": "cries-and-whispers-1972",
+  "accuracy": 5,
+  "terminology": 4,
+  "prose": 2,
+  "why": "'어느 정도 알려진 ·'—명사 없이 끊김",
+  "corpus": "tow_assembled"
+ },
+ {
+  "k": "ida-2013",
+  "accuracy": 5,
+  "terminology": 3,
+  "prose": 2,
+  "why": "'다시 값이 매겨진.'—문장 미완결",
+  "corpus": "tow_assembled"
+ }
+]
