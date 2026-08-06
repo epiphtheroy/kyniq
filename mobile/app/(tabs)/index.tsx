@@ -46,7 +46,7 @@ import { t, type DictKey } from "../../src/i18n";
 import { countryLabel } from "../../src/i18n/tokens";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
-import { useLocalTitles } from "../../src/lib/titles";
+import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -426,6 +426,10 @@ export default function TonightScreen() {
   // Localized release titles for the cards actually on screen (migration 0121).
   // English is a no-op, so the deck costs nothing extra in the default edition.
   const deckTitleOf = useLocalTitles(visible.map((r) => r.slug));
+  // The film's own artwork in the language its title is in — same axis, same
+  // round trip (useLocalPosters shares the titles fetch). English artwork stands
+  // wherever TMDB has none, which is most of the pre-1990 deck.
+  const deckPosterOf = useLocalPosters(visible.map((r) => r.slug));
 
   // Hide-seen can filter the whole fetched page to empty while the deeper catalog is
   // still unpulled; RN never fires onEndReached on an empty list, so pull the next page
@@ -733,6 +737,7 @@ export default function TonightScreen() {
             <LobbyCard
               row={item}
               shownTitle={deckTitleOf(item.slug, item.title)}
+              shownPoster={deckPosterOf(item.slug, item.poster_path)}
               screenW={width}
               reason={item.reason ?? reasonBySlug.get(item.slug) ?? null}
               onJudge={judge}
@@ -828,6 +833,7 @@ function JudgeDot({
 function LobbyCard({
   row,
   shownTitle,
+  shownPoster,
   screenW,
   reason,
   onJudge,
@@ -836,6 +842,7 @@ function LobbyCard({
   row: DeckRow;
   /** Release title in the viewer's content language; English fallback. */
   shownTitle: string;
+  shownPoster: string | null;
   screenW: number;
   reason: string | null;
   onJudge: (row: DeckRow, kind: JudgeKind) => void;
@@ -978,7 +985,7 @@ function LobbyCard({
         >
           {/* Left — portrait poster at its natural 2:3, never cropped */}
           <View style={{ width: posterW, minHeight: posterH }}>
-            <PosterImg path={row.poster_path} width={posterW} height={posterH} size="w342" rounded={0} />
+            <PosterImg path={shownPoster} width={posterW} height={posterH} size="w342" rounded={0} />
             {row.ts != null ? (
               <View style={{ position: "absolute", bottom: sp.s2, left: sp.s2 }}>
                 <TSBadge ts={row.ts} onImage size={fs.xs + 1} />

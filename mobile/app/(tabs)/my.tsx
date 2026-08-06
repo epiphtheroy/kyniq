@@ -61,7 +61,7 @@ import type { DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { registerPush } from "../../src/lib/push";
 import { PUSH_CREDENTIALS_CONFIGURED } from "../../src/platform/notifications";
-import { useLocalTitles } from "../../src/lib/titles";
+import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { supabase } from "../../src/lib/supabase";
 import {
   type Age,
@@ -432,6 +432,8 @@ export default function YouScreen() {
   // Localized titles for exactly what this face is about to paint (migration
   // 0121). English short-circuits to a no-op.
   const titleOf = useLocalTitles(useMemo(() => rows.map((r) => r.slug), [rows]));
+  // Artwork on the same axis as the title, in the same round trip.
+  const posterOf = useLocalPosters(useMemo(() => rows.map((r) => r.slug), [rows]));
 
   // Verdict recap — the /room vocabulary, kept as one line on the Rated face
   // instead of the zone it used to own.
@@ -782,6 +784,7 @@ export default function YouScreen() {
           <GridCell
             cell={item}
             shownTitle={titleOf(item.slug, item.title)}
+            shownPoster={posterOf(item.slug, item.posterPath)}
             face={face}
             width={cellW}
             index={index}
@@ -968,6 +971,7 @@ function MetaChip({
 function GridCell({
   cell,
   shownTitle,
+  shownPoster,
   face,
   width,
   index,
@@ -978,6 +982,7 @@ function GridCell({
   cell: Cell;
   /** Title in the viewer's content language; falls back to cell.title. */
   shownTitle: string;
+  shownPoster: string | null;
   face: Face;
   width: number;
   index: number;
@@ -1002,7 +1007,7 @@ function GridCell({
         <View>
           <View>
             <PosterImg
-              path={cell.posterPath}
+              path={shownPoster}
               width={width}
               height={Math.round(width * 1.5)}
               size="w342"

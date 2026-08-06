@@ -34,7 +34,7 @@ import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
 import { decadeLabel, genreLabel } from "../../src/i18n/tokens";
 import { api } from "../../src/lib/api";
-import { useLocalTitles } from "../../src/lib/titles";
+import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
 import { useDbLabels } from "../../src/lib/dbLabels";
 import { listSizeLabel } from "../../src/lib/lineage";
@@ -117,6 +117,13 @@ export default function SearchScreen() {
   // English — so matching in Korean would still print the English name. The
   // overlay covers every row whichever engine produced it.
   const titleOf = useLocalTitles(
+    useMemo(
+      () => [...rows.filter((r) => r.kind === "film").map((r) => r.slug), ...browseRows.map((r) => r.slug)],
+      [rows, browseRows],
+    ),
+  );
+  // Artwork on the same axis, in the same round trip.
+  const posterOf = useLocalPosters(
     useMemo(
       () => [...rows.filter((r) => r.kind === "film").map((r) => r.slug), ...browseRows.map((r) => r.slug)],
       [rows, browseRows],
@@ -527,7 +534,7 @@ export default function SearchScreen() {
                   slug={r.slug}
                   title={titleOf(r.slug, r.title)}
                   sub={[r.year, r.director].filter(Boolean).join(" · ")}
-                  poster={r.poster_path}
+                  poster={posterOf(r.slug, r.poster_path)}
                   ts={r.ts}
                   tiers={r.tiers}
                 />
@@ -668,7 +675,7 @@ export default function SearchScreen() {
                 slug={item.slug}
                 title={titleOf(item.slug, item.title)}
                 sub={item.sub || String(item.year ?? "")}
-                poster={item.poster}
+                poster={posterOf(item.slug, item.poster)}
                 ts={tsMap.get(item.slug) ?? null}
                 tiers={tierMap.get(item.slug)}
               />

@@ -34,7 +34,7 @@ import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { useFilms } from "../../src/state/films";
 import { useDbLabels } from "../../src/lib/dbLabels";
-import { useLocalTitles } from "../../src/lib/titles";
+import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, motion, radius, shadow, sp, usePalette } from "../../src/theme";
 import type {
@@ -374,6 +374,7 @@ export default function NavigatorDriveScreen() {
     [data],
   );
   const titleOf = useLocalTitles(routeSlugs);
+  const posterOf = useLocalPosters(routeSlugs);
   // The road's own name. A canon list is translated (content_i18n lineage_list,
   // keyed on the English label — see LABEL_KEYED); a director destination is a
   // person and stays as written. English wherever a translation is absent.
@@ -592,9 +593,13 @@ export default function NavigatorDriveScreen() {
     if (!base) return null;
     const active = base.stops.filter((s) => !skipped.has(s.slug));
     const rear = base.stops.filter((s) => skipped.has(s.slug));
-    // Localize once here: every turn card, waypoint and label downstream reads
-    // stop.title, so projecting at the source fixes all of them at once.
-    const stops = [...active, ...rear].map((s) => ({ ...s, title: titleOf(s.slug, s.title) }));
+    // Localize once here: every turn card, waypoint and poster downstream reads
+    // the stop, so projecting at the source fixes all of them at once.
+    const stops = [...active, ...rear].map((s) => ({
+      ...s,
+      title: titleOf(s.slug, s.title),
+      poster_path: posterOf(s.slug, s.poster_path),
+    }));
     const reasonFor = (slug: string): string =>
       base.next?.slug === slug ? base.next.reason : base.then?.slug === slug ? base.then.reason : "";
     return { base, stops, reasonFor };

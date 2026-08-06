@@ -17,13 +17,14 @@
 //     back through a grid never refetches
 //   - a failure is silent and leaves English standing, which is always correct
 import { useEffect, useMemo, useState } from "react";
-import { api } from "./api";
+import { api, type LocalMedia } from "./api";
 import { usePrefs } from "../state/prefs";
 
-/** lang -> slug -> localized title. Module scope: survives screen remounts. */
-const memo = new Map<string, Map<string, string>>();
+/** lang -> slug -> the film's own title AND artwork in that language.
+ *  Module scope: survives screen remounts. */
+const memo = new Map<string, Map<string, LocalMedia>>();
 
-function bucket(lang: string): Map<string, string> {
+function bucket(lang: string): Map<string, LocalMedia> {
   let m = memo.get(lang);
   if (!m) {
     m = new Map();
@@ -45,6 +46,9 @@ function askedSet(lang: string): Set<string> {
 }
 
 export type TitleLookup = (slug: string, fallback: string) => string;
+/** Same shape, but a film without localized artwork keeps whatever the row had —
+ *  including null, because a missing poster is a real state the UI draws. */
+export type PosterLookup = (slug: string, fallback: string | null) => string | null;
 
 /**
  * Localized titles for a set of slugs.
@@ -73,7 +77,7 @@ export function useLocalTitles(slugs: string[]): TitleLookup {
     // Mark before the request so two screens mounting at once don't both ask.
     for (const s of want) seen.add(s);
     api
-      .localTitles(want, contentLang)
+      .localMedia(want, contentLang)
       .then((m) => {
         if (!alive || !m.size) return;
         const b = bucket(contentLang);
@@ -92,11 +96,50 @@ export function useLocalTitles(slugs: string[]): TitleLookup {
   return useMemo(() => {
     if (contentLang === "en") return (_slug: string, fallback: string) => fallback;
     const b = bucket(contentLang);
-    return (slug: string, fallback: string) => b.get(slug) || fallback;
+    return (slug: string, fallback: string) => b.get(slug)?.title || fallback;
     // `key` participates so a repaint after a fetch produces a NEW function
     // identity — otherwise memoized rows would keep the old lookup.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contentLang, key, memo.get(contentLang)?.size]);
+}
+
+/**
+ * Localized POSTERS for a set of slugs — the artwork twin of useLocalTitles, and
+ * deliberately the same cache and the same request.
+ *
+ * ```tsx
+ * const posterOf = useLocalPosters(rows.map((r) => r.slug));
+ * <PosterImg path={posterOf(row.slug, row.poster_path)} … />
+ * ```
+ *
+ * Follows contentLang, not the UI locale. A poster is the film's own face — it
+ * carries the film's title, in a typeface chosen for that release — so it moves
+ * on the same axis its title does. Korean chrome around an English title and a
+ * Korean poster would be three languages arguing on one card.
+ *
+ * Calling both hooks on one screen costs ONE round trip: they read the same
+ * module-scope buckets and the same `asked` set, so whichever mounts first
+ * fetches and the other paints from the result.
+ */
+export function useLocalPosters(slugs: string[]): PosterLookup {
+  const { contentLang } = usePrefs();
+  // Share the fetch: this is the same hook body, and its effect is idempotent
+  // per (lang, slug) via `asked`, so no second request is issued.
+  //
+  // Its return value is also the repaint signal. That lookup's identity changes
+  // exactly when rows land, so depending on it here means the poster lookup is
+  // rebuilt at the same moment the title lookup is — one arrival, both faces of
+  // the card, no second counter to keep in step.
+  const titleOf = useLocalTitles(slugs);
+  return useMemo(() => {
+    if (contentLang === "en") return (_slug: string, fallback: string | null) => fallback;
+    const b = bucket(contentLang);
+    return (slug: string, fallback: string | null) => b.get(slug)?.poster ?? fallback;
+    // `titleOf` is unused inside the body and the linter is right to say so — it
+    // is here as the SIGNAL, not as an input. Removing it makes this lookup
+    // permanent and the posters never arrive.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [contentLang, titleOf]);
 }
 
 /** One title, for a single-film screen. Same cache as the list hook. */

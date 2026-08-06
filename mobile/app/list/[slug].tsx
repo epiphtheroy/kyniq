@@ -32,7 +32,7 @@ import { api } from "../../src/lib/api";
 import { supabase } from "../../src/lib/supabase";
 import { trueSizeOf } from "../../src/lib/lineage";
 import { useDbLabels } from "../../src/lib/dbLabels";
-import { useLocalTitles } from "../../src/lib/titles";
+import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { useFilms } from "../../src/state/films";
 import { brand, fs, radius, sp, usePalette } from "../../src/theme";
 
@@ -107,6 +107,8 @@ export default function ListScreen() {
   );
 
   const titleOf = useLocalTitles(useMemo(() => (rows ?? []).map((r) => r.film_slug), [rows]));
+  // Artwork on the same axis as the title, in the same round trip.
+  const posterOf = useLocalPosters(useMemo(() => (rows ?? []).map((r) => r.film_slug), [rows]));
 
   const addAll = async () => {
     if (adding) return;
@@ -257,7 +259,7 @@ export default function ListScreen() {
                 slug={item.film_slug}
                 title={titleOf(item.film_slug, item.film_title)}
                 year={item.film_year}
-                poster={item.poster_path}
+                poster={posterOf(item.film_slug, item.poster_path)}
                 ts={tsMap.get(item.film_slug) ?? null}
                 seen={!!ledger.get(item.film_slug)?.seen}
                 queued={!!ledger.get(item.film_slug)?.watchlist}

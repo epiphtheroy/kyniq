@@ -125,6 +125,11 @@ async function getJSON<T>(path: string, init?: RequestInit, timeoutMs = 15000): 
 
 const enc = encodeURIComponent;
 
+/** A film's own presentation in a content language: its release title and the
+ *  artwork that carries that title. Either may be absent — TMDB covers them
+ *  independently, and a film can have Korean posters and no Korean title. */
+export type LocalMedia = { title?: string; poster?: string };
+
 export const api = {
   film(slug: string, country: string, locale: string): Promise<FilmCard> {
     return getJSONCached(`/api/v1/app/film/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`);
@@ -482,8 +487,8 @@ export const api = {
    * without a round trip; a language with no coverage for those films comes back
    * empty and the English titles simply stand.
    */
-  async localTitles(slugs: string[], lang: string): Promise<Map<string, string>> {
-    const out = new Map<string, string>();
+  async localMedia(slugs: string[], lang: string): Promise<Map<string, LocalMedia>> {
+    const out = new Map<string, LocalMedia>();
     if (!slugs.length || !lang || lang === "en") return out;
     const uniq = [...new Set(slugs)];
     for (let i = 0; i < uniq.length; i += 400) {
@@ -492,8 +497,14 @@ export const api = {
         p_lang: lang,
       });
       if (error || !data) break;
-      for (const r of data as { slug: string; title: string }[]) {
-        if (r?.slug && r?.title) out.set(r.slug, r.title);
+      // Either field may be null since migration 0138 widened the row filter —
+      // a film can have Korean artwork and no Korean title, or the reverse.
+      for (const r of data as { slug: string; title: string | null; poster?: string | null }[]) {
+        if (!r?.slug) continue;
+        const m: LocalMedia = {};
+        if (r.title) m.title = r.title;
+        if (r.poster) m.poster = r.poster;
+        if (m.title || m.poster) out.set(r.slug, m);
       }
     }
     return out;
