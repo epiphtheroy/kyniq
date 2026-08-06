@@ -215,3 +215,25 @@ builds the WebView page — `tsc` cannot see into a template literal, `expo expo
 happily bundles it, and the app showed a black rectangle with no error. That class
 of bug is only found by running the app, which is why the map now has a runtime
 error channel (`HANDOFF-안드로이드-패리티-아키텍처.md` §6).
+
+---
+
+## 노트북에서 앱 화면 미리 보기 (2026-08-06)
+
+```
+cd mobile && npx expo start --web
+```
+→ http://localhost:8081/**preview**
+
+화면 목록 페이지다. 탭 4개 + 영화·감독·목록·주행·온보딩·연결·리더로 바로 간다. 슬러그는 프로덕션에
+실재하는 것으로 고정했고(《동경 이야기》=한국어 제목 없는 폴백 확인용, 알모도바르=중복 픽 확인용),
+맨 위에 **앱 언어 전환**이 있다. 어느 화면에서든 왼쪽 아래 **"화면 목록"** 배지로 돌아온다.
+
+⚠️**첫 탭 전환이 몇 초 멎어 있는 건 고장이 아니다.** 개발 서버는 10MB 번들을 `lazy=true`로 주므로
+그 라우트를 처음 누를 때 청크를 받아 변환한다. `/preview`가 열려 있는 동안 전 라우트를 미리 받아 두므로,
+**목록을 한 번 거치면 이후 이동은 즉시**다.
+
+⚠️앱은 **프로덕션 API(metatake.net)** 를 본다. 서버가 번역하는 산문(초대문·감독 초상/생애·Tonight 리드)은
+웹 배포가 `main`에 닿은 뒤에 한국어로 바뀐다. 그 전까지 그 자리는 영어가 정상이다.
+
+🔒 `__DEV__` + `Platform.OS === "web"` 이중 게이트라 출시 빌드에는 존재하지 않는다.
