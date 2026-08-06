@@ -362,8 +362,15 @@ export async function GET(req: Request) {
           const keys = [...leadMap.keys()];
           const inv = await loadLabels(locale, "invitation", keys);
           for (const slug of keys) {
-            const ko = pick(inv, locale, "invitation", slug, "rationale", null);
-            if (ko) leadMap.set(slug, firstSentence(ko));
+            // Hand pick() the English it is projecting FROM. It short-circuits
+            // on a falsy `en` before it ever looks, because everywhere else it
+            // is used "nothing to render" and "nothing to translate" are the
+            // same state. Passing null asked it to translate nothing, and it
+            // faithfully returned nothing — the deck shipped English for a day
+            // with the translations sitting in the table.
+            const en = leadMap.get(slug) ?? null;
+            const ko = pick(inv, locale, "invitation", slug, "rationale", en);
+            if (ko && ko !== en) leadMap.set(slug, firstSentence(ko));
           }
         }
       } catch {
