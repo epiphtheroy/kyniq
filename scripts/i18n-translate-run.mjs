@@ -59,7 +59,14 @@ const VOICE = {
 - 담백하고 짧게. 같은 문구가 수천 번 렌더되므로 화려한 표현은 금방 물린다. 여기서는 리듬 변주보다 **정확·간결·통일**이 우선이다.
 - 용어 통일(엄수): canon=정전 · cinephile=시네필 · national canon=국가 정전 · movement=사조 ·
   required viewing=반드시 볼 것 · optional viewing=선택 관람 · deep cut=숨은 카드 · auteur=작가 · lineage=계보
-- 숫자·코드·고유명(TakeScore, Value 63/100, US, GB, 수상명)은 그대로 둔다. 병기는 쓰지 않는다.`,
+- 숫자·코드는 그대로. 병기는 쓰지 않는다. **수상·목록 이름은 한국에 통용 표기가 있으면 그것으로**(Best Director→감독상,
+  Golden Globe→골든글로브). 없으면 원문 유지. 인명은 한글 음역.
+- 🚨**절대 규칙: 관형형으로 끝내지 마라.** 조각은 가운뎃점으로 이어붙거나 문장으로 끝난다. 영어는 "and moderately
+  well known"처럼 형용사구로 끝나도 자연스럽지만, 한국어 관형형(~한/된/진/는/운)은 **뒤에 명사가 와야** 말이 된다.
+  뒤에 아무것도 오지 않으므로 문장이 무너진다.
+  ✗ 황금곰상에서 인정받은 작품, 어느 정도 알려진      ← "알려진" 다음이 비어 끊긴다
+  ✓ 황금곰상에서 인정받은 작품이고, 어느 정도 알려져 있다
+  각 조각은 **그 자체로 완결된 절 또는 문장**이어야 한다.`,
   tow: `## 이 묶음의 성격 — to.W 큐레이터 코멘트
 사람이 한 편을 골라 놓고 "왜 이걸 보라고 하는지" 건네는 짧은 말이다. **가장 사람 냄새가 나야 하는 층**이다.
 - 담백하게. 그러나 차갑지 않게. 과장·감탄사·홍보문구 금지, 대신 정확한 관찰 하나로 온기를 만든다.
@@ -73,6 +80,12 @@ const VOICE = {
 사실 하나를 전달하는 독립된 짧은 글이다. 앞뒤 항목과 이어지지 않는다.
 - 사실 정확도가 최우선. 연도·작품명·수치를 절대 바꾸지 마라.
 - 항목마다 첫머리와 종결을 달리하라 — 나란히 렌더되므로 단조로움이 바로 보인다.`,
+  picks: `## 이 묶음의 성격 — "이 감독은 여기서 시작하라"
+한 감독의 입문작·대표작을 고른 뒤, 왜 그것인지 한두 문장으로 대는 근거다. 안내자의 말투다.
+- **독자에게 권하는 말이다.** 작품 설명이 아니라 "왜 하필 이 편이 먼저인가"에 답해야 한다.
+- 한 감독의 목록 안에서 여러 편이 나란히 렌더된다. 항목마다 첫머리를 달리하라.
+- 영화 제목은 겹낫표(《》)로 감싼다. 연도·수치는 그대로.
+- 짧고 단단하게. 홍보문구·감탄사 금지.`,
   dfacts_intro: `## 이 묶음의 성격 — 감독 소개 리드
 감독 화면 상단의 짧은 소개다. 첫 문장이 인상을 결정한다. 간결하고 단단하게.`,
   dfacts_meaning: `## 이 묶음의 성격 — 이름의 유래
@@ -352,8 +365,13 @@ const queue = batches.map((b, i) => ({ b, i }));
 async function worker() {
   while (queue.length) {
     if (existsSync(STOP)) { console.log("STOP file present — halting"); return; }
+    // `breaker()` awaits, so another worker can drain the queue while this one
+    // is parked — `queue.length` above was true when it was checked, not now.
+    // Without this the last batches of a short run crash all idle workers.
     await breaker();
-    const { b, i } = queue.shift();
+    const job = queue.shift();
+    if (!job) return;
+    const { b, i } = job;
     const w = await runBatch(b, i).catch((e) => { if (String(e.message) === "STOP") return -2; throw e; });
     bi++;
     const pct = ((bi / batches.length) * 100).toFixed(0);

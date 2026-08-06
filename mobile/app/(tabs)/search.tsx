@@ -36,6 +36,7 @@ import { decadeLabel, genreLabel } from "../../src/i18n/tokens";
 import { api } from "../../src/lib/api";
 import { useLocalTitles } from "../../src/lib/titles";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
+import { useDbLabels } from "../../src/lib/dbLabels";
 import { listSizeLabel } from "../../src/lib/lineage";
 import { AXES, dealNine, type Axis } from "../../src/lib/deal";
 import { useFilms } from "../../src/state/films";
@@ -340,14 +341,6 @@ export default function SearchScreen() {
       return { ...prev, decades };
     });
 
-  // Peeking examples (owner 07-30): real list names cycled through the empty
-  // field, so people learn the search reaches LISTS, not just films. Real labels
-  // rather than invented ones — nothing here can advertise a dead query.
-  const examples = useMemo(
-    () => (lists ?? []).map((l) => l.label).filter((l) => l.length <= 34).slice(0, 6),
-    [lists],
-  );
-
   /** Lists matching the query — every token must appear somewhere in the entry's
    *  searchable blob, the same rule the Navigator's list search uses. */
   const listHits = useMemo(() => {
@@ -356,6 +349,25 @@ export default function SearchScreen() {
     const tokens = query.split(/\s+/).filter(Boolean);
     return allLists.filter((l) => tokens.every((tk) => l.search.includes(tk))).slice(0, 6);
   }, [q, allLists]);
+
+  // Collection names live in content_i18n (lineage_list/label), keyed on the
+  // English label rather than the slug (see LABEL_KEYED in dbLabels.ts). One
+  // batched read covers the rail, the search hits and the peeking examples.
+  const listLabelKeys = useMemo(
+    () => [...(lists ?? []).map((l) => l.label), ...listHits.map((l) => l.label)],
+    [lists, listHits],
+  );
+  const listLabelOf = useDbLabels("lineage_list", "label", listLabelKeys);
+  const nameOf = (l: NavCatalogEntry) => listLabelOf(l.label, l.label) ?? l.label;
+
+  // Peeking examples (owner 07-30): real list names cycled through the empty
+  // field, so people learn the search reaches LISTS, not just films. Real labels
+  // rather than invented ones — nothing here can advertise a dead query.
+  const examples = useMemo(
+    () => (lists ?? []).map(nameOf).filter((l) => l.length <= 34).slice(0, 6),
+    [lists, listLabelOf],
+  );
+
   useEffect(() => {
     if (q.trim().length > 0 || examples.length < 2) return;
     const id = setInterval(() => setExampleIdx((i) => (i + 1) % examples.length), 2800);
@@ -421,7 +433,7 @@ export default function SearchScreen() {
               contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
               renderItem={({ item, index }) => (
                 <Appear index={index} from="right">
-                  <CollectionCard l={item} />
+                  <CollectionCard l={item} label={nameOf(item)} />
                 </Appear>
               )}
             />
@@ -639,7 +651,7 @@ export default function SearchScreen() {
                 contentContainerStyle={{ paddingHorizontal: sp.s4, gap: sp.s3 }}
                 renderItem={({ item, index }) => (
                   <Appear index={index} from="right">
-                    <CollectionCard l={item} />
+                    <CollectionCard l={item} label={nameOf(item)} />
                   </Appear>
                 )}
               />
@@ -875,7 +887,7 @@ const FACET_LABEL: Record<string, DictKey> = {
 };
 
 /** One collection — facet-tinted card that drives that list in the native Navigator. */
-function CollectionCard({ l }: { l: NavCatalogEntry }) {
+function CollectionCard({ l, label }: { l: NavCatalogEntry; label: string }) {
   const router = useRouter();
   const pal = usePalette();
   const tint = FACET_TINT[l.facet ?? ""] ?? brand.accent;
@@ -904,7 +916,7 @@ function CollectionCard({ l }: { l: NavCatalogEntry }) {
           {facetLabel.toUpperCase()}
         </Ui>
         <Serif size={fs.md} bold numberOfLines={2} style={{ marginTop: 3, minHeight: 42 }}>
-          {l.label}
+          {label}
         </Serif>
         <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 6 }}>
           {/* Never the bare membership count where the published size is known —

@@ -24,6 +24,20 @@ const cacheKey = (lang: string, type: string, field: string, key: string) =>
 export type LabelLookup = (key: string, fallback: string | null) => string | null;
 
 /**
+ * ⚠️ entity_key is NOT always a slug.
+ *
+ * Two corpora were extracted keyed on their ENGLISH TEXT rather than an id:
+ *   lineage_list (label, description) — "Palme d'Or", "KOFA 100 Korean Films"
+ *   frame        (label, definition)
+ * Every other corpus keys on a slug ("abbas-kiarostami", "solaris-1972").
+ *
+ * So a lineage list must be looked up by `l.label`, not `l.key`. Getting this
+ * wrong is silent — the lookup simply returns the fallback, and the screen keeps
+ * rendering correct English forever. It cost one QA pass to notice.
+ */
+export const LABEL_KEYED = new Set(["lineage_list", "frame"]);
+
+/**
  * Localized text for content_i18n rows.
  *
  * ```tsx
@@ -42,7 +56,12 @@ export function useDbLabels(entityType: string, field: string, keys: string[]): 
     () => [...new Set(keys.filter(Boolean))].sort().join(","),
     [keys],
   );
-  const [, bump] = useState(0);
+  // `tick` is not cosmetic: it participates in the returned lookup's identity, so
+  // a caller that memoizes DOWNSTREAM of the lookup recomputes when rows land.
+  // Without it the fetch re-renders the screen but a `useMemo([…, labelOf])` keeps
+  // its English result forever — which is exactly how the Explore search examples
+  // stayed English while the cards next to them were Korean.
+  const [tick, bump] = useState(0);
 
   useEffect(() => {
     if (lang === "en" || !wanted) return;
@@ -77,7 +96,6 @@ export function useDbLabels(entityType: string, field: string, keys: string[]): 
   return useMemo(
     () => (key: string, fallback: string | null) =>
       (lang === "en" ? null : memo.get(cacheKey(lang, entityType, field, key))) ?? fallback,
-    // `wanted` participates so the lookup identity changes when a fetch lands.
-    [lang, entityType, field, wanted],
+    [lang, entityType, field, wanted, tick],
   );
 }

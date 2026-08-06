@@ -161,3 +161,131 @@ const COUNTRIES: Partial<Record<UILocale, Map>> = {
 export function countryLabel(code: string, en: string): string {
   return COUNTRIES[getLocale()]?.[code] ?? en;
 }
+
+// The 13 expectation dimensions (lib/cinecodex_dims.ts on the web is the single
+// vocabulary; these are its labels projected). Keyed on the registry KEY, never
+// on the English label — the label is display text and may be reworded.
+const DIMS: Partial<Record<UILocale, Map>> = {
+  ko: {
+    cog: "지성", aff: "정서", form: "형식", moral: "윤리", dur: "지속성",
+    itx: "상호텍스트", fr: "형식적 급진성", etx: "맥락 의존", ctx: "작가 계보",
+    bank: "공허", insincere: "불성실", coward: "회피", polar: "논쟁성",
+  },
+  es: {
+    cog: "Cognitivo", aff: "Afectivo", form: "Formal", moral: "Moral", dur: "Durabilidad",
+    itx: "Intertextual", fr: "Radicalidad formal", etx: "Extratextual", ctx: "Obra de autor",
+    bank: "Vacuidad", insincere: "Insinceridad", coward: "Cobardía", polar: "Polarización",
+  },
+  ja: {
+    cog: "知的", aff: "情動", form: "形式", moral: "倫理", dur: "持続性",
+    itx: "間テクスト性", fr: "形式的急進性", etx: "テクスト外", ctx: "作家の系譜",
+    bank: "空虚", insincere: "不誠実", coward: "回避", polar: "論争性",
+  },
+};
+
+export function dimLabel(key: string, en: string): string {
+  return DIMS[getLocale()]?.[key] ?? en;
+}
+
+// A lineage row's outcome. The BFF ships the raw ledger value ("won",
+// "nominated") — a data token, not prose, so it is projected here.
+const RESULTS: Partial<Record<UILocale, Map>> = {
+  ko: { won: "수상", nominated: "후보", winner: "수상", nominee: "후보", listed: "선정" },
+  es: { won: "ganó", nominated: "nominada", winner: "ganó", nominee: "nominada", listed: "incluida" },
+  ja: { won: "受賞", nominated: "ノミネート", winner: "受賞", nominee: "ノミネート", listed: "選出" },
+};
+
+export function resultLabel(en: string): string {
+  return RESULTS[getLocale()]?.[en.toLowerCase()] ?? en;
+}
+
+// Filming-location countries. The pin ships a country NAME, not a code, so this
+// is keyed on the English name (the same reason COUNTRIES above is keyed on a
+// code — different upstream, different key). Sixty entries cover >99% of pins;
+// anything rarer keeps its English name, which is correct on a map.
+//
+// Static rather than Intl.DisplayNames for the reason given above: Hermes is not
+// a full-ICU build, and a name that silently degrades to "US" is worse than one
+// maintained by hand. Duplicates ("Turkey"/"Türkiye", "Czechia"/"Czech Republic")
+// are intentional — the upstream data carries both spellings.
+const COUNTRY_NAMES: Partial<Record<UILocale, Map>> = {
+  ko: {
+    "United States": "미국", "United Kingdom": "영국", France: "프랑스", Italy: "이탈리아",
+    Japan: "일본", Spain: "스페인", Germany: "독일", Canada: "캐나다",
+    "South Korea": "대한민국", India: "인도", China: "중국", Mexico: "멕시코",
+    Australia: "호주", Poland: "폴란드", Sweden: "스웨덴", Brazil: "브라질",
+    Ireland: "아일랜드", Russia: "러시아", Taiwan: "대만", Argentina: "아르헨티나",
+    "Hong Kong": "홍콩", "New Zealand": "뉴질랜드", Czechia: "체코", "Czech Republic": "체코",
+    Denmark: "덴마크", Belgium: "벨기에", Iran: "이란", Greece: "그리스",
+    Morocco: "모로코", "Türkiye": "튀르키예", Turkey: "튀르키예", Austria: "오스트리아",
+    Norway: "노르웨이", Hungary: "헝가리", Netherlands: "네덜란드", Switzerland: "스위스",
+    Romania: "루마니아", Portugal: "포르투갈", Chile: "칠레", Ukraine: "우크라이나",
+    Thailand: "태국", Israel: "이스라엘", Iceland: "아이슬란드", Colombia: "콜롬비아",
+    Philippines: "필리핀", Finland: "핀란드", Tunisia: "튀니지", Croatia: "크로아티아",
+    Indonesia: "인도네시아", "South Africa": "남아프리카공화국", Vietnam: "베트남",
+    Egypt: "이집트", Senegal: "세네갈", Kenya: "케냐", Jordan: "요르단",
+    Algeria: "알제리", Malta: "몰타", Peru: "페루", Serbia: "세르비아",
+    Guatemala: "과테말라",
+  },
+  ja: {
+    "United States": "アメリカ", "United Kingdom": "イギリス", France: "フランス", Italy: "イタリア",
+    Japan: "日本", Spain: "スペイン", Germany: "ドイツ", Canada: "カナダ",
+    "South Korea": "韓国", India: "インド", China: "中国", Mexico: "メキシコ",
+    Australia: "オーストラリア", Poland: "ポーランド", Sweden: "スウェーデン", Brazil: "ブラジル",
+    Ireland: "アイルランド", Russia: "ロシア", Taiwan: "台湾", Argentina: "アルゼンチン",
+    "Hong Kong": "香港", "New Zealand": "ニュージーランド", Czechia: "チェコ", "Czech Republic": "チェコ",
+    Denmark: "デンマーク", Belgium: "ベルギー", Iran: "イラン", Greece: "ギリシャ",
+    Morocco: "モロッコ", "Türkiye": "トルコ", Turkey: "トルコ", Austria: "オーストリア",
+    Norway: "ノルウェー", Hungary: "ハンガリー", Netherlands: "オランダ", Switzerland: "スイス",
+    Romania: "ルーマニア", Portugal: "ポルトガル", Chile: "チリ", Ukraine: "ウクライナ",
+    Thailand: "タイ", Israel: "イスラエル", Iceland: "アイスランド", Colombia: "コロンビア",
+    Philippines: "フィリピン", Finland: "フィンランド", Tunisia: "チュニジア", Croatia: "クロアチア",
+    Indonesia: "インドネシア", "South Africa": "南アフリカ", Vietnam: "ベトナム",
+    Egypt: "エジプト", Senegal: "セネガル", Kenya: "ケニア", Jordan: "ヨルダン",
+    Algeria: "アルジェリア", Malta: "マルタ", Peru: "ペルー", Serbia: "セルビア",
+    Guatemala: "グアテマラ",
+  },
+  es: {
+    "United States": "Estados Unidos", "United Kingdom": "Reino Unido", France: "Francia",
+    Italy: "Italia", Japan: "Japón", Spain: "España", Germany: "Alemania", Canada: "Canadá",
+    "South Korea": "Corea del Sur", India: "India", China: "China", Mexico: "México",
+    Australia: "Australia", Poland: "Polonia", Sweden: "Suecia", Brazil: "Brasil",
+    Ireland: "Irlanda", Russia: "Rusia", Taiwan: "Taiwán", Argentina: "Argentina",
+    "Hong Kong": "Hong Kong", "New Zealand": "Nueva Zelanda", Czechia: "Chequia",
+    "Czech Republic": "Chequia", Denmark: "Dinamarca", Belgium: "Bélgica", Iran: "Irán",
+    Greece: "Grecia", Morocco: "Marruecos", "Türkiye": "Turquía", Turkey: "Turquía",
+    Austria: "Austria", Norway: "Noruega", Hungary: "Hungría", Netherlands: "Países Bajos",
+    Switzerland: "Suiza", Romania: "Rumanía", Portugal: "Portugal", Chile: "Chile",
+    Ukraine: "Ucrania", Thailand: "Tailandia", Israel: "Israel", Iceland: "Islandia",
+    Colombia: "Colombia", Philippines: "Filipinas", Finland: "Finlandia", Tunisia: "Túnez",
+    Croatia: "Croacia", Indonesia: "Indonesia", "South Africa": "Sudáfrica", Vietnam: "Vietnam",
+    Egypt: "Egipto", Senegal: "Senegal", Kenya: "Kenia", Jordan: "Jordania",
+    Algeria: "Argelia", Malta: "Malta", Peru: "Perú", Serbia: "Serbia",
+    Guatemala: "Guatemala",
+  },
+};
+
+export function countryNameLabel(en: string): string {
+  return COUNTRY_NAMES[getLocale()]?.[en] ?? en;
+}
+
+// The TV programme's dek. 1,808 programmes carry exactly ONE shape —
+// "N chapters · the misreading, the critics, the places, the canon" — assembled
+// by the factory, so it is a template rather than prose and belongs here.
+//
+// Matched, not assumed: anything the factory ships in a different shape passes
+// through in English rather than being silently rewritten into a lie.
+const TV_DEK_TAIL = "the misreading, the critics, the places, the canon";
+const TV_DEK: Partial<Record<UILocale, string>> = {
+  ko: "{n}개 장 · 오독, 비평, 장소, 정전",
+  es: "{n} capítulos · la mala lectura, la crítica, los lugares, el canon",
+  ja: "{n}章 · 誤読、批評、場所、正典",
+};
+
+export function tvDekLabel(dek: string): string {
+  const tpl = TV_DEK[getLocale()];
+  if (!tpl) return dek;
+  const m = dek.match(/^(\d+) chapters · (.+)$/);
+  if (!m || m[2] !== TV_DEK_TAIL) return dek;
+  return tpl.replace("{n}", m[1]);
+}

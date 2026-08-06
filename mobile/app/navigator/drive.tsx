@@ -33,6 +33,7 @@ import { METATAKE_BASE } from "../../src/config";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { useFilms } from "../../src/state/films";
+import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, motion, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -373,6 +374,15 @@ export default function NavigatorDriveScreen() {
     [data],
   );
   const titleOf = useLocalTitles(routeSlugs);
+  // The road's own name. A canon list is translated (content_i18n lineage_list,
+  // keyed on the English label — see LABEL_KEYED); a director destination is a
+  // person and stays as written. English wherever a translation is absent.
+  //
+  // Display only: the ledger below still records the English `dest_label`, so a
+  // drive started in Korean still reads correctly to an English session.
+  const roadKeys = useMemo(() => (data?.label ? [data.label] : []), [data?.label]);
+  const roadLabelOf = useDbLabels("lineage_list", "label", roadKeys);
+  const roadLabel = data?.label ? roadLabelOf(data.label, data.label) ?? data.label : "";
   const [err, setErr] = useState(false);
   const [gen, setGen] = useState(0); // refetch bump (reroute after a judgment)
   const [pref, setPref] = useState<NavPref>("fewest");
@@ -753,8 +763,8 @@ export default function NavigatorDriveScreen() {
   // product page at METATAKE_BASE + /room/navigator.
   const shareMsg =
     (arrived
-      ? t("nav.shareArrived", { label: data.label, n: data.total })
-      : t("nav.shareDrive", { label: data.label, n: data.remaining })) +
+      ? t("nav.shareArrived", { label: roadLabel, n: data.total })
+      : t("nav.shareDrive", { label: roadLabel, n: data.remaining })) +
     ` ${METATAKE_BASE}/room/navigator`;
 
   // traveled fraction for the meter — coerce, as the BFF may serialize the runtime
@@ -769,7 +779,7 @@ export default function NavigatorDriveScreen() {
   const finalStop = view.stops[view.stops.length - 1] ?? null;
   const destIsNear = !!finalStop && near.some((s) => s.slug === finalStop.slug);
   // Road-name signs (decorative flavor + the current road = destination). Percent of box.
-  const roadName = data.label;
+  const roadName = roadLabel;
   const signs = [
     { left: 12, top: 91, label: roadName, cur: true },
     { left: 31, top: 40, label: "Noir Line →", cur: false },
@@ -808,7 +818,7 @@ export default function NavigatorDriveScreen() {
                   {t("nav.arrived")}
                 </Serif>
                 <Ui size={fs.sm} color="rgba(255,255,255,0.9)" style={{ marginTop: 2 }}>
-                  {t("nav.arrivedSub", { label: data.label, n: data.seenCount })}
+                  {t("nav.arrivedSub", { label: roadLabel, n: data.seenCount })}
                 </Ui>
               </View>
             </View>
@@ -1769,7 +1779,7 @@ export default function NavigatorDriveScreen() {
         >
           <Ionicons name="navigate" size={13} color={brand.accent} />
           <Ui size={fs.sm} weight="700" numberOfLines={1} style={{ maxWidth: winW * 0.42 }}>
-            {data.label}
+            {roadLabel}
           </Ui>
         </View>
         <Disc icon={glyphs.share} onPress={() => Share.share({ message: shareMsg })} label={t("nav.share")} />

@@ -49,7 +49,7 @@ import { noteJudged, noteOpened } from "../../src/lib/considering";
 import { bandWord, verdictShort } from "../../src/lib/takescore";
 import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalTitle } from "../../src/lib/titles";
-import { towVerdictLabel } from "../../src/i18n/tokens";
+import { countryNameLabel, dimLabel, genreLabel, resultLabel, towVerdictLabel, tvDekLabel } from "../../src/i18n/tokens";
 import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
@@ -255,6 +255,33 @@ export default function FilmScreen() {
   const [tow, setTow] = useState<TowComment | null>(null);
   // to.W prose lives in content_i18n, not in the RPC — project it at the edge.
   const towText = useDbLabels("tow_comment", "rationale", [slug]);
+  // The Invitation, the canon list names and the director preview are prose that
+  // already exists translated in content_i18n — the same rows the web reads.
+  // Read at the edge (dbLabels.ts) rather than projected by the BFF, so a
+  // language lands without a server deploy, exactly like the to.W comment above.
+  //
+  // These sit ABOVE the loading/error returns on purpose: a hook after an early
+  // return is a hook that sometimes does not run, and React counts them.
+  const leadKo = useDbLabels("invitation", "rationale", useMemo(() => [slug], [slug]));
+  const lineageLabelOf = useDbLabels(
+    "lineage_list", // keyed on the English LABEL, not the slug — see LABEL_KEYED
+    "label",
+    useMemo(() => (card?.lineage ?? []).map((l) => l.list_label).filter(Boolean), [card]),
+  );
+  const lifeSlug = card?.the_life?.slug ?? "";
+  const lifeIntro = useDbLabels(
+    "director_fact",
+    "intro",
+    useMemo(() => (lifeSlug ? [lifeSlug] : []), [lifeSlug]),
+  );
+  const lifeFact = useDbLabels(
+    "director_fact",
+    "fact",
+    useMemo(
+      () => (card?.the_life?.facts ?? []).slice(0, 2).map((f) => `${lifeSlug}#${f.n}`),
+      [lifeSlug, card],
+    ),
+  );
   const [leadOpen, setLeadOpen] = useState(false);
   const [err, setErr] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
@@ -482,7 +509,8 @@ export default function FilmScreen() {
   // Defend every core payload array/object the way the director screen does — a single
   // missing field (e.g. lead_fallback is EN-only; a ko/es/ja edition or shape-drifted
   // server can omit it) would otherwise throw during render and blank the whole screen.
-  const lead = card.invitation ?? (card.lead_fallback?.length ? card.lead_fallback.join(" ") : null);
+  const enLead = card.invitation ?? (card.lead_fallback?.length ? card.lead_fallback.join(" ") : null);
+  const lead = leadKo(slug, enLead);
   // Only clamp when there is genuinely a wall of it — a "Read on" under two
   // lines is noise, not an affordance.
   const leadLong = (lead?.length ?? 0) > 260;
@@ -641,7 +669,7 @@ export default function FilmScreen() {
                 {shownTitle}
               </Serif>
               <Ui size={fs.sm} color={pal.muted} style={{ marginTop: 4 }}>
-                {[card.year, ...(card.genres ?? []).slice(0, 2)].filter(Boolean).join(" · ")}
+                {[card.year, ...(card.genres ?? []).slice(0, 2).map(genreLabel)].filter(Boolean).join(" · ")}
               </Ui>
               {card.director ? (
                 <Tactile
@@ -692,7 +720,7 @@ export default function FilmScreen() {
               {card.vcr ? <VcrBars v={card.vcr.v} c={card.vcr.c} r={card.vcr.r} width={64} /> : null}
               {card.runtime ? (
                 <Ui size={fs.xs} color={pal.muted}>
-                  {card.runtime} min
+                  {t("nav.durMin", { m: card.runtime })}
                 </Ui>
               ) : null}
               {availKinds.length ? <AvailabilityDots tiers={availKinds} /> : null}
@@ -858,7 +886,7 @@ export default function FilmScreen() {
                 style={{ flexDirection: "row", flexWrap: "wrap", gap: sp.s2, paddingHorizontal: sp.s4 }}
               >
                 {topDims.map((d) => (
-                  <ReasonChip key={d.key} label={`${d.label} · ${Math.round(d.val)}`} />
+                  <ReasonChip key={d.key} label={`${dimLabel(d.key, d.label)} · ${Math.round(d.val)}`} />
                 ))}
               </View>
             </>
@@ -1020,14 +1048,14 @@ export default function FilmScreen() {
                       }}
                     >
                       <Ui size={fs.sm} weight="500" style={{ flexShrink: 1 }} numberOfLines={1}>
-                        {l.list_label}
+                        {lineageLabelOf(l.list_label, l.list_label)}
                       </Ui>
                       <Ui size={fs.xs} color={pal.muted}>
                         {l.edition_year ?? ""}
                       </Ui>
                       <View style={{ flex: 1 }} />
                       <Ui size={fs.sm} weight="600" color={brand.tsGreen}>
-                        {l.rank ? `#${l.rank}${l.rank_max ? `/${l.rank_max}` : ""}` : (l.result ?? "")}
+                        {l.rank ? `#${l.rank}${l.rank_max ? `/${l.rank_max}` : ""}` : (l.result ? resultLabel(l.result) : "")}
                       </Ui>
                     </View>
                   </View>
@@ -1144,7 +1172,7 @@ export default function FilmScreen() {
                         {p.name}
                       </Ui>
                       <Ui size={fs.xs} color={pal.muted}>
-                        {p.country ?? ""}
+                        {p.country ? countryNameLabel(p.country) : ""}
                       </Ui>
                     </Tactile>
                   </View>
@@ -1200,12 +1228,12 @@ export default function FilmScreen() {
                   <View style={{ flex: 1 }}>
                     {card.the_life.intro ? (
                       <Ui size={fs.sm} color={pal.inkSoft} numberOfLines={3}>
-                        {card.the_life.intro}
+                        {lifeIntro(card.the_life.slug, card.the_life.intro)}
                       </Ui>
                     ) : null}
                     {(card.the_life.facts ?? []).slice(0, 2).map((f) => (
                       <Ui key={f.n} size={fs.xs} color={pal.muted} numberOfLines={2} style={{ marginTop: 4 }}>
-                        {f.n}. {f.text}
+                        {f.n}. {lifeFact(`${card.the_life!.slug}#${f.n}`, f.text)}
                       </Ui>
                     ))}
                   </View>
@@ -1221,7 +1249,7 @@ export default function FilmScreen() {
               page living inside this scroll view, fighting it for gestures. */}
           {card.tv ? (
             <>
-              <SectionTitle sub={card.tv.dek ?? undefined}>{t("film.tvTitle")}</SectionTitle>
+              <SectionTitle sub={card.tv.dek ? tvDekLabel(card.tv.dek) : undefined}>{t("film.tvTitle")}</SectionTitle>
               <Tactile
                 feedback="press"
                 onPress={() =>

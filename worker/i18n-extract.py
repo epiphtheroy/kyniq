@@ -87,6 +87,18 @@ CORPORA = {
         where x->>'text' is not null and length(x->>'text') > 0
         order by df.director_slug, (x->>'n')::int"""),
 
+    # The Selection's "why start here" note. entity_key = "<director_slug>#<pos>"
+    # rather than the film slug: the same film can be a pick for two directors,
+    # and the reason is written about THAT director's path through it.
+    "picks": dict(entity_type="director_pick", field="reason", sql="""
+        select p.director_slug || '#' || p.pos as entity_key,
+               p.reason as en, d.name as director,
+               p.film_title as title, p.film_year as year
+        from public.director_picks p
+        left join public.directors d on d.slug = p.director_slug
+        where p.reason is not null and length(p.reason) > 0
+        order by p.director_slug, p.pos"""),
+
     # ── re-polish (R1): existing ko rewritten in the new voice ─────────
     "repolish_invitation": dict(entity_type="invitation", field="rationale", sql="""
         select c.entity_key, t.rationale as en, c.text as ko, f.title as title

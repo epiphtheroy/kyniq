@@ -167,14 +167,17 @@ export default function NavigatorTab() {
   const [catErr, setCatErr] = useState(false);
 
   // Canon list names live in content_i18n (lineage_list/label) — one batched read
-  // for every key on screen, English wherever a translation is absent. Director
-  // destinations key on a director slug and simply miss, which is correct: a
-  // person's name is not translated.
+  // for every name on screen, English wherever a translation is absent.
+  //
+  // Keyed on the English LABEL, not the slug: that is how the corpus was
+  // extracted (see LABEL_KEYED in dbLabels.ts). Director destinations carry a
+  // person's name here and simply miss, which is correct — names are not
+  // translated.
   const destKeys = useMemo(
     () => [
-      ...(dests?.directors ?? []).map((d) => d.key),
-      ...(dests?.canon ?? []).map((d) => d.key),
-      ...(catalog?.lineages ?? []).map((d) => d.key),
+      ...(dests?.directors ?? []).map((d) => d.label),
+      ...(dests?.canon ?? []).map((d) => d.label),
+      ...(catalog?.lineages ?? []).map((d) => d.label),
     ],
     [dests, catalog],
   );
@@ -332,7 +335,7 @@ export default function NavigatorTab() {
                     <View style={{ gap: sp.s2 }}>
                       {results.directors.map((d, i) => (
                         <Appear key={`dir:${d.key}`} index={i}>
-                          <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
+                          <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.label, d.label) ?? d.label} />
                         </Appear>
                       ))}
                     </View>
@@ -346,7 +349,7 @@ export default function NavigatorTab() {
                     <View style={{ gap: sp.s2 }}>
                       {results.lineages.map((d, i) => (
                         <Appear key={`lin:${d.key}`} index={i}>
-                          <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
+                          <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.label, d.label) ?? d.label} />
                         </Appear>
                       ))}
                     </View>
@@ -395,7 +398,7 @@ export default function NavigatorTab() {
                 <View style={{ gap: sp.s2 }}>
                   {dests.directors.map((d, i) => (
                     <Appear key={`dir:${d.key}`} index={i}>
-                      <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
+                      <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.label, d.label) ?? d.label} />
                     </Appear>
                   ))}
                 </View>
@@ -410,7 +413,7 @@ export default function NavigatorTab() {
                 <View style={{ gap: sp.s2 }}>
                   {dests.canon.map((d, i) => (
                     <Appear key={`lin:${d.key}`} index={i}>
-                      <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.key, d.label) ?? d.label} />
+                      <DestCard d={d} onPress={() => openDest(d)} label={destLabel(d.label, d.label) ?? d.label} />
                     </Appear>
                   ))}
                 </View>

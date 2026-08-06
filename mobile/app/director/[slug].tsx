@@ -25,6 +25,7 @@ import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { fs, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -114,7 +115,27 @@ export default function DirectorScreen() {
 
   // Filmography titles follow contentLang like every other list surface — this
   // screen was the one that never got the hook (survey 2026-08-06).
-  const titleOf = useLocalTitles(useMemo(() => films.map((f) => f.slug), [films]));
+  const titleOf = useLocalTitles(
+    useMemo(
+      () => [...new Set([...films.map((f) => f.slug), ...(card?.picks ?? []).map((p) => p.film_slug)])].filter(Boolean) as string[],
+      [films, card],
+    ),
+  );
+
+  // The portrait, the name's meaning, the intro and the numbered facts are all
+  // prose that already exists translated in content_i18n — the same rows the web
+  // reads. Read at the edge (dbLabels.ts), so a language lands with no server
+  // deploy. Facts key on "<slug>#<n>", everything else on the slug.
+  const dSlug = String(slug ?? "");
+  const dKey = useMemo(() => (dSlug ? [dSlug] : []), [dSlug]);
+  const portraitKo = useDbLabels("director_portrait", "body", dKey);
+  const meaningKo = useDbLabels("director_fact", "name_meaning", dKey);
+  const introKo = useDbLabels("director_fact", "intro", dKey);
+  const factKo = useDbLabels(
+    "director_fact",
+    "fact",
+    useMemo(() => (card?.facts ?? []).map((f) => `${dSlug}#${f.n}`), [dSlug, card]),
+  );
 
   const picks = useMemo(() => [...(card?.picks ?? [])].sort((a, b) => a.pos - b.pos), [card]);
   const startPick: Pick | null = useMemo(() => {
@@ -168,7 +189,8 @@ export default function DirectorScreen() {
       </Screen>
     );
 
-  const portraitLead = card.portrait ? (card.portrait.split(/\n{2,}/)[0]?.trim() ?? null) : null;
+  const portrait = portraitKo(dSlug, card.portrait);
+  const portraitLead = portrait ? (portrait.split(/\n{2,}/)[0]?.trim() ?? null) : null;
   const meta = [card.birthday, card.place_of_birth].filter(Boolean).join(" · ");
   const visibleFacts = showAllFacts ? facts : facts.slice(0, 8);
   const heroW = winW - sp.s4 * 2;
@@ -248,7 +270,7 @@ export default function DirectorScreen() {
                 )}
                 <View style={{ padding: sp.s4, gap: sp.s1 }}>
                   <Ui size={fs.md} weight="600" numberOfLines={2}>
-                    {startPick.film_title ?? ""}
+                    {titleOf(startPick.film_slug ?? "", startPick.film_title ?? "") ?? ""}
                   </Ui>
                   {startPick.film_year != null ? (
                     <Ui size={fs.sm} color={pal.muted}>
@@ -290,7 +312,7 @@ export default function DirectorScreen() {
                     rounded={radius.md}
                   />
                   <Ui size={fs.sm} weight="500" numberOfLines={2} style={{ marginTop: sp.s2 }}>
-                    {p.film_title ?? ""}
+                    {titleOf(p.film_slug ?? "", p.film_title ?? "") ?? ""}
                   </Ui>
                   {p.film_year != null ? (
                     <Ui size={fs.xs} color={pal.muted}>
@@ -380,12 +402,12 @@ export default function DirectorScreen() {
             >
               {card.name_meaning ? (
                 <Serif italic size={fs.base} style={{ lineHeight: fs.base * 1.5 }}>
-                  {card.name_meaning}
+                  {meaningKo(dSlug, card.name_meaning)}
                 </Serif>
               ) : null}
               {card.intro ? (
                 <Ui size={fs.base} color={pal.inkSoft}>
-                  {card.intro}
+                  {introKo(dSlug, card.intro)}
                 </Ui>
               ) : null}
               {visibleFacts.map((f, fi) => {
@@ -396,7 +418,7 @@ export default function DirectorScreen() {
                       {f.n}.
                     </Ui>
                     <Ui size={fs.sm} style={{ flex: 1 }}>
-                      {f.text}
+                      {factKo(`${dSlug}#${f.n}`, f.text)}
                       {host ? (
                         <Ui size={fs.xs} color={pal.subtle}>
                           {"  ↗ " + host}

@@ -1696,7 +1696,7 @@
   "entity_key": "axis.stable",
   "field": "text",
   "lang": "ko",
-  "text": "Stable",
+  "text": "안정",
   "model": "seed-from-bundle",
   "source_sha256": "90ee305714d7103317705bfffd734c654b78807e5a0f51fcc61bc1d81105ebd1"
  },
@@ -1714,7 +1714,7 @@
   "entity_key": "axis.adventure",
   "field": "text",
   "lang": "ko",
-  "text": "Adventure",
+  "text": "모험",
   "model": "seed-from-bundle",
   "source_sha256": "9a3c16424750cbde029c47e059f219dc64d8943ac4073a1cc5bc9accd979fc17"
  },
@@ -1732,7 +1732,7 @@
   "entity_key": "axis.frontier",
   "field": "text",
   "lang": "ko",
-  "text": "Frontier",
+  "text": "미개척",
   "model": "seed-from-bundle",
   "source_sha256": "85db431492aa2e8672e93f4ea7acf10c88b97b867b0d373107af63dc4880f041"
  },

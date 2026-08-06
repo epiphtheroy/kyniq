@@ -3847,7 +3847,7 @@
   "entity_key": "film.invitation",
   "field": "text",
   "lang": "ko",
-  "text": "An Invitation",
+  "text": "초대",
   "model": "seed-from-bundle",
   "source_sha256": "76822cc80fd6dce3b23a0412b7d02e1c45ee5ba881fab5f895219a1de11ddc23"
  },
@@ -4117,7 +4117,7 @@
   "entity_key": "film.theLife",
   "field": "text",
   "lang": "ko",
-  "text": "The Life",
+  "text": "생애",
   "model": "seed-from-bundle",
   "source_sha256": "53d34431b3a2718b659a94de5caf8329aeede2f54a9d7842759a1b5ce9393464"
  },
@@ -4234,7 +4234,7 @@
   "entity_key": "director.whereToStart",
   "field": "text",
   "lang": "ko",
-  "text": "Where to Start",
+  "text": "어디서 시작할까",
   "model": "seed-from-bundle",
   "source_sha256": "86a32a92ca13dec37912eb33a03b769073cc77dade07358a75bdbb371dd9d9a2"
  },
@@ -4243,7 +4243,7 @@
   "entity_key": "director.theSelection",
   "field": "text",
   "lang": "ko",
-  "text": "The Selection",
+  "text": "정선(精選)",
   "model": "seed-from-bundle",
   "source_sha256": "ae2465206ce543ca745c9ea247dfd0c90f4ff2da3abc3c842ff374da69d1d5bb"
  },
@@ -4261,7 +4261,7 @@
   "entity_key": "director.whosNext",
   "field": "text",
   "lang": "ko",
-  "text": "Who's Next",
+  "text": "다음은 누구",
   "model": "seed-from-bundle",
   "source_sha256": "bab229d0651c6b0a4569c3cd1a92fb6926e3ebad9a830674c4b451c1a70bc169"
  },
@@ -4270,7 +4270,7 @@
   "entity_key": "director.theLife",
   "field": "text",
   "lang": "ko",
-  "text": "The Life",
+  "text": "생애",
   "model": "seed-from-bundle",
   "source_sha256": "53d34431b3a2718b659a94de5caf8329aeede2f54a9d7842759a1b5ce9393464"
  },

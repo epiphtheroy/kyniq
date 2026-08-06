@@ -149,9 +149,13 @@ export default function ListScreen() {
 
   // The list's own name lives in content_i18n (lineage_list/label) — the route
   // param carries whatever the previous screen had, which is English.
-  const listLabel = useDbLabels("lineage_list", "label", useMemo(() => [String(slug)], [slug]));
-  const shownLabel =
-    listLabel(String(slug), (typeof label === "string" && label.length ? label : slug) ?? "") ?? "";
+  //
+  // That English name IS the lookup key: this corpus was extracted keyed on the
+  // label, not the slug (see LABEL_KEYED in dbLabels.ts). With no label param
+  // there is nothing to ask about, and the slug stands.
+  const enLabel = typeof label === "string" && label.length ? label : "";
+  const listLabel = useDbLabels("lineage_list", "label", useMemo(() => (enLabel ? [enLabel] : []), [enLabel]));
+  const shownLabel = listLabel(enLabel, enLabel || String(slug)) ?? "";
   const trueSize = trueSizeOf(slug);
 
   const header = (
