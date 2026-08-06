@@ -13,7 +13,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
 import { useAndroidBack } from "../src/platform/back";
 import { Btn, Hairline, Screen, Tactile, Ui } from "../src/components/ui";
-import { METATAKE_BASE } from "../src/config";
+import { usePrefs } from "../src/state/prefs";
+import { readerUrl } from "../src/lib/webUrl";
 import { SkeletonText } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api } from "../src/lib/api";
@@ -72,7 +73,10 @@ export default function ReadScreen() {
   const path = rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
   // Brand name fallback, not a UI string — content titles come in via params.
   const title = typeof params.title === "string" && params.title ? params.title : "Metatake";
-  const webUrl = `${METATAKE_BASE}${path}`;
+  // A Korean app that opens an English web page has changed language halfway
+  // through a tap. Only where the web actually has that language (see above).
+  const { locale } = usePrefs();
+  const webUrl = readerUrl(path, locale);
 
   // The pathname this reader was opened for — never bounce it back to native,
   // even when it is a hub page (the film card deliberately opens "/film/x" as

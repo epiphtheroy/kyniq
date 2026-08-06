@@ -31,11 +31,17 @@ if (!process.argv.includes("--confirm")) {
 const URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-/** on-disk expectation: entity_type -> count (segments are build material) */
+/** on-disk expectation: entity_type -> count of DISTINCT PKs.
+ *  Requeued corrections repeat a key in a later file, so counting raw rows
+ *  overstates the disk side and reports a phantom "MISSING 1". */
+const seen = new Set();
 const disk = new Map();
 for (const d of readdirSync(OUT).filter((d) => !d.includes("__pilot") && d !== "tow_segments")) {
   for (const f of readdirSync(join(OUT, d)).filter((f) => f.endsWith(".json"))) {
     for (const r of JSON.parse(readFileSync(join(OUT, d, f), "utf8"))) {
+      const pk = `${r.entity_type}\u0000${r.entity_key}\u0000${r.field}`;
+      if (seen.has(pk)) continue;
+      seen.add(pk);
       const k = `${r.entity_type}|${r.field}`;
       disk.set(k, (disk.get(k) || 0) + 1);
     }

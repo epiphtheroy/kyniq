@@ -10,7 +10,8 @@ import React, { useMemo, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Hairline, Screen, Tactile, Ui } from "../src/components/ui";
-import { METATAKE_BASE } from "../src/config";
+import { readerUrl } from "../src/lib/webUrl";
+import { usePrefs } from "../src/state/prefs";
 import { brand, fs, radius, sp, usePalette } from "../src/theme";
 
 // react-native-web passes host elements through; typed wrapper keeps tsc strict.
@@ -55,7 +56,8 @@ export default function ReadScreenWeb() {
   const rawPath = typeof params.path === "string" && params.path ? params.path : "/";
   const path = rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
   const title = typeof params.title === "string" && params.title ? params.title : "Metatake";
-  const webUrl = useMemo(() => `${METATAKE_BASE}${path}`, [path]);
+  const { locale } = usePrefs();
+  const webUrl = useMemo(() => readerUrl(path, locale), [path, locale]);
 
   const [loading, setLoading] = useState(true);
 
