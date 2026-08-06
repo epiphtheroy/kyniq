@@ -125,7 +125,7 @@ export const en = {
   "onboarding.uiLanguageBody": "The language the app itself speaks — buttons, labels, everything you read here. It follows your device by default.",
   "onboarding.languageTitle": "Film titles in…",
   "onboarding.languageBody": "Films are shown and searched by their release title in this language. Nothing to do with your country.",
-  "onboarding.languageNote": "Titles come from TMDB’s official release titles, never a machine translation — where a film has none, English stands. The app itself stays in English.",
+  "onboarding.languageNote": "Titles are TMDB's official release titles, not machine translations. Films without one keep their English title.",
   "action.save": "Save",
   "you.language": "Film titles",
   // auth

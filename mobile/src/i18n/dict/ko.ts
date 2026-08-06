@@ -114,7 +114,7 @@ export const ko: Record<keyof typeof en, string> = {
   "onboarding.uiLanguageBody": "앱이 쓰는 말입니다. 버튼과 라벨, 여기서 읽는 모든 것. 기본값은 기기 언어를 따릅니다.",
   "onboarding.languageTitle": "영화 제목을…",
   "onboarding.languageBody": "영화를 이 언어의 개봉 제목으로 보여주고 검색합니다. 국가와는 무관합니다.",
-  "onboarding.languageNote": "제목은 TMDB의 공식 개봉 제목입니다(기계번역 아님). 없는 영화는 영어로 남고, 앱 자체는 영어로 유지됩니다.",
+  "onboarding.languageNote": "제목은 TMDB의 공식 개봉 제목입니다(기계번역 아님). 없는 영화는 영어 제목으로 남습니다.",
   "action.save": "저장",
   "you.language": "영화 제목",
   "auth.email": "이메일",

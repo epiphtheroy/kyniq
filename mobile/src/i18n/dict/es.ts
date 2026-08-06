@@ -113,7 +113,7 @@ export const es: Record<keyof typeof en, string> = {
   "onboarding.uiLanguageBody": "El idioma de la app: botones, etiquetas, todo lo que lees aquí. Por defecto sigue el de tu dispositivo.",
   "onboarding.languageTitle": "Títulos en…",
   "onboarding.languageBody": "Las películas se muestran y se buscan por su título de estreno en este idioma. Independiente de tu país.",
-  "onboarding.languageNote": "Los títulos son los oficiales de TMDB, nunca traducción automática. La app sigue en inglés.",
+  "onboarding.languageNote": "Los títulos son los oficiales de TMDB, no traducciones automáticas. Las películas sin uno conservan su título en inglés.",
   "action.save": "Guardar",
   "you.language": "Títulos",
   "auth.email": "Correo electrónico",

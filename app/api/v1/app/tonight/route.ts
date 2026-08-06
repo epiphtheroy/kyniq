@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { TAKESCORE_PRESETS } from "@/lib/takescore_presets";
+import { appLocale, isProjected, pick } from "@/lib/i18n/appProjection";
+import { loadLabels } from "@/lib/i18n/dbLabel";
 
 /**
  * Mobile BFF — Tonight feed (HANDOFF-모바일앱-프리워치.md §5.2).
@@ -117,6 +119,7 @@ export async function OPTIONS() {
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const country = (url.searchParams.get("country") || "US").toUpperCase().slice(0, 2);
+  const locale = appLocale(url.searchParams.get("locale"));
   const providers = (url.searchParams.get("providers") || "")
     .split(",")
     .map((s) => parseInt(s.trim(), 10))
@@ -350,6 +353,17 @@ export async function GET(req: Request) {
               if (!slug || !t.rationale || leadMap.has(slug)) continue;
               leadMap.set(slug, firstSentence(t.rationale));
             }
+          }
+        }
+        // Tonight is the first screen a reader sees, and its lead is the only
+        // prose on it. Projecting here is what makes the deck speak Korean —
+        // the film page alone was not enough. One batched content_i18n read.
+        if (isProjected(locale) && leadMap.size) {
+          const keys = [...leadMap.keys()];
+          const inv = await loadLabels(locale, "invitation", keys);
+          for (const slug of keys) {
+            const ko = pick(inv, locale, "invitation", slug, "rationale", null);
+            if (ko) leadMap.set(slug, firstSentence(ko));
           }
         }
       } catch {

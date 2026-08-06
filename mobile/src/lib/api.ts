@@ -329,9 +329,12 @@ export const api = {
       dir?: "asc" | "desc";
       /** Production countries (ISO2, lowercase). Multi-select; the BFF fans out. */
       countries?: string[];
+      /** UI locale — the deck's one-line invite is projected server-side. */
+      locale?: string;
     },
   ): Promise<TonightPayload> {
     const q = new URLSearchParams({ country });
+    if (opts?.locale && opts.locale !== "en") q.set("locale", opts.locale);
     if (providers.length) q.set("providers", providers.join(","));
     if (opts?.genres?.length) q.set("genres", opts.genres.join(","));
     if (opts?.yearMin) q.set("year_min", String(opts.yearMin));

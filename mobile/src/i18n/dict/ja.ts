@@ -113,7 +113,7 @@ export const ja: Record<keyof typeof en, string> = {
   "onboarding.uiLanguageBody": "アプリ自身が話す言語です。ボタンもラベルも、ここで読むものすべて。既定では端末の設定に従います。",
   "onboarding.languageTitle": "作品名の言語",
   "onboarding.languageBody": "この言語の公開タイトルで表示・検索します。国とは無関係です。",
-  "onboarding.languageNote": "タイトルはTMDBの公式公開名で、機械翻訳ではありません。アプリ自体は英語のままです。",
+  "onboarding.languageNote": "タイトルはTMDBの公式リリース名です（機械翻訳ではありません）。ない作品は英題のまま表示されます。",
   "action.save": "保存",
   "you.language": "作品名",
   "auth.email": "メールアドレス",
