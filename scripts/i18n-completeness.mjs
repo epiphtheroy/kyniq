@@ -7,13 +7,24 @@
  * when a requeue rewrote some, so this is the number to trust before loading.
  *
  *   node scripts/i18n-completeness.mjs
+ *   node scripts/i18n-completeness.mjs --write-requeue   # emit the gap as work
+ *
+ * --write-requeue is how lost keys come back: a plain resume will not retry them,
+ * because the ledger still lists them as done. It writes the missing keys to
+ * data/i18n/requeue/<corpus>.json, which `i18n-translate-run.mjs --requeue` reads.
+ *
+ * ⚠️ Only run it when nothing is translating that corpus. The list is a snapshot,
+ * and a run in flight makes it stale the moment it is written. It also shares the
+ * filename the audit uses for lint rejects, so whichever ran last wins.
  */
-import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
 const SRC = join(ROOT, "data/i18n/src2");
 const OUT = join(ROOT, "data/i18n/out");
+const REQUEUE = join(ROOT, "data/i18n/requeue");
+const WRITE = process.argv.includes("--write-requeue");
 
 const CORPORA = [
   ["tow_segments", "tow_segments"],
@@ -41,7 +52,14 @@ for (const [name, srcName] of CORPORA) {
         if (r.text) have.add(r.entity_key);
   }
   const missing = [...want].filter((k) => !have.has(k));
-  if (missing.length) anyMissing = true;
+  if (missing.length) {
+    anyMissing = true;
+    if (WRITE) {
+      mkdirSync(REQUEUE, { recursive: true });
+      writeFileSync(join(REQUEUE, `${name}.json`),
+        JSON.stringify(missing.map((k) => ({ entity_key: k })), null, 1));
+    }
+  }
   console.log(
     name.padEnd(24) + String(want.size).padStart(8) + String(have.size).padStart(8) +
     String(missing.length).padStart(9) +
@@ -60,5 +78,7 @@ if (existsSync(asmDir)) {
 }
 
 console.log(anyMissing
-  ? "\n미완 키가 있다: 해당 코퍼스를 --requeue 없이 다시 돌리면 원장이 건너뛰고 남은 것만 처리한다."
+  ? (WRITE
+      ? "\n누락 키를 data/i18n/requeue/ 에 기록했다. 복구: node scripts/i18n-translate-run.mjs --corpus <이름> --requeue"
+      : "\n미완 키가 있다. --write-requeue 로 다시 돌리면 복구용 작업목록을 만든다.")
   : "\n모든 코퍼스 완결.");
