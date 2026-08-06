@@ -64,10 +64,15 @@ type Take = {
  */
 const loadMetaTakes = unstable_cache(
   async () => {
-    const { data } = await db()
+    const { data, error } = await db()
       .from("meta_takes")
       .select("id, title, laconic, theory_family:theory_families(name)")
       .eq("status", "published").eq("kind", "reading").order("title");
+    // Without this, a timeout returns null, `data ?? []` makes it an empty
+    // catalogue, and the hour-long cache then hides every reading from every one
+    // of the 18,381 figure pages until it expires. An empty answer that came from
+    // a failure must not be stored. Callers below swallow the throw.
+    if (error) throw error;
     return ((data ?? []) as unknown[]).map((r) => {
       const m = r as { id: string; title: string; laconic: string | null; theory_family: { name: string } | null };
       return { id: m.id, title: m.title, laconic: m.laconic ?? null, family: m.theory_family?.name ?? null };
@@ -97,7 +102,10 @@ async function load(slug: string, figureSlug: string) {
       .from("takes")
       .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source, theorist:theorists(slug)")
       .eq("figure_id", figure.id).eq("status", "published"),
-    loadMetaTakes(),
+    // Swallowed here, not inside the cache: the throw above keeps a failed read
+    // out of the hour-long entry, and this keeps one supplementary section from
+    // rejecting the whole Promise.all and 500-ing the page.
+    loadMetaTakes().catch(() => []),
     supabase
       .from("figure_type_members")
       .select("meta_take:meta_takes!inner(id, slug, title, kind, status, film_count)")
