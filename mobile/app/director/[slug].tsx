@@ -26,7 +26,7 @@ import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/component
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
 import { useDbLabels } from "../../src/lib/dbLabels";
-import { useLocalTitles } from "../../src/lib/titles";
+import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { fs, radius, shadow, sp, usePalette } from "../../src/theme";
 import type { DirectorCard as DirectorCardT } from "../../src/types";
@@ -115,6 +115,14 @@ export default function DirectorScreen() {
 
   // Filmography titles follow contentLang like every other list surface — this
   // screen was the one that never got the hook (survey 2026-08-06).
+  // Artwork on the same axis as the titles beside it, in the same round trip.
+  const posterOf = useLocalPosters(
+    useMemo(
+      () => [...new Set([...films.map((f) => f.slug), ...(card?.picks ?? []).map((p) => p.film_slug)])].filter(Boolean) as string[],
+      [films, card],
+    ),
+  );
+
   const titleOf = useLocalTitles(
     useMemo(
       () => [...new Set([...films.map((f) => f.slug), ...(card?.picks ?? []).map((p) => p.film_slug)])].filter(Boolean) as string[],
@@ -257,13 +265,13 @@ export default function DirectorScreen() {
                 {startFilm?.poster_path ? (
                   <View style={{ width: heroW, height: 180, backgroundColor: "#000" }}>
                     <Image
-                      source={{ uri: `${TMDB_IMG}/w342${startFilm.poster_path}` }}
+                      source={{ uri: `${TMDB_IMG}/w342${posterOf(startFilm.slug, startFilm.poster_path)}` }}
                       blurRadius={24}
                       resizeMode="cover"
                       style={{ position: "absolute", width: heroW, height: 180, opacity: 0.5 }}
                     />
                     <Image
-                      source={{ uri: `${TMDB_IMG}/w342${startFilm.poster_path}` }}
+                      source={{ uri: `${TMDB_IMG}/w342${posterOf(startFilm.slug, startFilm.poster_path)}` }}
                       resizeMode="contain"
                       style={{ width: heroW, height: 180 }}
                     />
@@ -308,7 +316,7 @@ export default function DirectorScreen() {
                   style={{ width: 132 }}
                 >
                   <PosterImg
-                    path={p.film_slug ? (filmBySlug.get(p.film_slug)?.poster_path ?? null) : null}
+                    path={p.film_slug ? posterOf(p.film_slug, filmBySlug.get(p.film_slug)?.poster_path ?? null) : null}
                     width={132}
                     height={198}
                     size="w342"
@@ -341,7 +349,7 @@ export default function DirectorScreen() {
                     slug={f.slug}
                     title={titleOf(f.slug, f.title)}
                     year={f.year}
-                    poster_path={f.poster_path}
+                    poster_path={posterOf(f.slug, f.poster_path)}
                     ts={f.ts}
                     tiers={f.tiers}
                   />

@@ -48,7 +48,7 @@ import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
 import { bandWord, verdictShort } from "../../src/lib/takescore";
 import { useDbLabels } from "../../src/lib/dbLabels";
-import { useLocalTitle } from "../../src/lib/titles";
+import { useLocalPosters, useLocalTitle } from "../../src/lib/titles";
 import { countryNameLabel, dimLabel, genreLabel, resultLabel, towVerdictLabel, tvDekLabel } from "../../src/i18n/tokens";
 import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
@@ -255,6 +255,12 @@ export default function FilmScreen() {
   const [tow, setTow] = useState<TowComment | null>(null);
   // to.W prose lives in content_i18n, not in the RPC — project it at the edge.
   const towText = useDbLabels("tow_comment", "rationale", [slug]);
+  // The poster on the same axis as the title above it. The BFF already projects
+  // one by the UI locale, but this screen's TITLE follows contentLang — a reader
+  // with Korean titles and English chrome would otherwise get 화양연화 over the
+  // American one-sheet. One axis per film, and it is the film's own.
+  const posterOf = useLocalPosters(useMemo(() => [String(slug)], [slug]));
+  const localPoster = (p: string | null) => posterOf(String(slug), p);
   // Only what the BFF does NOT project.
   //
   // app/api/v1/app/film/[slug] now localizes the Invitation and the director
@@ -355,7 +361,7 @@ export default function FilmScreen() {
         ? [card.backdrop_path]
         : [];
     for (const b of backs) pages.push({ kind: "backdrop", path: b });
-    if (card.poster_path) pages.push({ kind: "poster", path: card.poster_path });
+    if (card.poster_path) pages.push({ kind: "poster", path: localPoster(card.poster_path)! });
     return pages;
   }, [card]);
 
@@ -581,13 +587,13 @@ export default function FilmScreen() {
           ) : card.poster_path ? (
             <>
               <Image
-                source={{ uri: `${TMDB_IMG}/w342${card.poster_path}` }}
+                source={{ uri: `${TMDB_IMG}/w342${localPoster(card.poster_path)}` }}
                 blurRadius={26}
                 resizeMode="cover"
                 style={{ position: "absolute", width, height: heroH, opacity: 0.55 }}
               />
               <Image
-                source={{ uri: `${TMDB_IMG}/w500${card.poster_path}` }}
+                source={{ uri: `${TMDB_IMG}/w500${localPoster(card.poster_path)}` }}
                 resizeMode="contain"
                 style={{ width, height: heroH }}
               />
@@ -1261,7 +1267,7 @@ export default function FilmScreen() {
                   {/* A still from the film as the programme's plate, with the
                       play affordance over it — the grammar the hero already uses. */}
                   <PosterImg
-                    path={card.backdrop_path ?? card.poster_path}
+                    path={card.backdrop_path ?? localPoster(card.poster_path)}
                     width={width - sp.s4 * 2}
                     height={Math.round((width - sp.s4 * 2) * 0.5)}
                     size="w780"
