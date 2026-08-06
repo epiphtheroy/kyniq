@@ -25,7 +25,6 @@ import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
-import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
 import { fs, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -122,20 +121,11 @@ export default function DirectorScreen() {
     ),
   );
 
-  // The portrait, the name's meaning, the intro and the numbered facts are all
-  // prose that already exists translated in content_i18n — the same rows the web
-  // reads. Read at the edge (dbLabels.ts), so a language lands with no server
-  // deploy. Facts key on "<slug>#<n>", everything else on the slug.
-  const dSlug = String(slug ?? "");
-  const dKey = useMemo(() => (dSlug ? [dSlug] : []), [dSlug]);
-  const portraitKo = useDbLabels("director_portrait", "body", dKey);
-  const meaningKo = useDbLabels("director_fact", "name_meaning", dKey);
-  const introKo = useDbLabels("director_fact", "intro", dKey);
-  const factKo = useDbLabels(
-    "director_fact",
-    "fact",
-    useMemo(() => (card?.facts ?? []).map((f) => `${dSlug}#${f.n}`), [dSlug, card]),
-  );
+  // No client-side lookup for this screen's prose: app/api/v1/app/director/[slug]
+  // projects the portrait, the name's meaning, the intro and every numbered fact
+  // server-side — one batched content_i18n read behind a CDN-cached response.
+  // Asking again from the app would be the same rows, per reader, straight at
+  // the database. See lib/i18n/appProjection.ts.
 
   const picks = useMemo(() => [...(card?.picks ?? [])].sort((a, b) => a.pos - b.pos), [card]);
   const startPick: Pick | null = useMemo(() => {
@@ -189,8 +179,7 @@ export default function DirectorScreen() {
       </Screen>
     );
 
-  const portrait = portraitKo(dSlug, card.portrait);
-  const portraitLead = portrait ? (portrait.split(/\n{2,}/)[0]?.trim() ?? null) : null;
+  const portraitLead = card.portrait ? (card.portrait.split(/\n{2,}/)[0]?.trim() ?? null) : null;
   const meta = [card.birthday, card.place_of_birth].filter(Boolean).join(" · ");
   const visibleFacts = showAllFacts ? facts : facts.slice(0, 8);
   const heroW = winW - sp.s4 * 2;
@@ -402,12 +391,12 @@ export default function DirectorScreen() {
             >
               {card.name_meaning ? (
                 <Serif italic size={fs.base} style={{ lineHeight: fs.base * 1.5 }}>
-                  {meaningKo(dSlug, card.name_meaning)}
+                  {card.name_meaning}
                 </Serif>
               ) : null}
               {card.intro ? (
                 <Ui size={fs.base} color={pal.inkSoft}>
-                  {introKo(dSlug, card.intro)}
+                  {card.intro}
                 </Ui>
               ) : null}
               {visibleFacts.map((f, fi) => {
@@ -418,7 +407,7 @@ export default function DirectorScreen() {
                       {f.n}.
                     </Ui>
                     <Ui size={fs.sm} style={{ flex: 1 }}>
-                      {factKo(`${dSlug}#${f.n}`, f.text)}
+                      {f.text}
                       {host ? (
                         <Ui size={fs.xs} color={pal.subtle}>
                           {"  ↗ " + host}
