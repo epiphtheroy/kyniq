@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
-import { appLocale, directorLabels, pick } from "@/lib/i18n/appProjection";
+import { appLocale, directorLabels, isProjected, pick } from "@/lib/i18n/appProjection";
 import { locVal } from "@/lib/i18n/values";
 
 /**
@@ -41,9 +41,7 @@ export async function GET(req: Request, { params }: Params) {
     const [filmsRes, dirRes, portraitRes, factsRes, picksRes, nextRes] = await Promise.all([
       db
         .from("films")
-        // Trailing poster_path_* = migration 0137, resolved by locVal below.
-        // A literal, not a built string: supabase-js types the row from it.
-        .select("id, slug, title, year, poster_path, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
+        .select("id, slug, title, year, poster_path")
         .eq("director_slug", slug)
         .eq("visible", true)
         .order("year"),
@@ -129,6 +127,21 @@ export async function GET(req: Request, { params }: Params) {
     } | null;
 
     const i18n = await directorLabels(locale, slug);
+    // The reader's own posters (0137) — a SEPARATE, failure-tolerant read rather
+    // than columns on the films query above. A missing column there would empty
+    // the filmography; here it costs the localized artwork and nothing else.
+    const artOf = new Map<string, string>();
+    if (isProjected(locale)) {
+      const { data: art } = await db
+        .from("films")
+        .select("slug, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
+        .eq("director_slug", slug)
+        .eq("visible", true);
+      for (const a of (art ?? []) as unknown as Record<string, unknown>[]) {
+        const v = locVal(a, "poster_path", locale);
+        if (v && typeof a.slug === "string") artOf.set(a.slug, v);
+      }
+    }
 
     return NextResponse.json(
       {
@@ -158,7 +171,7 @@ export async function GET(req: Request, { params }: Params) {
           slug: f.slug,
           title: f.title,
           year: f.year,
-          poster_path: locVal(f as unknown as Record<string, unknown>, "poster_path", locale),
+          poster_path: artOf.get(f.slug) ?? f.poster_path,
           ts: tsMap.get(f.slug) ?? null,
           tiers: tierMap.get(f.slug) ?? [],
         })),
