@@ -38,6 +38,15 @@ const LIMIT = arg("--limit") ? Number(arg("--limit")) : null;
 const TAG = arg("--tag", "run");
 const CONC = Number(arg("--concurrency", 3));
 const DRY = has("--dry");
+/**
+ * Unique per run. Batch indices restart at 0 on every resume, so a filename of
+ * just the index made the second run overwrite the first one's output — the
+ * ledger still counted those keys as done, so they were never retried and simply
+ * vanished. Measured on 2026-08-06: 586 invitations and 120 director facts lost
+ * that way. The loader collapses by PK, so extra files are free; collisions are
+ * not.
+ */
+const RUN_ID = new Date().toISOString().replace(/[-:T]/g, "").slice(2, 12);
 const REQUEUE = has("--requeue");
 if (!CORPUS) { console.error("--corpus required"); process.exit(2); }
 
@@ -305,7 +314,7 @@ async function runBatch(batch, idx) {
         retryNote = `직전 시도에서 아래 문제가 검출됐다. 해당 항목을 고쳐 전체를 다시 출력하라:\n${problems.slice(0, 20).join("\n")}\n\n`;
         continue;
       }
-      const file = join(outDir, `${REQUEUE ? "rq-" : ""}${String(idx).padStart(5, "0")}.json`);
+      const file = join(outDir, `${REQUEUE ? "rq-" : "b-"}${RUN_ID}-${String(idx).padStart(5, "0")}.json`);
       writeFileSync(file, JSON.stringify(rows, null, 1));
       logLedger({ ts: new Date().toISOString(), corpus: CORPUS, tag: TAG, batch: idx,
         status: problems.length ? "ok_with_warnings" : "ok", keys: rows.map((r) => r.entity_key),
