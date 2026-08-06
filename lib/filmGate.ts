@@ -68,11 +68,38 @@ async function loadIndexableSlugs(): Promise<string> {
   return Object.values(roster).filter(filmIndexBar).map((s) => s.slug).join("\n");
 }
 
-async function indexableSlugSet(): Promise<Set<string>> {
-  const raw = await unstable_cache(loadIndexableSlugs, ["film-indexable-slugs-1"], { revalidate: 3600 })();
-  if (setCache?.raw !== raw) setCache = { raw, set: new Set(raw ? raw.split("\n") : []) };
-  lastGoodSet = setCache.set;
-  return setCache.set;
+/* Per-instance memo, checked BEFORE the Data Cache.
+ *
+ * The docblock above blamed the 2 MB entry ceiling for the cache "not holding at
+ * all", and shrinking the entry to 63 kB was necessary — but it was not the whole
+ * story, because a small entry is still not READ when unstable_cache runs nested
+ * inside another unstable_cache callback. That is this gate's hottest path:
+ * components/read/ReadPlates.tsx caches per slug across ~38,000 URLs and calls
+ * filmMainIndexable inside that callback. Tier-1 films short-circuit on the
+ * `visible` hint, but Tier-2 — precisely the long tail crawlers walk — falls
+ * through to the RPC on every single miss. That matches the measurement above:
+ * 4,405 executions in 20.5 hours against a revalidate that should give 21.
+ *
+ * Holding the promise here short-circuits the nested call for the life of the
+ * instance. Same pattern as lib/locations.ts and lib/lineage.ts.
+ */
+const SLUG_SET_TTL_MS = 60 * 60 * 1000;
+let slugSetMemo: { at: number; value: Promise<Set<string>> } | null = null;
+
+function indexableSlugSet(): Promise<Set<string>> {
+  const now = Date.now();
+  if (slugSetMemo && now - slugSetMemo.at < SLUG_SET_TTL_MS) return slugSetMemo.value;
+  const value = (async () => {
+    const raw = await unstable_cache(loadIndexableSlugs, ["film-indexable-slugs-1"], { revalidate: 3600 })();
+    if (setCache?.raw !== raw) setCache = { raw, set: new Set(raw ? raw.split("\n") : []) };
+    lastGoodSet = setCache.set;
+    return setCache.set;
+  })().catch((e) => {
+    slugSetMemo = null; // never hold a failure for an hour
+    throw e;
+  });
+  slugSetMemo = { at: now, value };
+  return value;
 }
 
 /**
