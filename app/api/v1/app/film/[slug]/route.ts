@@ -5,6 +5,7 @@ import { mergePins, type GeoPin } from "@/lib/locations";
 import { CODEX_DIMS } from "@/lib/cinecodex_dims";
 import { filmBackdropPaths } from "@/lib/read-media";
 import { appLocale, filmLabels, pick } from "@/lib/i18n/appProjection";
+import { locVal } from "@/lib/i18n/values";
 
 /**
  * Mobile BFF — Film card (HANDOFF-모바일앱-프리워치.md §7).
@@ -47,7 +48,13 @@ export async function GET(req: Request, { params }: Params) {
     const { data: film, error: filmErr } = await db
       .from("films")
       .select(
-        "id, slug, title, original_title, year, director, director_slug, poster_path, backdrop_path, runtime, genres, is_analyzed, tmdb_id",
+        // The trailing poster_path_* are migration 0137 — the reader's own
+        // artwork, resolved by locVal below. Listed as a LITERAL, not built by
+        // concatenation: supabase-js derives the row type from the select
+        // string, and a runtime-built one erases it (every field on this row
+        // becomes an error). Six short, usually-NULL text columns on one row is
+        // not a cost worth losing the types over.
+        "id, slug, title, original_title, year, director, director_slug, poster_path, backdrop_path, runtime, genres, is_analyzed, tmdb_id, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi",
       )
       .eq("slug", slug)
       .maybeSingle();
@@ -347,7 +354,10 @@ export async function GET(req: Request, { params }: Params) {
         year: film.year ?? null,
         director: film.director ?? null,
         director_slug: film.director_slug ?? null,
-        poster_path: film.poster_path ?? null,
+        // locVal falls back to films.poster_path, which is what most films will
+        // use: TMDB has localized artwork for the widely-released, and English
+        // is the right answer for the rest — never a blank.
+        poster_path: locVal(film as Record<string, unknown>, "poster_path", locale),
         backdrop_path: film.backdrop_path ?? null,
         runtime: film.runtime ?? null,
         genres: Array.isArray(film.genres) ? (film.genres as string[]) : null,

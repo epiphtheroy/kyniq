@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { appLocale, directorLabels, pick } from "@/lib/i18n/appProjection";
+import { locVal } from "@/lib/i18n/values";
 
 /**
  * Mobile BFF — Director card (HANDOFF-모바일앱-프리워치.md §2.2).
@@ -31,11 +32,18 @@ export async function GET(req: Request, { params }: Params) {
     return NextResponse.json(TOO_MANY, { status: 429, headers: API_CORS });
   }
 
+  // Locale projection — one batched content_i18n read, English wherever a row is
+  // absent. Same table the web reads, so one translation serves both. Declared
+  // here because the films query below selects a poster column by this name.
+  const locale = appLocale(new URL(req.url).searchParams.get("locale"));
+
   try {
     const [filmsRes, dirRes, portraitRes, factsRes, picksRes, nextRes] = await Promise.all([
       db
         .from("films")
-        .select("id, slug, title, year, poster_path")
+        // Trailing poster_path_* = migration 0137, resolved by locVal below.
+        // A literal, not a built string: supabase-js types the row from it.
+        .select("id, slug, title, year, poster_path, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
         .eq("director_slug", slug)
         .eq("visible", true)
         .order("year"),
@@ -120,9 +128,6 @@ export async function GET(req: Request, { params }: Params) {
       facts: { n: number; text: string; source?: string | null }[] | null;
     } | null;
 
-    // Locale projection — one batched content_i18n read, English wherever a row
-    // is absent. Same table the web reads, so one translation serves both.
-    const locale = appLocale(new URL(req.url).searchParams.get("locale"));
     const i18n = await directorLabels(locale, slug);
 
     return NextResponse.json(
@@ -153,7 +158,7 @@ export async function GET(req: Request, { params }: Params) {
           slug: f.slug,
           title: f.title,
           year: f.year,
-          poster_path: f.poster_path,
+          poster_path: locVal(f as unknown as Record<string, unknown>, "poster_path", locale),
           ts: tsMap.get(f.slug) ?? null,
           tiers: tierMap.get(f.slug) ?? [],
         })),

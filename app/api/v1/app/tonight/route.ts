@@ -3,6 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { TAKESCORE_PRESETS } from "@/lib/takescore_presets";
 import { appLocale, isProjected, pick } from "@/lib/i18n/appProjection";
+import { locVal } from "@/lib/i18n/values";
 import { loadLabels } from "@/lib/i18n/dbLabel";
 
 /**
@@ -325,9 +326,25 @@ export async function GET(req: Request) {
     // Tier-2 rows simply have no invitation and render without a lead.
     const leadMap = new Map<string, string>();
     const idMap = new Map<string, string>();
+    // The reader's own poster (migration 0137). The deck's rows come from
+    // cinecodex_ranked, which returns the English path — rather than teach the
+    // ranking RPC about languages, overlay it here, on the films lookup this
+    // block already performs. Zero extra queries.
+    const posterMap = new Map<string, string>();
     if (slugs.length) {
       try {
-        const { data: filmRows } = await db.from("films").select("id, slug").in("slug", slugs);
+        const { data: filmRows } = await db
+          .from("films")
+          // Trailing poster_path_* = migration 0137. A literal, not a built
+          // string: supabase-js types the row from the select text.
+          .select("id, slug, poster_path, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
+          .in("slug", slugs);
+        if (isProjected(locale)) {
+          for (const f of (filmRows ?? []) as unknown as Record<string, unknown>[]) {
+            const p = locVal(f, "poster_path", locale);
+            if (p && typeof f.slug === "string") posterMap.set(f.slug, p);
+          }
+        }
         const slugById = new Map(
           ((filmRows ?? []) as { id: string; slug: string }[]).map((f) => [f.id, f.slug]),
         );
@@ -387,7 +404,9 @@ export async function GET(req: Request) {
           slug: r.slug,
           title: r.title,
           year: r.year,
-          poster_path: r.poster_path,
+          // English stands wherever TMDB has no localized artwork — which is
+          // most pre-1990 and never-released-there films.
+          poster_path: posterMap.get(r.slug) ?? r.poster_path,
           director: r.director,
           director_slug: r.director_slug ?? null,
           ts: tsMap.get(r.slug) ?? null,
