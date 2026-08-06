@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import { useColorScheme } from "react-native";
 import "react-native-reanimated";
 
+import PreviewBadge from "../src/components/PreviewBadge";
 import { RateProvider } from "../src/components/RateSheet";
 import { FilmsProvider } from "../src/state/films";
 import { PrefsProvider } from "../src/state/prefs";
@@ -119,6 +120,8 @@ function RootLayoutNav() {
                 }}
               />
             </Stack>
+            {/* Dev + web only; renders null everywhere else. */}
+            <PreviewBadge />
           </RateProvider>
           <StatusBar style="auto" />
         </FilmsProvider>
