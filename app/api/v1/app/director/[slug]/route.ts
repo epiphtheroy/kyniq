@@ -38,9 +38,16 @@ export async function GET(req: Request, { params }: Params) {
   const locale = appLocale(new URL(req.url).searchParams.get("locale"));
   // The app carries TWO language axes: `locale` is the chrome and the prose,
   // `content` is what films and people are NAMED in. A reader can want Korean
-  // titles under English chrome. Names follow content; falls back to locale,
-  // which is what a client that only knows one axis means anyway.
-  const content = appLocale(new URL(req.url).searchParams.get("content") || null) || locale;
+  // titles under English chrome. Names follow content.
+  //
+  // The fallback tests the RAW param, not appLocale's answer. appLocale returns
+  // the DEFAULT locale for a missing value — "en", which is truthy — so
+  // `appLocale(x) || locale` can never reach `locale`, and a client sending only
+  // ?locale=ko was silently answered in English. Same shape as the null handed
+  // to pick() in the Tonight route: a helper's "there is nothing here" reply
+  // read as a value.
+  const rawContent = new URL(req.url).searchParams.get("content");
+  const content = rawContent ? appLocale(rawContent) : locale;
 
   try {
     const [filmsRes, dirRes, portraitRes, factsRes, picksRes, nextRes] = await Promise.all([
