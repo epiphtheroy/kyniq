@@ -38,7 +38,7 @@ export const ADMIN_DOCS: AdminDocMeta[] = [
     category: "strategy",
     nav: "쌍방향성 · Talk 레이어",
     title: "쌍방향성 기획 — Talk 레이어",
-    desc: "대화의 주소는 영화·figure·감독, 우리 글은 인용 임베드·@ 첨부(주소는 세계, 첨부는 글). Talk·Quote·광장 3층 + 상주 캐스트 Apps(Draft·Prism·Tray, 대화 국면의 인격화)와 콜드스타트·안전·기술 설계 + 공개 프로필(/u)·마이룸 접속점. 오너 결정 D1~D9 대기.",
+    desc: "대화의 주소는 영화·figure·감독, 우리 글은 인용 임베드·@ 첨부(주소는 세계, 첨부는 글). Talk·Quote·광장 3층 + 상주 캐스트 Apps(Draft·Prism·Tray — ⏸08-08 보류, 장 먼저)와 콜드스타트·안전·기술 설계 + 공개 프로필(/u)·마이룸 접속점. 오너 결정 D1~D9 대기.",
     updated: "2026-08-07",
   },
   {
