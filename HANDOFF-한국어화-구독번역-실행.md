@@ -370,3 +370,40 @@ if (ko && ko !== en) leadMap.set(slug, firstSentence(ko));
   모양(`sbp_`·44자)은 멀쩡하니 토큰 자체를 Management API로 찔러봐야 안다. 재발급=대시보드 → `.env.local` 한 줄.
 - 🚨**파이썬 stdout 버퍼링** — 리다이렉트하면 로그가 20분간 비어, **도는 런과 매달린 런이 구분되지 않는다.**
   진도는 산출물(DB 카운트)로 재라. 워커에 `reconfigure(line_buffering=True)` 넣음(`b080ec7b`).
+
+### 7.6 감독 이름 (마이그 0139) — Wikidata를 **ID로** 조인
+
+Tonight 덱이 한국어 제목 밑에 "Bong Joon Ho"를 찍고 있었다. `directors.name_ko` 컬럼이 아예 없었다.
+
+🚨**TMDB `also_known_as`는 두 번 틀린 답이다**: ① 가장 필요한 사람에게 없다(봉준호·오즈·큐브릭 전부 한글 aka 없음)
+② 있는 곳엔 경쟁 표기가 여럿이라 고를 근거가 없다("잉마르 베리히만" vs "잉그마르 베르히만").
+
+✅**Wikidata**: `tmdb_person_id` → `/person/{id}/external_ids` → `wikidata_id` → `wbgetentities` 레이블.
+표준 표기 하나로 나온다(잉마르 베리만·오즈 야스지로·스탠리 큐브릭).
+
+🚨**이름으로 매칭하지 마라.** `public.theorists`가 이름매칭으로 22.5% 오염된 전례가 있다. QID 조인은 엉뚱한 사람을 못 붙인다.
+
+**실측(871명 전수)**: Wikidata ID **862(99%)** · ko **748(86%)** · ja 821 · zh 817 · hi 186 · es/fr 각 57.
+⚠️es/fr가 낮은 건 결함이 아니다 — 라틴문자권은 표기가 영어와 같아서 **영어와 동일한 레이블은 저장하지 않는다**(정보 0).
+
+**덤**: `directors.wikidata_id`를 함께 저장. AI봇 맞이하기 문서가 **첫 격차로 꼽은 "엔티티 신원"**이 공짜로 확보됐다.
+
+**배선**: `film_titles_for_slugs` 3차 확장(제목→포스터→감독). 한 카드가 셋을 함께 보여주므로 한 요청이 맞다.
+시그니처 불변(`returns json`)이라 co-deploy 불필요. 감독 본인 페이지만 BFF `content` 파라미터.
+
+🚨**축 규칙 확정**: **이름·제목·포스터 = `contentLang`**(그 영화/사람이 불리는 이름). **크롬·산문 = `locale`**.
+영어 크롬 + 한국어 제목을 원하는 독자가 있고, 한 카드에서 축이 갈리면 세 언어가 싸운다.
+
+### 7.7 앱이 여는 웹 페이지는 대부분 영어다 (앱 결함 아님)
+
+| 앱에서 여는 곳 | 경로 | /ko |
+|---|---|---|
+| 메타테이크 전체 페이지 | `/film/[slug]` | ✅ 200 |
+| TakeScore | `/takescore/film/[slug]` | ❌ 404 |
+| 어디서 볼까 전체 | `/whereto/[slug]` | ❌ 404 |
+| TV·편성 리스트 | `/tv/*` | ❌ 404 |
+| For You · About · 검색 | `/journey` `/about` `/omni` | ❌ 404 |
+
+웹의 ko 셸은 **`/ko/film/[slug]`·`/ko/director/[slug]`·`/ko/film/locations/[slug]` 셋뿐**이다.
+`localizedPath` 허용목록이 이 셋만 `/ko/`로 보내는 건 **의도된 동작** — 없는 경로에 붙이면 404고 ISR이 1시간 캐시한다.
+**해결은 웹에 ko 셸을 만드는 것**(다국어 프로젝션 §-2.2). 앱에서 눌리는 빈도로는 TakeScore·어디서볼까가 먼저.
