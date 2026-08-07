@@ -9,7 +9,7 @@
  * personalization) and comments stay out of the crawlable HTML for now.
  */
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { createBrowserClient } from "@supabase/ssr";
 import { requireAuthEvent } from "@/lib/conversion/bus";
@@ -74,10 +74,13 @@ export default function TalkSection({
   addrType,
   addrKey,
   title,
+  rollupFilmKeys,
 }: {
   addrType: "film" | "director";
   addrKey: string;
   title: string;
+  /** director pages: film slugs whose talk rolls up here (plan §2 layer 3) */
+  rollupFilmKeys?: string[];
 }) {
   const [posts, setPosts] = useState<TalkPost[]>([]);
   const [likes, setLikes] = useState<Record<string, number>>({});
@@ -92,6 +95,7 @@ export default function TalkSection({
   const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
+  const inflight = useRef(false);
 
   const load = useCallback(async () => {
     const c = sb();
@@ -106,7 +110,12 @@ export default function TalkSection({
     if (addrType === "film") {
       q = q.or(`film_key.eq.${addrKey},and(addr_type.eq.film,addr_key.eq.${addrKey})`);
     } else {
-      q = q.eq("addr_type", "director").eq("addr_key", addrKey);
+      const keys = (rollupFilmKeys ?? []).filter(Boolean).slice(0, 100);
+      if (keys.length) {
+        q = q.or(`and(addr_type.eq.director,addr_key.eq.${addrKey}),film_key.in.(${keys.join(",")})`);
+      } else {
+        q = q.eq("addr_type", "director").eq("addr_key", addrKey);
+      }
     }
     const { data, error: err } = await q;
     if (err || !data) return; // table may not exist yet on stale envs — stay quiet
@@ -121,7 +130,8 @@ export default function TalkSection({
         setLikes(m);
       }
     }
-  }, [addrType, addrKey]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addrType, addrKey, (rollupFilmKeys ?? []).join(",")]);
 
   useEffect(() => {
     let alive = true;
@@ -178,6 +188,8 @@ export default function TalkSection({
         requireAuthEvent({ ctx: { kind: "save", verb: "save" } });
         return;
       }
+      if (inflight.current) return; // double-click guard — one note per tap
+      inflight.current = true;
       setBusy(true);
       setError(null);
       setNotice(null);
@@ -194,6 +206,7 @@ export default function TalkSection({
         })
         .select("id, status")
         .maybeSingle();
+      inflight.current = false;
       setBusy(false);
       if (err) {
         const msg = err.message.includes("rate limit") || err.message.includes("limited to")
@@ -252,12 +265,20 @@ export default function TalkSection({
     const color = app ? app.color : avatarColor(p.author?.username || p.author_id || name);
     const n = likes[p.id] ?? 0;
     const mine = uid !== null && p.author_id === uid;
+    const chipHref =
+      p.addr_type === "director"
+        ? `/director/${p.addr_key}`
+        : p.addr_type === "score"
+          ? `/takescore/film/${p.film_key ?? p.addr_key}`
+          : p.addr_type === "figure"
+            ? `/film/${p.film_key ?? p.addr_key}`
+            : `/film/${p.addr_key}`;
     const chip =
       p.addr_type !== addrType || p.addr_key !== addrKey ? (
-        <span className={`tk-chip ${p.addr_type}`}>
+        <Link className={`tk-chip ${p.addr_type}`} href={chipHref}>
           {p.addr_type === "figure" ? "◈ " : ""}
-          {p.addr_type.toUpperCase()} · {p.addr_key.replace(/-/g, " ").toUpperCase()}
-        </span>
+          {p.addr_key.replace(/-/g, " ").toUpperCase()}
+        </Link>
       ) : null;
     return (
       <div key={p.id} className={`tk-msg${isReply ? " tk-reply" : ""}`}>

@@ -1387,7 +1387,12 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
         </section>
 
         {talkEnabledForDirector(slug) ? (
-          <TalkSection addrType="director" addrKey={slug} title={director} />
+          <TalkSection
+            addrType="director"
+            addrKey={slug}
+            title={director}
+            rollupFilmKeys={films.map((f: { slug: string }) => f.slug)}
+          />
         ) : null}
 
         <JoinCard variant="director" source="director-main" />
