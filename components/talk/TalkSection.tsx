@@ -40,6 +40,23 @@ interface SeedQuestion {
   slug: string;
 }
 
+/** Faint example sentences for the composer — the voice bank's surviving
+ *  export (08-08: apps shelved; the placeholder models the register instead).
+ *  Stable pick per address so the prompt doesn't flicker between renders. */
+const STARTERS = [
+  "The scene I can't shake is…",
+  "Say what the reading missed…",
+  "I watched it last night, and…",
+  "The score feels wrong to me because…",
+  "Nobody talks about the moment when…",
+  "I didn't understand the ending until…",
+];
+function starterFor(seed: string): string {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+  return STARTERS[h % STARTERS.length];
+}
+
 function timeAgo(iso: string): string {
   const s = Math.max(1, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
   if (s < 60) return "now";
@@ -395,7 +412,7 @@ export default function TalkSection({
           className="tk-input"
           value={text}
           maxLength={2000}
-          placeholder={`Write about ${title}…`}
+          placeholder={starterFor(addrKey)}
           onChange={(e) => setText(e.target.value)}
           onFocus={() => {
             if (!uid) requireAuthEvent({ ctx: { kind: "save", verb: "save" } });
