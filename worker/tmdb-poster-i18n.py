@@ -26,6 +26,14 @@ Nothing else changes — lib/i18n/values.ts locVal() already reads the column.
 import datetime, json, os, sys, time, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
+# Unbuffered when redirected. A long run whose log stays empty for twenty minutes
+# is indistinguishable from a run that hung, and this repo has lost hours to that
+# exact ambiguity — the answer is not to guess, it is to make progress visible.
+try:
+    sys.stdout.reconfigure(line_buffering=True)
+except AttributeError:  # pragma: no cover — Python < 3.7
+    pass
+
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 
 
