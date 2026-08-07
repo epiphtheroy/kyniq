@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { t, intlTag, locPath, LOCALES, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 import { genreName } from "@/lib/i18n/genres";
 import { loadFilmTitles, filmTitle } from "@/lib/i18n/filmTitles";
+import { loadLabels, dbLabel } from "@/lib/i18n/dbLabel";
+import { locVal } from "@/lib/i18n/values";
 import EnglishOriginalLabel from "@/components/i18n/EnglishOriginalLabel";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
@@ -85,7 +87,7 @@ async function loadUncached(slug: string) {
   const hiddenTotal = hiddenCount ?? hiddenFilms.length;
 
   const [{ data: dir }, { data: portrait }, { data: facts }, { data: picks }, { data: next }, { data: recByRaw }, { data: misRows }, { data: archRows }] = await Promise.all([
-    supabase.from("directors").select("name, profile_path, bio, birthday, place_of_birth").eq("slug", slug).maybeSingle(),
+    supabase.from("directors").select("name, profile_path, bio, birthday, place_of_birth, name_ko, name_es, name_ja, name_zh, name_fr, name_hi").eq("slug", slug).maybeSingle(),
     supabase.from("director_portrait").select("body, source").eq("director_slug", slug).maybeSingle(),
     supabase.from("director_facts").select("name_meaning, intro, facts").eq("director_slug", slug).maybeSingle(),
     supabase.from("director_picks").select("pos, film_slug, film_title, film_year, label, reason").eq("director_slug", slug).order("pos"),
@@ -564,7 +566,50 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
     if (alias) permanentRedirect(alias);
     notFound();
   }
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, geoTopPins = [], geoCountries = [], hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
+  const { director: directorEn, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait: portraitEn, facts: factsEn, picks: picksEn, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, geoTopPins = [], geoCountries = [], hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
+
+  // ── Locale projection ───────────────────────────────────────────────────────
+  //
+  // Everything below already existed, translated, in content_i18n — the portrait,
+  // the name's meaning, the intro, all the numbered facts and every "start here"
+  // note. This page simply never asked. Same table the app reads, so one
+  // translation serves both.
+  //
+  // Projected into NEW objects, never by mutating `data`: that object comes from
+  // a cached loader shared with the English page, and writing Korean into it
+  // would leak across locales.
+  //
+  // On the source locale loadLabels short-circuits to an empty map and dbLabel
+  // returns its English argument, so `en` costs nothing and cannot change.
+  const factKeys = [slug, ...(factsEn?.facts ?? []).map((f) => `${slug}#${f.n}`)];
+  const pickKeys = (picksEn as Pick[]).map((p) => `${slug}#${p.film_slug}`).filter(Boolean);
+  const [portraitLabels, factLabels, pickLabels] = await Promise.all([
+    loadLabels(locale, "director_portrait", [slug]),
+    loadLabels(locale, "director_fact", factKeys),
+    // Keyed on the FILM, not the position: three directors carry two complete
+    // pick sets each, so a position key put one film's note under another's name.
+    loadLabels(locale, "director_pick", pickKeys),
+  ]);
+  const portrait = portraitEn
+    ? { ...portraitEn, body: dbLabel(portraitLabels, locale, "director_portrait", slug, "body", portraitEn.body) }
+    : portraitEn;
+  const facts = factsEn
+    ? {
+        ...factsEn,
+        name_meaning: dbLabel(factLabels, locale, "director_fact", slug, "name_meaning", factsEn.name_meaning),
+        intro: dbLabel(factLabels, locale, "director_fact", slug, "intro", factsEn.intro),
+        facts: (factsEn.facts ?? []).map((f) => ({
+          ...f,
+          text: dbLabel(factLabels, locale, "director_fact", `${slug}#${f.n}`, "fact", f.text) ?? f.text,
+        })),
+      }
+    : factsEn;
+  const picks = (picksEn as Pick[]).map((p) => ({
+    ...p,
+    reason: dbLabel(pickLabels, locale, "director_pick", `${slug}#${p.film_slug}`, "reason", p.reason),
+  }));
+  // A person's name is spelled, not translated — Wikidata by exact id (0139).
+  const director = (dir ? locVal(dir as unknown as Record<string, unknown>, "name", locale) : null) ?? directorEn;
   // Localized titles for every film referenced on this page (filmography, picks,
   // hero cards) — all are this director's own films, so one batch over films +
   // hiddenFilms covers them all. Empty map on the source locale (SEO safe).

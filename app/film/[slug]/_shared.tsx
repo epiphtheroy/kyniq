@@ -255,7 +255,7 @@ async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film, error: filmErr } = await supabase
     .from("films")
-    .select("id, title, original_title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, wikidata_id, tmdb_extra, created_at, visible, is_analyzed")
+    .select("id, title, original_title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, wikidata_id, tmdb_extra, created_at, visible, is_analyzed, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
     .eq("slug", slug).maybeSingle();
   // A failed query returns data:null too. Reading only `data` turns a database
   // timeout into "no such film" → notFound() → a 404 that ISR then caches for an
@@ -572,19 +572,32 @@ function loadChrome(slug: string) {
 }
 
 // Director's circular face photo (directors.profile_path, TMDB) — shown under the
-// film title. Cached per director; 99% of directors have one.
-function loadDirectorPhoto(directorSlug: string | null) {
-  if (!directorSlug) return Promise.resolve<string | null>(null);
+// film title — and, since 0139, the same person's name in every language we
+// project. One row already being read; the names ride along rather than costing
+// a second query per film page.
+//
+// Locale-generic on purpose: the row is returned whole and locVal picks the
+// column at render. Adding a seventh language is a column in the migration and
+// one more name in this select — no branch here changes.
+function loadDirectorRow(directorSlug: string | null) {
+  if (!directorSlug) return Promise.resolve<DirRow | null>(null);
   return unstable_cache(
     async () => {
       const supabase = db();
-      const { data } = await supabase.from("directors").select("profile_path").eq("slug", directorSlug).maybeSingle();
-      return (data as { profile_path?: string | null } | null)?.profile_path ?? null;
+      const { data } = await supabase
+        .from("directors")
+        // A single literal: supabase-js derives the row type from this text.
+        .select("profile_path, name, name_ko, name_es, name_ja, name_zh, name_fr, name_hi")
+        .eq("slug", directorSlug)
+        .maybeSingle();
+      return (data as DirRow | null) ?? null;
     },
-    ["dir-photo1", directorSlug],
+    // v2: the shape changed, so the old entries must not be read as the new one.
+    ["dir-row2", directorSlug],
     { revalidate: 86400, tags: [`director:${directorSlug}`] },
   )();
 }
+type DirRow = { profile_path?: string | null; name?: string | null } & Record<string, unknown>;
 
 // Tier-2 "keep reading" modules (lib/related.ts recipe) — cached per slug like
 // the main load, so the catalog route stays ISR-cached.
@@ -777,7 +790,12 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
   const enOrig: "en" | undefined = locale === DEFAULT_LOCALE ? undefined : "en";
   // Director face photo (shown under the title in both render branches).
   const anyData = data as { minimal?: boolean; directorSlug?: string | null; film?: { director_slug?: string | null } };
-  const directorPhoto = await loadDirectorPhoto(anyData.minimal ? (anyData.directorSlug ?? null) : (anyData.film?.director_slug ?? null));
+  const dirRow = await loadDirectorRow(anyData.minimal ? (anyData.directorSlug ?? null) : (anyData.film?.director_slug ?? null));
+  const directorPhoto = dirRow?.profile_path ?? null;
+  // A person's name is spelled, not translated — Wikidata by exact id (0139).
+  // English stands wherever we hold no localized spelling, which is most of the
+  // Latin-script world, where the spelling simply is the same.
+  const directorName = (dirRow ? locVal(dirRow, "name", locale) : null) ?? null;
   // Embedding Fantasia rows — shared by both the Tier-1 and Tier-2 render branches.
   // EN only (work order §1.1 decision ①, owner call 2026-07-16): these are whole
   // English sentences stored per row, so the dictionary cannot reach them, and the
@@ -1258,7 +1276,19 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
+  const { film: filmEn, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
+  // ONE projected copy, so every render site below — hero, gallery gate, JSON-LD,
+  // the director card, the facts line — speaks the reader's language without a
+  // dozen call-site edits. A new object, never a mutation: `data` comes from a
+  // cached loader shared with the English page.
+  //
+  // Locale-generic: locVal resolves `poster_path_<locale>` by name, so a seventh
+  // language is a column and nothing here changes.
+  const film = {
+    ...filmEn,
+    poster_path: locVal(filmEn as Record<string, unknown>, "poster_path", locale),
+    director: directorName ?? filmEn.director,
+  };
   // DB-label translations (content_i18n) for this page's entities — one query per
   // type, projected at render via dbLabel. Empty (English fallback) until the
   // owner loads content_i18n; on the source locale never even queried (SEO safe).
@@ -1272,14 +1302,29 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     ...counterpoints.map((c) => c.film.slug),
     ...recommendedBy.map((r) => r.source_slug),
   ].filter((s): s is string => !!s);
-  const [figLabels, tropeLabels, archLabels, invLabels, filmTitles] = await Promise.all([
+  const [figLabels, tropeLabels, archLabels, invLabels, towLabels, linLabels, filmTitles] = await Promise.all([
     loadLabels(locale, "figure", figures.map((f) => f.slug).filter((s): s is string => !!s)),
     loadLabels(locale, "trope", tropes.map((tr) => tr.slug)),
     loadLabels(locale, "taxonomy", archSlugs),
     loadLabels(locale, "invitation", [film.slug]),
+    loadLabels(locale, "tow_comment", [film.slug]),
+    // ⚠️ lineage_list is keyed on the English LABEL, not the slug — that corpus
+    // was extracted that way, and asking by slug matches nothing while rendering
+    // perfectly, because the fallback IS the correct English.
+    loadLabels(locale, "lineage_list", [...new Set(lineage.map((l) => l.list_label).filter(Boolean))]),
     loadFilmTitles(locale, refFilmSlugs),
   ]);
-  const invitationKo = invitation ? dbLabel(invLabels, locale, "invitation", film.slug, "rationale", invitation) : null;
+  const invitationLoc = invitation ? dbLabel(invLabels, locale, "invitation", film.slug, "rationale", invitation) : null;
+  // New objects, never a mutation of `data`: that object comes from a cached
+  // loader shared with the English page. On the source locale every dbLabel here
+  // returns its English argument, so `en` cannot change.
+  const towLoc = tow?.rationale
+    ? { ...tow, rationale: dbLabel(towLabels, locale, "tow_comment", film.slug, "rationale", tow.rationale) ?? tow.rationale }
+    : tow;
+  const lineageLoc = lineage.map((l) => ({
+    ...l,
+    list_label: dbLabel(linLabels, locale, "lineage_list", l.list_label, "label", l.list_label) ?? l.list_label,
+  }));
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -1547,7 +1592,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: film.title })}</h2>
                   <span className="df-invite__badge">{t(locale, "Spoiler-free")}</span>
                 </div>
-                <p className="df-invite__p" lang={invitationKo && locale!==DEFAULT_LOCALE ? locale : enOrig}>{invitationKo ?? invitation}</p>
+                <p className="df-invite__p" lang={invitationLoc && locale!==DEFAULT_LOCALE ? locale : enOrig}>{invitationLoc ?? invitation}</p>
                 <div className="df-invite__foot">
                   <div className="df-invite__note">{t(locale, "The readings below do not hold back.")}</div>
                   <div className="df-invite__by">{t(locale, "Written by Metatake AI · to a framework by")} <Link href="/editor">Wonwoo Yoon</Link></div>
@@ -1607,7 +1652,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
 
         <CinecodexPanel locale={locale} data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "takescore", label: "TakeScore" }]} variant="section" /> : null} />
-        <TowCard locale={locale} tow={tow} filmTitle={film.title} variant="short" slug={film.slug} />
+        <TowCard locale={locale} tow={towLoc} filmTitle={film.title} variant="short" slug={film.slug} />
 
         {/* ATLAS — real-world places (directly under the TakeScore) */}
         {geoCount > 0 ? (
@@ -1642,7 +1687,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection locale={locale} lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife}
+        <FilmLineageSection locale={locale} lineage={lineageLoc} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife}
           recordUpdated={(film as { created_at?: string | null }).created_at ?? null}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "standing", label: "Standing & honors" }]} variant="section" /> : null} />
 
