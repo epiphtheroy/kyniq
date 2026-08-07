@@ -3,6 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { TAKESCORE_PRESETS } from "@/lib/takescore_presets";
 import { appLocale, isProjected, pick } from "@/lib/i18n/appProjection";
+import { locVal } from "@/lib/i18n/values";
 import { loadLabels } from "@/lib/i18n/dbLabel";
 
 /**
@@ -325,8 +326,28 @@ export async function GET(req: Request) {
     // Tier-2 rows simply have no invitation and render without a lead.
     const leadMap = new Map<string, string>();
     const idMap = new Map<string, string>();
+    // The reader's own poster (migration 0137). The deck's rows come from
+    // cinecodex_ranked, which returns the English path — rather than teach the
+    // ranking RPC about languages, overlay it here.
+    //
+    // Its own query, not columns on the films lookup below: that lookup carries
+    // film_id and the whole invitation chain, and a select naming a column the
+    // database does not have returns NO ROWS — which would drop the leads and
+    // every film_id in silence rather than just the artwork. Cheaper coupling is
+    // worth one more round trip on a response cached for fifteen minutes.
+    const posterMap = new Map<string, string>();
     if (slugs.length) {
       try {
+        if (isProjected(locale)) {
+          const { data: art } = await db
+            .from("films")
+            .select("slug, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
+            .in("slug", slugs);
+          for (const f of (art ?? []) as unknown as Record<string, unknown>[]) {
+            const p = locVal(f, "poster_path", locale);
+            if (p && typeof f.slug === "string") posterMap.set(f.slug, p);
+          }
+        }
         const { data: filmRows } = await db.from("films").select("id, slug").in("slug", slugs);
         const slugById = new Map(
           ((filmRows ?? []) as { id: string; slug: string }[]).map((f) => [f.id, f.slug]),
@@ -362,11 +383,12 @@ export async function GET(req: Request) {
           const keys = [...leadMap.keys()];
           const inv = await loadLabels(locale, "invitation", keys);
           for (const slug of keys) {
-            // Hand pick() the English it is projecting FROM. It short-circuits
-            // on a falsy `en` before it ever looks, because everywhere else it
-            // is used "nothing to render" and "nothing to translate" are the
-            // same state. Passing null asked it to translate nothing, and it
-            // faithfully returned nothing — the deck shipped English for a day
+            // Hand pick() the English it is projecting FROM. It returns `en`
+            // untouched when there is no localized row — and short-circuits on a
+            // falsy `en` before it ever looks, because "nothing to render" and
+            // "nothing to translate" are the same state everywhere else it is
+            // used. Passing null here asked it to translate nothing, and it
+            // faithfully returned nothing: the deck shipped English for a day
             // with the translations sitting in the table.
             const en = leadMap.get(slug) ?? null;
             const ko = pick(inv, locale, "invitation", slug, "rationale", en);
@@ -394,7 +416,9 @@ export async function GET(req: Request) {
           slug: r.slug,
           title: r.title,
           year: r.year,
-          poster_path: r.poster_path,
+          // English stands wherever TMDB has no localized artwork — which is
+          // most pre-1990 and never-released-there films.
+          poster_path: posterMap.get(r.slug) ?? r.poster_path,
           director: r.director,
           director_slug: r.director_slug ?? null,
           ts: tsMap.get(r.slug) ?? null,

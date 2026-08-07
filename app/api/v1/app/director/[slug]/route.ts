@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
-import { appLocale, directorLabels, pick } from "@/lib/i18n/appProjection";
+import { appLocale, directorLabels, isProjected, pick } from "@/lib/i18n/appProjection";
+import { locVal } from "@/lib/i18n/values";
 
 /**
  * Mobile BFF — Director card (HANDOFF-모바일앱-프리워치.md §2.2).
@@ -30,6 +31,11 @@ export async function GET(req: Request, { params }: Params) {
   if (await guardAndLog(db, req, "app_director", slug)) {
     return NextResponse.json(TOO_MANY, { status: 429, headers: API_CORS });
   }
+
+  // Locale projection — one batched content_i18n read, English wherever a row is
+  // absent. Same table the web reads, so one translation serves both. Declared
+  // here because the films query below selects a poster column by this name.
+  const locale = appLocale(new URL(req.url).searchParams.get("locale"));
 
   try {
     const [filmsRes, dirRes, portraitRes, factsRes, picksRes, nextRes] = await Promise.all([
@@ -120,10 +126,22 @@ export async function GET(req: Request, { params }: Params) {
       facts: { n: number; text: string; source?: string | null }[] | null;
     } | null;
 
-    // Locale projection — one batched content_i18n read, English wherever a row
-    // is absent. Same table the web reads, so one translation serves both.
-    const locale = appLocale(new URL(req.url).searchParams.get("locale"));
     const i18n = await directorLabels(locale, slug);
+    // The reader's own posters (0137) — a SEPARATE, failure-tolerant read rather
+    // than columns on the films query above. A missing column there would empty
+    // the filmography; here it costs the localized artwork and nothing else.
+    const artOf = new Map<string, string>();
+    if (isProjected(locale)) {
+      const { data: art } = await db
+        .from("films")
+        .select("slug, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
+        .eq("director_slug", slug)
+        .eq("visible", true);
+      for (const a of (art ?? []) as unknown as Record<string, unknown>[]) {
+        const v = locVal(a, "poster_path", locale);
+        if (v && typeof a.slug === "string") artOf.set(a.slug, v);
+      }
+    }
 
     return NextResponse.json(
       {
@@ -153,7 +171,7 @@ export async function GET(req: Request, { params }: Params) {
           slug: f.slug,
           title: f.title,
           year: f.year,
-          poster_path: f.poster_path,
+          poster_path: artOf.get(f.slug) ?? f.poster_path,
           ts: tsMap.get(f.slug) ?? null,
           tiers: tierMap.get(f.slug) ?? [],
         })),

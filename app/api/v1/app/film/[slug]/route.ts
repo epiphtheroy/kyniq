@@ -4,7 +4,8 @@ import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { mergePins, type GeoPin } from "@/lib/locations";
 import { CODEX_DIMS } from "@/lib/cinecodex_dims";
 import { filmBackdropPaths } from "@/lib/read-media";
-import { appLocale, filmLabels, pick } from "@/lib/i18n/appProjection";
+import { appLocale, filmLabels, isProjected, pick } from "@/lib/i18n/appProjection";
+import { locVal } from "@/lib/i18n/values";
 
 /**
  * Mobile BFF — Film card (HANDOFF-모바일앱-프리워치.md §7).
@@ -47,6 +48,12 @@ export async function GET(req: Request, { params }: Params) {
     const { data: film, error: filmErr } = await db
       .from("films")
       .select(
+        // The trailing poster_path_* are migration 0137 — the reader's own
+        // artwork, resolved by locVal below. Listed as a LITERAL, not built by
+        // concatenation: supabase-js derives the row type from the select
+        // string, and a runtime-built one erases it (every field on this row
+        // becomes an error). Six short, usually-NULL text columns on one row is
+        // not a cost worth losing the types over.
         "id, slug, title, original_title, year, director, director_slug, poster_path, backdrop_path, runtime, genres, is_analyzed, tmdb_id",
       )
       .eq("slug", slug)
@@ -223,6 +230,23 @@ export async function GET(req: Request, { params }: Params) {
       }
     }
 
+    // The reader's own poster (migration 0137) — a SEPARATE, failure-tolerant
+    // read, deliberately not part of the select above.
+    //
+    // That select is load-bearing: `if (filmErr) throw filmErr` turns any error
+    // on it into a 500 for every film in the app. Naming a column there couples
+    // this deploy to that migration, and gets the order wrong exactly once. Here
+    // a missing column costs the localized poster and nothing else.
+    let localPoster: string | null = null;
+    if (isProjected(locale)) {
+      const { data: art } = await db
+        .from("films")
+        .select("poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
+        .eq("slug", slug)
+        .maybeSingle();
+      if (art) localPoster = locVal(art as Record<string, unknown>, "poster_path", locale);
+    }
+
     // ── locale projection ────────────────────────────────────────────────
     // One batched read of content_i18n; English stands wherever a row is absent.
     const i18n = await filmLabels(locale, slug, (film.director_slug as string | null) ?? null);
@@ -347,7 +371,10 @@ export async function GET(req: Request, { params }: Params) {
         year: film.year ?? null,
         director: film.director ?? null,
         director_slug: film.director_slug ?? null,
-        poster_path: film.poster_path ?? null,
+        // locVal falls back to films.poster_path, which is what most films will
+        // use: TMDB has localized artwork for the widely-released, and English
+        // is the right answer for the rest — never a blank.
+        poster_path: localPoster ?? film.poster_path ?? null,
         backdrop_path: film.backdrop_path ?? null,
         runtime: film.runtime ?? null,
         genres: Array.isArray(film.genres) ? (film.genres as string[]) : null,
