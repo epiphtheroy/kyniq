@@ -33,6 +33,15 @@ echo "$COUNT commit(s). Deploying resets the ISR cache — every page renders co
 echo
 
 if [ "${1:-}" != "-y" ]; then
+  # Only ask when someone can actually answer. Run from a tool or a pipe there is
+  # no terminal, `read` gets EOF instantly or hangs, and the release silently
+  # does not happen while the prompt sits on screen looking like it is waiting.
+  if [ ! -t 0 ]; then
+    echo "No terminal to confirm on — re-run with -y:"
+    echo
+    echo "    sh scripts/release.sh -y"
+    exit 1
+  fi
   printf "Release? [y/N] "
   read -r ans
   case "$ans" in [yY]*) ;; *) echo "cancelled."; exit 0 ;; esac
