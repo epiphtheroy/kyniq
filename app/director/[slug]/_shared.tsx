@@ -11,6 +11,9 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import TalkSection from "@/components/talk/TalkSection";
+import { talkEnabledForDirector } from "@/lib/talk/config";
+import "@/app/talk.css";
 import EntityTVHero from "@/components/EntityTVHero";
 import EntityStills from "@/components/EntityStills";
 import { playlistExists } from "@/lib/tvExists";
@@ -1374,6 +1377,10 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
             <CreditsExplorer embed initialD={director} />
           </Suspense>
         </section>
+
+        {talkEnabledForDirector(slug) ? (
+          <TalkSection addrType="director" addrKey={slug} title={director} />
+        ) : null}
 
         <JoinCard variant="director" source="director-main" />
       </div>
