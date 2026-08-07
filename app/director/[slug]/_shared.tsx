@@ -449,10 +449,18 @@ export async function directorMetadata(slug: string, locale: Locale): Promise<Me
   const title = `${data.director}${native ? ` (${native})` : ""} — ${t(locale, "Films, Style & Where to Start")}`;
   // TMDB bio is never used as our description — our portrait when it exists,
   // otherwise the deterministic editorial summary (unique text, real numbers).
-  // Both are English DB prose (§1.1); outside the source language we only have an
-  // English description to offer, which is why the ko hub is not indexed (below).
-  const description = data.portrait?.body
-    ? metaDescription(data.portrait.body)
+  //
+  // The portrait is now projected: 219 of them exist in Korean, and until this
+  // line the meta/og/twitter description on /ko/director was English while the
+  // page body beside it was not — which is what a shared card would have carried.
+  // (The editorial summary is assembled from English fragments in code and stays
+  // English; it only appears for directors with no portrait at all.)
+  const portraitLabels = await loadLabels(locale, "director_portrait", [slug]);
+  const portraitBody = data.portrait?.body
+    ? dbLabel(portraitLabels, locale, "director_portrait", slug, "body", data.portrait.body)
+    : null;
+  const description = portraitBody
+    ? metaDescription(portraitBody)
     : metaDescription(editorialSummary(data));
   // A director hub localizes its chrome, but its substance — bios, film titles —
   // stays English, so a ko hub is mostly English under a Korean shell: exactly
