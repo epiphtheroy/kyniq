@@ -151,6 +151,11 @@ def apply_plan():
     print(f"[apply] plan: {len(figs):,} figures · {len(tks):,} takes")
     pf=json.loads(rpc("boldtake_preflight",{})); print("  preflight:",pf)
     if pf.get("new_takes",0)>0: sys.exit(f"ABORT: {pf['new_takes']} new takes already exist — apply appears already done. (Restore from _bak_* if you must re-run.)")
+    # 2026-08-07: _bak_boldtake_takes was DROPPED — 402 MB of a 4.2 GB database on a
+    # 4 GB instance, for a load that ran in July and has been serving since. So this
+    # guard now fires on every run, by design: it is the fail-safe, not a fault. To
+    # re-run this loader, re-take the snapshot first (or pull it from the Supabase
+    # daily physical backup, 7-day retention) — do not weaken the threshold.
     if pf.get("bak_takes",0)<40000: sys.exit(f"ABORT: snapshot _bak_boldtake_takes has only {pf.get('bak_takes')} rows — backup missing/incomplete.")
     nf=0
     for c in chunks(figs,500):

@@ -2,8 +2,13 @@
 """Apply the REVIEWED trope-consolidation plan (trope-consolidate-dry.json) via
 server-side RPCs. Applies exactly what was reviewed — does NOT re-run the LLM.
 
-Reversible: readings are RETIRED (status='retired', merged_into set), not deleted;
-a full snapshot lives in _bak_consol_meta_takes / _bak_consol_ftm.
+Reversible: readings are RETIRED (status='retired', merged_into set), not deleted.
+The snapshot that used to live in _bak_consol_meta_takes / _bak_consol_ftm was
+DROPPED 2026-08-07 — the eight _bak_* tables were 578 MB of a 4.2 GB database on a
+4 GB instance, for migrations that ran in July and have been serving since. Retiring
+rather than deleting is still the real reversibility here; the snapshot was belt on
+top of braces. Recovery, if ever needed, is the Supabase daily physical backup
+(7-day retention). Re-take a snapshot before re-running this.
 
 Guard: aborts if no published readings remain (already applied).
 

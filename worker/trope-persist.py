@@ -132,6 +132,9 @@ def main():
         return
     pre=json.loads(rpc("trope_preflight",{})); print("\npreflight:",pre)
     if pre.get("ft_misreading",0)>0: sys.exit("ABORT: misreading tropes already present — already applied? (restore from _bak_trope_* to re-run)")
+    # 2026-08-07: _bak_trope_metatakes was DROPPED with the other snapshots (see
+    # worker/boldtake-load.py for the reasoning). This guard now fires on every run
+    # by design — re-take the snapshot before re-running rather than lowering it.
     if pre.get("bak_metatakes",0)<1000: sys.exit("ABORT: snapshot _bak_trope_metatakes looks empty.")
     print("retiring old figure_type tropes + clearing members …")
     print("  ",rpc("trope_retire_old",{}))
