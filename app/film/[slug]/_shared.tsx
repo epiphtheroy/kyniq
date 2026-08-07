@@ -25,6 +25,9 @@ import AccessEnrichment, { type AccessRecord } from "@/components/AccessEnrichme
 import AccessSummary from "@/components/AccessSummary";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import FilmLineageSection from "@/components/FilmLineageSection";
+import TalkSection from "@/components/talk/TalkSection";
+import { talkEnabledForFilm } from "@/lib/talk/config";
+import "@/app/talk.css";
 import FilmReceptionSection from "@/components/FilmReceptionSection";
 import EntityNews from "@/components/EntityNews";
 import CinecodexPanel, { type Codex, type FilmSubscores } from "@/components/CinecodexPanel";
@@ -2111,6 +2114,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             title={`Watch ${film.title}${film.year ? ` (${film.year})` : ""} on METATAKE TV`}
             theme={`A chapter-by-chapter audiovisual reading of ${film.title} — figures, misreadings, reception and its map, played over the film's images.`}
           />
+        ) : null}
+
+        {talkEnabledForFilm(film.slug) ? (
+          <TalkSection addrType="film" addrKey={film.slug} title={film.title} />
         ) : null}
 
         <JoinCard variant="film" source="film-main" />

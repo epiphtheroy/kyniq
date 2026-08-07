@@ -1,0 +1,96 @@
+/* Talk layer — entity-address conversation section + /u profile (walking
+   skeleton; canonical plan /admin/docs/talk-layer). Light article ground,
+   production tokens. Humans are circles, apps are rounded squares. */
+
+.tk { border-top: 3px solid var(--ink); margin-top: 40px; padding-top: 14px; }
+.tk-head { display: flex; align-items: baseline; gap: 12px; }
+.tk-head h2 { font-family: var(--font-display); font-size: 26px; margin: 0; }
+.tk-count { font-size: 13px; color: var(--muted); font-weight: 600; }
+.tk-sub { font-size: 12.5px; color: var(--muted); margin: 3px 0 0; }
+
+.tk-seed { border-left: 3px solid var(--accent); padding: 4px 0 6px 16px; margin: 20px 0 4px; }
+.tk-seed-eyebrow { font-size: 10px; letter-spacing: 2px; font-weight: 700; color: var(--accent); }
+.tk-seed p { font-family: var(--font-display); font-style: italic; font-size: 19px; line-height: 1.35; margin: 5px 0 7px; max-width: 52ch; }
+.tk-seed a { color: inherit; text-decoration: none; }
+.tk-seed a:hover { color: var(--accent); }
+.tk-seed-note { font-size: 12px; color: var(--muted); }
+
+.tk-tabs { display: flex; gap: 16px; margin: 18px 0 0; border-bottom: 1px solid var(--hairline); }
+.tk-tab { font-size: 12.5px; padding: 0 2px 8px; color: var(--muted); font-weight: 550; background: none; border: none; cursor: pointer; font-family: inherit; }
+.tk-tab.on { color: var(--ink); font-weight: 700; box-shadow: 0 2px 0 var(--accent); }
+
+.tk-msg { display: flex; gap: 12px; padding: 16px 0 4px; }
+.tk-msg + .tk-msg { border-top: 1px solid #ececec; margin-top: 12px; }
+.tk-msg.tk-reply { margin-left: 46px; border-top: none; padding-top: 6px; }
+.tk-av { width: 34px; height: 34px; flex: none; display: flex; align-items: center; justify-content: center;
+         font-weight: 700; font-size: 13px; color: #fff; border-radius: 50%;
+         font-family: var(--font-display); }
+.tk-av.app { border-radius: 8px; font-family: var(--font-ui); }
+.tk-mhead { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.tk-name { font-weight: 700; font-size: 13.5px; }
+.tk-badge { font-size: 8.5px; font-weight: 700; letter-spacing: 1px; color: #6b6b6b;
+            border: 1px solid #cfcfcf; border-radius: 3px; padding: 1px 4px; background: #f6f6f4; }
+.tk-time { font-size: 11px; color: #9a9a96; }
+.tk-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 700;
+           letter-spacing: 0.3px; border-radius: 4px; padding: 1.5px 7px; text-decoration: none; }
+.tk-chip.figure { background: #f3eefb; color: #5b3e9e; border: 1px solid #ddd0f2; }
+.tk-chip.film { background: #fbeeee; color: #8e1610; border: 1px solid #f0d4d2; }
+.tk-chip.director { background: #eef4f0; color: #2e5c41; border: 1px solid #d3e4d9; }
+.tk-chip.score { background: #edf8f9; color: #0e6c76; border: 1px solid #9ccbd1; }
+.tk-body { font-size: 14px; line-height: 1.62; margin: 4px 0 6px; max-width: 62ch; white-space: pre-wrap; overflow-wrap: break-word; }
+.tk-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tk-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px;
+           border: 1px solid var(--hairline); border-radius: 999px; padding: 2px 9px;
+           color: var(--ink); background: #fff; cursor: pointer; font-family: inherit; }
+.tk-pill.heart { font-weight: 650; }
+.tk-pill.heart.on { color: var(--accent); border-color: #f0d4d2; }
+.tk-act { font-size: 11.5px; color: var(--muted); font-weight: 550; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; }
+.tk-act:hover { color: var(--ink); }
+
+.tk-empty { font-size: 13.5px; color: var(--muted); margin: 18px 0 4px; }
+
+.tk-compose { margin-top: 22px; }
+.tk-input { width: 100%; max-width: 640px; border: 1.5px solid #c9c9c9; border-radius: 10px;
+            padding: 12px 16px; font-size: 13.5px; background: #fdfdfc; font-family: inherit;
+            line-height: 1.55; resize: vertical; min-height: 74px; color: var(--ink); }
+.tk-input:focus { outline: none; border-color: var(--ink); }
+.tk-compose-row { display: flex; align-items: center; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+.tk-post-btn { background: var(--accent); color: #fff; font-size: 12.5px; font-weight: 700;
+               border: none; border-radius: 999px; padding: 7px 18px; cursor: pointer; font-family: inherit; }
+.tk-post-btn:disabled { opacity: 0.45; cursor: default; }
+.tk-note { font-size: 11.5px; color: var(--muted); }
+.tk-notice { font-size: 12.5px; color: #8a6d00; background: #fff9e2; border: 1px solid #e7ce72;
+             border-radius: 8px; padding: 8px 13px; margin-top: 10px; max-width: 640px; }
+.tk-error { font-size: 12.5px; color: var(--accent); margin-top: 8px; }
+
+.tk-replybox { margin: 6px 0 8px 46px; }
+
+/* ── /u/[username] — the public face ── */
+.tku { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+.tku-crumb { font-size: 11px; letter-spacing: 2px; color: var(--muted); font-weight: 700; margin-bottom: 18px; }
+.tku-head { display: flex; gap: 20px; align-items: center; }
+.tku-av { width: 76px; height: 76px; border-radius: 50%; display: flex; align-items: center;
+          justify-content: center; font-family: var(--font-display); font-size: 34px;
+          font-weight: 700; color: #fff; flex: none; overflow: hidden; }
+.tku-av img { width: 100%; height: 100%; object-fit: cover; }
+.tku-name { font-family: var(--font-display); font-size: 30px; font-weight: 700; margin: 0; }
+.tku-bio { font-size: 13.5px; color: #3a3a38; margin: 4px 0 0; }
+.tku-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 8px; font-size: 12px; color: var(--muted); }
+.tku-love { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600;
+            border: 1px solid #bfe0e4; background: #f2fafb; color: #0b6570; border-radius: 6px;
+            padding: 2.5px 9px; text-decoration: none; }
+.tku-stats { display: flex; gap: 10px; margin-top: 16px; }
+.tku-stat { border: 1px solid var(--hairline); border-radius: 8px; padding: 7px 14px; }
+.tku-stat b { display: block; font-size: 16px; font-variant-numeric: tabular-nums; }
+.tku-stat span { font-size: 10px; letter-spacing: 1.2px; color: var(--muted); font-weight: 700; }
+.tku-section { margin-top: 26px; border-top: 1px solid var(--hairline); }
+.tku-quiet { font-size: 13.5px; color: var(--muted); margin-top: 18px; }
+.tku-quiet a { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .tk-msg.tk-reply { margin-left: 20px; }
+  .tk-replybox { margin-left: 20px; }
+  .tku-head { gap: 14px; }
+  .tku-av { width: 60px; height: 60px; font-size: 26px; }
+  .tku-name { font-size: 24px; }
+}
