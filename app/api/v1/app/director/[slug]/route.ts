@@ -36,6 +36,11 @@ export async function GET(req: Request, { params }: Params) {
   // absent. Same table the web reads, so one translation serves both. Declared
   // here because the films query below selects a poster column by this name.
   const locale = appLocale(new URL(req.url).searchParams.get("locale"));
+  // The app carries TWO language axes: `locale` is the chrome and the prose,
+  // `content` is what films and people are NAMED in. A reader can want Korean
+  // titles under English chrome. Names follow content; falls back to locale,
+  // which is what a client that only knows one axis means anyway.
+  const content = appLocale(new URL(req.url).searchParams.get("content") || null) || locale;
 
   try {
     const [filmsRes, dirRes, portraitRes, factsRes, picksRes, nextRes] = await Promise.all([
@@ -47,7 +52,9 @@ export async function GET(req: Request, { params }: Params) {
         .order("year"),
       db
         .from("directors")
-        .select("name, profile_path, birthday, place_of_birth")
+        // Trailing name_* = migration 0139, resolved by locVal below. A literal:
+        // supabase-js types the row from this text.
+        .select("name, profile_path, birthday, place_of_birth, name_ko, name_es, name_ja, name_zh, name_fr, name_hi")
         .eq("slug", slug)
         .maybeSingle(),
       db.from("director_portrait").select("body").eq("director_slug", slug).maybeSingle(),
@@ -147,7 +154,10 @@ export async function GET(req: Request, { params }: Params) {
       {
         v: 1,
         slug,
-        name: dir?.name ?? films[0]?.title ?? slug,
+        name:
+          (dir ? locVal(dir as unknown as Record<string, unknown>, "name", content) : null) ??
+          films[0]?.title ??
+          slug,
         profile_path: dir?.profile_path ?? null,
         birthday: dir?.birthday ?? null,
         place_of_birth: dir?.place_of_birth ?? null,

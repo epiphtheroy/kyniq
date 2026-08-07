@@ -46,7 +46,7 @@ import { t, type DictKey } from "../../src/i18n";
 import { countryLabel } from "../../src/i18n/tokens";
 import { api, me } from "../../src/lib/api";
 import { noteJudged } from "../../src/lib/considering";
-import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
+import { useLocalDirectors, useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
 import { usePrefs } from "../../src/state/prefs";
 import { brand, fs, radius, shadow, sp, usePalette } from "../../src/theme";
@@ -430,6 +430,9 @@ export default function TonightScreen() {
   // round trip (useLocalPosters shares the titles fetch). English artwork stands
   // wherever TMDB has none, which is most of the pre-1990 deck.
   const deckPosterOf = useLocalPosters(visible.map((r) => r.slug));
+  // The third fact on the card, from the same request. "1953 · Yasujiro Ozu"
+  // under 동경 이야기 is one card disagreeing with itself.
+  const deckDirectorOf = useLocalDirectors(visible.map((r) => r.slug));
 
   // Hide-seen can filter the whole fetched page to empty while the deeper catalog is
   // still unpulled; RN never fires onEndReached on an empty list, so pull the next page
@@ -738,6 +741,7 @@ export default function TonightScreen() {
               row={item}
               shownTitle={deckTitleOf(item.slug, item.title)}
               shownPoster={deckPosterOf(item.slug, item.poster_path)}
+              shownDirector={deckDirectorOf(item.slug, item.director)}
               screenW={width}
               reason={item.reason ?? reasonBySlug.get(item.slug) ?? null}
               onJudge={judge}
@@ -834,6 +838,7 @@ function LobbyCard({
   row,
   shownTitle,
   shownPoster,
+  shownDirector,
   screenW,
   reason,
   onJudge,
@@ -843,6 +848,7 @@ function LobbyCard({
   /** Release title in the viewer's content language; English fallback. */
   shownTitle: string;
   shownPoster: string | null;
+  shownDirector: string | null;
   screenW: number;
   reason: string | null;
   onJudge: (row: DeckRow, kind: JudgeKind) => void;
@@ -1000,7 +1006,7 @@ function LobbyCard({
               </Ui>
               <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 2 }}>
                 <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ flexShrink: 1 }}>
-                  {[row.year, row.director].filter(Boolean).join(" · ")}
+                  {[row.year, shownDirector].filter(Boolean).join(" · ")}
                 </Ui>
                 <AvailabilityDots tiers={row.tiers} />
               </View>

@@ -128,16 +128,17 @@ const enc = encodeURIComponent;
 /** A film's own presentation in a content language: its release title and the
  *  artwork that carries that title. Either may be absent — TMDB covers them
  *  independently, and a film can have Korean posters and no Korean title. */
-export type LocalMedia = { title?: string; poster?: string };
+export type LocalMedia = { title?: string; poster?: string; director?: string };
 
 export const api = {
   film(slug: string, country: string, locale: string): Promise<FilmCard> {
     return getJSONCached(`/api/v1/app/film/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`);
   },
 
-  director(slug: string, country: string, locale: string): Promise<DirectorCard> {
+  /** `content` is the axis a PERSON is named on — see the route's own note. */
+  director(slug: string, country: string, locale: string, content = locale): Promise<DirectorCard> {
     return getJSONCached(
-      `/api/v1/app/director/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`,
+      `/api/v1/app/director/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}&content=${enc(content)}`,
     );
   },
 
@@ -499,12 +500,18 @@ export const api = {
       if (error || !data) break;
       // Either field may be null since migration 0138 widened the row filter —
       // a film can have Korean artwork and no Korean title, or the reverse.
-      for (const r of data as { slug: string; title: string | null; poster?: string | null }[]) {
+      // Every field is nullable: 0139 widened the row filter so a film qualifies
+      // on ANY localized fact — a Korean poster with an English title, or the
+      // reverse. Check each one.
+      for (const r of data as {
+        slug: string; title: string | null; poster?: string | null; director?: string | null;
+      }[]) {
         if (!r?.slug) continue;
         const m: LocalMedia = {};
         if (r.title) m.title = r.title;
         if (r.poster) m.poster = r.poster;
-        if (m.title || m.poster) out.set(r.slug, m);
+        if (r.director) m.director = r.director;
+        if (m.title || m.poster || m.director) out.set(r.slug, m);
       }
     }
     return out;

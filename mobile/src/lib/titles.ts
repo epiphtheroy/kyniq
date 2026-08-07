@@ -49,6 +49,8 @@ export type TitleLookup = (slug: string, fallback: string) => string;
 /** Same shape, but a film without localized artwork keeps whatever the row had —
  *  including null, because a missing poster is a real state the UI draws. */
 export type PosterLookup = (slug: string, fallback: string | null) => string | null;
+/** A film's director, named in the reader's language. Same nullable contract. */
+export type DirectorLookup = (slug: string, fallback: string | null) => string | null;
 
 /**
  * Localized titles for a set of slugs.
@@ -138,6 +140,27 @@ export function useLocalPosters(slugs: string[]): PosterLookup {
     // `titleOf` is unused inside the body and the linter is right to say so — it
     // is here as the SIGNAL, not as an input. Removing it makes this lookup
     // permanent and the posters never arrive.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [contentLang, titleOf]);
+}
+
+/**
+ * The DIRECTOR of each film, named in the reader's language — the third fact on
+ * the same card, from the same request.
+ *
+ * A name is not translated, it is spelled: 봉준호 is how he is written, and
+ * Wikidata says so (migration 0139). Follows contentLang with the title and the
+ * poster, because "1953 · Yasujiro Ozu" under 동경 이야기 is the same card
+ * disagreeing with itself.
+ */
+export function useLocalDirectors(slugs: string[]): DirectorLookup {
+  const { contentLang } = usePrefs();
+  // Shares the fetch and doubles as the repaint signal — see useLocalPosters.
+  const titleOf = useLocalTitles(slugs);
+  return useMemo(() => {
+    if (contentLang === "en") return (_slug: string, fallback: string | null) => fallback;
+    const b = bucket(contentLang);
+    return (slug: string, fallback: string | null) => b.get(slug)?.director ?? fallback;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contentLang, titleOf]);
 }

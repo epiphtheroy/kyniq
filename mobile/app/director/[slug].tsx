@@ -76,7 +76,7 @@ export default function DirectorScreen() {
   const pal = usePalette();
   const insets = useSafeAreaInsets();
   const { width: winW } = useWindowDimensions();
-  const { country, locale } = usePrefs();
+  const { country, locale, contentLang } = usePrefs();
 
   const [card, setCard] = useState<DirectorCardT | null>(null);
   const [err, setErr] = useState(false);
@@ -88,7 +88,7 @@ export default function DirectorScreen() {
     setErr(false);
     setShowAllFacts(false);
     api
-      .director(String(slug), country, locale)
+      .director(String(slug), country, locale, contentLang)
       .then((c) => alive && setCard(c))
       .catch(() => alive && setErr(true));
     return () => {

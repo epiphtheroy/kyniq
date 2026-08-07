@@ -48,7 +48,7 @@ import { api, me } from "../../src/lib/api";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
 import { bandWord, verdictShort } from "../../src/lib/takescore";
 import { useDbLabels } from "../../src/lib/dbLabels";
-import { useLocalPosters, useLocalTitle } from "../../src/lib/titles";
+import { useLocalDirectors, useLocalPosters, useLocalTitle } from "../../src/lib/titles";
 import { countryNameLabel, dimLabel, genreLabel, resultLabel, towVerdictLabel, tvDekLabel } from "../../src/i18n/tokens";
 import { verdictColor, verdictKey, verdictOf } from "../../src/lib/verdict";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
@@ -261,6 +261,7 @@ export default function FilmScreen() {
   // American one-sheet. One axis per film, and it is the film's own.
   const posterOf = useLocalPosters(useMemo(() => [String(slug)], [slug]));
   const localPoster = (p: string | null) => posterOf(String(slug), p);
+  const directorOf = useLocalDirectors(useMemo(() => [String(slug)], [slug]));
   // Only what the BFF does NOT project.
   //
   // app/api/v1/app/film/[slug] now localizes the Invitation and the director
@@ -679,7 +680,7 @@ export default function FilmScreen() {
                     color={card.director_slug ? brand.accent : pal.muted}
                     style={{ marginTop: 4 }}
                   >
-                    {t("film.directedBy")} {card.director}
+                    {t("film.directedBy")} {directorOf(String(slug), card.director)}
                   </Ui>
                 </Tactile>
               ) : null}
