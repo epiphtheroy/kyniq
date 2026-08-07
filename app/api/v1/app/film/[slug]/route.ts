@@ -38,6 +38,16 @@ export async function GET(req: Request, { params }: Params) {
   const url = new URL(req.url);
   const country = (url.searchParams.get("country") || "US").toUpperCase().slice(0, 2);
   const locale = appLocale(url.searchParams.get("locale"));
+  // Two axes. `locale` is the chrome and the PROSE — the Invitation, the
+  // director's life. `content` is what a film is NAMED and PICTURED in: its
+  // release title and the artwork that carries that title, in that title's
+  // typeface. A reader who asks for English titles under Korean chrome must not
+  // get the Korean one-sheet over "In the Mood for Love".
+  //
+  // Tests the RAW param: appLocale answers "en" for a missing value, and "en" is
+  // truthy, so `appLocale(x) || locale` can never reach the fallback.
+  const rawContent = url.searchParams.get("content");
+  const content = rawContent ? appLocale(rawContent) : locale;
 
   const db = createAdminClient();
   if (await guardAndLog(db, req, "app_film", slug)) {
@@ -238,13 +248,13 @@ export async function GET(req: Request, { params }: Params) {
     // this deploy to that migration, and gets the order wrong exactly once. Here
     // a missing column costs the localized poster and nothing else.
     let localPoster: string | null = null;
-    if (isProjected(locale)) {
+    if (isProjected(content)) {
       const { data: art } = await db
         .from("films")
         .select("poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
         .eq("slug", slug)
         .maybeSingle();
-      if (art) localPoster = locVal(art as Record<string, unknown>, "poster_path", locale);
+      if (art) localPoster = locVal(art as Record<string, unknown>, "poster_path", content);
     }
 
     // ── locale projection ────────────────────────────────────────────────

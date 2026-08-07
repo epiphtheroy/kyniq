@@ -121,6 +121,11 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const country = (url.searchParams.get("country") || "US").toUpperCase().slice(0, 2);
   const locale = appLocale(url.searchParams.get("locale"));
+  // `locale` is the chrome and the deck's one-line invite (prose). `content` is
+  // what the film is NAMED and PICTURED in — see the film route's note. Raw
+  // param, not appLocale's answer: "en" is truthy and would eat the fallback.
+  const rawContent = url.searchParams.get("content");
+  const content = rawContent ? appLocale(rawContent) : locale;
   const providers = (url.searchParams.get("providers") || "")
     .split(",")
     .map((s) => parseInt(s.trim(), 10))
@@ -338,13 +343,13 @@ export async function GET(req: Request) {
     const posterMap = new Map<string, string>();
     if (slugs.length) {
       try {
-        if (isProjected(locale)) {
+        if (isProjected(content)) {
           const { data: art } = await db
             .from("films")
             .select("slug, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
             .in("slug", slugs);
           for (const f of (art ?? []) as unknown as Record<string, unknown>[]) {
-            const p = locVal(f, "poster_path", locale);
+            const p = locVal(f, "poster_path", content);
             if (p && typeof f.slug === "string") posterMap.set(f.slug, p);
           }
         }
