@@ -289,3 +289,24 @@ export function tvDekLabel(dek: string): string {
   if (!m || m[2] !== TV_DEK_TAIL) return dek;
   return tpl.replace("{n}", m[1]);
 }
+
+/**
+ * A birthplace as search and the director screen print it — "Daegu, South
+ * Korea", "New York City, New York, USA".
+ *
+ * Only the COUNTRY moves. City and state names have no localized source (TMDB
+ * ships one English string), and guessing at them would be inventing data — the
+ * one thing this whole layer refuses to do. So the tail is translated where it
+ * is a country we know and the rest stands, which is also how a Korean reader
+ * writes it: 대구, 대한민국.
+ */
+export function birthplaceLabel(place: string): string {
+  const parts = place.split(",").map((p) => p.trim()).filter(Boolean);
+  if (parts.length < 2) return place;
+  const last = parts[parts.length - 1];
+  // TMDB writes the United States three ways in this field alone.
+  const country = { USA: "United States", "U.S.A.": "United States", UK: "United Kingdom" }[last] ?? last;
+  const localized = countryNameLabel(country);
+  if (localized === country && localized === last) return place;
+  return [...parts.slice(0, -1), localized].join(", ");
+}

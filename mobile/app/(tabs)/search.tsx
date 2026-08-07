@@ -32,7 +32,7 @@ import {
 import { Appear, Dots, SkeletonRail, SkeletonRows } from "../../src/components/motion";
 import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
-import { decadeLabel, genreLabel } from "../../src/i18n/tokens";
+import { birthplaceLabel, decadeLabel, genreLabel } from "../../src/i18n/tokens";
 import { api } from "../../src/lib/api";
 import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
@@ -1063,7 +1063,8 @@ function DirectorRow({ row }: { row: SearchRow }) {
           </Ui>
           {row.sub ? (
             <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ marginTop: 1 }}>
-              {row.sub}
+              {/* search_all puts the birthplace here for a director row. */}
+              {birthplaceLabel(row.sub)}
             </Ui>
           ) : null}
         </View>

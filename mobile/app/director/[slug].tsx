@@ -25,6 +25,7 @@ import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { birthplaceLabel } from "../../src/i18n/tokens";
 import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { usePrefs } from "../../src/state/prefs";
@@ -202,7 +203,9 @@ export default function DirectorScreen() {
     );
 
   const portraitLead = card.portrait ? (card.portrait.split(/\n{2,}/)[0]?.trim() ?? null) : null;
-  const meta = [card.birthday, card.place_of_birth].filter(Boolean).join(" · ");
+  const meta = [card.birthday, card.place_of_birth ? birthplaceLabel(card.place_of_birth) : null]
+    .filter(Boolean)
+    .join(" · ");
   const visibleFacts = showAllFacts ? facts : facts.slice(0, 8);
   const heroW = winW - sp.s4 * 2;
   const startFilm = startPick?.film_slug ? (filmBySlug.get(startPick.film_slug) ?? null) : null;
