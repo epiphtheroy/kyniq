@@ -131,8 +131,11 @@ const enc = encodeURIComponent;
 export type LocalMedia = { title?: string; poster?: string; director?: string };
 
 export const api = {
-  film(slug: string, country: string, locale: string): Promise<FilmCard> {
-    return getJSONCached(`/api/v1/app/film/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}`);
+  /** `content` is the axis a film is NAMED and PICTURED in — see the route's note. */
+  film(slug: string, country: string, locale: string, content = locale): Promise<FilmCard> {
+    return getJSONCached(
+      `/api/v1/app/film/${enc(slug)}?country=${enc(country)}&locale=${enc(locale)}&content=${enc(content)}`,
+    );
   },
 
   /** `content` is the axis a PERSON is named on — see the route's own note. */
@@ -337,10 +340,15 @@ export const api = {
       countries?: string[];
       /** UI locale — the deck's one-line invite is projected server-side. */
       locale?: string;
+      /** Content language — what films are named and pictured in. */
+      content?: string;
     },
   ): Promise<TonightPayload> {
     const q = new URLSearchParams({ country });
     if (opts?.locale && opts.locale !== "en") q.set("locale", opts.locale);
+    // The poster axis. Sent whenever it differs from the chrome, so a reader with
+    // English titles under Korean chrome keeps the English one-sheet.
+    if (opts?.content && opts.content !== opts.locale) q.set("content", opts.content);
     if (providers.length) q.set("providers", providers.join(","));
     if (opts?.genres?.length) q.set("genres", opts.genres.join(","));
     if (opts?.yearMin) q.set("year_min", String(opts.yearMin));

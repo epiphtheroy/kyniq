@@ -145,14 +145,14 @@ export async function GET(req: Request, { params }: Params) {
     // than columns on the films query above. A missing column there would empty
     // the filmography; here it costs the localized artwork and nothing else.
     const artOf = new Map<string, string>();
-    if (isProjected(locale)) {
+    if (isProjected(content)) {
       const { data: art } = await db
         .from("films")
         .select("slug, poster_path_ko, poster_path_es, poster_path_ja, poster_path_zh, poster_path_fr, poster_path_hi")
         .eq("director_slug", slug)
         .eq("visible", true);
       for (const a of (art ?? []) as unknown as Record<string, unknown>[]) {
-        const v = locVal(a, "poster_path", locale);
+        const v = locVal(a, "poster_path", content);
         if (v && typeof a.slug === "string") artOf.set(a.slug, v);
       }
     }

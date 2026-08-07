@@ -237,7 +237,7 @@ export default function FilmScreen() {
   const pal = usePalette();
   const { width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
-  const { country, locale, providerIds } = usePrefs();
+  const { country, locale, providerIds, contentLang } = usePrefs();
   const {
     session,
     ledger,
@@ -298,7 +298,7 @@ export default function FilmScreen() {
     setToast(null);
     setShowAllLineage(false);
     api
-      .film(String(slug), country, locale)
+      .film(String(slug), country, locale, contentLang)
       .then((c) => alive && setCard(c))
       .catch(() => alive && setErr(true));
     // to.W — the curator's letter (owner 07-29: every film carries it when curated).
@@ -311,7 +311,7 @@ export default function FilmScreen() {
     return () => {
       alive = false;
     };
-  }, [slug, country, locale]);
+  }, [slug, country, locale, contentLang]);
 
   // For You (a): my wwi reason chips for this film — server-supplied only (§13-17).
   useEffect(() => {

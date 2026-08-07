@@ -155,7 +155,7 @@ export default function TonightScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
-  const { country, providerIds, onboarded, hideSeen, taste, ready, set, locale } = usePrefs();
+  const { country, providerIds, onboarded, hideSeen, taste, ready, set, locale, contentLang } = usePrefs();
   const { session, ledger, setWatchlist, dismiss, markSeen, undo } = useFilms();
   const { promptRate } = useRate();
 
@@ -232,13 +232,14 @@ export default function TonightScreen() {
     }
     const p = await api.tonight(country, servicesOn ? providerIds : [], {
       locale,
+      content: contentLang,
       ...(yearMin ? { yearMin } : {}),
       ...(originList.length ? { countries: originList } : {}),
       ...(presetParam ? { preset: presetParam } : {}),
       ...sortArgs,
     });
     return { rows: p.rows, total: p.total };
-  }, [bold, presetParam, sortArgs.sort, yearMin, originParam, country, servicesOn, providerIds, locale]);
+  }, [bold, presetParam, sortArgs.sort, yearMin, originParam, country, servicesOn, providerIds, locale, contentLang]);
 
   useEffect(() => {
     let alive = true;

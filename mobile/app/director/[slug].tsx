@@ -94,7 +94,7 @@ export default function DirectorScreen() {
     return () => {
       alive = false;
     };
-  }, [slug, country]);
+  }, [slug, country, locale, contentLang]);
 
   const webUrl = `${METATAKE_BASE}/director/${slug}`;
 
