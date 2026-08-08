@@ -8,14 +8,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
 };
 
-/* ⚠ DRAFT — NEEDS LEGAL REVIEW BEFORE LAUNCH */
+/*
+ * The "⚠ Draft — pending legal review" banner that stood here was removed
+ * 2026-08-09, on the owner's instruction, and its removal is the point rather
+ * than tidying.
+ *
+ * These terms have to do real work now. The "Automated access and reuse" clause
+ * below is what makes bulk collection a breach of contract instead of merely
+ * something we would have preferred not to happen — and a page that calls itself
+ * an unreviewed draft argues the other side's case for it. A crawler operator,
+ * or anyone reading over their shoulder, can point at that line and say the site
+ * had published no settled terms at all.
+ *
+ * So the banner is gone and the clauses stand as stated. Edit them like binding
+ * text, not like notes: if something here stops being true, change the clause,
+ * do not re-hedge the page.
+ */
 
 export default function TermsPage() {
   return (
     <main className="shell">
       <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>Terms of Service</h1>
-      <p className="ui accent" style={{ fontSize: 13, margin: "10px 0 0" }}>
-        ⚠ Draft — pending legal review
+      <p className="ui muted" style={{ fontSize: 13, margin: "10px 0 0" }}>
+        Effective 9 August 2026. These terms apply to everyone who uses Metatake, including
+        automated clients.
       </p>
 
       <hr className="rule" />
